@@ -1,0 +1,90 @@
+{
+    "name":        "sylius/sylius-standard",
+    "description": "Sylius SE, modern e-commerce solution for Symfony2",
+    "keywords":    ["symfony", "symfony2", "sylius", "distribution", "ecommerce", "cart"],
+    "type":        "project",
+    "license":     "MIT",
+    "homepage":    "http://sylius.org",
+    "authors": [
+        {
+            "name":     "Paweł Jędrzejewski",
+            "homepage": "http://pjedrzejewski.com"
+        },
+        {
+            "name":     "Sylius project",
+            "homepage": "http://sylius.org"
+        },
+        {
+            "name":     "Community contributions",
+            "homepage": "http://github.com/Sylius/Sylius/contributors"
+        }
+    ],
+    "require": {
+        "php":                                  ">=5.3.3",
+        "athari/yalinqo":                       "*",
+        "doctrine/doctrine-bundle":             "1.2.*",
+        "doctrine/doctrine-fixtures-bundle":    "*",
+        "doctrine/orm":                         ">=2.2.3,<2.4-dev",
+        "friendsofsymfony/rest-bundle":         "0.13.*",
+        "friendsofsymfony/user-bundle":         "2.0.*@dev",
+        "fzaninotto/faker":                     "1.2.*",
+        "incenteev/composer-parameter-handler": "~2.0",
+        "jms/serializer-bundle":                "0.12.*",
+        "jms/translation-bundle":               "1.1.*",
+        "knplabs/knp-gaufrette-bundle":         "0.2.*",
+        "knplabs/knp-menu-bundle":              "2.0.*",
+        "knplabs/knp-snappy-bundle":            "dev-master",
+        "liip/doctrine-cache-bundle":           "*",
+        "liip/imagine-bundle":                  "0.9.*",
+        "mathiasverraes/money":                 "dev-master@dev",
+        "omnipay/omnipay":                      "dev-master",
+        "sensio/distribution-bundle":           "2.3.*",
+        "stof/doctrine-extensions-bundle":      "1.1.*",
+        "sylius/web-bundle":                    "0.2.*",
+        "sylius/installer-bundle":              "0.1.*",
+        "symfony/assetic-bundle":               "2.3.*",
+        "symfony/intl":                         "2.3.*",
+        "symfony/monolog-bundle":               "2.3.*",
+        "symfony/swiftmailer-bundle":           "2.3.*",
+        "symfony/symfony":                      "2.3.*",
+        "twig/extensions":                      "1.0.*",
+        "white-october/pagerfanta-bundle":      "1.0.*"
+    },
+    "require-dev": {
+        "behat/behat":                  "2.4.*",
+        "behat/symfony2-extension":     "*",
+        "behat/mink-extension":         "*",
+        "behat/mink-browserkit-driver": "*",
+        "phpspec/phpspec":              "2.0.0-BETA4"
+    },
+    "scripts": {
+        "post-install-cmd": [
+            "Incenteev\\ParameterHandler\\ScriptHandler::buildParameters",
+            "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::buildBootstrap",
+            "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::clearCache",
+            "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::installAssets",
+            "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::installRequirementsFile"
+        ],
+        "post-update-cmd": [
+            "Incenteev\\ParameterHandler\\ScriptHandler::buildParameters",
+            "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::buildBootstrap",
+            "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::clearCache",
+            "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::installAssets",
+            "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::installRequirementsFile"
+        ]
+    },
+    "autoload": {
+        "psr-0": { "": "src/", "Context": "features/" }
+    },
+    "config": {
+        "bin-dir": "bin"
+    },
+    "minimum-stability": "dev",
+    "extra": {
+        "symfony-app-dir": "app",
+        "symfony-web-dir": "web",
+        "incenteev-parameters": {
+            "file": "app/config/parameters.yml"
+        }
+    }
+}

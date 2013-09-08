@@ -1,0 +1,35 @@
+imports:
+    - { resource: config_dev.yml }
+
+framework:
+    test: ~
+    default_locale:  "en"
+    session:
+        storage_id: session.storage.mock_file
+
+web_profiler:
+    toolbar: false
+    intercept_redirects: false
+
+swiftmailer:
+    disable_delivery: true
+
+doctrine:
+    dbal:
+        dbname:   %sylius.database.name%_test
+        driver_class: Sylius\Bundle\CoreBundle\Tests\MySqlDriver
+
+sylius_money:
+    currency: EUR
+    locale: en
+
+sylius_payments:
+    gateways:
+        cc:     Credit Card
+        test:   Test
+        stripe: Stripe
+
+liip_doctrine_cache:
+    namespaces:
+        sylius_settings:
+            type: array
