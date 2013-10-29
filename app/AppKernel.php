@@ -13,7 +13,7 @@ class AppKernel extends Kernel
         $bundles = array(
             // Sylius bundles.
             new Sylius\Bundle\InstallerBundle\SyliusInstallerBundle(),
-            new Sylius\Bundle\SalesBundle\SyliusSalesBundle(),
+            new Sylius\Bundle\OrderBundle\SyliusOrderBundle(),
             new Sylius\Bundle\MoneyBundle\SyliusMoneyBundle(),
             new Sylius\Bundle\SettingsBundle\SyliusSettingsBundle(),
             new Sylius\Bundle\CartBundle\SyliusCartBundle(),

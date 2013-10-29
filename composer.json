@@ -21,20 +21,22 @@
     ],
     "require": {
         "php":                                  ">=5.3.3",
-
-        "doctrine/doctrine-bundle":             "1.2.*@dev",
-        "doctrine/doctrine-fixtures-bundle":    "2.2.*",
-        "doctrine/orm":                         "~2.3",
+        "symfony/symfony":                      "~2.3",
+        "doctrine/orm":                         ">=2.2.3,<2.4-dev",
+        "doctrine/doctrine-bundle":             "1.2.*",
+        "twig/extensions":                      "1.0.*",
+        "symfony/assetic-bundle":               "~2.3",
+        "symfony/swiftmailer-bundle":           "~2.3",
+        "symfony/monolog-bundle":               "~2.3",
+        "sensio/distribution-bundle":           "~2.3",
+        "sensio/framework-extra-bundle":        "~2.3",
+        "sensio/generator-bundle":              "~2.3",
         "incenteev/composer-parameter-handler": "~2.0",
+
+        "doctrine/doctrine-fixtures-bundle":    "2.2.*",
         "jms/translation-bundle":               "1.1.*",
-        "sensio/distribution-bundle":           "2.3.*",
         "sylius/installer-bundle":              "1.0.*@dev",
-        "sylius/web-bundle":                    "1.0.*@dev",
-        "symfony/assetic-bundle":               "2.3.*",
-        "symfony/monolog-bundle":               "2.3.*",
-        "symfony/swiftmailer-bundle":           "2.3.*",
-        "symfony/symfony":                      "2.3.0",
-        "twig/extensions":                      "1.0.*"
+        "sylius/web-bundle":                    "1.0.*@dev"
     },
     "require-dev": {
         "behat/behat":                  "2.4.*",
