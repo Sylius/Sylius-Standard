@@ -3,7 +3,7 @@
         "This file locks the dependencies of your project to a known state",
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file"
     ],
-    "hash": "c8794b709e25d887eeb61f0d093bb7df",
+    "hash": "7e0632897517ead7d9a5a46beb80010b",
     "packages": [
         {
             "name": "athari/yalinqo",
@@ -2538,17 +2538,142 @@
             "time": "2013-10-28 22:58:35"
         },
         {
-            "name": "payum/payum",
-            "version": "0.6.x-dev",
+            "name": "payum/omnipay-bridge",
+            "version": "0.6.0",
             "source": {
                 "type": "git",
-                "url": "https://github.com/Payum/Payum.git",
-                "reference": "a77a6f96316b1e5e168a7fe804284b85c1f58c11"
+                "url": "https://github.com/Payum/OmnipayBridge.git",
+                "reference": "c8460ffa596941fdc8d696fd53d649e028215110"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Payum/Payum/zipball/a77a6f96316b1e5e168a7fe804284b85c1f58c11",
-                "reference": "a77a6f96316b1e5e168a7fe804284b85c1f58c11",
+                "url": "https://api.github.com/repos/Payum/OmnipayBridge/zipball/c8460ffa596941fdc8d696fd53d649e028215110",
+                "reference": "c8460ffa596941fdc8d696fd53d649e028215110",
+                "shasum": ""
+            },
+            "require": {
+                "omnipay/omnipay": "~1.0",
+                "payum/payum": "0.6.*",
+                "php": ">=5.3.2"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "3.7.*"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "0.6-dev"
+                }
+            },
+            "autoload": {
+                "psr-0": {
+                    "Payum\\Bridge\\Omnipay": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Kotlyar Maksim",
+                    "email": "kotlyar.maksim@gmail.com"
+                },
+                {
+                    "name": "Payum project",
+                    "homepage": "http://payum.forma-dev.com/"
+                },
+                {
+                    "name": "Community contributions",
+                    "homepage": "https://github.com/Payum/OmnipayBridge/contributors"
+                }
+            ],
+            "description": "This bridge allows you to use omnipay gateways but in payum like way.",
+            "homepage": "https://github.com/Payum/OmnipayBridge",
+            "keywords": [
+                "omnipay",
+                "payment"
+            ],
+            "time": "2013-10-25 13:44:56"
+        },
+        {
+            "name": "payum/paypal-express-checkout-nvp",
+            "version": "0.6.4",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/Payum/PaypalExpressCheckoutNvp.git",
+                "reference": "5dcde1e622fe7c0b9b5dae0077fda0c08e2d555d"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/Payum/PaypalExpressCheckoutNvp/zipball/5dcde1e622fe7c0b9b5dae0077fda0c08e2d555d",
+                "reference": "5dcde1e622fe7c0b9b5dae0077fda0c08e2d555d",
+                "shasum": ""
+            },
+            "require": {
+                "kriswallsmith/buzz": "*",
+                "payum/payum": "0.6.*",
+                "php": ">=5.3.2"
+            },
+            "require-dev": {
+                "doctrine/mongodb-odm": "~1.0@dev",
+                "doctrine/orm": ">=2.3,<2.4-dev",
+                "ext-curl": "*",
+                "ext-pdo_sqlite": "*",
+                "fp/testo": "dev-master",
+                "phpunit/phpunit": "3.7.*"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "0.6-dev"
+                }
+            },
+            "autoload": {
+                "psr-0": {
+                    "Payum\\Paypal\\ExpressCheckout\\Nvp": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Kotlyar Maksim",
+                    "email": "kotlyar.maksim@gmail.com"
+                },
+                {
+                    "name": "Payum project",
+                    "homepage": "http://payum.forma-dev.com/"
+                },
+                {
+                    "name": "Community contributions",
+                    "homepage": "https://github.com/Payum/PaypalExpressCheckoutNvp/contributors"
+                }
+            ],
+            "description": "Paypal express checkout",
+            "keywords": [
+                "digital goods",
+                "express checkout",
+                "payment",
+                "paypal",
+                "recurring payment"
+            ],
+            "time": "2013-11-19 08:02:01"
+        },
+        {
+            "name": "payum/payum",
+            "version": "0.6.4",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/Payum/Payum.git",
+                "reference": "83dbbf4e1dd1bcc672d39806a773e5783bac4068"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/Payum/Payum/zipball/83dbbf4e1dd1bcc672d39806a773e5783bac4068",
+                "reference": "83dbbf4e1dd1bcc672d39806a773e5783bac4068",
                 "shasum": ""
             },
             "require": {
@@ -2579,7 +2704,7 @@
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "0.6-dev"
+                    "dev-master": "0.7-dev"
                 }
             },
             "autoload": {
@@ -2605,7 +2730,7 @@
                     "homepage": "https://github.com/Payum/Payum/contributors"
                 }
             ],
-            "description": "Payment lib",
+            "description": "Domain friendly payment framework. Paypal, payex, authorize.net, be2bill, omnipay, recurring paymens, instant notifications and many more",
             "homepage": "http://payum.forma-dev.com",
             "keywords": [
                 "authorize.net",
@@ -2623,21 +2748,21 @@
                 "paypal rest",
                 "recurring payment"
             ],
-            "time": "2013-10-27 15:45:58"
+            "time": "2013-11-19 21:22:44"
         },
         {
             "name": "payum/payum-bundle",
-            "version": "0.6.x-dev",
+            "version": "0.6.2",
             "target-dir": "Payum/Bundle/PayumBundle",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Payum/PayumBundle.git",
-                "reference": "80d7ffc00538ee8b23003b3f64ce4191a661faf6"
+                "reference": "33b82cffa59e855c205eb9ed860bea3fdc6dfe14"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Payum/PayumBundle/zipball/80d7ffc00538ee8b23003b3f64ce4191a661faf6",
-                "reference": "80d7ffc00538ee8b23003b3f64ce4191a661faf6",
+                "url": "https://api.github.com/repos/Payum/PayumBundle/zipball/33b82cffa59e855c205eb9ed860bea3fdc6dfe14",
+                "reference": "33b82cffa59e855c205eb9ed860bea3fdc6dfe14",
                 "shasum": ""
             },
             "require": {
@@ -2650,6 +2775,7 @@
                 "fp/testo": "@dev",
                 "payum/authorize-net-aim": "0.6.*",
                 "payum/be2bill": "0.6.*",
+                "payum/offline": "0.6.*",
                 "payum/omnipay-bridge": "0.6.*",
                 "payum/payex": "0.6.*",
                 "payum/paypal-express-checkout-nvp": "0.6.*",
@@ -2659,6 +2785,7 @@
             "suggest": {
                 "payum/authorize-net-aim": "If you want to use authorize.net gateway",
                 "payum/be2bill": "If you want to use be2bill gateway",
+                "payum/offline": "If you want to manage offline payments",
                 "payum/omnipay-bridge": "If you want to use omnipay provided gateways",
                 "payum/payex": "If you want to use payex gateway",
                 "payum/paypal-express-checkout-nvp": "If you want to use paypal express checkout nvp gateway",
@@ -2698,15 +2825,16 @@
             "keywords": [
                 "authorize.net",
                 "be2bill",
+                "offline",
                 "omnipay",
                 "payex",
                 "payment",
                 "paypal",
                 "paypal express checkout",
                 "paypal pro checkout",
-                "paypal recurring payment"
+                "recurring payment"
             ],
-            "time": "2013-10-25 19:01:55"
+            "time": "2013-10-31 15:04:50"
         },
         {
             "name": "phpcollection/phpcollection",
@@ -5525,6 +5653,10 @@
     "stability-flags": {
         "sylius/installer-bundle": 20,
         "sylius/web-bundle": 20,
+        "payum/payum": 0,
+        "payum/payum-bundle": 0,
+        "payum/paypal-express-checkout-nvp": 0,
+        "payum/omnipay-bridge": 0,
         "phpspec/phpspec": 20
     },
     "platform": {
