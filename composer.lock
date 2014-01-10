@@ -3,8 +3,41 @@
         "This file locks the dependencies of your project to a known state",
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file"
     ],
-    "hash": "7e0632897517ead7d9a5a46beb80010b",
+    "hash": "e8dff787e514879f26e1f8b779f6e65c",
     "packages": [
+        {
+            "name": "ajbdev/authorizenet-php-api",
+            "version": "v1.1.8",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/ajbdev/authorizenet-php-api.git",
+                "reference": "ba4a652f9dee1141009be4fe5815ebee066b85eb"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/ajbdev/authorizenet-php-api/zipball/ba4a652f9dee1141009be4fe5815ebee066b85eb",
+                "reference": "ba4a652f9dee1141009be4fe5815ebee066b85eb",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.2.0"
+            },
+            "type": "library",
+            "autoload": {
+                "classmap": [
+                    "lib/",
+                    "AuthorizeNet.php"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "description": "Authorize.NET PHP library with composer support",
+            "keywords": [
+                "authorize.net",
+                "ecommerce",
+                "payment"
+            ],
+            "time": "2013-02-11 21:09:06"
+        },
         {
             "name": "athari/yalinqo",
             "version": "dev-master",
@@ -2395,12 +2428,12 @@
             "version": "v1.0.4",
             "source": {
                 "type": "git",
-                "url": "https://github.com/omnipay/omnipay.git",
+                "url": "https://github.com/adrianmacneil/omnipay.git",
                 "reference": "4f5e82232161939c0b14f5921c092ed77980d450"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/omnipay/omnipay/zipball/4f5e82232161939c0b14f5921c092ed77980d450",
+                "url": "https://api.github.com/repos/adrianmacneil/omnipay/zipball/4f5e82232161939c0b14f5921c092ed77980d450",
                 "reference": "4f5e82232161939c0b14f5921c092ed77980d450",
                 "shasum": ""
             },
@@ -2434,7 +2467,7 @@
                 }
             ],
             "description": "A framework agnostic, multi-gateway payment processing library",
-            "homepage": "https://github.com/omnipay/omnipay",
+            "homepage": "https://github.com/adrianmacneil/omnipay",
             "keywords": [
                 "2checkout",
                 "2co",
@@ -2538,168 +2571,144 @@
             "time": "2013-10-28 22:58:35"
         },
         {
-            "name": "payum/omnipay-bridge",
-            "version": "0.6.0",
+            "name": "paypal/rest-api-sdk-php",
+            "version": "V0.5.0",
             "source": {
                 "type": "git",
-                "url": "https://github.com/Payum/OmnipayBridge.git",
-                "reference": "c8460ffa596941fdc8d696fd53d649e028215110"
+                "url": "https://github.com/paypal/rest-api-sdk-php.git",
+                "reference": "9e09f7bff507e81cbb03d233c15c080fefd1d512"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Payum/OmnipayBridge/zipball/c8460ffa596941fdc8d696fd53d649e028215110",
-                "reference": "c8460ffa596941fdc8d696fd53d649e028215110",
+                "url": "https://api.github.com/repos/paypal/rest-api-sdk-php/zipball/9e09f7bff507e81cbb03d233c15c080fefd1d512",
+                "reference": "9e09f7bff507e81cbb03d233c15c080fefd1d512",
                 "shasum": ""
             },
             "require": {
-                "omnipay/omnipay": "~1.0",
-                "payum/payum": "0.6.*",
-                "php": ">=5.3.2"
+                "ext-curl": "*",
+                "ext-json": "*",
+                "paypal/sdk-core-php": "1.2.*",
+                "php": ">=5.3.0"
             },
             "require-dev": {
                 "phpunit/phpunit": "3.7.*"
             },
             "type": "library",
-            "extra": {
-                "branch-alias": {
-                    "dev-master": "0.6-dev"
-                }
-            },
             "autoload": {
                 "psr-0": {
-                    "Payum\\Bridge\\Omnipay": "src/"
+                    "PayPal": "lib/"
                 }
             },
             "notification-url": "https://packagist.org/downloads/",
             "license": [
-                "MIT"
+                "Apache2"
             ],
             "authors": [
                 {
-                    "name": "Kotlyar Maksim",
-                    "email": "kotlyar.maksim@gmail.com"
-                },
-                {
-                    "name": "Payum project",
-                    "homepage": "http://payum.forma-dev.com/"
-                },
-                {
-                    "name": "Community contributions",
-                    "homepage": "https://github.com/Payum/OmnipayBridge/contributors"
+                    "name": "PayPal",
+                    "homepage": "https://github.com/paypal/rest-api-sdk-php/contributors"
                 }
             ],
-            "description": "This bridge allows you to use omnipay gateways but in payum like way.",
-            "homepage": "https://github.com/Payum/OmnipayBridge",
+            "description": "PayPal's PHP SDK for REST APIs",
+            "homepage": "https://github.com/paypal/rest-api-sdk-php",
             "keywords": [
-                "omnipay",
-                "payment"
+                "payments",
+                "paypal",
+                "rest",
+                "sdk"
             ],
-            "time": "2013-10-25 13:44:56"
+            "time": "2013-03-08 02:11:59"
         },
         {
-            "name": "payum/paypal-express-checkout-nvp",
-            "version": "0.6.4",
+            "name": "paypal/sdk-core-php",
+            "version": "V1.2.0",
             "source": {
                 "type": "git",
-                "url": "https://github.com/Payum/PaypalExpressCheckoutNvp.git",
-                "reference": "5dcde1e622fe7c0b9b5dae0077fda0c08e2d555d"
+                "url": "https://github.com/paypal/sdk-core-php.git",
+                "reference": "06588e5017a6c983168a3bd8e7093d7068974cd0"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Payum/PaypalExpressCheckoutNvp/zipball/5dcde1e622fe7c0b9b5dae0077fda0c08e2d555d",
-                "reference": "5dcde1e622fe7c0b9b5dae0077fda0c08e2d555d",
+                "url": "https://api.github.com/repos/paypal/sdk-core-php/zipball/06588e5017a6c983168a3bd8e7093d7068974cd0",
+                "reference": "06588e5017a6c983168a3bd8e7093d7068974cd0",
                 "shasum": ""
             },
             "require": {
-                "kriswallsmith/buzz": "*",
-                "payum/payum": "0.6.*",
-                "php": ">=5.3.2"
-            },
-            "require-dev": {
-                "doctrine/mongodb-odm": "~1.0@dev",
-                "doctrine/orm": ">=2.3,<2.4-dev",
                 "ext-curl": "*",
-                "ext-pdo_sqlite": "*",
-                "fp/testo": "dev-master",
-                "phpunit/phpunit": "3.7.*"
+                "php": ">=5.2.0"
             },
             "type": "library",
-            "extra": {
-                "branch-alias": {
-                    "dev-master": "0.6-dev"
-                }
-            },
             "autoload": {
-                "psr-0": {
-                    "Payum\\Paypal\\ExpressCheckout\\Nvp": "src/"
-                }
+                "classmap": [
+                    "lib"
+                ]
             },
             "notification-url": "https://packagist.org/downloads/",
             "license": [
-                "MIT"
+                "Apache2"
             ],
             "authors": [
                 {
-                    "name": "Kotlyar Maksim",
-                    "email": "kotlyar.maksim@gmail.com"
-                },
-                {
-                    "name": "Payum project",
-                    "homepage": "http://payum.forma-dev.com/"
-                },
-                {
-                    "name": "Community contributions",
-                    "homepage": "https://github.com/Payum/PaypalExpressCheckoutNvp/contributors"
+                    "name": "PayPal",
+                    "homepage": "https://github.com/paypal/sdk-core-php/contributors"
                 }
             ],
-            "description": "Paypal express checkout",
+            "description": "PayPal Core SDK for PHP",
+            "homepage": "https://github.com/paypal/sdk-core-php",
             "keywords": [
-                "digital goods",
-                "express checkout",
-                "payment",
                 "paypal",
-                "recurring payment"
+                "php",
+                "sdk"
             ],
-            "time": "2013-11-19 08:02:01"
+            "time": "2013-03-06 13:21:44"
         },
         {
             "name": "payum/payum",
-            "version": "0.6.4",
+            "version": "0.7.x-dev",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Payum/Payum.git",
-                "reference": "83dbbf4e1dd1bcc672d39806a773e5783bac4068"
+                "reference": "f9e1b96dfee8a56f08536b8d8634faaad20d2376"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Payum/Payum/zipball/83dbbf4e1dd1bcc672d39806a773e5783bac4068",
-                "reference": "83dbbf4e1dd1bcc672d39806a773e5783bac4068",
+                "url": "https://api.github.com/repos/Payum/Payum/zipball/f9e1b96dfee8a56f08536b8d8634faaad20d2376",
+                "reference": "f9e1b96dfee8a56f08536b8d8634faaad20d2376",
                 "shasum": ""
             },
             "require": {
+                "ajbdev/authorizenet-php-api": "1.1.*",
+                "ext-soap": "*",
                 "kriswallsmith/buzz": "*",
+                "omnipay/omnipay": "~1.0",
+                "paypal/rest-api-sdk-php": "0.5.*",
                 "php": ">=5.3.2"
+            },
+            "replace": {
+                "payum/authorize-net-aim": "self.version",
+                "payum/be2bill": "self.version",
+                "payum/core": "self.version",
+                "payum/offline": "self.version",
+                "payum/omnipay-bridge": "self.version",
+                "payum/payex": "self.version",
+                "payum/paypal-express-checkout-nvp": "self.version",
+                "payum/paypal-ipn": "self.version",
+                "payum/paypal-pro-checkout-nvp": "self.version",
+                "payum/paypal-rest": "self.version"
             },
             "require-dev": {
                 "doctrine/mongodb": "1.0.*@dev",
                 "doctrine/mongodb-odm": "1.0.*@dev",
-                "doctrine/orm": "2.*",
+                "doctrine/orm": "2.3.*",
                 "ext-curl": "*",
                 "ext-pdo_sqlite": "*",
-                "fp/testo": "dev-master",
                 "phpunit/phpunit": "3.7.*",
                 "psr/log": "~1.0"
             },
             "suggest": {
                 "doctrine/mongodb-odm": "If you want to store models to mongo doctrin2 ODM",
                 "doctrine/orm": "If you want to store models to database using doctrin2 ORM",
-                "monolog/monolog": "In case you want to use logger",
-                "payum/authorize-net-aim": "If you want to use Authorize.Net AIM payment gateway",
-                "payum/be2bill": "If you want to use be2bill payment gateway",
-                "payum/omnipay-bridge": "If you want to use omnipay's gateways",
-                "payum/paypal-express-checkout-nvp": "If you want to use paypal express checkout, digital goods or recurring payments",
-                "payum/paypal-ipn": "If you want to use paypal instant payment notifications(Paypal IPN)",
-                "payum/paypal-pro-checkout-nvp": "If you want to use paypal pro checkout"
+                "monolog/monolog": "In case you want to use PSR-3 logger"
             },
             "type": "library",
             "extra": {
@@ -2748,39 +2757,35 @@
                 "paypal rest",
                 "recurring payment"
             ],
-            "time": "2013-11-19 21:22:44"
+            "time": "2014-01-08 20:03:39"
         },
         {
             "name": "payum/payum-bundle",
-            "version": "0.6.2",
+            "version": "0.7.x-dev",
             "target-dir": "Payum/Bundle/PayumBundle",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Payum/PayumBundle.git",
-                "reference": "33b82cffa59e855c205eb9ed860bea3fdc6dfe14"
+                "reference": "2b044b8bed266261b29dd5ff4625b28a0ac17b28"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Payum/PayumBundle/zipball/33b82cffa59e855c205eb9ed860bea3fdc6dfe14",
-                "reference": "33b82cffa59e855c205eb9ed860bea3fdc6dfe14",
+                "url": "https://api.github.com/repos/Payum/PayumBundle/zipball/2b044b8bed266261b29dd5ff4625b28a0ac17b28",
+                "reference": "2b044b8bed266261b29dd5ff4625b28a0ac17b28",
                 "shasum": ""
             },
             "require": {
-                "payum/payum": "0.6.*",
+                "payum/core": "0.7.*",
                 "php": ">=5.3.2",
-                "symfony/framework-bundle": "2.*"
+                "symfony/framework-bundle": "~2.0",
+                "twig/twig": "*"
             },
             "require-dev": {
                 "doctrine/orm": "*",
-                "fp/testo": "@dev",
-                "payum/authorize-net-aim": "0.6.*",
-                "payum/be2bill": "0.6.*",
-                "payum/offline": "0.6.*",
-                "payum/omnipay-bridge": "0.6.*",
-                "payum/payex": "0.6.*",
-                "payum/paypal-express-checkout-nvp": "0.6.*",
-                "payum/paypal-pro-checkout-nvp": "0.6.*",
-                "phpunit/phpunit": "*"
+                "payum/payum": "0.7.*",
+                "phpunit/phpunit": "*",
+                "symfony/browser-kit": "~2.0",
+                "symfony/class-loader": "~2.0"
             },
             "suggest": {
                 "payum/authorize-net-aim": "If you want to use authorize.net gateway",
@@ -2794,7 +2799,7 @@
             "type": "symfony-bundle",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "0.6-dev"
+                    "dev-master": "0.7-dev"
                 }
             },
             "autoload": {
@@ -2820,11 +2825,12 @@
                     "homepage": "https://github.com/Payum/PayumBundle/contributors"
                 }
             ],
-            "description": "The payment bundle integrates payum libs into symfony2 framework",
+            "description": "Rich payment solutions for symfony2. Paypal, payex, authorize.net, be2bill, omnipay, recurring paymens, instant notifications and many more",
             "homepage": "http://payum.forma-dev.com",
             "keywords": [
                 "authorize.net",
                 "be2bill",
+                "instant notifications",
                 "offline",
                 "omnipay",
                 "payex",
@@ -2834,7 +2840,7 @@
                 "paypal pro checkout",
                 "recurring payment"
             ],
-            "time": "2013-10-31 15:04:50"
+            "time": "2013-12-28 14:07:34"
         },
         {
             "name": "phpcollection/phpcollection",
@@ -3922,17 +3928,17 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/Sylius/SyliusPayumBundle.git",
-                "reference": "f12b5243d24737aca5c0780a463540d7da6d427d"
+                "reference": "fffc18ab3ae21d2f262628187d14d45a3c7ebeed"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Sylius/SyliusPayumBundle/zipball/f12b5243d24737aca5c0780a463540d7da6d427d",
-                "reference": "f12b5243d24737aca5c0780a463540d7da6d427d",
+                "url": "https://api.github.com/repos/Sylius/SyliusPayumBundle/zipball/fffc18ab3ae21d2f262628187d14d45a3c7ebeed",
+                "reference": "fffc18ab3ae21d2f262628187d14d45a3c7ebeed",
                 "shasum": ""
             },
             "require": {
-                "payum/payum": "0.6.*@dev",
-                "payum/payum-bundle": "0.6.*@dev",
+                "payum/payum": "0.7.*@dev",
+                "payum/payum-bundle": "0.7.*@dev",
                 "php": ">=5.3.3",
                 "sylius/core-bundle": "1.0.*@dev",
                 "sylius/order-bundle": "1.0.*@dev",
@@ -3980,7 +3986,7 @@
                 "payments",
                 "payum"
             ],
-            "time": "2013-10-26 19:15:38"
+            "time": "2014-01-09 13:18:08"
         },
         {
             "name": "sylius/product-bundle",
@@ -5490,6 +5496,52 @@
             "time": "2013-06-06 20:36:08"
         },
         {
+            "name": "fzaninotto/faker",
+            "version": "v1.3.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/fzaninotto/Faker.git",
+                "reference": "1d143fd8caf4d264602450bc01d7484af788706b"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/fzaninotto/Faker/zipball/1d143fd8caf4d264602450bc01d7484af788706b",
+                "reference": "1d143fd8caf4d264602450bc01d7484af788706b",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.3"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.3.0-dev"
+                }
+            },
+            "autoload": {
+                "psr-0": {
+                    "Faker": "src/",
+                    "Faker\\PHPUnit": "test/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "François Zaninotto"
+                }
+            ],
+            "description": "Faker is a PHP library that generates fake data for you.",
+            "keywords": [
+                "data",
+                "faker",
+                "fixtures"
+            ],
+            "time": "2013-12-16 21:56:48"
+        },
+        {
             "name": "phpspec/php-diff",
             "version": "v1.0.1",
             "source": {
@@ -5653,11 +5705,8 @@
     "stability-flags": {
         "sylius/installer-bundle": 20,
         "sylius/web-bundle": 20,
-        "payum/payum": 0,
-        "payum/payum-bundle": 0,
-        "payum/paypal-express-checkout-nvp": 0,
-        "payum/omnipay-bridge": 0,
-        "phpspec/phpspec": 20
+        "phpspec/phpspec": 20,
+        "fzaninotto/faker": 20
     },
     "platform": {
         "php": ">=5.3.3"
