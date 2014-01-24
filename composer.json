@@ -35,8 +35,8 @@
 
         "doctrine/doctrine-fixtures-bundle":    "2.2.*",
         "jms/translation-bundle":               "1.1.*",
-        "sylius/installer-bundle":              "1.0.*@dev",
-        "sylius/web-bundle":                    "1.0.*@dev"
+        "sylius/installer-bundle":              "1.0.*",
+        "sylius/web-bundle":                    "1.0.*"
     },
     "require-dev": {
         "behat/behat":                  "2.4.*",
