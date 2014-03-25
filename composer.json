@@ -22,7 +22,7 @@
     "require": {
         "php":                                  ">=5.3.3",
         "symfony/symfony":                      "~2.3",
-        "doctrine/orm":                         ">=2.2.3,<2.4-dev",
+        "doctrine/orm":                         "~2.3",
         "doctrine/doctrine-bundle":             "~1.3@dev",
         "twig/extensions":                      "1.0.*",
         "symfony/assetic-bundle":               "~2.3",
@@ -33,18 +33,17 @@
         "sensio/generator-bundle":              "~2.3",
         "incenteev/composer-parameter-handler": "~2.0",
 
-        "doctrine/doctrine-fixtures-bundle":    "2.2.*",
         "jms/translation-bundle":               "1.1.*",
-        "sylius/installer-bundle":              "1.0.*",
-        "sylius/web-bundle":                    "1.0.*"
+        "sylius/installer-bundle":              "0.9.*",
+        "sylius/web-bundle":                    "0.9.*"
     },
     "require-dev": {
-        "behat/behat":                  "2.4.*",
+        "behat/behat":                  "~2.4",
         "behat/symfony2-extension":     "*",
         "behat/mink-extension":         "*",
         "behat/mink-browserkit-driver": "*",
-        "phpspec/phpspec":              "2.0.*@dev",
-        "fzaninotto/faker":             "1.3.*@dev"
+        "phpspec/phpspec":              "~2.0",
+        "fzaninotto/faker":             "~1.2"
     },
     "scripts": {
         "post-install-cmd": [
@@ -63,7 +62,10 @@
         ]
     },
     "autoload": {
-        "psr-0": { "": "src/", "Context": "features/" }
+        "psr-0": {
+            "": "src/",
+            "Context": "features/"
+        }
     },
     "minimum-stability": "dev",
     "config": {
