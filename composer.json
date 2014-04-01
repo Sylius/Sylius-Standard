@@ -32,8 +32,9 @@
         "sensio/framework-extra-bundle":        "~2.3",
         "sensio/generator-bundle":              "~2.3",
         "incenteev/composer-parameter-handler": "~2.0",
-
         "jms/translation-bundle":               "1.1.*",
+
+        "sylius/core-bundle":                   "0.9.*",
         "sylius/installer-bundle":              "0.9.*",
         "sylius/web-bundle":                    "0.9.*"
     },
