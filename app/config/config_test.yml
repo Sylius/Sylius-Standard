@@ -1,15 +1,11 @@
 imports:
-    - { resource: config_dev.yml }
+    - { resource: config.yml }
 
 framework:
     test: ~
     default_locale:  "en"
     session:
         storage_id: session.storage.mock_file
-
-web_profiler:
-    toolbar: false
-    intercept_redirects: false
 
 swiftmailer:
     disable_delivery: true
@@ -21,7 +17,7 @@ doctrine:
 
 sylius_money:
     currency: EUR
-    locale: en
+    locale: en_US
 
 sylius_payments:
     gateways:
@@ -29,7 +25,17 @@ sylius_payments:
         test:   Test
         stripe: Stripe
 
-liip_doctrine_cache:
-    namespaces:
+doctrine_cache:
+    providers:
         sylius_settings:
             type: array
+
+monolog:
+    handlers:
+        main:
+            type:  stream
+            path:  %kernel.logs_dir%/%kernel.environment%.log
+            level: debug
+        firephp:
+            type:  firephp
+            level: info

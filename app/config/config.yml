@@ -1,8 +1,7 @@
 imports:
     - { resource: parameters.yml }
     - { resource: security.yml }
-    - { resource: sylius.yml }
-    - { resource: payum.yml }
+    - { resource: @SyliusCoreBundle/Resources/config/app/main.yml }
 
 framework:
     translator:      { fallback: %sylius.locale% }
@@ -46,30 +45,26 @@ doctrine:
         entity_managers:
             default:
                 auto_mapping: true
+                mappings:
+                    gedmo_loggable:
+                        type: annotation
+                        prefix: Gedmo\Loggable\Entity
+                        dir: "%kernel.root_dir%/../vendor/gedmo/doctrine-extensions/lib/Gedmo/Loggable/Entity"
+                        is_bundle: false
                 filters:
                     softdeleteable:
                         class: Gedmo\SoftDeleteable\Filter\SoftDeleteableFilter
                         enabled: true
 
-stof_doctrine_extensions:
-    default_locale: %sylius.locale%
-    orm:
-        default:
-            tree: true
-            sluggable: true
-            timestampable: true
-            softdeleteable: true
-
-fos_user:
-    db_driver: orm
-    firewall_name: main
-    user_class: Sylius\Bundle\CoreBundle\Model\User
-    profile:
-        form:
-            type: sylius_user_profile
-    registration:
-        form:
-            type: sylius_user_registration
+doctrine_phpcr:
+    session:
+        backend:
+            type: doctrinedbal
+        workspace: default
+        username: admin
+        password: admin
+    odm:
+        auto_mapping: true
 
 swiftmailer:
     transport: %sylius.mailer.transport%
@@ -77,57 +72,3 @@ swiftmailer:
     username:  %sylius.mailer.user%
     password:  %sylius.mailer.password%
     spool:     { type: memory }
-
-liip_doctrine_cache:
-    namespaces:
-        sylius_settings:
-            type: %sylius.cache%
-
-knp_gaufrette:
-    adapters:
-        sylius_image:
-            local:
-                directory:  %kernel.root_dir%/../web/media/image
-                create:     true
-    filesystems:
-        sylius_image:
-            adapter: sylius_image
-
-liip_imagine:
-    data_root: %kernel.root_dir%/../web/media/image
-    filter_sets:
-        sylius_16x16:
-            filters:
-                thumbnail: { size: [16, 16], mode: outbound }
-        sylius_50x40:
-            filters:
-                thumbnail: { size: [50, 40], mode: outbound }
-        sylius_90x60:
-            filters:
-                thumbnail: { size: [90, 60], mode: outbound }
-        sylius_200x200:
-            filters:
-                thumbnail: { size: [200, 200], mode: outbound }
-
-        sylius_262x255:
-            filters:
-                thumbnail: { size: [265, 255], mode: outbound }
-        sylius_310x300:
-            filters:
-                thumbnail: { size: [310, 300], mode: outbound }
-        sylius_610x600:
-            filters:
-                thumbnail: { size: [610, 600], mode: outbound }
-        sylius_gallery:
-            filters:
-                thumbnail: { size: [640, 480], mode: outbound }
-
-knp_snappy:
-    pdf:
-        enabled:    true
-        binary:     /usr/bin/wkhtmltopdf
-        options:    []
-    image:
-        enabled:    true
-        binary:     /usr/bin/wkhtmltoimage
-        options:    []
