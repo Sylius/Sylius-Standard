@@ -24,3 +24,5 @@ bin/phpcrodm.php
 bin/jackalope
 bin/phpunit
 vendor/*
+
+composer.phar

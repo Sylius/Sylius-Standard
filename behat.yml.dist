@@ -1,9 +1,22 @@
 default:
-    paths:
-        features: features
-    context:
-        class:  Context\FeatureContext
+    formatters:
+        pretty:
+            verbose:  true
+            paths:    false
+            snippets: false
+
+    suites:
+        default:
+            contexts:
+                - Context\FeatureContext
+
     extensions:
-        Behat\MinkExtension\Extension:
-            default_session: symfony2
-        Behat\Symfony2Extension\Extension: ~
+        Behat\MinkExtension:
+            sessions:
+                default:
+                    symfony2: ~
+                javascript:
+                    selenium2: ~
+            browser_name: firefox
+            show_auto:    false
+        Behat\Symfony2Extension: ~

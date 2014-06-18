@@ -84,4 +84,3 @@ class FeatureContext extends RawMinkContext implements KernelAwareInterface
         return $this->getMinkParameter('base_url').$this->generateUrl($route, $parameters);
     }
 }
-
