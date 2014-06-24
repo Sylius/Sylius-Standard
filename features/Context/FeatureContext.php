@@ -7,23 +7,14 @@ use Behat\Gherkin\Node\PyStringNode;
 use Behat\Gherkin\Node\TableNode;
 
 use Behat\MinkExtension\Context\RawMinkContext;
-use Behat\Symfony2Extension\Context\KernelAwareInterface;
+use Behat\Symfony2Extension\Context\KernelAwareContext;
 
 use Symfony\Component\HttpKernel\KernelInterface;
 use Doctrine\Common\Util\Inflector;
 
-class FeatureContext extends RawMinkContext implements KernelAwareInterface
+class FeatureContext extends RawMinkContext implements KernelAwareContext
 {
     private $kernel;
-
-    /**
-     * @Given /^I am on the ([\w\s]+)( page)?$/
-     * @When /^I go to the ([\w\s]+)( page)?$/
-     */
-    public function iAmOnThePage($page)
-    {
-        $this->getSession()->visit($this->generatePageUrl($page, $parameters));
-    }
 
     /**
      * Sets Kernel instance.
@@ -33,6 +24,15 @@ class FeatureContext extends RawMinkContext implements KernelAwareInterface
     public function setKernel(KernelInterface $kernel)
     {
         $this->kernel = $kernel;
+    }
+
+    /**
+     * @Given /^I am on the ([\w\s]+)( page)?$/
+     * @When /^I go to the ([\w\s]+)( page)?$/
+     */
+    public function iAmOnThePage($page)
+    {
+        $this->getSession()->visit($this->generatePageUrl($page, $parameters));
     }
 
     /**
