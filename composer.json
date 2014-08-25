@@ -21,7 +21,7 @@
     ],
     "require": {
         "php":                                  ">=5.3.3",
-        "sylius/sylius":                        "0.10.*@dev",
+        "sylius/sylius":                        "0.11.*@dev",
 
         "doctrine/doctrine-bundle":             "@dev",
         "doctrine/migrations":                  "@dev",
@@ -32,7 +32,8 @@
         "liip/doctrine-cache-bundle":           "@dev",
         "mathiasverraes/money":                 "@dev",
         "pagerfanta/pagerfanta":                "@dev",
-        "white-october/pagerfanta-bundle":      "@dev"
+        "white-october/pagerfanta-bundle":      "@dev",
+        "friendsofsymfony/oauth-server-bundle": "@dev"
     },
     "require-dev": {
         "behat/behat":                       "~3.0",

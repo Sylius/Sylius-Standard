@@ -3,11 +3,13 @@ parameters:
     sylius.database.host:             127.0.0.1
     sylius.database.port:             ~
     sylius.database.name:             sylius
+    sylius.database.path:             ~
     sylius.database.user:             root
     sylius.database.password:         ~
 
     sylius.mailer.transport:          smtp
     sylius.mailer.host:               127.0.0.1
+    sylius.mailer.port:               ~
     sylius.mailer.user:               ~
     sylius.mailer.password:           ~
 
@@ -45,6 +47,8 @@ parameters:
     sylius.promotion.item_based: false
 
     sylius.order.pending.duration: 3 hours
+
+    sylius.uploader.filesystem: sylius_image
 
     phpcr_backend:
         type: doctrinedbal
