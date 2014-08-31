@@ -13,6 +13,6 @@ class AppKernel extends Kernel
         $bundles = array(
         );
 
-        return array_merge($bundles, parent::registerBundles());
+        return array_merge(parent::registerBundles(), $bundles);
     }
 }
