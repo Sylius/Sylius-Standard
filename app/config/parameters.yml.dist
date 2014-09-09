@@ -21,6 +21,8 @@ parameters:
     sylius.cache:
         type: file_system
 
+    sylius.currency_importer.open_exchange_rates: EDITME
+
     paypal.express_checkout.username: EDITME
     paypal.express_checkout.password: EDITME
     paypal.express_checkout.signature: EDITME
