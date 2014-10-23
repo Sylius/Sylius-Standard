@@ -1,5 +1,8 @@
 language: php
-php:      5.3
+php:
+    - 5.3
+    - 5.4
+    - 5.5
 
 before_script:
     # - sudo apt-get update
@@ -12,7 +15,7 @@ before_script:
     # - echo "127.0.0.1    $HOSTNAME" | sudo tee -a /etc/hosts
 
     # - sudo /etc/init.d/apache2 restart
-
+    - phpenv config-add .travis.php.ini
     - composer install --dev --prefer-dist > /dev/null
     - app/console do:da:cr -e=test > /dev/null
     - app/console do:sc:cr -e=test > /dev/null
