@@ -35,7 +35,8 @@
         "white-october/pagerfanta-bundle":      "@dev",
         "friendsofsymfony/oauth-server-bundle": "@dev",
         "willdurand/hateoas-bundle":            "1.0.*@dev",
-        "jms/serializer-bundle":                "0.13.*@dev"
+        "jms/serializer-bundle":                "0.13.*@dev",
+        "friendsofsymfony/rest-bundle":         "1.5.*@dev"
     },
     "require-dev": {
         "behat/behat":                       "~3.0",
