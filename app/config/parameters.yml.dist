@@ -18,10 +18,10 @@ parameters:
 
     sylius.currency:                  EUR
 
+    sylius.currency_importer.open_exchange_rates: EDITME
+
     sylius.cache:
         type: file_system
-
-    sylius.currency_importer.open_exchange_rates: EDITME
 
     paypal.express_checkout.username: EDITME
     paypal.express_checkout.password: EDITME
@@ -34,6 +34,9 @@ parameters:
     be2bill.identifier: EDITME
     be2bill.password: EDITME
     be2bill.sandbox: true
+
+    stripe.publishable_key: EDITME
+    stripe.secret_key: EDITME
 
     sylius.oauth.amazon.clientid:       <amazon_client_id>
     sylius.oauth.amazon.clientsecret:   <amazon_client_secret>
