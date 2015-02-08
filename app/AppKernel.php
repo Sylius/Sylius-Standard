@@ -1,9 +1,5 @@
 <?php
 
-use Symfony\Component\ClassLoader\DebugUniversalClassLoader;
-use Symfony\Component\Config\Loader\LoaderInterface;
-use Symfony\Component\HttpKernel\Debug\ErrorHandler;
-use Symfony\Component\HttpKernel\Debug\ExceptionHandler;
 use Sylius\Bundle\CoreBundle\Kernel\Kernel;
 
 class AppKernel extends Kernel
@@ -11,7 +7,12 @@ class AppKernel extends Kernel
     public function registerBundles()
     {
         $bundles = array(
+            // Your bundles here!
         );
+
+        if (in_array($this->environment, array('dev', 'test'))) {
+            $bundles[] = new Symfony\Bundle\WebProfilerBundle\WebProfilerBundle();
+        }
 
         return array_merge(parent::registerBundles(), $bundles);
     }

@@ -1,9 +1,13 @@
 imports:
     - { resource: config.yml }
 
+parameters:
+    sylius.promotion.item_based: true
+    sylius.order.allow_guest_order: true
+
 framework:
     test: ~
-    default_locale:  "en"
+    default_locale: "en"
     session:
         storage_id: session.storage.mock_file
 
@@ -12,12 +16,13 @@ swiftmailer:
 
 doctrine:
     dbal:
-        dbname:   %sylius.database.name%_test
+        dbname: %sylius.database.name%_test
+        path:   %sylius.database.path%
         driver_class: Sylius\Bundle\CoreBundle\Tests\MySqlDriver
 
 sylius_money:
     currency: EUR
-    locale: en_US
+    locale:   en_US
 
 sylius_payment:
     gateways:
@@ -35,7 +40,4 @@ monolog:
         main:
             type:  stream
             path:  %kernel.logs_dir%/%kernel.environment%.log
-            level: debug
-        firephp:
-            type:  firephp
-            level: info
+            level: error
