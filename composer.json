@@ -22,9 +22,10 @@
     "require": {
         "php":                          ">=5.3.3",
 
-        "sylius/sylius":                "0.13.*@dev",
+        "sylius/sylius":                "0.14.*@dev",
         "doctrine/migrations":          "~1.0@dev",
-        "friendsofsymfony/user-bundle": "2.0.*@dev"
+        "friendsofsymfony/user-bundle": "2.0.*@dev",
+        "sensio/generator-bundle":      "~2.3"
     },
     "require-dev": {
         "behat/behat":                  "~3.0",
@@ -66,7 +67,7 @@
     },
     "extra": {
         "branch-alias": {
-            "dev-master": "0.13-dev"
+            "dev-master": "0.14-dev"
         },
         "symfony-app-dir": "app",
         "symfony-web-dir": "web",

@@ -7,7 +7,8 @@ class AppKernel extends Kernel
     public function registerBundles()
     {
         $bundles = array(
-            // Your bundles here!
+            new \Sensio\Bundle\GeneratorBundle\SensioGeneratorBundle(),
+            new \AppBundle\AppBundle()
         );
 
         if (in_array($this->environment, array('dev', 'test'))) {
