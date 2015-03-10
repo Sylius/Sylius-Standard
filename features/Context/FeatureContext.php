@@ -2,7 +2,7 @@
 
 namespace Context;
 
-use Behat\Behat\Exception\PendingException;
+use Behat\Behat\Tester\Exception\PendingException;
 use Behat\Gherkin\Node\PyStringNode;
 use Behat\Gherkin\Node\TableNode;
 
@@ -70,6 +70,7 @@ class FeatureContext extends RawMinkContext implements KernelAwareContext
     private function generatePageUrl($page, array $parameters = array())
     {
         $parts = explode(' ', trim($page), 2);
+
         if (2 === count($parts)) {
             $parts[1] = Inflector::camelize($parts[1]);
         }
