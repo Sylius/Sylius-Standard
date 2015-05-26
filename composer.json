@@ -22,9 +22,8 @@
     "require": {
         "php":                          ">=5.3.3",
 
-        "sylius/sylius":                "0.14.*@dev",
+        "sylius/sylius":                "0.15.*@dev",
         "doctrine/migrations":          "~1.0@dev",
-        "friendsofsymfony/user-bundle": "2.0.*@dev",
         "sensio/generator-bundle":      "~2.3"
     },
     "require-dev": {
