@@ -27,12 +27,12 @@ set :update_vendors, true
 
 set :dump_assetic_assets, true
 
-set :writable_dirs,     ["app/cache", "app/logs"]
+set :writable_dirs,     ["app/cache", "app/logs", "web/media"]
 set :webserver_user,    "www-data"
 set :permission_method, :acl
 
 set :shared_files,    ["app/config/parameters.yml", "web/.htaccess", "web/robots.txt"]
-set :shared_children, ["app/logs"]
+set :shared_children, ["app/logs", "web/media"]
 
 set :model_manager, "doctrine"
 
