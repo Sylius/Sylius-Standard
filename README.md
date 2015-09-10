@@ -1,7 +1,15 @@
-Sylius Standard Edition
-=======================
+![Sylius](https://dl.dropboxusercontent.com/u/46579820/sylius-logo.jpg)
+
+[![Gitter chat](https://badges.gitter.im/Sylius/Sylius.png)](https://gitter.im/Sylius/Sylius)
+[![License](https://img.shields.io/packagist/l/Sylius/Sylius.svg)](https://packagist.org/packages/sylius/sylius)
 
 Sylius is an open source e-commerce solution for **PHP**, based on the [**Symfony2**](http://symfony.com) framework.
+
+Ultimate goal of the project is to create a webshop engine, which is user-friendly, *loved* by developers and has a helpful community.
+
+Sylius is constructed from fully decoupled components (bundles in Symfony2 glossary), which means that every feature (products catalog, shipping engine, promotions system...) can be used in any other application. 
+
+We're using full-stack BDD methodology, with [phpspec](http://phpspec.net) and [Behat](http://behat.org).
 
 This package contains the Sylius Standard Edition, which serves as a foundation for your custom apps.
 
