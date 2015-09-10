@@ -20,10 +20,9 @@
         }
     ],
     "require": {
-        "php":                          ">=5.3.3",
+        "php":                          ">=5.5.9",
 
-        "sylius/sylius":                "0.15.*@dev",
-        "doctrine/migrations":          "~1.0@dev",
+        "sylius/sylius":                "0.16.*@dev",
         "sensio/generator-bundle":      "~2.3"
     },
     "require-dev": {
@@ -66,7 +65,7 @@
     },
     "extra": {
         "branch-alias": {
-            "dev-master": "0.15-dev"
+            "dev-master": "0.16-dev"
         },
         "symfony-app-dir": "app",
         "symfony-web-dir": "web",
