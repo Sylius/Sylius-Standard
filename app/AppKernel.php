@@ -13,6 +13,7 @@ class AppKernel extends Kernel
 
         if (in_array($this->environment, array('dev', 'test'))) {
             $bundles[] = new Symfony\Bundle\WebProfilerBundle\WebProfilerBundle();
+            $bundles[] = new Symfony\Bundle\DebugBundle\DebugBundle();
         }
 
         return array_merge(parent::registerBundles(), $bundles);
