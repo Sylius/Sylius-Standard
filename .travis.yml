@@ -12,7 +12,7 @@ before_script:
     - echo "memory_limit=2048M" >> ~/.phpenv/versions/$(phpenv version-name)/etc/conf.d/travis.ini
 
     - composer self-update
-    - composer install --dev --prefer-dist --no-interaction
+    - composer install --prefer-dist --no-interaction
 
     - app/console doctrine:database:crreate --env=test
 
