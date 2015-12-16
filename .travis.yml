@@ -14,7 +14,7 @@ before_script:
     - composer self-update
     - composer install --prefer-dist --no-interaction
 
-    - app/console doctrine:database:crreate --env=test
+    - app/console doctrine:database:create --env=test
 
     - app/console cache:warmup --env=test
 
