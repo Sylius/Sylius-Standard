@@ -1,6 +1,3 @@
-sylius_installer:
-    resource: "@SyliusInstallerBundle/Resources/config/routing.yml"
-
 sylius_api:
     resource: "@SyliusApiBundle/Resources/config/routing/main.yml"
     prefix: /api
