@@ -9,17 +9,17 @@
     "packages": [
         {
             "name": "a2lix/translation-form-bundle",
-            "version": "2.0.4",
+            "version": "2.1",
             "target-dir": "A2lix/TranslationFormBundle",
             "source": {
                 "type": "git",
                 "url": "https://github.com/a2lix/TranslationFormBundle.git",
-                "reference": "390e32745ddcce5308e672e8d188b6963c41de21"
+                "reference": "b01e953df13052ee172e2521bd5e5b6b21ef7305"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/a2lix/TranslationFormBundle/zipball/390e32745ddcce5308e672e8d188b6963c41de21",
-                "reference": "390e32745ddcce5308e672e8d188b6963c41de21",
+                "url": "https://api.github.com/repos/a2lix/TranslationFormBundle/zipball/b01e953df13052ee172e2521bd5e5b6b21ef7305",
+                "reference": "b01e953df13052ee172e2521bd5e5b6b21ef7305",
                 "shasum": ""
             },
             "require": {
@@ -27,8 +27,8 @@
             },
             "require-dev": {
                 "doctrine/common": "~2.3",
-                "gedmo/doctrine-extensions": "dev-wip-v2.4.0",
-                "knplabs/doctrine-behaviors": "1.0.x-dev",
+                "gedmo/doctrine-extensions": "~2.4",
+                "knplabs/doctrine-behaviors": "1.0.*",
                 "phpunit/phpunit": "~4.1"
             },
             "suggest": {
@@ -71,7 +71,7 @@
                 "translatable",
                 "translation"
             ],
-            "time": "2014-12-02 12:51:30"
+            "time": "2016-01-12 09:07:30"
         },
         {
             "name": "behat/transliterator",
@@ -2973,7 +2973,7 @@
                     "email": "stof@notk.org"
                 },
                 {
-                    "name": "KnpLabs",
+                    "name": "Knplabs",
                     "homepage": "http://knplabs.com"
                 },
                 {
@@ -6608,16 +6608,16 @@
         },
         {
             "name": "sylius/sylius",
-            "version": "dev-master",
+            "version": "v0.16.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Sylius/Sylius.git",
-                "reference": "34c9eda7786fe9a755cb7600eed5ab051cad9aa0"
+                "reference": "e67c2ee84b0d63f6c376371bfc31d089c7cb38b3"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Sylius/Sylius/zipball/34c9eda7786fe9a755cb7600eed5ab051cad9aa0",
-                "reference": "34c9eda7786fe9a755cb7600eed5ab051cad9aa0",
+                "url": "https://api.github.com/repos/Sylius/Sylius/zipball/e67c2ee84b0d63f6c376371bfc31d089c7cb38b3",
+                "reference": "e67c2ee84b0d63f6c376371bfc31d089c7cb38b3",
                 "shasum": ""
             },
             "require": {
@@ -6803,7 +6803,7 @@
             ],
             "description": "E-Commerce platform for PHP, based on Symfony framework.",
             "homepage": "http://sylius.org",
-            "time": "2016-01-11 12:10:42"
+            "time": "2016-01-12 10:11:56"
         },
         {
             "name": "symfony-cmf/block-bundle",
