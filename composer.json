@@ -22,7 +22,7 @@
     "require": {
         "php": ">=5.5.9",
 
-        "sylius/sylius": "0.16.*@dev",
+        "sylius/sylius": "0.17.*@dev",
         "sensio/generator-bundle": "^2.3",
         "sensio/distribution-bundle": "^3.0"
     },
@@ -69,7 +69,7 @@
     },
     "extra": {
         "branch-alias": {
-            "dev-master": "0.16-dev"
+            "dev-master": "0.17-dev"
         },
         "symfony-app-dir": "app",
         "symfony-web-dir": "web",
