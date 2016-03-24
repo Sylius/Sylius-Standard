@@ -1,22 +1,28 @@
-app/*\.cache
-app/cache/*
+/.php_cs.cache
 
-app/logs/*
+/app/*.cache
+/app/cache
+/app/logs
 
-app/config/parameters.yml
-app/config/*.local.yml
-behat.yml
+/app/check.php
+/app/SymfonyRequirements.php
 
-web/bundles/*
-web/css/*
-web/js/*
-web/assets/compiled/*
-web/media/*
+/app/config/parameters.yml
+/app/config/*.local.yml
 
-bin/*
-vendor/*
+/web/assets
+/web/bundles
+/web/css
+/web/js
+/web/media
 
-composer.phar
+/bin
+/vendor
+/node_modules
 
-deploy/deploy.rb
-deploy/stages/*.rb
+/etc/build/*
+!/etc/build/.gitkeep
+
+/behat.yml
+/phpunit.xml
+/phpspec.yml

@@ -1,22 +1,19 @@
+imports:
+    - vendor/sylius/sylius/behat.yml.dist
+
 default:
-    formatters:
-        pretty:
-            verbose:  true
-            paths:    false
-            snippets: false
-
-    suites:
-        default:
-            contexts:
-                - Context\FeatureContext
-
     extensions:
-        Behat\MinkExtension:
-            sessions:
-                default:
-                    symfony2: ~
-                javascript:
-                    selenium2: ~
-            browser_name: firefox
-            show_auto:    false
-        Behat\Symfony2Extension: ~
+        Sylius\Behat\Extension\MultiContainerExtension:
+            imports:
+                - "vendor/sylius/sylius/src/Sylius/Behat/Resources/config/services.xml"
+
+        Sylius\Behat\Extension\DefaultSuiteSettingsExtension:
+            paths:
+                - "vendor/sylius/sylius/features"
+                - "features"
+
+cached:
+    extensions:
+        Sylius\Behat\Extension\MultiContainerExtension:
+            imports:
+                - "vendor/sylius/sylius/src/Sylius/Behat/Resources/config/services.xml"
