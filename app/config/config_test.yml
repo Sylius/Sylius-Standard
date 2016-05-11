@@ -16,8 +16,8 @@ swiftmailer:
 
 doctrine:
     dbal:
-        dbname: %sylius.database.name%_test
-        path:   %sylius.database.path%
+        dbname: %database_name%_test
+        path:   %database_path%
         driver_class: Sylius\Bundle\CoreBundle\Tests\MySqlDriver
 
 sylius_money:
