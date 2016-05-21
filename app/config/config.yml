@@ -1,5 +1,7 @@
 imports:
+    - { resource: @SyliusCoreBundle/Resources/config/app/parameters.yml }
     - { resource: parameters.yml }
+
     - { resource: security.yml }
     - { resource: migrations.yml }
     - { resource: @SyliusCoreBundle/Resources/config/app/main.yml }
