@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "b05716d4c9bb3cf4c5fc4e4a692bc50d",
-    "content-hash": "33d40628806c36d1907c5083b6c702ac",
+    "hash": "291b9d443bfc79b1c1413204da25026c",
+    "content-hash": "22db901cec439ee232adb13f22cde9a5",
     "packages": [
         {
             "name": "behat/transliterator",
@@ -3375,16 +3375,16 @@
         },
         {
             "name": "mockery/mockery",
-            "version": "0.9.4",
+            "version": "0.9.5",
             "source": {
                 "type": "git",
                 "url": "https://github.com/padraic/mockery.git",
-                "reference": "70bba85e4aabc9449626651f48b9018ede04f86b"
+                "reference": "4db079511a283e5aba1b3c2fb19037c645e70fc2"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/padraic/mockery/zipball/70bba85e4aabc9449626651f48b9018ede04f86b",
-                "reference": "70bba85e4aabc9449626651f48b9018ede04f86b",
+                "url": "https://api.github.com/repos/padraic/mockery/zipball/4db079511a283e5aba1b3c2fb19037c645e70fc2",
+                "reference": "4db079511a283e5aba1b3c2fb19037c645e70fc2",
                 "shasum": ""
             },
             "require": {
@@ -3436,7 +3436,7 @@
                 "test double",
                 "testing"
             ],
-            "time": "2015-04-02 19:54:00"
+            "time": "2016-05-22 21:52:33"
         },
         {
             "name": "monolog/monolog",
@@ -6941,12 +6941,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/Sylius/Sylius.git",
-                "reference": "78362c664ef0c25a7ee8923871b92ca1e3220a55"
+                "reference": "64f4aa02fea404456a730004f99f8fb762c787f2"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Sylius/Sylius/zipball/78362c664ef0c25a7ee8923871b92ca1e3220a55",
-                "reference": "78362c664ef0c25a7ee8923871b92ca1e3220a55",
+                "url": "https://api.github.com/repos/Sylius/Sylius/zipball/64f4aa02fea404456a730004f99f8fb762c787f2",
+                "reference": "64f4aa02fea404456a730004f99f8fb762c787f2",
                 "shasum": ""
             },
             "require": {
