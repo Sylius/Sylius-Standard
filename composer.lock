@@ -6941,12 +6941,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/Sylius/Sylius.git",
-                "reference": "64f4aa02fea404456a730004f99f8fb762c787f2"
+                "reference": "4c527fe3c75408829a51749042ecbff418fabf50"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Sylius/Sylius/zipball/64f4aa02fea404456a730004f99f8fb762c787f2",
-                "reference": "64f4aa02fea404456a730004f99f8fb762c787f2",
+                "url": "https://api.github.com/repos/Sylius/Sylius/zipball/4c527fe3c75408829a51749042ecbff418fabf50",
+                "reference": "4c527fe3c75408829a51749042ecbff418fabf50",
                 "shasum": ""
             },
             "require": {
