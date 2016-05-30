@@ -20,4 +20,3 @@ DirectoryIndex app.php
         RedirectMatch 302 ^/$ /app.php/
     </IfModule>
 </IfModule>
-

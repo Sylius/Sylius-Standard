@@ -1,44 +1,48 @@
 {
-    "name":        "sylius/sylius-standard",
+    "name": "sylius/sylius-standard",
     "description": "Starting point for projects powered by Sylius eCommerce.",
-    "keywords":    ["symfony", "symfony2", "sylius", "distribution", "ecommerce", "cart", "shopping"],
-    "type":        "project",
-    "license":     "MIT",
-    "homepage":    "http://sylius.org",
+    "keywords": ["symfony", "symfony2", "sylius", "distribution", "ecommerce", "cart", "shopping"],
+    "type": "project",
+    "license": "MIT",
+    "homepage": "http://sylius.org",
     "authors": [
         {
-            "name":     "Paweł Jędrzejewski",
+            "name": "Paweł Jędrzejewski",
             "homepage": "http://pjedrzejewski.com"
         },
         {
-            "name":     "Sylius project",
+            "name": "Sylius project",
             "homepage": "http://sylius.org"
         },
         {
-            "name":     "Community contributions",
+            "name": "Community contributions",
             "homepage": "http://github.com/Sylius/Sylius/contributors"
         }
     ],
     "require": {
-        "php": ">=5.5.9",
+        "php": "^5.6|^7.0",
 
-        "sylius/sylius": "^0.18@dev",
+        "sylius/sylius": "^0.19",
+
         "sensio/generator-bundle": "^2.3",
         "sensio/distribution-bundle": "^3.0"
     },
     "require-dev": {
         "behat/behat": "^3.0",
-        "behat/symfony2-extension": "^2.0",
-        "behat/mink-extension": "^2.0",
+        "behat/mink": "^1.6",
         "behat/mink-browserkit-driver": "^1.2",
+        "behat/mink-extension": "^2.0",
         "behat/mink-selenium2-driver": "^1.2",
-        "behat/mink":  "^1.6",
-        "coduo/php-matcher": "^2.1@dev",
+        "behat/symfony2-extension": "^2.0",
+        "bossa/phpspec2-expect": "^1.0",
+        "coduo/php-matcher": "^2.1",
+        "lakion/api-test-case": "^1.0",
+        "lakion/mink-debug-extension": "^1.1",
         "phpspec/phpspec": "^2.4",
-        "phpunit/phpunit": "^4.1",
-        "lakion/api-test-case": "^1.0@dev"
+        "phpunit/phpunit": "^4.8",
+        "se/selenium-server-standalone": "^2.52"
     },
-    "minimum-stability": "RC",
+    "minimum-stability": "dev",
     "prefer-stable": true,
     "scripts": {
         "post-install-cmd": [
@@ -59,9 +63,8 @@
         ]
     },
     "autoload": {
-        "psr-0": {
-            "": "src/",
-            "Context": "features/"
+        "psr-4": {
+            "AppBundle\\": "src/AppBundle/"
         }
     },
     "config": {
@@ -69,12 +72,13 @@
     },
     "extra": {
         "branch-alias": {
-            "dev-master": "0.18-dev"
+            "dev-master": "0.19-dev"
         },
         "symfony-app-dir": "app",
         "symfony-web-dir": "web",
         "incenteev-parameters": {
-            "file": "app/config/parameters.yml"
+            "file": "app/config/parameters.yml",
+            "dist-file": "vendor/sylius/sylius/app/config/parameters.yml.dist"
         }
     }
 }
