@@ -10,6 +10,11 @@ parameters:
 framework:
     test: ~
     default_locale: "en"
+    profiler:
+        matcher:
+            path: ^/shop/forgotten-password
+        only_exceptions: false
+        collect: true
     session:
         storage_id: session.storage.mock_file
 
@@ -33,14 +38,16 @@ monolog:
 payum:
     gateways:
         paypal_express_checkout:
-            paypal_express_checkout_nvp:
-                username: TEST
-                password: TEST
-                signature: TEST
-                sandbox: true
+            factory: paypal_express_checkout
+            payum.http_client: @sylius.payum.http_client
+            username: TEST
+            password: TEST
+            signature: TEST
+            sandbox: true
 
 swiftmailer:
     disable_delivery: true
+    logging: true
 
 sylius_channel:
     fake_channel_support: true
