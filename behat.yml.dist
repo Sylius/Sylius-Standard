@@ -7,7 +7,7 @@ default:
             imports:
                 - "vendor/sylius/sylius/src/Sylius/Behat/Resources/config/services.xml"
 
-        Sylius\Behat\Extension\DefaultSuiteSettingsExtension:
+        FriendsOfBehat\SuiteSettingsExtension:
             paths:
                 - "vendor/sylius/sylius/features"
                 - "features"

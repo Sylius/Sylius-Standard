@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "61219f1bacc086f81c1a766e1ef93adc",
-    "content-hash": "e54f1279e765f72ab154143e4337d1c5",
+    "hash": "5281fd91584db498f63a28581d090b95",
+    "content-hash": "841b2f221237968e4314a208cf5fe90b",
     "packages": [
         {
             "name": "behat/transliterator",
@@ -1839,6 +1839,7 @@
                 "rest",
                 "web service"
             ],
+            "abandoned": "guzzlehttp/guzzle",
             "time": "2015-03-18 18:23:50"
         },
         {
@@ -7337,12 +7338,12 @@
             "version": "1.2.3",
             "source": {
                 "type": "git",
-                "url": "https://github.com/symfony-cmf/CreateBundle.git",
+                "url": "https://github.com/symfony-cmf/create-bundle.git",
                 "reference": "86a3ade0210bc30b304f9d992ff21c403681d7f3"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony-cmf/CreateBundle/zipball/86a3ade0210bc30b304f9d992ff21c403681d7f3",
+                "url": "https://api.github.com/repos/symfony-cmf/create-bundle/zipball/86a3ade0210bc30b304f9d992ff21c403681d7f3",
                 "reference": "86a3ade0210bc30b304f9d992ff21c403681d7f3",
                 "shasum": ""
             },
@@ -9908,6 +9909,44 @@
                 "to string"
             ],
             "time": "2016-01-20 18:29:02"
+        },
+        {
+            "name": "friends-of-behat/suite-settings-extension",
+            "version": "v1.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/FriendsOfBehat/SuiteSettingsExtension.git",
+                "reference": "d3430a1ec1f845c7b08382559a9060172cbda9d8"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/FriendsOfBehat/SuiteSettingsExtension/zipball/d3430a1ec1f845c7b08382559a9060172cbda9d8",
+                "reference": "d3430a1ec1f845c7b08382559a9060172cbda9d8",
+                "shasum": ""
+            },
+            "require": {
+                "behat/behat": "^3.1",
+                "php": "^5.6|^7.0"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "FriendsOfBehat\\SuiteSettingsExtension\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Kamil Kokot",
+                    "email": "kamil@kokot.me",
+                    "homepage": "http://kamil.kokot.me"
+                }
+            ],
+            "description": "Allows to overwrite suites' default settings.",
+            "time": "2016-07-22 21:51:03"
         },
         {
             "name": "instaclick/php-webdriver",
