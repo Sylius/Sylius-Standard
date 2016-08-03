@@ -23,8 +23,7 @@ class AppKernel extends Kernel
     public function registerBundles()
     {
         $bundles = [
-            new \Sensio\Bundle\GeneratorBundle\SensioGeneratorBundle(),
-            new \AppBundle\AppBundle()
+
         ];
 
         return array_merge(parent::registerBundles(), $bundles);
