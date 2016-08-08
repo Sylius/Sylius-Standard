@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "f62afcc45aad509f7f3fedaf39fc4240",
-    "content-hash": "ff5cc37f5f73c3c153e42ac56ef639bd",
+    "hash": "70654cfecba66fa5b8b60f1568007b6d",
+    "content-hash": "51a35660eb2fefa543714ca16507c873",
     "packages": [
         {
             "name": "behat/transliterator",
@@ -9982,6 +9982,44 @@
                 "to string"
             ],
             "time": "2016-01-20 18:29:02"
+        },
+        {
+            "name": "friends-of-behat/performance-extension",
+            "version": "v1.0.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/FriendsOfBehat/PerformanceExtension.git",
+                "reference": "eb0163ebdfda430e429e0a4c6ec2d9bbbd8a6c4b"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/FriendsOfBehat/PerformanceExtension/zipball/eb0163ebdfda430e429e0a4c6ec2d9bbbd8a6c4b",
+                "reference": "eb0163ebdfda430e429e0a4c6ec2d9bbbd8a6c4b",
+                "shasum": ""
+            },
+            "require": {
+                "behat/behat": "^3.1",
+                "php": "^5.6|^7.0"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "FriendsOfBehat\\PerformanceExtension\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Kamil Kokot",
+                    "email": "kamil@kokot.me",
+                    "homepage": "http://kamil.kokot.me"
+                }
+            ],
+            "description": "Accelerates Behat using features available only for newer PHP versions.",
+            "time": "2016-07-22 21:46:29"
         },
         {
             "name": "friends-of-behat/suite-settings-extension",
