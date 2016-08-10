@@ -39,8 +39,8 @@
         "friends-of-behat/performance-extension": "^1.0",
         "friends-of-behat/suite-settings-extension": "^1.0",
         "lakion/api-test-case": "^1.0",
-        "lakion/mink-debug-extension": "^1.1",
-        "phpspec/phpspec": "^2.4",
+        "lakion/mink-debug-extension": "^1.2",
+        "phpspec/phpspec": "^3.0",
         "phpunit/phpunit": "^4.8",
         "se/selenium-server-standalone": "^2.52"
     },

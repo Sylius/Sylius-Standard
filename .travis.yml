@@ -41,7 +41,6 @@ before_script:
     - app/console doctrine:phpcr:repository:init --env=test_cached --no-debug -vvv
 
     - app/console assets:install --env=test_cached --no-debug -vvv
-    - app/console assetic:dump --env=test_cached --no-debug -vvv
     - gulp
 
     - /sbin/start-stop-daemon --start --quiet --pidfile /tmp/xvfb_99.pid --make-pidfile --background --exec /usr/bin/Xvfb -- :99 -ac -screen 0 1680x1050x16
