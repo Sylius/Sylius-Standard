@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "f62afcc45aad509f7f3fedaf39fc4240",
-    "content-hash": "ff5cc37f5f73c3c153e42ac56ef639bd",
+    "hash": "4924bd7c84aa974ce6551bb30e40340e",
+    "content-hash": "5477520d222d76496bfd6b0f5b833908",
     "packages": [
         {
             "name": "behat/transliterator",
@@ -7007,16 +7007,16 @@
         },
         {
             "name": "sylius/sylius",
-            "version": "dev-master",
+            "version": "v0.19.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Sylius/Sylius.git",
-                "reference": "dee634687badc9623a9db4fdaf87e46b5a8a99e7"
+                "reference": "4603cc697f856706c9a56876a534eb6ce5c13571"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Sylius/Sylius/zipball/dee634687badc9623a9db4fdaf87e46b5a8a99e7",
-                "reference": "dee634687badc9623a9db4fdaf87e46b5a8a99e7",
+                "url": "https://api.github.com/repos/Sylius/Sylius/zipball/4603cc697f856706c9a56876a534eb6ce5c13571",
+                "reference": "4603cc697f856706c9a56876a534eb6ce5c13571",
                 "shasum": ""
             },
             "require": {
@@ -7098,8 +7098,6 @@
                 "sylius/core-bundle": "self.version",
                 "sylius/currency": "self.version",
                 "sylius/currency-bundle": "self.version",
-                "sylius/customer": "self.version",
-                "sylius/customer-bundle": "self.version",
                 "sylius/fixtures-bundle": "self.version",
                 "sylius/flow-bundle": "self.version",
                 "sylius/installer-bundle": "self.version",
@@ -7127,6 +7125,8 @@
                 "sylius/resource": "self.version",
                 "sylius/resource-bundle": "self.version",
                 "sylius/search-bundle": "self.version",
+                "sylius/sequence": "self.version",
+                "sylius/sequence-bundle": "self.version",
                 "sylius/settings-bundle": "self.version",
                 "sylius/shipping": "self.version",
                 "sylius/shipping-bundle": "self.version",
@@ -7144,15 +7144,15 @@
                 "sylius/web-bundle": "self.version"
             },
             "require-dev": {
-                "akeneo/phpspec-skip-example-extension": "^2.0",
+                "akeneo/phpspec-skip-example-extension": "~1.2",
                 "behat/behat": "~3.0",
                 "behat/mink": "~1.6",
                 "behat/mink-browserkit-driver": "~1.2",
                 "behat/mink-extension": "~2.0",
                 "behat/mink-selenium2-driver": "~1.2",
                 "behat/symfony2-extension": "~2.0",
+                "bossa/phpspec2-expect": "^1.0",
                 "fabpot/php-cs-fixer": "^1.11",
-                "friends-of-behat/performance-extension": "^1.0",
                 "hwi/oauth-bundle": "~0.3",
                 "lakion/api-test-case": "^1.0@dev",
                 "lakion/mink-debug-extension": "^1.0.3",
@@ -7160,9 +7160,9 @@
                 "matthiasnoback/symfony-config-test": "^2.0",
                 "matthiasnoback/symfony-dependency-injection-test": "^1.0",
                 "mikey179/vfsstream": "^1.6",
-                "pamil/phpspec-generator-extension": "^0.4",
+                "pamil/phpspec-generator-extension": "^0.3",
                 "pamil/prophecy-common": "^0.1",
-                "phpspec/phpspec": "^3.0",
+                "phpspec/phpspec": "^2.4",
                 "phpunit/phpunit": "~4.1",
                 "se/selenium-server-standalone": "^2.52"
             },
@@ -7174,7 +7174,7 @@
             "type": "project",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "1.0-dev"
+                    "dev-master": "0.19-dev"
                 },
                 "incenteev-parameters": {
                     "file": "app/config/parameters.yml"
@@ -7209,7 +7209,7 @@
             ],
             "description": "E-Commerce platform for PHP, based on Symfony framework.",
             "homepage": "http://sylius.org",
-            "time": "2016-08-03 10:56:38"
+            "time": "2016-07-06 19:57:13"
         },
         {
             "name": "symfony-cmf/block-bundle",
@@ -9984,6 +9984,44 @@
             "time": "2016-01-20 18:29:02"
         },
         {
+            "name": "friends-of-behat/performance-extension",
+            "version": "v1.0.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/FriendsOfBehat/PerformanceExtension.git",
+                "reference": "eb0163ebdfda430e429e0a4c6ec2d9bbbd8a6c4b"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/FriendsOfBehat/PerformanceExtension/zipball/eb0163ebdfda430e429e0a4c6ec2d9bbbd8a6c4b",
+                "reference": "eb0163ebdfda430e429e0a4c6ec2d9bbbd8a6c4b",
+                "shasum": ""
+            },
+            "require": {
+                "behat/behat": "^3.1",
+                "php": "^5.6|^7.0"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "FriendsOfBehat\\PerformanceExtension\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Kamil Kokot",
+                    "email": "kamil@kokot.me",
+                    "homepage": "http://kamil.kokot.me"
+                }
+            ],
+            "description": "Accelerates Behat using features available only for newer PHP versions.",
+            "time": "2016-07-22 21:46:29"
+        },
+        {
             "name": "friends-of-behat/suite-settings-extension",
             "version": "v1.0.0",
             "source": {
@@ -11435,9 +11473,7 @@
     ],
     "aliases": [],
     "minimum-stability": "dev",
-    "stability-flags": {
-        "sylius/sylius": 20
-    },
+    "stability-flags": [],
     "prefer-stable": true,
     "prefer-lowest": false,
     "platform": {

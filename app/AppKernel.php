@@ -23,7 +23,7 @@ class AppKernel extends Kernel
     public function registerBundles()
     {
         $bundles = [
-
+            new \AppBundle\AppBundle(),
         ];
 
         return array_merge(parent::registerBundles(), $bundles);
