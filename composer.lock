@@ -2678,17 +2678,17 @@
         },
         {
             "name": "jms/translation-bundle",
-            "version": "1.3.0",
+            "version": "1.3.1",
             "target-dir": "JMS/TranslationBundle",
             "source": {
                 "type": "git",
                 "url": "https://github.com/schmittjoh/JMSTranslationBundle.git",
-                "reference": "8c2fd74b82f24a6f889e3bbf82d18aa4171e8168"
+                "reference": "e79fe1cd77e7749223c870bdae0bd400c21a102d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/schmittjoh/JMSTranslationBundle/zipball/8c2fd74b82f24a6f889e3bbf82d18aa4171e8168",
-                "reference": "8c2fd74b82f24a6f889e3bbf82d18aa4171e8168",
+                "url": "https://api.github.com/repos/schmittjoh/JMSTranslationBundle/zipball/e79fe1cd77e7749223c870bdae0bd400c21a102d",
+                "reference": "e79fe1cd77e7749223c870bdae0bd400c21a102d",
                 "shasum": ""
             },
             "require": {
@@ -2703,6 +2703,8 @@
             "require-dev": {
                 "jms/di-extra-bundle": "^1.1",
                 "matthiasnoback/symfony-dependency-injection-test": "^0.7.6",
+                "nyholm/nsa": "^1.0.1",
+                "phpunit/phpunit": "4.8.27",
                 "psr/log": "^1.0",
                 "sensio/framework-extra-bundle": "^2.3 || ^3.0",
                 "symfony/expression-language": "^2.6 || ^3.0",
@@ -2742,7 +2744,7 @@
                 "ui",
                 "webinterface"
             ],
-            "time": "2016-08-07 08:06:55"
+            "time": "2016-08-13 23:17:44"
         },
         {
             "name": "knplabs/gaufrette",
@@ -5019,16 +5021,16 @@
         },
         {
             "name": "omnipay/stripe",
-            "version": "v2.3.3",
+            "version": "v2.4.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/thephpleague/omnipay-stripe.git",
-                "reference": "0ea7a647ee01e29c152814e11c2ea6307e5b0db9"
+                "reference": "3d21b68403fb4214cbee07d0c4be55a1bb0b1805"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/thephpleague/omnipay-stripe/zipball/0ea7a647ee01e29c152814e11c2ea6307e5b0db9",
-                "reference": "0ea7a647ee01e29c152814e11c2ea6307e5b0db9",
+                "url": "https://api.github.com/repos/thephpleague/omnipay-stripe/zipball/3d21b68403fb4214cbee07d0c4be55a1bb0b1805",
+                "reference": "3d21b68403fb4214cbee07d0c4be55a1bb0b1805",
                 "shasum": ""
             },
             "require": {
@@ -5072,7 +5074,7 @@
                 "payment",
                 "stripe"
             ],
-            "time": "2016-04-26 08:34:50"
+            "time": "2016-08-06 04:11:43"
         },
         {
             "name": "omnipay/targetpay",
@@ -6891,12 +6893,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/Sylius/Sylius.git",
-                "reference": "6e98480d3d35592bac8c6ac668b9f43f13a7b33e"
+                "reference": "f22e65bbc047a4655fa1f7e984c0a26d7936c60d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Sylius/Sylius/zipball/6e98480d3d35592bac8c6ac668b9f43f13a7b33e",
-                "reference": "6e98480d3d35592bac8c6ac668b9f43f13a7b33e",
+                "url": "https://api.github.com/repos/Sylius/Sylius/zipball/f22e65bbc047a4655fa1f7e984c0a26d7936c60d",
+                "reference": "f22e65bbc047a4655fa1f7e984c0a26d7936c60d",
                 "shasum": ""
             },
             "require": {
@@ -7086,7 +7088,7 @@
             ],
             "description": "E-Commerce platform for PHP, based on Symfony framework.",
             "homepage": "http://sylius.org",
-            "time": "2016-08-10 17:29:11"
+            "time": "2016-08-16 10:12:44"
         },
         {
             "name": "symfony-cmf/block-bundle",
