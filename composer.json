@@ -24,7 +24,6 @@
 
         "sylius/sylius": "^1.0@dev",
 
-        "sensio/generator-bundle": "^2.3",
         "sensio/distribution-bundle": "^3.0"
     },
     "require-dev": {
@@ -42,7 +41,8 @@
         "lakion/mink-debug-extension": "^1.2",
         "phpspec/phpspec": "^3.0",
         "phpunit/phpunit": "^4.8",
-        "se/selenium-server-standalone": "^2.52"
+        "se/selenium-server-standalone": "^2.52",
+        "sensio/generator-bundle": "^3.0"
     },
     "minimum-stability": "dev",
     "prefer-stable": true,
