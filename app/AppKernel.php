@@ -27,6 +27,7 @@ class AppKernel extends Kernel
             new \Sylius\Bundle\ApiBundle\SyliusApiBundle(),
             new \Sylius\Bundle\ShopBundle\SyliusShopBundle(),
             new Sensio\Bundle\GeneratorBundle\SensioGeneratorBundle(),
+            new \FOS\OAuthServerBundle\FOSOAuthServerBundle(),
             new \AppBundle\AppBundle(),
         ];
 
