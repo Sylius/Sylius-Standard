@@ -46,6 +46,7 @@ var paths = {
         ],
         sass: [
             'vendor/sylius/sylius/src/Sylius/Bundle/UiBundle/Resources/private/sass/**',
+            'vendor/sylius/sylius/src/Sylius/Bundle/ShopBundle/Resources/private/scss/**',
         ],
         css: [
             'node_modules/semantic-ui-css/semantic.min.css',
@@ -151,4 +152,4 @@ gulp.task('shop-watch', function() {
 });
 
 gulp.task('default', ['admin-js', 'admin-css', 'admin-img', 'shop-js', 'shop-css', 'shop-img']);
-gulp.task('watch', ['admin-watch', 'shop-watch']);
+gulp.task('watch', ['default', 'admin-watch', 'shop-watch']);
