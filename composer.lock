@@ -4069,16 +4069,16 @@
         },
         {
             "name": "omnipay/netbanx",
-            "version": "v2.1.1",
+            "version": "v2.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/thephpleague/omnipay-netbanx.git",
-                "reference": "a56900120e676385cc42d67c82985fcaaa752140"
+                "reference": "3684bbbf0dbdb977c1484d7252d776d81c68c813"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/thephpleague/omnipay-netbanx/zipball/a56900120e676385cc42d67c82985fcaaa752140",
-                "reference": "a56900120e676385cc42d67c82985fcaaa752140",
+                "url": "https://api.github.com/repos/thephpleague/omnipay-netbanx/zipball/3684bbbf0dbdb977c1484d7252d776d81c68c813",
+                "reference": "3684bbbf0dbdb977c1484d7252d776d81c68c813",
                 "shasum": ""
             },
             "require": {
@@ -4122,7 +4122,7 @@
                 "pay",
                 "payment"
             ],
-            "time": "2014-09-17 00:38:46"
+            "time": "2016-09-21 10:52:03"
         },
         {
             "name": "omnipay/omnipay",
@@ -4415,16 +4415,16 @@
         },
         {
             "name": "omnipay/paypal",
-            "version": "v2.6.0",
+            "version": "v2.6.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/thephpleague/omnipay-paypal.git",
-                "reference": "592f1cca058200adc76ed9599b13f21e81e01dda"
+                "reference": "942d616e87578330a4f48feab56430527889c07e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/thephpleague/omnipay-paypal/zipball/592f1cca058200adc76ed9599b13f21e81e01dda",
-                "reference": "592f1cca058200adc76ed9599b13f21e81e01dda",
+                "url": "https://api.github.com/repos/thephpleague/omnipay-paypal/zipball/942d616e87578330a4f48feab56430527889c07e",
+                "reference": "942d616e87578330a4f48feab56430527889c07e",
                 "shasum": ""
             },
             "require": {
@@ -4469,7 +4469,7 @@
                 "paypal",
                 "purchase"
             ],
-            "time": "2016-09-06 04:15:04"
+            "time": "2016-10-11 09:33:49"
         },
         {
             "name": "omnipay/pin",
@@ -4884,16 +4884,16 @@
         },
         {
             "name": "paragonie/random_compat",
-            "version": "v2.0.2",
+            "version": "v2.0.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/paragonie/random_compat.git",
-                "reference": "088c04e2f261c33bed6ca5245491cfca69195ccf"
+                "reference": "c0125896dbb151380ab47e96c621741e79623beb"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/paragonie/random_compat/zipball/088c04e2f261c33bed6ca5245491cfca69195ccf",
-                "reference": "088c04e2f261c33bed6ca5245491cfca69195ccf",
+                "url": "https://api.github.com/repos/paragonie/random_compat/zipball/c0125896dbb151380ab47e96c621741e79623beb",
+                "reference": "c0125896dbb151380ab47e96c621741e79623beb",
                 "shasum": ""
             },
             "require": {
@@ -4928,7 +4928,7 @@
                 "pseudorandom",
                 "random"
             ],
-            "time": "2016-04-03 06:00:07"
+            "time": "2016-10-17 15:23:22"
         },
         {
             "name": "payum/iso4217",
@@ -5397,16 +5397,16 @@
         },
         {
             "name": "php-http/message",
-            "version": "v1.3.1",
+            "version": "v1.4.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/php-http/message.git",
-                "reference": "6d9c2d682dcf80cb2cc641eebc5693eacee95fa4"
+                "reference": "20ffbdc291a127e93f66007742693fbdf020d223"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/php-http/message/zipball/6d9c2d682dcf80cb2cc641eebc5693eacee95fa4",
-                "reference": "6d9c2d682dcf80cb2cc641eebc5693eacee95fa4",
+                "url": "https://api.github.com/repos/php-http/message/zipball/20ffbdc291a127e93f66007742693fbdf020d223",
+                "reference": "20ffbdc291a127e93f66007742693fbdf020d223",
                 "shasum": ""
             },
             "require": {
@@ -5416,22 +5416,25 @@
                 "psr/http-message": "^1.0"
             },
             "require-dev": {
+                "akeneo/phpspec-skip-example-extension": "^1.0",
                 "coduo/phpspec-data-provider-extension": "^1.0",
                 "ext-zlib": "*",
                 "guzzlehttp/psr7": "^1.0",
                 "henrikbjorn/phpspec-code-coverage": "^1.0",
                 "phpspec/phpspec": "^2.4",
+                "slim/slim": "^3.0",
                 "zendframework/zend-diactoros": "^1.0"
             },
             "suggest": {
                 "ext-zlib": "Used with compressor/decompressor streams",
                 "guzzlehttp/psr7": "Used with Guzzle PSR-7 Factories",
+                "slim/slim": "Used with Slim Framework PSR-7 implementation",
                 "zendframework/zend-diactoros": "Used with Diactoros Factories"
             },
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "1.4-dev"
+                    "dev-master": "1.5-dev"
                 }
             },
             "autoload": {
@@ -5459,7 +5462,7 @@
                 "message",
                 "psr-7"
             ],
-            "time": "2016-07-15 14:48:03"
+            "time": "2016-10-20 06:59:05"
         },
         {
             "name": "php-http/message-factory",
@@ -6218,16 +6221,16 @@
         },
         {
             "name": "sylius/sylius",
-            "version": "dev-master",
+            "version": "v1.0.0-alpha.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Sylius/Sylius.git",
-                "reference": "9dd98b797476884847eec84ede644e5bd4a8d24b"
+                "reference": "25c75d1bbf0def5358d4226813a78cb8f4388499"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Sylius/Sylius/zipball/9dd98b797476884847eec84ede644e5bd4a8d24b",
-                "reference": "9dd98b797476884847eec84ede644e5bd4a8d24b",
+                "url": "https://api.github.com/repos/Sylius/Sylius/zipball/25c75d1bbf0def5358d4226813a78cb8f4388499",
+                "reference": "25c75d1bbf0def5358d4226813a78cb8f4388499",
                 "shasum": ""
             },
             "require": {
@@ -6396,7 +6399,7 @@
             ],
             "description": "E-Commerce platform for PHP, based on Symfony framework.",
             "homepage": "http://sylius.org",
-            "time": "2016-10-19 11:06:50"
+            "time": "2016-10-20 14:48:45"
         },
         {
             "name": "symfony-cmf/content-bundle",
@@ -8804,16 +8807,16 @@
         },
         {
             "name": "coduo/php-matcher",
-            "version": "dev-master",
+            "version": "2.1.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/coduo/php-matcher.git",
-                "reference": "615247c41e153456f80c68bbf1ec3d28c0cbff6c"
+                "reference": "80ce761282da62db12906885f58d1e4bbddb525f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/coduo/php-matcher/zipball/615247c41e153456f80c68bbf1ec3d28c0cbff6c",
-                "reference": "615247c41e153456f80c68bbf1ec3d28c0cbff6c",
+                "url": "https://api.github.com/repos/coduo/php-matcher/zipball/80ce761282da62db12906885f58d1e4bbddb525f",
+                "reference": "80ce761282da62db12906885f58d1e4bbddb525f",
                 "shasum": ""
             },
             "require": {
@@ -8860,7 +8863,7 @@
                 "matcher",
                 "tests"
             ],
-            "time": "2016-09-23 19:40:05"
+            "time": "2016-10-20 14:41:41"
         },
         {
             "name": "coduo/php-to-string",
