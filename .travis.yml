@@ -5,7 +5,7 @@ env:
         - SYLIUS_CACHE_DIR=$HOME/.sylius-cache
         - SYLIUS_BUILD_DIR=etc/build
 
-sudo: false
+sudo: required
 
 php:
     - 7.0
