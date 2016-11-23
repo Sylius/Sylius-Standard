@@ -3,7 +3,7 @@ imports:
 
 default:
     extensions:
-        Sylius\Behat\Extension\MultiContainerExtension:
+        FriendsOfBehat\ContextServiceExtension:
             imports:
                 - "vendor/sylius/sylius/src/Sylius/Behat/Resources/config/services.xml"
 
@@ -17,7 +17,7 @@ default:
 
 cached:
     extensions:
-        Sylius\Behat\Extension\MultiContainerExtension:
+        FriendsOfBehat\ContextServiceExtension:
             imports:
                 - "vendor/sylius/sylius/src/Sylius/Behat/Resources/config/services.xml"
 
