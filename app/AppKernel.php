@@ -24,6 +24,7 @@ class AppKernel extends Kernel
     {
         $bundles = [
             new \Sylius\Bundle\AdminBundle\SyliusAdminBundle(),
+            new \FOS\OAuthServerBundle\FOSOAuthServerBundle(), // Required by SyliusApiBundle
             new \Sylius\Bundle\ApiBundle\SyliusApiBundle(),
             new \Sylius\Bundle\ShopBundle\SyliusShopBundle(),
             new Sensio\Bundle\GeneratorBundle\SensioGeneratorBundle(),
