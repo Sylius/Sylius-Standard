@@ -22,7 +22,7 @@
     "require": {
         "php": "^5.6|^7.0",
 
-        "sylius/sylius": "dev-master",
+        "sylius/sylius": "^1.0.0-beta.1",
 
         "sensio/distribution-bundle": "^5.0"
     },

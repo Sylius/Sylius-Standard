@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "f4eb300a19c60735bb8fb0c48fee6190",
-    "content-hash": "ca4aec570c46bbb90ea78361b8de87e4",
+    "hash": "18c73fcaa3946e65ec5c18bdd8e5671d",
+    "content-hash": "3c5632d204b3111881570e41e8e1f092",
     "packages": [
         {
             "name": "behat/transliterator",
@@ -3992,16 +3992,16 @@
         },
         {
             "name": "sylius/sylius",
-            "version": "dev-master",
+            "version": "v1.0.0-beta.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Sylius/Sylius.git",
-                "reference": "26132b4c7113ae8439200f0b62f3db7e7fcd3854"
+                "reference": "bb4f57140efb5e7ac9dc56125e02b3f846835ff9"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Sylius/Sylius/zipball/26132b4c7113ae8439200f0b62f3db7e7fcd3854",
-                "reference": "26132b4c7113ae8439200f0b62f3db7e7fcd3854",
+                "url": "https://api.github.com/repos/Sylius/Sylius/zipball/bb4f57140efb5e7ac9dc56125e02b3f846835ff9",
+                "reference": "bb4f57140efb5e7ac9dc56125e02b3f846835ff9",
                 "shasum": ""
             },
             "require": {
@@ -4039,7 +4039,7 @@
                 "symfony/polyfill-intl-icu": "^1.3",
                 "symfony/polyfill-mbstring": "^1.3",
                 "symfony/swiftmailer-bundle": "^2.4",
-                "symfony/symfony": "^3.2@rc",
+                "symfony/symfony": "^3.2",
                 "twig/extensions": "^1.4",
                 "twig/twig": "^1.27",
                 "webmozart/assert": "^1.1",
@@ -4170,7 +4170,7 @@
             ],
             "description": "E-Commerce platform for PHP, based on Symfony framework.",
             "homepage": "http://sylius.org",
-            "time": "2016-11-29 10:22:50"
+            "time": "2016-12-02 06:51:14"
         },
         {
             "name": "symfony/monolog-bundle",
@@ -4636,16 +4636,16 @@
         },
         {
             "name": "symfony/symfony",
-            "version": "v3.2.0-RC2",
+            "version": "v3.2.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/symfony.git",
-                "reference": "1a29cec155956afc37670b23ae652b9bb201e08d"
+                "reference": "b96a144bc875684f3338f697687147a2696d73eb"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/symfony/zipball/1a29cec155956afc37670b23ae652b9bb201e08d",
-                "reference": "1a29cec155956afc37670b23ae652b9bb201e08d",
+                "url": "https://api.github.com/repos/symfony/symfony/zipball/b96a144bc875684f3338f697687147a2696d73eb",
+                "reference": "b96a144bc875684f3338f697687147a2696d73eb",
                 "shasum": ""
             },
             "require": {
@@ -4774,7 +4774,7 @@
             "keywords": [
                 "framework"
             ],
-            "time": "2016-11-27 04:46:36"
+            "time": "2016-11-30 08:46:24"
         },
         {
             "name": "twig/extensions",
@@ -8084,9 +8084,7 @@
     ],
     "aliases": [],
     "minimum-stability": "dev",
-    "stability-flags": {
-        "sylius/sylius": 20
-    },
+    "stability-flags": [],
     "prefer-stable": true,
     "prefer-lowest": false,
     "platform": {
