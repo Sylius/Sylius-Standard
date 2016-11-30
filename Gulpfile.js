@@ -21,11 +21,8 @@ var paths = {
         js: [
             'node_modules/jquery/dist/jquery.min.js',
             'node_modules/semantic-ui-css/semantic.min.js',
-            'vendor/sylius/sylius/src/Sylius/Bundle/AdminBundle/Resources/private/js/**',
             'vendor/sylius/sylius/src/Sylius/Bundle/UiBundle/Resources/private/js/**',
-            'vendor/sylius/sylius/src/Sylius/Bundle/ShippingBundle/Resources/public/js/**',
-            'vendor/sylius/sylius/src/Sylius/Bundle/PromotionBundle/Resources/public/js/sylius-promotion.js',
-            'vendor/sylius/sylius/src/Sylius/Bundle/UserBundle/Resources/public/js/sylius-user.js'
+            'vendor/sylius/sylius/src/Sylius/Bundle/AdminBundle/Resources/private/js/**',
         ],
         sass: [
             'vendor/sylius/sylius/src/Sylius/Bundle/UiBundle/Resources/private/sass/**',

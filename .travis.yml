@@ -35,11 +35,11 @@ install:
     - npm install
 
 before_script:
-    - app/console doctrine:database:create --env=test_cached -vvv # Have to be run with debug = true, to omit generating proxies before setting up the database
-    - app/console cache:warmup --env=test_cached --no-debug -vvv
-    - app/console doctrine:schema:create --env=test_cached --no-debug -vvv
+    - bin/console doctrine:database:create --env=test_cached -vvv # Have to be run with debug = true, to omit generating proxies before setting up the database
+    - bin/console cache:warmup --env=test_cached --no-debug -vvv
+    - bin/console doctrine:schema:create --env=test_cached --no-debug -vvv
 
-    - app/console assets:install --env=test_cached --no-debug -vvv
+    - bin/console assets:install --env=test_cached --no-debug -vvv
     - gulp
 
     - /sbin/start-stop-daemon --start --quiet --pidfile /tmp/xvfb_99.pid --make-pidfile --background --exec /usr/bin/Xvfb -- :99 -ac -screen 0 1680x1050x16
@@ -48,8 +48,8 @@ before_script:
     - curl http://chromedriver.storage.googleapis.com/2.12/chromedriver_linux64.zip > chromedriver.zip && unzip chromedriver.zip
 
     - cp .travis/behat.yml ./behat.yml
-    - bin/selenium-server-standalone -Dwebdriver.chrome.driver=chromedriver > $SYLIUS_BUILD_DIR/selenium.log 2>&1 &
-    - app/console server:run 127.0.0.1:8080 --env=test_cached --router=app/config/router_test_cached.php --no-debug > $SYLIUS_BUILD_DIR/webserver.log 2>&1 &
+    - bin/selenium-server-standalone -Dwebdriver.chrome.driver=chromedriver > /dev/null 2>&1 &
+    - bin/console server:run 127.0.0.1:8080 --env=test_cached --router=app/config/router_test_cached.php --no-debug --quiet > /dev/null 2>&1 &
 
 script:
     - rm -f vendor/sylius/sylius/features/product/managing_products/select_taxons_for_product.feature
