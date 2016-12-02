@@ -1,6 +1,5 @@
 ![Sylius](http://demo.sylius.org/assets/shop/img/logo.png)
 
-[![Gitter chat](https://badges.gitter.im/Sylius/Sylius.png)](https://gitter.im/Sylius/Sylius)
 [![License](https://img.shields.io/packagist/l/Sylius/Sylius.svg)](https://packagist.org/packages/sylius/sylius)
 [![Version](https://img.shields.io/packagist/v/Sylius/Sylius.svg)](https://packagist.org/packages/sylius/sylius)
 [![Build status on Linux](https://img.shields.io/travis/Sylius/Sylius/master.svg)](http://travis-ci.org/Sylius/Sylius)
@@ -26,12 +25,12 @@ Installation
 
 ```bash
 $ wget http://getcomposer.org/composer.phar
-$ php composer.phar create-project -s alpha sylius/sylius-standard project
+$ php composer.phar create-project -s beta sylius/sylius-standard project
 $ cd project
 $ npm install
 $ npm run gulp
-$ php app/console sylius:install
-$ php app/console server:start
+$ php bin/console sylius:install
+$ php bin/console server:start
 $ open http://localhost:8000/
 ```
 
@@ -41,8 +40,8 @@ Troubleshooting
 If something goes wrong, errors & exceptions are logged at the application level:
 
 ```bash
-$ tail -f app/logs/prod.log
-$ tail -f app/logs/dev.log
+$ tail -f var/logs/prod.log
+$ tail -f var/logs/dev.log
 ```
 
 If you are using the supplied Vagrant development environment, please see the related [Troubleshooting guide](etc/vagrant/README.md#Troubleshooting) for more information.

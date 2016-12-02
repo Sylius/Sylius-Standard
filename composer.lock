@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "f4eb300a19c60735bb8fb0c48fee6190",
-    "content-hash": "ca4aec570c46bbb90ea78361b8de87e4",
+    "hash": "7c8142e98560ebd3e965132f6f4abdf2",
+    "content-hash": "f4c388049128bd357ec570f96890cc46",
     "packages": [
         {
             "name": "behat/transliterator",
@@ -302,16 +302,16 @@
         },
         {
             "name": "doctrine/common",
-            "version": "v2.6.1",
+            "version": "v2.6.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/doctrine/common.git",
-                "reference": "a579557bc689580c19fee4e27487a67fe60defc0"
+                "reference": "7bce00698899aa2c06fe7365c76e4d78ddb15fa3"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/doctrine/common/zipball/a579557bc689580c19fee4e27487a67fe60defc0",
-                "reference": "a579557bc689580c19fee4e27487a67fe60defc0",
+                "url": "https://api.github.com/repos/doctrine/common/zipball/7bce00698899aa2c06fe7365c76e4d78ddb15fa3",
+                "reference": "7bce00698899aa2c06fe7365c76e4d78ddb15fa3",
                 "shasum": ""
             },
             "require": {
@@ -371,7 +371,7 @@
                 "persistence",
                 "spl"
             ],
-            "time": "2015-12-25 13:18:31"
+            "time": "2016-11-30 16:50:46"
         },
         {
             "name": "doctrine/data-fixtures",
@@ -2372,7 +2372,7 @@
                     "email": "stof@notk.org"
                 },
                 {
-                    "name": "KnpLabs",
+                    "name": "Knplabs",
                     "homepage": "http://knplabs.com"
                 },
                 {
@@ -2736,16 +2736,16 @@
         },
         {
             "name": "pagerfanta/pagerfanta",
-            "version": "v1.0.3",
+            "version": "v1.0.4",
             "source": {
                 "type": "git",
                 "url": "https://github.com/whiteoctober/Pagerfanta.git",
-                "reference": "a874d3612d954dcbbb49e5ffe178890918fb76fb"
+                "reference": "f846c5e06bb66df659a688ea4734aab49de589d6"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/whiteoctober/Pagerfanta/zipball/a874d3612d954dcbbb49e5ffe178890918fb76fb",
-                "reference": "a874d3612d954dcbbb49e5ffe178890918fb76fb",
+                "url": "https://api.github.com/repos/whiteoctober/Pagerfanta/zipball/f846c5e06bb66df659a688ea4734aab49de589d6",
+                "reference": "f846c5e06bb66df659a688ea4734aab49de589d6",
                 "shasum": ""
             },
             "require": {
@@ -2758,7 +2758,7 @@
                 "jmikola/geojson": "~1.0",
                 "mandango/mandango": "~1.0@dev",
                 "mandango/mondator": "~1.0@dev",
-                "phpunit/phpunit": "~4",
+                "phpunit/phpunit": "~4 | ~5",
                 "propel/propel1": "~1.6",
                 "ruflin/elastica": "~1.3",
                 "solarium/solarium": "~3.1"
@@ -2799,7 +2799,7 @@
                 "paginator",
                 "paging"
             ],
-            "time": "2014-10-06 10:57:25"
+            "time": "2016-11-28 09:17:04"
         },
         {
             "name": "paragonie/random_compat",
@@ -3992,16 +3992,16 @@
         },
         {
             "name": "sylius/sylius",
-            "version": "dev-master",
+            "version": "v1.0.0-beta.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Sylius/Sylius.git",
-                "reference": "26132b4c7113ae8439200f0b62f3db7e7fcd3854"
+                "reference": "bb4f57140efb5e7ac9dc56125e02b3f846835ff9"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Sylius/Sylius/zipball/26132b4c7113ae8439200f0b62f3db7e7fcd3854",
-                "reference": "26132b4c7113ae8439200f0b62f3db7e7fcd3854",
+                "url": "https://api.github.com/repos/Sylius/Sylius/zipball/bb4f57140efb5e7ac9dc56125e02b3f846835ff9",
+                "reference": "bb4f57140efb5e7ac9dc56125e02b3f846835ff9",
                 "shasum": ""
             },
             "require": {
@@ -4039,7 +4039,7 @@
                 "symfony/polyfill-intl-icu": "^1.3",
                 "symfony/polyfill-mbstring": "^1.3",
                 "symfony/swiftmailer-bundle": "^2.4",
-                "symfony/symfony": "^3.2@rc",
+                "symfony/symfony": "^3.2",
                 "twig/extensions": "^1.4",
                 "twig/twig": "^1.27",
                 "webmozart/assert": "^1.1",
@@ -4170,7 +4170,7 @@
             ],
             "description": "E-Commerce platform for PHP, based on Symfony framework.",
             "homepage": "http://sylius.org",
-            "time": "2016-11-29 10:22:50"
+            "time": "2016-12-02 06:51:14"
         },
         {
             "name": "symfony/monolog-bundle",
@@ -4636,16 +4636,16 @@
         },
         {
             "name": "symfony/symfony",
-            "version": "v3.2.0-RC2",
+            "version": "v3.2.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/symfony.git",
-                "reference": "1a29cec155956afc37670b23ae652b9bb201e08d"
+                "reference": "b96a144bc875684f3338f697687147a2696d73eb"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/symfony/zipball/1a29cec155956afc37670b23ae652b9bb201e08d",
-                "reference": "1a29cec155956afc37670b23ae652b9bb201e08d",
+                "url": "https://api.github.com/repos/symfony/symfony/zipball/b96a144bc875684f3338f697687147a2696d73eb",
+                "reference": "b96a144bc875684f3338f697687147a2696d73eb",
                 "shasum": ""
             },
             "require": {
@@ -4774,7 +4774,7 @@
             "keywords": [
                 "framework"
             ],
-            "time": "2016-11-27 04:46:36"
+            "time": "2016-11-30 08:46:24"
         },
         {
             "name": "twig/extensions",
@@ -8028,16 +8028,16 @@
         },
         {
             "name": "stripe/stripe-php",
-            "version": "v4.2.0",
+            "version": "v4.3.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/stripe/stripe-php.git",
-                "reference": "07a538d578dbdb5882e0fe537aa8e70124876290"
+                "reference": "234bcbd7483873c8762a67dfbdf2e6594b0a2ecc"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/stripe/stripe-php/zipball/07a538d578dbdb5882e0fe537aa8e70124876290",
-                "reference": "07a538d578dbdb5882e0fe537aa8e70124876290",
+                "url": "https://api.github.com/repos/stripe/stripe-php/zipball/234bcbd7483873c8762a67dfbdf2e6594b0a2ecc",
+                "reference": "234bcbd7483873c8762a67dfbdf2e6594b0a2ecc",
                 "shasum": ""
             },
             "require": {
@@ -8079,13 +8079,13 @@
                 "payment processing",
                 "stripe"
             ],
-            "time": "2016-11-22 01:58:56"
+            "time": "2016-11-30 19:16:32"
         }
     ],
     "aliases": [],
     "minimum-stability": "dev",
     "stability-flags": {
-        "sylius/sylius": 20
+        "sylius/sylius": 10
     },
     "prefer-stable": true,
     "prefer-lowest": false,
