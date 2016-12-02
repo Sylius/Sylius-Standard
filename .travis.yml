@@ -37,7 +37,7 @@ install:
 before_script:
     - bin/console doctrine:database:create --env=test_cached -vvv # Have to be run with debug = true, to omit generating proxies before setting up the database
     - bin/console cache:warmup --env=test_cached --no-debug -vvv
-    - bin/console doctrine:schema:create --env=test_cached --no-debug -vvv
+    - bin/console doctrine:mig:mig --env=test_cached --no-debug -vvv
 
     - bin/console assets:install --env=test_cached --no-debug -vvv
     - gulp
