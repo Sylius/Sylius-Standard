@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "7c8142e98560ebd3e965132f6f4abdf2",
-    "content-hash": "f4c388049128bd357ec570f96890cc46",
+    "hash": "ebba1302ae867fa73199800395fe7f0c",
+    "content-hash": "56f1e01b14f5871ff64687259bb09d8d",
     "packages": [
         {
             "name": "behat/transliterator",
@@ -2372,7 +2372,7 @@
                     "email": "stof@notk.org"
                 },
                 {
-                    "name": "Knplabs",
+                    "name": "KnpLabs",
                     "homepage": "http://knplabs.com"
                 },
                 {
@@ -3992,16 +3992,16 @@
         },
         {
             "name": "sylius/sylius",
-            "version": "v1.0.0-beta.1",
+            "version": "dev-master",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Sylius/Sylius.git",
-                "reference": "bb4f57140efb5e7ac9dc56125e02b3f846835ff9"
+                "reference": "0336bfeb48db88ac98e11c3aa2072558691dff09"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Sylius/Sylius/zipball/bb4f57140efb5e7ac9dc56125e02b3f846835ff9",
-                "reference": "bb4f57140efb5e7ac9dc56125e02b3f846835ff9",
+                "url": "https://api.github.com/repos/Sylius/Sylius/zipball/0336bfeb48db88ac98e11c3aa2072558691dff09",
+                "reference": "0336bfeb48db88ac98e11c3aa2072558691dff09",
                 "shasum": ""
             },
             "require": {
@@ -4145,9 +4145,8 @@
                     "Sylius\\Bundle\\": "src/Sylius/Bundle/",
                     "Sylius\\Component\\": "src/Sylius/Component/"
                 },
-                "classmap": [
-                    "app/AppKernel.php",
-                    "app/AppCache.php"
+                "exclude-from-classmap": [
+                    "src/Sylius/*/*/Tests/"
                 ]
             },
             "notification-url": "https://packagist.org/downloads/",
@@ -4170,7 +4169,7 @@
             ],
             "description": "E-Commerce platform for PHP, based on Symfony framework.",
             "homepage": "http://sylius.org",
-            "time": "2016-12-02 06:51:14"
+            "time": "2016-12-08 10:34:03"
         },
         {
             "name": "symfony/monolog-bundle",
@@ -8085,7 +8084,7 @@
     "aliases": [],
     "minimum-stability": "dev",
     "stability-flags": {
-        "sylius/sylius": 10
+        "sylius/sylius": 20
     },
     "prefer-stable": true,
     "prefer-lowest": false,
