@@ -22,11 +22,8 @@ cache:
         - $SYLIUS_CACHE_DIR
 
 before_install:
-    - phpenv config-rm xdebug.ini
+    - phpenv config-rm xdebug.ini || true
     - echo "memory_limit=4096M" >> ~/.phpenv/versions/$(phpenv version-name)/etc/conf.d/travis.ini
-
-    - composer config -g github-oauth.github.com f89d08114c80d1a1b019b09ce60a38f75a5c9480
-    - composer self-update
 
     - echo "extension = memcached.so" >> ~/.phpenv/versions/$(phpenv version-name)/etc/conf.d/travis.ini
 
@@ -37,10 +34,10 @@ install:
 before_script:
     - bin/console doctrine:database:create --env=test_cached -vvv # Have to be run with debug = true, to omit generating proxies before setting up the database
     - bin/console cache:warmup --env=test_cached --no-debug -vvv
-    - bin/console doctrine:mig:mig --no-interaction --env=test_cached --no-debug -vvv
+    - bin/console doctrine:migrations:migrate --no-interaction --env=test_cached --no-debug -vvv
 
     - bin/console assets:install --env=test_cached --no-debug -vvv
-    - gulp
+    - npm run gulp
 
     - /sbin/start-stop-daemon --start --quiet --pidfile /tmp/xvfb_99.pid --make-pidfile --background --exec /usr/bin/Xvfb -- :99 -ac -screen 0 1680x1050x16
     - export DISPLAY=:99
@@ -52,7 +49,7 @@ before_script:
     - bin/console server:run 127.0.0.1:8080 --env=test_cached --router=app/config/router_test_cached.php --no-debug --quiet > /dev/null 2>&1 &
 
 script:
-    - php -d opcache.enable_cli=0 bin/phpspec run --no-interaction -f dot
+    - bin/phpspec run --no-interaction -f dot
     - bin/behat --strict -f progress -p cached || bin/behat --strict -f progress -p cached --rerun
 
 after_failure:
