@@ -1,0 +1,7 @@
+# This file is part of the Sylius package.
+# (c) Paweł Jędrzejewski
+
+name: Sylius Migrations
+migrations_namespace: Sylius\Migrations
+table_name: sylius_migrations
+migrations_directory: "vendor/sylius/sylius/app/migrations/"
