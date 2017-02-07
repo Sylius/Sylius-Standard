@@ -18,3 +18,10 @@ twig:
 
 sylius_channel:
     debug: true
+
+fos_rest:
+    exception:
+        debug: true
+
+doctrine_migrations:
+    dir_name: "%kernel.root_dir%/../vendor/sylius/sylius/app/migrations"
