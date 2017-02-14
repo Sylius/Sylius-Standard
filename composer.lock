@@ -4024,12 +4024,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/Sylius/Sylius.git",
-                "reference": "7369e3f6343b3dcb03723256e3ad7a3abd4a61da"
+                "reference": "3cf394017f141f865fbf1735641290bec5b30c4a"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Sylius/Sylius/zipball/7369e3f6343b3dcb03723256e3ad7a3abd4a61da",
-                "reference": "7369e3f6343b3dcb03723256e3ad7a3abd4a61da",
+                "url": "https://api.github.com/repos/Sylius/Sylius/zipball/3cf394017f141f865fbf1735641290bec5b30c4a",
+                "reference": "3cf394017f141f865fbf1735641290bec5b30c4a",
                 "shasum": ""
             },
             "require": {
@@ -4071,7 +4071,7 @@
                 "twig/extensions": "^1.4",
                 "twig/twig": "^1.28",
                 "webmozart/assert": "^1.1",
-                "white-october/pagerfanta-bundle": "^1.0",
+                "white-october/pagerfanta-bundle": " ^1.0.8",
                 "willdurand/hateoas-bundle": "^1.2",
                 "winzou/state-machine-bundle": "^0.3",
                 "zendframework/zend-hydrator": "^2.2",
@@ -4196,7 +4196,7 @@
             ],
             "description": "E-Commerce platform for PHP, based on Symfony framework.",
             "homepage": "http://sylius.org",
-            "time": "2017-01-30 12:35:40"
+            "time": "2017-02-14 13:45:16"
         },
         {
             "name": "symfony/monolog-bundle",
