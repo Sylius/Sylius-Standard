@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "dfe92b90fe76adff84b830722a35961b",
+    "content-hash": "47816a93eabe9d0f026520eceb7e3433",
     "packages": [
         {
             "name": "behat/transliterator",
@@ -4024,12 +4024,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/Sylius/Sylius.git",
-                "reference": "3cf394017f141f865fbf1735641290bec5b30c4a"
+                "reference": "2f99d7ec3d9500ab49fd8fb6562be8d802a63cb7"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Sylius/Sylius/zipball/3cf394017f141f865fbf1735641290bec5b30c4a",
-                "reference": "3cf394017f141f865fbf1735641290bec5b30c4a",
+                "url": "https://api.github.com/repos/Sylius/Sylius/zipball/2f99d7ec3d9500ab49fd8fb6562be8d802a63cb7",
+                "reference": "2f99d7ec3d9500ab49fd8fb6562be8d802a63cb7",
                 "shasum": ""
             },
             "require": {
@@ -4071,7 +4071,7 @@
                 "twig/extensions": "^1.4",
                 "twig/twig": "^1.28",
                 "webmozart/assert": "^1.1",
-                "white-october/pagerfanta-bundle": " ^1.0.8",
+                "white-october/pagerfanta-bundle": "^1.0.8",
                 "willdurand/hateoas-bundle": "^1.2",
                 "winzou/state-machine-bundle": "^0.3",
                 "zendframework/zend-hydrator": "^2.2",
@@ -4127,6 +4127,7 @@
                 "behat/mink-browserkit-driver": "^1.3",
                 "behat/mink-extension": "^2.2",
                 "behat/mink-selenium2-driver": "^1.3",
+                "dama/doctrine-test-bundle": "^1.0",
                 "friends-of-behat/context-service-extension": "^0.3",
                 "friends-of-behat/cross-container-extension": "^0.2",
                 "friends-of-behat/performance-extension": "^1.0",
@@ -4196,7 +4197,7 @@
             ],
             "description": "E-Commerce platform for PHP, based on Symfony framework.",
             "homepage": "http://sylius.org",
-            "time": "2017-02-14 13:45:16"
+            "time": "2017-02-14 21:14:23"
         },
         {
             "name": "symfony/monolog-bundle",
@@ -4967,16 +4968,16 @@
         },
         {
             "name": "white-october/pagerfanta-bundle",
-            "version": "v1.0.7",
+            "version": "v1.0.8",
             "source": {
                 "type": "git",
                 "url": "https://github.com/whiteoctober/WhiteOctoberPagerfantaBundle.git",
-                "reference": "f7e0fdf94a763a21a7c4c36ec9d9b5bcf4e12521"
+                "reference": "ba78522935b141e7e3dee637dc0095fb44fde65b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/whiteoctober/WhiteOctoberPagerfantaBundle/zipball/f7e0fdf94a763a21a7c4c36ec9d9b5bcf4e12521",
-                "reference": "f7e0fdf94a763a21a7c4c36ec9d9b5bcf4e12521",
+                "url": "https://api.github.com/repos/whiteoctober/WhiteOctoberPagerfantaBundle/zipball/ba78522935b141e7e3dee637dc0095fb44fde65b",
+                "reference": "ba78522935b141e7e3dee637dc0095fb44fde65b",
                 "shasum": ""
             },
             "require": {
@@ -5015,7 +5016,7 @@
                 "page",
                 "paging"
             ],
-            "time": "2016-08-04T15:48:14+00:00"
+            "time": "2017-02-10T16:54:59+00:00"
         },
         {
             "name": "willdurand/hateoas",
