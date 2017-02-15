@@ -15,7 +15,6 @@ framework:
 doctrine:
     dbal:
         dbname: "%database_name%_test"
-        driver_class: Sylius\Bundle\CoreBundle\Test\MySqlDriver
 
 monolog:
     handlers:
