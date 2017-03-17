@@ -6,7 +6,7 @@ sylius_admin:
     prefix: /admin
 
 sylius_api:
-    resource: "@SyliusApiBundle/Resources/config/routing.yml"
+    resource: "@SyliusAdminApiBundle/Resources/config/routing.yml"
     prefix: /api
 
 sylius_shop:
