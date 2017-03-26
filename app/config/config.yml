@@ -11,7 +11,7 @@ imports:
     - { resource: "security.yml" }
 
 parameters:
-    locale: en_US
+    locale: ru_RU
 
 framework:
     translator: { fallbacks: ["%locale%"] }
@@ -30,7 +30,7 @@ framework:
 
 doctrine:
     dbal:
-        driver: pdo_mysql
+        driver: "%database_driver%"
         host: "%database_host%"
         port: "%database_port%"
         dbname: "%database_name%"
