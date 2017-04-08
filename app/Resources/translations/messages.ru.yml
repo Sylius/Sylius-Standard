@@ -2,6 +2,11 @@
 # (c) Paweł Jędrzejewski
 
 sylius:
+    menu:
+        admin:
+            main:
+                catalog:
+                    taxons: Категории    
     form:
         login:
             username: 'Логин'
@@ -12,6 +17,15 @@ sylius:
         notes: 'Дополнительные заметки'
         variant:
             tracked: 'Отслеживаемая'
+        product:
+            taxons: Категории 
+        promotion_filter:
+            taxons: Фильтр категорий
+        promotion_rule:
+            has_taxon:
+                taxons: Категории
+            taxonomy_configuration:
+                taxons: Категории              
     payum_gateway_factory:
         paypal_express_checkout: Оплата через Paypal
         stripe_checkout: Оплата через Stripe            
