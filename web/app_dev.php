@@ -21,6 +21,8 @@ use Symfony\Component\HttpFoundation\Request;
  *
  *   SetEnv SYLIUS_APP_DEV_PERMITTED 1
  */
+
+/*
 if (!getenv("SYLIUS_APP_DEV_PERMITTED") && (
     isset($_SERVER['HTTP_CLIENT_IP'])
     || isset($_SERVER['HTTP_X_FORWARDED_FOR'])
@@ -29,8 +31,8 @@ if (!getenv("SYLIUS_APP_DEV_PERMITTED") && (
     header('HTTP/1.0 403 Forbidden');
     exit('You are not allowed to access this file. Check '.basename(__FILE__).' for more information.');
 }
-
-/** @var \Composer\Autoload\ClassLoader $loader */
+*/
+/** @var \Composer\Autoload\ClassLoader $loade  r */
 $loader = require __DIR__.'/../app/autoload.php';
 include_once __DIR__.'/../var/bootstrap.php.cache';
 

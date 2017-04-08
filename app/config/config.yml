@@ -10,6 +10,12 @@ imports:
     - { resource: "parameters.yml" }
     - { resource: "security.yml" }
 
+
+sylius_product:
+    resources:
+        product:
+            classes:
+                repository: AppBundle\Repository\ProductRepository
 parameters:
     locale: ru_RU
 

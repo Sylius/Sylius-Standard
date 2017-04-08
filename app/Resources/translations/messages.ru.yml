@@ -12,6 +12,9 @@ sylius:
         notes: 'Дополнительные заметки'
         variant:
             tracked: 'Отслеживаемая'
+    payum_gateway_factory:
+        paypal_express_checkout: Оплата через Paypal
+        stripe_checkout: Оплата через Stripe            
     ui:
         abandoned: 'Отменен'
         about: 'О нас'
@@ -223,7 +226,7 @@ sylius:
         customize_metadata: 'Настроить метаданные'
         customize_products_metadata: 'Настройка метаданных товаров'
         customizing_metadata: 'Настройка метаданных'
-        dashboard: 'Приборная панель'
+        dashboard: 'Панель управления'
         data: 'Данные'
         date: 'Дата'
         datetime: 'Дата и время'
@@ -564,6 +567,8 @@ sylius:
         order_details: 'Детали вашего заказа'
         order_history: 'История заказов'
         order_item_product: 'Товар'
+        order_items_based: 'На снове позиций заказа'
+        order_item_units_based: 'На основе количества позиций заказа'
         order_state: 'Статус заказа'
         order_summary: 'Ваш заказ'
         order_total: 'Сумма заказа'
@@ -610,7 +615,7 @@ sylius:
         presentation: 'Публичное название'
         previous: 'Предыдущее'
         price: 'Цена'
-        pricing: 'ценообразование'
+        pricing: 'Ценообразование'
         priority: 'Приоритет'
         privacy_policy: 'Политика конфидециальности'
         process_your_orders: 'Обработать ваши заказы'

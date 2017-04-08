@@ -20,10 +20,17 @@
 <body class="pushable">
 <div class="pusher">
     {% block top %}
-        <div id="menu" class="ui large sticky blue stackable menu">
-            {{ render(controller('sylius.controller.shop.currency_switch:renderAction')) }}
-            {{ render(controller('sylius.controller.shop.locale_switch:renderAction')) }}
-            {{ render(controller('sylius.controller.shop.security_widget:renderAction')) }}
+        <div class="logocontainer">
+            <a href="{{ path('sylius_shop_homepage') }}"><img src="{{ asset('assets/shop/img/logo.jpg') }}" alt="Sylius logo" class="ui small image logo" /></a>
+        </div>
+        
+        <div id="menu" class="ui large sticky blue stackable menu"> 
+            <div class="ui container">
+                {{ render(url('sylius_shop_partial_taxon_index_by_code', {'code': 'category', 'template': '@SyliusShop/Taxon/_horizontalMenu.html.twig'})) }}
+                {{ render(controller('sylius.controller.shop.currency_switch:renderAction')) }}
+                {{ render(controller('sylius.controller.shop.locale_switch:renderAction')) }}
+                {{ render(controller('sylius.controller.shop.security_widget:renderAction')) }}
+            </div>
         </div>
     {% endblock %}
 
@@ -32,7 +39,6 @@
             <header>
                 {% include '@SyliusShop/_header.html.twig' %}
 
-                {{ render(url('sylius_shop_partial_taxon_index_by_code', {'code': 'category', 'template': '@SyliusShop/Taxon/_horizontalMenu.html.twig'})) }}
             </header>
         {% endblock %}
 
