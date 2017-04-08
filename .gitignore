@@ -9,6 +9,8 @@
 !/bin/console
 !/bin/symfony_requirements
 
+/web/media/
+
 /vendor
 /node_modules
 
