@@ -14,14 +14,16 @@
 
     {% block stylesheets %}
         {% include '@SyliusUi/_stylesheets.html.twig' with {'path': 'assets/shop/css/style.css'} %}
+        {% include '@SyliusUi/_stylesheets.html.twig' with {'path': 'assets/shop/css/bootstrap/bootstrap.min.css'} %}
     {% endblock %}
 </head>
 
 <body class="pushable">
 <div class="pusher">
     {% block top %}
+           {% include '@SyliusShop/_contact.html.twig' with {'path': 'assets/shop/css/style.css'} %} 
         <div class="logocontainer">
-            <a href="{{ path('sylius_shop_homepage') }}"><img src="{{ asset('assets/shop/img/logo.jpg') }}" alt="Sylius logo" class="ui small image logo" /></a>
+            <a href="{{ path('sylius_shop_homepage') }}"><img src="{{ asset('assets/shop/img/logo.jpg') }}" alt="MarineWool logo" class="logo ui small image" /></a><span class="brand">MarineWool</span>
         </div>
         
         <div id="menu" class="ui large sticky blue stackable menu"> 
@@ -29,7 +31,6 @@
                 {{ render(url('sylius_shop_partial_taxon_index_by_code', {'code': 'category', 'template': '@SyliusShop/Taxon/_horizontalMenu.html.twig'})) }}
                 {{ render(controller('sylius.controller.shop.currency_switch:renderAction')) }}
                 {{ render(controller('sylius.controller.shop.locale_switch:renderAction')) }}
-                {{ render(controller('sylius.controller.shop.security_widget:renderAction')) }}
             </div>
         </div>
     {% endblock %}

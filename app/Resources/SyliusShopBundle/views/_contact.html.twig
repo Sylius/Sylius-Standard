@@ -1,0 +1,19 @@
+<div class="container container-fluid contact">
+    <div class="row">
+        <div class="col-md-2">
+            Телефон
+        </div>
+        <div class="col-md-2">
+            Пишите нам
+        </div>
+        <div class="col-md-2">
+            Соц. сети
+        </div>
+        <div class="col-md-3">
+            {{ render(url('sylius_shop_partial_cart_summary', {'template': '@SyliusShop/Cart/_widget.html.twig'})) }}
+        </div>
+        <div class="col-md-3">
+            {{ render(controller('sylius.controller.shop.security_widget:renderAction')) }}
+        </div> 
+    </div>
+</div>
