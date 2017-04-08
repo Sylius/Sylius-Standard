@@ -697,5 +697,5 @@ th a:visited {
 
 @font-face {
     font-family: rope;
-    src: url(fonts/rope.ttf);
+    src: url(../fonts/rope.ttf)  format('truetype');
    }
