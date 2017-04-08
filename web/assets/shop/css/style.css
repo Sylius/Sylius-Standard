@@ -627,8 +627,7 @@ body {
     border-radius: 75px;
 }
 .logocontainer {
-    padding-top:5px;
-    padding-left:5px;
+    padding:5px 10px;
     background-color: #9ac9cf!important;
 }
 
