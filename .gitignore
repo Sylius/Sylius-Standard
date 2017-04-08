@@ -12,7 +12,6 @@
 /web/media/
 
 /vendor
-/node_modules
 
 /etc/build/*
 !/etc/build/.gitkeep
