@@ -5,12 +5,6 @@
 /var/*
 !/var/.gitkeep
 
-/web/assets
-/web/bundles
-/web/css
-/web/js
-/web/media
-
 /bin/*
 !/bin/console
 !/bin/symfony_requirements
