@@ -705,8 +705,16 @@ th a:visited {
        font-size:10em;
        vertical-align:middle;
        display:inline-block;
-       color: #CC9966;
+       color: #660000;
    }
+   .brand{
+       font-family:rope;
+       font-size:10em;
+       vertical-align:middle;
+       display:inline-block;
+       color: white;
+   }
+
    
    .contact{
        text-align: center;
