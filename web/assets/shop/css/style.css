@@ -697,17 +697,24 @@ th a:visited {
   left: auto; }
 
 @font-face {
-    font-family: rope;
-    src: url(../fonts/rope.ttf)  format('truetype');
+    font-family: footbal;
+    src: url(../fonts/9778.ttf)  format('truetype');
    }
    .brand{
-       font-family:rope;
+       font-family:footbal;
        font-size:10em;
-       vertical-align:middle;
-       display:inline-block;
        color: white;
    }
-   
+   .brand_container{
+       text-align:center;
+       vertical-align:middle;
+       display:inline-block;
+       width:89%;
+   }
+   .logo_container{
+       width:10%;
+       display:inline-block;
+   }
    .contact{
        text-align: center;
        padding: 15px 0px;

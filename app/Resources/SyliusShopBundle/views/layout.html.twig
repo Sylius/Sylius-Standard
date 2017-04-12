@@ -25,7 +25,8 @@
     {% block top %}
            {% include '@SyliusShop/_contact.html.twig' with {'path': 'assets/shop/css/style.css'} %} 
         <div class="logocontainer">
-            <a href="{{ path('sylius_shop_homepage') }}"><img src="{{ asset('assets/shop/img/logo.jpg') }}" alt="MarineWool logo" class="logo ui small image" /></a><span class="brand">MarineWool</span>
+            <div class="logo_container"><a href="{{ path('sylius_shop_homepage') }}"><img src="{{ asset('assets/shop/img/logo.jpg') }}" alt="MarineWool logo" class="logo ui small image" /></a></div>
+            <div class="brand_container"><span class="brand">MarineWool</span></div>
         </div>
         
         <div id="menu" class="ui large sticky blue stackable menu"> 
