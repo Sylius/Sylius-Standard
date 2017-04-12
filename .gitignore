@@ -20,3 +20,6 @@
 /phpunit.xml
 /phpspec.yml
 /nbproject/*
+/.idea/*
+
+Apache*
