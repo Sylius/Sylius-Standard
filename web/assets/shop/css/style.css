@@ -700,28 +700,31 @@ th a:visited {
     font-family: footbal;
     src: url(../fonts/9778.ttf)  format('truetype');
    }
-   @media screen{
-       .brand{
+   
+   .brand{
        font-family:footbal;
-       font-size:10em;
+       font-size:9em;
        color: white;
    }
    .brand_container{
        text-align:center;
        vertical-align:middle;
        display:inline-block;
-       width:89%;
+       width:88%;
    }
    .logo_container{
        width:10%;
        display:inline-block;
    }
-   }
    
-   @media handheld{
+   @media only screen and (min-width : 320px) and (max-width : 700px) {
        .brand{
        font-size:4em !important;
    }
+
+   }
+   .row>div{
+       padding-top:4px;
    }
    .contact{
        text-align: center;
