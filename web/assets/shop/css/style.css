@@ -700,7 +700,8 @@ th a:visited {
     font-family: footbal;
     src: url(../fonts/9778.ttf)  format('truetype');
    }
-   .brand{
+   @media screen{
+       .brand{
        font-family:footbal;
        font-size:10em;
        color: white;
@@ -714,6 +715,13 @@ th a:visited {
    .logo_container{
        width:10%;
        display:inline-block;
+   }
+   }
+   
+   @media handheld{
+       .brand{
+       font-size:4em !important;
+   }
    }
    .contact{
        text-align: center;
