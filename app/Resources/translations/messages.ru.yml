@@ -18,7 +18,8 @@ sylius:
         variant:
             tracked: 'Отслеживаемая'
         product:
-            taxons: Категории 
+            taxons: Категории
+            main_taxon: Основная категория
         promotion_filter:
             taxons: Фильтр категорий
         promotion_rule:
@@ -433,7 +434,7 @@ sylius:
         logged_in_as: 'Вы вошли в систему как %username%'
         login: 'Вход'
         login_button: 'Вход'
-        login_sylius_store: 'Вход в <small>магазин Sylius</small>'
+        login_sylius_store: 'Вход в <small>магазин MarineWool</small>'
         logout: 'Выход'
         main_taxon: 'Основная категория'
         male: 'Мужской'

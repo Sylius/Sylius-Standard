@@ -730,3 +730,10 @@ th a:visited {
        text-align: center;
        padding: 15px 0px;
    }
+   
+   #tel{
+       vertical-align: -webkit-baseline-middle;
+   }
+   #search_button{
+       left: 58px;
+   }
