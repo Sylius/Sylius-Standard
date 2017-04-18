@@ -55,6 +55,11 @@ swiftmailer:
     host: "%mailer_host%"
     username: "%mailer_user%"
     password: "%mailer_password%"
+    
+sylius_mailer:
+    sender:
+        name: Marinewool.ru
+        address: no-reply@marinewool.ru
 
 fos_rest:
     exception: ~
