@@ -1,0 +1,10 @@
+{% block subject %}
+    Email address verification
+{% endblock %}
+
+{% block body %}
+    {% set url = channel.hostname is not null ? 'http://' ~ channel.hostname ~ path('sylius_shop_user_verification', { 'token': user.emailVerificationToken}) : url('sylius_shop_user_verification', { 'token': user.emailVerificationToken}) %}
+    {% autoescape %}
+        To verify your email address - please visit {{ url|raw }}
+    {% endautoescape %}
+{% endblock %}

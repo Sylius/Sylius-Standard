@@ -1,0 +1,13 @@
+{% block subject %}
+    Shipment confirmation
+{% endblock %}
+
+{% block body %}
+    {% autoescape %}
+        Your order with number {{ order.number }} has been sent using {{ shipment.method }}.
+        <br/>
+        You can check it's location with the "{{ shipment.tracking }}" tracking code.
+        <br/><br/>
+        Thank you for a successful transaction.
+    {% endautoescape %}
+{% endblock %}

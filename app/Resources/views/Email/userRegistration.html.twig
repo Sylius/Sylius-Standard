@@ -1,0 +1,13 @@
+{% block subject %}
+    Регистриция на marinewool.ru
+{% endblock %}
+
+{% block body %}
+    {% autoescape %}
+        Добро пожаловать в наш магазин!
+        <br/><br/>
+        Вы были успешно зарегистрированы.
+        <br/>
+        Спасибо вам {{ user.username }}.
+    {% endautoescape %}
+{% endblock %}
