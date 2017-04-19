@@ -179,7 +179,7 @@ a[x-apple-data-detectors=true] {
                   
                     <!--[if mso]><table width="100%" cellpadding="0" cellspacing="0" border="0"><tr><td style="padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;"><![endif]-->
 <div style="padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;">
-	<div style="font-size:12px;line-height:14px;font-family:Ubuntu, Tahoma, Verdana, Segoe, sans-serif;color:#555555;text-align:left;"><p style="margin: 0;font-size: 12px;line-height: 14px"><span style="font-size: 48px; line-height: 57px;">MarineWool</span></p></div>
+	<div style="font-size:12px;line-height:14px;font-family:Ubuntu, Tahoma, Verdana, Segoe, sans-serif;color:#555555;text-align:left;"><p style="margin: 0;font-size: 12px;line-height: 14px"><span style="font-size: 36px; line-height: 57px;">MarineWool</span></p></div>
 </div>
 <!--[if mso]></td></tr></table><![endif]-->
 
@@ -204,7 +204,7 @@ a[x-apple-data-detectors=true] {
                     <!--[if mso]><table width="100%" cellpadding="0" cellspacing="0" border="0"><tr><td style="padding-right: 10px; padding-left: 10px; padding-top: 25px; padding-bottom: 10px;"><![endif]-->
 <div style="padding-right: 10px; padding-left: 10px; padding-top: 25px; padding-bottom: 10px;">
 	<div style="font-size:12px;line-height:14px;color:#ffffff;font-family:Arial, 'Helvetica Neue', Helvetica, sans-serif;text-align:left;"><p style="margin: 0;font-size: 12px;line-height: 14px;text-align: center"><span style="font-size: 26px; line-height: 31px;">
-                    {% block templ %}
+                    {% block templ0 %}
                         
                     {% endblock %}
             </span></p></div>
@@ -215,7 +215,11 @@ a[x-apple-data-detectors=true] {
                   
                     <!--[if mso]><table width="100%" cellpadding="0" cellspacing="0" border="0"><tr><td style="padding-right: 10px; padding-left: 10px; padding-top: 0px; padding-bottom: 10px;"><![endif]-->
 <div style="padding-right: 10px; padding-left: 10px; padding-top: 0px; padding-bottom: 10px;">
-	<div style="font-size:12px;line-height:18px;text-align:center;color:#B8B8C0;font-family:Arial, 'Helvetica Neue', Helvetica, sans-serif;"><p style="margin: 0;font-size: 12px;line-height: 18px;text-align: center"><span style="font-size: 20px; line-height: 30px;">Спасибо за регистрацию</span></p></div>
+	<div style="font-size:12px;line-height:18px;text-align:center;color:#B8B8C0;font-family:Arial, 'Helvetica Neue', Helvetica, sans-serif;"><p style="margin: 0;font-size: 12px;line-height: 18px;text-align: center"><span style="font-size: 20px; line-height: 30px;">
+                    {% block templ1 %}
+                        
+                    {% endblock %}            
+            </span></p></div>
 </div>
 <!--[if mso]></td></tr></table><![endif]-->
 
@@ -245,7 +249,8 @@ a[x-apple-data-detectors=true] {
     <table align="left" border="0" cellspacing="0" cellpadding="0" width="32" height="32" style="border-collapse: collapse;table-layout: fixed;border-spacing: 0;mso-table-lspace: 0pt;mso-table-rspace: 0pt;vertical-align: top;Margin-right: 5px">
       <tbody><tr style="vertical-align: top"><td align="left" valign="middle" style="word-break: break-word;border-collapse: collapse !important;vertical-align: top">
         <a href="https://www.instagram.com/marine_wool/" title="Instagram" target="_blank">
-          <img src="images/instagram@2x.png" alt="Instagram" title="Instagram" width="32" style="outline: none;text-decoration: none;-ms-interpolation-mode: bicubic;clear: both;display: block !important;border: none;height: auto;float: none;max-width: 32px !important">
+          <!--<img src="images/instagram@2x.png" alt="Instagram" title="Instagram" width="32" style="outline: none;text-decoration: none;-ms-interpolation-mode: bicubic;clear: both;display: block !important;border: none;height: auto;float: none;max-width: 32px !important">-->
+          {% include("templates/instagramLogoEmailTemplate.html.twig") %}
         </a>
       <div style="line-height:5px;font-size:1px">&nbsp;</div>
       </td></tr>
@@ -254,7 +259,8 @@ a[x-apple-data-detectors=true] {
     <table align="left" border="0" cellspacing="0" cellpadding="0" width="32" height="32" style="border-collapse: collapse;table-layout: fixed;border-spacing: 0;mso-table-lspace: 0pt;mso-table-rspace: 0pt;vertical-align: top;Margin-right: 0">
       <tbody><tr style="vertical-align: top"><td align="left" valign="middle" style="word-break: break-word;border-collapse: collapse !important;vertical-align: top">
         <a href="https://vk.com/club144664503" title="Vkontakte" target="_blank">
-          <img src="images/vkontakte@2x.png" alt="Vkontakte" title="Vkontakte" width="32" style="outline: none;text-decoration: none;-ms-interpolation-mode: bicubic;clear: both;display: block !important;border: none;height: auto;float: none;max-width: 32px !important">
+          <!--<img src="images/vkontakte@2x.png" alt="Vkontakte" title="Vkontakte" width="32" style="outline: none;text-decoration: none;-ms-interpolation-mode: bicubic;clear: both;display: block !important;border: none;height: auto;float: none;max-width: 32px !important">-->
+          {% include("templates/vkLogoEmailTemplate.html.twig") %}
         </a>
       <div style="line-height:5px;font-size:1px">&nbsp;</div>
       </td></tr>
