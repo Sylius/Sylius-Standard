@@ -5,6 +5,9 @@
 
 {% block body %}
     {% include("baseEmailTemplate.html.twig") %}
+{% endblock %}
+
+{% block templ %}
     {% autoescape %}
         Добро пожаловать в наш магазин!
         <br/>
@@ -15,7 +18,5 @@
         <br/>
         <hr/>
         Интернет-магазин Marinewool.ru
-        <br/>
-        
     {% endautoescape %}
 {% endblock %}
