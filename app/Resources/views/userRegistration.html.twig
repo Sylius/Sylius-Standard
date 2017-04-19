@@ -1,3 +1,5 @@
+{% extends "@baseEmailTemplate.html.twig" %}
+
 {% block subject %}
     Регистриция на marinewool.ru
 {% endblock %}
@@ -5,9 +7,15 @@
 {% block body %}
     {% autoescape %}
         Добро пожаловать в наш магазин!
-        <br/><br/>
-        Вы были успешно зарегистрированы.
         <br/>
-        Спасибо вам {{ user.username }}.
+        Вы были успешно зарегистрированы. {#{ user.username }#}
+        <br/>
+        По всем возникающим вопросам обращаться по тел. <a href="tel:+7-983-395-86-13">+7-983-395-86-13</a>
+        <br/>
+        <br/>
+        <hr/>
+        Интернет-магазин Marinewool.ru
+        <br/>
+        
     {% endautoescape %}
 {% endblock %}
