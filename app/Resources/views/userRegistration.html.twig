@@ -1,10 +1,10 @@
-{% extends "@baseEmailTemplate.html.twig" %}
 
 {% block subject %}
     Регистриция на marinewool.ru
 {% endblock %}
 
 {% block body %}
+    {% include("baseEmailTemplate.html.twig") %}
     {% autoescape %}
         Добро пожаловать в наш магазин!
         <br/>
