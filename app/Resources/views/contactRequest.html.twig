@@ -1,12 +1,12 @@
 {% block subject %}
-    Contact request
+    Обращение из интернет-магазина Marinewool.ru
 {% endblock %}
 
 {% block body %}
     {% autoescape %}
-        Message from: {{ data.email }}
+        Контакт обращения: {{ data.email }}
         <br/>
-        Content:
+        Сообщение:
         <br/>
         "{{ data.message }}"
     {% endautoescape %}

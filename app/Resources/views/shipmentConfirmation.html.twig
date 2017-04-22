@@ -1,13 +1,19 @@
+{% extends "templates/baseEmailTemplate.html.twig" %}
+
 {% block subject %}
-    Shipment confirmation
+    Подтверждение заказа
 {% endblock %}
 
-{% block body %}
+{% block templ0 %}
     {% autoescape %}
-        Your order with number {{ order.number }} has been sent using {{ shipment.method }}.
+        Ваш заказ №{{ order.number }} был отправлен с помощью {{ shipment.method }}.
         <br/>
-        You can check it's location with the "{{ shipment.tracking }}" tracking code.
-        <br/><br/>
-        Thank you for a successful transaction.
+        Вы можете проверить его местонахождени по трекер-номеру: {{ shipment.tracking }}
+    {% endautoescape %}
+{% endblock %}
+
+{% block templ1 %}
+    {% autoescape %}
+        По всем возникающим вопросам обращаться по тел. <a href="tel:+7-983-395-86-13">+7-983-395-86-13</a>
     {% endautoescape %}
 {% endblock %}
