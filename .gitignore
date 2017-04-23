@@ -24,3 +24,4 @@
 /behat.yml
 /phpunit.xml
 /phpspec.yml
+/nbproject/*

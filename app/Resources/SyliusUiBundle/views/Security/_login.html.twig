@@ -1,0 +1,29 @@
+{% form_theme form '@SyliusUi/Form/theme.html.twig' %}
+
+{% import '@SyliusUi/Macro/messages.html.twig' as messages %}
+
+<div class="ui middle aligned center aligned grid">
+    <div class="column">
+        {% if paths.logo is defined %}
+        <div class="logocontainer">
+            <a href="{{ path('sylius_admin_dashboard') }}"><img src="{{ asset('assets/shop/img/logo.jpg') }}" alt="Sylius logo" class="ui small image logo" /></a>
+        </div>
+        {% endif %}
+
+        {% if last_error %}
+            <div class="ui left aligned basic segment">
+                {{ messages.error(last_error.message) }}
+            </div>
+        {% endif %}
+
+        {{ form_start(form, {'action': action|default('/'), 'attr': {'class': 'ui large loadable form', 'novalidate': 'novalidate'}}) }}
+            <div class="ui left aligned segment">
+                {{ form_row(form._username, {'value': last_username|default('')}) }}
+                {{ form_row(form._password) }}
+                {{ form_row(form._remember_me) }}
+                <input type="hidden" name="_csrf_admin_security_token" value="{{ csrf_token('admin_authenticate') }}">
+                <button type="submit" class="ui fluid large primary submit button">Login</button>
+            </div>
+        {{ form_end(form, {'render_rest': false}) }}
+    </div>
+</div>
