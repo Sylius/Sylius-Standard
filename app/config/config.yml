@@ -18,7 +18,7 @@ sylius_product:
             classes:
                 repository: AppBundle\Repository\ProductRepository
 parameters:
-    locale: ru_RU
+    locale: en_US
 
 framework:
     translator: { fallbacks: ["%locale%"] }
@@ -37,7 +37,7 @@ framework:
 
 doctrine:
     dbal:
-        driver: "%database_driver%"
+        driver: pdo_mysql
         host: "%database_host%"
         port: "%database_port%"
         dbname: "%database_name%"
