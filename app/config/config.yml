@@ -1,22 +1,12 @@
-# This file is part of the Sylius package.
-# (c) Paweł Jędrzejewski
-
 imports:
     - { resource: "@SyliusCoreBundle/Resources/config/app/config.yml" }
     - { resource: "@SyliusAdminBundle/Resources/config/app/config.yml" }
     - { resource: "@SyliusShopBundle/Resources/config/app/config.yml" }
-    - { resource: "@SyliusApiBundle/Resources/config/app/config.yml" }
+    - { resource: "@SyliusAdminApiBundle/Resources/config/app/config.yml" }
 
     - { resource: "parameters.yml" }
     - { resource: "security.yml" }
-    - { resource: "emails.yml" }
 
-
-sylius_product:
-    resources:
-        product:
-            classes:
-                repository: AppBundle\Repository\ProductRepository
 parameters:
     locale: ru_RU
 
