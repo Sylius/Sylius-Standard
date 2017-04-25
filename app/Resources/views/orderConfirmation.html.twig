@@ -1,0 +1,22 @@
+{% extends "templates/baseEmailTemplate.html.twig" %}
+
+{% block subject %}
+    Подтверждение заказа
+{% endblock %}
+
+{% block templ0 %}
+    {% set url = order.channel.hostname is not null ? 'http://' ~ order.channel.hostname ~ path('sylius_shop_order_show', {'tokenValue': order.tokenValue, '_locale': order.localeCode}) : url('sylius_shop_order_show', {'tokenValue': order.tokenValue, '_locale': order.localeCode}) %}
+    {% autoescape %}
+        Ваш заказ №{{ order.number }} успешно зарегистрирован.
+        <br/>
+        Чтобы просмотреть заказ или изменить способ оплаты - пожалуйста, перейдите по ссылке {{ url|raw }}
+        <br/><br/>
+        Спасибо за покупку в нашем интернет-магазине!
+    {% endautoescape %}
+{% endblock %}
+
+{% block templ1 %}
+    {% autoescape %}
+        По всем возникающим вопросам обращаться по тел. <a href="tel:+7-983-395-86-13">+7-983-395-86-13</a>
+    {% endautoescape %}
+{% endblock %}

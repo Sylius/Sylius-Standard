@@ -1,0 +1,20 @@
+{% extends "templates/baseEmailTemplate.html.twig" %}
+
+{% block subject %}
+    Регистриция в интернет-магазине marinewool.ru
+{% endblock %}
+
+{% block templ0 %}
+    {% autoescape %}
+        Вы были успешно зарегистрированы!
+        <br/>
+        Логин для входа в интернет-магазин: {{ user.username }}
+    {% endautoescape %}
+{% endblock %}
+
+{% block templ1 %}
+    {% autoescape %}
+        По всем возникающим вопросам обращаться по тел. <a href="tel:+7-983-395-86-13">+7-983-395-86-13</a>
+    {% endautoescape %}
+{% endblock %}
+        

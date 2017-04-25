@@ -1,6 +1,3 @@
-# This file is part of the Sylius package.
-# (c) Paweł Jędrzejewski
-
 imports:
     - { resource: "@SyliusCoreBundle/Resources/config/app/config.yml" }
     - { resource: "@SyliusAdminBundle/Resources/config/app/config.yml" }
@@ -11,7 +8,13 @@ imports:
     - { resource: "security.yml" }
 
 parameters:
-    locale: en_US
+    locale: ru_RU
+
+sylius_product:
+    resources:
+        product:
+            classes:
+                repository: AppBundle\Repository\ProductRepository
 
 framework:
     translator: { fallbacks: ["%locale%"] }
@@ -30,7 +33,7 @@ framework:
 
 doctrine:
     dbal:
-        driver: pdo_mysql
+        driver: "%database_driver%"
         host: "%database_host%"
         port: "%database_port%"
         dbname: "%database_name%"

@@ -1,0 +1,69 @@
+{% import '@SyliusUi/Macro/pagination.html.twig' as pagination %}
+{% import '@SyliusUi/Macro/buttons.html.twig' as buttons %}
+{% import '@SyliusUi/Macro/messages.html.twig' as messages %}
+{% import '@SyliusUi/Macro/table.html.twig' as table %}
+
+{% set definition = grid.definition %}
+{% set data = grid.data %}
+
+{% set path = path(app.request.attributes.get('_route'), app.request.attributes.get('_route_params')) %}
+
+{% if definition.filters|length > 0 %}
+    <div class="ui hidden divider"></div>
+    <div class="ui styled fluid accordion">
+        <div class="title active">
+            <i class="dropdown icon"></i>
+            {{ 'sylius.ui.filters'|trans }}
+        </div>
+        <div class="content active">
+            <form method="get" action="{{ path }}" id="filters" class="ui loadable form">
+                <div class="two fields">
+                {% for filter in definition.filters|sort_by('position') if filter.enabled %}
+                    {{ sylius_grid_render_filter(grid, filter) }}
+
+                    {% if loop.index0 % 2 %}
+                        </div>
+                        <div class="two fields">
+                    {% endif %}
+                {% endfor %}
+                </div>
+                {{ buttons.filter() }}
+                {{ buttons.resetFilters(path) }}
+            </form>
+        </div>
+    </div>
+{% endif %}
+
+<div class="ui segment">
+    {% if definition.limits|length > 1 and data|length > min(definition.limits) %}
+    <div class="ui two column fluid stackable grid">
+        <div class="fourteen wide column">
+            {{ pagination.simple(data) }}
+        </div>
+        <div class="two wide column">
+            <div class="ui fluid one item menu sylius-paginate">
+                {{ pagination.perPage(data, definition.limits) }}
+            </div>
+        </div>
+    </div>
+    {% else %}
+        {{ pagination.simple(data) }}
+    {% endif %}
+    {% if data|length > 0 %}
+        <table class="ui sortable stackable celled table">
+            <thead>
+            <tr>
+                {{ table.headers(grid, definition, app.request.attributes) }}
+            </tr>
+            </thead>
+            <tbody>
+            {% for row in data %}
+                {{ table.row(grid, definition, row) }}
+            {% endfor %}
+            </tbody>
+        </table>
+    {% else %}
+        {{ messages.info('sylius.ui.no_results_to_display') }}
+    {% endif %}
+    {{ pagination.simple(data) }}
+</div>

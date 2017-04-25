@@ -1,0 +1,13 @@
+{% block subject %}
+    Обращение из интернет-магазина Marinewool.ru
+{% endblock %}
+
+{% block body %}
+    {% autoescape %}
+        Контакт обращения: {{ data.email }}
+        <br/>
+        Сообщение:
+        <br/>
+        "{{ data.message }}"
+    {% endautoescape %}
+{% endblock %}

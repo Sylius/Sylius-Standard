@@ -5,15 +5,12 @@
 /var/*
 !/var/.gitkeep
 
-/web/assets
-/web/bundles
-/web/css
-/web/js
-/web/media
-
 /bin/*
 !/bin/console
 !/bin/symfony_requirements
+
+/web/media/
+/web/bundles
 
 /vendor
 /node_modules
@@ -24,3 +21,7 @@
 /behat.yml
 /phpunit.xml
 /phpspec.yml
+/nbproject/*
+/.idea/*
+
+Apache*

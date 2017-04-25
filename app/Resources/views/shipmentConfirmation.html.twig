@@ -1,0 +1,19 @@
+{% extends "templates/baseEmailTemplate.html.twig" %}
+
+{% block subject %}
+    Подтверждение заказа
+{% endblock %}
+
+{% block templ0 %}
+    {% autoescape %}
+        Ваш заказ №{{ order.number }} был отправлен с помощью {{ shipment.method }}.
+        <br/>
+        Вы можете проверить его местонахождени по трекер-номеру: {{ shipment.tracking }}
+    {% endautoescape %}
+{% endblock %}
+
+{% block templ1 %}
+    {% autoescape %}
+        По всем возникающим вопросам обращаться по тел. <a href="tel:+7-983-395-86-13">+7-983-395-86-13</a>
+    {% endautoescape %}
+{% endblock %}

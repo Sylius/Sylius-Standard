@@ -1,0 +1,18 @@
+{% extends "templates/baseEmailTemplate.html.twig" %}
+
+{% block subject %}
+    Подтверждение email-адреса
+{% endblock %}
+
+{% block templ0 %}
+    {% set url = channel.hostname is not null ? 'http://' ~ channel.hostname ~ path('sylius_shop_user_verification', { 'token': user.emailVerificationToken}) : url('sylius_shop_user_verification', { 'token': user.emailVerificationToken}) %}
+    {% autoescape %}
+        Для подтверждения email-адреса перейдите по ссылке - {{ url|raw }}
+    {% endautoescape %}
+{% endblock %}
+
+{% block templ1 %}
+    {% autoescape %}
+        По всем возникающим вопросам обращаться по тел. <a href="tel:+7-983-395-86-13">+7-983-395-86-13</a>
+    {% endautoescape %}
+{% endblock %}
