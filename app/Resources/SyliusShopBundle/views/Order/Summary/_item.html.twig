@@ -1,0 +1,28 @@
+{% set orderPromotionAdjustment = constant('Sylius\\Component\\Core\\Model\\AdjustmentInterface::ORDER_PROMOTION_ADJUSTMENT') %}
+{% set itemPromotionAdjustment = constant('Sylius\\Component\\Core\\Model\\AdjustmentInterface::ORDER_ITEM_PROMOTION_ADJUSTMENT') %}
+{% set shippingAdjustment = constant('Sylius\\Component\\Core\\Model\\AdjustmentInterface::SHIPPING_ADJUSTMENT') %}
+{% set taxAdjustment = constant('Sylius\\Component\\Core\\Model\\AdjustmentInterface::TAX_ADJUSTMENT') %}
+
+{% set variant = item.variant %}
+{% set product = variant.product %}
+
+<tr>
+    <td class="single line">
+        {% include '@SyliusAdmin/Product/_info.html.twig' %}
+    </td>
+    <td class="right aligned unit-price">
+        {{ money.format(item.unitPrice, order.currencyCode) }}
+    </td>
+    <td class="right aligned quantity">
+        {{ item.quantity }}
+    </td>
+    <td class="right aligned subtotal">
+        {{ money.format(item.subtotal, order.currencyCode) }}
+    </td>
+    <td class="right aligned discount">
+        {{ money.format(item.getAdjustmentsTotalRecursively(orderPromotionAdjustment), order.currencyCode) }}
+    </td>
+    <td class="right aligned total">
+        {{ money.format(item.total, order.currencyCode) }}
+    </td>
+</tr>
