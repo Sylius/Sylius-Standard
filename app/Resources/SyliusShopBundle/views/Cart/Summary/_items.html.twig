@@ -22,7 +22,7 @@
             </tbody>
         </table>
         {% if form.promotionCoupon is defined %}
-            <div class="ui divider"></div>
+            <div class="ui hidden divider"></div>
 
             {{ sonata_block_render_event('sylius.shop.cart.summary.before_coupon', {'cart': cart, 'form': form}) }}
 
@@ -30,7 +30,7 @@
 
             {{ sonata_block_render_event('sylius.shop.cart.summary.after_coupon', {'cart': cart, 'form': form}) }}
         {% endif %}
-        <div class="ui hidden divider"></div>
+        <div class="ui divider"></div>
         {% include '@SyliusShop/Cart/Summary/_update.html.twig' %}
         {{ form_row(form._token) }}
     {{ form_end(form, {'render_rest': false}) }}
