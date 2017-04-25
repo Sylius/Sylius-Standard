@@ -1,0 +1,30 @@
+{% import "@SyliusShop/Common/Macro/money.html.twig" as money %}
+
+<tr>
+    <th colspan="4" class="right aligned" id="subtotal">
+        {{ 'sylius.ui.subtotal'|trans }}: {{ money.format(order.itemsTotal, order.currencyCode) }}
+    </th>
+</tr>
+<tr>
+    {% include '@SyliusShop/Common/Order/Table/_shipping.html.twig' with {'order': order} %}
+</tr>
+<!-- tr>
+    <td colspan="4" class="right aligned" id="tax-total">
+        {{ 'sylius.ui.tax_total'|trans }}: {{ money.format(order.taxTotal, order.currencyCode) }}
+    </td>
+</tr -->
+<tr>
+    {% include '@SyliusShop/Common/Order/Table/_promotion.html.twig' with {'order': order} %}
+</tr>
+<tr>
+    <td colspan="4" class="right aligned" style="font-size: 1.5em;" id="total">
+        {{ 'sylius.ui.total'|trans }}: {{ money.format(order.total, order.currencyCode) }}
+    </td>
+</tr>
+{% if order.currencyCode is not same as(sylius.currencyCode) %}
+<tr>
+    <td colspan="4" class="right aligned" id="base-total">
+        {{ 'sylius.ui.total_in_base_currency'|trans }}: {{ money.format(order.total, order.currencyCode) }}
+    </td>
+</tr>
+{% endif %}

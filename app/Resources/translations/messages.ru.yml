@@ -26,7 +26,9 @@ sylius:
             has_taxon:
                 taxons: Категории
             taxonomy_configuration:
-                taxons: Категории              
+                taxons: Категории  
+    variant:
+        shipping_required: 'Требуется ли доставка?'
     payum_gateway_factory:
         paypal_express_checkout: Оплата через Paypal
         stripe_checkout: Оплата через Stripe            
@@ -646,6 +648,7 @@ sylius:
         product_review: 'Отзыв о товаре'
         product_reviews: 'Отзывы о товаре'
         product_variants: 'Варианты товара'
+        product_taxon: 'Категории товара'
         products: 'Товары'
         products_categorized_as_name: 'Товары категории «%name%»'
         products_categorized_under_taxon_taxon: 'Товары <small>категории "%taxon%"</small>'
@@ -716,7 +719,7 @@ sylius:
         select_address_from_book: 'Выберите адрес из моей книги'
         select_products: 'Выберите товар'
         select_taxon: 'Выберите категорию'
-        send: 'Послать'
+        send: 'Отправить'
         server_has_encountered_some_errors: 'Сервер обнаружил некоторые ошибки.'
         set_a_new_password_for_your_account: 'Установить новый пароль для вашей учетной записи'
         set_as_default: 'Установить по умолчанию'
