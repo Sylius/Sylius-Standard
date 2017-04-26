@@ -594,7 +594,7 @@ sylius:
         orders: 'Заказы'
         orders_statistics: 'Статистика заказов'
         original_price: 'Исходная цена'
-        out_of_stock: 'Временно отсутствует. Скоро появится в наличии.'
+        out_of_stock: 'Временно отсутствует. Скоро появится в продаже.'
         overall_this_customer_has_placed_orders_across_all_channels.choice: '{0} |{1}Этот клиент разместил один заказ |] 1, Inf] в целом, этот клиент разместил %count% заказы(-ов) по всем каналам'
         overview_of_your_store: 'Обзор вашего магазина'
         page: 'Страница'
