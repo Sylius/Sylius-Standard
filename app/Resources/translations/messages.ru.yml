@@ -27,8 +27,8 @@ sylius:
                 taxons: Категории
             taxonomy_configuration:
                 taxons: Категории  
-    variant:
-        shipping_required: 'Требуется ли доставка?'
+        variant:
+            shipping_required: 'Требуется ли доставка?'
     payum_gateway_factory:
         paypal_express_checkout: Оплата через Paypal
         stripe_checkout: Оплата через Stripe            
