@@ -1,0 +1,11 @@
+{% if product.imagesByType('thumbnail') is not empty %}
+    {% set path = product.imagesByType('thumbnail').first.path|imagine_filter(filter|default('sylius_shop_product_thumbnail')) %}
+{% elseif product.imagesByType('main') is not empty %}
+    {% set path = product.imagesByType('main').first.path|imagine_filter(filter|default('sylius_shop_product_thumbnail')) %}
+{% elseif product.images.first %}
+    {% set path = product.images.first.path|imagine_filter(filter|default('sylius_shop_product_thumbnail')) %}
+{% else %}
+    {% set path = 'http://placehold.it/200x200' %}
+{% endif %}
+
+<img src="{{ path }}" alt="" class="ui bordered image" />
