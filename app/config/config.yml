@@ -7,6 +7,7 @@ imports:
     - { resource: "parameters.yml" }
     - { resource: "security.yml" }
     - { resource: "emails.yml" }
+    - { resource: "state_machine.yml" }    
 
 parameters:
     locale: ru_RU
