@@ -7,6 +7,9 @@ sylius_mailer:
         contact_request:
             subject: sylius.emails.contact_request.subject
             template: "contactRequest.html.twig"
+        order_confirmation_admin:
+            subject: sylius.emails.order_confirmation_admin.subject
+            template: "order_confirmation_admin.html.twig"        
         order_confirmation:
             subject: sylius.emails.order_confirmation.subject
             template: "orderConfirmation.html.twig"

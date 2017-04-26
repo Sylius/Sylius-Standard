@@ -1,0 +1,8 @@
+winzou_state_machine:
+    sylius_order:
+        callbacks:
+            after:
+                sylius_send_email:
+                    on: ["new"]
+                    do: ["@app.email_manager.order_confirmation_admin", "OrderComfirmAdminkEmail"]
+                    args: ["object"]
