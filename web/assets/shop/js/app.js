@@ -1714,3 +1714,9 @@ function handleProductVariantsChange() {
         $('#product-price').text($price);
     });
 }
+$('.cart.button')
+            .popup({
+                position: "bottom left",
+                popup: $('.cart.popup'),
+                on: 'click',
+            });
