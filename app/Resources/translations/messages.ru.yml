@@ -17,6 +17,7 @@ sylius:
         notes: 'Дополнительные заметки'
         variant:
             tracked: 'Отслеживаемая'
+            shipping_required: 'Требуется ли доставка?'
         product:
             taxons: Категории
             main_taxon: Основная категория
@@ -27,8 +28,6 @@ sylius:
                 taxons: Категории
             taxonomy_configuration:
                 taxons: Категории  
-        variant:
-            shipping_required: 'Требуется ли доставка?'
     payum_gateway_factory:
         paypal_express_checkout: Оплата через Paypal
         stripe_checkout: Оплата через Stripe            
@@ -595,7 +594,7 @@ sylius:
         orders: 'Заказы'
         orders_statistics: 'Статистика заказов'
         original_price: 'Исходная цена'
-        out_of_stock: 'Нет на складе'
+        out_of_stock: 'Временно отсутствует. Скоро появится в наличии.'
         overall_this_customer_has_placed_orders_across_all_channels.choice: '{0} |{1}Этот клиент разместил один заказ |] 1, Inf] в целом, этот клиент разместил %count% заказы(-ов) по всем каналам'
         overview_of_your_store: 'Обзор вашего магазина'
         page: 'Страница'
