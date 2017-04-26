@@ -879,6 +879,7 @@ sylius:
         value: 'Значение'
         values: 'Значения'
         variant: 'Вариант'
+        variant_onhand: 'В наличии (шт)'
         variant_choice: 'Вариант выбора'
         variant_selection_method: 'Метод выбора вариантов'
         variants: 'Варианты'

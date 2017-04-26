@@ -5,6 +5,7 @@
     <tr>
         <th>{{ 'sylius.ui.image'|trans }}</th>
         <th>{{ 'sylius.ui.variant'|trans }}</th>
+        <th>{{ 'sylius.ui.variant_onhand'|trans }}</th>
         <th>{{ 'sylius.ui.price'|trans }}</th>
         <th></th>
     </tr>
@@ -36,6 +37,7 @@
                     </div>
                 {% endif %}
             </td>
+            <td> {{ variant.onhand - variant.onhold }} </td>
             <td>{{ money.calculatePrice(variant) }}</td>
             <td class="right aligned">
                 {{ form_widget(form.cartItem.variant[loop.index0], {'label': false}) }}
