@@ -1276,6 +1276,7 @@ if(n.refresh(),e.fn.api!==i)if(t=C.api("get request"),o=C.api("was cancelled"))n
     $(document).ready(function () {
         $('.cart.button')
             .popup({
+                position: "bottom left",
                 popup: $('.cart.popup'),
                 on: 'click',
             })
@@ -1714,9 +1715,3 @@ function handleProductVariantsChange() {
         $('#product-price').text($price);
     });
 }
-$('.cart.button')
-            .popup({
-                position: "bottom left",
-                popup: $('.cart.popup'),
-                on: 'click',
-            });
