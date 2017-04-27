@@ -1711,7 +1711,7 @@ function handleProductOptionsChange() {
 
 function handleProductVariantsChange() {
     $('[name="sylius_add_to_cart[cartItem][variant]"]').on('change', function() {
-        var $price = $(this).parents('tr').find('td:nth-child(2)').text();
+        var $price = $(this).parents('tr').find('td:nth-child(4)').text();
         $('#product-price').text($price);
     });
 }
