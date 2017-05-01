@@ -38,18 +38,18 @@
             <p>{{ product.shortDescription }}</p>
         </div>
 
-        {{ sonata_block_render_event('sylius.shop.product.show.after_description', {'product': product}) }}
-
-        {% if product.isConfigurable() and product.getVariantSelectionMethod() == 'match' and not product.variants.empty() %}
-            {% include '@SyliusShop/Product/Show/_variantsPricing.html.twig' with {'pricing': sylius_product_variant_prices(product, sylius.channel)} %}
-        {% endif %}
-        {% include '@SyliusShop/Product/Show/_inventory.html.twig' %}
-        <div class="ui hidden divider"></div>
-
         {{ sonata_block_render_event('sylius.shop.product.show.after_add_to_cart', {'product': product}) }}
     </div>
 </div>
 
+{{ sonata_block_render_event('sylius.shop.product.show.after_description', {'product': product}) }}
+
+{% if product.isConfigurable() and product.getVariantSelectionMethod() == 'match' and not product.variants.empty() %}
+    {% include '@SyliusShop/Product/Show/_variantsBlock.html.twig' with {'pricing': sylius_product_variant_prices(product, sylius.channel)} %}
+{% endif %}
+{% include '@SyliusShop/Product/Show/_inventory.html.twig' %}
+<div class="ui divider"></div>        
+        
 {{ sonata_block_render_event('sylius.shop.product.show.before_tabs', {'product': product}) }}
 
 {% include '@SyliusShop/Product/Show/_tabs.html.twig' %}

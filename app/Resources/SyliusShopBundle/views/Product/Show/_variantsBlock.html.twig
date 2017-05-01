@@ -1,0 +1,24 @@
+{% import "@SyliusShop/Common/Macro/money.html.twig" as money %}
+<div class="ui four column stackable grid" id="products">
+    {% for variant in product.variants %}
+        <div class="column">
+            <div class="ui fluid card">
+                <a href="{{ path('sylius_shop_product_show', {'slug': product.slug, '_locale': product.translation.locale}) }}" class="blurring dimmable image">
+                    <div class="ui dimmer">
+                        <div class="content">
+                            <div class="center">
+                                <div class="ui inverted button">{{ 'sylius.ui.view_more'|trans }}</div>
+                            </div>
+                        </div>
+                    </div>
+                    {% include '@SyliusShop/Product/_mainImage.html.twig' with {'product': product} %}
+                </a>
+                <div class="content">
+                    <div class="header sylius-product-name">{{ variant.name }} {{ form_widget(form.cartItem.variant[loop.index0], {'label': false}) }}</div>
+                        <div class="sylius-product-price">{{ 'sylius.ui.price'|trans }}: {{ money.calculatePrice(variant) }}</div>
+                        <div class="sylius-variant-onhand">{{ 'sylius.ui.variant_onhand'|trans }}: {{ variant.onhand - variant.onhold }}</div>
+                </div>
+            </div>
+        </div>
+    {% endfor %}
+</div>
