@@ -3,22 +3,29 @@
     {% for variant in product.variants %}
         <div class="column">
             <div class="ui fluid card">
-                <a href="{{ path('sylius_shop_product_show', {'slug': product.slug, '_locale': product.translation.locale}) }}" class="blurring dimmable image">
-                    <div class="ui dimmer">
-                        <div class="content">
-                            <div class="center">
-                                <div class="ui inverted button">{{ 'sylius.ui.view_more'|trans }}</div>
-                            </div>
-                        </div>
-                    </div>
-                    {% include '@SyliusShop/Product/_mainImage.html.twig' with {'product': product} %}
-                </a>
+                {% for image in product.images %}
+                    {% set path = image.path is not null ? image.path|imagine_filter('sylius_shop_product_small_thumbnail') : 'http://placehold.it/200x200' %}    
+                    {% for variant_images in image.productVariants %}
+                        {% if variant_images.id == variant.id %}                
+                            <a href="{{ image.path|imagine_filter('sylius_shop_product_original') }}" data-lightbox="sylius-product-image">
+                                <div class="ui dimmer">
+                                    <div class="content">
+                                        <div class="center">
+                                            <div class="ui inverted button">{{ 'sylius.ui.view_more'|trans }}</div>
+                                        </div>
+                                    </div>
+                                </div>                             
+                                <img class="ui bordered image" src="{{ path }}" data-large-thumbnail="{{ image.path|imagine_filter('sylius_shop_product_large_thumbnail') }}" />
+                            </a>
+                        {% endif %} 
+                    {% endfor %}
+                {% endfor %}
                 <div class="content">
                     <div class="header sylius-product-name">{{ variant.name }} {{ form_widget(form.cartItem.variant[loop.index0], {'label': false}) }}</div>
-                        <div class="sylius-product-price">{{ 'sylius.ui.price'|trans }}: {{ money.calculatePrice(variant) }}</div>
-                        <div class="sylius-variant-onhand">{{ 'sylius.ui.variant_onhand'|trans }}: {{ variant.onhand - variant.onhold }}</div>
-                </div>
-            </div>
+                    <div class="sylius-product-price">{{ 'sylius.ui.price'|trans }}: {{ money.calculatePrice(variant) }}</div>
+                    <div class="sylius-variant-onhand">{{ 'sylius.ui.variant_onhand'|trans }}: {{ variant.onhand - variant.onhold }}</div>
+                </div>                
+            </div>            
         </div>
     {% endfor %}
 </div>
