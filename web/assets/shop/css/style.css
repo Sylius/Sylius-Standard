@@ -628,8 +628,9 @@ body {
     display:inline-block !important;
 }
 .logocontainer {
-    padding-left:10px;
+    padding-left: 10px;
     background-color: #9ac9cf!important;
+    margin-top: 50px;
 }
 
 #menu{
@@ -713,9 +714,8 @@ th a:visited {
        width:88%;
    }
    .logo_container{
-        padding-left: 10px;
-        background-color: #9ac9cf!important;
-        margin-top: 50px;
+       width:10%;
+       display:inline-block;
    }
    
    @media only screen and (min-width : 320px) and (max-width : 740px) {
