@@ -713,8 +713,9 @@ th a:visited {
        width:88%;
    }
    .logo_container{
-       width:10%;
-       display:inline-block;
+        padding-left: 10px;
+        background-color: #9ac9cf!important;
+        margin-top: 50px;
    }
    
    @media only screen and (min-width : 320px) and (max-width : 740px) {
@@ -727,8 +728,13 @@ th a:visited {
        padding-top:4px;
    }
    .contact{
-       text-align: center;
-       padding: 15px 0px;
+        text-align: center;
+        padding: 5px 0px;
+        position: fixed;
+        z-index: 9999;
+        background-color: #f9fAfb;
+        width: 100% !important;
+        border-bottom: 1px solid rgba(223, 230, 236, 0.82);
    }
    
    #tel{
