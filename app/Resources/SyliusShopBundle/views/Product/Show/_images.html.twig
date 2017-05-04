@@ -15,7 +15,7 @@
 <a href="{{ original_path }}" class="ui fluid image" data-lightbox="sylius-product-image">
     <img src="{{ path }}" id="main-image" alt="" />
 </a>
-{% if product.images|length > 1 %}
+{% if product.imagesByType('main')|length > 1 %}
 <div class="ui divider"></div>
 
 {{ sonata_block_render_event('sylius.shop.product.show.before_thumbnails', {'product': product}) }}
