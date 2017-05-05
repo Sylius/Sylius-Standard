@@ -732,7 +732,7 @@ th a:visited {
         padding: 5px 0px;
         position: fixed;
         z-index: 9999;
-        background-color: #f9fAfb;
+        background-color: rgba(249, 250, 251, 0.85);
         width: 100% !important;
         border-bottom: 1px solid rgba(223, 230, 236, 0.82);
    }
