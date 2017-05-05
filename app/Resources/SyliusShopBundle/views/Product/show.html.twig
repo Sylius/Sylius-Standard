@@ -1,6 +1,11 @@
 {% extends '@SyliusShop/layout.html.twig' %}
 
 {% block title %}{{ product.name }} - {{ 'sylius.ui.shop_name'|trans }}{% endblock %}
+{% block metatags %}
+<meta name="Description" content="{{ product.translation.metadescription }}">
+    <meta name="Keywords" content="{{ product.translation.metakeywords}}">
+{% endblock %}
+
 
 {% block content %}
 {% include '@SyliusShop/Product/Show/_breadcrumb.html.twig' %}
