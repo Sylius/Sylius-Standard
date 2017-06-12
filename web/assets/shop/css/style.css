@@ -743,3 +743,19 @@ th a:visited {
    #search_button{
        left: 58px;
    }
+   
+   .news{
+       padding-bottom: 20px;
+   }
+   
+   .news_content{
+        border-top: 1px solid rgba(223, 230, 236, 0.82);   
+        height: 140px;
+   }
+   
+   .news_header {
+        background-color: #9ac9cf!important;
+        color: white !important;
+        text-align: center;
+        height: 60px;
+   }

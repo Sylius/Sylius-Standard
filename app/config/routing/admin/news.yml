@@ -1,0 +1,13 @@
+app_admin_news:
+    resource: |
+        alias: app.news
+        section: admin
+        templates: SyliusAdminBundle:Crud
+        redirect: update
+        grid: app_admin_news
+        vars:
+            all:
+                subheader: app.ui.uncost
+            index:
+                icon: 'file image outline'
+    type: sylius.resource

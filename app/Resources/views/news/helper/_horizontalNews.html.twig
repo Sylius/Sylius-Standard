@@ -1,0 +1,22 @@
+<div class="ui container">
+    <div class="ui three column stackable grid">
+        <div class="row">
+            {% for new in news %}
+                <div class="column">
+                    <div class="ui fluid card">
+                        <div class="content news_header">
+                            <a href="{{ path('sylius_shop_news_show', {'id': new.id, '_locale': 'ru_RU'}) }}" class="header"> {{ new.header }}</a>
+                        </div>
+                        <div class="container-fluid news_content">
+                            {{ new.shortText }}
+                        </div>
+                    </div>                
+                </div>
+                {% if 0 == loop.index % 4 %}
+                    </div>
+                    <div class="row">
+                {% endif %}
+            {% endfor %}
+        </div>
+    </div>
+</div>

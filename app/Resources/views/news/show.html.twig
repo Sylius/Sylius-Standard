@@ -1,0 +1,12 @@
+{% extends '@SyliusShop/layout.html.twig' %}
+
+{% block metatags %}
+{% endblock %}
+
+{% block content %}
+    {% include 'news/helper/_breadcrumb.html.twig' %}
+<h3 class="ui monster dividing header text-center">{{ news.header }}</h3>
+<div class="container-fluid">
+    {{ news.fullText|raw }}
+</div>    
+{% endblock %}

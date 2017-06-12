@@ -1,0 +1,21 @@
+{% extends '@SyliusShop/layout.html.twig' %}
+{% import '@SyliusUi/Macro/messages.html.twig' as messages %}
+
+
+{% block content %}
+{% include 'news/helper/_breadcrumb.html.twig' %}
+<h1 class="ui monster section dividing header">{{ 'app.ui.uncost'|trans }}</h1>
+    <div class="container-fluid">
+            {% if news|length > 0 %}
+                {% for new in news %}
+                    <div class="news">
+                        <span class="text-muted">{{ new.createdAt|date("Y.m.d") }}</span> - 
+                        <a href="{{ path('sylius_shop_news_show', {'id': new.id, '_locale': 'ru_RU'}) }}" class="header sylius-product-name"> {{ new.header }} </a>
+                        <p>{{ new.shortText }}</p>
+                    </div>
+                {% endfor %}
+            {% else %}    
+                {{ messages.info('sylius.ui.no_results_to_display') }}
+            {% endif %} 
+    </div>
+{% endblock %}

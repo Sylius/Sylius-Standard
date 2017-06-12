@@ -1,0 +1,28 @@
+sylius_shop_news_index:
+    path: /news/
+    methods: [GET]
+    defaults:
+        _controller: app.controller.news:indexAction
+        _sylius:
+            template: "news/index.html.twig"
+
+sylius_shop_news_show:
+    path: /news/{id}
+    methods: [GET]
+    defaults:
+        _controller: app.controller.news:showAction
+        _sylius:
+            template: "news/show.html.twig"
+sylius_shop_partial_news_index_latest:
+    path: /latest_news/{count}
+    methods: [GET]
+    defaults:
+        _controller: app.controller.news:indexAction
+        _sylius:
+            template: $template
+            repository:
+                method: findBy
+                arguments:
+                    - {}
+                    - {}
+                    - $count
