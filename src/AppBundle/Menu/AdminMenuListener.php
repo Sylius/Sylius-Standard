@@ -24,7 +24,7 @@ final class AdminMenuListener {
         ;
 
         $newsMenu
-                ->addChild('new')
+                ->addChild('new', ['route' => 'app_admin_news_index'])
                 ->setLabel('app.ui.uncost')
                 ->setLabelAttribute('icon', 'newspaper')                
         ;
