@@ -26,6 +26,7 @@ final class AdminMenuListener {
         $newsMenu
                 ->addChild('new')
                 ->setLabel('app.ui.uncost')
+                ->setLabelAttribute('icon', 'newspaper')                
         ;
     }
 }

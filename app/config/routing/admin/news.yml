@@ -9,5 +9,5 @@ app_admin_news:
             all:
                 subheader: app.ui.uncost
             index:
-                icon: 'file image outline'
+                icon: 'icon newspaper'
     type: sylius.resource
