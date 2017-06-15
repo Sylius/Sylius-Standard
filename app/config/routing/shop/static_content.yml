@@ -1,0 +1,11 @@
+sylius_shop_static_content_slug_show:
+    path: /static/{slug}
+    methods: [GET]
+    defaults:
+        _controller: app.controller.static_content:showAction
+        _sylius:
+            template: "static/show.html.twig"
+            repository:
+                method: findOneBySlug
+                arguments:
+                    - $slug
