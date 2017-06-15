@@ -11,7 +11,9 @@
                 {% endfor %}
             </div>
         </div>
-    {% else %}
+    {% elseif taxon.slug == 'glavnoie-menu/news' %}
+        <a href="{{ path('sylius_shop_news_index') }}" class="item">{{ taxon.name }}</a>        
+    {% else %}    
         <a href="{{ path('sylius_shop_product_index', {'slug': taxon.slug}) }}" class="item">{{ taxon.name }}</a>
     {% endif %}
 {% endmacro %}
