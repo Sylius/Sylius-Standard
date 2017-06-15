@@ -1,0 +1,11 @@
+{% extends '@SyliusShop/layout.html.twig' %}
+
+{% block metatags %}
+{% endblock %}
+
+{% block content %}
+<h3 class="ui monster dividing header text-center">{{ static_content.header }}</h3>
+<div class="container-fluid">
+    {{ static_content.content|raw }}
+</div>    
+{% endblock %}

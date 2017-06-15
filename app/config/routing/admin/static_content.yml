@@ -1,0 +1,13 @@
+app_admin_static_content:
+    resource: |
+        alias: app.static_content
+        section: admin
+        templates: SyliusAdminBundle:Crud
+        redirect: update
+        grid: app_admin_static_content
+        vars:
+            all:
+                subheader: app.ui.static_content
+            index:
+                icon: 'icon newspaper'
+    type: sylius.resource

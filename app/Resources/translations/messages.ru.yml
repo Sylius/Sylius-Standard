@@ -8,6 +8,13 @@ app:
         edit_news: 'Редактирование новостей'
         new_news: 'Создание новости'
         header: 'Заголовок'
+        slug: 'Псевдоним'
+        cms: 'Управление контентом'
+        static_content: 'Статичные страницы'
+        new_static_content: 'Новая страница'
+        edit_static_content: 'Редактирование страницы'
+        static_contents: 'Список страниц'
+
 
 sylius:
     menu:
@@ -20,6 +27,9 @@ sylius:
             username: 'Логин'
             password: 'Пароль'
             remember_me: 'Запомнить меня'
+        user:
+            password:
+                confirmation: 'Подтверждение'
         option:
             name: 'Название'
         notes: 'Дополнительные заметки'
@@ -263,7 +273,7 @@ sylius:
         delete: 'Удалить'
         delete_image: 'Удалить товар'
         deleted: '﻿Удалено'
-        delivery_and_shipping: 'Отправка и доставка'
+        delivery_and_shipping: 'Оплата и доставка'
         description: 'Описание'
         details: 'Подробнее'
         disable: 'Выкл'

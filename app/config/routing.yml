@@ -26,3 +26,6 @@ sylius_shop_default_locale:
 
 news:
     resource: 'routing/news.yml'
+    
+static_content:
+    resource: 'routing/static_content.yml'

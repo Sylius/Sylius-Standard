@@ -1,0 +1,9 @@
+app_admin:
+    resource: 'admin/static_content.yml'
+    prefix: /admin
+    
+app_news:
+    resource: 'shop/static_content.yml'
+    prefix: /{_locale}
+    requirements:
+        _locale: ^[a-z]{2}(?:_[A-Z]{2})?$
