@@ -1,6 +1,14 @@
 # This file is part of the Sylius package.
 # (c) Paweł Jędrzejewski
 
+app:
+    ui:
+        news: 'Список новостей'
+        uncost: 'Новости'
+        edit_news: 'Редактирование новостей'
+        new_news: 'Создание новости'
+        header: 'Заголовок'
+
 sylius:
     menu:
         admin:
@@ -563,6 +571,7 @@ sylius:
         not_available_in_your_country: 'Недоступно в вашей стране'
         not_contains: 'Не содержит'
         not_empty: 'Не пустой'
+        not_equal: 'Не равно'
         not_in: 'Не в списке'
         not_verified: 'Не подтверждено'
         not_tracked: 'Не отслеживается'

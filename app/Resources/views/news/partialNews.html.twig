@@ -1,0 +1,2 @@
+<h2 class="ui horizontal section divider header"> <a href="{{ path('sylius_shop_news_index') }}" class="section">{{ 'app.ui.uncost'|trans }}</a> </h2>
+{{ render(url('sylius_shop_partial_news_index_latest', {'count': 3, 'template': 'news/helper/_horizontalNews.html.twig'})) }}

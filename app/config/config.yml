@@ -7,7 +7,9 @@ imports:
     - { resource: "parameters.yml" }
     - { resource: "security.yml" }
     - { resource: "emails.yml" }
-    - { resource: "state_machine.yml" }    
+    - { resource: "state_machine.yml" }
+    - { resource: "resources.yml" }
+    - { resource: "grids/grids.yml" }    
 
 parameters:
     locale: ru_RU
@@ -71,3 +73,8 @@ fos_rest:
         rules:
             - { path: '^/api', priorities: ['json', 'xml'], fallback_format: json, prefer_extension: true }
             - { path: '^/', stop: true }
+stfalcon_tinymce:
+    include_jquery: true
+    tinymce_jquery: true
+    selector: ""
+    language: "ru"

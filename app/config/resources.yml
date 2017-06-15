@@ -1,0 +1,6 @@
+sylius_resource:
+    resources:
+        app.news:
+            driver: doctrine/orm
+            classes:
+                model: AppBundle\Entity\News

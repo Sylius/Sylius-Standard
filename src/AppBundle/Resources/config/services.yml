@@ -1,1 +1,5 @@
-services: ~
+services:
+    app.listener.admin.menu_builder:
+        class: AppBundle\Menu\AdminMenuListener
+        tags:
+            - { name: kernel.event_listener, event: sylius.menu.admin.main, method: addAdminMenuItems }

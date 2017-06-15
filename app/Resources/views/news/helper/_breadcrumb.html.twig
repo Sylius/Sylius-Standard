@@ -1,0 +1,13 @@
+<div class="ui breadcrumb">
+    <a href="{{ path('sylius_shop_homepage') }}" class="section">{{ 'sylius.ui.home'|trans }}</a>
+    <div class="divider"> / </div>
+            {% if news.header is defined %}
+                <a href="{{ path('sylius_shop_news_index') }}" class="section">{{ 'app.ui.uncost'|trans }}</a>
+            {% else %}
+                {{ 'app.ui.uncost'|trans  }}
+            {% endif %}
+        {% if news.header is defined %}
+            <div class="divider"> / </div>
+            <div class="active section">{{ news.header }}</div>
+        {% endif %}
+</div>
