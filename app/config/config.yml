@@ -78,3 +78,7 @@ stfalcon_tinymce:
     tinymce_jquery: true
     selector: ""
     language: "ru"
+    
+twig:
+    globals:
+        version: '%asset_version%'
