@@ -5,7 +5,12 @@ sylius_shop_news_index:
         _controller: app.controller.news:indexAction
         _sylius:
             template: "news/index.html.twig"
-
+            repository:
+                method: findBy
+                arguments:
+                    - {}
+                    - {'createdAt': 'desc'}            
+                    
 sylius_shop_news_show:
     path: /news/{id}
     methods: [GET]
@@ -13,6 +18,7 @@ sylius_shop_news_show:
         _controller: app.controller.news:showAction
         _sylius:
             template: "news/show.html.twig"
+            
 sylius_shop_partial_news_index_latest:
     path: /latest_news/{count}
     methods: [GET]
