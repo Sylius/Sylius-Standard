@@ -18,14 +18,9 @@ sylius_grid:
                     sortable: true
                     position: 1
             actions:
-                main:
-                    create:
-                        type: create
                 item:
                     update:
                         type: update
-                    delete:
-                        type: delete
             filters:
                 header:
                     type: string
