@@ -10,6 +10,7 @@ imports:
     - { resource: "state_machine.yml" }
     - { resource: "resources.yml" }
     - { resource: "grids/grids.yml" }    
+    - { resource: "grids/product.yml" }
 
 parameters:
     locale: ru_RU

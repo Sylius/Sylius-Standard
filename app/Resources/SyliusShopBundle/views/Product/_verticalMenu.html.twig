@@ -1,0 +1,9 @@
+<div class="ui fluid vertical menu">
+    <ul class="list-unstyled">
+    {% for product in resources.data %}
+        <li class="item">    <a href="{{ path('sylius_shop_product_show', {'slug': product.slug, '_locale': product.translation.locale}) }}" class="header sylius-product-name">{{ product.name }}</a> </li>
+    {% endfor %}
+    </ul>
+</div>
+
+
