@@ -42,6 +42,7 @@
         {{ sonata_block_render_event('sylius.shop.product.show.after_price', {'product': product}) }}
 
         <div class="ui basic segment">
+            <h3>{{ 'sylius.form.product.short_description'|trans }}</h3>
             <p>{{ product.shortDescription|raw }}</p>
         </div>
 

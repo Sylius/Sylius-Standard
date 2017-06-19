@@ -39,6 +39,7 @@ sylius:
         product:
             taxons: Категории
             main_taxon: Основная категория
+            short_description: Краткое описание
         promotion_filter:
             taxons: Фильтр категорий
         promotion_rule:
