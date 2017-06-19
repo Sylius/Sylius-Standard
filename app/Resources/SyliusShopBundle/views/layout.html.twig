@@ -11,6 +11,9 @@
     
     {% block metatags %}
     {% endblock %}
+    {% block stylesheets %}
+        {% include '@SyliusUi/_stylesheets.html.twig' with {'path': 'assets/shop/css/style.css'} %}
+    {% endblock %}    
 </head>
 
 <body class="pushable">
