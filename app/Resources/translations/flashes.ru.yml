@@ -1,0 +1,6 @@
+# This file is part of the Sylius package.
+# (c) Paweł Jędrzejewski
+
+sylius:
+    customer:
+        register: 'Спасибо за регистрацию, для активации аккаунта перейдите по ссылке, отправленной на ваш почтовый ящик.'
