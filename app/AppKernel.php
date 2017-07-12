@@ -31,6 +31,12 @@ class AppKernel extends Kernel
 
             new \AppBundle\AppBundle(),
             new Stfalcon\Bundle\TinymceBundle\StfalconTinymceBundle(),
+	    new \Urbanara\CatalogPromotionPlugin\CatalogPromotionPlugin(),
+	    new \Sylius\ElasticSearchPlugin\SyliusElasticSearchPlugin(),
+            new \ONGR\ElasticsearchBundle\ONGRElasticsearchBundle(),
+	    new \ONGR\FilterManagerBundle\ONGRFilterManagerBundle(),
+	    new \SimpleBus\SymfonyBridge\SimpleBusCommandBusBundle(),
+            new \SimpleBus\SymfonyBridge\SimpleBusEventBusBundle()
         ];
 
         return array_merge(parent::registerBundles(), $bundles);

@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "d9e01df6b5f599ffdbef83544f989f27",
-    "content-hash": "ed601eeab0ea1bcc1cfe1f59eaee6320",
+    "hash": "1ed651fb9ae07c00737766e2fd351970",
+    "content-hash": "08de01ed262c28144c1ab31440c5a0a7",
     "packages": [
         {
             "name": "beberlei/assert",
@@ -2679,7 +2679,7 @@
                     "email": "stof@notk.org"
                 },
                 {
-                    "name": "Knplabs",
+                    "name": "KnpLabs",
                     "homepage": "http://knplabs.com"
                 },
                 {
@@ -2738,7 +2738,7 @@
                     "email": "stof@notk.org"
                 },
                 {
-                    "name": "KnpLabs",
+                    "name": "Knplabs",
                     "homepage": "http://knplabs.com"
                 },
                 {
@@ -5059,16 +5059,16 @@
         },
         {
             "name": "sylius/elastic-search-plugin",
-            "version": "v1.0.0-alpha.13",
+            "version": "v1.0.0-alpha.14",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Sylius/SyliusElasticSearchPlugin.git",
-                "reference": "bdf1dccbc80a44d3f7a6abad7530ef7ad754f4b5"
+                "reference": "9bcd9a88e58b6c2689b6d0fff1f2d023dfda8a05"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Sylius/SyliusElasticSearchPlugin/zipball/bdf1dccbc80a44d3f7a6abad7530ef7ad754f4b5",
-                "reference": "bdf1dccbc80a44d3f7a6abad7530ef7ad754f4b5",
+                "url": "https://api.github.com/repos/Sylius/SyliusElasticSearchPlugin/zipball/9bcd9a88e58b6c2689b6d0fff1f2d023dfda8a05",
+                "reference": "9bcd9a88e58b6c2689b6d0fff1f2d023dfda8a05",
                 "shasum": ""
             },
             "require": {
@@ -5119,7 +5119,7 @@
                 }
             ],
             "description": "Elastic search integration for Sylius.",
-            "time": "2017-06-29 16:35:26"
+            "time": "2017-07-11 13:42:28"
         },
         {
             "name": "sylius/sylius",
@@ -6025,16 +6025,16 @@
         },
         {
             "name": "urbanara/catalog-promotion-plugin",
-            "version": "v1.0.0-alpha.3",
+            "version": "v1.0.0-alpha.3.1",
             "source": {
                 "type": "git",
-                "url": "https://github.com/URBANARA/UrbanaraCatalogPromotionPlugin.git",
-                "reference": "45c93b87e522a9d3586200adc7bbaa6db94f7212"
+                "url": "https://github.com/akorchaginn/UrbanaraCatalogPromotionPlugin.git",
+                "reference": "d8a1c530cd4a4ea14142891a8d7eba845d0535e8"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/URBANARA/UrbanaraCatalogPromotionPlugin/zipball/45c93b87e522a9d3586200adc7bbaa6db94f7212",
-                "reference": "45c93b87e522a9d3586200adc7bbaa6db94f7212",
+                "url": "https://api.github.com/repos/akorchaginn/UrbanaraCatalogPromotionPlugin/zipball/d8a1c530cd4a4ea14142891a8d7eba845d0535e8",
+                "reference": "d8a1c530cd4a4ea14142891a8d7eba845d0535e8",
                 "shasum": ""
             },
             "require": {
@@ -6080,7 +6080,7 @@
                 }
             ],
             "description": "Catalog promotion extension for Sylius.",
-            "time": "2017-06-29 12:16:31"
+            "time": "2017-07-12 18:30:03"
         },
         {
             "name": "webmozart/assert",

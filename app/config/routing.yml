@@ -29,3 +29,6 @@ news:
     
 static_content:
     resource: 'routing/static_content.yml'
+urbanara_catalog_plugin:
+    resource: "@CatalogPromotionPlugin/Resources/config/routing.yml"
+    prefix: /admin
