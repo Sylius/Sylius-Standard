@@ -1,0 +1,21 @@
+{%- macro format(amount, currency_code) -%}
+    {{ amount|sylius_format_money(currency_code, sylius.localeCode) }}
+{%- endmacro -%}
+
+{%- macro convertAndFormat(amount) -%}
+    {% from _self import format %}
+
+    {{- format(amount|sylius_convert_money(sylius.channel.baseCurrency.code, sylius.currencyCode), sylius.currencyCode) }}
+{%- endmacro -%}
+
+{%- macro calculatePrice(variant) -%}
+    {% from _self import convertAndFormat %}
+
+    {% set price = variant|acme_catalog_price({'channel': sylius.channel}) %}
+
+    {% if price.basePrice == price.currentPrice %}
+        {{- convertAndFormat(price.basePrice) -}}
+    {% else %}
+        <s class="old-price">{{- convertAndFormat(price.basePrice) -}}</s> <span class="new-price">{{- convertAndFormat(price.currentPrice) -}}</span>
+    {% endif %}
+{%- endmacro -%}
