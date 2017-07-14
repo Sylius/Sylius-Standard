@@ -23,7 +23,13 @@
                 <div class="content">
                     <div class="header sylius-product-name">{{ variant.name }}</div>
                     <div class="sylius-product-price">{{ 'sylius.ui.price'|trans }}: {{ money.calculatePrice(variant) }}</div>
-                    <div class="sylius-variant-onhand">{{ 'sylius.ui.variant_onhand'|trans }}: {{ variant.onhand - variant.onhold }}</div>
+                    <div class="sylius-variant-onhand">
+                        {% if variant.onhand - variant.onhold <= 0 %}
+                            <p class="text-danger">{{ 'sylius.ui.variant_delivery_is_expected'|trans }}</p>
+                        {% else %}
+                                {{ 'sylius.ui.variant_onhand'|trans }}: {{ variant.onhand - variant.onhold }}
+                        {% endif %}
+                    </div>    
                        <input type="number" id="{{ variant.code }}" class="sylius_add_to_cart_cartItem_quantity" required="required" min="1" max="{{ variant.onhand - variant.onhold }}" value="1">
                        <button name="submit" id="{{ variant.code }}" class="ui primary icon button"><i class="cart icon"></i></button>
                 </div>                
