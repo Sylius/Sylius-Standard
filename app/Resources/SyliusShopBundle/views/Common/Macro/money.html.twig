@@ -4,15 +4,12 @@
 
 {%- macro convertAndFormat(amount) -%}
     {% from _self import format %}
-
     {{- format(amount|sylius_convert_money(sylius.channel.baseCurrency.code, sylius.currencyCode), sylius.currencyCode) }}
 {%- endmacro -%}
 
 {%- macro calculatePrice(variant) -%}
     {% from _self import convertAndFormat %}
-
     {% set price = variant|acme_catalog_price({'channel': sylius.channel}) %}
-
     {% if price.basePrice == price.currentPrice %}
         {{- convertAndFormat(price.basePrice) -}}
     {% else %}

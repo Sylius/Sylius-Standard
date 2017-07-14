@@ -83,7 +83,7 @@ stfalcon_tinymce:
     
 twig:
     globals:
-        version: 3
+        version: %asset_version%
 
 ongr_elasticsearch:
     managers:
@@ -93,3 +93,8 @@ ongr_elasticsearch:
             mappings:
                 CatalogPromotionPlugin:
                     document_dir: ElasticSearch\Document
+
+ongr_filter_manager:
+    managers:
+        search_list: #
+            repository: es.manager.default.product
