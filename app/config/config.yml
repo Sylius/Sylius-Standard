@@ -3,6 +3,7 @@ imports:
     - { resource: "@SyliusAdminBundle/Resources/config/app/config.yml" }
     - { resource: "@SyliusShopBundle/Resources/config/app/config.yml" }
     - { resource: "@SyliusAdminApiBundle/Resources/config/app/config.yml" }
+    - { resource: "@CatalogPromotionPlugin/Resources/config/app/grid.yml" }
 
     - { resource: "parameters.yml" }
     - { resource: "security.yml" }
@@ -82,4 +83,13 @@ stfalcon_tinymce:
     
 twig:
     globals:
-        version: '%asset_version%'
+        version: 3
+
+ongr_elasticsearch:
+    managers:
+        default:
+            index:
+                index_name: sylius
+            mappings:
+                CatalogPromotionPlugin:
+                    document_dir: ElasticSearch\Document

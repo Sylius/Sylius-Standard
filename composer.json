@@ -23,7 +23,8 @@
         "php": "^5.6|^7.0",
 
         "sylius/sylius": "^1.0@beta",
-        "stfalcon/tinymce-bundle": "2.0"
+        "stfalcon/tinymce-bundle": "2.0",
+        "urbanara/catalog-promotion-plugin": "v1.0.0-alpha.3"
     },
     "require-dev": {
         "behat/behat": "^3.2",
