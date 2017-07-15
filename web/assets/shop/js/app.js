@@ -1315,7 +1315,14 @@ if(n.refresh(),e.fn.api!==i)if(t=C.api("get request"),o=C.api("was cancelled"))n
 
         $('.sylius-cart-remove-button').removeFromCart();
         $('#sylius-product-adding-to-cart').addToCart();
-
+        
+        $("button[name=submit]").click(function(){
+            var baseId = this.id;
+            var quantitySelector = 'input#'+baseId;
+            $('#sylius_add_to_cart_cartItem_variant').val(baseId);
+            $('#sylius_add_to_cart_cartItem_quantity').val($(quantitySelector).val());
+        });
+        
         $('#sylius-shipping-address').addressBook();
         $('#sylius-billing-address').addressBook();
         $(document).provinceField();

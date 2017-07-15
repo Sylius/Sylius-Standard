@@ -34,9 +34,6 @@
                 {% include '@SyliusShop/Product/Show/_price.html.twig' %}
                 {% endif %}
             </div>
-            <!-- div class="twelve wide right aligned column">
-                <span class="ui sub header">{{ product.code }}</span>
-            </div -->
         </div>
 
         {{ sonata_block_render_event('sylius.shop.product.show.after_price', {'product': product}) }}
