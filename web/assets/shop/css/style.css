@@ -759,3 +759,9 @@ th a:visited {
         text-align: center;
         height: 60px;
    }
+   .graybutton{
+        background-color: gray !important;
+   }
+   .graybutton:hover{
+        background-color: darkgray !important;
+   }
