@@ -1323,6 +1323,10 @@ if(n.refresh(),e.fn.api!==i)if(t=C.api("get request"),o=C.api("was cancelled"))n
             $('#sylius_add_to_cart_cartItem_quantity').val($(quantitySelector).val());
         });
         
+        $(".clickable-row").click(function() {
+            window.location = $(this).data("href");
+        });        
+        
         $('#sylius-shipping-address').addressBook();
         $('#sylius-billing-address').addressBook();
         $(document).provinceField();

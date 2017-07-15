@@ -759,3 +759,6 @@ th a:visited {
         text-align: center;
         height: 60px;
    }
+   .clickable-row{
+       cursor: pointer;
+   }
