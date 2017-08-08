@@ -18,7 +18,7 @@
         <a href="{{ path('sylius_shop_homepage') }}" class="item">{{ taxon.name }}</a>        
         
     {% elseif taxon.slug == 'glavnoie-menu/kontakty' %}
-        <a href="{{ path('sylius_shop_static_content_slug_show', {'slug': 'contacs'}) }}" class="item">{{ taxon.name }}</a>        
+        <a href="{{ path('sylius_shop_static_content_slug_show', {'slug': 'contacts'}) }}" class="item">{{ taxon.name }}</a>        
         
     {% else %}    
         <a href="{{ path('sylius_shop_product_index', {'slug': taxon.slug}) }}" class="item">{{ taxon.name }}</a>
