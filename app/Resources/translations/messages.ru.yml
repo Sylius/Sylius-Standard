@@ -180,6 +180,7 @@ sylius:
         confirmation: 'Подтверждение'
         confirmation_title: 'Подтверждение'
         confirmed: 'Подтвержден'
+        contacts: 'Контакты'
         contact_us: 'Напишите нам'
         contain_variants: 'Содержит варианты'
         contains: 'Содержит'
