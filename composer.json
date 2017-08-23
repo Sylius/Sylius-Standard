@@ -85,8 +85,7 @@
         "symfony-tests-dir": "tests",
         "symfony-assets-install": "relative",
         "incenteev-parameters": {
-            "file": "app/config/parameters.yml",
-            "dist-file": "vendor/sylius/sylius/app/config/parameters.yml.dist"
+            "file": "app/config/parameters.yml"
         },
         "branch-alias": {
             "dev-master": "1.0-dev"
