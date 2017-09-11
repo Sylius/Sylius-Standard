@@ -9,6 +9,8 @@
  * file that was distributed with this source code.
  */
 
+declare(strict_types=1);
+
 require_once __DIR__.'/AppKernel.php';
 
 use ProxyManager\Proxy\VirtualProxyInterface;
@@ -16,7 +18,7 @@ use PSS\SymfonyMockerContainer\DependencyInjection\MockerContainer;
 use Symfony\Component\DependencyInjection\ContainerInterface;
 
 /**
- * @author Kamil Kokot <kamil.kokot@lakion.com>
+ * @author Kamil Kokot <kamil@kokot.me>
  */
 class TestAppKernel extends AppKernel
 {

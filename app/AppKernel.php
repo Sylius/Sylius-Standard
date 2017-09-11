@@ -9,6 +9,8 @@
  * file that was distributed with this source code.
  */
 
+declare(strict_types=1);
+
 use Sylius\Bundle\CoreBundle\Application\Kernel;
 
 /**
@@ -26,10 +28,8 @@ class AppKernel extends Kernel
             new \Sylius\Bundle\AdminBundle\SyliusAdminBundle(),
             new \Sylius\Bundle\ShopBundle\SyliusShopBundle(),
 
-            new \FOS\OAuthServerBundle\FOSOAuthServerBundle(), // Required by SyliusApiBundle
+            new \FOS\OAuthServerBundle\FOSOAuthServerBundle(), // Required by SyliusAdminApiBundle.
             new \Sylius\Bundle\AdminApiBundle\SyliusAdminApiBundle(),
-
-            new \AppBundle\AppBundle(),
         ];
 
         return array_merge(parent::registerBundles(), $bundles);
