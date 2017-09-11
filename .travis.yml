@@ -1,5 +1,7 @@
 language: php
 
+dist: precise
+
 env:
     global:
         - SYLIUS_CACHE_DIR=$HOME/.sylius-cache
@@ -59,7 +61,12 @@ before_script:
 
 script:
     - bin/phpspec run --no-interaction -f dot
-    - bin/behat --strict -f progress -p cached || bin/behat --strict -f progress -p cached --rerun
+
+    - echo "Testing (Behat - brand new, regular scenarios; ~@javascript && ~@todo && ~@cli)" "Sylius"
+    - bin/behat --strict --no-interaction -vvv -f progress -p cached --tags="~@javascript && ~@todo && ~@cli"
+
+    - echo "Testing (Behat - brand new, javascript scenarios; @javascript && ~@todo && ~@cli)" "Sylius"
+    - bin/behat --strict --no-interaction -vvv -f progress -p cached --tags="@javascript && ~@todo && ~@cli" || bin/behat --strict --no-interaction -vvv -f progress -p cached --tags="@javascript && ~@todo && ~@cli" --rerun
 
 after_failure:
     - vendor/lakion/mink-debug-extension/travis/tools/upload-textfiles "${SYLIUS_BUILD_DIR}/*.log"
