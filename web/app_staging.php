@@ -9,18 +9,18 @@
  * file that was distributed with this source code.
  */
 
+declare(strict_types=1);
+
 use Symfony\Component\HttpFoundation\Request;
 
 /*
  * Sylius front controller.
- * Live (production) environment.
+ * Staging environment.
  */
 
-/** @var \Composer\Autoload\ClassLoader $loader */
-$loader = require __DIR__.'/../vendor/autoload.php';
+require __DIR__.'/../vendor/autoload.php';
 
-$kernel = new AppKernel('prod', false);
-$kernel->loadClassCache();
+$kernel = new AppKernel('staging', false);
 
 $request = Request::createFromGlobals();
 
