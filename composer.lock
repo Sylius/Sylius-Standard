@@ -4852,16 +4852,16 @@
         },
         {
             "name": "sylius/sylius",
-            "version": "v1.0.0-rc.1",
+            "version": "v1.0.0-rc.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Sylius/Sylius.git",
-                "reference": "0ad765e3cf4b392521a3321e2ef5ca4683564e7f"
+                "reference": "80b2aa30436f2cd06e8fac93c61224af6a586edb"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Sylius/Sylius/zipball/0ad765e3cf4b392521a3321e2ef5ca4683564e7f",
-                "reference": "0ad765e3cf4b392521a3321e2ef5ca4683564e7f",
+                "url": "https://api.github.com/repos/Sylius/Sylius/zipball/80b2aa30436f2cd06e8fac93c61224af6a586edb",
+                "reference": "80b2aa30436f2cd06e8fac93c61224af6a586edb",
                 "shasum": ""
             },
             "require": {
@@ -4890,7 +4890,7 @@
                 "php": "^7.1",
                 "php-http/guzzle6-adapter": "^1.1",
                 "polishsymfonycommunity/symfony-mocker-container": "^1.0",
-                "sensio/distribution-bundle": "^5.0.19",
+                "sensio/distribution-bundle": "^5.0.21",
                 "sonata-project/block-bundle": "^3.3",
                 "sonata-project/intl-bundle": "^2.2",
                 "stof/doctrine-extensions-bundle": "^1.2",
@@ -4977,7 +4977,8 @@
                 "phpspec/phpspec": "^4.0",
                 "phpunit/phpunit": "^5.6",
                 "se/selenium-server-standalone": "^2.52",
-                "stripe/stripe-php": "^4.1"
+                "stripe/stripe-php": "^4.1",
+                "symplify/easy-coding-standard": "^2.3"
             },
             "suggest": {
                 "ext-iconv": "For better performance than using Symfony Polyfill Component",
@@ -5029,7 +5030,7 @@
             ],
             "description": "E-Commerce platform for PHP, based on Symfony framework.",
             "homepage": "http://sylius.org",
-            "time": "2017-09-11T21:00:29+00:00"
+            "time": "2017-09-12T18:03:42+00:00"
         },
         {
             "name": "symfony/monolog-bundle",
