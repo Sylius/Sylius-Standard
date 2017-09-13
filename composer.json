@@ -48,7 +48,6 @@
         "sensio/generator-bundle": "^3.1",
         "stripe/stripe-php": "^4.1"
     },
-    "minimum-stability": "dev",
     "prefer-stable": true,
     "scripts": {
         "post-install-cmd": [
