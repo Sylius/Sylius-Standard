@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "fd4700d8f944690702345d89b6a8e64e",
+    "content-hash": "ef5430299e194ea0804423b6454fe5e6",
     "packages": [
         {
             "name": "behat/transliterator",
@@ -4852,16 +4852,16 @@
         },
         {
             "name": "sylius/sylius",
-            "version": "v1.0.0-rc.2",
+            "version": "v1.0.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Sylius/Sylius.git",
-                "reference": "80b2aa30436f2cd06e8fac93c61224af6a586edb"
+                "reference": "b5920f580e7ffddacdd507161f3cb94a1e7f4ed2"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Sylius/Sylius/zipball/80b2aa30436f2cd06e8fac93c61224af6a586edb",
-                "reference": "80b2aa30436f2cd06e8fac93c61224af6a586edb",
+                "url": "https://api.github.com/repos/Sylius/Sylius/zipball/b5920f580e7ffddacdd507161f3cb94a1e7f4ed2",
+                "reference": "b5920f580e7ffddacdd507161f3cb94a1e7f4ed2",
                 "shasum": ""
             },
             "require": {
@@ -5030,7 +5030,7 @@
             ],
             "description": "E-Commerce platform for PHP, based on Symfony framework.",
             "homepage": "http://sylius.org",
-            "time": "2017-09-12T18:03:42+00:00"
+            "time": "2017-09-13T10:31:29+00:00"
         },
         {
             "name": "symfony/monolog-bundle",
@@ -9117,10 +9117,8 @@
         }
     ],
     "aliases": [],
-    "minimum-stability": "dev",
-    "stability-flags": {
-        "sylius/sylius": 5
-    },
+    "minimum-stability": "stable",
+    "stability-flags": [],
     "prefer-stable": true,
     "prefer-lowest": false,
     "platform": {
