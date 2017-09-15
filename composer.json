@@ -22,7 +22,7 @@
     "require": {
         "php": "^7.1",
 
-        "sylius/sylius": "^1.0"
+        "sylius/sylius": "^1.1@dev"
     },
     "require-dev": {
         "behat/behat": "^3.2",
@@ -85,7 +85,7 @@
             "file": "app/config/parameters.yml"
         },
         "branch-alias": {
-            "dev-master": "1.0-dev"
+            "dev-master": "1.1-dev"
         }
     }
 }
