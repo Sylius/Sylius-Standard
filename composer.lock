@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "ef5430299e194ea0804423b6454fe5e6",
+    "content-hash": "43a814f2a05ce463fab2ff9effd49206",
     "packages": [
         {
             "name": "behat/transliterator",
@@ -4852,16 +4852,16 @@
         },
         {
             "name": "sylius/sylius",
-            "version": "v1.0.0",
+            "version": "dev-master",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Sylius/Sylius.git",
-                "reference": "b5920f580e7ffddacdd507161f3cb94a1e7f4ed2"
+                "reference": "a04bfe805904d8efa2b19c919045301c257b6172"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Sylius/Sylius/zipball/b5920f580e7ffddacdd507161f3cb94a1e7f4ed2",
-                "reference": "b5920f580e7ffddacdd507161f3cb94a1e7f4ed2",
+                "url": "https://api.github.com/repos/Sylius/Sylius/zipball/a04bfe805904d8efa2b19c919045301c257b6172",
+                "reference": "a04bfe805904d8efa2b19c919045301c257b6172",
                 "shasum": ""
             },
             "require": {
@@ -4997,7 +4997,7 @@
                     "file": "app/config/parameters.yml"
                 },
                 "branch-alias": {
-                    "dev-master": "1.0-dev"
+                    "dev-master": "1.1-dev"
                 }
             },
             "autoload": {
@@ -5030,7 +5030,7 @@
             ],
             "description": "E-Commerce platform for PHP, based on Symfony framework.",
             "homepage": "http://sylius.org",
-            "time": "2017-09-13T10:31:29+00:00"
+            "time": "2017-09-15T10:26:32+00:00"
         },
         {
             "name": "symfony/monolog-bundle",
@@ -6030,7 +6030,7 @@
             ],
             "authors": [
                 {
-                    "name": "William DURAND",
+                    "name": "William Durand",
                     "email": "william.durand1@gmail.com"
                 }
             ],
@@ -9118,7 +9118,9 @@
     ],
     "aliases": [],
     "minimum-stability": "stable",
-    "stability-flags": [],
+    "stability-flags": {
+        "sylius/sylius": 20
+    },
     "prefer-stable": true,
     "prefer-lowest": false,
     "platform": {
