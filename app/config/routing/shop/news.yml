@@ -9,7 +9,7 @@ sylius_shop_news_index:
                 method: findBy
                 arguments:
                     - {}
-                    - {'createdAt': 'desc'}            
+                    - {'createdAt': 'desc'}
                     
 sylius_shop_news_show:
     path: /news/{id}

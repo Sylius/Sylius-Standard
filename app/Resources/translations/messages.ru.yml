@@ -597,7 +597,7 @@ sylius:
         options: 'Список опций'
         options_matching: 'Параметры сопоставления'
         or: 'или'
-        order: 'заказ'
+        order: 'Заказ'
         order_comment_name: 'Комментарий к заказу'
         order_comments: 'Комментарии к заказу'
         order_confirmation_name: 'Подтверждение заказа'
