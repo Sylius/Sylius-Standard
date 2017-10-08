@@ -32,3 +32,6 @@ static_content:
 urbanara_catalog_plugin:
     resource: "@CatalogPromotionPlugin/Resources/config/routing.yml"
     prefix: /admin
+    
+sylius_shop_product_by_channel_and_taxonid:
+    resource: 'routing/product_repository.yml'

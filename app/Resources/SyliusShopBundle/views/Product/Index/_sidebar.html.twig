@@ -2,4 +2,7 @@
     'slug': app.request.attributes.get('slug'),
     'template': '@SyliusShop/Taxon/_verticalMenu.html.twig'
 })) }}
-{% include '@SyliusShop/Product/_verticalMenu.html.twig'%}
+{{ render(url('sylius_shop_product_by_channel_and_taxonid', {
+    'taxonid': 2,
+    'template': '@SyliusShop/Product/_verticalMenu.html.twig'
+})) }}
