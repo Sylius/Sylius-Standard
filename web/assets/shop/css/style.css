@@ -762,3 +762,15 @@ th a:visited {
    .clickable-row{
        cursor: pointer;
    }
+   div.ui.segment{
+       background: none!important;
+       box-shadow: none!important;
+       border: none!important;
+   }
+   .ui.card{
+       background: #fcfcfe!important;
+   }
+   
+   .ui.card>.content {
+       border-top: none!important;
+   }

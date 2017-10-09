@@ -434,3 +434,7 @@ th a:visited {
 .field.loading.transition {
   top: auto;
   left: auto; }
+
+.ui.statistic>.value, .ui.statistics .statistic>.value {
+    font-size: 1rem!important;
+}
