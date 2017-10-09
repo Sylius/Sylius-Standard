@@ -1,0 +1,15 @@
+sylius_shop_product_by_channel_and_taxonid:
+    path: /bytaxonid/{taxonid}
+    methods: [GET]
+    defaults:
+        _controller: sylius.controller.product:indexAction
+        _sylius:
+            template: $template
+            repository:
+                method: findAllByChannelAndTaxonId
+                arguments:
+                    - "expr:service('sylius.context.channel').getChannel()"
+                    - "expr:service('sylius.context.locale').getLocaleCode()"
+                    - $taxonid
+    requirements:
+        taxonid: .+

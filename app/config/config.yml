@@ -20,7 +20,7 @@ sylius_product:
     resources:
         product:
             classes:
-                repository: AppBundle\Repository\ProductRepository
+                repository: AppBundle\Repository\ProductRepositoryExt
 
 framework:
     translator: { fallbacks: ["%locale%"] }
