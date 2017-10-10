@@ -31,7 +31,7 @@ class ProductRepositoryExt extends BaseProductRepository{
             ->andWhere('productTaxon.taxon = :taxonId')
             ->andWhere(':channel MEMBER OF o.channels')
             ->andWhere('o.enabled = true')
-            ->orderBy('productTaxon.taxon', 'ASC')
+            ->orderBy("UPPER(translation.name)", 'ASC')
             ->setParameter('channel', $channel)
             ->setParameter('locale', $locale)
             ->setParameter('taxonId', $taxonId)
