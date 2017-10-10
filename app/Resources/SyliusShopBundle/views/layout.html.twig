@@ -10,14 +10,7 @@
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
     
     {% block metatags %}
-    {% endblock %}
-    {% block stylesheets %}
-        {% include '@SyliusUi/_stylesheets.html.twig' with {'path': 'assets/shop/css/style.css'} %}
-        {% include '@SyliusUi/_stylesheets.html.twig' with {'path': 'assets/shop/css/bootstrap/bootstrap.min.css'} %}
-        {% include '@SyliusUi/_stylesheets.html.twig' with {'path': 'assets/shop/css/bootstrap/bootstrap-theme.min.css'} %}
-        {% include '@SyliusUi/_stylesheets.html.twig' with {'path': 'assets/shop/css/font-awesome.min.css'} %}
-        {% include '@SyliusUi/_stylesheets.html.twig' with {'path': 'assets/shop/css/bootstrap/bootstrap-social.css'} %}
-    {% endblock %}    
+    {% endblock %}   
 </head>
 
 <body class="pushable">
@@ -39,13 +32,6 @@
     {% endblock %}
 
     <div class="ui container">
-        {% block header %}
-            <header>
-                {% include '@SyliusShop/_header.html.twig' %}
-
-            </header>
-        {% endblock %}
-
         {% include '@SyliusUi/_flashes.html.twig' %}
 
         {% block content %}
@@ -69,12 +55,19 @@
         {% include '@SyliusShop/_footer.html.twig' %}
     {% endblock %}
 </div>
+{% include '@SyliusUi/Modal/_confirmation.html.twig' %}
+</body>
+{% block stylesheets %}
+    {% include '@SyliusUi/_stylesheets.html.twig' with {'path': 'assets/shop/css/style.css'} %}    
+    {% include '@SyliusUi/_stylesheets.html.twig' with {'path': 'assets/shop/css/bootstrap/bootstrap.min.css'} %}
+    {% include '@SyliusUi/_stylesheets.html.twig' with {'path': 'assets/shop/css/bootstrap/bootstrap-theme.min.css'} %}
+    {% include '@SyliusUi/_stylesheets.html.twig' with {'path': 'assets/shop/css/font-awesome.min.css'} %}
+    {% include '@SyliusUi/_stylesheets.html.twig' with {'path': 'assets/shop/css/bootstrap/bootstrap-social.css'} %}
+{% endblock %}    
 {% block javascripts %}
     {% include '@SyliusUi/_javascripts.html.twig' with {'path': 'assets/shop/js/app.js'} %}
     <!-- Yandex.Metrika counter --> <script type="text/javascript"> (function (d, w, c) { (w[c] = w[c] || []).push(function() { try { w.yaCounter44477557 = new Ya.Metrika({ id:44477557, clickmap:true, trackLinks:true, accurateTrackBounce:true, webvisor:true }); } catch(e) { } }); var n = d.getElementsByTagName("script")[0], s = d.createElement("script"), f = function () { n.parentNode.insertBefore(s, n); }; s.type = "text/javascript"; s.async = true; s.src = "https://mc.yandex.ru/metrika/watch.js"; if (w.opera == "[object Opera]") { d.addEventListener("DOMContentLoaded", f, false); } else { f(); } })(document, window, "yandex_metrika_callbacks"); </script> <noscript><div><img src="https://mc.yandex.ru/watch/44477557" style="position:absolute; left:-9999px;" alt="" /></div></noscript> <!-- /Yandex.Metrika counter -->
     <!-- Google.Analytics counter --> <script type="text/javascript"> !function(a,b,c,d,e,f,g){a.GoogleAnalyticsObject=e,a[e]=a[e]||function(){(a[e].q=a[e].q||[]).push(arguments)},a[e].l=1*new Date,f=b.createElement(c),g=b.getElementsByTagName(c)[0],f.async=1,f.src=d,g.parentNode.insertBefore(f,g)}(window,document,"script","https://www.google-analytics.com/analytics.js","ga"),ga("create","UA-98335457-1","auto"),ga("send","pageview");</script> <!-- /Google.Analytics counter -->
-{% endblock %}
+{% endblock %}    
 
-{% include '@SyliusUi/Modal/_confirmation.html.twig' %}
-</body>
 </html>
