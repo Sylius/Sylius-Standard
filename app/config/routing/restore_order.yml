@@ -6,7 +6,7 @@ sylius_admin_order_restore:
         _sylius:
             state_machine:
                 graph: sylius_order
-                transition: restore_order
+                transition: restore
             redirect: referer
             
 sylius_admin_order_recancel:
