@@ -49,6 +49,7 @@
         "stripe/stripe-php": "^4.1"
     },
     "prefer-stable": true,
+    "minimum-stability": "alpha",
     "scripts": {
         "post-install-cmd": [
             "Incenteev\\ParameterHandler\\ScriptHandler::buildParameters",
