@@ -3,3 +3,7 @@ services:
         class: AppBundle\Menu\AdminMenuListener
         tags:
             - { name: kernel.event_listener, event: sylius.menu.admin.main, method: addAdminMenuItems }
+    app.listener.admin.order.show.menu_builder:
+        class: AppBundle\Menu\AdminOrderShowMenuListener
+        tags:
+            - { name: kernel.event_listener, event: sylius.menu.admin.order.show, method: addAdminOrderShowMenuItems }            

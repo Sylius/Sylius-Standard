@@ -13,6 +13,10 @@ imports:
     - { resource: "grids/grids.yml" }    
     - { resource: "grids/product.yml" }
 
+twig:
+    globals:
+        version: %asset_version%
+
 parameters:
     locale: ru_RU
 
@@ -21,6 +25,12 @@ sylius_product:
         product:
             classes:
                 repository: AppBundle\Repository\ProductRepositoryExt
+
+sylius_order:
+    resources:
+        order:
+            classes:
+                controller: AppBundle\Controller\OrderRestoreController
 
 framework:
     translator: { fallbacks: ["%locale%"] }
@@ -80,10 +90,6 @@ stfalcon_tinymce:
     tinymce_jquery: true
     selector: ""
     language: "ru"
-    
-twig:
-    globals:
-        version: %asset_version%
 
 ongr_elasticsearch:
     managers:
