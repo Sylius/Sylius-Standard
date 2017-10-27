@@ -35,3 +35,7 @@ urbanara_catalog_plugin:
     
 sylius_shop_product_by_channel_and_taxonid:
     resource: 'routing/product_repository.yml'
+
+sylius_order_restore:
+    prefix: /admin
+    resource: 'routing/restore_order.yml'

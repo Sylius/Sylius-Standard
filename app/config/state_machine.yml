@@ -1,8 +1,69 @@
 winzou_state_machine:
     sylius_order:
+        states:
+            reopen: ~
+        transitions:
+            restore:
+                from: [cancelled]
+                to: reopen
+            cancel_from_reopen:
+                from: [reopen]
+                to: cancelled
         callbacks:
             after:
                 sylius_send_email:
-                    on: ["new"]
-                    do: ["@app.email_manager.order_confirmation_admin", "OrderComfirmAdminkEmail"]
+                    on: ['new']
+                    do: ["@app.email_manager.order_confirmation_admin", "sendOrderComfirmAdminkEmailManager"]
                     args: ["object"]
+                sylius_restore_order_payment:
+                    on: ['restore']
+                    do: ["@sm.callback.cascade_transition", "apply"]
+                    args: ["object", "event", "'restore_payment'", "'sylius_order_payment'"]
+                sylius_restore_order_shipping:
+                    on: ['restore']
+                    do: ["@sm.callback.cascade_transition", "apply"]
+                    args: ["object", "event", "'restore_shipment'", "'sylius_order_shipping'"]
+                sylius_restore_payment:
+                    on: ['restore']
+                    do: ["@sm.callback.cascade_transition", "apply"]
+                    args: ["object.getPayments()", "event", "'restore_payment'", "'sylius_payment'"]
+                sylius_restore_shipment:
+                    on: ['restore']
+                    do: ["@sm.callback.cascade_transition", "apply"]
+                    args: ["object.getShipments()", "event", "'restore_shipment'", "'sylius_shipment'"]                    
+                sylius_recancel_order_payment:
+                    on: ["cancel_from_reopen"]
+                    do: ["@sm.callback.cascade_transition", "apply"]
+                    args: ["object", "event", "'cancel'", "'sylius_order_payment'"]
+                sylius_recancel_order_shipping:
+                    on: ["cancel_from_reopen"]
+                    do: ["@sm.callback.cascade_transition", "apply"]
+                    args: ["object", "event", "'cancel'", "'sylius_order_shipping'"]
+                sylius_recancel_payment:
+                    on: ["cancel_from_reopen"]
+                    do: ["@sm.callback.cascade_transition", "apply"]
+                    args: ["object.getPayments()", "event", "'cancel'", "'sylius_payment'"]
+                sylius_recancel_shipment:
+                    on: ["cancel_from_reopen"]
+                    do: ["@sm.callback.cascade_transition", "apply"]
+                    args: ["object.getShipments()", "event", "'cancel'", "'sylius_shipment'"]                    
+    sylius_order_shipping:
+        transitions:
+            restore_shipment:
+                from: [cancelled]
+                to: ready
+    sylius_order_payment:
+        transitions:
+            restore_payment:
+                from: [cancelled]
+                to: awaiting_payment
+    sylius_shipment:
+        transitions:
+            restore_shipment:
+                from: [cancelled]
+                to: ready
+    sylius_payment:
+        transitions:
+            restore_payment:
+                from: [cancelled]
+                to: new

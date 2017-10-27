@@ -709,6 +709,7 @@ sylius:
         release_inventory: 'Инвентаризация выпуска'
         remember_me: 'Запомнить меня'
         remove_attribute: 'Удалить атрибут'
+        reopen: 'Переоткрыт'
         repeat_new_password: 'Повторите новый пароль'
         report_details: 'Сведения об отчете'
         reports: 'Отчеты'

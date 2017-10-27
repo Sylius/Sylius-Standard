@@ -1,4 +1,5 @@
 services:
     app.email_manager.order_confirm_admin:
-    class: AppBundle\EmailManager\OrderComfirmAdminEmailManager
-    arguments: ['@sylius.email_sender', '@sylius.availability_checker']
+        class: AppBundle\EmailManager\OrderComfirmAdminEmailManager
+        arguments: ['@sylius.email_sender', '@sylius.availability_checker']
+        
