@@ -6,7 +6,7 @@ winzou_state_machine:
             restore:
                 from: [cancelled]
                 to: reopen
-            cancel_from_reopen:
+            recancel:
                 from: [reopen]
                 to: cancelled
         callbacks:
@@ -31,22 +31,38 @@ winzou_state_machine:
                     on: ['restore']
                     do: ["@sm.callback.cascade_transition", "apply"]
                     args: ["object.getShipments()", "event", "'restore_shipment'", "'sylius_shipment'"]                    
+                sylius_restore_hold_inventory:
+                    on: ["restore"]
+                    do: ["@sylius.inventory.order_inventory_operator", "hold"]
+                    args: ["object"]
+                sylius_restore_increment_promotions_usages:
+                    on: ["restore"]
+                    do: ["@sylius.promotion_usage_modifier", "increment"]
+                    args: ["object"]                    
                 sylius_recancel_order_payment:
-                    on: ["cancel_from_reopen"]
+                    on: ["recancel"]
                     do: ["@sm.callback.cascade_transition", "apply"]
                     args: ["object", "event", "'cancel'", "'sylius_order_payment'"]
                 sylius_recancel_order_shipping:
-                    on: ["cancel_from_reopen"]
+                    on: ["recancel"]
                     do: ["@sm.callback.cascade_transition", "apply"]
                     args: ["object", "event", "'cancel'", "'sylius_order_shipping'"]
                 sylius_recancel_payment:
-                    on: ["cancel_from_reopen"]
+                    on: ["recancel"]
                     do: ["@sm.callback.cascade_transition", "apply"]
                     args: ["object.getPayments()", "event", "'cancel'", "'sylius_payment'"]
                 sylius_recancel_shipment:
-                    on: ["cancel_from_reopen"]
+                    on: ["recancel"]
                     do: ["@sm.callback.cascade_transition", "apply"]
-                    args: ["object.getShipments()", "event", "'cancel'", "'sylius_shipment'"]                    
+                    args: ["object.getShipments()", "event", "'cancel'", "'sylius_shipment'"]
+                sylis_recancel_order:
+                    on: ["recancel"]
+                    do: ["@sylius.inventory.order_inventory_operator", "cancel"]
+                    args: ["object"]
+                sylius_recancel_decrement_promotions_usages:
+                    on: ["recancel"]
+                    do: ["@sylius.promotion_usage_modifier", "decrement"]
+                    args: ["object"]                    
     sylius_order_shipping:
         transitions:
             restore_shipment:

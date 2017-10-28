@@ -17,5 +17,5 @@ sylius_admin_order_recancel:
         _sylius:
             state_machine:
                 graph: sylius_order
-                transition: cancel_from_reopen
+                transition: recancel
             redirect: referer            
