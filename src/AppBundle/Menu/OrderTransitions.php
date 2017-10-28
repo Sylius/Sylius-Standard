@@ -18,7 +18,7 @@ namespace AppBundle\Menu;
 final class OrderTransitions{
 
     const TRANSITION_RESTORE = 'restore';
-    const TRANSITION_RECANCEL = 'cancel_from_reopen';
+    const TRANSITION_RECANCEL = 'recancel';
     
     
     private function __construct()
