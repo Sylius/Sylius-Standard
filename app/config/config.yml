@@ -12,6 +12,7 @@ imports:
     - { resource: "resources.yml" }
     - { resource: "grids/grids.yml" }    
     - { resource: "grids/product.yml" }
+    - { resource: "liip_config.yml" }    
 
 twig:
     globals:
