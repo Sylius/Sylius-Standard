@@ -1,0 +1,22 @@
+liip_imagine:
+    filter_sets:
+        sylius_small:
+            quality : %liip_quality%
+        sylius_medium:
+            quality : %liip_quality%
+        sylius_large:
+            quality : %liip_quality%
+        sylius_admin_product_tiny_thumbnail:
+            quality : %liip_quality%
+        sylius_admin_product_thumbnail:
+            quality : %liip_quality%
+        sylius_shop_product_original:
+            quality : %liip_quality%
+        sylius_shop_product_tiny_thumbnail:
+            quality : %liip_quality%
+        sylius_shop_product_small_thumbnail:
+            quality : %liip_quality%
+        sylius_shop_product_thumbnail:
+            quality : %liip_quality%
+        sylius_shop_product_large_thumbnail:
+            quality : %liip_quality%
