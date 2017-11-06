@@ -20,11 +20,11 @@
         }
     ],
     "require": {
-        "php": "^7.1",
+        "php": "^5.6|^7.0",
+
+        "sylius/sylius": "^1.0@beta",
         "stfalcon/tinymce-bundle": "2.0",
-        "urbanara/catalog-promotion-plugin": "v1.0.0-alpha.3",
-        
-        "sylius/sylius": "^1.1@dev"
+        "urbanara/catalog-promotion-plugin": "v1.0.0-alpha.3"
     },
     "require-dev": {
         "behat/behat": "^3.2",
@@ -50,10 +50,12 @@
         "sensio/generator-bundle": "^3.1",
         "stripe/stripe-php": "^4.1"
     },
+    "minimum-stability": "dev",
     "prefer-stable": true,
     "scripts": {
         "post-install-cmd": [
             "Incenteev\\ParameterHandler\\ScriptHandler::buildParameters",
+            "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::buildBootstrap",
             "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::clearCache",
             "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::installAssets",
             "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::installRequirementsFile",
@@ -61,6 +63,7 @@
         ],
         "post-update-cmd": [
             "Incenteev\\ParameterHandler\\ScriptHandler::buildParameters",
+            "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::buildBootstrap",
             "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::clearCache",
             "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::installAssets",
             "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::installRequirementsFile",
@@ -85,10 +88,10 @@
         "symfony-assets-install": "relative",
         "incenteev-parameters": {
             "file": "app/config/parameters.yml",
-            "dist-file": "app/config/parameters.yml.dist"            
+            "dist-file": "app/config/parameters.yml.dist"
         },
         "branch-alias": {
-            "dev-master": "1.1-dev"
+            "dev-master": "1.0-dev"
         }
     }
 }

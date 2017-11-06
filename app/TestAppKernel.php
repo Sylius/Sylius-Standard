@@ -9,35 +9,32 @@
  * file that was distributed with this source code.
  */
 
-declare(strict_types=1);
-
 require_once __DIR__.'/AppKernel.php';
 
-use ProxyManager\Proxy\VirtualProxyInterface;
 use PSS\SymfonyMockerContainer\DependencyInjection\MockerContainer;
 use Symfony\Component\DependencyInjection\ContainerInterface;
 
 /**
- * @author Kamil Kokot <kamil@kokot.me>
+ * @author Kamil Kokot <kamil.kokot@lakion.com>
  */
 class TestAppKernel extends AppKernel
 {
     /**
      * {@inheritdoc}
      */
-    public function shutdown(): void
+    public function shutdown()
     {
         if (false === $this->booted) {
             return;
         }
 
-        if (!in_array($this->getEnvironment(), ['test', 'test_cached'], true)) {
+        if (!in_array($this->environment, ['test', 'test_cached'], true)) {
             parent::shutdown();
 
             return;
         }
 
-        $container = $this->getContainer();
+        $container = $this->container;
         parent::shutdown();
         $this->cleanupContainer($container);
     }
@@ -47,7 +44,7 @@ class TestAppKernel extends AppKernel
      *
      * @param ContainerInterface $container
      */
-    protected function cleanupContainer(ContainerInterface $container): void
+    protected function cleanupContainer(ContainerInterface $container)
     {
         $containerReflection = new \ReflectionObject($container);
         $containerServicesPropertyReflection = $containerReflection->getProperty('services');
@@ -55,15 +52,11 @@ class TestAppKernel extends AppKernel
 
         $services = $containerServicesPropertyReflection->getValue($container) ?: [];
         foreach ($services as $serviceId => $service) {
-            if (in_array($serviceId, $this->getServicesToIgnoreDuringContainerCleanup())) {
+            if ('kernel' === $serviceId || 'http_kernel' === $serviceId) {
                 continue;
             }
 
             $serviceReflection = new \ReflectionObject($service);
-
-            if ($serviceReflection->implementsInterface(VirtualProxyInterface::class)) {
-                continue;
-            }
 
             $servicePropertiesReflections = $serviceReflection->getProperties();
             $servicePropertiesDefaultValues = $serviceReflection->getDefaultProperties();
@@ -81,18 +74,16 @@ class TestAppKernel extends AppKernel
         $containerServicesPropertyReflection->setValue($container, null);
     }
 
-    protected function getContainerBaseClass(): string
+    protected function getContainerBaseClass()
     {
         return MockerContainer::class;
     }
 
-    protected function getServicesToIgnoreDuringContainerCleanup(): array
+    /**
+     * {@inheritdoc}
+     */
+    public function registerBundles()
     {
-        return [
-            'kernel',
-            'http_kernel',
-            'liip_imagine.mime_type_guesser',
-            'liip_imagine.extension_guesser',
-        ];
+        return array_merge(parent::registerBundles(), [new DAMA\DoctrineTestBundle\DAMADoctrineTestBundle()]);
     }
 }
