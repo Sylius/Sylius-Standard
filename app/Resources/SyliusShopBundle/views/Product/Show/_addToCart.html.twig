@@ -14,13 +14,16 @@
         {% else %}
             {% include '@SyliusShop/Product/Show/_options.html.twig' %}
         {% endif %}
+        <div class="row">
+            <div class="col-xs-12 col-sm-6 col-md-4">
+                <input type="hidden" id="sylius_add_to_cart_cartItem_quantity" name="sylius_add_to_cart[cartItem][quantity]" required="required" min="1" value="1">
+                <input type="hidden" id="sylius_add_to_cart_cartItem_variant" name="sylius_add_to_cart[cartItem][variant]" required="required" value="">
+            </div>
+        </div>        
+    {% else %}
+        {{ form_row(form.cartItem.quantity) }}
+        <button type="submit" class="ui huge primary icon labeled button"><i class="cart icon"></i> {{ 'sylius.ui.add_to_cart'|trans }}</button>
     {% endif %}
-    <div class="row">
-        <div class="col-xs-12 col-sm-6 col-md-4">
-            <input type="hidden" id="sylius_add_to_cart_cartItem_quantity" name="sylius_add_to_cart[cartItem][quantity]" required="required" min="1" value="1">
-            <input type="hidden" id="sylius_add_to_cart_cartItem_variant" name="sylius_add_to_cart[cartItem][variant]" required="required" value="">
-        </div>
-    </div>
 
     {{ sonata_block_render_event('sylius.shop.product.show.add_to_cart_form', {'product': product, 'order_item': order_item}) }} 
     {{ form_row(form._token) }}
