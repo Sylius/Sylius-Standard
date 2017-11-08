@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "43a814f2a05ce463fab2ff9effd49206",
+    "content-hash": "f20c69e0e6710233792867cb17746f4f",
     "packages": [
         {
             "name": "behat/transliterator",
@@ -2609,7 +2609,7 @@
                     "email": "stof@notk.org"
                 },
                 {
-                    "name": "KnpLabs",
+                    "name": "Knplabs",
                     "homepage": "http://knplabs.com"
                 },
                 {
@@ -2668,7 +2668,7 @@
                     "email": "stof@notk.org"
                 },
                 {
-                    "name": "KnpLabs",
+                    "name": "Knplabs",
                     "homepage": "http://knplabs.com"
                 },
                 {
@@ -4856,12 +4856,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/Sylius/Sylius.git",
-                "reference": "a04bfe805904d8efa2b19c919045301c257b6172"
+                "reference": "210f197b90e4f4e45999102118f495ef943e50ec"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Sylius/Sylius/zipball/a04bfe805904d8efa2b19c919045301c257b6172",
-                "reference": "a04bfe805904d8efa2b19c919045301c257b6172",
+                "url": "https://api.github.com/repos/Sylius/Sylius/zipball/210f197b90e4f4e45999102118f495ef943e50ec",
+                "reference": "210f197b90e4f4e45999102118f495ef943e50ec",
                 "shasum": ""
             },
             "require": {
@@ -4880,9 +4880,11 @@
                 "fzaninotto/faker": "^1.6",
                 "gedmo/doctrine-extensions": "^2.4.12",
                 "incenteev/composer-parameter-handler": "^2.1",
+                "jeremykendall/php-domain-parser": "^4.0.3@alpha",
                 "jms/serializer-bundle": "^2.0",
                 "knplabs/knp-gaufrette-bundle": "^0.3",
                 "knplabs/knp-menu-bundle": "^2.1",
+                "league/uri": "^4.2.3",
                 "liip/imagine-bundle": "^1.9.1",
                 "ocramius/proxy-manager": "^2.1",
                 "payum/payum": "^1.4",
@@ -4890,6 +4892,7 @@
                 "php": "^7.1",
                 "php-http/guzzle6-adapter": "^1.1",
                 "polishsymfonycommunity/symfony-mocker-container": "^1.0",
+                "ramsey/uuid": "^3.7",
                 "sensio/distribution-bundle": "^5.0.21",
                 "sonata-project/block-bundle": "^3.3",
                 "sonata-project/intl-bundle": "^2.2",
@@ -9117,7 +9120,7 @@
         }
     ],
     "aliases": [],
-    "minimum-stability": "stable",
+    "minimum-stability": "alpha",
     "stability-flags": {
         "sylius/sylius": 20
     },
