@@ -22,5 +22,4 @@ cached:
                 - "vendor/sylius/sylius/src/Sylius/Behat/Resources/config/services.xml"
 
         Behat\MinkExtension:
-            javascript_session: chromium
             files_path: "%paths.base%/vendor/sylius/sylius/src/Sylius/Behat/Resources/fixtures/"
