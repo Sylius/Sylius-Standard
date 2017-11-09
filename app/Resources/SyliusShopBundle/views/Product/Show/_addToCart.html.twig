@@ -21,6 +21,13 @@
             </div>
         </div>        
     {% else %}
+        <div class="sylius-variant-onhand">
+            {% if product.variants[0].onhand - product.variants[0].onhold <= 0 %}
+                <p class="text-danger">{{ 'sylius.ui.variant_delivery_is_expected'|trans }}</p>
+            {% else %}
+                {{ 'sylius.ui.variant_onhand'|trans }}: {{ product.variants[0].onhand - product.variants[0].onhold }}
+            {% endif %}
+        </div>
         {{ form_row(form.cartItem.quantity) }}
         <button type="submit" class="ui huge primary icon labeled button"><i class="cart icon"></i> {{ 'sylius.ui.add_to_cart'|trans }}</button>
     {% endif %}
