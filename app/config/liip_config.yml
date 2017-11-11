@@ -2,10 +2,16 @@ liip_imagine:
     filter_sets:
         sylius_small:
             quality : %liip_quality%
+            filters:
+                thumbnail: { size: [120, 120], mode: outbound }
         sylius_medium:
             quality : %liip_quality%
+            filters:
+                thumbnail: { size: [240, 240], mode: outbound }
         sylius_large:
             quality : %liip_quality%
+            filters:
+                thumbnail: { size: [640, 640], mode: outbound }
         sylius_admin_product_tiny_thumbnail:
             quality : %liip_quality%
         sylius_admin_product_thumbnail:
@@ -16,7 +22,11 @@ liip_imagine:
             quality : %liip_quality%
         sylius_shop_product_small_thumbnail:
             quality : %liip_quality%
+            filters:
+                thumbnail: { size: [150, 150], mode: outbound }
         sylius_shop_product_thumbnail:
             quality : %liip_quality%
         sylius_shop_product_large_thumbnail:
             quality : %liip_quality%
+            filters:
+                thumbnail: { size: [50, 50], mode: outbound }

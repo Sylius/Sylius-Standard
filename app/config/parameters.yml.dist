@@ -12,5 +12,4 @@ parameters:
     mailer_password: ~
 
     secret: EDITME
-    asset_version: ~
     liip_quality: ~

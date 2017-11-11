@@ -9,8 +9,7 @@
             {% if news|length > 0 %}
                 {% for new in news %}
                     <div class="news">
-                        <span class="text-muted">{{ new.createdAt|date("Y.m.d") }}</span> - 
-                        <a href="{{ path('sylius_shop_news_show', {'id': new.id, '_locale': 'ru_RU'}) }}" class="header sylius-product-name"> {{ new.header }} </a>
+                        <span class="text-muted">{{ new.createdAt|date("Y.m.d") }}</span> - <b>{{ new.header }}</b>
                         <p>{{ new.shortText }}</p>
                     </div>
                 {% endfor %}

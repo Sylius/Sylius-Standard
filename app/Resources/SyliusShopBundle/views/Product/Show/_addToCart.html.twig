@@ -28,8 +28,8 @@
                 {{ 'sylius.ui.variant_onhand'|trans }}: {{ product.variants[0].onhand - product.variants[0].onhold }}
             {% endif %}
         </div>
-        {{ form_row(form.cartItem.quantity) }}
-        <button type="submit" class="ui huge primary icon labeled button"><i class="cart icon"></i> {{ 'sylius.ui.add_to_cart'|trans }}</button>
+        <input type="number" id="sylius_add_to_cart_cartItem_quantity" name="sylius_add_to_cart[cartItem][quantity]" required="required" max="{{ product.variants[0].onhand - product.variants[0].onhold }}" min="1" value="1">
+        <button name="submit" class="ui icon button"><i class="cart icon"></i></button>
     {% endif %}
 
     {{ sonata_block_render_event('sylius.shop.product.show.add_to_cart_form', {'product': product, 'order_item': order_item}) }} 

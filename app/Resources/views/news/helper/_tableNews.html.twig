@@ -1,6 +1,6 @@
     <table class="table table-hover table-striped">
             {% for new in news %}
-                    <tr class="clickable-row" data-href="{{ path('sylius_shop_news_show', {'id': new.id, '_locale': 'ru_RU'}) }}">
+                    <tr>
                         <td>{{ new.createdAt|date("Y.m.d") }}</td>
                         <td>{{ new.shortText }}</td>
                     </tr>
