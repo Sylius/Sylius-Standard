@@ -14,10 +14,6 @@ imports:
     - { resource: "grids/product.yml" }
     - { resource: "liip_config.yml" }    
 
-twig:
-    globals:
-        version: %asset_version%
-
 parameters:
     locale: ru_RU
 
