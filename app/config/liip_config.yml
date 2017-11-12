@@ -29,4 +29,4 @@ liip_imagine:
         sylius_shop_product_large_thumbnail:
             quality : %liip_quality%
             filters:
-                thumbnail: { size: [50, 50], mode: outbound }
+                thumbnail: { size: [400, 400], mode: outbound }
