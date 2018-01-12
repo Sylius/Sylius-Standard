@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "0c7a06a53c08ef6865e7bb902aae2c07",
+    "content-hash": "60bc30be1ba5fdab52c9235c6603e7b4",
     "packages": [
         {
             "name": "behat/transliterator",
@@ -4935,16 +4935,16 @@
         },
         {
             "name": "sylius/sylius",
-            "version": "v1.0.7",
+            "version": "v1.0.8",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Sylius/Sylius.git",
-                "reference": "c31699035d627ad51148a56221611cc75478e1e4"
+                "reference": "21c0e1c005a2961484d19d7de74fd8f657691e98"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Sylius/Sylius/zipball/c31699035d627ad51148a56221611cc75478e1e4",
-                "reference": "c31699035d627ad51148a56221611cc75478e1e4",
+                "url": "https://api.github.com/repos/Sylius/Sylius/zipball/21c0e1c005a2961484d19d7de74fd8f657691e98",
+                "reference": "21c0e1c005a2961484d19d7de74fd8f657691e98",
                 "shasum": ""
             },
             "require": {
@@ -4966,7 +4966,6 @@
                 "jms/serializer-bundle": "^2.0",
                 "knplabs/knp-gaufrette-bundle": "^0.3",
                 "knplabs/knp-menu-bundle": "^2.1",
-                "league/uri": "^4.2.2",
                 "liip/imagine-bundle": "^1.9.1",
                 "ocramius/proxy-manager": "^2.1",
                 "payum/payum": "^1.4",
@@ -5119,7 +5118,7 @@
             ],
             "description": "E-Commerce platform for PHP, based on Symfony framework.",
             "homepage": "http://sylius.org",
-            "time": "2017-12-30T18:04:54+00:00"
+            "time": "2018-01-12T11:10:39+00:00"
         },
         {
             "name": "symfony/monolog-bundle",
