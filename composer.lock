@@ -4939,12 +4939,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/Sylius/Sylius.git",
-                "reference": "4e9f5ceb2d8e3565191d7ea40cb1a651414837f5"
+                "reference": "d44462a83d0c0a98788de5ed4753b858c2964bc7"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Sylius/Sylius/zipball/4e9f5ceb2d8e3565191d7ea40cb1a651414837f5",
-                "reference": "4e9f5ceb2d8e3565191d7ea40cb1a651414837f5",
+                "url": "https://api.github.com/repos/Sylius/Sylius/zipball/d44462a83d0c0a98788de5ed4753b858c2964bc7",
+                "reference": "d44462a83d0c0a98788de5ed4753b858c2964bc7",
                 "shasum": ""
             },
             "require": {
@@ -4966,7 +4966,6 @@
                 "jms/serializer-bundle": "^2.0",
                 "knplabs/knp-gaufrette-bundle": "^0.3",
                 "knplabs/knp-menu-bundle": "^2.1",
-                "league/uri": "^4.2.2",
                 "liip/imagine-bundle": "^1.9.1",
                 "ocramius/proxy-manager": "^2.1",
                 "payum/payum": "^1.4",
@@ -5119,7 +5118,7 @@
             ],
             "description": "E-Commerce platform for PHP, based on Symfony framework.",
             "homepage": "http://sylius.org",
-            "time": "2017-12-30T18:12:59+00:00"
+            "time": "2018-01-12T11:21:51+00:00"
         },
         {
             "name": "symfony/monolog-bundle",
