@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "6daad66a3036531ce171207ef15b68cd",
+    "content-hash": "1b2ebb6ba7cb0e2b0dcd322017fff7ad",
     "packages": [
         {
             "name": "behat/transliterator",
@@ -5260,16 +5260,16 @@
         },
         {
             "name": "sylius/sylius",
-            "version": "v1.1.0-RC",
+            "version": "dev-master",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Sylius/Sylius.git",
-                "reference": "d33d433e0bba59c79fc87c1d5967fdcd568dff71"
+                "reference": "83c6fcd15a1cee82768184997d5f12b532422965"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Sylius/Sylius/zipball/d33d433e0bba59c79fc87c1d5967fdcd568dff71",
-                "reference": "d33d433e0bba59c79fc87c1d5967fdcd568dff71",
+                "url": "https://api.github.com/repos/Sylius/Sylius/zipball/83c6fcd15a1cee82768184997d5f12b532422965",
+                "reference": "83c6fcd15a1cee82768184997d5f12b532422965",
                 "shasum": ""
             },
             "require": {
@@ -5411,7 +5411,7 @@
                     "file": "app/config/parameters.yml"
                 },
                 "branch-alias": {
-                    "dev-master": "1.1-dev"
+                    "dev-master": "1.2-dev"
                 }
             },
             "autoload": {
@@ -5444,7 +5444,7 @@
             ],
             "description": "E-Commerce platform for PHP, based on Symfony framework.",
             "homepage": "http://sylius.org",
-            "time": "2018-02-02T17:23:04+00:00"
+            "time": "2018-02-02T18:42:14+00:00"
         },
         {
             "name": "symfony/monolog-bundle",
@@ -9424,7 +9424,7 @@
     "aliases": [],
     "minimum-stability": "stable",
     "stability-flags": {
-        "sylius/sylius": 5
+        "sylius/sylius": 20
     },
     "prefer-stable": true,
     "prefer-lowest": false,
