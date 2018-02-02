@@ -5260,16 +5260,16 @@
         },
         {
             "name": "sylius/sylius",
-            "version": "v1.0.8",
+            "version": "v1.0.9",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Sylius/Sylius.git",
-                "reference": "21c0e1c005a2961484d19d7de74fd8f657691e98"
+                "reference": "4129cdb3b1b242619805f9c18c91fe05e2aea6db"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Sylius/Sylius/zipball/21c0e1c005a2961484d19d7de74fd8f657691e98",
-                "reference": "21c0e1c005a2961484d19d7de74fd8f657691e98",
+                "url": "https://api.github.com/repos/Sylius/Sylius/zipball/4129cdb3b1b242619805f9c18c91fe05e2aea6db",
+                "reference": "4129cdb3b1b242619805f9c18c91fe05e2aea6db",
                 "shasum": ""
             },
             "require": {
@@ -5443,7 +5443,7 @@
             ],
             "description": "E-Commerce platform for PHP, based on Symfony framework.",
             "homepage": "http://sylius.org",
-            "time": "2018-01-12T11:10:39+00:00"
+            "time": "2018-02-02T12:11:54+00:00"
         },
         {
             "name": "symfony/monolog-bundle",
