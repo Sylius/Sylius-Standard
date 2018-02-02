@@ -23,7 +23,7 @@
         "php": "^7.1",
 
 
-        "sylius/sylius": "^1.1@dev"
+        "sylius/sylius": "^1.1@RC"
     },
     "require-dev": {
         "behat/behat": "^3.2",
