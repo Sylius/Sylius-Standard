@@ -11,9 +11,6 @@ php:
 cache:
     yarn: true
     directories:
-        - vendor
-        - bin
-        - node_modules
         - ~/.composer/cache/files
         - $SYLIUS_CACHE_DIR
 
