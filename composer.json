@@ -22,7 +22,7 @@
     "require": {
         "php": "^7.1",
 
-        "sylius/sylius": "^1.1",
+        "sylius/sylius": "1.1.*",
         "sylius-labs/coding-standard": "^1.0"
     },
     "require-dev": {
