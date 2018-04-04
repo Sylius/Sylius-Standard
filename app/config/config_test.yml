@@ -2,7 +2,7 @@
 # (c) Paweł Jędrzejewski
 
 imports:
-    - { resource: "config.yml" }
+    - { resource: config.yml }
 
 parameters:
     locale: en_US
@@ -14,20 +14,20 @@ framework:
 
 doctrine:
     dbal:
-        dbname: "%database_name%_test"
+        dbname: '%database_name%_test'
 
 monolog:
     handlers:
         main:
             type: stream
-            path: "%kernel.logs_dir%/%kernel.environment%.log"
+            path: '%kernel.logs_dir%/%kernel.environment%.log'
             level: error
 
 payum:
     gateways:
         paypal_express_checkout:
             factory: paypal_express_checkout
-            payum.http_client: "@sylius.payum.http_client"
+            payum.http_client: '@sylius.payum.http_client'
             username: TEST
             password: TEST
             signature: TEST
@@ -44,7 +44,7 @@ swiftmailer:
     logging: true
     spool:
         type: file
-        path: "%kernel.cache_dir%/spool"
+        path: '%kernel.cache_dir%/spool'
 
 sylius_theme:
     sources:

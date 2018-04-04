@@ -21,7 +21,6 @@
     ],
     "require": {
         "php": "^7.1",
-
         "sylius/sylius": "1.1.*"
     },
     "require-dev": {
@@ -70,7 +69,8 @@
         "classmap": ["app/AppKernel.php", "app/AppCache.php"]
     },
     "config": {
-        "bin-dir": "bin"
+        "bin-dir": "bin",
+        "sort-packages": true
     },
     "extra": {
         "symfony-app-dir": "app",
