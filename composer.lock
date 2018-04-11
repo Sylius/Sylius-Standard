@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "cc44b52607825fad8e6c26e09aeaddc8",
+    "content-hash": "2f24bc8bc924aeca768c4604c156e595",
     "packages": [
         {
             "name": "behat/transliterator",
@@ -3242,7 +3242,7 @@
             ],
             "authors": [
                 {
-                    "name": "Pádraic Brady",
+                    "name": "Padraic Brady",
                     "email": "padraic.brady@gmail.com",
                     "homepage": "http://blog.astrumfutura.com"
                 },
@@ -5293,12 +5293,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/Sylius/Sylius.git",
-                "reference": "db621d78467c7cc7345e7d1167e4527fbf49a744"
+                "reference": "5ae406aa73a26d565fbb4c51a547b2c3cd226587"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Sylius/Sylius/zipball/db621d78467c7cc7345e7d1167e4527fbf49a744",
-                "reference": "db621d78467c7cc7345e7d1167e4527fbf49a744",
+                "url": "https://api.github.com/repos/Sylius/Sylius/zipball/5ae406aa73a26d565fbb4c51a547b2c3cd226587",
+                "reference": "5ae406aa73a26d565fbb4c51a547b2c3cd226587",
                 "shasum": ""
             },
             "require": {
@@ -5477,7 +5477,7 @@
             ],
             "description": "E-Commerce platform for PHP, based on Symfony framework.",
             "homepage": "http://sylius.com",
-            "time": "2018-04-04T11:21:41+00:00"
+            "time": "2018-04-10T12:27:27+00:00"
         },
         {
             "name": "symfony/monolog-bundle",
@@ -6314,7 +6314,7 @@
                     "email": "adrien.brault@gmail.com"
                 },
                 {
-                    "name": "William Durand",
+                    "name": "William DURAND",
                     "email": "william.durand1@gmail.com"
                 }
             ],
@@ -6364,7 +6364,7 @@
             ],
             "authors": [
                 {
-                    "name": "William Durand",
+                    "name": "William DURAND",
                     "email": "william.durand1@gmail.com"
                 }
             ],
