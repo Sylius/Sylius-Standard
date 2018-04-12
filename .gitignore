@@ -4,6 +4,7 @@
 /app/config/*.local.yml
 /var/*
 !/var/.gitkeep
+/.web-server-pid
 
 /web/assets
 /web/bundles
