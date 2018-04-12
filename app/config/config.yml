@@ -2,54 +2,55 @@
 # (c) Paweł Jędrzejewski
 
 imports:
-    - { resource: "@SyliusCoreBundle/Resources/config/app/config.yml" }
-    - { resource: "@SyliusAdminBundle/Resources/config/app/config.yml" }
-    - { resource: "@SyliusShopBundle/Resources/config/app/config.yml" }
-    - { resource: "@SyliusAdminApiBundle/Resources/config/app/config.yml" }
+    - { resource: '@SyliusCoreBundle/Resources/config/app/config.yml' }
+    - { resource: '@SyliusAdminBundle/Resources/config/app/config.yml' }
+    - { resource: '@SyliusShopBundle/Resources/config/app/config.yml' }
+    - { resource: '@SyliusAdminApiBundle/Resources/config/app/config.yml' }
 
-    - { resource: "parameters.yml" }
-    - { resource: "security.yml" }
+    - { resource: parameters.yml }
+    - { resource: security.yml }
+    - { resource: services.yml }
 
 parameters:
     locale: en_US
 
 framework:
-    translator: { fallbacks: ["%locale%"] }
-    secret: "%secret%"
+    translator: { fallbacks: ['%locale%'] }
+    secret: '%secret%'
     router:
-        resource: "%kernel.root_dir%/config/routing.yml"
-        strict_requirements: "%kernel.debug%"
+        resource: '%kernel.project_dir%/app/config/routing.yml'
+        strict_requirements: '%kernel.debug%'
     form: true
     csrf_protection: true
     validation: { enable_annotations: true }
-    templating: { engines: ["twig"] }
-    default_locale: "%locale%"
-    trusted_proxies: ~
+    templating: { engines: ['twig'] }
+    default_locale: '%locale%'
+    trusted_hosts: ~
     session:
         handler_id: ~
 
 doctrine:
     dbal:
-        driver: "%database_driver%"
-        host: "%database_host%"
-        port: "%database_port%"
-        dbname: "%database_name%"
-        user: "%database_user%"
-        password: "%database_password%"
-        server_version: "5.5"
+        driver: '%database_driver%'
+        host: '%database_host%'
+        port: '%database_port%'
+        dbname: '%database_name%'
+        user: '%database_user%'
+        password: '%database_password%'
+        server_version: '5.5'
         charset: UTF8
 
 doctrine_migrations:
-    dir_name: "%kernel.root_dir%/migrations"
+    dir_name: '%kernel.project_dir%/app/migrations'
     namespace: Sylius\Migrations
     table_name: sylius_migrations
     name: Sylius Migrations
 
 swiftmailer:
-    transport: "%mailer_transport%"
-    host: "%mailer_host%"
-    username: "%mailer_user%"
-    password: "%mailer_password%"
+    transport: '%mailer_transport%'
+    host: '%mailer_host%'
+    username: '%mailer_user%'
+    password: '%mailer_password%'
 
 fos_rest:
     exception: ~

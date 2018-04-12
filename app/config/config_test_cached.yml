@@ -2,7 +2,7 @@
 # (c) Paweł Jędrzejewski
 
 imports:
-    - { resource: "config_test.yml" }
+    - { resource: config_test.yml }
 
 doctrine:
     orm:
@@ -24,4 +24,4 @@ fos_rest:
         debug: true
 
 doctrine_migrations:
-    dir_name: "%kernel.root_dir%/../vendor/sylius/sylius/app/migrations"
+    dir_name: '%kernel.project_dir%/vendor/sylius/sylius/app/migrations'
