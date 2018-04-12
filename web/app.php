@@ -9,6 +9,8 @@
  * file that was distributed with this source code.
  */
 
+declare(strict_types=1);
+
 use Symfony\Component\HttpFoundation\Request;
 
 /*
@@ -16,15 +18,11 @@ use Symfony\Component\HttpFoundation\Request;
  * Live (production) environment.
  */
 
-/** @var \Composer\Autoload\ClassLoader $loader */
-$loader = require __DIR__.'/../vendor/autoload.php';
+require __DIR__.'/../vendor/autoload.php';
 
 $kernel = new AppKernel('prod', false);
-$kernel->loadClassCache();
 
 $request = Request::createFromGlobals();
-
 $response = $kernel->handle($request);
 $response->send();
-
 $kernel->terminate($request, $response);

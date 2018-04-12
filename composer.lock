@@ -3242,7 +3242,7 @@
             ],
             "authors": [
                 {
-                    "name": "Padraic Brady",
+                    "name": "Pádraic Brady",
                     "email": "padraic.brady@gmail.com",
                     "homepage": "http://blog.astrumfutura.com"
                 },
@@ -5293,12 +5293,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/Sylius/Sylius.git",
-                "reference": "5ae406aa73a26d565fbb4c51a547b2c3cd226587"
+                "reference": "53ec5551d09e5cbe782d353ab89a326d45d460dd"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Sylius/Sylius/zipball/5ae406aa73a26d565fbb4c51a547b2c3cd226587",
-                "reference": "5ae406aa73a26d565fbb4c51a547b2c3cd226587",
+                "url": "https://api.github.com/repos/Sylius/Sylius/zipball/53ec5551d09e5cbe782d353ab89a326d45d460dd",
+                "reference": "53ec5551d09e5cbe782d353ab89a326d45d460dd",
                 "shasum": ""
             },
             "require": {
@@ -5352,8 +5352,7 @@
                 "zendframework/zend-stdlib": "^3.1"
             },
             "conflict": {
-                "symfony/symfony": "3.4.7 || 4.0.7",
-                "willdurand/hateoas": "^2.11"
+                "symfony/symfony": "3.4.7 || 4.0.7"
             },
             "replace": {
                 "sylius/addressing": "self.version",
@@ -5477,7 +5476,7 @@
             ],
             "description": "E-Commerce platform for PHP, based on Symfony framework.",
             "homepage": "http://sylius.com",
-            "time": "2018-04-10T12:27:27+00:00"
+            "time": "2018-04-12T12:31:20+00:00"
         },
         {
             "name": "symfony/monolog-bundle",
@@ -6314,7 +6313,7 @@
                     "email": "adrien.brault@gmail.com"
                 },
                 {
-                    "name": "William DURAND",
+                    "name": "William Durand",
                     "email": "william.durand1@gmail.com"
                 }
             ],
@@ -6364,7 +6363,7 @@
             ],
             "authors": [
                 {
-                    "name": "William DURAND",
+                    "name": "William Durand",
                     "email": "william.durand1@gmail.com"
                 }
             ],
