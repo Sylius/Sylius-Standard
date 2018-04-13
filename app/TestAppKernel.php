@@ -52,6 +52,13 @@ class TestAppKernel extends AppKernel
 
         $services = $containerServicesPropertyReflection->getValue($container) ?: [];
         foreach ($services as $serviceId => $service) {
+<<<<<<< HEAD
+=======
+            if (null === $service) {
+                continue;
+            }
+
+>>>>>>> 1.0
             if (in_array($serviceId, $this->getServicesToIgnoreDuringContainerCleanup(), true)) {
                 continue;
             }
