@@ -21,7 +21,6 @@
     ],
     "require": {
         "php": "^7.1",
-
         "sylius/sylius": "1.2.*@dev"
     },
     "require-dev": {
