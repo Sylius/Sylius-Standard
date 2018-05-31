@@ -22,7 +22,7 @@
     "require": {
         "php": "^7.1",
 
-        "sylius/sylius": "1.2.*@beta",
+        "sylius/sylius": "1.3.*dev",
         "symfony/symfony": "^3.4|^4.0"
     },
     "require-dev": {
@@ -86,7 +86,7 @@
             "file": "app/config/parameters.yml"
         },
         "branch-alias": {
-            "dev-master": "1.2-dev"
+            "dev-master": "1.3-dev"
         }
     }
 }
