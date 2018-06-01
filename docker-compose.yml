@@ -1,0 +1,105 @@
+version: '3.4'
+
+services:
+  php:
+    build:
+      context: .
+      target: sylius_php
+    depends_on:
+      - mysql
+    environment:
+      - PHP_DATE_TIMEZONE
+      # Comment out the following line in production
+      - SYMFONY_ENV=dev
+      # Uncomment the following line in production
+      # - SYMFONY_ENV=prod
+      # Comment out the following line in production
+      - SYLIUS_APP_DEV_PERMITTED=1
+      - SYLIUS_DATABASE_HOST=mysql
+      - SYLIUS_DATABASE_PORT=3306
+      # Sylius will append SYMFONY_ENV to the database name, e.g. sylius -> sylius_dev
+      - SYLIUS_DATABASE_NAME=sylius
+      - SYLIUS_DATABASE_USER=sylius
+      - SYLIUS_DATABASE_PASSWORD=${MYSQL_PASSWORD-!NotSet!}
+      - SYLIUS_MAILER_TRANSPORT=smtp
+      - SYLIUS_MAILER_HOST=${SYLIUS_MAILER_HOST-mailhog}
+      - SYLIUS_MAILER_PORT=${SYLIUS_MAILER_PORT-1025}
+      - SYLIUS_MAILER_USER=${SYLIUS_MAILER_USER-}
+      - SYLIUS_MAILER_PASSWORD=${SYLIUS_MAILER_PASSWORD-}
+      - SYLIUS_SECRET=${SYLIUS_SECRET-!NotSet!}
+    volumes:
+      # Comment out the following line in production
+      - .:/srv/sylius:rw,cached
+      # If you develop on Linux, uncomment the following line to use a bind-mounted host directory instead
+      # - ./var:/srv/sylius/var:rw
+      # Comment out the following line in production
+      - ./web:/srv/sylius/web:rw,delegated
+      # If you develop on Linux, uncomment the following line to use a bind-mounted host directory instead
+      # - ./web/media:/srv/sylius/web/media:rw
+      # If you develop on Linux, comment out the following line
+      - web-media:/srv/sylius/web/media:rw
+
+  mysql:
+    # In production, you may want to use a managed database service
+    image: percona:5.7
+    environment:
+      - MYSQL_ROOT_PASSWORD=${MYSQL_ROOT_PASSWORD-!NotSet!}
+      # Sylius will append SYMFONY_ENV to the database name, e.g. sylius -> sylius_dev
+      - MYSQL_DATABASE=sylius_dev
+      - MYSQL_USER=sylius
+      - MYSQL_PASSWORD=${MYSQL_PASSWORD-!NotSet!}
+    volumes:
+      - mysql-db-data:/var/lib/mysql:rw
+      # You may use a bind-mounted host directory instead, so that it is harder to accidentally remove the volume and lose all your data!
+      # - ./docker/mysql/data:/var/lib/mysql:rw,delegated
+    ports:
+      - "3306:3306"
+
+  nodejs:
+    # You don't need to deploy this in production, but it's still used in the build stage
+    build:
+      context: .
+      target: sylius_nodejs
+    # Comment out this following section in production
+    command: ["yarn", "watch"]
+    environment:
+      - GULP_ENV=dev
+    volumes:
+      - .:/srv/sylius:rw,cached
+      - ./web:/srv/sylius/web:rw,delegated
+    ports:
+      - "35729:35729"
+    # Comment out until here in production
+
+  nginx:
+    # In production, you may want to use a static website hosting service
+    build:
+      context: .
+      target: sylius_nginx
+    depends_on:
+      - php
+    volumes:
+      # Comment out the following line in production
+      - ./docker/nginx/conf.d/default_dev.conf:/etc/nginx/conf.d/default.conf
+      # Comment out the following line in production
+      - ./web:/srv/sylius/web:ro
+      # If you develop on Linux, uncomment the following line to use a bind-mounted host directory instead
+      # - ./web/media:/srv/sylius/web/media:rw
+      # If you develop on Linux, comment out the following line
+      - web-media:/srv/sylius/web/media:ro,nocopy
+    ports:
+      - "80:80"
+
+  mailhog:
+    # Do not use in production!
+    image: mailhog/mailhog:latest
+    environment:
+      - MH_STORAGE=maildir
+    volumes:
+      - ./docker/mailhog/maildir:/maildir:rw,delegated
+    ports:
+      - "8025:8025"
+
+volumes:
+  mysql-db-data:
+  web-media:
