@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "a11c85f657fdf8d05ac343edacc3bd9b",
+    "content-hash": "8be4f02d448db851ea551d0945adf10a",
     "packages": [
         {
             "name": "behat/transliterator",
@@ -5315,16 +5315,16 @@
         },
         {
             "name": "sylius/sylius",
-            "version": "v1.2.0-RC",
+            "version": "dev-master",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Sylius/Sylius.git",
-                "reference": "1ec29efea1adbbc2ba3778d540c017c49858f535"
+                "reference": "558355c09044d05e4b05a2c3e3580c29902637e9"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Sylius/Sylius/zipball/1ec29efea1adbbc2ba3778d540c017c49858f535",
-                "reference": "1ec29efea1adbbc2ba3778d540c017c49858f535",
+                "url": "https://api.github.com/repos/Sylius/Sylius/zipball/558355c09044d05e4b05a2c3e3580c29902637e9",
+                "reference": "558355c09044d05e4b05a2c3e3580c29902637e9",
                 "shasum": ""
             },
             "require": {
@@ -5476,7 +5476,7 @@
                     "file": "app/config/parameters.yml"
                 },
                 "branch-alias": {
-                    "dev-master": "1.2-dev"
+                    "dev-master": "1.3-dev"
                 }
             },
             "autoload": {
@@ -5509,7 +5509,7 @@
             ],
             "description": "E-Commerce platform for PHP, based on Symfony framework.",
             "homepage": "http://sylius.com",
-            "time": "2018-06-07T14:13:56+00:00"
+            "time": "2018-06-07T15:24:12+00:00"
         },
         {
             "name": "symfony/class-loader",
@@ -9485,45 +9485,6 @@
             "time": "2018-05-29T13:50:43+00:00"
         },
         {
-            "name": "se/selenium-server-standalone",
-            "version": "v2.53.1",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/sveneisenschmidt/selenium-server-standalone.git",
-                "reference": "ef4eea9c99efb9c0e3084e9cae625662ccd43361"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/sveneisenschmidt/selenium-server-standalone/zipball/ef4eea9c99efb9c0e3084e9cae625662ccd43361",
-                "reference": "ef4eea9c99efb9c0e3084e9cae625662ccd43361",
-                "shasum": ""
-            },
-            "require-dev": {
-                "phpunit/phpunit": "~4.0"
-            },
-            "bin": [
-                "bin/selenium-server-standalone"
-            ],
-            "type": "library",
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "Apache 2.0"
-            ],
-            "authors": [
-                {
-                    "name": "Sven Eisenschmidt",
-                    "email": "sven.eisenschmidt@gmail.com"
-                }
-            ],
-            "description": "Composer distribution of Selenium Server Standalone, the browser automation framework. Adds a executable to your composer bin directory.",
-            "homepage": "https://github.com/sveneisenschmidt/selenium-server-standalone",
-            "keywords": [
-                "selenium",
-                "testing"
-            ],
-            "time": "2016-07-01T14:16:52+00:00"
-        },
-        {
             "name": "sebastian/code-unit-reverse-lookup",
             "version": "1.0.1",
             "source": {
@@ -10619,7 +10580,7 @@
     "aliases": [],
     "minimum-stability": "stable",
     "stability-flags": {
-        "sylius/sylius": 5,
+        "sylius/sylius": 20,
         "behat/mink": 20
     },
     "prefer-stable": true,
