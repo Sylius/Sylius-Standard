@@ -22,8 +22,8 @@
     "require": {
         "php": "^7.1",
 
-        "sylius/sylius": "1.2.*@beta",
-        "symfony/symfony": "^3.4|^4.0"
+        "sylius/sylius": "1.2.*@rc",
+        "symfony/symfony": "^3.4|^4.1"
     },
     "require-dev": {
         "behat/behat": "^3.4",
