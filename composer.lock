@@ -4692,58 +4692,6 @@
             "time": "2018-01-20T00:28:24+00:00"
         },
         {
-            "name": "sensio/distribution-bundle",
-            "version": "v5.0.22",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/sensiolabs/SensioDistributionBundle.git",
-                "reference": "209b11f8cee5bf71986dd703e45e27d3ed7a6d15"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/sensiolabs/SensioDistributionBundle/zipball/209b11f8cee5bf71986dd703e45e27d3ed7a6d15",
-                "reference": "209b11f8cee5bf71986dd703e45e27d3ed7a6d15",
-                "shasum": ""
-            },
-            "require": {
-                "php": ">=5.3.9",
-                "sensiolabs/security-checker": "~3.0|~4.0",
-                "symfony/class-loader": "~2.3|~3.0",
-                "symfony/config": "~2.3|~3.0",
-                "symfony/dependency-injection": "~2.3|~3.0",
-                "symfony/filesystem": "~2.3|~3.0",
-                "symfony/http-kernel": "~2.3|~3.0",
-                "symfony/process": "~2.3|~3.0"
-            },
-            "type": "symfony-bundle",
-            "extra": {
-                "branch-alias": {
-                    "dev-master": "5.0.x-dev"
-                }
-            },
-            "autoload": {
-                "psr-4": {
-                    "Sensio\\Bundle\\DistributionBundle\\": ""
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Fabien Potencier",
-                    "email": "fabien@symfony.com"
-                }
-            ],
-            "description": "Base bundle for Symfony Distributions",
-            "keywords": [
-                "configuration",
-                "distribution"
-            ],
-            "time": "2018-06-07T06:22:12+00:00"
-        },
-        {
             "name": "sensiolabs/security-checker",
             "version": "v4.1.8",
             "source": {
@@ -5309,17 +5257,72 @@
             "time": "2018-02-13T13:55:38+00:00"
         },
         {
-            "name": "sylius/sylius",
-            "version": "v1.0.15",
+            "name": "sylius-labs/sensio-distribution-bundle",
+            "version": "v6.0.1",
             "source": {
                 "type": "git",
-                "url": "https://github.com/Sylius/Sylius.git",
-                "reference": "7fedea876eec11fc9b0cb8f8077ead4e27ecb96f"
+                "url": "https://github.com/SyliusLabs/SensioDistributionBundle.git",
+                "reference": "b03786d9af2e8fead7e837cbd1541dd5c0996e03"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Sylius/Sylius/zipball/7fedea876eec11fc9b0cb8f8077ead4e27ecb96f",
-                "reference": "7fedea876eec11fc9b0cb8f8077ead4e27ecb96f",
+                "url": "https://api.github.com/repos/SyliusLabs/SensioDistributionBundle/zipball/b03786d9af2e8fead7e837cbd1541dd5c0996e03",
+                "reference": "b03786d9af2e8fead7e837cbd1541dd5c0996e03",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.9",
+                "sensiolabs/security-checker": "~3.0|~4.0",
+                "symfony/class-loader": "~2.3|~3.0|^4.0",
+                "symfony/config": "~2.3|~3.0|^4.0",
+                "symfony/dependency-injection": "~2.3|~3.0|^4.0",
+                "symfony/filesystem": "~2.3|~3.0|^4.0",
+                "symfony/http-kernel": "~2.3|~3.0|^4.0",
+                "symfony/process": "~2.3|~3.0|^4.0"
+            },
+            "replace": {
+                "sensio/distribution-bundle": "*"
+            },
+            "type": "symfony-bundle",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "5.0.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Sensio\\Bundle\\DistributionBundle\\": ""
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Fabien Potencier",
+                    "email": "fabien@symfony.com"
+                }
+            ],
+            "description": "Base bundle for Symfony Distributions",
+            "keywords": [
+                "configuration",
+                "distribution"
+            ],
+            "time": "2018-06-11T11:50:52+00:00"
+        },
+        {
+            "name": "sylius/sylius",
+            "version": "v1.0.16",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/Sylius/Sylius.git",
+                "reference": "5f4eb80bc69ee5fe78dda1b346fdad822a7e07cd"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/Sylius/Sylius/zipball/5f4eb80bc69ee5fe78dda1b346fdad822a7e07cd",
+                "reference": "5f4eb80bc69ee5fe78dda1b346fdad822a7e07cd",
                 "shasum": ""
             },
             "require": {
@@ -5504,7 +5507,7 @@
             ],
             "description": "E-Commerce platform for PHP, based on Symfony framework.",
             "homepage": "http://sylius.com",
-            "time": "2018-05-21T17:01:14+00:00"
+            "time": "2018-06-12T10:15:49+00:00"
         },
         {
             "name": "symfony/monolog-bundle",
@@ -8022,16 +8025,16 @@
         },
         {
             "name": "myclabs/deep-copy",
-            "version": "1.8.0",
+            "version": "1.8.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/myclabs/DeepCopy.git",
-                "reference": "478465659fd987669df0bd8a9bf22a8710e5f1b6"
+                "reference": "3e01bdad3e18354c3dce54466b7fbe33a9f9f7f8"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/myclabs/DeepCopy/zipball/478465659fd987669df0bd8a9bf22a8710e5f1b6",
-                "reference": "478465659fd987669df0bd8a9bf22a8710e5f1b6",
+                "url": "https://api.github.com/repos/myclabs/DeepCopy/zipball/3e01bdad3e18354c3dce54466b7fbe33a9f9f7f8",
+                "reference": "3e01bdad3e18354c3dce54466b7fbe33a9f9f7f8",
                 "shasum": ""
             },
             "require": {
@@ -8066,7 +8069,7 @@
                 "object",
                 "object graph"
             ],
-            "time": "2018-05-29T17:25:09+00:00"
+            "time": "2018-06-11T23:09:50+00:00"
         },
         {
             "name": "nelmio/alice",
@@ -10255,16 +10258,16 @@
         },
         {
             "name": "slevomat/coding-standard",
-            "version": "4.6.0",
+            "version": "4.6.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/slevomat/coding-standard.git",
-                "reference": "95436f14d4a6fe8638bcba09d3a8e19266846ee4"
+                "reference": "de4a6fecdd6d00218e9c7d019a4ff47e123692cf"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/slevomat/coding-standard/zipball/95436f14d4a6fe8638bcba09d3a8e19266846ee4",
-                "reference": "95436f14d4a6fe8638bcba09d3a8e19266846ee4",
+                "url": "https://api.github.com/repos/slevomat/coding-standard/zipball/de4a6fecdd6d00218e9c7d019a4ff47e123692cf",
+                "reference": "de4a6fecdd6d00218e9c7d019a4ff47e123692cf",
                 "shasum": ""
             },
             "require": {
@@ -10277,7 +10280,7 @@
                 "phpstan/phpstan": "0.9.2",
                 "phpstan/phpstan-phpunit": "0.9.4",
                 "phpstan/phpstan-strict-rules": "0.9",
-                "phpunit/phpunit": "7.1.5"
+                "phpunit/phpunit": "7.2.4"
             },
             "type": "phpcodesniffer-standard",
             "autoload": {
@@ -10290,7 +10293,7 @@
                 "MIT"
             ],
             "description": "Slevomat Coding Standard for PHP_CodeSniffer complements Consistence Coding Standard by providing sniffs with additional checks.",
-            "time": "2018-05-15T21:21:12+00:00"
+            "time": "2018-06-11T19:10:45+00:00"
         },
         {
             "name": "squizlabs/php_codesniffer",
