@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "a11c85f657fdf8d05ac343edacc3bd9b",
+    "content-hash": "c67d8623e21a0447100f659ab2e90e05",
     "packages": [
         {
             "name": "behat/transliterator",
@@ -5315,16 +5315,16 @@
         },
         {
             "name": "sylius/sylius",
-            "version": "v1.2.0-RC",
+            "version": "v1.2.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Sylius/Sylius.git",
-                "reference": "1ec29efea1adbbc2ba3778d540c017c49858f535"
+                "reference": "fe61f5c3aee73754e2e3df0cdc7558237ee0f8aa"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Sylius/Sylius/zipball/1ec29efea1adbbc2ba3778d540c017c49858f535",
-                "reference": "1ec29efea1adbbc2ba3778d540c017c49858f535",
+                "url": "https://api.github.com/repos/Sylius/Sylius/zipball/fe61f5c3aee73754e2e3df0cdc7558237ee0f8aa",
+                "reference": "fe61f5c3aee73754e2e3df0cdc7558237ee0f8aa",
                 "shasum": ""
             },
             "require": {
@@ -5509,7 +5509,7 @@
             ],
             "description": "E-Commerce platform for PHP, based on Symfony framework.",
             "homepage": "http://sylius.com",
-            "time": "2018-06-07T14:13:56+00:00"
+            "time": "2018-06-12T12:21:18+00:00"
         },
         {
             "name": "symfony/class-loader",
@@ -8178,16 +8178,16 @@
         },
         {
             "name": "myclabs/deep-copy",
-            "version": "1.8.0",
+            "version": "1.8.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/myclabs/DeepCopy.git",
-                "reference": "478465659fd987669df0bd8a9bf22a8710e5f1b6"
+                "reference": "3e01bdad3e18354c3dce54466b7fbe33a9f9f7f8"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/myclabs/DeepCopy/zipball/478465659fd987669df0bd8a9bf22a8710e5f1b6",
-                "reference": "478465659fd987669df0bd8a9bf22a8710e5f1b6",
+                "url": "https://api.github.com/repos/myclabs/DeepCopy/zipball/3e01bdad3e18354c3dce54466b7fbe33a9f9f7f8",
+                "reference": "3e01bdad3e18354c3dce54466b7fbe33a9f9f7f8",
                 "shasum": ""
             },
             "require": {
@@ -8222,7 +8222,7 @@
                 "object",
                 "object graph"
             ],
-            "time": "2018-05-29T17:25:09+00:00"
+            "time": "2018-06-11T23:09:50+00:00"
         },
         {
             "name": "nelmio/alice",
@@ -10040,16 +10040,16 @@
         },
         {
             "name": "slevomat/coding-standard",
-            "version": "4.6.0",
+            "version": "4.6.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/slevomat/coding-standard.git",
-                "reference": "95436f14d4a6fe8638bcba09d3a8e19266846ee4"
+                "reference": "de4a6fecdd6d00218e9c7d019a4ff47e123692cf"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/slevomat/coding-standard/zipball/95436f14d4a6fe8638bcba09d3a8e19266846ee4",
-                "reference": "95436f14d4a6fe8638bcba09d3a8e19266846ee4",
+                "url": "https://api.github.com/repos/slevomat/coding-standard/zipball/de4a6fecdd6d00218e9c7d019a4ff47e123692cf",
+                "reference": "de4a6fecdd6d00218e9c7d019a4ff47e123692cf",
                 "shasum": ""
             },
             "require": {
@@ -10062,7 +10062,7 @@
                 "phpstan/phpstan": "0.9.2",
                 "phpstan/phpstan-phpunit": "0.9.4",
                 "phpstan/phpstan-strict-rules": "0.9",
-                "phpunit/phpunit": "7.1.5"
+                "phpunit/phpunit": "7.2.4"
             },
             "type": "phpcodesniffer-standard",
             "autoload": {
@@ -10075,7 +10075,7 @@
                 "MIT"
             ],
             "description": "Slevomat Coding Standard for PHP_CodeSniffer complements Consistence Coding Standard by providing sniffs with additional checks.",
-            "time": "2018-05-15T21:21:12+00:00"
+            "time": "2018-06-11T19:10:45+00:00"
         },
         {
             "name": "squizlabs/php_codesniffer",
@@ -10575,7 +10575,6 @@
     "aliases": [],
     "minimum-stability": "stable",
     "stability-flags": {
-        "sylius/sylius": 5,
         "behat/mink": 20
     },
     "prefer-stable": true,

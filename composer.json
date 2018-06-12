@@ -22,7 +22,7 @@
     "require": {
         "php": "^7.1",
 
-        "sylius/sylius": "1.2.*@rc",
+        "sylius/sylius": "1.2.*",
         "symfony/symfony": "^3.4|^4.1"
     },
     "require-dev": {
