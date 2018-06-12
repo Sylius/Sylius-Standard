@@ -18,6 +18,9 @@ env:
     global:
         - SYLIUS_CACHE_DIR=$HOME/.sylius-cache
         - SYLIUS_BUILD_DIR=etc/build
+    matrix:
+        - SYMFONY_VERSION="3.4.*"
+        - SYMFONY_VERSION="4.1.*"
 
 services:
     - memcached
@@ -29,7 +32,7 @@ before_install:
     - echo "extension = memcached.so" >> ~/.phpenv/versions/$(phpenv version-name)/etc/conf.d/travis.ini
 
 install:
-    - composer install --no-interaction --prefer-dist
+    - composer require "symfony/symfony:${SYMFONY_VERSION}" --no-interaction --prefer-dist
     - yarn install
 
 before_script:
