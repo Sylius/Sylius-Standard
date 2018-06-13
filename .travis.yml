@@ -18,6 +18,9 @@ env:
     global:
         - SYLIUS_CACHE_DIR=$HOME/.sylius-cache
         - SYLIUS_BUILD_DIR=etc/build
+    matrix:
+        - SYMFONY_VERSION="3.4.*"
+        - SYMFONY_VERSION="4.1.*"
 
 services:
     - memcached
@@ -29,7 +32,7 @@ before_install:
     - echo "extension = memcached.so" >> ~/.phpenv/versions/$(phpenv version-name)/etc/conf.d/travis.ini
 
 install:
-    - composer install --no-interaction --prefer-dist
+    - composer require "symfony/symfony:${SYMFONY_VERSION}" --no-interaction --prefer-dist
     - yarn install
 
 before_script:
@@ -37,8 +40,8 @@ before_script:
     - bin/console cache:warmup --env=test_cached --no-debug -vvv
     - bin/console doctrine:migrations:migrate --no-interaction --env=test_cached --no-debug -vvv
 
-    - bin/console assets:install --env=test_cached --no-debug -vvv
-    - yarn run gulp
+    - bin/console assets:install web --env=test_cached --no-debug -vvv
+    - yarn build
 
     # Configure display
     - /sbin/start-stop-daemon --start --quiet --pidfile /tmp/xvfb_99.pid --make-pidfile --background --exec /usr/bin/Xvfb -- :99 -ac -screen 0 1680x1050x16
@@ -67,7 +70,7 @@ before_script:
     - java -Dwebdriver.chrome.driver=$SYLIUS_CACHE_DIR/chromedriver -jar $SYLIUS_CACHE_DIR/selenium.jar > /dev/null 2>&1 &
 
     # Run webserver
-    - bin/console server:run 127.0.0.1:8080 --env=test_cached --router=app/config/router_test_cached.php --no-debug --quiet > /dev/null 2>&1 &
+    - bin/console server:run 127.0.0.1:8080 --env=test_cached --docroot=web --router=app/config/router_test_cached.php --no-debug --quiet > /dev/null 2>&1 &
 
 script:
     - composer validate --strict
