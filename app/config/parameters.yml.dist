@@ -1,5 +1,4 @@
 parameters:
-    database_driver: '%env(SYLIUS_DATABASE_DRIVER)%'
     database_host: '%env(SYLIUS_DATABASE_HOST)%'
     database_port: '%env(SYLIUS_DATABASE_PORT)%'
     database_name: '%env(SYLIUS_DATABASE_NAME)%'
@@ -10,13 +9,13 @@ parameters:
 
     mailer_transport: '%env(SYLIUS_MAILER_TRANSPORT)%'
     mailer_host: '%env(SYLIUS_MAILER_HOST)%'
+    mailer_port: '%env(SYLIUS_MAILER_PORT)%'
     mailer_user: '%env(SYLIUS_MAILER_USER)%'
     mailer_password: '%env(SYLIUS_MAILER_PASSWORD)%'
 
     secret: '%env(SYLIUS_SECRET)%'
 
     # Fallback values (used if environmental variables are not set)
-    env(SYLIUS_DATABASE_DRIVER): pdo_mysql
     env(SYLIUS_DATABASE_HOST): 127.0.0.1
     env(SYLIUS_DATABASE_PORT): ~
     env(SYLIUS_DATABASE_NAME): sylius
@@ -25,6 +24,7 @@ parameters:
 
     env(SYLIUS_MAILER_TRANSPORT): smtp
     env(SYLIUS_MAILER_HOST): 127.0.0.1
+    env(SYLIUS_MAILER_PORT): ~
     env(SYLIUS_MAILER_USER): ~
     env(SYLIUS_MAILER_PASSWORD): ~
 
