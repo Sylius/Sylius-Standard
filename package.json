@@ -29,10 +29,11 @@
     "yargs": "^6.4.0"
   },
   "scripts": {
-    "build": "gulp",
-    "gulp": "gulp",
+    "build": "gulp build",
+    "gulp": "gulp build",
     "lint": "yarn lint:js",
-    "lint:js": "eslint gulpfile.babel.js"
+    "lint:js": "eslint gulpfile.babel.js src/AppBundle/gulpfile.babel.js",
+    "watch": "gulp watch"
   },
   "repository": {
     "type": "git",
