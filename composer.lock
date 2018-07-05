@@ -2303,16 +2303,16 @@
         },
         {
             "name": "jms/serializer-bundle",
-            "version": "2.4.1",
+            "version": "2.4.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/schmittjoh/JMSSerializerBundle.git",
-                "reference": "73bad761515fabae3cb52bde7c73484081a91118"
+                "reference": "22eb9a2f7983394b0770237ca91e879eb2a4b4a6"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/schmittjoh/JMSSerializerBundle/zipball/73bad761515fabae3cb52bde7c73484081a91118",
-                "reference": "73bad761515fabae3cb52bde7c73484081a91118",
+                "url": "https://api.github.com/repos/schmittjoh/JMSSerializerBundle/zipball/22eb9a2f7983394b0770237ca91e879eb2a4b4a6",
+                "reference": "22eb9a2f7983394b0770237ca91e879eb2a4b4a6",
                 "shasum": ""
             },
             "require": {
@@ -2352,7 +2352,7 @@
             },
             "notification-url": "https://packagist.org/downloads/",
             "license": [
-                "Apache-2.0"
+                "MIT"
             ],
             "authors": [
                 {
@@ -2373,7 +2373,7 @@
                 "serialization",
                 "xml"
             ],
-            "time": "2018-05-25T10:56:25+00:00"
+            "time": "2018-06-19T13:39:25+00:00"
         },
         {
             "name": "knplabs/gaufrette",
@@ -2634,7 +2634,7 @@
                     "email": "stof@notk.org"
                 },
                 {
-                    "name": "Knplabs",
+                    "name": "KnpLabs",
                     "homepage": "http://knplabs.com"
                 },
                 {
@@ -3556,16 +3556,16 @@
         },
         {
             "name": "paragonie/random_compat",
-            "version": "v2.0.15",
+            "version": "v2.0.17",
             "source": {
                 "type": "git",
                 "url": "https://github.com/paragonie/random_compat.git",
-                "reference": "10bcb46e8f3d365170f6de9d05245aa066b81f09"
+                "reference": "29af24f25bab834fcbb38ad2a69fa93b867e070d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/paragonie/random_compat/zipball/10bcb46e8f3d365170f6de9d05245aa066b81f09",
-                "reference": "10bcb46e8f3d365170f6de9d05245aa066b81f09",
+                "url": "https://api.github.com/repos/paragonie/random_compat/zipball/29af24f25bab834fcbb38ad2a69fa93b867e070d",
+                "reference": "29af24f25bab834fcbb38ad2a69fa93b867e070d",
                 "shasum": ""
             },
             "require": {
@@ -3601,7 +3601,7 @@
                 "pseudorandom",
                 "random"
             ],
-            "time": "2018-06-08T15:26:40+00:00"
+            "time": "2018-07-04T16:31:37+00:00"
         },
         {
             "name": "payum/iso4217",
@@ -4895,16 +4895,16 @@
         },
         {
             "name": "sonata-project/core-bundle",
-            "version": "3.9.1",
+            "version": "3.10.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sonata-project/SonataCoreBundle.git",
-                "reference": "57f81fd5ec48d8260096959a8dfe9fc62a4ca836"
+                "reference": "352275323c28f921c57312d5fb609b693a8bc8e0"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sonata-project/SonataCoreBundle/zipball/57f81fd5ec48d8260096959a8dfe9fc62a4ca836",
-                "reference": "57f81fd5ec48d8260096959a8dfe9fc62a4ca836",
+                "url": "https://api.github.com/repos/sonata-project/SonataCoreBundle/zipball/352275323c28f921c57312d5fb609b693a8bc8e0",
+                "reference": "352275323c28f921c57312d5fb609b693a8bc8e0",
                 "shasum": ""
             },
             "require": {
@@ -4968,7 +4968,7 @@
             "keywords": [
                 "sonata"
             ],
-            "time": "2018-02-23T16:42:24+00:00"
+            "time": "2018-06-13T04:16:25+00:00"
         },
         {
             "name": "sonata-project/datagrid-bundle",
@@ -5029,16 +5029,16 @@
         },
         {
             "name": "sonata-project/intl-bundle",
-            "version": "2.4.1",
+            "version": "2.5.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sonata-project/SonataIntlBundle.git",
-                "reference": "3e72711a6487b57c2c574d97bfc21e8f11112e3c"
+                "reference": "1548e0eef68841088867e3a7c5d90a625922c14e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sonata-project/SonataIntlBundle/zipball/3e72711a6487b57c2c574d97bfc21e8f11112e3c",
-                "reference": "3e72711a6487b57c2c574d97bfc21e8f11112e3c",
+                "url": "https://api.github.com/repos/sonata-project/SonataIntlBundle/zipball/1548e0eef68841088867e3a7c5d90a625922c14e",
+                "reference": "1548e0eef68841088867e3a7c5d90a625922c14e",
                 "shasum": ""
             },
             "require": {
@@ -5097,7 +5097,7 @@
                 "sonata",
                 "time"
             ],
-            "time": "2018-05-05T18:00:36+00:00"
+            "time": "2018-06-16T16:09:27+00:00"
         },
         {
             "name": "stof/doctrine-extensions-bundle",
@@ -5166,16 +5166,16 @@
         },
         {
             "name": "swiftmailer/swiftmailer",
-            "version": "v6.0.2",
+            "version": "v6.1.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/swiftmailer/swiftmailer.git",
-                "reference": "412333372fb6c8ffb65496a2bbd7321af75733fc"
+                "reference": "aa899fef280b1c1aec8d5d4ac069af7f80c89a23"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/swiftmailer/swiftmailer/zipball/412333372fb6c8ffb65496a2bbd7321af75733fc",
-                "reference": "412333372fb6c8ffb65496a2bbd7321af75733fc",
+                "url": "https://api.github.com/repos/swiftmailer/swiftmailer/zipball/aa899fef280b1c1aec8d5d4ac069af7f80c89a23",
+                "reference": "aa899fef280b1c1aec8d5d4ac069af7f80c89a23",
                 "shasum": ""
             },
             "require": {
@@ -5186,10 +5186,14 @@
                 "mockery/mockery": "~0.9.1",
                 "symfony/phpunit-bridge": "~3.3@dev"
             },
+            "suggest": {
+                "ext-intl": "Needed to support internationalized email addresses",
+                "true/punycode": "Needed to support internationalized email addresses, if ext-intl is not installed"
+            },
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "6.0-dev"
+                    "dev-master": "6.1-dev"
                 }
             },
             "autoload": {
@@ -5211,13 +5215,13 @@
                 }
             ],
             "description": "Swiftmailer, free feature-rich PHP mailer",
-            "homepage": "http://swiftmailer.symfony.com",
+            "homepage": "https://swiftmailer.symfony.com",
             "keywords": [
                 "email",
                 "mail",
                 "mailer"
             ],
-            "time": "2017-09-30T22:39:41+00:00"
+            "time": "2018-07-04T11:12:44+00:00"
         },
         {
             "name": "sylius-labs/association-hydrator",
@@ -5315,16 +5319,16 @@
         },
         {
             "name": "sylius/sylius",
-            "version": "v1.2.0",
+            "version": "v1.2.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Sylius/Sylius.git",
-                "reference": "fe61f5c3aee73754e2e3df0cdc7558237ee0f8aa"
+                "reference": "4dd0c1cb0caf800d0ad5a7c3823ece43535bbe2e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Sylius/Sylius/zipball/fe61f5c3aee73754e2e3df0cdc7558237ee0f8aa",
-                "reference": "fe61f5c3aee73754e2e3df0cdc7558237ee0f8aa",
+                "url": "https://api.github.com/repos/Sylius/Sylius/zipball/4dd0c1cb0caf800d0ad5a7c3823ece43535bbe2e",
+                "reference": "4dd0c1cb0caf800d0ad5a7c3823ece43535bbe2e",
                 "shasum": ""
             },
             "require": {
@@ -5365,7 +5369,7 @@
                 "symfony/polyfill-intl-icu": "^1.3",
                 "symfony/polyfill-mbstring": "^1.3",
                 "symfony/swiftmailer-bundle": "^3.0",
-                "symfony/symfony": "^3.4|^4.1",
+                "symfony/symfony": "^3.4|^4.1.1",
                 "symfony/thanks": "^1.0",
                 "twig/extensions": "^1.4",
                 "twig/twig": "^2.0",
@@ -5454,7 +5458,10 @@
                 "mikey179/vfsstream": "^1.6",
                 "pamil/prophecy-common": "^0.1",
                 "phpspec/phpspec": "^4.0",
-                "phpstan/phpstan-shim": "^0.9",
+                "phpstan/phpstan-doctrine": "^0.10",
+                "phpstan/phpstan-shim": "^0.10",
+                "phpstan/phpstan-symfony": "^0.10",
+                "phpstan/phpstan-webmozart-assert": "^0.10",
                 "phpunit/phpunit": "^6.5",
                 "stripe/stripe-php": "^4.1",
                 "sylius-labs/coding-standard": "^2.0"
@@ -5509,11 +5516,11 @@
             ],
             "description": "E-Commerce platform for PHP, based on Symfony framework.",
             "homepage": "http://sylius.com",
-            "time": "2018-06-12T12:21:18+00:00"
+            "time": "2018-07-05T11:47:21+00:00"
         },
         {
             "name": "symfony/class-loader",
-            "version": "v3.4.11",
+            "version": "v3.4.12",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/class-loader.git",
@@ -5980,20 +5987,20 @@
         },
         {
             "name": "symfony/symfony",
-            "version": "v4.1.0",
+            "version": "v4.1.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/symfony.git",
-                "reference": "58261043876feb695640457c5675bb331a6eb3b7"
+                "reference": "68b56033c43d2c499d8dcf79f374c33049184b96"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/symfony/zipball/58261043876feb695640457c5675bb331a6eb3b7",
-                "reference": "58261043876feb695640457c5675bb331a6eb3b7",
+                "url": "https://api.github.com/repos/symfony/symfony/zipball/68b56033c43d2c499d8dcf79f374c33049184b96",
+                "reference": "68b56033c43d2c499d8dcf79f374c33049184b96",
                 "shasum": ""
             },
             "require": {
-                "doctrine/common": "~2.4",
+                "doctrine/common": "~2.4@stable",
                 "ext-xml": "*",
                 "fig/link-util": "^1.0",
                 "php": "^7.1.3",
@@ -6129,7 +6136,7 @@
             "keywords": [
                 "framework"
             ],
-            "time": "2018-05-30T12:52:50+00:00"
+            "time": "2018-06-25T13:07:10+00:00"
         },
         {
             "name": "symfony/thanks",
@@ -6348,16 +6355,16 @@
         },
         {
             "name": "white-october/pagerfanta-bundle",
-            "version": "v1.2.0",
+            "version": "v1.2.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/whiteoctober/WhiteOctoberPagerfantaBundle.git",
-                "reference": "a4895420aace01cc2c78c22c501a9f464cf30961"
+                "reference": "3f97e71c9d3f75e7a6179aa82c863497bf298b2d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/whiteoctober/WhiteOctoberPagerfantaBundle/zipball/a4895420aace01cc2c78c22c501a9f464cf30961",
-                "reference": "a4895420aace01cc2c78c22c501a9f464cf30961",
+                "url": "https://api.github.com/repos/whiteoctober/WhiteOctoberPagerfantaBundle/zipball/3f97e71c9d3f75e7a6179aa82c863497bf298b2d",
+                "reference": "3f97e71c9d3f75e7a6179aa82c863497bf298b2d",
                 "shasum": ""
             },
             "require": {
@@ -6403,7 +6410,7 @@
                 "page",
                 "paging"
             ],
-            "time": "2018-05-21T08:36:13+00:00"
+            "time": "2018-06-20T09:32:42+00:00"
         },
         {
             "name": "willdurand/hateoas",
@@ -7081,12 +7088,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/minkphp/Mink.git",
-                "reference": "04ab7af68536ac2c80fd6c08a6fd3620d3409891"
+                "reference": "d5ee350c40baff5f331a05ebdbe1927345c9ac8b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/minkphp/Mink/zipball/04ab7af68536ac2c80fd6c08a6fd3620d3409891",
-                "reference": "04ab7af68536ac2c80fd6c08a6fd3620d3409891",
+                "url": "https://api.github.com/repos/minkphp/Mink/zipball/d5ee350c40baff5f331a05ebdbe1927345c9ac8b",
+                "reference": "d5ee350c40baff5f331a05ebdbe1927345c9ac8b",
                 "shasum": ""
             },
             "require": {
@@ -7100,7 +7107,8 @@
                 "behat/mink-browserkit-driver": "extremely fast headless driver for Symfony\\Kernel-based apps (Sf2, Silex)",
                 "behat/mink-goutte-driver": "fast headless driver for any app without JS emulation",
                 "behat/mink-selenium2-driver": "slow, but JS-enabled driver for any app (requires Selenium2)",
-                "behat/mink-zombie-driver": "fast and JS-enabled headless driver for any app (requires node.js)"
+                "behat/mink-zombie-driver": "fast and JS-enabled headless driver for any app (requires node.js)",
+                "dmore/chrome-mink-driver": "fast and JS-enabled driver for any app (requires chromium or google chrome)"
             },
             "type": "library",
             "extra": {
@@ -7131,7 +7139,7 @@
                 "testing",
                 "web"
             ],
-            "time": "2018-01-07T17:25:05+00:00"
+            "time": "2018-06-24T20:08:51+00:00"
         },
         {
             "name": "behat/mink-browserkit-driver",
@@ -7989,16 +7997,16 @@
         },
         {
             "name": "jean85/pretty-package-versions",
-            "version": "1.1",
+            "version": "1.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Jean85/pretty-package-versions.git",
-                "reference": "d457344b6a035ef99236bdda4729ad7eeb233f54"
+                "reference": "75c7effcf3f77501d0e0caa75111aff4daa0dd48"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Jean85/pretty-package-versions/zipball/d457344b6a035ef99236bdda4729ad7eeb233f54",
-                "reference": "d457344b6a035ef99236bdda4729ad7eeb233f54",
+                "url": "https://api.github.com/repos/Jean85/pretty-package-versions/zipball/75c7effcf3f77501d0e0caa75111aff4daa0dd48",
+                "reference": "75c7effcf3f77501d0e0caa75111aff4daa0dd48",
                 "shasum": ""
             },
             "require": {
@@ -8029,14 +8037,14 @@
                     "email": "alessandro.lai85@gmail.com"
                 }
             ],
-            "description": "A wrapper for ocramius/pretty-package-versions to get pretty versions strings",
+            "description": "A wrapper for ocramius/package-versions to get pretty versions strings",
             "keywords": [
                 "composer",
                 "package",
                 "release",
                 "versions"
             ],
-            "time": "2018-01-21T13:54:22+00:00"
+            "time": "2018-06-13T13:22:40+00:00"
         },
         {
             "name": "lakion/api-test-case",
@@ -8226,16 +8234,16 @@
         },
         {
             "name": "nelmio/alice",
-            "version": "v3.4.0",
+            "version": "v3.4.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/nelmio/alice.git",
-                "reference": "50feea903db5c6e7be3ca465a9874d56a9a2f800"
+                "reference": "16959632cd73c019e2ae4d3ccd88062056738cb7"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/nelmio/alice/zipball/50feea903db5c6e7be3ca465a9874d56a9a2f800",
-                "reference": "50feea903db5c6e7be3ca465a9874d56a9a2f800",
+                "url": "https://api.github.com/repos/nelmio/alice/zipball/16959632cd73c019e2ae4d3ccd88062056738cb7",
+                "reference": "16959632cd73c019e2ae4d3ccd88062056738cb7",
                 "shasum": ""
             },
             "require": {
@@ -8301,31 +8309,31 @@
                 "faker",
                 "test"
             ],
-            "time": "2018-05-29T14:16:56+00:00"
+            "time": "2018-06-17T12:16:12+00:00"
         },
         {
             "name": "nette/finder",
-            "version": "v2.4.1",
+            "version": "v2.4.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/nette/finder.git",
-                "reference": "4d43a66d072c57d585bf08a3ef68d3587f7e9547"
+                "reference": "ee951a656cb8ac622e5dd33474a01fd2470505a0"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/nette/finder/zipball/4d43a66d072c57d585bf08a3ef68d3587f7e9547",
-                "reference": "4d43a66d072c57d585bf08a3ef68d3587f7e9547",
+                "url": "https://api.github.com/repos/nette/finder/zipball/ee951a656cb8ac622e5dd33474a01fd2470505a0",
+                "reference": "ee951a656cb8ac622e5dd33474a01fd2470505a0",
                 "shasum": ""
             },
             "require": {
-                "nette/utils": "^2.4 || ~3.0.0",
+                "nette/utils": "~2.4",
                 "php": ">=5.6.0"
             },
             "conflict": {
                 "nette/nette": "<2.2"
             },
             "require-dev": {
-                "nette/tester": "^2.0",
+                "nette/tester": "~2.0",
                 "tracy/tracy": "^2.3"
             },
             "type": "library",
@@ -8355,22 +8363,28 @@
                     "homepage": "https://nette.org/contributors"
                 }
             ],
-            "description": "Nette Finder: Files Searching",
+            "description": "🔍 Nette Finder: find files and directories with an intuitive API.",
             "homepage": "https://nette.org",
-            "time": "2017-07-10T23:47:08+00:00"
+            "keywords": [
+                "filesystem",
+                "glob",
+                "iterator",
+                "nette"
+            ],
+            "time": "2018-06-28T11:49:23+00:00"
         },
         {
             "name": "nette/robot-loader",
-            "version": "v3.0.3",
+            "version": "v3.0.4",
             "source": {
                 "type": "git",
                 "url": "https://github.com/nette/robot-loader.git",
-                "reference": "92d4b40b49d5e2d9e37fc736bbcebe6da55fa44a"
+                "reference": "3cf88781a05e0bf4618ae605361afcbaa4d5b392"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/nette/robot-loader/zipball/92d4b40b49d5e2d9e37fc736bbcebe6da55fa44a",
-                "reference": "92d4b40b49d5e2d9e37fc736bbcebe6da55fa44a",
+                "url": "https://api.github.com/repos/nette/robot-loader/zipball/3cf88781a05e0bf4618ae605361afcbaa4d5b392",
+                "reference": "3cf88781a05e0bf4618ae605361afcbaa4d5b392",
                 "shasum": ""
             },
             "require": {
@@ -8422,7 +8436,7 @@
                 "nette",
                 "trait"
             ],
-            "time": "2017-09-26T13:42:21+00:00"
+            "time": "2018-06-22T09:34:04+00:00"
         },
         {
             "name": "nette/utils",
@@ -8900,16 +8914,16 @@
         },
         {
             "name": "phpspec/phpspec",
-            "version": "4.3.0",
+            "version": "4.3.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/phpspec/phpspec.git",
-                "reference": "0671a4c63377cad221d2202177853f070f718884"
+                "reference": "4474f1cb4cf9873996fc07fac6533ab9298eb6fd"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/phpspec/phpspec/zipball/0671a4c63377cad221d2202177853f070f718884",
-                "reference": "0671a4c63377cad221d2202177853f070f718884",
+                "url": "https://api.github.com/repos/phpspec/phpspec/zipball/4474f1cb4cf9873996fc07fac6533ab9298eb6fd",
+                "reference": "4474f1cb4cf9873996fc07fac6533ab9298eb6fd",
                 "shasum": ""
             },
             "require": {
@@ -8977,7 +8991,7 @@
                 "testing",
                 "tests"
             ],
-            "time": "2017-12-22T11:50:28+00:00"
+            "time": "2018-07-02T17:43:33+00:00"
         },
         {
             "name": "phpspec/prophecy",
@@ -9338,16 +9352,16 @@
         },
         {
             "name": "phpunit/phpunit",
-            "version": "6.5.8",
+            "version": "6.5.9",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sebastianbergmann/phpunit.git",
-                "reference": "4f21a3c6b97c42952fd5c2837bb354ec0199b97b"
+                "reference": "093ca5508174cd8ab8efe44fd1dde447adfdec8f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sebastianbergmann/phpunit/zipball/4f21a3c6b97c42952fd5c2837bb354ec0199b97b",
-                "reference": "4f21a3c6b97c42952fd5c2837bb354ec0199b97b",
+                "url": "https://api.github.com/repos/sebastianbergmann/phpunit/zipball/093ca5508174cd8ab8efe44fd1dde447adfdec8f",
+                "reference": "093ca5508174cd8ab8efe44fd1dde447adfdec8f",
                 "shasum": ""
             },
             "require": {
@@ -9418,7 +9432,7 @@
                 "testing",
                 "xunit"
             ],
-            "time": "2018-04-10T11:38:34+00:00"
+            "time": "2018-07-03T06:40:40+00:00"
         },
         {
             "name": "phpunit/phpunit-mock-objects",
@@ -10040,16 +10054,16 @@
         },
         {
             "name": "slevomat/coding-standard",
-            "version": "4.6.1",
+            "version": "4.6.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/slevomat/coding-standard.git",
-                "reference": "de4a6fecdd6d00218e9c7d019a4ff47e123692cf"
+                "reference": "76e31b7cb2ce1de53b36430a332daae2db0be549"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/slevomat/coding-standard/zipball/de4a6fecdd6d00218e9c7d019a4ff47e123692cf",
-                "reference": "de4a6fecdd6d00218e9c7d019a4ff47e123692cf",
+                "url": "https://api.github.com/repos/slevomat/coding-standard/zipball/76e31b7cb2ce1de53b36430a332daae2db0be549",
+                "reference": "76e31b7cb2ce1de53b36430a332daae2db0be549",
                 "shasum": ""
             },
             "require": {
@@ -10075,7 +10089,7 @@
                 "MIT"
             ],
             "description": "Slevomat Coding Standard for PHP_CodeSniffer complements Consistence Coding Standard by providing sniffs with additional checks.",
-            "time": "2018-06-11T19:10:45+00:00"
+            "time": "2018-06-29T20:25:43+00:00"
         },
         {
             "name": "squizlabs/php_codesniffer",
