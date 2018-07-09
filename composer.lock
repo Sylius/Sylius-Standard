@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "343ab5eb60607d5d1471d6d7073b6d09",
+    "content-hash": "65f268afd64a99836d29d6b41c37d0f2",
     "packages": [
         {
             "name": "behat/transliterator",
@@ -2717,16 +2717,16 @@
         },
         {
             "name": "league/uri-components",
-            "version": "1.8.0",
+            "version": "1.8.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/thephpleague/uri-components.git",
-                "reference": "5290537e2d3bc5218d4aa4cc62d277a7e01050b5"
+                "reference": "b796a9dc4f3cb51d3ac026cb0b159a02a24a8ad1"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/thephpleague/uri-components/zipball/5290537e2d3bc5218d4aa4cc62d277a7e01050b5",
-                "reference": "5290537e2d3bc5218d4aa4cc62d277a7e01050b5",
+                "url": "https://api.github.com/repos/thephpleague/uri-components/zipball/b796a9dc4f3cb51d3ac026cb0b159a02a24a8ad1",
+                "reference": "b796a9dc4f3cb51d3ac026cb0b159a02a24a8ad1",
                 "shasum": ""
             },
             "require": {
@@ -2784,7 +2784,7 @@
                 "url",
                 "userinfo"
             ],
-            "time": "2018-03-14T15:32:06+00:00"
+            "time": "2018-07-06T06:37:27+00:00"
         },
         {
             "name": "league/uri-hostname-parser",
@@ -4896,16 +4896,16 @@
         },
         {
             "name": "sonata-project/core-bundle",
-            "version": "3.10.0",
+            "version": "3.11.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sonata-project/SonataCoreBundle.git",
-                "reference": "352275323c28f921c57312d5fb609b693a8bc8e0"
+                "reference": "08148e007c92fefc4315483eece38acade01614f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sonata-project/SonataCoreBundle/zipball/352275323c28f921c57312d5fb609b693a8bc8e0",
-                "reference": "352275323c28f921c57312d5fb609b693a8bc8e0",
+                "url": "https://api.github.com/repos/sonata-project/SonataCoreBundle/zipball/08148e007c92fefc4315483eece38acade01614f",
+                "reference": "08148e007c92fefc4315483eece38acade01614f",
                 "shasum": ""
             },
             "require": {
@@ -4969,7 +4969,7 @@
             "keywords": [
                 "sonata"
             ],
-            "time": "2018-06-13T04:16:25+00:00"
+            "time": "2018-07-07T22:27:10+00:00"
         },
         {
             "name": "sonata-project/datagrid-bundle",
@@ -5320,16 +5320,16 @@
         },
         {
             "name": "sylius/sylius",
-            "version": "v1.1.8",
+            "version": "v1.1.9",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Sylius/Sylius.git",
-                "reference": "522732e79ab02739a0fa6476a718eff4b40492e8"
+                "reference": "4b9539e2ef15a8cacbd54146185c11363c159900"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Sylius/Sylius/zipball/522732e79ab02739a0fa6476a718eff4b40492e8",
-                "reference": "522732e79ab02739a0fa6476a718eff4b40492e8",
+                "url": "https://api.github.com/repos/Sylius/Sylius/zipball/4b9539e2ef15a8cacbd54146185c11363c159900",
+                "reference": "4b9539e2ef15a8cacbd54146185c11363c159900",
                 "shasum": ""
             },
             "require": {
@@ -5517,7 +5517,7 @@
             ],
             "description": "E-Commerce platform for PHP, based on Symfony framework.",
             "homepage": "http://sylius.com",
-            "time": "2018-07-05T11:38:07+00:00"
+            "time": "2018-07-08T22:09:08+00:00"
         },
         {
             "name": "symfony/monolog-bundle",
