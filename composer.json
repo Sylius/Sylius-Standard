@@ -21,8 +21,8 @@
     ],
     "require": {
         "php": "^7.1",
-        
-        "sylius/sylius": "1.1.*"
+
+        "sylius/sylius": "~1.1.9"
     },
     "require-dev": {
         "behat/behat": "^3.4",
