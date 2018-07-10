@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "a53e8847d29e11405b034cf97f20749a",
+    "content-hash": "39a9dcf9060610192aa2fed6eba5c734",
     "packages": [
         {
             "name": "behat/transliterator",
@@ -5319,16 +5319,16 @@
         },
         {
             "name": "sylius/sylius",
-            "version": "v1.2.2",
+            "version": "v1.2.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Sylius/Sylius.git",
-                "reference": "d6dddb8942b625a8dcf9563ead841b021327cc2d"
+                "reference": "c314426a849e0f489471304d1923753353e233f7"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Sylius/Sylius/zipball/d6dddb8942b625a8dcf9563ead841b021327cc2d",
-                "reference": "d6dddb8942b625a8dcf9563ead841b021327cc2d",
+                "url": "https://api.github.com/repos/Sylius/Sylius/zipball/c314426a849e0f489471304d1923753353e233f7",
+                "reference": "c314426a849e0f489471304d1923753353e233f7",
                 "shasum": ""
             },
             "require": {
@@ -5516,7 +5516,7 @@
             ],
             "description": "E-Commerce platform for PHP, based on Symfony framework.",
             "homepage": "http://sylius.com",
-            "time": "2018-07-08T22:26:04+00:00"
+            "time": "2018-07-10T11:59:11+00:00"
         },
         {
             "name": "symfony/class-loader",
