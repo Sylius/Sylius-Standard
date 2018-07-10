@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "65f268afd64a99836d29d6b41c37d0f2",
+    "content-hash": "433dc06316f68851d249907b7a3502a5",
     "packages": [
         {
             "name": "behat/transliterator",
@@ -5320,16 +5320,16 @@
         },
         {
             "name": "sylius/sylius",
-            "version": "v1.1.9",
+            "version": "v1.1.10",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Sylius/Sylius.git",
-                "reference": "4b9539e2ef15a8cacbd54146185c11363c159900"
+                "reference": "9e5377d7c496896724a4fbdae4d3128395b2749b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Sylius/Sylius/zipball/4b9539e2ef15a8cacbd54146185c11363c159900",
-                "reference": "4b9539e2ef15a8cacbd54146185c11363c159900",
+                "url": "https://api.github.com/repos/Sylius/Sylius/zipball/9e5377d7c496896724a4fbdae4d3128395b2749b",
+                "reference": "9e5377d7c496896724a4fbdae4d3128395b2749b",
                 "shasum": ""
             },
             "require": {
@@ -5517,7 +5517,7 @@
             ],
             "description": "E-Commerce platform for PHP, based on Symfony framework.",
             "homepage": "http://sylius.com",
-            "time": "2018-07-08T22:09:08+00:00"
+            "time": "2018-07-10T11:46:29+00:00"
         },
         {
             "name": "symfony/monolog-bundle",
