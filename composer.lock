@@ -5324,12 +5324,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/Sylius/Sylius.git",
-                "reference": "5fed0d9ed0c1906f1c6a15c5cef147007537ac66"
+                "reference": "262a237140446f337c99dfedf177b58c18a19775"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Sylius/Sylius/zipball/5fed0d9ed0c1906f1c6a15c5cef147007537ac66",
-                "reference": "5fed0d9ed0c1906f1c6a15c5cef147007537ac66",
+                "url": "https://api.github.com/repos/Sylius/Sylius/zipball/262a237140446f337c99dfedf177b58c18a19775",
+                "reference": "262a237140446f337c99dfedf177b58c18a19775",
                 "shasum": ""
             },
             "require": {
@@ -5517,7 +5517,7 @@
             ],
             "description": "E-Commerce platform for PHP, based on Symfony framework.",
             "homepage": "http://sylius.com",
-            "time": "2018-07-08T22:27:35+00:00"
+            "time": "2018-07-10T12:11:25+00:00"
         },
         {
             "name": "symfony/class-loader",
