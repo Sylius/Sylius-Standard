@@ -1,4 +1,5 @@
 parameters:
+    database_driver: '%env(SYLIUS_DATABASE_DRIVER)%'
     database_host: '%env(SYLIUS_DATABASE_HOST)%'
     database_port: '%env(SYLIUS_DATABASE_PORT)%'
     database_name: '%env(SYLIUS_DATABASE_NAME)%'
@@ -16,6 +17,7 @@ parameters:
     secret: '%env(SYLIUS_SECRET)%'
 
     # Fallback values (used if environmental variables are not set)
+    env(SYLIUS_DATABASE_DRIVER): pdo_mysql
     env(SYLIUS_DATABASE_HOST): 127.0.0.1
     env(SYLIUS_DATABASE_PORT): ~
     env(SYLIUS_DATABASE_NAME): sylius
