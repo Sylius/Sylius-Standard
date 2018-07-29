@@ -5,7 +5,6 @@ dist: trusty
 sudo: required
 
 php:
-    - 7.1
     - 7.2
 
 jobs:
