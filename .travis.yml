@@ -2,11 +2,48 @@ language: php
 
 dist: trusty
 
-sudo: false
+sudo: required
 
 php:
     - 7.1
     - 7.2
+
+jobs:
+  include:
+    - stage: deploy
+      env:
+        DOCKER_COMPOSE_VERSION=1.22.0
+      before_install:
+        - sudo rm /usr/local/bin/docker-compose
+        - curl -L https://github.com/docker/compose/releases/download/${DOCKER_COMPOSE_VERSION}/docker-compose-`uname -s`-`uname -m` > docker-compose
+        - chmod +x docker-compose
+        - sudo mv docker-compose /usr/local/bin
+      install: true
+      before_script:
+        - sudo service mysql stop
+        # wait for mysql to shutdown
+        - while sudo lsof -Pi :3306 -sTCP:LISTEN -t; do sleep 1; done
+      script:
+        - docker-compose pull --ignore-pull-failures || true
+        - docker-compose build --pull
+        - docker-compose up -d
+        - sleep 60
+        - docker-compose exec php bin/console sylius:fixtures:load --no-interaction
+        - curl http://localhost/app_dev.php/
+        - curl http://localhost/app_dev.php/admin/
+      after_success: true
+      after_failure: true
+      before_deploy:
+        - echo "$DOCKER_PASSWORD" | docker login --username "$DOCKER_USERNAME" --password-stdin "$DOCKER_REGISTRY"
+      deploy:
+        provider: script
+        script: docker-compose push
+        skip_cleanup: true
+        on:
+          repo: Sylius/Sylius-Standard
+          tags: true
+      after_deploy: true
+      after_script: true
 
 cache:
     yarn: true
@@ -23,7 +60,14 @@ env:
         - SYMFONY_VERSION="4.1.*"
 
 services:
-    - memcached
+  - docker
+  - memcached
+  - mysql
+
+addons:
+  apt:
+    packages:
+      - docker-ce
 
 before_install:
     - phpenv config-rm xdebug.ini || true

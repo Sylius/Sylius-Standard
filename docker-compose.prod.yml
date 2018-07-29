@@ -1,0 +1,51 @@
+version: '3.4'
+
+services:
+  php:
+    image: quay.io/sylius/php:latest
+    depends_on:
+      - mysql
+    environment:
+      - SYMFONY_ENV=${SYMFONY_ENV:-prod}
+      - SYLIUS_APP_DEV_PERMITTED=${SYLIUS_APP_DEV_PERMITTED:-0}
+      - SYLIUS_HOST=${SYLIUS_HOST:?SYLIUS_HOST is not set or empty}
+      - SYLIUS_DATABASE_HOST=mysql
+      - SYLIUS_DATABASE_PORT=3306
+      - SYLIUS_DATABASE_NAME=sylius
+      - SYLIUS_DATABASE_USER=sylius
+      - SYLIUS_DATABASE_PASSWORD=${MYSQL_PASSWORD:?MYSQL_PASSWORD is not set or empty}
+      - SYLIUS_MAILER_TRANSPORT=smtp
+      - SYLIUS_MAILER_HOST=${SYLIUS_MAILER_HOST:?SYLIUS_MAILER_HOST is not set or empty}
+      - SYLIUS_MAILER_PORT=${SYLIUS_MAILER_PORT:?SYLIUS_MAILER_PORT is not set or empty}
+      - SYLIUS_MAILER_USER=${SYLIUS_MAILER_USER?SYLIUS_MAILER_USER is not set}
+      - SYLIUS_MAILER_PASSWORD=${SYLIUS_MAILER_PASSWORD?SYLIUS_MAILER_PASSWORD is not set}
+      - SYLIUS_SECRET=${SYLIUS_SECRET:?SYLIUS_SECRET is not set or empty}
+      - PHP_DATE_TIMEZONE=${PHP_DATE_TIMEZONE:?PHP_DATE_TIMEZONE is not set or empty}
+    volumes:
+      # use a bind-mounted host directory, as we want to keep the sessions
+      - ./var/sessions:/srv/sylius/var/sessions:rw
+      # use a bind-mounted host directory, as we want to keep the media
+      - ./web/media:/srv/sylius/web/media:rw
+
+  mysql:
+    # in production, we may want to use a managed database service
+    image: percona:5.7
+    environment:
+      - MYSQL_ROOT_PASSWORD=${MYSQL_ROOT_PASSWORD:?MYSQL_ROOT_PASSWORD is not set or empty}
+      - MYSQL_DATABASE=sylius
+      - MYSQL_USER=sylius
+      - MYSQL_PASSWORD=${MYSQL_PASSWORD:?MYSQL_PASSWORD is not set or empty}
+    volumes:
+      # use a bind-mounted host directory, because we never want to lose our data!
+      - ./docker/mysql/data:/var/lib/mysql:rw,delegated
+
+  nginx:
+    # in production, we may want to use a static website hosting service
+    image: quay.io/sylius/nginx:latest
+    depends_on:
+      - php
+    volumes:
+      # use a bind-mounted host directory, as we want to keep the media
+      - ./web/media:/srv/sylius/web/media:ro
+    ports:
+      - "80:80"
