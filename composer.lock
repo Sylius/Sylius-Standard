@@ -1,10 +1,10 @@
 {
     "_readme": [
         "This file locks the dependencies of your project to a known state",
-        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
+        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "8cfea0df1227483798340479506a224b",
+    "content-hash": "92337a9d4d9db330e667df33f8789e75",
     "packages": [
         {
             "name": "behat/transliterator",
@@ -2892,17 +2892,6 @@
         {
             "name": "league/uri",
             "version": "5.3.0",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/thephpleague/uri.git",
-                "reference": "f2bceb755f1108758cf4cf925e4cd7699ce686aa"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/thephpleague/uri/zipball/f2bceb755f1108758cf4cf925e4cd7699ce686aa",
-                "reference": "f2bceb755f1108758cf4cf925e4cd7699ce686aa",
-                "shasum": ""
-            },
             "require": {
                 "ext-fileinfo": "*",
                 "ext-intl": "*",
@@ -6427,6 +6416,72 @@
             ],
             "description": "Give thanks (in the form of a GitHub ⭐) to your fellow PHP package maintainers (not limited to Symfony components)!",
             "time": "2018-08-05T16:46:52+00:00"
+        },
+        {
+            "name": "teneleven/sylius-subscription-plugin",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "git@github.com:teneleven/sylius-subscription-plugin.git",
+                "reference": "c1709dacb17779aee6a270999e68e2b7f59a67cc"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/teneleven/sylius-subscription-plugin/zipball/c1709dacb17779aee6a270999e68e2b7f59a67cc",
+                "reference": "c1709dacb17779aee6a270999e68e2b7f59a67cc",
+                "shasum": ""
+            },
+            "require": {
+                "php": "^7.1",
+                "sylius/sylius": "~1.3.0|~1.2.0",
+                "symfony/symfony": "^3.4|^4.1"
+            },
+            "require-dev": {
+                "behat/behat": "^3.4",
+                "behat/mink": "^1.7@dev",
+                "behat/mink-browserkit-driver": "^1.3",
+                "behat/mink-extension": "^2.2",
+                "behat/mink-selenium2-driver": "^1.3",
+                "friends-of-behat/context-service-extension": "^1.2",
+                "friends-of-behat/cross-container-extension": "^1.1",
+                "friends-of-behat/service-container-extension": "^1.0",
+                "friends-of-behat/symfony-extension": "^1.2.1",
+                "friends-of-behat/variadic-extension": "^1.1",
+                "lakion/mink-debug-extension": "^1.2.3",
+                "phpspec/phpspec": "^4.0",
+                "phpstan/phpstan-doctrine": "^0.10",
+                "phpstan/phpstan-shim": "^0.10",
+                "phpstan/phpstan-symfony": "^0.10",
+                "phpstan/phpstan-webmozart-assert": "^0.10",
+                "phpunit/phpunit": "^6.5",
+                "sylius-labs/coding-standard": "^2.0"
+            },
+            "type": "sylius-plugin",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "0.1-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Teneleven\\SyliusSubscriptionPlugin\\": "src/",
+                    "Tests\\Teneleven\\SyliusSubscriptionPlugin\\": "tests/"
+                }
+            },
+            "autoload-dev": {
+                "classmap": [
+                    "tests/Application/app/AppKernel.php"
+                ]
+            },
+            "license": [
+                "proprietary"
+            ],
+            "description": "Adds subscription functionality to Sylius apps.",
+            "support": {
+                "source": "https://github.com/teneleven/sylius-subscription-plugin/tree/master",
+                "issues": "https://github.com/teneleven/sylius-subscription-plugin/issues"
+            },
+            "time": "2018-09-04T03:25:21+00:00"
         },
         {
             "name": "twig/extensions",
@@ -10833,6 +10888,7 @@
     "minimum-stability": "stable",
     "stability-flags": {
         "sylius/sylius": 20,
+        "teneleven/sylius-subscription-plugin": 20,
         "behat/mink": 20
     },
     "prefer-stable": true,

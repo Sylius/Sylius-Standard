@@ -37,7 +37,9 @@ class AppKernel extends Kernel
             $bundles[] = new \Nelmio\Alice\Bridge\Symfony\NelmioAliceBundle();
         }
 
-        return array_merge(parent::registerBundles(), $bundles);
+        return array_merge(parent::registerBundles(), $bundles, [
+            new \Teneleven\SyliusSubscriptionPlugin\TenelevenSyliusSubscriptionPlugin(),
+        ]);
     }
 
     /**
