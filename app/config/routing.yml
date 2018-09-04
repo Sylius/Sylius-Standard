@@ -26,3 +26,10 @@ sylius_shop_default_locale:
 
 _liip_imagine:
     resource: '@LiipImagineBundle/Resources/config/routing.yaml'
+
+teneleven_sylius_subscription_plugin_admin:
+    resource: '@TenelevenSyliusSubscriptionPlugin/Resources/config/routing/admin.yml'
+    prefix: /admin
+
+teneleven_sylius_subscription_plugin_shop:
+    resource: '@TenelevenSyliusSubscriptionPlugin/Resources/config/routing/shop.yml'

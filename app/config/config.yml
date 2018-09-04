@@ -6,6 +6,7 @@ imports:
     - { resource: '@SyliusAdminBundle/Resources/config/app/config.yml' }
     - { resource: '@SyliusShopBundle/Resources/config/app/config.yml' }
     - { resource: '@SyliusAdminApiBundle/Resources/config/app/config.yml' }
+    - { resource: '@TenelevenSyliusSubscriptionPlugin/Resources/config/config.yml' }
 
     - { resource: parameters.yml }
     - { resource: security.yml }
