@@ -34,7 +34,7 @@ $ cd project
 $ yarn install
 $ yarn build
 $ php bin/console sylius:install
-$ php bin/console server:start
+$ php bin/console server:start -d web
 $ open http://localhost:8000/
 ```
 
