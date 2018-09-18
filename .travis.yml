@@ -27,12 +27,16 @@ jobs:
 
             before_install:
                 - phpenv config-rm xdebug.ini || true
-                - echo "memory_limit=4096M" >> ~/.phpenv/versions/$(phpenv version-name)/etc/conf.d/travis.ini
 
+                - echo "memory_limit=4096M" >> ~/.phpenv/versions/$(phpenv version-name)/etc/conf.d/travis.ini
                 - echo "extension = memcached.so" >> ~/.phpenv/versions/$(phpenv version-name)/etc/conf.d/travis.ini
 
+                - cp .env.test_cached.dist .env.test_cached
+                - set -a && source .env.test_cached && set +a
+
             install:
-                - composer require "symfony/symfony:${SYMFONY_VERSION}" --no-interaction --prefer-dist
+                - if [ ! -z "${SYMFONY_VERSION}" ]; then bin/require-symfony-version composer.json "${SYMFONY_VERSION}"; fi
+                - composer update --no-interaction --prefer-dist
                 - yarn install
 
             before_script:
@@ -40,7 +44,7 @@ jobs:
                 - bin/console cache:warmup --env=test_cached --no-debug -vvv
                 - bin/console doctrine:migrations:migrate --no-interaction --env=test_cached --no-debug -vvv
 
-                - bin/console assets:install web --env=test_cached --no-debug -vvv
+                - bin/console assets:install --env=test_cached --no-debug -vvv
                 - yarn build
 
                 # Configure display
@@ -70,20 +74,20 @@ jobs:
                 - java -Dwebdriver.chrome.driver=$SYLIUS_CACHE_DIR/chromedriver -jar $SYLIUS_CACHE_DIR/selenium.jar > /dev/null 2>&1 &
 
                 # Run webserver
-                - bin/console server:run 127.0.0.1:8080 --env=test_cached --docroot=web --router=app/config/router_test_cached.php --no-debug --quiet > /dev/null 2>&1 &
+                - bin/console server:run 127.0.0.1:8080 --env=test_cached --no-debug --quiet > /dev/null 2>&1 &
 
             script:
                 - composer validate --strict
 
-                - bin/phpspec run --no-interaction -f dot
+                - vendor/bin/phpspec run --no-interaction -f dot
 
                 - bin/console sylius:fixtures:load --no-interaction --env=test_cached --no-debug -vvv
 
-                - echo "Testing (Behat - brand new, regular scenarios; ~@javascript && ~@todo && ~@cli)" "Sylius"
-                - bin/behat --strict --no-interaction -vvv -f progress -p cached --tags="~@javascript && ~@todo && ~@cli"
+                - echo "Testing (Behat, without javascript scenarios; ~@javascript && ~@todo && ~@cli)" "Sylius"
+                - vendor/bin/behat --strict --no-interaction -vvv -f progress -p cached --tags="~@javascript && ~@todo && ~@cli"
 
-                - echo "Testing (Behat - brand new, javascript scenarios; @javascript && ~@todo && ~@cli)" "Sylius"
-                - bin/behat --strict --no-interaction -vvv -f progress -p cached --tags="@javascript && ~@todo && ~@cli" || bin/behat --strict --no-interaction -vvv -f progress -p cached --tags="@javascript && ~@todo && ~@cli" --rerun
+                - echo "Testing (Behat, only javascript scenarios; @javascript && ~@todo && ~@cli)" "Sylius"
+                - vendor/bin/behat --strict --no-interaction -vvv -f progress -p cached --tags="@javascript && ~@todo && ~@cli" || vendor/bin/behat --strict --no-interaction -vvv -f progress -p cached --tags="@javascript && ~@todo && ~@cli" --rerun
 
             after_failure:
                 - vendor/lakion/mink-debug-extension/travis/tools/upload-textfiles "${SYLIUS_BUILD_DIR}/*.log"
@@ -132,8 +136,7 @@ jobs:
 
                 - docker-compose exec php bin/console sylius:fixtures:load --no-interaction
 
-                - curl http://localhost/app_dev.php/
-                - curl http://localhost/app_dev.php/admin/
+                - curl http://localhost/
 
             before_deploy:
                 - echo "$DOCKER_PASSWORD" | docker login --username "$DOCKER_USERNAME" --password-stdin "$DOCKER_REGISTRY"

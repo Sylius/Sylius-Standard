@@ -20,7 +20,7 @@ const { argv } = yargs
 
 const config = [
   '--rootPath',
-  argv.rootPath || '../../../../../../../web/assets',
+  argv.rootPath || '../../../../../../../public/assets',
   '--nodeModulesPath',
   argv.nodeModulesPath || '../../../../../../../node_modules',
 ];
