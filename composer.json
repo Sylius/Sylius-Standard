@@ -85,7 +85,8 @@
     },
     "extra": {
         "symfony": {
-            "allow-contrib": false
+            "allow-contrib": false,
+            "require": "^3.4|^4.1"
         },
         "branch-alias": {
             "dev-master": "1.3-dev"
