@@ -75,6 +75,8 @@ before_script:
 script:
     - composer validate --strict
 
+    - bin/ecs check src
+
     - bin/phpspec run --no-interaction -f dot
 
     - bin/console sylius:fixtures:load --no-interaction --env=test_cached --no-debug -vvv
