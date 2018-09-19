@@ -38,7 +38,7 @@
         "friends-of-behat/variadic-extension": "^1.1",
         "lakion/api-test-case": "^3.0",
         "lakion/mink-debug-extension": "^1.2.3",
-        "phpspec/phpspec": "^4.0",
+        "phpspec/phpspec": "^5.0",
         "phpunit/phpunit": "^6.5",
         "stripe/stripe-php": "^4.1",
         "sylius-labs/coding-standard": "^2.0",
