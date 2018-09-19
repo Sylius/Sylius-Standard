@@ -1,34 +1,40 @@
-/.php_cs
-/.php_cs.cache
-
-/app/config/parameters.yml
-/app/config/*.local.yml
 /var/*
-!/var/.gitkeep
-/.web-server-pid
+!/var/.gitignore
 
-/web/assets
-/web/bundles
-/web/css
-/web/js
-/web/media
-
-/bin/*
-!/bin/console
-!/bin/symfony_requirements
+/public/assets
+/public/bundles
+/public/css
+/public/js
+/public/media
 
 /vendor
 /node_modules
-/yarn-error.log
 
 /etc/build/*
-!/etc/build/.gitkeep
+!/etc/build/.gitignore
 
 /behat.yml
-/phpunit.xml
 /phpspec.yml
 
 /.env
+/.env.prod
+/.env.staging
+/.env.test
+/.env.test_cached
+
 /docker-compose.override.yaml
 /docker-compose.override.yml
 /docker/mysql/data/
+
+###> symfony/web-server-bundle ###
+/.web-server-pid
+###< symfony/web-server-bundle ###
+
+###> friendsofphp/php-cs-fixer ###
+/.php_cs
+/.php_cs.cache
+###< friendsofphp/php-cs-fixer ###
+
+###> phpunit/phpunit ###
+/phpunit.xml
+###< phpunit/phpunit ###
