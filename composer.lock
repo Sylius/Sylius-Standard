@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "3bb47b47e40faf047166e81f2d03c14f",
+    "content-hash": "0dfcce9a115a69f906f15738eb45d60d",
     "packages": [
         {
             "name": "behat/transliterator",
@@ -5454,12 +5454,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/Sylius/Sylius.git",
-                "reference": "cc4196094e00e1a87ad7467b79eaa7fa0d8325df"
+                "reference": "f5536106fca1c04115768353bc2de3d1901421be"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Sylius/Sylius/zipball/cc4196094e00e1a87ad7467b79eaa7fa0d8325df",
-                "reference": "cc4196094e00e1a87ad7467b79eaa7fa0d8325df",
+                "url": "https://api.github.com/repos/Sylius/Sylius/zipball/f5536106fca1c04115768353bc2de3d1901421be",
+                "reference": "f5536106fca1c04115768353bc2de3d1901421be",
                 "shasum": ""
             },
             "require": {
@@ -5641,7 +5641,7 @@
                     "allow-contrib": false
                 },
                 "branch-alias": {
-                    "dev-master": "1.3-dev"
+                    "dev-master": "1.4-dev"
                 }
             },
             "autoload": {
@@ -5674,7 +5674,7 @@
             ],
             "description": "E-Commerce platform for PHP, based on Symfony framework.",
             "homepage": "http://sylius.com",
-            "time": "2018-09-18T10:32:54+00:00"
+            "time": "2018-09-18T13:11:32+00:00"
         },
         {
             "name": "symfony/asset",
@@ -13349,16 +13349,16 @@
         },
         {
             "name": "theofidry/alice-data-fixtures",
-            "version": "v1.1.0",
+            "version": "v1.1.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/theofidry/AliceDataFixtures.git",
-                "reference": "4cb7c3457aae4918c7bb449c72ef7c739a524bc4"
+                "reference": "79913820cf6965cd6ea204cc5882079486f8262e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/theofidry/AliceDataFixtures/zipball/4cb7c3457aae4918c7bb449c72ef7c739a524bc4",
-                "reference": "4cb7c3457aae4918c7bb449c72ef7c739a524bc4",
+                "url": "https://api.github.com/repos/theofidry/AliceDataFixtures/zipball/79913820cf6965cd6ea204cc5882079486f8262e",
+                "reference": "79913820cf6965cd6ea204cc5882079486f8262e",
                 "shasum": ""
             },
             "require": {
@@ -13367,7 +13367,10 @@
                 "psr/log": "^1.0"
             },
             "conflict": {
-                "ocramius/proxy-manager": "<2.1"
+                "doctrine/orm": "<2.5",
+                "illuminate/database": "<5.5",
+                "ocramius/proxy-manager": "<2.1",
+                "symfony/framework-bundle": "<3.4"
             },
             "require-dev": {
                 "bamarni/composer-bin-plugin": "^1.1",
@@ -13421,7 +13424,7 @@
                 "orm",
                 "tests"
             ],
-            "time": "2018-09-11T10:18:12+00:00"
+            "time": "2018-09-18T19:11:18+00:00"
         },
         {
             "name": "theseer/tokenizer",
