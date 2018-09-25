@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 use App\Kernel;
 use Symfony\Component\Debug\Debug;
 use Symfony\Component\Dotenv\Dotenv;
@@ -12,7 +14,9 @@ if (!isset($_SERVER['APP_ENV']) && !isset($_ENV['APP_ENV'])) {
     if (!class_exists(Dotenv::class)) {
         throw new \RuntimeException('APP_ENV environment variable is not defined. You need to define environment variables for configuration or add "symfony/dotenv" as a Composer dependency to load variables from a .env file.');
     }
-    (new Dotenv())->load(__DIR__.'/../.env');
+
+    $envFile = file_exists(__DIR__.'/../.env') ? __DIR__.'/../.env' : __DIR__.'/../.env.dist';
+    (new Dotenv())->load($envFile);
 }
 
 $env = $_SERVER['APP_ENV'] ?? $_ENV['APP_ENV'] ?? 'dev';
