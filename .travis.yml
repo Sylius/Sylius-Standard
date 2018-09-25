@@ -132,7 +132,13 @@ jobs:
                 - docker-compose build --pull
                 - docker-compose up -d
 
+<<<<<<< HEAD
                 - sleep 60
+=======
+    - bin/ecs check src
+
+    - bin/phpspec run --no-interaction -f dot
+>>>>>>> 1.2
 
                 - docker-compose exec php bin/console sylius:fixtures:load --no-interaction
 
