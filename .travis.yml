@@ -44,7 +44,7 @@ jobs:
                 - bin/console cache:warmup --env=test_cached --no-debug -vvv
                 - bin/console doctrine:migrations:migrate --no-interaction --env=test_cached --no-debug -vvv
 
-                - bin/console assets:install --env=test_cached --no-debug -vvv
+                - bin/console assets:install public --env=test_cached --no-debug -vvv
                 - yarn build
 
                 # Configure display
@@ -74,10 +74,12 @@ jobs:
                 - java -Dwebdriver.chrome.driver=$SYLIUS_CACHE_DIR/chromedriver -jar $SYLIUS_CACHE_DIR/selenium.jar > /dev/null 2>&1 &
 
                 # Run webserver
-                - bin/console server:run 127.0.0.1:8080 --env=test_cached --no-debug --quiet > /dev/null 2>&1 &
+                - bin/console server:run localhost:8080 -d public --env=test_cached --no-debug --quiet > /dev/null 2>&1 &
 
             script:
                 - composer validate --strict
+
+                - vendor/bin/ecs check src
 
                 - vendor/bin/phpspec run --no-interaction -f dot
 
@@ -132,13 +134,7 @@ jobs:
                 - docker-compose build --pull
                 - docker-compose up -d
 
-<<<<<<< HEAD
                 - sleep 60
-=======
-    - bin/ecs check src
-
-    - bin/phpspec run --no-interaction -f dot
->>>>>>> 1.2
 
                 - docker-compose exec php bin/console sylius:fixtures:load --no-interaction
 
