@@ -7,16 +7,13 @@
     "homepage": "http://sylius.org",
     "authors": [
         {
-            "name": "Paweł Jędrzejewski",
-            "homepage": "http://pjedrzejewski.com"
+            "name": "Paweł Jędrzejewski"
         },
         {
-            "name": "Sylius project",
-            "homepage": "http://sylius.org"
+            "name": "Sylius project"
         },
         {
-            "name": "Community contributions",
-            "homepage": "http://github.com/Sylius/Sylius/contributors"
+            "name": "Community contributions"
         }
     ],
     "require": {
