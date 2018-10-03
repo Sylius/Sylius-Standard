@@ -75,6 +75,7 @@ services:
     image: quay.io/sylius/nginx:latest
     depends_on:
       - php
+      - nodejs # to ensure correct build order
     volumes:
       - ./docker/nginx/conf.d/default.dev.conf:/etc/nginx/conf.d/default.conf
       - ./public:/srv/sylius/public:ro
