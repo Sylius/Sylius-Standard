@@ -76,7 +76,6 @@ services:
     depends_on:
       - php
     volumes:
-      - ./docker/nginx/conf.d/default.dev.conf:/etc/nginx/conf.d/default.conf
       - ./public:/srv/sylius/public:ro
       # if you develop on Linux, you may use a bind-mounted host directory instead
       # - ./public/media:/srv/sylius/public/media:ro
