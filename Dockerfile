@@ -20,6 +20,7 @@ ARG APCU_VERSION=5.1.11
 RUN set -eux; \
 	apk add --no-cache --virtual .build-deps \
 		$PHPIZE_DEPS \
+		coreutils \
 		freetype-dev \
 		icu-dev \
 		libjpeg-turbo-dev \
