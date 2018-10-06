@@ -73,7 +73,7 @@ ENV PATH="${PATH}:/root/.composer/vendor/bin"
 WORKDIR /srv/sylius
 
 # build for production
-ARG SYMFONY_ENV=prod
+ARG APP_ENV=prod
 
 # prevent the reinstallation of vendors at every changes in the source code
 COPY composer.json composer.lock ./
