@@ -14,8 +14,6 @@
 .editorconfig
 .php_cs.cache
 .travis.yml
-app/config/parameters.yml
-app/config/*.local.yml
 composer.phar
 docker-compose*.yaml
 docker-compose*.yml
