@@ -18,7 +18,6 @@ services:
       - APP_SECRET=EDITME
       - DATABASE_URL=mysql://sylius:nopassword@mysql/sylius_%kernel.environment%
       - MAILER_URL=smtp://localhost
-      - SYLIUS_SECRET=${SYLIUS_SECRET:-nosecret}
       - PHP_DATE_TIMEZONE=${PHP_DATE_TIMEZONE:-UTC}
     volumes:
       - .:/srv/sylius:rw,cached
