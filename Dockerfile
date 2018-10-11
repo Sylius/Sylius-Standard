@@ -73,15 +73,21 @@ ENV PATH="${PATH}:/root/.composer/vendor/bin"
 WORKDIR /srv/sylius
 
 # build for production
-ARG SYMFONY_ENV=prod
+ARG APP_ENV=prod
 
 # prevent the reinstallation of vendors at every changes in the source code
-COPY composer.json composer.lock ./
+COPY composer.json composer.lock symfony.lock ./
 RUN set -eux; \
 	composer install --prefer-dist --no-autoloader --no-scripts --no-progress --no-suggest; \
 	composer clear-cache
 
-COPY . ./
+# copy only specifically what we need
+COPY bin bin/
+COPY config config/
+COPY public public/
+COPY src src/
+COPY templates templates/
+COPY translations translations/
 
 RUN set -eux; \
 	mkdir -p var/cache var/log; \
