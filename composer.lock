@@ -2787,16 +2787,16 @@
         },
         {
             "name": "league/uri-components",
-            "version": "1.8.1",
+            "version": "1.8.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/thephpleague/uri-components.git",
-                "reference": "b796a9dc4f3cb51d3ac026cb0b159a02a24a8ad1"
+                "reference": "d0412fd730a54a8284009664188cf239070eae64"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/thephpleague/uri-components/zipball/b796a9dc4f3cb51d3ac026cb0b159a02a24a8ad1",
-                "reference": "b796a9dc4f3cb51d3ac026cb0b159a02a24a8ad1",
+                "url": "https://api.github.com/repos/thephpleague/uri-components/zipball/d0412fd730a54a8284009664188cf239070eae64",
+                "reference": "d0412fd730a54a8284009664188cf239070eae64",
                 "shasum": ""
             },
             "require": {
@@ -2854,7 +2854,7 @@
                 "url",
                 "userinfo"
             ],
-            "time": "2018-07-06T06:37:27+00:00"
+            "time": "2018-10-24T11:31:02+00:00"
         },
         {
             "name": "league/uri-hostname-parser",
@@ -5244,16 +5244,16 @@
         },
         {
             "name": "sylius/sylius",
-            "version": "v1.3.1",
+            "version": "v1.3.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Sylius/Sylius.git",
-                "reference": "91e97e7d47bec0e36c1eb940c24391ef63953a7a"
+                "reference": "f98194c078620511a8dee39d34e7b3febe21922d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Sylius/Sylius/zipball/91e97e7d47bec0e36c1eb940c24391ef63953a7a",
-                "reference": "91e97e7d47bec0e36c1eb940c24391ef63953a7a",
+                "url": "https://api.github.com/repos/Sylius/Sylius/zipball/f98194c078620511a8dee39d34e7b3febe21922d",
+                "reference": "f98194c078620511a8dee39d34e7b3febe21922d",
                 "shasum": ""
             },
             "require": {
@@ -5408,7 +5408,7 @@
                 "phpstan/phpstan-symfony": "^0.10",
                 "phpstan/phpstan-webmozart-assert": "^0.10",
                 "phpunit/phpunit": "^6.5",
-                "sensiolabs/security-checker": "^4.1",
+                "sensiolabs/security-checker": "^5.0",
                 "stripe/stripe-php": "^4.1",
                 "sylius-labs/coding-standard": "^2.0",
                 "symfony/browser-kit": "^3.4|^4.1",
@@ -5463,7 +5463,7 @@
             ],
             "description": "E-Commerce platform for PHP, based on Symfony framework.",
             "homepage": "http://sylius.com",
-            "time": "2018-10-11T12:53:52+00:00"
+            "time": "2018-10-24T14:25:23+00:00"
         },
         {
             "name": "symfony/asset",
