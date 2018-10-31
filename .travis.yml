@@ -79,6 +79,8 @@ jobs:
             script:
                 - composer validate --strict
 
+                - vendor/bin/security-checker security:check
+
                 - vendor/bin/ecs check src
 
                 - vendor/bin/phpspec run --no-interaction -f dot
