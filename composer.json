@@ -4,7 +4,7 @@
     "keywords": ["symfony", "symfony2", "sylius", "distribution", "ecommerce", "cart", "shopping"],
     "type": "project",
     "license": "MIT",
-    "homepage": "http://sylius.org",
+    "homepage": "https://sylius.com",
     "authors": [
         {
             "name": "Paweł Jędrzejewski",
