@@ -122,7 +122,7 @@ final class Kernel extends BaseKernel
         Assert::isInstanceOf($container, ContainerBuilder::class);
 
         $locator = new FileLocator($this, $this->getRootDir() . '/Resources');
-        $resolver = new LoaderResolver(array(
+        $resolver = new LoaderResolver([
             new XmlFileLoader($container, $locator),
             new YamlFileLoader($container, $locator),
             new IniFileLoader($container, $locator),
@@ -130,7 +130,7 @@ final class Kernel extends BaseKernel
             new GlobFileLoader($container, $locator),
             new DirectoryLoader($container, $locator),
             new ClosureLoader($container),
-        ));
+        ]);
 
         return new DelegatingLoader($resolver);
     }
