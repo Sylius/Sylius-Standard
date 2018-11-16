@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "39a9dcf9060610192aa2fed6eba5c734",
+    "content-hash": "617ac85896f431d0eb9f44134b1713dd",
     "packages": [
         {
             "name": "behat/transliterator",
@@ -7911,6 +7911,62 @@
             "time": "2018-02-13T17:55:39+00:00"
         },
         {
+            "name": "friends-of-behat/page-object-extension",
+            "version": "v0.2.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/FriendsOfBehat/PageObjectExtension.git",
+                "reference": "37804ad78fe51327d4d52445cee701a10c9417dd"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/FriendsOfBehat/PageObjectExtension/zipball/37804ad78fe51327d4d52445cee701a10c9417dd",
+                "reference": "37804ad78fe51327d4d52445cee701a10c9417dd",
+                "shasum": ""
+            },
+            "require": {
+                "behat/mink": "^1.7",
+                "php": "^7.1"
+            },
+            "conflict": {
+                "symfony/routing": "<3.4"
+            },
+            "require-dev": {
+                "symfony/routing": "^3.4"
+            },
+            "suggest": {
+                "symfony/routing": "Allow better support for PageObject pattern in Symfony applications"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "FriendsOfBehat\\PageObjectExtension\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Kamil Kokot",
+                    "email": "kamil@kokot.me",
+                    "homepage": "http://kamil.kokot.me"
+                },
+                {
+                    "name": "Łukasz Chruściel",
+                    "email": "lchrusciel@gmail.com"
+                },
+                {
+                    "name": "Mateusz Zalewski",
+                    "email": "mateusz.p.zalewski@gmail.com",
+                    "homepage": "http://mpzalewski.com.pl"
+                }
+            ],
+            "description": "Provides default classes for Page object pattern in Behat",
+            "time": "2018-11-02T06:53:06+00:00"
+        },
+        {
             "name": "friends-of-behat/service-container-extension",
             "version": "v1.0.1",
             "source": {
@@ -8297,12 +8353,12 @@
             "version": "v3.1.3",
             "source": {
                 "type": "git",
-                "url": "https://github.com/Lakion/ApiTestCase.git",
+                "url": "https://github.com/lchrusciel/ApiTestCase.git",
                 "reference": "e67c087ca5d3f3a0e18ef3c702a425c518b54acc"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Lakion/ApiTestCase/zipball/e67c087ca5d3f3a0e18ef3c702a425c518b54acc",
+                "url": "https://api.github.com/repos/lchrusciel/ApiTestCase/zipball/e67c087ca5d3f3a0e18ef3c702a425c518b54acc",
                 "reference": "e67c087ca5d3f3a0e18ef3c702a425c518b54acc",
                 "shasum": ""
             },
@@ -8371,6 +8427,7 @@
                 "symfony",
                 "xml"
             ],
+            "abandoned": "lchrusciel/api-test-case",
             "time": "2018-08-20T14:26:27+00:00"
         },
         {
