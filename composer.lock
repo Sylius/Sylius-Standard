@@ -5256,29 +5256,16 @@
         },
         {
             "name": "sylius/sylius",
-<<<<<<< HEAD
-            "version": "v1.3.3",
+            "version": "v1.3.4",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Sylius/Sylius.git",
-                "reference": "777834d98647d15df0e106da6ae5e7c1bdc83089"
+                "reference": "0ba5b6a41af35963e8ec4dad40328ee7b8c58c3c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Sylius/Sylius/zipball/777834d98647d15df0e106da6ae5e7c1bdc83089",
-                "reference": "777834d98647d15df0e106da6ae5e7c1bdc83089",
-=======
-            "version": "v1.2.11",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/Sylius/Sylius.git",
-                "reference": "fc4cf243423d7289d53f585839f6a90977e3147e"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/Sylius/Sylius/zipball/fc4cf243423d7289d53f585839f6a90977e3147e",
-                "reference": "fc4cf243423d7289d53f585839f6a90977e3147e",
->>>>>>> 1.2
+                "url": "https://api.github.com/repos/Sylius/Sylius/zipball/0ba5b6a41af35963e8ec4dad40328ee7b8c58c3c",
+                "reference": "0ba5b6a41af35963e8ec4dad40328ee7b8c58c3c",
                 "shasum": ""
             },
             "require": {
@@ -5416,11 +5403,7 @@
                 "behat/mink-selenium2-driver": "^1.3",
                 "friends-of-behat/context-service-extension": "^1.2",
                 "friends-of-behat/cross-container-extension": "^1.1",
-<<<<<<< HEAD
-                "friends-of-behat/page-object-extension": "^0.1.0",
-=======
                 "friends-of-behat/page-object-extension": "^0.2",
->>>>>>> 1.2
                 "friends-of-behat/service-container-extension": "^1.0",
                 "friends-of-behat/symfony-extension": "^1.2.1",
                 "friends-of-behat/variadic-extension": "^1.1",
@@ -5439,8 +5422,7 @@
                 "phpunit/phpunit": "^6.5",
                 "sensiolabs/security-checker": "^5.0",
                 "stripe/stripe-php": "^4.1",
-<<<<<<< HEAD
-                "sylius-labs/coding-standard": "^2.0",
+                "sylius-labs/coding-standard": "^3.0",
                 "symfony/browser-kit": "^3.4|^4.1",
                 "symfony/debug-bundle": "^3.4|^4.1",
                 "symfony/dotenv": "^3.4|^4.1",
@@ -5448,9 +5430,6 @@
                 "symfony/intl": "^3.4|^4.1",
                 "symfony/web-profiler-bundle": "^3.4|^4.1",
                 "symfony/web-server-bundle": "^3.4|^4.1"
-=======
-                "sylius-labs/coding-standard": "^3.0"
->>>>>>> 1.2
             },
             "suggest": {
                 "ext-iconv": "For better performance than using Symfony Polyfill Component",
@@ -5496,11 +5475,7 @@
             ],
             "description": "E-Commerce platform for PHP, based on Symfony framework.",
             "homepage": "http://sylius.com",
-<<<<<<< HEAD
-            "time": "2018-11-07T11:54:11+00:00"
-=======
-            "time": "2018-11-16T10:14:20+00:00"
->>>>>>> 1.2
+            "time": "2018-11-16T10:25:05+00:00"
         },
         {
             "name": "symfony/asset",
@@ -6129,7 +6104,6 @@
             "time": "2018-10-30T13:18:25+00:00"
         },
         {
-<<<<<<< HEAD
             "name": "symfony/finder",
             "version": "v4.1.7",
             "source": {
@@ -6141,19 +6115,6 @@
                 "type": "zip",
                 "url": "https://api.github.com/repos/symfony/finder/zipball/1f17195b44543017a9c9b2d437c670627e96ad06",
                 "reference": "1f17195b44543017a9c9b2d437c670627e96ad06",
-=======
-            "name": "twig/extensions",
-            "version": "v1.5.3",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/twigphp/Twig-extensions.git",
-                "reference": "e187386bea539a2cc2726689d6b4d468672a8ab4"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/twigphp/Twig-extensions/zipball/e187386bea539a2cc2726689d6b4d468672a8ab4",
-                "reference": "e187386bea539a2cc2726689d6b4d468672a8ab4",
->>>>>>> 1.2
                 "shasum": ""
             },
             "require": {
@@ -6187,31 +6148,22 @@
                     "homepage": "https://symfony.com/contributors"
                 }
             ],
-<<<<<<< HEAD
             "description": "Symfony Finder Component",
             "homepage": "https://symfony.com",
             "time": "2018-10-03T08:47:56+00:00"
-=======
-            "description": "Common additional features for Twig that do not directly belong in core",
-            "keywords": [
-                "i18n",
-                "text"
-            ],
-            "time": "2018-11-16T03:34:09+00:00"
->>>>>>> 1.2
         },
         {
             "name": "symfony/flex",
-            "version": "v1.1.1",
+            "version": "v1.1.8",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/flex.git",
-                "reference": "9fb60f232af0764d58002e7872acb43a74506d25"
+                "reference": "955774ecf07b10230bb5b44e150ba078b45f68fa"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/flex/zipball/9fb60f232af0764d58002e7872acb43a74506d25",
-                "reference": "9fb60f232af0764d58002e7872acb43a74506d25",
+                "url": "https://api.github.com/repos/symfony/flex/zipball/955774ecf07b10230bb5b44e150ba078b45f68fa",
+                "reference": "955774ecf07b10230bb5b44e150ba078b45f68fa",
                 "shasum": ""
             },
             "require": {
@@ -6245,7 +6197,7 @@
                 }
             ],
             "description": "Composer plugin for Symfony",
-            "time": "2018-09-03T08:17:12+00:00"
+            "time": "2018-11-15T06:11:38+00:00"
         },
         {
             "name": "symfony/form",
@@ -8085,16 +8037,16 @@
         },
         {
             "name": "twig/extensions",
-            "version": "v1.5.2",
+            "version": "v1.5.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/twigphp/Twig-extensions.git",
-                "reference": "2c1a86526d0044065220d1b51ac08348bea5ca82"
+                "reference": "e187386bea539a2cc2726689d6b4d468672a8ab4"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/twigphp/Twig-extensions/zipball/2c1a86526d0044065220d1b51ac08348bea5ca82",
-                "reference": "2c1a86526d0044065220d1b51ac08348bea5ca82",
+                "url": "https://api.github.com/repos/twigphp/Twig-extensions/zipball/e187386bea539a2cc2726689d6b4d468672a8ab4",
+                "reference": "e187386bea539a2cc2726689d6b4d468672a8ab4",
                 "shasum": ""
             },
             "require": {
@@ -8136,7 +8088,7 @@
                 "i18n",
                 "text"
             ],
-            "time": "2018-05-22T13:26:07+00:00"
+            "time": "2018-11-16T03:34:09+00:00"
         },
         {
             "name": "twig/twig",
@@ -8382,7 +8334,6 @@
             "version": "1.4.0",
             "source": {
                 "type": "git",
-<<<<<<< HEAD
                 "url": "https://github.com/willdurand/BazingaHateoasBundle.git",
                 "reference": "d1f915fd4f8a7cd43a88a0ce97ffb28abe3a94fa"
             },
@@ -8390,15 +8341,6 @@
                 "type": "zip",
                 "url": "https://api.github.com/repos/willdurand/BazingaHateoasBundle/zipball/d1f915fd4f8a7cd43a88a0ce97ffb28abe3a94fa",
                 "reference": "d1f915fd4f8a7cd43a88a0ce97ffb28abe3a94fa",
-=======
-                "url": "https://github.com/Lakion/ApiTestCase.git",
-                "reference": "e67c087ca5d3f3a0e18ef3c702a425c518b54acc"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/Lakion/ApiTestCase/zipball/e67c087ca5d3f3a0e18ef3c702a425c518b54acc",
-                "reference": "e67c087ca5d3f3a0e18ef3c702a425c518b54acc",
->>>>>>> 1.2
                 "shasum": ""
             },
             "require": {
@@ -10135,6 +10077,7 @@
                 "symfony",
                 "xml"
             ],
+            "abandoned": "lchrusciel/api-test-case",
             "time": "2018-08-20T14:26:27+00:00"
         },
         {
