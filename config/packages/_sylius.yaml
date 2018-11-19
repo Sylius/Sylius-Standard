@@ -137,6 +137,9 @@ sylius_payum:
         payment_security_token:
             classes:
                 model: App\Entity\Payment\PaymentSecurityToken
+        gateway_config:
+            classes:
+                model: App\Entity\Payment\GatewayConfig
 
 sylius_product:
     resources:
