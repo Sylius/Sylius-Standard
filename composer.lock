@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "617ac85896f431d0eb9f44134b1713dd",
+    "content-hash": "69761cf2cb325a37c6afc71bfa0b64a6",
     "packages": [
         {
             "name": "behat/transliterator",
@@ -5139,22 +5139,23 @@
         },
         {
             "name": "sonata-project/core-bundle",
-            "version": "3.11.2",
+            "version": "3.12.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sonata-project/SonataCoreBundle.git",
-                "reference": "16a89c9dd5f99a3308b992bc5dcc14e16cbdf797"
+                "reference": "4a4edf9c957e2a2dbe077d225d7af1693f3ea353"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sonata-project/SonataCoreBundle/zipball/16a89c9dd5f99a3308b992bc5dcc14e16cbdf797",
-                "reference": "16a89c9dd5f99a3308b992bc5dcc14e16cbdf797",
+                "url": "https://api.github.com/repos/sonata-project/SonataCoreBundle/zipball/4a4edf9c957e2a2dbe077d225d7af1693f3ea353",
+                "reference": "4a4edf9c957e2a2dbe077d225d7af1693f3ea353",
                 "shasum": ""
             },
             "require": {
                 "cocur/slugify": "^1.4 || ^2.0 || ^3.0",
                 "php": "^5.6 || ^7.0",
                 "sonata-project/datagrid-bundle": "^2.0",
+                "sonata-project/doctrine-extensions": "^1.1",
                 "symfony/config": "^2.8 || ^3.2 || ^4.0",
                 "symfony/dependency-injection": "^2.8 || ^3.2 || ^4.0",
                 "symfony/event-dispatcher": "^2.8 || ^3.2 || ^4.0",
@@ -5212,7 +5213,7 @@
             "keywords": [
                 "sonata"
             ],
-            "time": "2018-07-18T22:10:58+00:00"
+            "time": "2018-11-19T19:01:36+00:00"
         },
         {
             "name": "sonata-project/datagrid-bundle",
@@ -5272,6 +5273,74 @@
                 "sonata"
             ],
             "time": "2018-10-09T20:50:18+00:00"
+        },
+        {
+            "name": "sonata-project/doctrine-extensions",
+            "version": "1.1.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/sonata-project/sonata-doctrine-extensions.git",
+                "reference": "de0c00b1d7a76b27677f1dad6c103449d876fd5d"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/sonata-project/sonata-doctrine-extensions/zipball/de0c00b1d7a76b27677f1dad6c103449d876fd5d",
+                "reference": "de0c00b1d7a76b27677f1dad6c103449d876fd5d",
+                "shasum": ""
+            },
+            "require": {
+                "doctrine/dbal": "^2.2",
+                "php": "^5.6 || ^7.0"
+            },
+            "require-dev": {
+                "doctrine/common": "^2.7",
+                "doctrine/orm": "^2.5",
+                "doctrine/phpcr-odm": "^1.4 || ^2.0",
+                "jackalope/jackalope-doctrine-dbal": "^1.0",
+                "symfony/dependency-injection": "^2.8 || ^3.3 || ^4.0",
+                "symfony/expression-language": "^2.8 || ^3.3 || ^4.0",
+                "symfony/framework-bundle": "^2.8 || ^3.3 || ^4.0",
+                "symfony/phpunit-bridge": "^4.0"
+            },
+            "suggest": {
+                "doctrine/orm": "If you use doctrine orm",
+                "doctrine/phpcr-odm": "If you use doctrine phpcr",
+                "symfony/framework-bundle": "If you want to use symfony"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Sonata\\Doctrine\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Thomas Rabaix",
+                    "email": "thomas.rabaix@sonata-project.org",
+                    "homepage": "http://sonata-project.org"
+                },
+                {
+                    "name": "Sonata Community",
+                    "homepage": "https://github.com/sonata-project/sonata-doctrine-extensions/contributors"
+                }
+            ],
+            "description": "Doctrine2 behavioral extensions",
+            "homepage": "https://github.com/sonata-project/sonata-doctrine-extensions",
+            "keywords": [
+                "doctrine",
+                "doctrine2",
+                "json"
+            ],
+            "time": "2018-10-02T06:55:18+00:00"
         },
         {
             "name": "sonata-project/intl-bundle",
@@ -7080,16 +7149,16 @@
         },
         {
             "name": "zendframework/zend-hydrator",
-            "version": "2.4.0",
+            "version": "2.4.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/zendframework/zend-hydrator.git",
-                "reference": "bd48bc3bc046df007a94125f868dd1aa1b73a813"
+                "reference": "70b02f4d8676e64af932625751750b5ca72fff3a"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/zendframework/zend-hydrator/zipball/bd48bc3bc046df007a94125f868dd1aa1b73a813",
-                "reference": "bd48bc3bc046df007a94125f868dd1aa1b73a813",
+                "url": "https://api.github.com/repos/zendframework/zend-hydrator/zipball/70b02f4d8676e64af932625751750b5ca72fff3a",
+                "reference": "70b02f4d8676e64af932625751750b5ca72fff3a",
                 "shasum": ""
             },
             "require": {
@@ -7139,7 +7208,7 @@
                 "hydrator",
                 "zf"
             ],
-            "time": "2018-04-30T21:22:14+00:00"
+            "time": "2018-11-19T19:16:10+00:00"
         },
         {
             "name": "zendframework/zend-stdlib",
@@ -8349,7 +8418,67 @@
             "time": "2018-06-13T13:22:40+00:00"
         },
         {
-            "name": "lakion/api-test-case",
+            "name": "lakion/mink-debug-extension",
+            "version": "v1.2.3",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/Lakion/MinkDebugExtension.git",
+                "reference": "fb04a47076df15ff38e6c7d298aac93dd6a63468"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/Lakion/MinkDebugExtension/zipball/fb04a47076df15ff38e6c7d298aac93dd6a63468",
+                "reference": "fb04a47076df15ff38e6c7d298aac93dd6a63468",
+                "shasum": ""
+            },
+            "require": {
+                "behat/behat": "^3.0.5",
+                "behat/mink-extension": "^2.0.1",
+                "php": "^5.5.9|^7.0"
+            },
+            "require-dev": {
+                "behat/mink-goutte-driver": "^1.1",
+                "behat/mink-selenium2-driver": "^1.2",
+                "phpspec/phpspec": "^2.0"
+            },
+            "suggest": {
+                "behat/mink-browserkit-driver": "To get request debug information included in log file",
+                "behat/mink-selenium2-driver": "To get screenshots"
+            },
+            "bin": [
+                "travis/tools/upload-screenshots",
+                "travis/tools/upload-textfiles",
+                "travis/tools/wait-for-port"
+            ],
+            "type": "behat-extension",
+            "autoload": {
+                "psr-4": {
+                    "Lakion\\Behat\\MinkDebugExtension\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Kamil Kokot",
+                    "email": "kamil@kokot.me",
+                    "homepage": "http://kamil.kokot.me"
+                }
+            ],
+            "description": "Debug extension for Behat",
+            "homepage": "https://github.com/Lakion/MinkDebugExtension",
+            "keywords": [
+                "Behat",
+                "Mink",
+                "debug",
+                "logging"
+            ],
+            "time": "2016-10-27T15:30:36+00:00"
+        },
+        {
+            "name": "lchrusciel/api-test-case",
             "version": "v3.1.3",
             "source": {
                 "type": "git",
@@ -8427,68 +8556,7 @@
                 "symfony",
                 "xml"
             ],
-            "abandoned": "lchrusciel/api-test-case",
             "time": "2018-08-20T14:26:27+00:00"
-        },
-        {
-            "name": "lakion/mink-debug-extension",
-            "version": "v1.2.3",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/Lakion/MinkDebugExtension.git",
-                "reference": "fb04a47076df15ff38e6c7d298aac93dd6a63468"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/Lakion/MinkDebugExtension/zipball/fb04a47076df15ff38e6c7d298aac93dd6a63468",
-                "reference": "fb04a47076df15ff38e6c7d298aac93dd6a63468",
-                "shasum": ""
-            },
-            "require": {
-                "behat/behat": "^3.0.5",
-                "behat/mink-extension": "^2.0.1",
-                "php": "^5.5.9|^7.0"
-            },
-            "require-dev": {
-                "behat/mink-goutte-driver": "^1.1",
-                "behat/mink-selenium2-driver": "^1.2",
-                "phpspec/phpspec": "^2.0"
-            },
-            "suggest": {
-                "behat/mink-browserkit-driver": "To get request debug information included in log file",
-                "behat/mink-selenium2-driver": "To get screenshots"
-            },
-            "bin": [
-                "travis/tools/upload-screenshots",
-                "travis/tools/upload-textfiles",
-                "travis/tools/wait-for-port"
-            ],
-            "type": "behat-extension",
-            "autoload": {
-                "psr-4": {
-                    "Lakion\\Behat\\MinkDebugExtension\\": "src/"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Kamil Kokot",
-                    "email": "kamil@kokot.me",
-                    "homepage": "http://kamil.kokot.me"
-                }
-            ],
-            "description": "Debug extension for Behat",
-            "homepage": "https://github.com/Lakion/MinkDebugExtension",
-            "keywords": [
-                "Behat",
-                "Mink",
-                "debug",
-                "logging"
-            ],
-            "time": "2016-10-27T15:30:36+00:00"
         },
         {
             "name": "myclabs/deep-copy",
