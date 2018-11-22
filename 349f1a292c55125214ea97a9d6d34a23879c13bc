@@ -1,0 +1,54 @@
+---------------------------------------------------------------------------
+
+by pamil at 2018-09-25T11:51:40Z
+
+Could you rebase the PR to the 1.3 branch?
+
+---------------------------------------------------------------------------
+
+by JanTvrdik at 2018-09-25T15:20:33Z
+
+* I think you need to override `createTranslation()` method as well
+* I think it helps if you split the entities to multiple namespaces, i.e. `App\Entity\Product\ProductVariant` instead of just `App\Entity\ProductVariant`
+* It helps greatly if entities do have `@method` annotations with overriden return types to help PhpStan and PhpStorm.
+
+For example, this is how extended `OrderItem` looks in our skeleton.
+
+~~~php
+<?php declare(strict_types = 1);
+
+namespace App\Entity\Order;
+
+use App\Entity\Product\Product;
+use App\Entity\Product\ProductVariant;
+use Doctrine\Common\Collections\Collection;
+use Doctrine\ORM\Mapping as ORM;
+use Sylius\Component\Core\Model\OrderItem as SyliusOrderItem;
+
+/**
+ * @ORM\Entity
+ * @ORM\Table(name="sylius_order_item")
+ *
+ * @method ProductVariant|null        getVariant()
+ * @method Product|null               getProduct()
+ * @method Order|null                 getOrder()
+ * @method Collection|OrderItemUnit[] getUnits()
+ * @method Collection|Adjustment[]    getAdjustments(?string $type = null)
+ * @method Collection|Adjustment[]    getAdjustmentsRecursively(?string $type = null)
+ */
+class OrderItem extends SyliusOrderItem
+{
+}
+~~~
+
+---------------------------------------------------------------------------
+
+by pamil at 2018-10-31T14:55:16Z
+
+@GSadee could you find some time to make the build passing?
+
+---------------------------------------------------------------------------
+
+by lchrusciel at 2018-11-22T08:00:16Z
+
+Thank you, Grzegorz! :tada:
