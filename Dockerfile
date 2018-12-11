@@ -62,11 +62,11 @@ RUN set -eux; \
 
 COPY --from=composer:latest /usr/bin/composer /usr/bin/composer
 COPY docker/php/php.ini /usr/local/etc/php/php.ini
+COPY docker/php/php-cli.ini /usr/local/etc/php/php-cli.ini
 
 # https://getcomposer.org/doc/03-cli.md#composer-allow-superuser
 ENV COMPOSER_ALLOW_SUPERUSER=1
 RUN set -eux; \
-    echo "memory_limit=2G" >> /usr/local/etc/php/php-cli.ini; \
 	composer global require "hirak/prestissimo:^0.3" --prefer-dist --no-progress --no-suggest --classmap-authoritative; \
 	composer clear-cache
 ENV PATH="${PATH}:/root/.composer/vendor/bin"
@@ -75,12 +75,11 @@ WORKDIR /srv/sylius
 
 # build for production
 ARG APP_ENV=prod
-ARG APP_SECRET=thisvariableissuddenlyneededhere
 
 # prevent the reinstallation of vendors at every changes in the source code
 COPY composer.json composer.lock symfony.lock ./
 RUN set -eux; \
-    composer install --prefer-dist --no-autoloader --no-scripts --no-progress --no-suggest; \
+	composer install --prefer-dist --no-autoloader --no-scripts --no-progress --no-suggest; \
 	composer clear-cache
 
 # copy only specifically what we need
@@ -94,7 +93,7 @@ COPY translations translations/
 RUN set -eux; \
 	mkdir -p var/cache var/log; \
 	composer dump-autoload --classmap-authoritative; \
-	composer run-script post-install-cmd; \
+	APP_SECRET='' composer run-script post-install-cmd; \
 	chmod +x bin/console; sync; \
 	bin/console sylius:install:assets; \
 	bin/console sylius:theme:assets:install public
