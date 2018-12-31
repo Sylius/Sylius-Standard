@@ -19,8 +19,7 @@
     "require": {
         "php": "^7.2",
         "sylius/sylius": "1.4.*@dev",
-        "symfony/flex": "^1.1",
-        "sensiolabs/security-checker": "^5.0"
+        "symfony/flex": "^1.1"
     },
     "require-dev": {
         "behat/behat": "^3.4",
@@ -35,10 +34,11 @@
         "friends-of-behat/suite-settings-extension": "^1.0",
         "friends-of-behat/symfony-extension": "^1.2.1",
         "friends-of-behat/variadic-extension": "^1.1",
-        "lchrusciel/api-test-case": "^3.0",
         "lakion/mink-debug-extension": "^1.2.3",
+        "lchrusciel/api-test-case": "^3.0",
         "phpspec/phpspec": "^5.0",
         "phpunit/phpunit": "^6.5",
+        "sensiolabs/security-checker": "^5.0",
         "stripe/stripe-php": "^4.1",
         "sylius-labs/coding-standard": "^2.0",
         "symfony/browser-kit": "^3.4|^4.1",
@@ -62,14 +62,17 @@
     "scripts": {
         "auto-scripts": {
             "cache:clear": "symfony-cmd",
-            "assets:install %PUBLIC_DIR%": "symfony-cmd",
-            "security-checker security:check": "script"
+            "assets:install %PUBLIC_DIR%": "symfony-cmd"
         },
         "post-install-cmd": [
             "@auto-scripts"
         ],
         "post-update-cmd": [
             "@auto-scripts"
+        ],
+        "post-create-project-cmd": [
+            "bin/console sylius:inform-about-gus",
+            "bin/console sylius:show-available-plugins --ansi"
         ]
     },
     "config": {

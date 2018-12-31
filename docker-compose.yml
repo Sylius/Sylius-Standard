@@ -21,7 +21,6 @@ services:
       - PHP_DATE_TIMEZONE=${PHP_DATE_TIMEZONE:-UTC}
     volumes:
       - .:/srv/sylius:rw,cached
-      - ./docker/php/php-cli.dev.ini:/usr/local/etc/php/php-cli.ini
       # if you develop on Linux, you may use a bind-mounted host directory instead
       # - ./var:/srv/sylius/var:rw
       - ./public:/srv/sylius/public:rw,delegated
