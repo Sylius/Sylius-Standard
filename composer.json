@@ -71,6 +71,7 @@
             "@auto-scripts"
         ],
         "post-create-project-cmd": [
+            "bin/console sylius:inform-about-gus",
             "bin/console sylius:show-available-plugins --ansi"
         ]
     },
