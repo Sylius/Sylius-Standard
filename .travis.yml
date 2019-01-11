@@ -20,7 +20,7 @@ env:
         - SYLIUS_BUILD_DIR=etc/build
     matrix:
         - SYMFONY_VERSION="3.4.*"
-        - SYMFONY_VERSION="4.1.*"
+        - SYMFONY_VERSION="4.2.*"
 
 services:
     - memcached
