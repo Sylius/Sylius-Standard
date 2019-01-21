@@ -2634,16 +2634,16 @@
         },
         {
             "name": "knplabs/gaufrette",
-            "version": "v0.8.0",
+            "version": "v0.8.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/KnpLabs/Gaufrette.git",
-                "reference": "1f7c4bf5fa603d9396ba812cf3171713adc7b394"
+                "reference": "80cc42e1c5f008a8fc9d02e856c60140c7d1ea19"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/KnpLabs/Gaufrette/zipball/1f7c4bf5fa603d9396ba812cf3171713adc7b394",
-                "reference": "1f7c4bf5fa603d9396ba812cf3171713adc7b394",
+                "url": "https://api.github.com/repos/KnpLabs/Gaufrette/zipball/80cc42e1c5f008a8fc9d02e856c60140c7d1ea19",
+                "reference": "80cc42e1c5f008a8fc9d02e856c60140c7d1ea19",
                 "shasum": ""
             },
             "require": {
@@ -2719,7 +2719,7 @@
                 "filesystem",
                 "media"
             ],
-            "time": "2018-12-21T14:09:42+00:00"
+            "time": "2019-01-11T10:04:44+00:00"
         },
         {
             "name": "knplabs/knp-gaufrette-bundle",
@@ -5197,16 +5197,16 @@
         },
         {
             "name": "sonata-project/core-bundle",
-            "version": "3.14.1",
+            "version": "3.15.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sonata-project/SonataCoreBundle.git",
-                "reference": "b38dfe1709c02cb9bb95f38c48103803f0aaaf3c"
+                "reference": "664d338cde48effa27c96846a131d75b4b5ea255"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sonata-project/SonataCoreBundle/zipball/b38dfe1709c02cb9bb95f38c48103803f0aaaf3c",
-                "reference": "b38dfe1709c02cb9bb95f38c48103803f0aaaf3c",
+                "url": "https://api.github.com/repos/sonata-project/SonataCoreBundle/zipball/664d338cde48effa27c96846a131d75b4b5ea255",
+                "reference": "664d338cde48effa27c96846a131d75b4b5ea255",
                 "shasum": ""
             },
             "require": {
@@ -5277,7 +5277,7 @@
             "keywords": [
                 "sonata"
             ],
-            "time": "2019-01-17T07:33:02+00:00"
+            "time": "2019-01-20T13:25:19+00:00"
         },
         {
             "name": "sonata-project/datagrid-bundle",
@@ -5340,16 +5340,16 @@
         },
         {
             "name": "sonata-project/doctrine-extensions",
-            "version": "1.1.4",
+            "version": "1.1.5",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sonata-project/sonata-doctrine-extensions.git",
-                "reference": "1f619e6f5a27b5bbaa48ab0872b19dc2064bc03f"
+                "reference": "187495be73b2099c6ff8d0c2384ca31a8adca66e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sonata-project/sonata-doctrine-extensions/zipball/1f619e6f5a27b5bbaa48ab0872b19dc2064bc03f",
-                "reference": "1f619e6f5a27b5bbaa48ab0872b19dc2064bc03f",
+                "url": "https://api.github.com/repos/sonata-project/sonata-doctrine-extensions/zipball/187495be73b2099c6ff8d0c2384ca31a8adca66e",
+                "reference": "187495be73b2099c6ff8d0c2384ca31a8adca66e",
                 "shasum": ""
             },
             "require": {
@@ -5404,7 +5404,7 @@
                 "doctrine2",
                 "json"
             ],
-            "time": "2019-01-15T23:01:57+00:00"
+            "time": "2019-01-19T09:07:22+00:00"
         },
         {
             "name": "sonata-project/intl-bundle",
