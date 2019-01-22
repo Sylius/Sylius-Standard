@@ -38,10 +38,11 @@
         "friends-of-behat/suite-settings-extension": "^1.0",
         "friends-of-behat/symfony-extension": "^1.2.1",
         "friends-of-behat/variadic-extension": "^1.1",
-        "lchrusciel/api-test-case": "^3.0",
         "lakion/mink-debug-extension": "^1.2.3",
+        "lchrusciel/api-test-case": "^3.0",
         "phpspec/phpspec": "^4.0",
         "phpunit/phpunit": "^6.5",
+        "stripe/stripe-php": "^6.28",
         "sylius-labs/coding-standard": "^2.0"
     },
     "prefer-stable": true,
