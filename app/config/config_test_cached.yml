@@ -4,6 +4,9 @@
 imports:
     - { resource: config_test.yml }
 
+framework:
+    router: { resource: '%kernel.project_dir%/app/config/routing_test_cached.yml' }
+
 doctrine:
     orm:
         entity_managers:
