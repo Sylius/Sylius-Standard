@@ -4,8 +4,8 @@ declare(strict_types=1);
 
 namespace DoctrineMigrations;
 
-use Doctrine\DBAL\Migrations\AbstractMigration;
 use Doctrine\DBAL\Schema\Schema;
+use Doctrine\Migrations\AbstractMigration;
 use Sylius\Component\Attribute\AttributeType\SelectAttributeType;
 use Sylius\Component\Product\Model\ProductAttributeInterface;
 use Symfony\Component\DependencyInjection\ContainerAwareInterface;

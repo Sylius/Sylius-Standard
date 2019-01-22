@@ -88,10 +88,10 @@ jobs:
                 - bin/console sylius:fixtures:load --no-interaction --env=test_cached --no-debug -vvv
 
                 - echo "Testing (Behat, without javascript scenarios; ~@javascript && ~@todo && ~@cli)" "Sylius"
-                - vendor/bin/behat --strict --no-interaction -vvv -f progress -p cached --tags="~@javascript && ~@todo && ~@cli"
+                - vendor/bin/behat --strict --no-interaction -vvv -f progress --tags="~@javascript && ~@todo && ~@cli"
 
                 - echo "Testing (Behat, only javascript scenarios; @javascript && ~@todo && ~@cli)" "Sylius"
-                - vendor/bin/behat --strict --no-interaction -vvv -f progress -p cached --tags="@javascript && ~@todo && ~@cli" || vendor/bin/behat --strict --no-interaction -vvv -f progress -p cached --tags="@javascript && ~@todo && ~@cli" --rerun
+                - vendor/bin/behat --strict --no-interaction -vvv -f progress --tags="@javascript && ~@todo && ~@cli" || vendor/bin/behat --strict --no-interaction -vvv -f progress --tags="@javascript && ~@todo && ~@cli" --rerun
 
             after_failure:
                 - vendor/lakion/mink-debug-extension/travis/tools/upload-textfiles "${SYLIUS_BUILD_DIR}/*.log"
