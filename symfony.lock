@@ -122,17 +122,8 @@
     "egulias/email-validator": {
         "version": "2.1.5"
     },
-    "friends-of-behat/context-service-extension": {
-        "version": "v1.2.0"
-    },
-    "friends-of-behat/cross-container-extension": {
-        "version": "v1.1.0"
-    },
     "friends-of-behat/page-object-extension": {
         "version": "0.1"
-    },
-    "friends-of-behat/service-container-extension": {
-        "version": "v1.0.1"
     },
     "friends-of-behat/suite-settings-extension": {
         "version": "v1.0.1"

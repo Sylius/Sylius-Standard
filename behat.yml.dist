@@ -3,41 +3,9 @@ imports:
 
 default:
     extensions:
-        FriendsOfBehat\ContextServiceExtension:
-            imports:
-                - "vendor/sylius/sylius/src/Sylius/Behat/Resources/config/services.xml"
-
+        Behat\MinkExtension:
+            files_path: "%paths.base%/vendor/sylius/sylius/src/Sylius/Behat/Resources/fixtures/"
         FriendsOfBehat\SuiteSettingsExtension:
             paths:
                 - "vendor/sylius/sylius/features"
                 - "features"
-
-        Behat\MinkExtension:
-            files_path: "%paths.base%/vendor/sylius/sylius/src/Sylius/Behat/Resources/fixtures/"
-
-        FriendsOfBehat\SymfonyExtension:
-            env_file: .env.test
-            kernel:
-                env: test
-                debug: true
-                class: App\Kernel
-                path: src/Kernel.php
-                bootstrap: ~
-
-cached:
-    extensions:
-        FriendsOfBehat\ContextServiceExtension:
-            imports:
-                - "vendor/sylius/sylius/src/Sylius/Behat/Resources/config/services.xml"
-
-        Behat\MinkExtension:
-            files_path: "%paths.base%/vendor/sylius/sylius/src/Sylius/Behat/Resources/fixtures/"
-
-        FriendsOfBehat\SymfonyExtension:
-            env_file: .env.test_cached
-            kernel:
-                env: test_cached
-                debug: false
-                class: App\Kernel
-                path: src/Kernel.php
-                bootstrap: ~
