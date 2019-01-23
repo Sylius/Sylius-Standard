@@ -5,6 +5,10 @@ dist: trusty
 php:
     - 7.2
 
+env:
+    global:
+        - APP_ENV=test_cached
+
 jobs:
     include:
         -   &test
@@ -31,20 +35,17 @@ jobs:
                 - echo "memory_limit=4096M" >> ~/.phpenv/versions/$(phpenv version-name)/etc/conf.d/travis.ini
                 - echo "extension = memcached.so" >> ~/.phpenv/versions/$(phpenv version-name)/etc/conf.d/travis.ini
 
-                - cp .env.test_cached.dist .env.test_cached
-                - set -a && source .env.test_cached && set +a
-
             install:
                 - if [ ! -z "${SYMFONY_VERSION}" ]; then bin/require-symfony-version composer.json "${SYMFONY_VERSION}"; fi
                 - composer update --no-interaction --prefer-dist
                 - yarn install
 
             before_script:
-                - bin/console doctrine:database:create --env=test_cached -vvv # Have to be run with debug = true, to omit generating proxies before setting up the database
-                - bin/console cache:warmup --env=test_cached --no-debug -vvv
-                - bin/console doctrine:migrations:migrate --no-interaction --env=test_cached --no-debug -vvv
+                - APP_DEBUG=1 bin/console doctrine:database:create -vvv # Have to be run with debug = true, to omit generating proxies before setting up the database
+                - APP_DEBUG=1 APP_ENV=dev bin/console cache:warmup -vvv
+                - bin/console doctrine:migrations:migrate --no-interaction -vvv
 
-                - bin/console assets:install public --env=test_cached --no-debug -vvv
+                - bin/console assets:install -vvv
                 - yarn build
 
                 # Configure display
@@ -74,7 +75,7 @@ jobs:
                 - java -Dwebdriver.chrome.driver=$SYLIUS_CACHE_DIR/chromedriver -jar $SYLIUS_CACHE_DIR/selenium.jar > /dev/null 2>&1 &
 
                 # Run webserver
-                - bin/console server:run localhost:8080 -d public --env=test_cached --no-debug --quiet > /dev/null 2>&1 &
+                - bin/console server:run localhost:8080 -d --quiet > /dev/null 2>&1 &
 
             script:
                 - composer validate --strict
@@ -85,7 +86,7 @@ jobs:
 
                 - vendor/bin/phpspec run --no-interaction -f dot
 
-                - bin/console sylius:fixtures:load --no-interaction --env=test_cached --no-debug -vvv
+                - bin/console sylius:fixtures:load --no-interaction -vvv
 
                 - echo "Testing (Behat, without javascript scenarios; ~@javascript && ~@todo && ~@cli)" "Sylius"
                 - vendor/bin/behat --strict --no-interaction -vvv -f progress --tags="~@javascript && ~@todo && ~@cli"
@@ -99,9 +100,9 @@ jobs:
 
         -   <<: *test
 
-            name: "Symfony 4.1.* build"
+            name: "Symfony 4.2.* build"
 
-            env: SYMFONY_VERSION="4.1.*" SYLIUS_CACHE_DIR=$HOME/.sylius-cache SYLIUS_BUILD_DIR=etc/build
+            env: SYMFONY_VERSION="4.2.*" SYLIUS_CACHE_DIR=$HOME/.sylius-cache SYLIUS_BUILD_DIR=etc/build
 
         -
             stage: test

@@ -1,13 +1,8 @@
-/var/*
-!/var/.gitignore
-
 /public/assets
-/public/bundles
 /public/css
 /public/js
 /public/media
 
-/vendor
 /node_modules
 
 /etc/build/*
@@ -16,15 +11,18 @@
 /behat.yml
 /phpspec.yml
 
-/.env
-/.env.prod
-/.env.staging
-/.env.test
-/.env.test_cached
-
 /docker-compose.override.yaml
 /docker-compose.override.yml
 /docker/mysql/data/
+
+###> symfony/framework-bundle ###
+/.env.*.local
+/.env.local
+/.env.local.php
+/public/bundles
+/var/
+/vendor/
+###< symfony/framework-bundle ###
 
 ###> symfony/web-server-bundle ###
 /.web-server-pid
