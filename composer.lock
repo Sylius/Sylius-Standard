@@ -2764,12 +2764,6 @@
                 "url": "https://github.com/thephpleague/uri.git",
                 "reference": "f2bceb755f1108758cf4cf925e4cd7699ce686aa"
             },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/thephpleague/uri/zipball/f2bceb755f1108758cf4cf925e4cd7699ce686aa",
-                "reference": "f2bceb755f1108758cf4cf925e4cd7699ce686aa",
-                "shasum": ""
-            },
             "require": {
                 "ext-fileinfo": "*",
                 "ext-intl": "*",

@@ -16,7 +16,7 @@ services:
       - APP_ENV=dev
       - APP_DEBUG=1
       - APP_SECRET=EDITME
-      - DATABASE_URL=mysql://sylius:nopassword@mysql/sylius_%kernel.environment%
+      - DATABASE_URL=mysql://sylius:nopassword@mysql/sylius
       - MAILER_URL=smtp://localhost
       - PHP_DATE_TIMEZONE=${PHP_DATE_TIMEZONE:-UTC}
     volumes:
@@ -32,7 +32,7 @@ services:
     image: percona:5.7
     environment:
       - MYSQL_ROOT_PASSWORD=${MYSQL_ROOT_PASSWORD:-nopassword}
-      - MYSQL_DATABASE=sylius_${APP_ENV-dev}
+      - MYSQL_DATABASE=sylius
       - MYSQL_USER=sylius
       - MYSQL_PASSWORD=${MYSQL_PASSWORD:-nopassword}
     volumes:
