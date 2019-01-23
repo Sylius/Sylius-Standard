@@ -42,10 +42,10 @@ jobs:
 
             before_script:
                 - APP_DEBUG=1 bin/console doctrine:database:create -vvv # Have to be run with debug = true, to omit generating proxies before setting up the database
-                - APP_DEBUG=1 APP_ENV=dev bin/console cache:warmup -vvv
+                - bin/console cache:warmup -vvv
                 - bin/console doctrine:migrations:migrate --no-interaction -vvv
 
-                - bin/console assets:install -vvv
+                - bin/console assets:install public -vvv
                 - yarn build
 
                 # Configure display
@@ -75,7 +75,7 @@ jobs:
                 - java -Dwebdriver.chrome.driver=$SYLIUS_CACHE_DIR/chromedriver -jar $SYLIUS_CACHE_DIR/selenium.jar > /dev/null 2>&1 &
 
                 # Run webserver
-                - bin/console server:run localhost:8080 -d --quiet > /dev/null 2>&1 &
+                - bin/console server:run localhost:8080 -d public --quiet > /dev/null 2>&1 &
 
             script:
                 - composer validate --strict
