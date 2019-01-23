@@ -40,7 +40,7 @@
         "sylius-labs/coding-standard": "^2.0",
         "symfony/browser-kit": "^3.4|^4.1",
         "symfony/debug-bundle": "^3.4|^4.1",
-        "symfony/dotenv": "^3.4|^4.1",
+        "symfony/dotenv": "^4.2",
         "symfony/intl": "^3.4|^4.1",
         "symfony/web-profiler-bundle": "^3.4|^4.1",
         "symfony/web-server-bundle": "^3.4|^4.1"
@@ -54,7 +54,8 @@
     "autoload-dev": {
         "psr-4": {
             "App\\Tests\\": "tests/"
-        }
+        },
+        "classmap": ["src/Kernel.php"]
     },
     "scripts": {
         "auto-scripts": {

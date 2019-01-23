@@ -83,6 +83,7 @@ RUN set -eux; \
 	composer clear-cache
 
 # copy only specifically what we need
+COPY .env .env.prod .env.test .env.test_cached ./
 COPY bin bin/
 COPY config config/
 COPY public public/
