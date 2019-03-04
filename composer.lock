@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "df429e8198d30086a607a591c82ca688",
+    "content-hash": "cfbe57707143f8ecb0f9909443776ac4",
     "packages": [
         {
             "name": "behat/transliterator",
@@ -2764,6 +2764,12 @@
                 "type": "git",
                 "url": "https://github.com/thephpleague/uri.git",
                 "reference": "f2bceb755f1108758cf4cf925e4cd7699ce686aa"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/thephpleague/uri/zipball/f2bceb755f1108758cf4cf925e4cd7699ce686aa",
+                "reference": "f2bceb755f1108758cf4cf925e4cd7699ce686aa",
+                "shasum": ""
             },
             "require": {
                 "ext-fileinfo": "*",
@@ -6171,6 +6177,63 @@
             ],
             "description": "Symfony Doctrine Bridge",
             "homepage": "https://symfony.com",
+            "time": "2019-01-24T21:39:51+00:00"
+        },
+        {
+            "name": "symfony/dotenv",
+            "version": "v4.2.4",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/symfony/dotenv.git",
+                "reference": "9a3bdfcd7a0d9602754894d76c614d15ca366535"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/symfony/dotenv/zipball/9a3bdfcd7a0d9602754894d76c614d15ca366535",
+                "reference": "9a3bdfcd7a0d9602754894d76c614d15ca366535",
+                "shasum": ""
+            },
+            "require": {
+                "php": "^7.1.3"
+            },
+            "require-dev": {
+                "symfony/process": "~3.4|~4.0"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "4.2-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Symfony\\Component\\Dotenv\\": ""
+                },
+                "exclude-from-classmap": [
+                    "/Tests/"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Fabien Potencier",
+                    "email": "fabien@symfony.com"
+                },
+                {
+                    "name": "Symfony Community",
+                    "homepage": "https://symfony.com/contributors"
+                }
+            ],
+            "description": "Registers environment variables from a .env file",
+            "homepage": "https://symfony.com",
+            "keywords": [
+                "dotenv",
+                "env",
+                "environment"
+            ],
             "time": "2019-01-24T21:39:51+00:00"
         },
         {
@@ -11707,6 +11770,7 @@
                 "mock",
                 "xunit"
             ],
+            "abandoned": true,
             "time": "2018-08-09T05:50:03+00:00"
         },
         {
@@ -12830,63 +12894,6 @@
             "time": "2019-01-16T20:35:37+00:00"
         },
         {
-            "name": "symfony/dotenv",
-            "version": "v4.2.3",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/symfony/dotenv.git",
-                "reference": "9a3bdfcd7a0d9602754894d76c614d15ca366535"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/symfony/dotenv/zipball/9a3bdfcd7a0d9602754894d76c614d15ca366535",
-                "reference": "9a3bdfcd7a0d9602754894d76c614d15ca366535",
-                "shasum": ""
-            },
-            "require": {
-                "php": "^7.1.3"
-            },
-            "require-dev": {
-                "symfony/process": "~3.4|~4.0"
-            },
-            "type": "library",
-            "extra": {
-                "branch-alias": {
-                    "dev-master": "4.2-dev"
-                }
-            },
-            "autoload": {
-                "psr-4": {
-                    "Symfony\\Component\\Dotenv\\": ""
-                },
-                "exclude-from-classmap": [
-                    "/Tests/"
-                ]
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Fabien Potencier",
-                    "email": "fabien@symfony.com"
-                },
-                {
-                    "name": "Symfony Community",
-                    "homepage": "https://symfony.com/contributors"
-                }
-            ],
-            "description": "Registers environment variables from a .env file",
-            "homepage": "https://symfony.com",
-            "keywords": [
-                "dotenv",
-                "env",
-                "environment"
-            ],
-            "time": "2019-01-24T21:39:51+00:00"
-        },
-        {
             "name": "symfony/polyfill-php70",
             "version": "v1.10.0",
             "source": {
@@ -13241,6 +13248,7 @@
                 "MIT"
             ],
             "description": "Slim wrapper around phpstan/phpdoc-parser with format preserving printer",
+            "abandoned": "https://github.com/rectorphp/rector",
             "time": "2018-09-15T13:45:05+00:00"
         },
         {
@@ -13445,6 +13453,7 @@
                 "MIT"
             ],
             "description": "Set of utils for PHP_CodeSniffer and PHP CS Fixer.",
+            "abandoned": "https://github.com/symplify/codingstandard",
             "time": "2018-09-15T14:17:28+00:00"
         },
         {
