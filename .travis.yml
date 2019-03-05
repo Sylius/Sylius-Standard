@@ -95,7 +95,7 @@ jobs:
                 - vendor/bin/behat --strict --no-interaction -vvv -f progress --tags="@javascript && ~@todo && ~@cli" || vendor/bin/behat --strict --no-interaction -vvv -f progress --tags="@javascript && ~@todo && ~@cli" --rerun
 
                 - echo "Testing prod requirements (Composer)" "Sylius"
-                - composer install --no-dev --no-interaction --prefer-dist
+                - APP_ENV=prod && APP_DEBUG=0 && composer install --no-dev --no-interaction --prefer-dist
 
             after_failure:
                 - vendor/lakion/mink-debug-extension/travis/tools/upload-textfiles "${SYLIUS_BUILD_DIR}/*.log"
