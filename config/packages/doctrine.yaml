@@ -18,7 +18,91 @@ doctrine:
         mappings:
             App:
                 is_bundle: false
-                type: annotation
-                dir: '%kernel.project_dir%/src/Entity'
-                prefix: 'App\Entity'
+                type: yml
+                dir: '%kernel.project_dir%/src/Resources/config/doctrine'
+                prefix: 'App\Entity\Main'
                 alias: App
+            SyliusAddressing:
+                is_bundle: false
+                type: annotation
+                dir: '%kernel.project_dir%/src/Entity/Addressing'
+                prefix: 'App\Entity\Addressing'
+                alias: SyliusAddressing
+            SyliusAdminApi:
+                is_bundle: false
+                type: annotation
+                dir: '%kernel.project_dir%/src/Entity/AdminApi'
+                prefix: 'App\Entity\AdminApi'
+                alias: SyliusAdminApi
+            SyliusChannel:
+                is_bundle: false
+                type: annotation
+                dir: '%kernel.project_dir%/src/Entity/Channel'
+                prefix: 'App\Entity\Channel'
+                alias: SyliusChannel
+            SyliusCurrency:
+                is_bundle: false
+                type: annotation
+                dir: '%kernel.project_dir%/src/Entity/Currency'
+                prefix: 'App\Entity\Currency'
+                alias: SyliusCurrency
+            SyliusCustomer:
+                is_bundle: false
+                type: annotation
+                dir: '%kernel.project_dir%/src/Entity/Customer'
+                prefix: 'App\Entity\Customer'
+                alias: SyliusCustomer
+            SyliusLocale:
+                is_bundle: false
+                type: annotation
+                dir: '%kernel.project_dir%/src/Entity/Locale'
+                prefix: 'App\Entity\Locale'
+                alias: SyliusLocale
+            SyliusOrder:
+                is_bundle: false
+                type: annotation
+                dir: '%kernel.project_dir%/src/Entity/Order'
+                prefix: 'App\Entity\Order'
+                alias: SyliusOrder
+            SyliusPayment:
+                is_bundle: false
+                type: annotation
+                dir: '%kernel.project_dir%/src/Entity/Payment'
+                prefix: 'App\Entity\Payment'
+                alias: SyliusPayment
+            SyliusProduct:
+                is_bundle: false
+                type: annotation
+                dir: '%kernel.project_dir%/src/Entity/Product'
+                prefix: 'App\Entity\Product'
+                alias: SyliusProduct
+            SyliusPromotion:
+                is_bundle: false
+                type: annotation
+                dir: '%kernel.project_dir%/src/Entity/Promotion'
+                prefix: 'App\Entity\Promotion'
+                alias: SyliusPromotion
+            SyliusShipping:
+                is_bundle: false
+                type: annotation
+                dir: '%kernel.project_dir%/src/Entity/Shipping'
+                prefix: 'App\Entity\Shipping'
+                alias: SyliusShipping
+            SyliusTaxation:
+                is_bundle: false
+                type: annotation
+                dir: '%kernel.project_dir%/src/Entity/Taxation'
+                prefix: 'App\Entity\Taxation'
+                alias: SyliusTaxation
+            SyliusTaxonomy:
+                is_bundle: false
+                type: annotation
+                dir: '%kernel.project_dir%/src/Entity/Taxonomy'
+                prefix: 'App\Entity\Taxonomy'
+                alias: SyliusTaxonomy
+            SyliusUser:
+                is_bundle: false
+                type: annotation
+                dir: '%kernel.project_dir%/src/Entity/User'
+                prefix: 'App\Entity\User'
+                alias: SyliusUser
