@@ -14,9 +14,6 @@ sylius_addressing:
         address:
             classes:
                 model: App\Entity\Addressing\Address
-        address_log_entry:
-            classes:
-                model: App\Entity\Addressing\AddressLogEntry
         country:
             classes:
                 model: App\Entity\Addressing\Country
