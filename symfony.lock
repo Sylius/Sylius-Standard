@@ -542,6 +542,9 @@
     "sylius-labs/coding-standard": {
         "version": "v2.0.0"
     },
+    "sylius/resource-bundle": {
+        "version": "v1.4.4"
+    },
     "sylius/sylius": {
         "version": "v1.3.6"
     },
