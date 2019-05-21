@@ -4,12 +4,14 @@ declare(strict_types=1);
 
 namespace DoctrineMigrations;
 
+use Doctrine\Common\Persistence\ObjectRepository;
 use Doctrine\DBAL\Schema\Schema;
 use Doctrine\Migrations\AbstractMigration;
 use Sylius\Component\Attribute\AttributeType\SelectAttributeType;
 use Sylius\Component\Product\Model\ProductAttributeInterface;
 use Symfony\Component\DependencyInjection\ContainerAwareInterface;
 use Symfony\Component\DependencyInjection\ContainerInterface;
+use Webmozart\Assert\Assert;
 
 /**
  * Auto-generated Migration: Please modify to your needs!
@@ -26,6 +28,7 @@ class Version20171003103916 extends AbstractMigration implements ContainerAwareI
      */
     public function setContainer(?ContainerInterface $container = null): void
     {
+        Assert::isInstanceOf($container, ContainerInterface::class);
         $this->container = $container;
     }
 
@@ -39,6 +42,7 @@ class Version20171003103916 extends AbstractMigration implements ContainerAwareI
 
         $defaultLocale = $this->container->getParameter('locale');
         $productAttributeRepository = $this->container->get('sylius.repository.product_attribute');
+        Assert::isInstanceOf($productAttributeRepository, ObjectRepository::class);
 
         $productAttributes = $productAttributeRepository->findBy(['type' => SelectAttributeType::TYPE]);
         /** @var ProductAttributeInterface $productAttribute */
@@ -75,6 +79,7 @@ class Version20171003103916 extends AbstractMigration implements ContainerAwareI
 
         $defaultLocale = $this->container->getParameter('locale');
         $productAttributeRepository = $this->container->get('sylius.repository.product_attribute');
+        Assert::isInstanceOf($productAttributeRepository, ObjectRepository::class);
 
         $productAttributes = $productAttributeRepository->findBy(['type' => SelectAttributeType::TYPE]);
         /** @var ProductAttributeInterface $productAttribute */
