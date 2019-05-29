@@ -1,0 +1,12 @@
+parameters:
+    reportUnmatchedIgnoredErrors: false
+
+    autoload_directories:
+        - src/Migrations/
+
+    excludes_analyse:
+        # Makes PHPStan crash
+        - src/DependencyInjection/Configuration.php
+
+    ignoreErrors:
+        - '/Parameter #1 $configuration of method Symfony\Component\DependencyInjection\Extension\Extension::processConfiguration() expects Symfony\Component\Config\Definition\ConfigurationInterface, Symfony\Component\Config\Definition\ConfigurationInterface|null given./'

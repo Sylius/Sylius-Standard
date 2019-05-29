@@ -84,6 +84,8 @@ jobs:
 
                 - vendor/bin/ecs check src
 
+                - vendor/bin/phpstan analyse -c phpstan.neon -l max src/
+
                 - vendor/bin/phpspec run --no-interaction -f dot
 
                 - bin/console sylius:fixtures:load --no-interaction -vvv
