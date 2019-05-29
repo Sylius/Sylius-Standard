@@ -1,9 +1,9 @@
 # the different stages of this Dockerfile are meant to be built into separate images
 # https://docs.docker.com/compose/compose-file/#target
 
-ARG PHP_VERSION=7.2
+ARG PHP_VERSION=7.3
 ARG NODE_VERSION=10
-ARG NGINX_VERSION=1.15
+ARG NGINX_VERSION=1.16
 
 FROM php:${PHP_VERSION}-fpm-alpine AS sylius_php
 
@@ -16,7 +16,7 @@ RUN apk add --no-cache \
 		mariadb-client \
 	;
 
-ARG APCU_VERSION=5.1.11
+ARG APCU_VERSION=5.1.17
 RUN set -eux; \
 	apk add --no-cache --virtual .build-deps \
 		$PHPIZE_DEPS \
