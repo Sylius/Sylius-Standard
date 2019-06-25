@@ -4,13 +4,12 @@ declare(strict_types=1);
 
 namespace App\Entity\Promotion;
 
-use Doctrine\ORM\Mapping\Entity;
-use Doctrine\ORM\Mapping\Table;
+use Doctrine\ORM\Mapping as ORM;
 use Sylius\Component\Promotion\Model\PromotionAction as BasePromotionAction;
 
 /**
- * @Entity
- * @Table(name="sylius_promotion_action")
+ * @ORM\Entity
+ * @ORM\Table(name="sylius_promotion_action")
  */
 class PromotionAction extends BasePromotionAction
 {
