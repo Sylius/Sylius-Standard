@@ -4,13 +4,12 @@ declare(strict_types=1);
 
 namespace App\Entity\Order;
 
-use Doctrine\ORM\Mapping\Entity;
-use Doctrine\ORM\Mapping\Table;
+use Doctrine\ORM\Mapping as ORM;
 use Sylius\Component\Order\Model\Adjustment as BaseAdjustment;
 
 /**
- * @Entity
- * @Table(name="sylius_adjustment")
+ * @ORM\Entity
+ * @ORM\Table(name="sylius_adjustment")
  */
 class Adjustment extends BaseAdjustment
 {
