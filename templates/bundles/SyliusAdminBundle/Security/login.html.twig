@@ -1,0 +1,19 @@
+{% extends '@SyliusUi/Layout/centered.html.twig' %}
+
+{% block title %}Sylius | {{ 'sylius.ui.administration_panel_login'|trans }}{% endblock %}
+
+{% block stylesheets %}
+    {{ encore_entry_link_tags('admin-main', null, 'admin') }}
+{% endblock %}
+
+{% block content %}
+{{ sonata_block_render_event('sylius.admin.login.before_content', {'form': form}) }}
+
+{% include '@SyliusUi/Security/_login.html.twig' with {'action': path('sylius_admin_login_check'), 'paths': {'logo': asset('assets/admin/images/logo.png', 'admin')}} %}
+
+{{ sonata_block_render_event('sylius.admin.login.after_content', {'form': form}) }}
+{% endblock %}
+
+{% block javascripts %}
+    {{ encore_entry_script_tags('admin-main', null, 'admin') }}
+{% endblock %}
