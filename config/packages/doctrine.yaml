@@ -18,8 +18,8 @@ doctrine:
         mappings:
             App:
                 is_bundle: false
-                type: yml
-                dir: '%kernel.project_dir%/src/Resources/config/doctrine'
+                type: annotation
+                dir: '%kernel.project_dir%/src/Entity/Main'
                 prefix: 'App\Entity\Main'
                 alias: App
             SyliusAddressing:
