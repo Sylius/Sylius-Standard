@@ -22,7 +22,7 @@ We're using full-stack Behavior-Driven-Development, with [phpspec](http://phpspe
 Documentation
 -------------
 
-Documentation is available at [docs.sylius.org](http://docs.sylius.org).
+Documentation is available at [docs.sylius.com](http://docs.sylius.com).
 
 Installation
 ------------
@@ -53,7 +53,7 @@ If you are using the supplied Vagrant development environment, please see the re
 Contributing
 ------------
 
-Would like to help us and build the most developer-friendly eCommerce platform? Start from reading our [Contributing Guide](http://docs.sylius.org/en/latest/contributing/index.html)!
+Would like to help us and build the most developer-friendly eCommerce platform? Start from reading our [Contribution Guide](https://docs.sylius.com/en/latest/contributing/)!
 
 Stay Updated
 ------------
