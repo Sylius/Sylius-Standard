@@ -2,6 +2,7 @@
 /public/css
 /public/js
 /public/media
+!/public/media/image/.gitkeep
 
 /node_modules
 
