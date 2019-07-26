@@ -35,6 +35,8 @@ jobs:
                 - echo "memory_limit=4096M" >> ~/.phpenv/versions/$(phpenv version-name)/etc/conf.d/travis.ini
                 - echo "extension = memcached.so" >> ~/.phpenv/versions/$(phpenv version-name)/etc/conf.d/travis.ini
 
+                - composer self-update --snapshot
+
             install:
                 - if [ ! -z "${SYMFONY_VERSION}" ]; then bin/require-symfony-version composer.json "${SYMFONY_VERSION}"; fi
                 - composer update --no-interaction --prefer-dist
