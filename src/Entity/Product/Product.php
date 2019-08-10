@@ -15,10 +15,21 @@ use Sylius\Component\Product\Model\ProductTranslationInterface;
 class Product extends BaseProduct
 {
 
-    private CONST COLORS = ['czerwony','niebieski', 'zielony'];
+    /** @ORM\Column(type="string", nullable=true) */
+    private $color;
 
     protected function createTranslation(): ProductTranslationInterface
     {
         return new ProductTranslation();
+    }
+
+    public function getColor()
+    {
+        return $this->color;
+    }
+
+    public function setColor(string $color)
+    {
+        $this->color = $color;
     }
 }
