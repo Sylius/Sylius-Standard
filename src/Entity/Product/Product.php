@@ -14,6 +14,9 @@ use Sylius\Component\Product\Model\ProductTranslationInterface;
  */
 class Product extends BaseProduct
 {
+
+    private CONST COLORS = ['czerwony','niebieski', 'zielony'];
+
     protected function createTranslation(): ProductTranslationInterface
     {
         return new ProductTranslation();

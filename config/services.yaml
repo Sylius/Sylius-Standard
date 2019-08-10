@@ -27,3 +27,8 @@ services:
     App\Controller\:
         resource: '../src/Controller'
         tags: ['controller.service_arguments']
+
+    app.form.extension.type.customer_profile:
+        class: App\Form\Extension\ProductType
+        tags:
+        - { name: form.type_extension, extended_type: Sylius\Bundle\CustomerBundle\Form\Type\ProductType }
