@@ -53,6 +53,9 @@ jobs:
                 # Configure display
                 - /sbin/start-stop-daemon --start --quiet --pidfile /tmp/xvfb_99.pid --make-pidfile --background --exec /usr/bin/Xvfb -- :99 -ac -screen 0 2880x1800x16
                 - export DISPLAY=:99
+                    
+                # Download Symfony command
+                - wget https://get.symfony.com/cli/installer -O - | bash
 
                 # Download and configure ChromeDriver
                 - |
@@ -77,10 +80,10 @@ jobs:
                 - java -Dwebdriver.chrome.driver=$SYLIUS_CACHE_DIR/chromedriver -jar $SYLIUS_CACHE_DIR/selenium.jar > /dev/null 2>&1 &
 
                 # Run webserver
-                - bin/console server:run localhost:8080 -d public --quiet > /dev/null 2>&1 &
+                - /home/travis/.symfony/bin/symfony server:start --port=8080 --dir=public --allow-http --no-tls --force-php-discovery --daemon
 
             script:
-                - composer validate --strict
+                - composer validate
 
                 - vendor/bin/security-checker security:check
 
@@ -107,9 +110,9 @@ jobs:
 
         -   <<: *test
 
-            name: "Symfony 4.2.* build"
+            name: "Symfony 4.3.* build"
 
-            env: SYMFONY_VERSION="4.2.*" SYLIUS_CACHE_DIR=$HOME/.sylius-cache SYLIUS_BUILD_DIR=etc/build
+            env: SYMFONY_VERSION="4.3.*" SYLIUS_CACHE_DIR=$HOME/.sylius-cache SYLIUS_BUILD_DIR=etc/build
 
         -
             stage: test
