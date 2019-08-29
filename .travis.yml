@@ -83,7 +83,7 @@ jobs:
                 - /home/travis/.symfony/bin/symfony server:start --port=8080 --dir=public --allow-http --no-tls --force-php-discovery --daemon
 
             script:
-                - composer validate
+                - composer validate --strict
 
                 - vendor/bin/security-checker security:check
 
