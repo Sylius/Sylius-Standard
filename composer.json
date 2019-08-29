@@ -1,7 +1,7 @@
 {
     "name": "sylius/sylius-standard",
     "description": "Starting point for projects powered by Sylius eCommerce.",
-    "keywords": ["symfony", "symfony2", "sylius", "distribution", "ecommerce", "cart", "shopping"],
+    "keywords": ["symfony", "sylius", "distribution", "ecommerce", "cart", "shopping"],
     "type": "project",
     "license": "MIT",
     "homepage": "https://sylius.com",
@@ -18,7 +18,7 @@
     ],
     "require": {
         "php": "^7.2",
-        "sylius/sylius": "~1.6.0",
+        "sylius/sylius": "~1.7.0@dev",
         "symfony/dotenv": "^4.3",
         "symfony/flex": "^1.2"
     },
@@ -90,7 +90,7 @@
             "allow-contrib": false
         },
         "branch-alias": {
-            "dev-master": "1.6-dev"
+            "dev-master": "1.7-dev"
         }
     }
 }

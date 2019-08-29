@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "69c392fc5c3d30ff00c36f20dc03a2fc",
+    "content-hash": "a60c1d282a03f24b84b336771e839e10",
     "packages": [
         {
             "name": "behat/transliterator",
@@ -5843,16 +5843,16 @@
         },
         {
             "name": "sylius/sylius",
-            "version": "v1.6.0",
+            "version": "dev-master",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Sylius/Sylius.git",
-                "reference": "7c9e3f628da64a127389ac45522bbcce695e1fb6"
+                "reference": "080a22ba02afcc618b95c03fa90758c4ed905667"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Sylius/Sylius/zipball/7c9e3f628da64a127389ac45522bbcce695e1fb6",
-                "reference": "7c9e3f628da64a127389ac45522bbcce695e1fb6",
+                "url": "https://api.github.com/repos/Sylius/Sylius/zipball/080a22ba02afcc618b95c03fa90758c4ed905667",
+                "reference": "080a22ba02afcc618b95c03fa90758c4ed905667",
                 "shasum": ""
             },
             "require": {
@@ -6031,7 +6031,7 @@
                     "allow-contrib": false
                 },
                 "branch-alias": {
-                    "dev-master": "1.6-dev"
+                    "dev-master": "1.7-dev"
                 }
             },
             "autoload": {
@@ -6064,7 +6064,7 @@
             ],
             "description": "E-Commerce platform for PHP, based on Symfony framework.",
             "homepage": "http://sylius.com",
-            "time": "2019-08-29T07:57:53+00:00"
+            "time": "2019-08-29T08:23:03+00:00"
         },
         {
             "name": "sylius/theme-bundle",
@@ -14799,6 +14799,7 @@
     "aliases": [],
     "minimum-stability": "stable",
     "stability-flags": {
+        "sylius/sylius": 20,
         "behat/mink": 20
     },
     "prefer-stable": true,
