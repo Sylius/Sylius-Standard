@@ -69,7 +69,7 @@
             "@auto-scripts"
         ],
         "post-create-project-cmd": [
-            "@php bin/console sylius:inform-about-gus",
+            "@php bin/console sylius:inform-about-gus --ansi",
             "@php bin/console sylius:show-available-plugins --ansi"
         ]
     },
