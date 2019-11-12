@@ -13,11 +13,11 @@ jobs:
     include:
         -   &test
             stage: test
-            name: "Symfony 3.4.* build"
+            name: "Symfony 4.3.* build"
 
             sudo: false
 
-            env: SYMFONY_VERSION="3.4.*" SYLIUS_CACHE_DIR=$HOME/.sylius-cache SYLIUS_BUILD_DIR=etc/build
+            env: SYMFONY_VERSION="4.3.*" SYLIUS_CACHE_DIR=$HOME/.sylius-cache SYLIUS_BUILD_DIR=etc/build
 
             cache:
                 yarn: true
@@ -107,12 +107,6 @@ jobs:
             after_failure:
                 - vendor/lakion/mink-debug-extension/travis/tools/upload-textfiles "${SYLIUS_BUILD_DIR}/*.log"
                 - IMGUR_API_KEY=4907fcd89e761c6b07eeb8292d5a9b2a vendor/lakion/mink-debug-extension/travis/tools/upload-screenshots "${SYLIUS_BUILD_DIR}/*.png"
-
-        -   <<: *test
-
-            name: "Symfony 4.3.* build"
-
-            env: SYMFONY_VERSION="4.3.*" SYLIUS_CACHE_DIR=$HOME/.sylius-cache SYLIUS_BUILD_DIR=etc/build
 
         -
             stage: test
