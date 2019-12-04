@@ -341,6 +341,9 @@
     "phar-io/version": {
         "version": "1.0.1"
     },
+    "php": {
+        "version": "7.2"
+    },
     "php-cs-fixer/diff": {
         "version": "v1.3.0"
     },
@@ -392,17 +395,11 @@
     "phpstan/phpdoc-parser": {
         "version": "0.3"
     },
-    "phpstan/phpstan-doctrine": {
-        "version": "0.10"
-    },
     "phpstan/phpstan-shim": {
         "version": "0.10.3"
     },
     "phpstan/phpstan-symfony": {
         "version": "0.10.1"
-    },
-    "phpstan/phpstan-webmozart-assert": {
-        "version": "0.10"
     },
     "phpunit/php-code-coverage": {
         "version": "5.3.2"
