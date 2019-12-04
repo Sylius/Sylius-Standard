@@ -18,7 +18,7 @@
     ],
     "require": {
         "php": "^7.2",
-        "sylius/sylius": "~1.7.0@dev",
+        "sylius/sylius": "~1.7.0@alpha",
         "symfony/dotenv": "^4.3",
         "symfony/flex": "^1.2"
     },
