@@ -1,4 +1,5 @@
 framework:
+    translator: { fallbacks: ["%locale%"] }
     secret: '%env(APP_SECRET)%'
     form: true
     csrf_protection: true
