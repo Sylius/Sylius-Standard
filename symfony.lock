@@ -548,8 +548,26 @@
     "sylius-labs/coding-standard": {
         "version": "v2.0.0"
     },
+    "sylius/fixtures-bundle": {
+        "version": "v1.3.9"
+    },
+    "sylius/grid-bundle": {
+        "version": "v1.3.13"
+    },
+    "sylius/mailer-bundle": {
+        "version": "v1.3.12"
+    },
+    "sylius/registry": {
+        "version": "v1.3.9"
+    },
+    "sylius/resource-bundle": {
+        "version": "v1.3.12"
+    },
     "sylius/sylius": {
         "version": "v1.3.6"
+    },
+    "sylius/theme-bundle": {
+        "version": "v1.3.14"
     },
     "symfony/asset": {
         "version": "v4.1.3"
@@ -605,6 +623,9 @@
     "symfony/dotenv": {
         "version": "v4.1.3"
     },
+    "symfony/error-handler": {
+        "version": "v4.4.1"
+    },
     "symfony/event-dispatcher": {
         "version": "v4.1.3"
     },
@@ -650,6 +671,9 @@
     "symfony/intl": {
         "version": "v4.1.3"
     },
+    "symfony/mime": {
+        "version": "v4.4.1"
+    },
     "symfony/monolog-bridge": {
         "version": "v4.1.3"
     },
@@ -685,6 +709,9 @@
     },
     "symfony/polyfill-php72": {
         "version": "v1.9.0"
+    },
+    "symfony/polyfill-php73": {
+        "version": "v1.13.1"
     },
     "symfony/process": {
         "version": "v4.1.3"
