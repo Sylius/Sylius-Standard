@@ -2995,13 +2995,13 @@
             "authors": [
                 {
                     "name": "Jeremy Kendall",
-                    "role": "Developer",
-                    "homepage": "http://about.me/jeremykendall"
+                    "homepage": "http://about.me/jeremykendall",
+                    "role": "Developer"
                 },
                 {
                     "name": "Ignace Nyamagana Butera",
-                    "role": "Developer",
-                    "homepage": "http://nyamsprod.com"
+                    "homepage": "http://nyamsprod.com",
+                    "role": "Developer"
                 },
                 {
                     "name": "Contributors",
@@ -5884,16 +5884,16 @@
         },
         {
             "name": "sylius/sylius",
-            "version": "v1.7.0-ALPHA.1",
+            "version": "v1.7.0-ALPHA.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Sylius/Sylius.git",
-                "reference": "a8e4f9f26f6a114d3b06522e3cb591ad1447b605"
+                "reference": "7483c91b1fc40edaffb6b6bf0a92eb21697cd324"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Sylius/Sylius/zipball/a8e4f9f26f6a114d3b06522e3cb591ad1447b605",
-                "reference": "a8e4f9f26f6a114d3b06522e3cb591ad1447b605",
+                "url": "https://api.github.com/repos/Sylius/Sylius/zipball/7483c91b1fc40edaffb6b6bf0a92eb21697cd324",
+                "reference": "7483c91b1fc40edaffb6b6bf0a92eb21697cd324",
                 "shasum": ""
             },
             "require": {
@@ -6105,7 +6105,7 @@
             ],
             "description": "E-Commerce platform for PHP, based on Symfony framework.",
             "homepage": "http://sylius.com",
-            "time": "2019-12-04T13:26:44+00:00"
+            "time": "2019-12-05T12:39:14+00:00"
         },
         {
             "name": "sylius/theme-bundle",
@@ -11886,18 +11886,18 @@
             "authors": [
                 {
                     "name": "Arne Blankerts",
-                    "role": "Developer",
-                    "email": "arne@blankerts.de"
+                    "email": "arne@blankerts.de",
+                    "role": "Developer"
                 },
                 {
                     "name": "Sebastian Heuer",
-                    "role": "Developer",
-                    "email": "sebastian@phpeople.de"
+                    "email": "sebastian@phpeople.de",
+                    "role": "Developer"
                 },
                 {
                     "name": "Sebastian Bergmann",
-                    "role": "Developer",
-                    "email": "sebastian@phpunit.de"
+                    "email": "sebastian@phpunit.de",
+                    "role": "Developer"
                 }
             ],
             "description": "Component for reading phar.io manifest information from a PHP Archive (PHAR)",
@@ -11933,18 +11933,18 @@
             "authors": [
                 {
                     "name": "Arne Blankerts",
-                    "role": "Developer",
-                    "email": "arne@blankerts.de"
+                    "email": "arne@blankerts.de",
+                    "role": "Developer"
                 },
                 {
                     "name": "Sebastian Heuer",
-                    "role": "Developer",
-                    "email": "sebastian@phpeople.de"
+                    "email": "sebastian@phpeople.de",
+                    "role": "Developer"
                 },
                 {
                     "name": "Sebastian Bergmann",
-                    "role": "Developer",
-                    "email": "sebastian@phpunit.de"
+                    "email": "sebastian@phpunit.de",
+                    "role": "Developer"
                 }
             ],
             "description": "Library for handling version information and constraints",
@@ -12588,8 +12588,8 @@
             "authors": [
                 {
                     "name": "Sebastian Bergmann",
-                    "role": "lead",
-                    "email": "sebastian@phpunit.de"
+                    "email": "sebastian@phpunit.de",
+                    "role": "lead"
                 }
             ],
             "description": "Library that provides collection, processing, and rendering functionality for PHP code coverage information.",
@@ -12636,8 +12636,8 @@
             "authors": [
                 {
                     "name": "Sebastian Bergmann",
-                    "role": "lead",
-                    "email": "sb@sebastian-bergmann.de"
+                    "email": "sb@sebastian-bergmann.de",
+                    "role": "lead"
                 }
             ],
             "description": "FilterIterator implementation that filters files based on a list of suffixes.",
@@ -12678,8 +12678,8 @@
             "authors": [
                 {
                     "name": "Sebastian Bergmann",
-                    "role": "lead",
-                    "email": "sebastian@phpunit.de"
+                    "email": "sebastian@phpunit.de",
+                    "role": "lead"
                 }
             ],
             "description": "Simple template engine.",
@@ -12727,8 +12727,8 @@
             "authors": [
                 {
                     "name": "Sebastian Bergmann",
-                    "role": "lead",
-                    "email": "sb@sebastian-bergmann.de"
+                    "email": "sb@sebastian-bergmann.de",
+                    "role": "lead"
                 }
             ],
             "description": "Utility class for timing",
@@ -12858,8 +12858,8 @@
             "authors": [
                 {
                     "name": "Sebastian Bergmann",
-                    "role": "lead",
-                    "email": "sebastian@phpunit.de"
+                    "email": "sebastian@phpunit.de",
+                    "role": "lead"
                 }
             ],
             "description": "The PHP Unit Testing framework.",
@@ -13482,8 +13482,8 @@
             "authors": [
                 {
                     "name": "Sebastian Bergmann",
-                    "role": "lead",
-                    "email": "sebastian@phpunit.de"
+                    "email": "sebastian@phpunit.de",
+                    "role": "lead"
                 }
             ],
             "description": "Library that helps with managing the version number of Git-hosted PHP projects",
@@ -13576,8 +13576,8 @@
             "authors": [
                 {
                     "name": "Filippo Tessarotto",
-                    "role": "Developer",
-                    "email": "zoeslam@gmail.com"
+                    "email": "zoeslam@gmail.com",
+                    "role": "Developer"
                 }
             ],
             "description": "Slam extension of friendsofphp/php-cs-fixer",
@@ -14672,8 +14672,8 @@
             "authors": [
                 {
                     "name": "Arne Blankerts",
-                    "role": "Developer",
-                    "email": "arne@blankerts.de"
+                    "email": "arne@blankerts.de",
+                    "role": "Developer"
                 }
             ],
             "description": "A small library for converting tokenized PHP source code into XML and potentially other formats",
