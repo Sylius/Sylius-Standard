@@ -48,6 +48,9 @@
         "symfony/intl": "^3.4|^4.3",
         "symfony/web-profiler-bundle": "^3.4|^4.3"
     },
+    "conflict": {
+        "symfony/validator": "^4.4"
+    },
     "prefer-stable": true,
     "autoload": {
         "psr-4": {
