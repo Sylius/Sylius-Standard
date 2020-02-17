@@ -3,7 +3,7 @@ language: php
 dist: trusty
 
 php:
-    - 7.2
+    - 7.3
 
 env:
     global:
@@ -13,11 +13,11 @@ jobs:
     include:
         -   &test
             stage: test
-            name: "Symfony 4.3.* build"
+            name: "Symfony 4.4.* build"
 
             sudo: false
 
-            env: SYMFONY_VERSION="4.3.*" SYLIUS_CACHE_DIR=$HOME/.sylius-cache SYLIUS_BUILD_DIR=etc/build
+            env: SYMFONY_VERSION="4.4.*" SYLIUS_CACHE_DIR=$HOME/.sylius-cache SYLIUS_BUILD_DIR=etc/build
 
             cache:
                 yarn: true
