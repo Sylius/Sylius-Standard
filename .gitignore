@@ -5,6 +5,7 @@
 !/public/media/image/.gitkeep
 
 /node_modules
+/.idea/
 
 /etc/build/*
 !/etc/build/.gitignore

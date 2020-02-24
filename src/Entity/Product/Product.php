@@ -18,4 +18,28 @@ class Product extends BaseProduct
     {
         return new ProductTranslation();
     }
+
+    /**
+     * @ORM\ManyToOne(targetEntity="ProductColor")
+     */
+    private $productColor;
+
+    /**
+     * @return mixed
+     */
+    public function getProductColor(): ?string
+    {
+        return $this->productColor;
+    }
+
+    /**
+     * @param ProductColor $productColor
+     *
+     * @return mixed
+     */
+    public function setProductColor(ProductColor $productColor): ?Product
+    {
+        $this->productColor = $productColor;
+        return $this;
+    }
 }
