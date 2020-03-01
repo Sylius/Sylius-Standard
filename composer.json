@@ -17,8 +17,8 @@
         }
     ],
     "require": {
-        "php": "^7.2",
-        "sylius/sylius": "~1.7.0@alpha",
+        "php": "^7.3",
+        "sylius/sylius": "~1.7.0",
         "symfony/dotenv": "^4.3",
         "symfony/flex": "^1.2"
     },
@@ -47,9 +47,6 @@
         "symfony/debug-bundle": "^3.4|^4.3",
         "symfony/intl": "^3.4|^4.3",
         "symfony/web-profiler-bundle": "^3.4|^4.3"
-    },
-    "conflict": {
-        "symfony/validator": "^4.4"
     },
     "prefer-stable": true,
     "autoload": {
@@ -81,7 +78,7 @@
     },
     "config": {
         "platform": {
-            "php": "7.2"
+            "php": "7.3.15"
         },
         "preferred-install": {
             "*": "dist"
