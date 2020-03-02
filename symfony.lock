@@ -32,9 +32,6 @@
     "coduo/php-to-string": {
         "version": "2.0.1"
     },
-    "composer/ca-bundle": {
-        "version": "1.1.2"
-    },
     "composer/semver": {
         "version": "1.4.2"
     },
@@ -293,6 +290,9 @@
     "nette/utils": {
         "version": "v2.5.2"
     },
+    "nikic/php-parser": {
+        "version": "v4.3.0"
+    },
     "ocramius/package-versions": {
         "version": "1.3.0"
     },
@@ -383,11 +383,11 @@
     "phpstan/phpdoc-parser": {
         "version": "0.3"
     },
+    "phpstan/phpstan": {
+        "version": "0.12.3"
+    },
     "phpstan/phpstan-doctrine": {
         "version": "0.11.5"
-    },
-    "phpstan/phpstan-shim": {
-        "version": "0.10.3"
     },
     "phpstan/phpstan-symfony": {
         "version": "0.10.1"
@@ -418,9 +418,6 @@
             "version": "4.7",
             "ref": "c276fa48d4713de91eb410289b3b1834acb7e403"
         }
-    },
-    "phpunit/phpunit-mock-objects": {
-        "version": "5.0.10"
     },
     "polishsymfonycommunity/symfony-mocker-container": {
         "version": "v1.0.2"
@@ -490,9 +487,6 @@
             "version": "4.0",
             "ref": "421933bf8f0e75546ac8e00cb3eb12904fa2ac1a"
         }
-    },
-    "slam/php-cs-fixer-extensions": {
-        "version": "v1.17.0"
     },
     "slevomat/coding-standard": {
         "version": "4.6.3"
@@ -646,6 +640,9 @@
             "version": "3.3",
             "ref": "87c585d24de9f43bca80ebcfd5cf5cb39445d95f"
         }
+    },
+    "symfony/http-client": {
+        "version": "v5.0.5"
     },
     "symfony/http-foundation": {
         "version": "v4.1.3"
@@ -803,9 +800,6 @@
     "symfony/yaml": {
         "version": "v4.1.3"
     },
-    "symplify/better-phpdoc-parser": {
-        "version": "v4.6.1"
-    },
     "symplify/coding-standard": {
         "version": "v4.6.1"
     },
@@ -815,11 +809,11 @@
     "symplify/package-builder": {
         "version": "v4.6.1"
     },
-    "symplify/token-runner": {
-        "version": "v4.6.1"
+    "symplify/set-config-resolver": {
+        "version": "v7.1.3"
     },
-    "thecodingmachine/safe": {
-        "version": "v0.1.5"
+    "symplify/smart-file-system": {
+        "version": "v7.1.3"
     },
     "theofidry/alice-data-fixtures": {
         "version": "1.0",
