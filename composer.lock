@@ -5796,16 +5796,16 @@
         },
         {
             "name": "sylius/sylius",
-            "version": "v1.7.0-RC.1",
+            "version": "v1.7.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Sylius/Sylius.git",
-                "reference": "80559042ae50ffa8afe14a05d0f4d2def2f49027"
+                "reference": "a884a8e86023dff0b3049374faa985309a839e98"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Sylius/Sylius/zipball/80559042ae50ffa8afe14a05d0f4d2def2f49027",
-                "reference": "80559042ae50ffa8afe14a05d0f4d2def2f49027",
+                "url": "https://api.github.com/repos/Sylius/Sylius/zipball/a884a8e86023dff0b3049374faa985309a839e98",
+                "reference": "a884a8e86023dff0b3049374faa985309a839e98",
                 "shasum": ""
             },
             "require": {
@@ -6015,7 +6015,7 @@
             ],
             "description": "E-Commerce platform for PHP, based on Symfony framework.",
             "homepage": "http://sylius.com",
-            "time": "2020-03-01T18:25:00+00:00"
+            "time": "2020-03-02T14:47:01+00:00"
         },
         {
             "name": "sylius/theme-bundle",
