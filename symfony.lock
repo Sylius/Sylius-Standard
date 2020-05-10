@@ -38,9 +38,6 @@
     "composer/xdebug-handler": {
         "version": "1.2.0"
     },
-    "container-interop/container-interop": {
-        "version": "1.2.0"
-    },
     "doctrine/annotations": {
         "version": "1.0",
         "recipe": {
@@ -476,6 +473,9 @@
     "sebastian/resource-operations": {
         "version": "1.0.0"
     },
+    "sebastian/type": {
+        "version": "1.1.3"
+    },
     "sebastian/version": {
         "version": "2.0.1"
     },
@@ -596,6 +596,9 @@
     "symfony/dependency-injection": {
         "version": "v4.1.3"
     },
+    "symfony/deprecation-contracts": {
+        "version": "v2.1.2"
+    },
     "symfony/doctrine-bridge": {
         "version": "v4.1.3"
     },
@@ -680,11 +683,17 @@
     "symfony/polyfill-iconv": {
         "version": "v1.9.0"
     },
+    "symfony/polyfill-intl-grapheme": {
+        "version": "v1.17.0"
+    },
     "symfony/polyfill-intl-icu": {
         "version": "v1.9.0"
     },
     "symfony/polyfill-intl-idn": {
         "version": "v1.11.0"
+    },
+    "symfony/polyfill-intl-normalizer": {
+        "version": "v1.17.0"
     },
     "symfony/polyfill-mbstring": {
         "version": "v1.9.0"
@@ -733,6 +742,9 @@
     },
     "symfony/stopwatch": {
         "version": "v4.1.3"
+    },
+    "symfony/string": {
+        "version": "v5.1.0"
     },
     "symfony/swiftmailer-bundle": {
         "version": "2.5",
