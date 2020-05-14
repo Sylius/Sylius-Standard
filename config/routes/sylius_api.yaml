@@ -1,0 +1,4 @@
+sylius_api:
+    resource: "@SyliusApiBundle/Resources/config/routing.yml"
+    type: api_platform
+    prefix: "%sylius.security.new_api_route%"
