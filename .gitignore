@@ -33,3 +33,8 @@
 ###> phpunit/phpunit ###
 /phpunit.xml
 ###< phpunit/phpunit ###
+
+###> lexik/jwt-authentication-bundle ###
+/config/jwt/*.pem
+!/config/jwt/*-test.pem
+###< lexik/jwt-authentication-bundle ###
