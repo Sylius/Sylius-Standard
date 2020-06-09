@@ -1,23 +1,21 @@
 language: php
 
-dist: trusty
+os: linux
+
+dist: bionic
 
 php:
-    - 7.3
-
-env:
-    global:
-        - APP_ENV=test_cached
+    - '7.4'
 
 jobs:
     include:
-        -   &test
+        -   
+            &test
+            
             stage: test
-            name: "Symfony 4.4.* build"
+            name: "Symfony 4.4.* build (PHP 7.4)"
 
-            sudo: false
-
-            env: SYMFONY_VERSION="4.4.*" SYLIUS_CACHE_DIR=$HOME/.sylius-cache SYLIUS_BUILD_DIR=etc/build
+            env: APP_ENV=test_cached SYMFONY_VERSION="4.4.*" SYLIUS_CACHE_DIR=$HOME/.sylius-cache SYLIUS_BUILD_DIR=etc/build
 
             cache:
                 yarn: true
@@ -26,16 +24,22 @@ jobs:
                     - $SYLIUS_CACHE_DIR
 
             services:
-                - memcached
                 - mysql
+                    
+            addons:
+                apt:
+                    sources:
+                        - google-chrome
+                    packages:
+                        - google-chrome-stable
+                chrome: stable
 
             before_install:
                 - phpenv config-rm xdebug.ini || true
 
                 - echo "memory_limit=4096M" >> ~/.phpenv/versions/$(phpenv version-name)/etc/conf.d/travis.ini
-                - echo "extension = memcached.so" >> ~/.phpenv/versions/$(phpenv version-name)/etc/conf.d/travis.ini
 
-                - composer self-update 1.10.5 && composer self-update --1
+                - composer self-update --1
 
             install:
                 - if [ ! -z "${SYMFONY_VERSION}" ]; then bin/require-symfony-version composer.json "${SYMFONY_VERSION}"; fi
@@ -50,37 +54,19 @@ jobs:
                 - bin/console assets:install public -vvv
                 - yarn build
 
-                # Configure display
-                - /sbin/start-stop-daemon --start --quiet --pidfile /tmp/xvfb_99.pid --make-pidfile --background --exec /usr/bin/Xvfb -- :99 -ac -screen 0 2880x1800x16
-                - export DISPLAY=:99
-                    
-                # Download Symfony command
-                - wget https://get.symfony.com/cli/installer -O - | bash
-
-                # Download and configure ChromeDriver
+                # Download Symfony CLI
                 - |
-                    if [ ! -f $SYLIUS_CACHE_DIR/chromedriver ] || [ "$($SYLIUS_CACHE_DIR/chromedriver --version | grep -c 2.34)" = "0" ]; then
-                        curl http://chromedriver.storage.googleapis.com/2.34/chromedriver_linux64.zip > chromedriver.zip
-                        unzip chromedriver.zip
-                        chmod +x chromedriver
-                        mv chromedriver $SYLIUS_CACHE_DIR
+                    if [ ! -f $SYLIUS_CACHE_DIR/symfony ]; then
+                        wget https://get.symfony.com/cli/installer -O - | bash
+                        mv ~/.symfony/bin/symfony $SYLIUS_CACHE_DIR
                     fi
+                    php -v | head -n 1 | awk '{ print $2 }' > .php-version
 
-                # Run ChromeDriver
-                - $SYLIUS_CACHE_DIR/chromedriver > /dev/null 2>&1 &
-
-                # Download and configure Selenium
-                - |
-                    if [ ! -f $SYLIUS_CACHE_DIR/selenium.jar ] || [ "$(java -jar $SYLIUS_CACHE_DIR/selenium.jar --version | grep -c 3.4.0)" = "0" ]; then
-                        curl http://selenium-release.storage.googleapis.com/3.4/selenium-server-standalone-3.4.0.jar > selenium.jar
-                        mv selenium.jar $SYLIUS_CACHE_DIR
-                    fi
-
-                # Run Selenium
-                - java -Dwebdriver.chrome.driver=$SYLIUS_CACHE_DIR/chromedriver -jar $SYLIUS_CACHE_DIR/selenium.jar > /dev/null 2>&1 &
+                # Run Chrome Headless
+                - google-chrome-stable --enable-automation --disable-background-networking --no-default-browser-check --no-first-run --disable-popup-blocking --disable-default-apps --allow-insecure-localhost --disable-translate --disable-extensions --no-sandbox --enable-features=Metal --headless --remote-debugging-port=9222 --window-size=2880,1800 --proxy-server='direct://' --proxy-bypass-list='*' http://127.0.0.1 > /dev/null 2>&1 &
 
                 # Run webserver
-                - /home/travis/.symfony/bin/symfony server:start --port=8080 --dir=public --allow-http --no-tls --force-php-discovery --daemon
+                - $SYLIUS_CACHE_DIR/symfony server:start --port=8080 --dir=public --daemon
 
             script:
                 - composer validate --strict
@@ -106,34 +92,20 @@ jobs:
 
             after_failure:
                 - vendor/lakion/mink-debug-extension/travis/tools/upload-textfiles "${SYLIUS_BUILD_DIR}/*.log"
-                - IMGUR_API_KEY=4907fcd89e761c6b07eeb8292d5a9b2a vendor/lakion/mink-debug-extension/travis/tools/upload-screenshots "${SYLIUS_BUILD_DIR}/*.png"
+
+        -
+            <<: *test
+
+            name: "Symfony 4.4.* build (PHP 7.3)"
+            
+            php: '7.3' 
 
         -
             stage: test
             name: "Docker build"
 
-            sudo: required
-
-            env: DOCKER_COMPOSE_VERSION=1.22.0
-
             services:
                 - docker
-
-            addons:
-                apt:
-                    packages:
-                        - docker-ce
-
-            before_install:
-                # Install custom version of docker-composer
-                - sudo rm /usr/local/bin/docker-compose
-                - curl -L https://github.com/docker/compose/releases/download/${DOCKER_COMPOSE_VERSION}/docker-compose-`uname -s`-`uname -m` > docker-compose
-                - chmod +x docker-compose
-                - sudo mv docker-compose /usr/local/bin
-
-                # Shutdown vanilla mysql
-                - sudo service mysql stop
-                - while sudo lsof -Pi :3306 -sTCP:LISTEN -t; do sleep 1; done
 
             script:
                 - docker-compose --version
@@ -146,14 +118,3 @@ jobs:
                 - docker-compose exec php bin/console sylius:fixtures:load --no-interaction
 
                 - curl http://localhost/
-
-            before_deploy:
-                - echo "$DOCKER_PASSWORD" | docker login --username "$DOCKER_USERNAME" --password-stdin "$DOCKER_REGISTRY"
-
-            deploy:
-                provider: script
-                script: docker-compose push
-                skip_cleanup: true
-                on:
-                    repo: Sylius/Sylius-Standard
-                    tags: true
