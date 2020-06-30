@@ -55,12 +55,8 @@ jobs:
                 - yarn build
 
                 # Download Symfony CLI
-                - |
-                    if [ ! -f $SYLIUS_CACHE_DIR/symfony ]; then
-                        wget https://get.symfony.com/cli/installer -O - | bash
-                        mv ~/.symfony/bin/symfony $SYLIUS_CACHE_DIR
-                    fi
-                    php -v | head -n 1 | awk '{ print $2 }' > .php-version
+                - wget https://get.symfony.com/cli/installer -O
+                - mv ~/.symfony/bin/symfony $SYLIUS_CACHE_DIR
 
                 # Run Chrome Headless
                 - google-chrome-stable --enable-automation --disable-background-networking --no-default-browser-check --no-first-run --disable-popup-blocking --disable-default-apps --allow-insecure-localhost --disable-translate --disable-extensions --no-sandbox --enable-features=Metal --headless --remote-debugging-port=9222 --window-size=2880,1800 --proxy-server='direct://' --proxy-bypass-list='*' http://127.0.0.1 > /dev/null 2>&1 &
