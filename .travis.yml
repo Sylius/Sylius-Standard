@@ -37,7 +37,7 @@ jobs:
             before_install:
                 - phpenv config-rm xdebug.ini || true
 
-                -- echo "memory_limit=4096M" >> ~/.phpenv/versions/$(phpenv version-name)/etc/conf.d/travis.ini
+                - echo "memory_limit=4096M" >> ~/.phpenv/versions/$(phpenv version-name)/etc/conf.d/travis.ini
 
                 - composer self-update --1
 
@@ -48,9 +48,9 @@ jobs:
 
             before_script:
                 - APP_DEBUG=1 bin/console doctrine:database:create -vvv # Have to be run with debug = true, to omit generating proxies before setting up the database
+                - bin/console cache:warmup -vvv
                 
                 - bin/console doctrine:migrations:migrate --no-interaction -vvv
-                - bin/console cache:warmup -vvv
 
                 - bin/console assets:install public -vvv
                 - yarn build
@@ -67,6 +67,7 @@ jobs:
                 - google-chrome-stable --enable-automation --disable-background-networking --no-default-browser-check --no-first-run --disable-popup-blocking --disable-default-apps --allow-insecure-localhost --disable-translate --disable-extensions --no-sandbox --enable-features=Metal --headless --remote-debugging-port=9222 --window-size=2880,1800 --proxy-server='direct://' --proxy-bypass-list='*' http://127.0.0.1 > /dev/null 2>&1 &
 
                 # Run webserver
+                - $SYLIUS_CACHE_DIR/symfony proxy:start
                 - $SYLIUS_CACHE_DIR/symfony server:start --port=8080 --dir=public --daemon
 
             script:
