@@ -1,7 +1,7 @@
 parameters:
     reportUnmatchedIgnoredErrors: false
 
-    autoload_directories:
+    scanDirectories:
         - src/Migrations/
 
     excludes_analyse:
