@@ -74,7 +74,7 @@ jobs:
 
                 - vendor/bin/security-checker security:check
 
-                - vendor/bin/ecs check src
+                - vendor/bin/ecs check src --fix
 
                 - vendor/bin/phpstan analyse -c phpstan.neon -l max src/
 
