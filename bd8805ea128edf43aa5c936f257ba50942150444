@@ -1,0 +1,18 @@
+---------------------------------------------------------------------------
+
+by lchrusciel at 2020-07-02T11:16:14Z
+
+Is it still relevant?
+
+---------------------------------------------------------------------------
+
+by pocky at 2020-07-18T20:50:10Z
+
+@lchrusciel Hello! This migration is still relevant. Travis build failed on #413 because of this missing migration.
+@AdamKasp is it possible to fix your PR? Thanks!
+
+---------------------------------------------------------------------------
+
+by lchrusciel at 2020-07-22T07:42:54Z
+
+Thanks, Adam! :1st_place_medal:
