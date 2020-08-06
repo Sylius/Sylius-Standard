@@ -50,6 +50,9 @@
         "symfony/intl": "^4.4",
         "symfony/web-profiler-bundle": "^4.4"
     },
+    "conflict": {
+        "symfony/form": "4.4.11"
+    },
     "prefer-stable": true,
     "autoload": {
         "psr-4": {
