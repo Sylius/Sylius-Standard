@@ -104,6 +104,75 @@
             "time": "2019-04-09T12:31:48+00:00"
         },
         {
+            "name": "composer/package-versions-deprecated",
+            "version": "1.11.99",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/composer/package-versions-deprecated.git",
+                "reference": "c8c9aa8a14cc3d3bec86d0a8c3fa52ea79936855"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/composer/package-versions-deprecated/zipball/c8c9aa8a14cc3d3bec86d0a8c3fa52ea79936855",
+                "reference": "c8c9aa8a14cc3d3bec86d0a8c3fa52ea79936855",
+                "shasum": ""
+            },
+            "require": {
+                "composer-plugin-api": "^1.1.0 || ^2.0",
+                "php": "^7 || ^8"
+            },
+            "replace": {
+                "ocramius/package-versions": "1.11.99"
+            },
+            "require-dev": {
+                "composer/composer": "^1.9.3 || ^2.0@dev",
+                "ext-zip": "^1.13",
+                "phpunit/phpunit": "^6.5 || ^7"
+            },
+            "type": "composer-plugin",
+            "extra": {
+                "class": "PackageVersions\\Installer",
+                "branch-alias": {
+                    "dev-master": "1.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "PackageVersions\\": "src/PackageVersions"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Marco Pivetta",
+                    "email": "ocramius@gmail.com"
+                },
+                {
+                    "name": "Jordi Boggiano",
+                    "email": "j.boggiano@seld.be"
+                }
+            ],
+            "description": "Composer plugin that provides efficient querying for installed package versions (no runtime IO)",
+            "funding": [
+                {
+                    "url": "https://packagist.com",
+                    "type": "custom"
+                },
+                {
+                    "url": "https://github.com/composer",
+                    "type": "github"
+                },
+                {
+                    "url": "https://tidelift.com/funding/github/packagist/composer/composer",
+                    "type": "tidelift"
+                }
+            ],
+            "time": "2020-08-25T05:50:16+00:00"
+        },
+        {
             "name": "doctrine/annotations",
             "version": "1.10.4",
             "source": {
@@ -253,6 +322,23 @@
                 "redis",
                 "xcache"
             ],
+<<<<<<< Updated upstream
+=======
+            "funding": [
+                {
+                    "url": "https://www.doctrine-project.org/sponsorship.html",
+                    "type": "custom"
+                },
+                {
+                    "url": "https://www.patreon.com/phpdoctrine",
+                    "type": "patreon"
+                },
+                {
+                    "url": "https://tidelift.com/funding/github/packagist/doctrine%2Fcache",
+                    "type": "tidelift"
+                }
+            ],
+>>>>>>> Stashed changes
             "time": "2020-07-07T18:54:01+00:00"
         },
         {
@@ -405,36 +491,35 @@
         },
         {
             "name": "doctrine/data-fixtures",
-            "version": "1.4.3",
+            "version": "1.4.4",
             "source": {
                 "type": "git",
                 "url": "https://github.com/doctrine/data-fixtures.git",
-                "reference": "7ebac50901eb4516816ac39100dba1759d843943"
+                "reference": "16a03fadb5473f49aad70384002dfd5012fe680e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/doctrine/data-fixtures/zipball/7ebac50901eb4516816ac39100dba1759d843943",
-                "reference": "7ebac50901eb4516816ac39100dba1759d843943",
+                "url": "https://api.github.com/repos/doctrine/data-fixtures/zipball/16a03fadb5473f49aad70384002dfd5012fe680e",
+                "reference": "16a03fadb5473f49aad70384002dfd5012fe680e",
                 "shasum": ""
             },
             "require": {
-                "doctrine/common": "^2.11",
-                "doctrine/persistence": "^1.3.3",
+                "doctrine/common": "^2.13|^3.0",
+                "doctrine/persistence": "^1.3.3|^2.0",
                 "php": "^7.2 || ^8.0"
             },
             "conflict": {
                 "doctrine/phpcr-odm": "<1.3.0"
             },
             "require-dev": {
-                "alcaeus/mongo-php-adapter": "^1.1",
                 "doctrine/coding-standard": "^6.0",
                 "doctrine/dbal": "^2.5.4",
-                "doctrine/mongodb-odm": "^1.3.0",
+                "doctrine/mongodb-odm": "^1.3.0 || ^2.0.0",
                 "doctrine/orm": "^2.7.0",
                 "phpunit/phpunit": "^7.0"
             },
             "suggest": {
-                "alcaeus/mongo-php-adapter": "For using MongoDB ODM with PHP 7",
+                "alcaeus/mongo-php-adapter": "For using MongoDB ODM 1.3 with PHP 7 (deprecated)",
                 "doctrine/mongodb-odm": "For loading MongoDB ODM fixtures",
                 "doctrine/orm": "For loading ORM fixtures",
                 "doctrine/phpcr-odm": "For loading PHPCR ODM fixtures"
@@ -465,20 +550,38 @@
             "keywords": [
                 "database"
             ],
+<<<<<<< Updated upstream
             "time": "2020-05-25T19:45:03+00:00"
+=======
+            "funding": [
+                {
+                    "url": "https://www.doctrine-project.org/sponsorship.html",
+                    "type": "custom"
+                },
+                {
+                    "url": "https://www.patreon.com/phpdoctrine",
+                    "type": "patreon"
+                },
+                {
+                    "url": "https://tidelift.com/funding/github/packagist/doctrine%2Fdata-fixtures",
+                    "type": "tidelift"
+                }
+            ],
+            "time": "2020-09-01T07:13:28+00:00"
+>>>>>>> Stashed changes
         },
         {
             "name": "doctrine/dbal",
-            "version": "2.10.2",
+            "version": "2.10.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/doctrine/dbal.git",
-                "reference": "aab745e7b6b2de3b47019da81e7225e14dcfdac8"
+                "reference": "03ca23afc2ee062f5d3e32426ad37c34a4770dcf"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/doctrine/dbal/zipball/aab745e7b6b2de3b47019da81e7225e14dcfdac8",
-                "reference": "aab745e7b6b2de3b47019da81e7225e14dcfdac8",
+                "url": "https://api.github.com/repos/doctrine/dbal/zipball/03ca23afc2ee062f5d3e32426ad37c34a4770dcf",
+                "reference": "03ca23afc2ee062f5d3e32426ad37c34a4770dcf",
                 "shasum": ""
             },
             "require": {
@@ -488,13 +591,14 @@
                 "php": "^7.2"
             },
             "require-dev": {
-                "doctrine/coding-standard": "^6.0",
+                "doctrine/coding-standard": "^8.1",
                 "jetbrains/phpstorm-stubs": "^2019.1",
                 "nikic/php-parser": "^4.4",
-                "phpstan/phpstan": "^0.12",
-                "phpunit/phpunit": "^8.4.1",
+                "phpstan/phpstan": "^0.12.40",
+                "phpunit/phpunit": "^8.5.5",
+                "psalm/plugin-phpunit": "^0.10.0",
                 "symfony/console": "^2.0.5|^3.0|^4.0|^5.0",
-                "vimeo/psalm": "^3.11"
+                "vimeo/psalm": "^3.14.2"
             },
             "suggest": {
                 "symfony/console": "For helpful console commands such as SQL execution and import of files."
@@ -559,7 +663,25 @@
                 "sqlserver",
                 "sqlsrv"
             ],
+<<<<<<< Updated upstream
             "time": "2020-04-20T17:19:26+00:00"
+=======
+            "funding": [
+                {
+                    "url": "https://www.doctrine-project.org/sponsorship.html",
+                    "type": "custom"
+                },
+                {
+                    "url": "https://www.patreon.com/phpdoctrine",
+                    "type": "patreon"
+                },
+                {
+                    "url": "https://tidelift.com/funding/github/packagist/doctrine%2Fdbal",
+                    "type": "tidelift"
+                }
+            ],
+            "time": "2020-09-02T01:35:42+00:00"
+>>>>>>> Stashed changes
         },
         {
             "name": "doctrine/doctrine-bundle",
@@ -812,6 +934,23 @@
                 "migrations",
                 "schema"
             ],
+<<<<<<< Updated upstream
+=======
+            "funding": [
+                {
+                    "url": "https://www.doctrine-project.org/sponsorship.html",
+                    "type": "custom"
+                },
+                {
+                    "url": "https://www.patreon.com/phpdoctrine",
+                    "type": "patreon"
+                },
+                {
+                    "url": "https://tidelift.com/funding/github/packagist/doctrine%2Fdoctrine-migrations-bundle",
+                    "type": "tidelift"
+                }
+            ],
+>>>>>>> Stashed changes
             "time": "2020-06-25T19:36:08+00:00"
         },
         {
@@ -888,6 +1027,23 @@
                 "event system",
                 "events"
             ],
+<<<<<<< Updated upstream
+=======
+            "funding": [
+                {
+                    "url": "https://www.doctrine-project.org/sponsorship.html",
+                    "type": "custom"
+                },
+                {
+                    "url": "https://www.patreon.com/phpdoctrine",
+                    "type": "patreon"
+                },
+                {
+                    "url": "https://tidelift.com/funding/github/packagist/doctrine%2Fevent-manager",
+                    "type": "tidelift"
+                }
+            ],
+>>>>>>> Stashed changes
             "time": "2020-05-29T18:28:51+00:00"
         },
         {
@@ -1327,6 +1483,23 @@
                 "orm",
                 "persistence"
             ],
+<<<<<<< Updated upstream
+=======
+            "funding": [
+                {
+                    "url": "https://www.doctrine-project.org/sponsorship.html",
+                    "type": "custom"
+                },
+                {
+                    "url": "https://www.patreon.com/phpdoctrine",
+                    "type": "patreon"
+                },
+                {
+                    "url": "https://tidelift.com/funding/github/packagist/doctrine%2Fpersistence",
+                    "type": "tidelift"
+                }
+            ],
+>>>>>>> Stashed changes
             "time": "2020-06-20T12:56:16+00:00"
         },
         {
@@ -1409,6 +1582,7 @@
         },
         {
             "name": "egulias/email-validator",
+<<<<<<< Updated upstream
             "version": "2.1.19",
             "source": {
                 "type": "git",
@@ -1419,6 +1593,18 @@
                 "type": "zip",
                 "url": "https://api.github.com/repos/egulias/EmailValidator/zipball/840d5603eb84cc81a6a0382adac3293e57c1c64c",
                 "reference": "840d5603eb84cc81a6a0382adac3293e57c1c64c",
+=======
+            "version": "2.1.20",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/egulias/EmailValidator.git",
+                "reference": "f46887bc48db66c7f38f668eb7d6ae54583617ff"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/egulias/EmailValidator/zipball/f46887bc48db66c7f38f668eb7d6ae54583617ff",
+                "reference": "f46887bc48db66c7f38f668eb7d6ae54583617ff",
+>>>>>>> Stashed changes
                 "shasum": ""
             },
             "require": {
@@ -1463,7 +1649,11 @@
                 "validation",
                 "validator"
             ],
+<<<<<<< Updated upstream
             "time": "2020-08-08T21:28:19+00:00"
+=======
+            "time": "2020-09-06T13:44:32+00:00"
+>>>>>>> Stashed changes
         },
         {
             "name": "friendsofsymfony/oauth-server-bundle",
@@ -3429,6 +3619,7 @@
                 "logging",
                 "psr-3"
             ],
+<<<<<<< Updated upstream
             "time": "2020-07-23T08:35:51+00:00"
         },
         {
@@ -3481,6 +3672,19 @@
             ],
             "description": "Composer plugin that provides efficient querying for installed package versions (no runtime IO)",
             "time": "2019-07-17T15:49:50+00:00"
+=======
+            "funding": [
+                {
+                    "url": "https://github.com/Seldaek",
+                    "type": "github"
+                },
+                {
+                    "url": "https://tidelift.com/funding/github/packagist/monolog/monolog",
+                    "type": "tidelift"
+                }
+            ],
+            "time": "2020-07-23T08:35:51+00:00"
+>>>>>>> Stashed changes
         },
         {
             "name": "ocramius/proxy-manager",
@@ -3632,6 +3836,15 @@
                 "paginator",
                 "paging"
             ],
+<<<<<<< Updated upstream
+=======
+            "funding": [
+                {
+                    "url": "https://github.com/mbabker",
+                    "type": "github"
+                }
+            ],
+>>>>>>> Stashed changes
             "time": "2020-08-03T23:54:27+00:00"
         },
         {
@@ -4368,6 +4581,19 @@
                 "php",
                 "type"
             ],
+<<<<<<< Updated upstream
+=======
+            "funding": [
+                {
+                    "url": "https://github.com/GrahamCampbell",
+                    "type": "github"
+                },
+                {
+                    "url": "https://tidelift.com/funding/github/packagist/phpoption/phpoption",
+                    "type": "tidelift"
+                }
+            ],
+>>>>>>> Stashed changes
             "time": "2020-07-20T17:29:33+00:00"
         },
         {
@@ -5824,16 +6050,16 @@
         },
         {
             "name": "sylius/sylius",
-            "version": "v1.7.6",
+            "version": "v1.7.7",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Sylius/Sylius.git",
-                "reference": "943e511507700b819075dd86c57d00fec5cd2d75"
+                "reference": "b04a1cc20d03516d35fedfed72aaf29c868328d0"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Sylius/Sylius/zipball/943e511507700b819075dd86c57d00fec5cd2d75",
-                "reference": "943e511507700b819075dd86c57d00fec5cd2d75",
+                "url": "https://api.github.com/repos/Sylius/Sylius/zipball/b04a1cc20d03516d35fedfed72aaf29c868328d0",
+                "reference": "b04a1cc20d03516d35fedfed72aaf29c868328d0",
                 "shasum": ""
             },
             "require": {
@@ -5922,9 +6148,8 @@
             },
             "conflict": {
                 "doctrine/inflector": "^1.4",
+                "nikic/php-parser": "^4.7",
                 "sylius/grid-bundle": "1.7.4",
-                "symfony/form": "4.4.9|4.4.10",
-                "symfony/symfony": "3.4.7",
                 "twig/twig": "2.6.1"
             },
             "replace": {
@@ -6050,7 +6275,7 @@
             ],
             "description": "E-Commerce platform for PHP, based on Symfony framework.",
             "homepage": "http://sylius.com",
-            "time": "2020-06-25T06:25:14+00:00"
+            "time": "2020-09-07T10:24:45+00:00"
         },
         {
             "name": "sylius/theme-bundle",
@@ -6144,7 +6369,11 @@
         },
         {
             "name": "symfony/asset",
+<<<<<<< Updated upstream
             "version": "v4.4.12",
+=======
+            "version": "v4.4.13",
+>>>>>>> Stashed changes
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/asset.git",
@@ -6196,10 +6425,28 @@
             ],
             "description": "Symfony Asset Component",
             "homepage": "https://symfony.com",
+<<<<<<< Updated upstream
+=======
+            "funding": [
+                {
+                    "url": "https://symfony.com/sponsor",
+                    "type": "custom"
+                },
+                {
+                    "url": "https://github.com/fabpot",
+                    "type": "github"
+                },
+                {
+                    "url": "https://tidelift.com/funding/github/packagist/symfony/symfony",
+                    "type": "tidelift"
+                }
+            ],
+>>>>>>> Stashed changes
             "time": "2020-07-05T09:39:30+00:00"
         },
         {
             "name": "symfony/cache",
+<<<<<<< Updated upstream
             "version": "v4.4.12",
             "source": {
                 "type": "git",
@@ -6210,6 +6457,18 @@
                 "type": "zip",
                 "url": "https://api.github.com/repos/symfony/cache/zipball/8881660a6c6975153ba6007c5ca42f247753d1a8",
                 "reference": "8881660a6c6975153ba6007c5ca42f247753d1a8",
+=======
+            "version": "v4.4.13",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/symfony/cache.git",
+                "reference": "f45591fff4ecb08825c41f5b7ec51218510301c8"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/symfony/cache/zipball/f45591fff4ecb08825c41f5b7ec51218510301c8",
+                "reference": "f45591fff4ecb08825c41f5b7ec51218510301c8",
+>>>>>>> Stashed changes
                 "shasum": ""
             },
             "require": {
@@ -6275,6 +6534,7 @@
                 "caching",
                 "psr6"
             ],
+<<<<<<< Updated upstream
             "time": "2020-08-23T09:22:13+00:00"
         },
         {
@@ -6289,6 +6549,36 @@
                 "type": "zip",
                 "url": "https://api.github.com/repos/symfony/cache-contracts/zipball/9771a09d2e6b84ecb8c9f0a7dbc72ee92aeba009",
                 "reference": "9771a09d2e6b84ecb8c9f0a7dbc72ee92aeba009",
+=======
+            "funding": [
+                {
+                    "url": "https://symfony.com/sponsor",
+                    "type": "custom"
+                },
+                {
+                    "url": "https://github.com/fabpot",
+                    "type": "github"
+                },
+                {
+                    "url": "https://tidelift.com/funding/github/packagist/symfony/symfony",
+                    "type": "tidelift"
+                }
+            ],
+            "time": "2020-08-31T16:52:20+00:00"
+        },
+        {
+            "name": "symfony/cache-contracts",
+            "version": "v2.2.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/symfony/cache-contracts.git",
+                "reference": "8034ca0b61d4dd967f3698aaa1da2507b631d0cb"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/symfony/cache-contracts/zipball/8034ca0b61d4dd967f3698aaa1da2507b631d0cb",
+                "reference": "8034ca0b61d4dd967f3698aaa1da2507b631d0cb",
+>>>>>>> Stashed changes
                 "shasum": ""
             },
             "require": {
@@ -6301,7 +6591,11 @@
             "type": "library",
             "extra": {
                 "branch-alias": {
+<<<<<<< Updated upstream
                     "dev-master": "2.1-dev"
+=======
+                    "dev-master": "2.2-dev"
+>>>>>>> Stashed changes
                 },
                 "thanks": {
                     "name": "symfony/contracts",
@@ -6337,11 +6631,33 @@
                 "interoperability",
                 "standards"
             ],
+<<<<<<< Updated upstream
             "time": "2020-07-06T13:23:11+00:00"
         },
         {
             "name": "symfony/config",
             "version": "v4.4.12",
+=======
+            "funding": [
+                {
+                    "url": "https://symfony.com/sponsor",
+                    "type": "custom"
+                },
+                {
+                    "url": "https://github.com/fabpot",
+                    "type": "github"
+                },
+                {
+                    "url": "https://tidelift.com/funding/github/packagist/symfony/symfony",
+                    "type": "tidelift"
+                }
+            ],
+            "time": "2020-09-07T11:33:47+00:00"
+        },
+        {
+            "name": "symfony/config",
+            "version": "v4.4.13",
+>>>>>>> Stashed changes
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/config.git",
@@ -6401,10 +6717,28 @@
             ],
             "description": "Symfony Config Component",
             "homepage": "https://symfony.com",
+<<<<<<< Updated upstream
+=======
+            "funding": [
+                {
+                    "url": "https://symfony.com/sponsor",
+                    "type": "custom"
+                },
+                {
+                    "url": "https://github.com/fabpot",
+                    "type": "github"
+                },
+                {
+                    "url": "https://tidelift.com/funding/github/packagist/symfony/symfony",
+                    "type": "tidelift"
+                }
+            ],
+>>>>>>> Stashed changes
             "time": "2020-08-10T07:27:51+00:00"
         },
         {
             "name": "symfony/console",
+<<<<<<< Updated upstream
             "version": "v4.4.12",
             "source": {
                 "type": "git",
@@ -6415,6 +6749,18 @@
                 "type": "zip",
                 "url": "https://api.github.com/repos/symfony/console/zipball/1f601a29fd7591a0316bffbc0d7550a5953c6c1c",
                 "reference": "1f601a29fd7591a0316bffbc0d7550a5953c6c1c",
+=======
+            "version": "v4.4.13",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/symfony/console.git",
+                "reference": "b39fd99b9297b67fb7633b7d8083957a97e1e727"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/symfony/console/zipball/b39fd99b9297b67fb7633b7d8083957a97e1e727",
+                "reference": "b39fd99b9297b67fb7633b7d8083957a97e1e727",
+>>>>>>> Stashed changes
                 "shasum": ""
             },
             "require": {
@@ -6478,11 +6824,33 @@
             ],
             "description": "Symfony Console Component",
             "homepage": "https://symfony.com",
+<<<<<<< Updated upstream
             "time": "2020-08-17T07:39:58+00:00"
         },
         {
             "name": "symfony/debug",
             "version": "v4.4.12",
+=======
+            "funding": [
+                {
+                    "url": "https://symfony.com/sponsor",
+                    "type": "custom"
+                },
+                {
+                    "url": "https://github.com/fabpot",
+                    "type": "github"
+                },
+                {
+                    "url": "https://tidelift.com/funding/github/packagist/symfony/symfony",
+                    "type": "tidelift"
+                }
+            ],
+            "time": "2020-09-02T07:07:21+00:00"
+        },
+        {
+            "name": "symfony/debug",
+            "version": "v4.4.13",
+>>>>>>> Stashed changes
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/debug.git",
@@ -6535,10 +6903,28 @@
             ],
             "description": "Symfony Debug Component",
             "homepage": "https://symfony.com",
+<<<<<<< Updated upstream
+=======
+            "funding": [
+                {
+                    "url": "https://symfony.com/sponsor",
+                    "type": "custom"
+                },
+                {
+                    "url": "https://github.com/fabpot",
+                    "type": "github"
+                },
+                {
+                    "url": "https://tidelift.com/funding/github/packagist/symfony/symfony",
+                    "type": "tidelift"
+                }
+            ],
+>>>>>>> Stashed changes
             "time": "2020-08-10T07:47:39+00:00"
         },
         {
             "name": "symfony/dependency-injection",
+<<<<<<< Updated upstream
             "version": "v4.4.12",
             "source": {
                 "type": "git",
@@ -6549,6 +6935,18 @@
                 "type": "zip",
                 "url": "https://api.github.com/repos/symfony/dependency-injection/zipball/54bbe10ed0aae7eb38484eb4656442c02509e0e0",
                 "reference": "54bbe10ed0aae7eb38484eb4656442c02509e0e0",
+=======
+            "version": "v4.4.13",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/symfony/dependency-injection.git",
+                "reference": "384c2601e5a6228d60b041911d63f010e0885ffb"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/symfony/dependency-injection/zipball/384c2601e5a6228d60b041911d63f010e0885ffb",
+                "reference": "384c2601e5a6228d60b041911d63f010e0885ffb",
+>>>>>>> Stashed changes
                 "shasum": ""
             },
             "require": {
@@ -6608,6 +7006,7 @@
             ],
             "description": "Symfony DependencyInjection Component",
             "homepage": "https://symfony.com",
+<<<<<<< Updated upstream
             "time": "2020-08-17T09:56:45+00:00"
         },
         {
@@ -6622,6 +7021,36 @@
                 "type": "zip",
                 "url": "https://api.github.com/repos/symfony/deprecation-contracts/zipball/5e20b83385a77593259c9f8beb2c43cd03b2ac14",
                 "reference": "5e20b83385a77593259c9f8beb2c43cd03b2ac14",
+=======
+            "funding": [
+                {
+                    "url": "https://symfony.com/sponsor",
+                    "type": "custom"
+                },
+                {
+                    "url": "https://github.com/fabpot",
+                    "type": "github"
+                },
+                {
+                    "url": "https://tidelift.com/funding/github/packagist/symfony/symfony",
+                    "type": "tidelift"
+                }
+            ],
+            "time": "2020-09-01T17:42:15+00:00"
+        },
+        {
+            "name": "symfony/deprecation-contracts",
+            "version": "v2.2.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/symfony/deprecation-contracts.git",
+                "reference": "5fa56b4074d1ae755beb55617ddafe6f5d78f665"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/symfony/deprecation-contracts/zipball/5fa56b4074d1ae755beb55617ddafe6f5d78f665",
+                "reference": "5fa56b4074d1ae755beb55617ddafe6f5d78f665",
+>>>>>>> Stashed changes
                 "shasum": ""
             },
             "require": {
@@ -6630,7 +7059,11 @@
             "type": "library",
             "extra": {
                 "branch-alias": {
+<<<<<<< Updated upstream
                     "dev-master": "2.1-dev"
+=======
+                    "dev-master": "2.2-dev"
+>>>>>>> Stashed changes
                 },
                 "thanks": {
                     "name": "symfony/contracts",
@@ -6658,11 +7091,33 @@
             ],
             "description": "A generic function and convention to trigger deprecation notices",
             "homepage": "https://symfony.com",
+<<<<<<< Updated upstream
             "time": "2020-06-06T08:49:21+00:00"
         },
         {
             "name": "symfony/doctrine-bridge",
             "version": "v4.4.12",
+=======
+            "funding": [
+                {
+                    "url": "https://symfony.com/sponsor",
+                    "type": "custom"
+                },
+                {
+                    "url": "https://github.com/fabpot",
+                    "type": "github"
+                },
+                {
+                    "url": "https://tidelift.com/funding/github/packagist/symfony/symfony",
+                    "type": "tidelift"
+                }
+            ],
+            "time": "2020-09-07T11:33:47+00:00"
+        },
+        {
+            "name": "symfony/doctrine-bridge",
+            "version": "v4.4.13",
+>>>>>>> Stashed changes
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/doctrine-bridge.git",
@@ -6753,11 +7208,32 @@
             ],
             "description": "Symfony Doctrine Bridge",
             "homepage": "https://symfony.com",
+<<<<<<< Updated upstream
+=======
+            "funding": [
+                {
+                    "url": "https://symfony.com/sponsor",
+                    "type": "custom"
+                },
+                {
+                    "url": "https://github.com/fabpot",
+                    "type": "github"
+                },
+                {
+                    "url": "https://tidelift.com/funding/github/packagist/symfony/symfony",
+                    "type": "tidelift"
+                }
+            ],
+>>>>>>> Stashed changes
             "time": "2020-08-21T12:55:23+00:00"
         },
         {
             "name": "symfony/dotenv",
+<<<<<<< Updated upstream
             "version": "v4.4.12",
+=======
+            "version": "v4.4.13",
+>>>>>>> Stashed changes
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/dotenv.git",
@@ -6810,11 +7286,32 @@
                 "env",
                 "environment"
             ],
+<<<<<<< Updated upstream
+=======
+            "funding": [
+                {
+                    "url": "https://symfony.com/sponsor",
+                    "type": "custom"
+                },
+                {
+                    "url": "https://github.com/fabpot",
+                    "type": "github"
+                },
+                {
+                    "url": "https://tidelift.com/funding/github/packagist/symfony/symfony",
+                    "type": "tidelift"
+                }
+            ],
+>>>>>>> Stashed changes
             "time": "2020-07-05T09:39:30+00:00"
         },
         {
             "name": "symfony/error-handler",
+<<<<<<< Updated upstream
             "version": "v4.4.12",
+=======
+            "version": "v4.4.13",
+>>>>>>> Stashed changes
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/error-handler.git",
@@ -6867,11 +7364,32 @@
             ],
             "description": "Symfony ErrorHandler Component",
             "homepage": "https://symfony.com",
+<<<<<<< Updated upstream
+=======
+            "funding": [
+                {
+                    "url": "https://symfony.com/sponsor",
+                    "type": "custom"
+                },
+                {
+                    "url": "https://github.com/fabpot",
+                    "type": "github"
+                },
+                {
+                    "url": "https://tidelift.com/funding/github/packagist/symfony/symfony",
+                    "type": "tidelift"
+                }
+            ],
+>>>>>>> Stashed changes
             "time": "2020-08-17T09:56:45+00:00"
         },
         {
             "name": "symfony/event-dispatcher",
+<<<<<<< Updated upstream
             "version": "v4.4.12",
+=======
+            "version": "v4.4.13",
+>>>>>>> Stashed changes
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/event-dispatcher.git",
@@ -6937,6 +7455,23 @@
             ],
             "description": "Symfony EventDispatcher Component",
             "homepage": "https://symfony.com",
+<<<<<<< Updated upstream
+=======
+            "funding": [
+                {
+                    "url": "https://symfony.com/sponsor",
+                    "type": "custom"
+                },
+                {
+                    "url": "https://github.com/fabpot",
+                    "type": "github"
+                },
+                {
+                    "url": "https://tidelift.com/funding/github/packagist/symfony/symfony",
+                    "type": "tidelift"
+                }
+            ],
+>>>>>>> Stashed changes
             "time": "2020-08-13T14:18:44+00:00"
         },
         {
@@ -6999,11 +7534,32 @@
                 "interoperability",
                 "standards"
             ],
+<<<<<<< Updated upstream
+=======
+            "funding": [
+                {
+                    "url": "https://symfony.com/sponsor",
+                    "type": "custom"
+                },
+                {
+                    "url": "https://github.com/fabpot",
+                    "type": "github"
+                },
+                {
+                    "url": "https://tidelift.com/funding/github/packagist/symfony/symfony",
+                    "type": "tidelift"
+                }
+            ],
+>>>>>>> Stashed changes
             "time": "2020-07-06T13:19:58+00:00"
         },
         {
             "name": "symfony/expression-language",
+<<<<<<< Updated upstream
             "version": "v4.4.12",
+=======
+            "version": "v4.4.13",
+>>>>>>> Stashed changes
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/expression-language.git",
@@ -7050,11 +7606,32 @@
             ],
             "description": "Symfony ExpressionLanguage Component",
             "homepage": "https://symfony.com",
+<<<<<<< Updated upstream
+=======
+            "funding": [
+                {
+                    "url": "https://symfony.com/sponsor",
+                    "type": "custom"
+                },
+                {
+                    "url": "https://github.com/fabpot",
+                    "type": "github"
+                },
+                {
+                    "url": "https://tidelift.com/funding/github/packagist/symfony/symfony",
+                    "type": "tidelift"
+                }
+            ],
+>>>>>>> Stashed changes
             "time": "2020-05-20T08:37:50+00:00"
         },
         {
             "name": "symfony/filesystem",
+<<<<<<< Updated upstream
             "version": "v4.4.12",
+=======
+            "version": "v4.4.13",
+>>>>>>> Stashed changes
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/filesystem.git",
@@ -7100,11 +7677,32 @@
             ],
             "description": "Symfony Filesystem Component",
             "homepage": "https://symfony.com",
+<<<<<<< Updated upstream
+=======
+            "funding": [
+                {
+                    "url": "https://symfony.com/sponsor",
+                    "type": "custom"
+                },
+                {
+                    "url": "https://github.com/fabpot",
+                    "type": "github"
+                },
+                {
+                    "url": "https://tidelift.com/funding/github/packagist/symfony/symfony",
+                    "type": "tidelift"
+                }
+            ],
+>>>>>>> Stashed changes
             "time": "2020-08-21T17:19:37+00:00"
         },
         {
             "name": "symfony/finder",
+<<<<<<< Updated upstream
             "version": "v4.4.12",
+=======
+            "version": "v4.4.13",
+>>>>>>> Stashed changes
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/finder.git",
@@ -7149,6 +7747,23 @@
             ],
             "description": "Symfony Finder Component",
             "homepage": "https://symfony.com",
+<<<<<<< Updated upstream
+=======
+            "funding": [
+                {
+                    "url": "https://symfony.com/sponsor",
+                    "type": "custom"
+                },
+                {
+                    "url": "https://github.com/fabpot",
+                    "type": "github"
+                },
+                {
+                    "url": "https://tidelift.com/funding/github/packagist/symfony/symfony",
+                    "type": "tidelift"
+                }
+            ],
+>>>>>>> Stashed changes
             "time": "2020-08-17T09:56:45+00:00"
         },
         {
@@ -7198,30 +7813,47 @@
                 }
             ],
             "description": "Composer plugin for Symfony",
+<<<<<<< Updated upstream
+=======
+            "funding": [
+                {
+                    "url": "https://symfony.com/sponsor",
+                    "type": "custom"
+                },
+                {
+                    "url": "https://github.com/fabpot",
+                    "type": "github"
+                },
+                {
+                    "url": "https://tidelift.com/funding/github/packagist/symfony/symfony",
+                    "type": "tidelift"
+                }
+            ],
+>>>>>>> Stashed changes
             "time": "2020-08-31T14:36:07+00:00"
         },
         {
             "name": "symfony/form",
-            "version": "v4.4.8",
+            "version": "v4.4.13",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/form.git",
-                "reference": "505299904397a7c6d515a7c03cdbc1b4a1d4a21f"
+                "reference": "6407cd34ff3ff8354966c2e444b8a34d96e87ac8"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/form/zipball/505299904397a7c6d515a7c03cdbc1b4a1d4a21f",
-                "reference": "505299904397a7c6d515a7c03cdbc1b4a1d4a21f",
+                "url": "https://api.github.com/repos/symfony/form/zipball/6407cd34ff3ff8354966c2e444b8a34d96e87ac8",
+                "reference": "6407cd34ff3ff8354966c2e444b8a34d96e87ac8",
                 "shasum": ""
             },
             "require": {
-                "php": "^7.1.3",
+                "php": ">=7.1.3",
                 "symfony/event-dispatcher": "^4.3",
                 "symfony/intl": "^4.4|^5.0",
                 "symfony/options-resolver": "~4.3|^5.0",
                 "symfony/polyfill-ctype": "~1.8",
                 "symfony/polyfill-mbstring": "~1.0",
-                "symfony/property-access": "^3.4|^4.0|^5.0",
+                "symfony/property-access": "^3.4.40|^4.4.8|^5.0.8",
                 "symfony/service-contracts": "^1.1|^2"
             },
             "conflict": {
@@ -7240,6 +7872,7 @@
                 "symfony/config": "^3.4|^4.0|^5.0",
                 "symfony/console": "^4.3|^5.0",
                 "symfony/dependency-injection": "^3.4|^4.0|^5.0",
+                "symfony/expression-language": "^3.4|^4.0|^5.0",
                 "symfony/http-foundation": "^3.4|^4.0|^5.0",
                 "symfony/http-kernel": "^4.4",
                 "symfony/security-csrf": "^3.4|^4.0|^5.0",
@@ -7282,11 +7915,33 @@
             ],
             "description": "Symfony Form Component",
             "homepage": "https://symfony.com",
+<<<<<<< Updated upstream
             "time": "2020-04-28T17:55:16+00:00"
         },
         {
             "name": "symfony/framework-bundle",
             "version": "v4.4.12",
+=======
+            "funding": [
+                {
+                    "url": "https://symfony.com/sponsor",
+                    "type": "custom"
+                },
+                {
+                    "url": "https://github.com/fabpot",
+                    "type": "github"
+                },
+                {
+                    "url": "https://tidelift.com/funding/github/packagist/symfony/symfony",
+                    "type": "tidelift"
+                }
+            ],
+            "time": "2020-08-18T11:39:55+00:00"
+        },
+        {
+            "name": "symfony/framework-bundle",
+            "version": "v4.4.13",
+>>>>>>> Stashed changes
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/framework-bundle.git",
@@ -7413,11 +8068,32 @@
             ],
             "description": "Symfony FrameworkBundle",
             "homepage": "https://symfony.com",
+<<<<<<< Updated upstream
+=======
+            "funding": [
+                {
+                    "url": "https://symfony.com/sponsor",
+                    "type": "custom"
+                },
+                {
+                    "url": "https://github.com/fabpot",
+                    "type": "github"
+                },
+                {
+                    "url": "https://tidelift.com/funding/github/packagist/symfony/symfony",
+                    "type": "tidelift"
+                }
+            ],
+>>>>>>> Stashed changes
             "time": "2020-08-30T09:40:10+00:00"
         },
         {
             "name": "symfony/http-foundation",
+<<<<<<< Updated upstream
             "version": "v4.4.12",
+=======
+            "version": "v4.4.13",
+>>>>>>> Stashed changes
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/http-foundation.git",
@@ -7468,10 +8144,28 @@
             ],
             "description": "Symfony HttpFoundation Component",
             "homepage": "https://symfony.com",
+<<<<<<< Updated upstream
+=======
+            "funding": [
+                {
+                    "url": "https://symfony.com/sponsor",
+                    "type": "custom"
+                },
+                {
+                    "url": "https://github.com/fabpot",
+                    "type": "github"
+                },
+                {
+                    "url": "https://tidelift.com/funding/github/packagist/symfony/symfony",
+                    "type": "tidelift"
+                }
+            ],
+>>>>>>> Stashed changes
             "time": "2020-08-17T07:39:58+00:00"
         },
         {
             "name": "symfony/http-kernel",
+<<<<<<< Updated upstream
             "version": "v4.4.12",
             "source": {
                 "type": "git",
@@ -7482,6 +8176,18 @@
                 "type": "zip",
                 "url": "https://api.github.com/repos/symfony/http-kernel/zipball/f93f6b3e52a590749994cc23d8fb879472ceb76c",
                 "reference": "f93f6b3e52a590749994cc23d8fb879472ceb76c",
+=======
+            "version": "v4.4.13",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/symfony/http-kernel.git",
+                "reference": "2bb7b90ecdc79813c0bf237b7ff20e79062b5188"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/symfony/http-kernel/zipball/2bb7b90ecdc79813c0bf237b7ff20e79062b5188",
+                "reference": "2bb7b90ecdc79813c0bf237b7ff20e79062b5188",
+>>>>>>> Stashed changes
                 "shasum": ""
             },
             "require": {
@@ -7559,11 +8265,33 @@
             ],
             "description": "Symfony HttpKernel Component",
             "homepage": "https://symfony.com",
+<<<<<<< Updated upstream
             "time": "2020-08-31T06:09:42+00:00"
         },
         {
             "name": "symfony/inflector",
             "version": "v5.1.4",
+=======
+            "funding": [
+                {
+                    "url": "https://symfony.com/sponsor",
+                    "type": "custom"
+                },
+                {
+                    "url": "https://github.com/fabpot",
+                    "type": "github"
+                },
+                {
+                    "url": "https://tidelift.com/funding/github/packagist/symfony/symfony",
+                    "type": "tidelift"
+                }
+            ],
+            "time": "2020-09-02T08:09:29+00:00"
+        },
+        {
+            "name": "symfony/inflector",
+            "version": "v5.1.5",
+>>>>>>> Stashed changes
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/inflector.git",
@@ -7618,11 +8346,32 @@
                 "symfony",
                 "words"
             ],
+<<<<<<< Updated upstream
+=======
+            "funding": [
+                {
+                    "url": "https://symfony.com/sponsor",
+                    "type": "custom"
+                },
+                {
+                    "url": "https://github.com/fabpot",
+                    "type": "github"
+                },
+                {
+                    "url": "https://tidelift.com/funding/github/packagist/symfony/symfony",
+                    "type": "tidelift"
+                }
+            ],
+>>>>>>> Stashed changes
             "time": "2020-05-20T17:43:50+00:00"
         },
         {
             "name": "symfony/intl",
+<<<<<<< Updated upstream
             "version": "v4.4.12",
+=======
+            "version": "v4.4.13",
+>>>>>>> Stashed changes
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/intl.git",
@@ -7693,11 +8442,32 @@
                 "l10n",
                 "localization"
             ],
+<<<<<<< Updated upstream
+=======
+            "funding": [
+                {
+                    "url": "https://symfony.com/sponsor",
+                    "type": "custom"
+                },
+                {
+                    "url": "https://github.com/fabpot",
+                    "type": "github"
+                },
+                {
+                    "url": "https://tidelift.com/funding/github/packagist/symfony/symfony",
+                    "type": "tidelift"
+                }
+            ],
+>>>>>>> Stashed changes
             "time": "2020-08-17T07:31:35+00:00"
         },
         {
             "name": "symfony/mime",
+<<<<<<< Updated upstream
             "version": "v5.1.4",
+=======
+            "version": "v5.1.5",
+>>>>>>> Stashed changes
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/mime.git",
@@ -7756,11 +8526,32 @@
                 "mime",
                 "mime-type"
             ],
+<<<<<<< Updated upstream
+=======
+            "funding": [
+                {
+                    "url": "https://symfony.com/sponsor",
+                    "type": "custom"
+                },
+                {
+                    "url": "https://github.com/fabpot",
+                    "type": "github"
+                },
+                {
+                    "url": "https://tidelift.com/funding/github/packagist/symfony/symfony",
+                    "type": "tidelift"
+                }
+            ],
+>>>>>>> Stashed changes
             "time": "2020-08-17T10:01:29+00:00"
         },
         {
             "name": "symfony/monolog-bridge",
+<<<<<<< Updated upstream
             "version": "v5.1.4",
+=======
+            "version": "v5.1.5",
+>>>>>>> Stashed changes
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/monolog-bridge.git",
@@ -7825,6 +8616,23 @@
             ],
             "description": "Symfony Monolog Bridge",
             "homepage": "https://symfony.com",
+<<<<<<< Updated upstream
+=======
+            "funding": [
+                {
+                    "url": "https://symfony.com/sponsor",
+                    "type": "custom"
+                },
+                {
+                    "url": "https://github.com/fabpot",
+                    "type": "github"
+                },
+                {
+                    "url": "https://tidelift.com/funding/github/packagist/symfony/symfony",
+                    "type": "tidelift"
+                }
+            ],
+>>>>>>> Stashed changes
             "time": "2020-08-17T07:42:30+00:00"
         },
         {
@@ -7892,7 +8700,11 @@
         },
         {
             "name": "symfony/options-resolver",
+<<<<<<< Updated upstream
             "version": "v4.4.12",
+=======
+            "version": "v4.4.13",
+>>>>>>> Stashed changes
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/options-resolver.git",
@@ -7942,6 +8754,23 @@
                 "configuration",
                 "options"
             ],
+<<<<<<< Updated upstream
+=======
+            "funding": [
+                {
+                    "url": "https://symfony.com/sponsor",
+                    "type": "custom"
+                },
+                {
+                    "url": "https://github.com/fabpot",
+                    "type": "github"
+                },
+                {
+                    "url": "https://tidelift.com/funding/github/packagist/symfony/symfony",
+                    "type": "tidelift"
+                }
+            ],
+>>>>>>> Stashed changes
             "time": "2020-07-10T09:12:14+00:00"
         },
         {
@@ -8004,6 +8833,23 @@
                 "polyfill",
                 "portable"
             ],
+<<<<<<< Updated upstream
+=======
+            "funding": [
+                {
+                    "url": "https://symfony.com/sponsor",
+                    "type": "custom"
+                },
+                {
+                    "url": "https://github.com/fabpot",
+                    "type": "github"
+                },
+                {
+                    "url": "https://tidelift.com/funding/github/packagist/symfony/symfony",
+                    "type": "tidelift"
+                }
+            ],
+>>>>>>> Stashed changes
             "time": "2020-07-14T12:35:20+00:00"
         },
         {
@@ -8067,6 +8913,23 @@
                 "portable",
                 "shim"
             ],
+<<<<<<< Updated upstream
+=======
+            "funding": [
+                {
+                    "url": "https://symfony.com/sponsor",
+                    "type": "custom"
+                },
+                {
+                    "url": "https://github.com/fabpot",
+                    "type": "github"
+                },
+                {
+                    "url": "https://tidelift.com/funding/github/packagist/symfony/symfony",
+                    "type": "tidelift"
+                }
+            ],
+>>>>>>> Stashed changes
             "time": "2020-07-14T12:35:20+00:00"
         },
         {
@@ -8131,6 +8994,23 @@
                 "portable",
                 "shim"
             ],
+<<<<<<< Updated upstream
+=======
+            "funding": [
+                {
+                    "url": "https://symfony.com/sponsor",
+                    "type": "custom"
+                },
+                {
+                    "url": "https://github.com/fabpot",
+                    "type": "github"
+                },
+                {
+                    "url": "https://tidelift.com/funding/github/packagist/symfony/symfony",
+                    "type": "tidelift"
+                }
+            ],
+>>>>>>> Stashed changes
             "time": "2020-07-14T12:35:20+00:00"
         },
         {
@@ -8193,6 +9073,23 @@
                 "portable",
                 "shim"
             ],
+<<<<<<< Updated upstream
+=======
+            "funding": [
+                {
+                    "url": "https://symfony.com/sponsor",
+                    "type": "custom"
+                },
+                {
+                    "url": "https://github.com/fabpot",
+                    "type": "github"
+                },
+                {
+                    "url": "https://tidelift.com/funding/github/packagist/symfony/symfony",
+                    "type": "tidelift"
+                }
+            ],
+>>>>>>> Stashed changes
             "time": "2020-07-14T12:35:20+00:00"
         },
         {
@@ -8264,6 +9161,23 @@
                 "portable",
                 "shim"
             ],
+<<<<<<< Updated upstream
+=======
+            "funding": [
+                {
+                    "url": "https://symfony.com/sponsor",
+                    "type": "custom"
+                },
+                {
+                    "url": "https://github.com/fabpot",
+                    "type": "github"
+                },
+                {
+                    "url": "https://tidelift.com/funding/github/packagist/symfony/symfony",
+                    "type": "tidelift"
+                }
+            ],
+>>>>>>> Stashed changes
             "time": "2020-08-04T06:02:08+00:00"
         },
         {
@@ -8331,6 +9245,23 @@
                 "portable",
                 "shim"
             ],
+<<<<<<< Updated upstream
+=======
+            "funding": [
+                {
+                    "url": "https://symfony.com/sponsor",
+                    "type": "custom"
+                },
+                {
+                    "url": "https://github.com/fabpot",
+                    "type": "github"
+                },
+                {
+                    "url": "https://tidelift.com/funding/github/packagist/symfony/symfony",
+                    "type": "tidelift"
+                }
+            ],
+>>>>>>> Stashed changes
             "time": "2020-07-14T12:35:20+00:00"
         },
         {
@@ -8449,6 +9380,64 @@
                     "homepage": "https://symfony.com/contributors"
                 }
             ],
+<<<<<<< Updated upstream
+=======
+            "time": "2020-07-14T12:35:20+00:00"
+        },
+        {
+            "name": "symfony/polyfill-php70",
+            "version": "v1.18.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/symfony/polyfill-php70.git",
+                "reference": "0dd93f2c578bdc9c72697eaa5f1dd25644e618d3"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/symfony/polyfill-php70/zipball/0dd93f2c578bdc9c72697eaa5f1dd25644e618d3",
+                "reference": "0dd93f2c578bdc9c72697eaa5f1dd25644e618d3",
+                "shasum": ""
+            },
+            "require": {
+                "paragonie/random_compat": "~1.0|~2.0|~9.99",
+                "php": ">=5.3.3"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.18-dev"
+                },
+                "thanks": {
+                    "name": "symfony/polyfill",
+                    "url": "https://github.com/symfony/polyfill"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Symfony\\Polyfill\\Php70\\": ""
+                },
+                "files": [
+                    "bootstrap.php"
+                ],
+                "classmap": [
+                    "Resources/stubs"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Nicolas Grekas",
+                    "email": "p@tchwork.com"
+                },
+                {
+                    "name": "Symfony Community",
+                    "homepage": "https://symfony.com/contributors"
+                }
+            ],
+>>>>>>> Stashed changes
             "description": "Symfony polyfill backporting some PHP 7.0+ features to lower PHP versions",
             "homepage": "https://symfony.com",
             "keywords": [
@@ -8457,6 +9446,23 @@
                 "portable",
                 "shim"
             ],
+<<<<<<< Updated upstream
+=======
+            "funding": [
+                {
+                    "url": "https://symfony.com/sponsor",
+                    "type": "custom"
+                },
+                {
+                    "url": "https://github.com/fabpot",
+                    "type": "github"
+                },
+                {
+                    "url": "https://tidelift.com/funding/github/packagist/symfony/symfony",
+                    "type": "tidelift"
+                }
+            ],
+>>>>>>> Stashed changes
             "time": "2020-07-14T12:35:20+00:00"
         },
         {
@@ -8516,6 +9522,23 @@
                 "portable",
                 "shim"
             ],
+<<<<<<< Updated upstream
+=======
+            "funding": [
+                {
+                    "url": "https://symfony.com/sponsor",
+                    "type": "custom"
+                },
+                {
+                    "url": "https://github.com/fabpot",
+                    "type": "github"
+                },
+                {
+                    "url": "https://tidelift.com/funding/github/packagist/symfony/symfony",
+                    "type": "tidelift"
+                }
+            ],
+>>>>>>> Stashed changes
             "time": "2020-07-14T12:35:20+00:00"
         },
         {
@@ -8578,6 +9601,23 @@
                 "portable",
                 "shim"
             ],
+<<<<<<< Updated upstream
+=======
+            "funding": [
+                {
+                    "url": "https://symfony.com/sponsor",
+                    "type": "custom"
+                },
+                {
+                    "url": "https://github.com/fabpot",
+                    "type": "github"
+                },
+                {
+                    "url": "https://tidelift.com/funding/github/packagist/symfony/symfony",
+                    "type": "tidelift"
+                }
+            ],
+>>>>>>> Stashed changes
             "time": "2020-07-14T12:35:20+00:00"
         },
         {
@@ -8644,11 +9684,32 @@
                 "portable",
                 "shim"
             ],
+<<<<<<< Updated upstream
+=======
+            "funding": [
+                {
+                    "url": "https://symfony.com/sponsor",
+                    "type": "custom"
+                },
+                {
+                    "url": "https://github.com/fabpot",
+                    "type": "github"
+                },
+                {
+                    "url": "https://tidelift.com/funding/github/packagist/symfony/symfony",
+                    "type": "tidelift"
+                }
+            ],
+>>>>>>> Stashed changes
             "time": "2020-07-14T12:35:20+00:00"
         },
         {
             "name": "symfony/process",
+<<<<<<< Updated upstream
             "version": "v4.4.12",
+=======
+            "version": "v4.4.13",
+>>>>>>> Stashed changes
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/process.git",
@@ -8693,11 +9754,32 @@
             ],
             "description": "Symfony Process Component",
             "homepage": "https://symfony.com",
+<<<<<<< Updated upstream
+=======
+            "funding": [
+                {
+                    "url": "https://symfony.com/sponsor",
+                    "type": "custom"
+                },
+                {
+                    "url": "https://github.com/fabpot",
+                    "type": "github"
+                },
+                {
+                    "url": "https://tidelift.com/funding/github/packagist/symfony/symfony",
+                    "type": "tidelift"
+                }
+            ],
+>>>>>>> Stashed changes
             "time": "2020-07-23T08:31:43+00:00"
         },
         {
             "name": "symfony/property-access",
+<<<<<<< Updated upstream
             "version": "v4.4.12",
+=======
+            "version": "v4.4.13",
+>>>>>>> Stashed changes
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/property-access.git",
@@ -8760,11 +9842,32 @@
                 "property path",
                 "reflection"
             ],
+<<<<<<< Updated upstream
+=======
+            "funding": [
+                {
+                    "url": "https://symfony.com/sponsor",
+                    "type": "custom"
+                },
+                {
+                    "url": "https://github.com/fabpot",
+                    "type": "github"
+                },
+                {
+                    "url": "https://tidelift.com/funding/github/packagist/symfony/symfony",
+                    "type": "tidelift"
+                }
+            ],
+>>>>>>> Stashed changes
             "time": "2020-08-13T14:18:44+00:00"
         },
         {
             "name": "symfony/proxy-manager-bridge",
+<<<<<<< Updated upstream
             "version": "v4.4.12",
+=======
+            "version": "v4.4.13",
+>>>>>>> Stashed changes
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/proxy-manager-bridge.git",
@@ -8817,11 +9920,32 @@
             ],
             "description": "Symfony ProxyManager Bridge",
             "homepage": "https://symfony.com",
+<<<<<<< Updated upstream
+=======
+            "funding": [
+                {
+                    "url": "https://symfony.com/sponsor",
+                    "type": "custom"
+                },
+                {
+                    "url": "https://github.com/fabpot",
+                    "type": "github"
+                },
+                {
+                    "url": "https://tidelift.com/funding/github/packagist/symfony/symfony",
+                    "type": "tidelift"
+                }
+            ],
+>>>>>>> Stashed changes
             "time": "2020-08-17T07:39:58+00:00"
         },
         {
             "name": "symfony/routing",
+<<<<<<< Updated upstream
             "version": "v4.4.12",
+=======
+            "version": "v4.4.13",
+>>>>>>> Stashed changes
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/routing.git",
@@ -8893,11 +10017,32 @@
                 "uri",
                 "url"
             ],
+<<<<<<< Updated upstream
+=======
+            "funding": [
+                {
+                    "url": "https://symfony.com/sponsor",
+                    "type": "custom"
+                },
+                {
+                    "url": "https://github.com/fabpot",
+                    "type": "github"
+                },
+                {
+                    "url": "https://tidelift.com/funding/github/packagist/symfony/symfony",
+                    "type": "tidelift"
+                }
+            ],
+>>>>>>> Stashed changes
             "time": "2020-08-10T07:27:51+00:00"
         },
         {
             "name": "symfony/security",
+<<<<<<< Updated upstream
             "version": "v4.4.12",
+=======
+            "version": "v4.4.13",
+>>>>>>> Stashed changes
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/security.git",
@@ -8979,11 +10124,32 @@
             ],
             "description": "Symfony Security Component",
             "homepage": "https://symfony.com",
+<<<<<<< Updated upstream
+=======
+            "funding": [
+                {
+                    "url": "https://symfony.com/sponsor",
+                    "type": "custom"
+                },
+                {
+                    "url": "https://github.com/fabpot",
+                    "type": "github"
+                },
+                {
+                    "url": "https://tidelift.com/funding/github/packagist/symfony/symfony",
+                    "type": "tidelift"
+                }
+            ],
+>>>>>>> Stashed changes
             "time": "2020-08-17T09:35:39+00:00"
         },
         {
             "name": "symfony/security-bundle",
+<<<<<<< Updated upstream
             "version": "v4.4.12",
+=======
+            "version": "v4.4.13",
+>>>>>>> Stashed changes
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/security-bundle.git",
@@ -9062,10 +10228,28 @@
             ],
             "description": "Symfony SecurityBundle",
             "homepage": "https://symfony.com",
+<<<<<<< Updated upstream
+=======
+            "funding": [
+                {
+                    "url": "https://symfony.com/sponsor",
+                    "type": "custom"
+                },
+                {
+                    "url": "https://github.com/fabpot",
+                    "type": "github"
+                },
+                {
+                    "url": "https://tidelift.com/funding/github/packagist/symfony/symfony",
+                    "type": "tidelift"
+                }
+            ],
+>>>>>>> Stashed changes
             "time": "2020-08-18T08:04:43+00:00"
         },
         {
             "name": "symfony/service-contracts",
+<<<<<<< Updated upstream
             "version": "v2.1.3",
             "source": {
                 "type": "git",
@@ -9076,6 +10260,18 @@
                 "type": "zip",
                 "url": "https://api.github.com/repos/symfony/service-contracts/zipball/58c7475e5457c5492c26cc740cc0ad7464be9442",
                 "reference": "58c7475e5457c5492c26cc740cc0ad7464be9442",
+=======
+            "version": "v2.2.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/symfony/service-contracts.git",
+                "reference": "d15da7ba4957ffb8f1747218be9e1a121fd298a1"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/symfony/service-contracts/zipball/d15da7ba4957ffb8f1747218be9e1a121fd298a1",
+                "reference": "d15da7ba4957ffb8f1747218be9e1a121fd298a1",
+>>>>>>> Stashed changes
                 "shasum": ""
             },
             "require": {
@@ -9088,7 +10284,11 @@
             "type": "library",
             "extra": {
                 "branch-alias": {
+<<<<<<< Updated upstream
                     "dev-master": "2.1-dev"
+=======
+                    "dev-master": "2.2-dev"
+>>>>>>> Stashed changes
                 },
                 "thanks": {
                     "name": "symfony/contracts",
@@ -9124,11 +10324,33 @@
                 "interoperability",
                 "standards"
             ],
+<<<<<<< Updated upstream
             "time": "2020-07-06T13:23:11+00:00"
         },
         {
             "name": "symfony/stopwatch",
             "version": "v5.1.4",
+=======
+            "funding": [
+                {
+                    "url": "https://symfony.com/sponsor",
+                    "type": "custom"
+                },
+                {
+                    "url": "https://github.com/fabpot",
+                    "type": "github"
+                },
+                {
+                    "url": "https://tidelift.com/funding/github/packagist/symfony/symfony",
+                    "type": "tidelift"
+                }
+            ],
+            "time": "2020-09-07T11:33:47+00:00"
+        },
+        {
+            "name": "symfony/stopwatch",
+            "version": "v5.1.5",
+>>>>>>> Stashed changes
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/stopwatch.git",
@@ -9174,11 +10396,32 @@
             ],
             "description": "Symfony Stopwatch Component",
             "homepage": "https://symfony.com",
+<<<<<<< Updated upstream
+=======
+            "funding": [
+                {
+                    "url": "https://symfony.com/sponsor",
+                    "type": "custom"
+                },
+                {
+                    "url": "https://github.com/fabpot",
+                    "type": "github"
+                },
+                {
+                    "url": "https://tidelift.com/funding/github/packagist/symfony/symfony",
+                    "type": "tidelift"
+                }
+            ],
+>>>>>>> Stashed changes
             "time": "2020-05-20T17:43:50+00:00"
         },
         {
             "name": "symfony/string",
+<<<<<<< Updated upstream
             "version": "v5.1.4",
+=======
+            "version": "v5.1.5",
+>>>>>>> Stashed changes
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/string.git",
@@ -9245,6 +10488,23 @@
                 "utf-8",
                 "utf8"
             ],
+<<<<<<< Updated upstream
+=======
+            "funding": [
+                {
+                    "url": "https://symfony.com/sponsor",
+                    "type": "custom"
+                },
+                {
+                    "url": "https://github.com/fabpot",
+                    "type": "github"
+                },
+                {
+                    "url": "https://tidelift.com/funding/github/packagist/symfony/symfony",
+                    "type": "tidelift"
+                }
+            ],
+>>>>>>> Stashed changes
             "time": "2020-08-17T07:48:54+00:00"
         },
         {
@@ -9314,7 +10574,11 @@
         },
         {
             "name": "symfony/templating",
+<<<<<<< Updated upstream
             "version": "v4.4.12",
+=======
+            "version": "v4.4.13",
+>>>>>>> Stashed changes
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/templating.git",
@@ -9366,6 +10630,23 @@
             ],
             "description": "Symfony Templating Component",
             "homepage": "https://symfony.com",
+<<<<<<< Updated upstream
+=======
+            "funding": [
+                {
+                    "url": "https://symfony.com/sponsor",
+                    "type": "custom"
+                },
+                {
+                    "url": "https://github.com/fabpot",
+                    "type": "github"
+                },
+                {
+                    "url": "https://tidelift.com/funding/github/packagist/symfony/symfony",
+                    "type": "tidelift"
+                }
+            ],
+>>>>>>> Stashed changes
             "time": "2020-07-23T08:31:43+00:00"
         },
         {
@@ -9413,7 +10694,11 @@
         },
         {
             "name": "symfony/translation",
+<<<<<<< Updated upstream
             "version": "v4.4.12",
+=======
+            "version": "v4.4.13",
+>>>>>>> Stashed changes
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/translation.git",
@@ -9485,10 +10770,28 @@
             ],
             "description": "Symfony Translation Component",
             "homepage": "https://symfony.com",
+<<<<<<< Updated upstream
+=======
+            "funding": [
+                {
+                    "url": "https://symfony.com/sponsor",
+                    "type": "custom"
+                },
+                {
+                    "url": "https://github.com/fabpot",
+                    "type": "github"
+                },
+                {
+                    "url": "https://tidelift.com/funding/github/packagist/symfony/symfony",
+                    "type": "tidelift"
+                }
+            ],
+>>>>>>> Stashed changes
             "time": "2020-08-17T09:56:45+00:00"
         },
         {
             "name": "symfony/translation-contracts",
+<<<<<<< Updated upstream
             "version": "v1.1.9",
             "source": {
                 "type": "git",
@@ -9499,6 +10802,18 @@
                 "type": "zip",
                 "url": "https://api.github.com/repos/symfony/translation-contracts/zipball/a5db6f7707fd35d137b1398734f2d745c8616ea2",
                 "reference": "a5db6f7707fd35d137b1398734f2d745c8616ea2",
+=======
+            "version": "v1.1.10",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/symfony/translation-contracts.git",
+                "reference": "84180a25fad31e23bebd26ca09d89464f082cacc"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/symfony/translation-contracts/zipball/84180a25fad31e23bebd26ca09d89464f082cacc",
+                "reference": "84180a25fad31e23bebd26ca09d89464f082cacc",
+>>>>>>> Stashed changes
                 "shasum": ""
             },
             "require": {
@@ -9546,11 +10861,33 @@
                 "interoperability",
                 "standards"
             ],
+<<<<<<< Updated upstream
             "time": "2020-07-06T13:19:58+00:00"
         },
         {
             "name": "symfony/twig-bridge",
             "version": "v4.4.12",
+=======
+            "funding": [
+                {
+                    "url": "https://symfony.com/sponsor",
+                    "type": "custom"
+                },
+                {
+                    "url": "https://github.com/fabpot",
+                    "type": "github"
+                },
+                {
+                    "url": "https://tidelift.com/funding/github/packagist/symfony/symfony",
+                    "type": "tidelift"
+                }
+            ],
+            "time": "2020-09-02T16:08:58+00:00"
+        },
+        {
+            "name": "symfony/twig-bridge",
+            "version": "v4.4.13",
+>>>>>>> Stashed changes
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/twig-bridge.git",
@@ -9649,11 +10986,32 @@
             ],
             "description": "Symfony Twig Bridge",
             "homepage": "https://symfony.com",
+<<<<<<< Updated upstream
+=======
+            "funding": [
+                {
+                    "url": "https://symfony.com/sponsor",
+                    "type": "custom"
+                },
+                {
+                    "url": "https://github.com/fabpot",
+                    "type": "github"
+                },
+                {
+                    "url": "https://tidelift.com/funding/github/packagist/symfony/symfony",
+                    "type": "tidelift"
+                }
+            ],
+>>>>>>> Stashed changes
             "time": "2020-08-17T09:35:39+00:00"
         },
         {
             "name": "symfony/twig-bundle",
+<<<<<<< Updated upstream
             "version": "v4.4.12",
+=======
+            "version": "v4.4.13",
+>>>>>>> Stashed changes
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/twig-bundle.git",
@@ -9724,11 +11082,32 @@
             ],
             "description": "Symfony TwigBundle",
             "homepage": "https://symfony.com",
+<<<<<<< Updated upstream
+=======
+            "funding": [
+                {
+                    "url": "https://symfony.com/sponsor",
+                    "type": "custom"
+                },
+                {
+                    "url": "https://github.com/fabpot",
+                    "type": "github"
+                },
+                {
+                    "url": "https://tidelift.com/funding/github/packagist/symfony/symfony",
+                    "type": "tidelift"
+                }
+            ],
+>>>>>>> Stashed changes
             "time": "2020-05-20T08:37:50+00:00"
         },
         {
             "name": "symfony/validator",
+<<<<<<< Updated upstream
             "version": "v4.4.12",
+=======
+            "version": "v4.4.13",
+>>>>>>> Stashed changes
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/validator.git",
@@ -9817,11 +11196,32 @@
             ],
             "description": "Symfony Validator Component",
             "homepage": "https://symfony.com",
+<<<<<<< Updated upstream
+=======
+            "funding": [
+                {
+                    "url": "https://symfony.com/sponsor",
+                    "type": "custom"
+                },
+                {
+                    "url": "https://github.com/fabpot",
+                    "type": "github"
+                },
+                {
+                    "url": "https://tidelift.com/funding/github/packagist/symfony/symfony",
+                    "type": "tidelift"
+                }
+            ],
+>>>>>>> Stashed changes
             "time": "2020-08-21T09:47:32+00:00"
         },
         {
             "name": "symfony/var-dumper",
+<<<<<<< Updated upstream
             "version": "v5.1.4",
+=======
+            "version": "v5.1.5",
+>>>>>>> Stashed changes
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/var-dumper.git",
@@ -9893,11 +11293,32 @@
                 "debug",
                 "dump"
             ],
+<<<<<<< Updated upstream
+=======
+            "funding": [
+                {
+                    "url": "https://symfony.com/sponsor",
+                    "type": "custom"
+                },
+                {
+                    "url": "https://github.com/fabpot",
+                    "type": "github"
+                },
+                {
+                    "url": "https://tidelift.com/funding/github/packagist/symfony/symfony",
+                    "type": "tidelift"
+                }
+            ],
+>>>>>>> Stashed changes
             "time": "2020-08-17T07:42:30+00:00"
         },
         {
             "name": "symfony/var-exporter",
+<<<<<<< Updated upstream
             "version": "v5.1.4",
+=======
+            "version": "v5.1.5",
+>>>>>>> Stashed changes
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/var-exporter.git",
@@ -9953,12 +11374,33 @@
                 "hydrate",
                 "instantiate",
                 "serialize"
+<<<<<<< Updated upstream
+=======
+            ],
+            "funding": [
+                {
+                    "url": "https://symfony.com/sponsor",
+                    "type": "custom"
+                },
+                {
+                    "url": "https://github.com/fabpot",
+                    "type": "github"
+                },
+                {
+                    "url": "https://tidelift.com/funding/github/packagist/symfony/symfony",
+                    "type": "tidelift"
+                }
+>>>>>>> Stashed changes
             ],
             "time": "2020-06-07T15:42:22+00:00"
         },
         {
             "name": "symfony/yaml",
+<<<<<<< Updated upstream
             "version": "v4.4.12",
+=======
+            "version": "v4.4.13",
+>>>>>>> Stashed changes
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/yaml.git",
@@ -10013,6 +11455,23 @@
             ],
             "description": "Symfony Yaml Component",
             "homepage": "https://symfony.com",
+<<<<<<< Updated upstream
+=======
+            "funding": [
+                {
+                    "url": "https://symfony.com/sponsor",
+                    "type": "custom"
+                },
+                {
+                    "url": "https://github.com/fabpot",
+                    "type": "github"
+                },
+                {
+                    "url": "https://tidelift.com/funding/github/packagist/symfony/symfony",
+                    "type": "tidelift"
+                }
+            ],
+>>>>>>> Stashed changes
             "time": "2020-08-26T08:30:46+00:00"
         },
         {
@@ -10066,6 +11525,31 @@
                 "intl",
                 "twig"
             ],
+<<<<<<< Updated upstream
+=======
+            "funding": [
+                {
+                    "url": "https://certification.symfony.com/",
+                    "type": "custom"
+                },
+                {
+                    "url": "https://live.symfony.com/",
+                    "type": "custom"
+                },
+                {
+                    "url": "https://symfony.com/cloud/",
+                    "type": "custom"
+                },
+                {
+                    "url": "https://github.com/fabpot",
+                    "type": "github"
+                },
+                {
+                    "url": "https://tidelift.com/funding/github/packagist/twig/twig",
+                    "type": "tidelift"
+                }
+            ],
+>>>>>>> Stashed changes
             "time": "2020-06-22T06:15:56+00:00"
         },
         {
@@ -10131,6 +11615,19 @@
             "keywords": [
                 "templating"
             ],
+<<<<<<< Updated upstream
+=======
+            "funding": [
+                {
+                    "url": "https://github.com/fabpot",
+                    "type": "github"
+                },
+                {
+                    "url": "https://tidelift.com/funding/github/packagist/twig/twig",
+                    "type": "tidelift"
+                }
+            ],
+>>>>>>> Stashed changes
             "time": "2020-08-05T15:09:04+00:00"
         },
         {
@@ -11095,16 +12592,16 @@
         },
         {
             "name": "composer/semver",
-            "version": "1.5.1",
+            "version": "1.7.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/composer/semver.git",
-                "reference": "c6bea70230ef4dd483e6bbcab6005f682ed3a8de"
+                "reference": "114f819054a2ea7db03287f5efb757e2af6e4079"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/composer/semver/zipball/c6bea70230ef4dd483e6bbcab6005f682ed3a8de",
-                "reference": "c6bea70230ef4dd483e6bbcab6005f682ed3a8de",
+                "url": "https://api.github.com/repos/composer/semver/zipball/114f819054a2ea7db03287f5efb757e2af6e4079",
+                "reference": "114f819054a2ea7db03287f5efb757e2af6e4079",
                 "shasum": ""
             },
             "require": {
@@ -11152,7 +12649,21 @@
                 "validation",
                 "versioning"
             ],
-            "time": "2020-01-13T12:06:48+00:00"
+            "funding": [
+                {
+                    "url": "https://packagist.com",
+                    "type": "custom"
+                },
+                {
+                    "url": "https://github.com/composer",
+                    "type": "github"
+                },
+                {
+                    "url": "https://tidelift.com/funding/github/packagist/composer/composer",
+                    "type": "tidelift"
+                }
+            ],
+            "time": "2020-09-09T09:34:06+00:00"
         },
         {
             "name": "composer/xdebug-handler",
@@ -11243,6 +12754,56 @@
                     "role": "Developer / IT Manager"
                 }
             ],
+<<<<<<< Updated upstream
+=======
+            "time": "2020-08-19T10:27:58+00:00"
+        },
+        {
+            "name": "dealerdirect/phpcodesniffer-composer-installer",
+            "version": "v0.7.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/Dealerdirect/phpcodesniffer-composer-installer.git",
+                "reference": "e8d808670b8f882188368faaf1144448c169c0b7"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/Dealerdirect/phpcodesniffer-composer-installer/zipball/e8d808670b8f882188368faaf1144448c169c0b7",
+                "reference": "e8d808670b8f882188368faaf1144448c169c0b7",
+                "shasum": ""
+            },
+            "require": {
+                "composer-plugin-api": "^1.0 || ^2.0",
+                "php": ">=5.3",
+                "squizlabs/php_codesniffer": "^2 || ^3 || 4.0.x-dev"
+            },
+            "require-dev": {
+                "composer/composer": "*",
+                "phpcompatibility/php-compatibility": "^9.0",
+                "sensiolabs/security-checker": "^4.1.0"
+            },
+            "type": "composer-plugin",
+            "extra": {
+                "class": "Dealerdirect\\Composer\\Plugin\\Installers\\PHPCodeSniffer\\Plugin"
+            },
+            "autoload": {
+                "psr-4": {
+                    "Dealerdirect\\Composer\\Plugin\\Installers\\PHPCodeSniffer\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Franck Nijhof",
+                    "email": "franck.nijhof@dealerdirect.com",
+                    "homepage": "http://www.frenck.nl",
+                    "role": "Developer / IT Manager"
+                }
+            ],
+>>>>>>> Stashed changes
             "description": "PHP_CodeSniffer Standards Composer Installer Plugin",
             "homepage": "http://www.dealerdirect.com",
             "keywords": [
@@ -11845,6 +13406,15 @@
                 }
             ],
             "description": "A tool to automatically fix PHP code style",
+<<<<<<< Updated upstream
+=======
+            "funding": [
+                {
+                    "url": "https://github.com/keradus",
+                    "type": "github"
+                }
+            ],
+>>>>>>> Stashed changes
             "time": "2020-06-27T23:57:46+00:00"
         },
         {
@@ -11908,20 +13478,20 @@
         },
         {
             "name": "jean85/pretty-package-versions",
-            "version": "1.2",
+            "version": "1.5.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Jean85/pretty-package-versions.git",
-                "reference": "75c7effcf3f77501d0e0caa75111aff4daa0dd48"
+                "reference": "e9f4324e88b8664be386d90cf60fbc202e1f7fc9"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Jean85/pretty-package-versions/zipball/75c7effcf3f77501d0e0caa75111aff4daa0dd48",
-                "reference": "75c7effcf3f77501d0e0caa75111aff4daa0dd48",
+                "url": "https://api.github.com/repos/Jean85/pretty-package-versions/zipball/e9f4324e88b8664be386d90cf60fbc202e1f7fc9",
+                "reference": "e9f4324e88b8664be386d90cf60fbc202e1f7fc9",
                 "shasum": ""
             },
             "require": {
-                "ocramius/package-versions": "^1.2.0",
+                "composer/package-versions-deprecated": "^1.8.0",
                 "php": "^7.0"
             },
             "require-dev": {
@@ -11955,7 +13525,7 @@
                 "release",
                 "versions"
             ],
-            "time": "2018-06-13T13:22:40+00:00"
+            "time": "2020-06-23T06:23:06+00:00"
         },
         {
             "name": "lakion/mink-debug-extension",
@@ -12147,6 +13717,15 @@
                 "object",
                 "object graph"
             ],
+<<<<<<< Updated upstream
+=======
+            "funding": [
+                {
+                    "url": "https://tidelift.com/funding/github/packagist/myclabs/deep-copy",
+                    "type": "tidelift"
+                }
+            ],
+>>>>>>> Stashed changes
             "time": "2020-06-29T13:22:24+00:00"
         },
         {
@@ -12436,6 +14015,7 @@
         },
         {
             "name": "nikic/php-parser",
+<<<<<<< Updated upstream
             "version": "v4.9.1",
             "source": {
                 "type": "git",
@@ -12446,6 +14026,18 @@
                 "type": "zip",
                 "url": "https://api.github.com/repos/nikic/PHP-Parser/zipball/88e519766fc58bd46b8265561fb79b54e2e00b28",
                 "reference": "88e519766fc58bd46b8265561fb79b54e2e00b28",
+=======
+            "version": "v4.6.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/nikic/PHP-Parser.git",
+                "reference": "c346bbfafe2ff60680258b631afb730d186ed864"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/nikic/PHP-Parser/zipball/c346bbfafe2ff60680258b631afb730d186ed864",
+                "reference": "c346bbfafe2ff60680258b631afb730d186ed864",
+>>>>>>> Stashed changes
                 "shasum": ""
             },
             "require": {
@@ -12484,7 +14076,11 @@
                 "parser",
                 "php"
             ],
+<<<<<<< Updated upstream
             "time": "2020-08-30T16:15:20+00:00"
+=======
+            "time": "2020-07-02T17:12:47+00:00"
+>>>>>>> Stashed changes
         },
         {
             "name": "openlss/lib-array2xml",
@@ -14267,6 +15863,19 @@
                 "MIT"
             ],
             "description": "Slevomat Coding Standard for PHP_CodeSniffer complements Consistence Coding Standard by providing sniffs with additional checks.",
+<<<<<<< Updated upstream
+=======
+            "funding": [
+                {
+                    "url": "https://github.com/kukulich",
+                    "type": "github"
+                },
+                {
+                    "url": "https://tidelift.com/funding/github/packagist/slevomat/coding-standard",
+                    "type": "tidelift"
+                }
+            ],
+>>>>>>> Stashed changes
             "time": "2020-08-31T07:02:52+00:00"
         },
         {
@@ -14421,7 +16030,11 @@
         },
         {
             "name": "symfony/browser-kit",
+<<<<<<< Updated upstream
             "version": "v4.4.12",
+=======
+            "version": "v4.4.13",
+>>>>>>> Stashed changes
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/browser-kit.git",
@@ -14480,7 +16093,11 @@
         },
         {
             "name": "symfony/css-selector",
+<<<<<<< Updated upstream
             "version": "v5.1.4",
+=======
+            "version": "v5.1.5",
+>>>>>>> Stashed changes
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/css-selector.git",
@@ -14533,7 +16150,11 @@
         },
         {
             "name": "symfony/debug-bundle",
+<<<<<<< Updated upstream
             "version": "v4.4.12",
+=======
+            "version": "v4.4.13",
+>>>>>>> Stashed changes
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/debug-bundle.git",
@@ -14599,7 +16220,11 @@
         },
         {
             "name": "symfony/dom-crawler",
+<<<<<<< Updated upstream
             "version": "v5.1.4",
+=======
+            "version": "v5.1.5",
+>>>>>>> Stashed changes
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/dom-crawler.git",
@@ -14657,10 +16282,28 @@
             ],
             "description": "Symfony DomCrawler Component",
             "homepage": "https://symfony.com",
+<<<<<<< Updated upstream
+=======
+            "funding": [
+                {
+                    "url": "https://symfony.com/sponsor",
+                    "type": "custom"
+                },
+                {
+                    "url": "https://github.com/fabpot",
+                    "type": "github"
+                },
+                {
+                    "url": "https://tidelift.com/funding/github/packagist/symfony/symfony",
+                    "type": "tidelift"
+                }
+            ],
+>>>>>>> Stashed changes
             "time": "2020-08-12T08:45:47+00:00"
         },
         {
             "name": "symfony/http-client",
+<<<<<<< Updated upstream
             "version": "v5.1.4",
             "source": {
                 "type": "git",
@@ -14671,6 +16314,18 @@
                 "type": "zip",
                 "url": "https://api.github.com/repos/symfony/http-client/zipball/edf00ab1692aa2ad19ba87e58273c825b9f39c93",
                 "reference": "edf00ab1692aa2ad19ba87e58273c825b9f39c93",
+=======
+            "version": "v5.1.5",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/symfony/http-client.git",
+                "reference": "21c4372e9cd2305313f4d4792d7b9fa7c25ade53"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/symfony/http-client/zipball/21c4372e9cd2305313f4d4792d7b9fa7c25ade53",
+                "reference": "21c4372e9cd2305313f4d4792d7b9fa7c25ade53",
+>>>>>>> Stashed changes
                 "shasum": ""
             },
             "require": {
@@ -14696,7 +16351,7 @@
                 "php-http/httplug": "^1.0|^2.0",
                 "psr/http-client": "^1.0",
                 "symfony/dependency-injection": "^4.4|^5.0",
-                "symfony/http-kernel": "^4.4|^5.0",
+                "symfony/http-kernel": "^4.4.13|^5.1.5",
                 "symfony/process": "^4.4|^5.0"
             },
             "type": "library",
@@ -14729,6 +16384,7 @@
             ],
             "description": "Symfony HttpClient component",
             "homepage": "https://symfony.com",
+<<<<<<< Updated upstream
             "time": "2020-08-30T07:26:18+00:00"
         },
         {
@@ -14743,6 +16399,36 @@
                 "type": "zip",
                 "url": "https://api.github.com/repos/symfony/http-client-contracts/zipball/cd88921e9add61f2064c9c6b30de4f589db42962",
                 "reference": "cd88921e9add61f2064c9c6b30de4f589db42962",
+=======
+            "funding": [
+                {
+                    "url": "https://symfony.com/sponsor",
+                    "type": "custom"
+                },
+                {
+                    "url": "https://github.com/fabpot",
+                    "type": "github"
+                },
+                {
+                    "url": "https://tidelift.com/funding/github/packagist/symfony/symfony",
+                    "type": "tidelift"
+                }
+            ],
+            "time": "2020-09-02T08:02:12+00:00"
+        },
+        {
+            "name": "symfony/http-client-contracts",
+            "version": "v2.2.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/symfony/http-client-contracts.git",
+                "reference": "3a5d0fe7908daaa23e3dbf4cee3ba4bfbb19fdd3"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/symfony/http-client-contracts/zipball/3a5d0fe7908daaa23e3dbf4cee3ba4bfbb19fdd3",
+                "reference": "3a5d0fe7908daaa23e3dbf4cee3ba4bfbb19fdd3",
+>>>>>>> Stashed changes
                 "shasum": ""
             },
             "require": {
@@ -14754,7 +16440,11 @@
             "type": "library",
             "extra": {
                 "branch-alias": {
+<<<<<<< Updated upstream
                     "dev-master": "2.1-dev"
+=======
+                    "dev-master": "2.2-dev"
+>>>>>>> Stashed changes
                 },
                 "thanks": {
                     "name": "symfony/contracts",
@@ -14790,11 +16480,33 @@
                 "interoperability",
                 "standards"
             ],
+<<<<<<< Updated upstream
             "time": "2020-07-06T13:23:11+00:00"
         },
         {
             "name": "symfony/web-profiler-bundle",
             "version": "v4.4.12",
+=======
+            "funding": [
+                {
+                    "url": "https://symfony.com/sponsor",
+                    "type": "custom"
+                },
+                {
+                    "url": "https://github.com/fabpot",
+                    "type": "github"
+                },
+                {
+                    "url": "https://tidelift.com/funding/github/packagist/symfony/symfony",
+                    "type": "tidelift"
+                }
+            ],
+            "time": "2020-09-07T11:33:47+00:00"
+        },
+        {
+            "name": "symfony/web-profiler-bundle",
+            "version": "v4.4.13",
+>>>>>>> Stashed changes
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/web-profiler-bundle.git",
@@ -14856,6 +16568,23 @@
             ],
             "description": "Symfony WebProfilerBundle",
             "homepage": "https://symfony.com",
+<<<<<<< Updated upstream
+=======
+            "funding": [
+                {
+                    "url": "https://symfony.com/sponsor",
+                    "type": "custom"
+                },
+                {
+                    "url": "https://github.com/fabpot",
+                    "type": "github"
+                },
+                {
+                    "url": "https://tidelift.com/funding/github/packagist/symfony/symfony",
+                    "type": "tidelift"
+                }
+            ],
+>>>>>>> Stashed changes
             "time": "2020-08-10T07:27:51+00:00"
         },
         {
@@ -15225,6 +16954,15 @@
                 "orm",
                 "tests"
             ],
+<<<<<<< Updated upstream
+=======
+            "funding": [
+                {
+                    "url": "https://github.com/theofidry",
+                    "type": "github"
+                }
+            ],
+>>>>>>> Stashed changes
             "time": "2020-07-30T22:54:19+00:00"
         },
         {
@@ -15265,6 +17003,15 @@
                 }
             ],
             "description": "A small library for converting tokenized PHP source code into XML and potentially other formats",
+<<<<<<< Updated upstream
+=======
+            "funding": [
+                {
+                    "url": "https://github.com/theseer",
+                    "type": "github"
+                }
+            ],
+>>>>>>> Stashed changes
             "time": "2020-07-12T23:59:07+00:00"
         }
     ],
