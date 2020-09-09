@@ -49,6 +49,10 @@
                 "slug",
                 "transliterator"
             ],
+            "support": {
+                "issues": "https://github.com/Behat/Transliterator/issues",
+                "source": "https://github.com/Behat/Transliterator/tree/v1.3.0"
+            },
             "time": "2020-01-14T16:39:13+00:00"
         },
         {
@@ -101,76 +105,11 @@
                 "stream_filter_append",
                 "stream_filter_register"
             ],
+            "support": {
+                "issues": "https://github.com/clue/php-stream-filter/issues",
+                "source": "https://github.com/clue/php-stream-filter/tree/v1.4.1"
+            },
             "time": "2019-04-09T12:31:48+00:00"
-        },
-        {
-            "name": "composer/package-versions-deprecated",
-            "version": "1.11.99",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/composer/package-versions-deprecated.git",
-                "reference": "c8c9aa8a14cc3d3bec86d0a8c3fa52ea79936855"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/composer/package-versions-deprecated/zipball/c8c9aa8a14cc3d3bec86d0a8c3fa52ea79936855",
-                "reference": "c8c9aa8a14cc3d3bec86d0a8c3fa52ea79936855",
-                "shasum": ""
-            },
-            "require": {
-                "composer-plugin-api": "^1.1.0 || ^2.0",
-                "php": "^7 || ^8"
-            },
-            "replace": {
-                "ocramius/package-versions": "1.11.99"
-            },
-            "require-dev": {
-                "composer/composer": "^1.9.3 || ^2.0@dev",
-                "ext-zip": "^1.13",
-                "phpunit/phpunit": "^6.5 || ^7"
-            },
-            "type": "composer-plugin",
-            "extra": {
-                "class": "PackageVersions\\Installer",
-                "branch-alias": {
-                    "dev-master": "1.x-dev"
-                }
-            },
-            "autoload": {
-                "psr-4": {
-                    "PackageVersions\\": "src/PackageVersions"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Marco Pivetta",
-                    "email": "ocramius@gmail.com"
-                },
-                {
-                    "name": "Jordi Boggiano",
-                    "email": "j.boggiano@seld.be"
-                }
-            ],
-            "description": "Composer plugin that provides efficient querying for installed package versions (no runtime IO)",
-            "funding": [
-                {
-                    "url": "https://packagist.com",
-                    "type": "custom"
-                },
-                {
-                    "url": "https://github.com/composer",
-                    "type": "github"
-                },
-                {
-                    "url": "https://tidelift.com/funding/github/packagist/composer/composer",
-                    "type": "tidelift"
-                }
-            ],
-            "time": "2020-08-25T05:50:16+00:00"
         },
         {
             "name": "doctrine/annotations",
@@ -322,8 +261,6 @@
                 "redis",
                 "xcache"
             ],
-<<<<<<< Updated upstream
-=======
             "funding": [
                 {
                     "url": "https://www.doctrine-project.org/sponsorship.html",
@@ -338,7 +275,6 @@
                     "type": "tidelift"
                 }
             ],
->>>>>>> Stashed changes
             "time": "2020-07-07T18:54:01+00:00"
         },
         {
@@ -487,6 +423,24 @@
                 "doctrine",
                 "php"
             ],
+            "support": {
+                "issues": "https://github.com/doctrine/common/issues",
+                "source": "https://github.com/doctrine/common/tree/2.13.x"
+            },
+            "funding": [
+                {
+                    "url": "https://www.doctrine-project.org/sponsorship.html",
+                    "type": "custom"
+                },
+                {
+                    "url": "https://www.patreon.com/phpdoctrine",
+                    "type": "patreon"
+                },
+                {
+                    "url": "https://tidelift.com/funding/github/packagist/doctrine%2Fcommon",
+                    "type": "tidelift"
+                }
+            ],
             "time": "2020-06-05T16:46:05+00:00"
         },
         {
@@ -550,9 +504,6 @@
             "keywords": [
                 "database"
             ],
-<<<<<<< Updated upstream
-            "time": "2020-05-25T19:45:03+00:00"
-=======
             "funding": [
                 {
                     "url": "https://www.doctrine-project.org/sponsorship.html",
@@ -568,7 +519,6 @@
                 }
             ],
             "time": "2020-09-01T07:13:28+00:00"
->>>>>>> Stashed changes
         },
         {
             "name": "doctrine/dbal",
@@ -663,9 +613,6 @@
                 "sqlserver",
                 "sqlsrv"
             ],
-<<<<<<< Updated upstream
-            "time": "2020-04-20T17:19:26+00:00"
-=======
             "funding": [
                 {
                     "url": "https://www.doctrine-project.org/sponsorship.html",
@@ -681,7 +628,6 @@
                 }
             ],
             "time": "2020-09-02T01:35:42+00:00"
->>>>>>> Stashed changes
         },
         {
             "name": "doctrine/doctrine-bundle",
@@ -775,6 +721,24 @@
                 "orm",
                 "persistence"
             ],
+            "support": {
+                "issues": "https://github.com/doctrine/DoctrineBundle/issues",
+                "source": "https://github.com/doctrine/DoctrineBundle/tree/1.12.x"
+            },
+            "funding": [
+                {
+                    "url": "https://www.doctrine-project.org/sponsorship.html",
+                    "type": "custom"
+                },
+                {
+                    "url": "https://www.patreon.com/phpdoctrine",
+                    "type": "patreon"
+                },
+                {
+                    "url": "https://tidelift.com/funding/github/packagist/doctrine%2Fdoctrine-bundle",
+                    "type": "tidelift"
+                }
+            ],
             "time": "2020-05-25T19:50:59+00:00"
         },
         {
@@ -866,6 +830,10 @@
                 "cache",
                 "caching"
             ],
+            "support": {
+                "issues": "https://github.com/doctrine/DoctrineCacheBundle/issues",
+                "source": "https://github.com/doctrine/DoctrineCacheBundle/tree/1.4.0"
+            },
             "time": "2019-11-29T11:22:01+00:00"
         },
         {
@@ -934,8 +902,6 @@
                 "migrations",
                 "schema"
             ],
-<<<<<<< Updated upstream
-=======
             "funding": [
                 {
                     "url": "https://www.doctrine-project.org/sponsorship.html",
@@ -950,7 +916,6 @@
                     "type": "tidelift"
                 }
             ],
->>>>>>> Stashed changes
             "time": "2020-06-25T19:36:08+00:00"
         },
         {
@@ -1027,8 +992,6 @@
                 "event system",
                 "events"
             ],
-<<<<<<< Updated upstream
-=======
             "funding": [
                 {
                     "url": "https://www.doctrine-project.org/sponsorship.html",
@@ -1043,7 +1006,6 @@
                     "type": "tidelift"
                 }
             ],
->>>>>>> Stashed changes
             "time": "2020-05-29T18:28:51+00:00"
         },
         {
@@ -1111,6 +1073,10 @@
                 "singularize",
                 "string"
             ],
+            "support": {
+                "issues": "https://github.com/doctrine/inflector/issues",
+                "source": "https://github.com/doctrine/inflector/tree/1.3.1"
+            },
             "time": "2019-10-30T19:59:35+00:00"
         },
         {
@@ -1166,6 +1132,24 @@
             "keywords": [
                 "constructor",
                 "instantiate"
+            ],
+            "support": {
+                "issues": "https://github.com/doctrine/instantiator/issues",
+                "source": "https://github.com/doctrine/instantiator/tree/1.3.x"
+            },
+            "funding": [
+                {
+                    "url": "https://www.doctrine-project.org/sponsorship.html",
+                    "type": "custom"
+                },
+                {
+                    "url": "https://www.patreon.com/phpdoctrine",
+                    "type": "patreon"
+                },
+                {
+                    "url": "https://tidelift.com/funding/github/packagist/doctrine%2Finstantiator",
+                    "type": "tidelift"
+                }
             ],
             "time": "2020-05-29T17:27:14+00:00"
         },
@@ -1228,6 +1212,24 @@
                 "lexer",
                 "parser",
                 "php"
+            ],
+            "support": {
+                "issues": "https://github.com/doctrine/lexer/issues",
+                "source": "https://github.com/doctrine/lexer/tree/1.2.1"
+            },
+            "funding": [
+                {
+                    "url": "https://www.doctrine-project.org/sponsorship.html",
+                    "type": "custom"
+                },
+                {
+                    "url": "https://www.patreon.com/phpdoctrine",
+                    "type": "patreon"
+                },
+                {
+                    "url": "https://tidelift.com/funding/github/packagist/doctrine%2Flexer",
+                    "type": "tidelift"
+                }
             ],
             "time": "2020-05-25T17:44:05+00:00"
         },
@@ -1399,6 +1401,24 @@
                 "database",
                 "orm"
             ],
+            "support": {
+                "issues": "https://github.com/doctrine/orm/issues",
+                "source": "https://github.com/doctrine/orm/tree/v2.7.3"
+            },
+            "funding": [
+                {
+                    "url": "https://www.doctrine-project.org/sponsorship.html",
+                    "type": "custom"
+                },
+                {
+                    "url": "https://www.patreon.com/phpdoctrine",
+                    "type": "patreon"
+                },
+                {
+                    "url": "https://tidelift.com/funding/github/packagist/doctrine/orm",
+                    "type": "tidelift"
+                }
+            ],
             "time": "2020-05-26T16:03:49+00:00"
         },
         {
@@ -1483,8 +1503,6 @@
                 "orm",
                 "persistence"
             ],
-<<<<<<< Updated upstream
-=======
             "funding": [
                 {
                     "url": "https://www.doctrine-project.org/sponsorship.html",
@@ -1499,7 +1517,6 @@
                     "type": "tidelift"
                 }
             ],
->>>>>>> Stashed changes
             "time": "2020-06-20T12:56:16+00:00"
         },
         {
@@ -1578,22 +1595,14 @@
                 "reflection",
                 "static"
             ],
+            "support": {
+                "issues": "https://github.com/doctrine/reflection/issues",
+                "source": "https://github.com/doctrine/reflection/tree/1.2.x"
+            },
             "time": "2020-03-27T11:06:43+00:00"
         },
         {
             "name": "egulias/email-validator",
-<<<<<<< Updated upstream
-            "version": "2.1.19",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/egulias/EmailValidator.git",
-                "reference": "840d5603eb84cc81a6a0382adac3293e57c1c64c"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/egulias/EmailValidator/zipball/840d5603eb84cc81a6a0382adac3293e57c1c64c",
-                "reference": "840d5603eb84cc81a6a0382adac3293e57c1c64c",
-=======
             "version": "2.1.20",
             "source": {
                 "type": "git",
@@ -1604,7 +1613,6 @@
                 "type": "zip",
                 "url": "https://api.github.com/repos/egulias/EmailValidator/zipball/f46887bc48db66c7f38f668eb7d6ae54583617ff",
                 "reference": "f46887bc48db66c7f38f668eb7d6ae54583617ff",
->>>>>>> Stashed changes
                 "shasum": ""
             },
             "require": {
@@ -1649,11 +1657,7 @@
                 "validation",
                 "validator"
             ],
-<<<<<<< Updated upstream
-            "time": "2020-08-08T21:28:19+00:00"
-=======
             "time": "2020-09-06T13:44:32+00:00"
->>>>>>> Stashed changes
         },
         {
             "name": "friendsofsymfony/oauth-server-bundle",
@@ -1737,6 +1741,10 @@
                 "oauth2",
                 "server"
             ],
+            "support": {
+                "issues": "https://github.com/FriendsOfSymfony/FOSOAuthServerBundle/issues",
+                "source": "https://github.com/FriendsOfSymfony/FOSOAuthServerBundle/tree/1.6"
+            },
             "time": "2019-01-23T15:23:04+00:00"
         },
         {
@@ -1794,6 +1802,10 @@
                 "oauth",
                 "oauth2"
             ],
+            "support": {
+                "issues": "https://github.com/FriendsOfSymfony/oauth2-php/issues",
+                "source": "https://github.com/FriendsOfSymfony/oauth2-php/tree/1.3.0"
+            },
             "time": "2020-03-03T22:14:46+00:00"
         },
         {
@@ -1950,6 +1962,10 @@
                 "faker",
                 "fixtures"
             ],
+            "support": {
+                "issues": "https://github.com/fzaninotto/Faker/issues",
+                "source": "https://github.com/fzaninotto/Faker/tree/v1.9.1"
+            },
             "time": "2019-12-12T13:22:17+00:00"
         },
         {
@@ -2099,6 +2115,10 @@
                 "rest",
                 "web service"
             ],
+            "support": {
+                "issues": "https://github.com/guzzle/guzzle/issues",
+                "source": "https://github.com/guzzle/guzzle/tree/6.5"
+            },
             "time": "2020-06-16T21:01:06+00:00"
         },
         {
@@ -2150,6 +2170,10 @@
             "keywords": [
                 "promise"
             ],
+            "support": {
+                "issues": "https://github.com/guzzle/promises/issues",
+                "source": "https://github.com/guzzle/promises/tree/master"
+            },
             "time": "2016-12-20T10:07:11+00:00"
         },
         {
@@ -2221,6 +2245,10 @@
                 "uri",
                 "url"
             ],
+            "support": {
+                "issues": "https://github.com/guzzle/psr7/issues",
+                "source": "https://github.com/guzzle/psr7/tree/1.6.1"
+            },
             "time": "2019-07-01T23:21:34+00:00"
         },
         {
@@ -2326,6 +2354,10 @@
                 "image manipulation",
                 "image processing"
             ],
+            "support": {
+                "issues": "https://github.com/avalanche123/Imagine/issues",
+                "source": "https://github.com/avalanche123/Imagine/tree/develop"
+            },
             "time": "2019-12-04T09:55:33+00:00"
         },
         {
@@ -2376,6 +2408,10 @@
                 "highlight",
                 "sql"
             ],
+            "support": {
+                "issues": "https://github.com/jdorn/sql-formatter/issues",
+                "source": "https://github.com/jdorn/sql-formatter/tree/master"
+            },
             "time": "2014-01-12T16:20:24+00:00"
         },
         {
@@ -2431,6 +2467,10 @@
                 "xml",
                 "yaml"
             ],
+            "support": {
+                "issues": "https://github.com/schmittjoh/metadata/issues",
+                "source": "https://github.com/schmittjoh/metadata/tree/1.x"
+            },
             "time": "2018-10-26T12:40:10+00:00"
         },
         {
@@ -2466,6 +2506,10 @@
                 "Apache2"
             ],
             "description": "A library for easily creating recursive-descent parsers.",
+            "support": {
+                "issues": "https://github.com/schmittjoh/parser-lib/issues",
+                "source": "https://github.com/schmittjoh/parser-lib/tree/1.0.0"
+            },
             "time": "2012-11-18T18:08:43+00:00"
         },
         {
@@ -2550,6 +2594,10 @@
                 "serialization",
                 "xml"
             ],
+            "support": {
+                "issues": "https://github.com/schmittjoh/serializer/issues",
+                "source": "https://github.com/schmittjoh/serializer/tree/1.14.1"
+            },
             "time": "2020-02-22T20:59:37+00:00"
         },
         {
@@ -2624,6 +2672,10 @@
                 "serialization",
                 "xml"
             ],
+            "support": {
+                "issues": "https://github.com/schmittjoh/JMSSerializerBundle/issues",
+                "source": "https://github.com/schmittjoh/JMSSerializerBundle/tree/2.4.4"
+            },
             "time": "2019-03-30T10:26:09+00:00"
         },
         {
@@ -2713,6 +2765,10 @@
                 "filesystem",
                 "media"
             ],
+            "support": {
+                "issues": "https://github.com/KnpLabs/Gaufrette/issues",
+                "source": "https://github.com/KnpLabs/Gaufrette/tree/v0.8.3"
+            },
             "time": "2019-06-06T09:56:58+00:00"
         },
         {
@@ -2775,6 +2831,10 @@
                 "filesystem",
                 "media"
             ],
+            "support": {
+                "issues": "https://github.com/KnpLabs/KnpGaufretteBundle/issues",
+                "source": "https://github.com/KnpLabs/KnpGaufretteBundle/tree/v0.7.1"
+            },
             "time": "2019-12-26T15:32:33+00:00"
         },
         {
@@ -2903,6 +2963,10 @@
             "keywords": [
                 "menu"
             ],
+            "support": {
+                "issues": "https://github.com/KnpLabs/KnpMenuBundle/issues",
+                "source": "https://github.com/KnpLabs/KnpMenuBundle/tree/master"
+            },
             "time": "2019-12-01T13:07:41+00:00"
         },
         {
@@ -2970,6 +3034,11 @@
                 "url",
                 "ws"
             ],
+            "support": {
+                "forum": "https://groups.google.com/forum/#!forum/thephpleague",
+                "issues": "https://github.com/thephpleague/uri/issues",
+                "source": "https://github.com/thephpleague/uri/tree/master"
+            },
             "time": "2018-03-14T17:19:39+00:00"
         },
         {
@@ -3041,6 +3110,10 @@
                 "url",
                 "userinfo"
             ],
+            "support": {
+                "issues": "https://github.com/thephpleague/uri-components/issues",
+                "source": "https://github.com/thephpleague/uri-components/tree/master"
+            },
             "time": "2018-10-24T11:31:02+00:00"
         },
         {
@@ -3110,6 +3183,10 @@
                 "domain parsing",
                 "icann"
             ],
+            "support": {
+                "issues": "https://github.com/thephphleague/uri-hostname-parser/issues",
+                "source": "https://github.com/thephphleague/uri-hostname-parser"
+            },
             "time": "2018-02-16T07:29:26+00:00"
         },
         {
@@ -3162,6 +3239,10 @@
                 "uri",
                 "url"
             ],
+            "support": {
+                "issues": "https://github.com/thephpleague/uri-interfaces/issues",
+                "source": "https://github.com/thephpleague/uri-interfaces/tree/master"
+            },
             "time": "2018-11-05T14:00:06+00:00"
         },
         {
@@ -3238,6 +3319,11 @@
                 "uri",
                 "url"
             ],
+            "support": {
+                "forum": "https://groups.google.com/forum/#!forum/thephpleague",
+                "issues": "https://github.com/thephpleague/uri/issues",
+                "source": "https://github.com/thephpleague/uri-manipulations/tree/master"
+            },
             "time": "2018-03-14T16:44:57+00:00"
         },
         {
@@ -3303,6 +3389,10 @@
                 "uri",
                 "url"
             ],
+            "support": {
+                "issues": "https://github.com/thephpleague/uri-parser/issues",
+                "source": "https://github.com/thephpleague/uri-parser/tree/master"
+            },
             "time": "2018-11-22T07:55:51+00:00"
         },
         {
@@ -3378,6 +3468,11 @@
                 "ws",
                 "wss"
             ],
+            "support": {
+                "forum": "https://groups.google.com/forum/#!forum/thephpleague",
+                "issues": "https://github.com/thephpleague/uri/issues",
+                "source": "https://github.com/thephpleague/uri-schemes/tree/master"
+            },
             "time": "2018-11-26T08:09:30+00:00"
         },
         {
@@ -3619,7 +3714,16 @@
                 "logging",
                 "psr-3"
             ],
-<<<<<<< Updated upstream
+            "funding": [
+                {
+                    "url": "https://github.com/Seldaek",
+                    "type": "github"
+                },
+                {
+                    "url": "https://tidelift.com/funding/github/packagist/monolog/monolog",
+                    "type": "tidelift"
+                }
+            ],
             "time": "2020-07-23T08:35:51+00:00"
         },
         {
@@ -3672,19 +3776,6 @@
             ],
             "description": "Composer plugin that provides efficient querying for installed package versions (no runtime IO)",
             "time": "2019-07-17T15:49:50+00:00"
-=======
-            "funding": [
-                {
-                    "url": "https://github.com/Seldaek",
-                    "type": "github"
-                },
-                {
-                    "url": "https://tidelift.com/funding/github/packagist/monolog/monolog",
-                    "type": "tidelift"
-                }
-            ],
-            "time": "2020-07-23T08:35:51+00:00"
->>>>>>> Stashed changes
         },
         {
             "name": "ocramius/proxy-manager",
@@ -3754,6 +3845,10 @@
                 "proxy pattern",
                 "service proxies"
             ],
+            "support": {
+                "issues": "https://github.com/Ocramius/ProxyManager/issues",
+                "source": "https://github.com/Ocramius/ProxyManager/tree/2.2.x"
+            },
             "time": "2019-08-10T08:37:15+00:00"
         },
         {
@@ -3836,15 +3931,12 @@
                 "paginator",
                 "paging"
             ],
-<<<<<<< Updated upstream
-=======
             "funding": [
                 {
                     "url": "https://github.com/mbabker",
                     "type": "github"
                 }
             ],
->>>>>>> Stashed changes
             "time": "2020-08-03T23:54:27+00:00"
         },
         {
@@ -3894,6 +3986,11 @@
                 "pseudorandom",
                 "random"
             ],
+            "support": {
+                "email": "info@paragonie.com",
+                "issues": "https://github.com/paragonie/random_compat/issues",
+                "source": "https://github.com/paragonie/random_compat"
+            },
             "time": "2019-01-03T20:59:08+00:00"
         },
         {
@@ -3958,6 +4055,10 @@
                 "iso",
                 "library"
             ],
+            "support": {
+                "issues": "https://github.com/payum/iso4217/issues",
+                "source": "https://github.com/payum/iso4217"
+            },
             "time": "2016-08-04T08:15:12+00:00"
         },
         {
@@ -4080,6 +4181,10 @@
                 "stripe.js",
                 "withdrawal"
             ],
+            "support": {
+                "issues": "https://github.com/Payum/Payum/issues",
+                "source": "https://github.com/Payum/Payum/tree/master"
+            },
             "time": "2020-02-13T16:44:59+00:00"
         },
         {
@@ -4181,6 +4286,10 @@
                 "stripe.js",
                 "symfony"
             ],
+            "support": {
+                "issues": "https://github.com/Payum/PayumBundle/issues",
+                "source": "https://github.com/Payum/PayumBundle/tree/2.4.1"
+            },
             "time": "2020-02-11T19:51:20+00:00"
         },
         {
@@ -4244,6 +4353,10 @@
                 "Guzzle",
                 "http"
             ],
+            "support": {
+                "issues": "https://github.com/php-http/guzzle6-adapter/issues",
+                "source": "https://github.com/php-http/guzzle6-adapter/tree/master"
+            },
             "time": "2018-12-16T14:44:03+00:00"
         },
         {
@@ -4425,6 +4538,10 @@
                 "stream",
                 "uri"
             ],
+            "support": {
+                "issues": "https://github.com/php-http/message-factory/issues",
+                "source": "https://github.com/php-http/message-factory/tree/master"
+            },
             "time": "2015-12-19T14:08:53+00:00"
         },
         {
@@ -4526,6 +4643,10 @@
                 "sequence",
                 "set"
             ],
+            "support": {
+                "issues": "https://github.com/schmittjoh/php-collection/issues",
+                "source": "https://github.com/schmittjoh/php-collection/tree/master"
+            },
             "time": "2015-05-17T12:39:23+00:00"
         },
         {
@@ -4581,8 +4702,6 @@
                 "php",
                 "type"
             ],
-<<<<<<< Updated upstream
-=======
             "funding": [
                 {
                     "url": "https://github.com/GrahamCampbell",
@@ -4593,7 +4712,6 @@
                     "type": "tidelift"
                 }
             ],
->>>>>>> Stashed changes
             "time": "2020-07-20T17:29:33+00:00"
         },
         {
@@ -4649,6 +4767,10 @@
                 "mockery",
                 "test"
             ],
+            "support": {
+                "issues": "https://github.com/PolishSymfonyCommunity/SymfonyMockerContainer/issues",
+                "source": "https://github.com/PolishSymfonyCommunity/SymfonyMockerContainer/tree/master"
+            },
             "time": "2019-12-11T22:38:53+00:00"
         },
         {
@@ -4695,6 +4817,9 @@
                 "psr",
                 "psr-6"
             ],
+            "support": {
+                "source": "https://github.com/php-fig/cache/tree/master"
+            },
             "time": "2016-08-06T20:24:11+00:00"
         },
         {
@@ -4744,6 +4869,10 @@
                 "container-interop",
                 "psr"
             ],
+            "support": {
+                "issues": "https://github.com/php-fig/container/issues",
+                "source": "https://github.com/php-fig/container/tree/master"
+            },
             "time": "2017-02-14T16:28:37+00:00"
         },
         {
@@ -4843,6 +4972,9 @@
                 "request",
                 "response"
             ],
+            "support": {
+                "source": "https://github.com/php-fig/http-message/tree/master"
+            },
             "time": "2016-08-06T14:39:51+00:00"
         },
         {
@@ -4890,6 +5022,9 @@
                 "psr",
                 "psr-3"
             ],
+            "support": {
+                "source": "https://github.com/php-fig/log/tree/1.1.3"
+            },
             "time": "2020-03-23T09:12:05+00:00"
         },
         {
@@ -4938,6 +5073,9 @@
                 "psr-16",
                 "simple-cache"
             ],
+            "support": {
+                "source": "https://github.com/php-fig/simple-cache/tree/master"
+            },
             "time": "2017-10-23T01:57:42+00:00"
         },
         {
@@ -4978,6 +5116,10 @@
                 }
             ],
             "description": "A polyfill for getallheaders.",
+            "support": {
+                "issues": "https://github.com/ralouphie/getallheaders/issues",
+                "source": "https://github.com/ralouphie/getallheaders/tree/develop"
+            },
             "time": "2019-03-08T08:55:37+00:00"
         },
         {
@@ -5065,6 +5207,12 @@
                 "identifier",
                 "uuid"
             ],
+            "support": {
+                "issues": "https://github.com/ramsey/uuid/issues",
+                "rss": "https://github.com/ramsey/uuid/releases.atom",
+                "source": "https://github.com/ramsey/uuid",
+                "wiki": "https://github.com/ramsey/uuid/wiki"
+            },
             "time": "2020-02-21T04:36:14+00:00"
         },
         {
@@ -5146,6 +5294,10 @@
                 "block",
                 "sonata"
             ],
+            "support": {
+                "issues": "https://github.com/sonata-project/SonataBlockBundle/issues",
+                "source": "https://github.com/sonata-project/SonataBlockBundle/tree/4.2.0"
+            },
             "time": "2020-03-21T15:01:48+00:00"
         },
         {
@@ -5215,6 +5367,10 @@
                 "mongodb",
                 "redis"
             ],
+            "support": {
+                "issues": "https://github.com/sonata-project/cache/issues",
+                "source": "https://github.com/sonata-project/cache/tree/2.x"
+            },
             "time": "2017-12-08T09:22:44+00:00"
         },
         {
@@ -5360,6 +5516,10 @@
                 "form",
                 "symfony"
             ],
+            "support": {
+                "issues": "https://github.com/sonata-project/form-extensions/issues",
+                "source": "https://github.com/sonata-project/form-extensions/tree/1.0.0"
+            },
             "time": "2019-04-29T17:51:42+00:00"
         },
         {
@@ -5499,6 +5659,10 @@
                 "translatable",
                 "tree"
             ],
+            "support": {
+                "issues": "https://github.com/stof/StofDoctrineExtensionsBundle/issues",
+                "source": "https://github.com/stof/StofDoctrineExtensionsBundle/tree/v1.4.0"
+            },
             "time": "2020-03-30T09:00:40+00:00"
         },
         {
@@ -5561,6 +5725,10 @@
                 "mail",
                 "mailer"
             ],
+            "support": {
+                "issues": "https://github.com/swiftmailer/swiftmailer/issues",
+                "source": "https://github.com/swiftmailer/swiftmailer/tree/v6.2.3"
+            },
             "time": "2019-11-12T09:31:26+00:00"
         },
         {
@@ -5600,6 +5768,10 @@
                 }
             ],
             "description": "Doctrine ORM hydration performance optimization made easier.",
+            "support": {
+                "issues": "https://github.com/SyliusLabs/AssociationHydrator/issues",
+                "source": "https://github.com/SyliusLabs/AssociationHydrator/tree/master"
+            },
             "time": "2019-12-19T09:41:08+00:00"
         },
         {
@@ -5638,6 +5810,10 @@
                 }
             ],
             "description": "Symfony EventDispatcher Polyfill",
+            "support": {
+                "issues": "https://github.com/SyliusLabs/PolyfillSymfonyEventDispatcher/issues",
+                "source": "https://github.com/SyliusLabs/PolyfillSymfonyEventDispatcher/tree/master"
+            },
             "time": "2020-01-31T14:21:00+00:00"
         },
         {
@@ -5708,6 +5884,10 @@
                 "sylius",
                 "symfony"
             ],
+            "support": {
+                "issues": "https://github.com/Sylius/SyliusFixturesBundle/issues",
+                "source": "https://github.com/Sylius/SyliusFixturesBundle/tree/master"
+            },
             "time": "2020-05-25T09:23:15+00:00"
         },
         {
@@ -5810,6 +5990,10 @@
                 "sylius",
                 "webshop"
             ],
+            "support": {
+                "issues": "https://github.com/Sylius/SyliusGridBundle/issues",
+                "source": "https://github.com/Sylius/SyliusGridBundle/tree/v1.7.5"
+            },
             "time": "2020-04-14T10:50:49+00:00"
         },
         {
@@ -5887,6 +6071,10 @@
                 "mailer",
                 "swiftmailer"
             ],
+            "support": {
+                "issues": "https://github.com/Sylius/SyliusMailerBundle/issues",
+                "source": "https://github.com/Sylius/SyliusMailerBundle/tree/v1.5.1"
+            },
             "time": "2020-03-27T09:36:50+00:00"
         },
         {
@@ -5946,6 +6134,10 @@
                 "registry",
                 "services"
             ],
+            "support": {
+                "issues": "https://github.com/Sylius/Registry/issues",
+                "source": "https://github.com/Sylius/Registry/tree/v1.5.1"
+            },
             "time": "2020-05-26T11:29:46+00:00"
         },
         {
@@ -6365,15 +6557,15 @@
                 "themes",
                 "theming"
             ],
+            "support": {
+                "issues": "https://github.com/Sylius/SyliusThemeBundle/issues",
+                "source": "https://github.com/Sylius/SyliusThemeBundle/tree/1.5"
+            },
             "time": "2020-05-05T13:02:03+00:00"
         },
         {
             "name": "symfony/asset",
-<<<<<<< Updated upstream
-            "version": "v4.4.12",
-=======
             "version": "v4.4.13",
->>>>>>> Stashed changes
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/asset.git",
@@ -6425,8 +6617,6 @@
             ],
             "description": "Symfony Asset Component",
             "homepage": "https://symfony.com",
-<<<<<<< Updated upstream
-=======
             "funding": [
                 {
                     "url": "https://symfony.com/sponsor",
@@ -6441,23 +6631,10 @@
                     "type": "tidelift"
                 }
             ],
->>>>>>> Stashed changes
             "time": "2020-07-05T09:39:30+00:00"
         },
         {
             "name": "symfony/cache",
-<<<<<<< Updated upstream
-            "version": "v4.4.12",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/symfony/cache.git",
-                "reference": "8881660a6c6975153ba6007c5ca42f247753d1a8"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/symfony/cache/zipball/8881660a6c6975153ba6007c5ca42f247753d1a8",
-                "reference": "8881660a6c6975153ba6007c5ca42f247753d1a8",
-=======
             "version": "v4.4.13",
             "source": {
                 "type": "git",
@@ -6468,7 +6645,6 @@
                 "type": "zip",
                 "url": "https://api.github.com/repos/symfony/cache/zipball/f45591fff4ecb08825c41f5b7ec51218510301c8",
                 "reference": "f45591fff4ecb08825c41f5b7ec51218510301c8",
->>>>>>> Stashed changes
                 "shasum": ""
             },
             "require": {
@@ -6534,22 +6710,6 @@
                 "caching",
                 "psr6"
             ],
-<<<<<<< Updated upstream
-            "time": "2020-08-23T09:22:13+00:00"
-        },
-        {
-            "name": "symfony/cache-contracts",
-            "version": "v2.1.3",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/symfony/cache-contracts.git",
-                "reference": "9771a09d2e6b84ecb8c9f0a7dbc72ee92aeba009"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/symfony/cache-contracts/zipball/9771a09d2e6b84ecb8c9f0a7dbc72ee92aeba009",
-                "reference": "9771a09d2e6b84ecb8c9f0a7dbc72ee92aeba009",
-=======
             "funding": [
                 {
                     "url": "https://symfony.com/sponsor",
@@ -6578,7 +6738,6 @@
                 "type": "zip",
                 "url": "https://api.github.com/repos/symfony/cache-contracts/zipball/8034ca0b61d4dd967f3698aaa1da2507b631d0cb",
                 "reference": "8034ca0b61d4dd967f3698aaa1da2507b631d0cb",
->>>>>>> Stashed changes
                 "shasum": ""
             },
             "require": {
@@ -6591,11 +6750,7 @@
             "type": "library",
             "extra": {
                 "branch-alias": {
-<<<<<<< Updated upstream
-                    "dev-master": "2.1-dev"
-=======
                     "dev-master": "2.2-dev"
->>>>>>> Stashed changes
                 },
                 "thanks": {
                     "name": "symfony/contracts",
@@ -6631,13 +6786,6 @@
                 "interoperability",
                 "standards"
             ],
-<<<<<<< Updated upstream
-            "time": "2020-07-06T13:23:11+00:00"
-        },
-        {
-            "name": "symfony/config",
-            "version": "v4.4.12",
-=======
             "funding": [
                 {
                     "url": "https://symfony.com/sponsor",
@@ -6657,7 +6805,6 @@
         {
             "name": "symfony/config",
             "version": "v4.4.13",
->>>>>>> Stashed changes
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/config.git",
@@ -6717,8 +6864,6 @@
             ],
             "description": "Symfony Config Component",
             "homepage": "https://symfony.com",
-<<<<<<< Updated upstream
-=======
             "funding": [
                 {
                     "url": "https://symfony.com/sponsor",
@@ -6733,23 +6878,10 @@
                     "type": "tidelift"
                 }
             ],
->>>>>>> Stashed changes
             "time": "2020-08-10T07:27:51+00:00"
         },
         {
             "name": "symfony/console",
-<<<<<<< Updated upstream
-            "version": "v4.4.12",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/symfony/console.git",
-                "reference": "1f601a29fd7591a0316bffbc0d7550a5953c6c1c"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/symfony/console/zipball/1f601a29fd7591a0316bffbc0d7550a5953c6c1c",
-                "reference": "1f601a29fd7591a0316bffbc0d7550a5953c6c1c",
-=======
             "version": "v4.4.13",
             "source": {
                 "type": "git",
@@ -6760,7 +6892,6 @@
                 "type": "zip",
                 "url": "https://api.github.com/repos/symfony/console/zipball/b39fd99b9297b67fb7633b7d8083957a97e1e727",
                 "reference": "b39fd99b9297b67fb7633b7d8083957a97e1e727",
->>>>>>> Stashed changes
                 "shasum": ""
             },
             "require": {
@@ -6824,13 +6955,6 @@
             ],
             "description": "Symfony Console Component",
             "homepage": "https://symfony.com",
-<<<<<<< Updated upstream
-            "time": "2020-08-17T07:39:58+00:00"
-        },
-        {
-            "name": "symfony/debug",
-            "version": "v4.4.12",
-=======
             "funding": [
                 {
                     "url": "https://symfony.com/sponsor",
@@ -6850,7 +6974,6 @@
         {
             "name": "symfony/debug",
             "version": "v4.4.13",
->>>>>>> Stashed changes
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/debug.git",
@@ -6903,8 +7026,6 @@
             ],
             "description": "Symfony Debug Component",
             "homepage": "https://symfony.com",
-<<<<<<< Updated upstream
-=======
             "funding": [
                 {
                     "url": "https://symfony.com/sponsor",
@@ -6919,23 +7040,10 @@
                     "type": "tidelift"
                 }
             ],
->>>>>>> Stashed changes
             "time": "2020-08-10T07:47:39+00:00"
         },
         {
             "name": "symfony/dependency-injection",
-<<<<<<< Updated upstream
-            "version": "v4.4.12",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/symfony/dependency-injection.git",
-                "reference": "54bbe10ed0aae7eb38484eb4656442c02509e0e0"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/symfony/dependency-injection/zipball/54bbe10ed0aae7eb38484eb4656442c02509e0e0",
-                "reference": "54bbe10ed0aae7eb38484eb4656442c02509e0e0",
-=======
             "version": "v4.4.13",
             "source": {
                 "type": "git",
@@ -6946,7 +7054,6 @@
                 "type": "zip",
                 "url": "https://api.github.com/repos/symfony/dependency-injection/zipball/384c2601e5a6228d60b041911d63f010e0885ffb",
                 "reference": "384c2601e5a6228d60b041911d63f010e0885ffb",
->>>>>>> Stashed changes
                 "shasum": ""
             },
             "require": {
@@ -7006,22 +7113,6 @@
             ],
             "description": "Symfony DependencyInjection Component",
             "homepage": "https://symfony.com",
-<<<<<<< Updated upstream
-            "time": "2020-08-17T09:56:45+00:00"
-        },
-        {
-            "name": "symfony/deprecation-contracts",
-            "version": "v2.1.3",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/symfony/deprecation-contracts.git",
-                "reference": "5e20b83385a77593259c9f8beb2c43cd03b2ac14"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/symfony/deprecation-contracts/zipball/5e20b83385a77593259c9f8beb2c43cd03b2ac14",
-                "reference": "5e20b83385a77593259c9f8beb2c43cd03b2ac14",
-=======
             "funding": [
                 {
                     "url": "https://symfony.com/sponsor",
@@ -7050,7 +7141,6 @@
                 "type": "zip",
                 "url": "https://api.github.com/repos/symfony/deprecation-contracts/zipball/5fa56b4074d1ae755beb55617ddafe6f5d78f665",
                 "reference": "5fa56b4074d1ae755beb55617ddafe6f5d78f665",
->>>>>>> Stashed changes
                 "shasum": ""
             },
             "require": {
@@ -7059,11 +7149,7 @@
             "type": "library",
             "extra": {
                 "branch-alias": {
-<<<<<<< Updated upstream
-                    "dev-master": "2.1-dev"
-=======
                     "dev-master": "2.2-dev"
->>>>>>> Stashed changes
                 },
                 "thanks": {
                     "name": "symfony/contracts",
@@ -7091,13 +7177,6 @@
             ],
             "description": "A generic function and convention to trigger deprecation notices",
             "homepage": "https://symfony.com",
-<<<<<<< Updated upstream
-            "time": "2020-06-06T08:49:21+00:00"
-        },
-        {
-            "name": "symfony/doctrine-bridge",
-            "version": "v4.4.12",
-=======
             "funding": [
                 {
                     "url": "https://symfony.com/sponsor",
@@ -7117,7 +7196,6 @@
         {
             "name": "symfony/doctrine-bridge",
             "version": "v4.4.13",
->>>>>>> Stashed changes
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/doctrine-bridge.git",
@@ -7208,8 +7286,6 @@
             ],
             "description": "Symfony Doctrine Bridge",
             "homepage": "https://symfony.com",
-<<<<<<< Updated upstream
-=======
             "funding": [
                 {
                     "url": "https://symfony.com/sponsor",
@@ -7224,16 +7300,11 @@
                     "type": "tidelift"
                 }
             ],
->>>>>>> Stashed changes
             "time": "2020-08-21T12:55:23+00:00"
         },
         {
             "name": "symfony/dotenv",
-<<<<<<< Updated upstream
-            "version": "v4.4.12",
-=======
             "version": "v4.4.13",
->>>>>>> Stashed changes
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/dotenv.git",
@@ -7286,8 +7357,6 @@
                 "env",
                 "environment"
             ],
-<<<<<<< Updated upstream
-=======
             "funding": [
                 {
                     "url": "https://symfony.com/sponsor",
@@ -7302,16 +7371,11 @@
                     "type": "tidelift"
                 }
             ],
->>>>>>> Stashed changes
             "time": "2020-07-05T09:39:30+00:00"
         },
         {
             "name": "symfony/error-handler",
-<<<<<<< Updated upstream
-            "version": "v4.4.12",
-=======
             "version": "v4.4.13",
->>>>>>> Stashed changes
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/error-handler.git",
@@ -7364,8 +7428,6 @@
             ],
             "description": "Symfony ErrorHandler Component",
             "homepage": "https://symfony.com",
-<<<<<<< Updated upstream
-=======
             "funding": [
                 {
                     "url": "https://symfony.com/sponsor",
@@ -7380,16 +7442,11 @@
                     "type": "tidelift"
                 }
             ],
->>>>>>> Stashed changes
             "time": "2020-08-17T09:56:45+00:00"
         },
         {
             "name": "symfony/event-dispatcher",
-<<<<<<< Updated upstream
-            "version": "v4.4.12",
-=======
             "version": "v4.4.13",
->>>>>>> Stashed changes
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/event-dispatcher.git",
@@ -7455,8 +7512,6 @@
             ],
             "description": "Symfony EventDispatcher Component",
             "homepage": "https://symfony.com",
-<<<<<<< Updated upstream
-=======
             "funding": [
                 {
                     "url": "https://symfony.com/sponsor",
@@ -7471,7 +7526,6 @@
                     "type": "tidelift"
                 }
             ],
->>>>>>> Stashed changes
             "time": "2020-08-13T14:18:44+00:00"
         },
         {
@@ -7534,8 +7588,6 @@
                 "interoperability",
                 "standards"
             ],
-<<<<<<< Updated upstream
-=======
             "funding": [
                 {
                     "url": "https://symfony.com/sponsor",
@@ -7550,16 +7602,11 @@
                     "type": "tidelift"
                 }
             ],
->>>>>>> Stashed changes
             "time": "2020-07-06T13:19:58+00:00"
         },
         {
             "name": "symfony/expression-language",
-<<<<<<< Updated upstream
-            "version": "v4.4.12",
-=======
             "version": "v4.4.13",
->>>>>>> Stashed changes
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/expression-language.git",
@@ -7606,8 +7653,6 @@
             ],
             "description": "Symfony ExpressionLanguage Component",
             "homepage": "https://symfony.com",
-<<<<<<< Updated upstream
-=======
             "funding": [
                 {
                     "url": "https://symfony.com/sponsor",
@@ -7622,16 +7667,11 @@
                     "type": "tidelift"
                 }
             ],
->>>>>>> Stashed changes
             "time": "2020-05-20T08:37:50+00:00"
         },
         {
             "name": "symfony/filesystem",
-<<<<<<< Updated upstream
-            "version": "v4.4.12",
-=======
             "version": "v4.4.13",
->>>>>>> Stashed changes
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/filesystem.git",
@@ -7677,8 +7717,6 @@
             ],
             "description": "Symfony Filesystem Component",
             "homepage": "https://symfony.com",
-<<<<<<< Updated upstream
-=======
             "funding": [
                 {
                     "url": "https://symfony.com/sponsor",
@@ -7693,16 +7731,11 @@
                     "type": "tidelift"
                 }
             ],
->>>>>>> Stashed changes
             "time": "2020-08-21T17:19:37+00:00"
         },
         {
             "name": "symfony/finder",
-<<<<<<< Updated upstream
-            "version": "v4.4.12",
-=======
             "version": "v4.4.13",
->>>>>>> Stashed changes
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/finder.git",
@@ -7747,8 +7780,6 @@
             ],
             "description": "Symfony Finder Component",
             "homepage": "https://symfony.com",
-<<<<<<< Updated upstream
-=======
             "funding": [
                 {
                     "url": "https://symfony.com/sponsor",
@@ -7763,7 +7794,6 @@
                     "type": "tidelift"
                 }
             ],
->>>>>>> Stashed changes
             "time": "2020-08-17T09:56:45+00:00"
         },
         {
@@ -7813,8 +7843,6 @@
                 }
             ],
             "description": "Composer plugin for Symfony",
-<<<<<<< Updated upstream
-=======
             "funding": [
                 {
                     "url": "https://symfony.com/sponsor",
@@ -7829,7 +7857,6 @@
                     "type": "tidelift"
                 }
             ],
->>>>>>> Stashed changes
             "time": "2020-08-31T14:36:07+00:00"
         },
         {
@@ -7915,13 +7942,6 @@
             ],
             "description": "Symfony Form Component",
             "homepage": "https://symfony.com",
-<<<<<<< Updated upstream
-            "time": "2020-04-28T17:55:16+00:00"
-        },
-        {
-            "name": "symfony/framework-bundle",
-            "version": "v4.4.12",
-=======
             "funding": [
                 {
                     "url": "https://symfony.com/sponsor",
@@ -7941,7 +7961,6 @@
         {
             "name": "symfony/framework-bundle",
             "version": "v4.4.13",
->>>>>>> Stashed changes
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/framework-bundle.git",
@@ -8068,8 +8087,6 @@
             ],
             "description": "Symfony FrameworkBundle",
             "homepage": "https://symfony.com",
-<<<<<<< Updated upstream
-=======
             "funding": [
                 {
                     "url": "https://symfony.com/sponsor",
@@ -8084,16 +8101,11 @@
                     "type": "tidelift"
                 }
             ],
->>>>>>> Stashed changes
             "time": "2020-08-30T09:40:10+00:00"
         },
         {
             "name": "symfony/http-foundation",
-<<<<<<< Updated upstream
-            "version": "v4.4.12",
-=======
             "version": "v4.4.13",
->>>>>>> Stashed changes
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/http-foundation.git",
@@ -8144,8 +8156,6 @@
             ],
             "description": "Symfony HttpFoundation Component",
             "homepage": "https://symfony.com",
-<<<<<<< Updated upstream
-=======
             "funding": [
                 {
                     "url": "https://symfony.com/sponsor",
@@ -8160,23 +8170,10 @@
                     "type": "tidelift"
                 }
             ],
->>>>>>> Stashed changes
             "time": "2020-08-17T07:39:58+00:00"
         },
         {
             "name": "symfony/http-kernel",
-<<<<<<< Updated upstream
-            "version": "v4.4.12",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/symfony/http-kernel.git",
-                "reference": "f93f6b3e52a590749994cc23d8fb879472ceb76c"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/symfony/http-kernel/zipball/f93f6b3e52a590749994cc23d8fb879472ceb76c",
-                "reference": "f93f6b3e52a590749994cc23d8fb879472ceb76c",
-=======
             "version": "v4.4.13",
             "source": {
                 "type": "git",
@@ -8187,7 +8184,6 @@
                 "type": "zip",
                 "url": "https://api.github.com/repos/symfony/http-kernel/zipball/2bb7b90ecdc79813c0bf237b7ff20e79062b5188",
                 "reference": "2bb7b90ecdc79813c0bf237b7ff20e79062b5188",
->>>>>>> Stashed changes
                 "shasum": ""
             },
             "require": {
@@ -8265,13 +8261,6 @@
             ],
             "description": "Symfony HttpKernel Component",
             "homepage": "https://symfony.com",
-<<<<<<< Updated upstream
-            "time": "2020-08-31T06:09:42+00:00"
-        },
-        {
-            "name": "symfony/inflector",
-            "version": "v5.1.4",
-=======
             "funding": [
                 {
                     "url": "https://symfony.com/sponsor",
@@ -8291,7 +8280,6 @@
         {
             "name": "symfony/inflector",
             "version": "v5.1.5",
->>>>>>> Stashed changes
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/inflector.git",
@@ -8346,8 +8334,6 @@
                 "symfony",
                 "words"
             ],
-<<<<<<< Updated upstream
-=======
             "funding": [
                 {
                     "url": "https://symfony.com/sponsor",
@@ -8362,16 +8348,11 @@
                     "type": "tidelift"
                 }
             ],
->>>>>>> Stashed changes
             "time": "2020-05-20T17:43:50+00:00"
         },
         {
             "name": "symfony/intl",
-<<<<<<< Updated upstream
-            "version": "v4.4.12",
-=======
             "version": "v4.4.13",
->>>>>>> Stashed changes
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/intl.git",
@@ -8442,8 +8423,6 @@
                 "l10n",
                 "localization"
             ],
-<<<<<<< Updated upstream
-=======
             "funding": [
                 {
                     "url": "https://symfony.com/sponsor",
@@ -8458,16 +8437,11 @@
                     "type": "tidelift"
                 }
             ],
->>>>>>> Stashed changes
             "time": "2020-08-17T07:31:35+00:00"
         },
         {
             "name": "symfony/mime",
-<<<<<<< Updated upstream
-            "version": "v5.1.4",
-=======
             "version": "v5.1.5",
->>>>>>> Stashed changes
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/mime.git",
@@ -8526,8 +8500,6 @@
                 "mime",
                 "mime-type"
             ],
-<<<<<<< Updated upstream
-=======
             "funding": [
                 {
                     "url": "https://symfony.com/sponsor",
@@ -8542,16 +8514,11 @@
                     "type": "tidelift"
                 }
             ],
->>>>>>> Stashed changes
             "time": "2020-08-17T10:01:29+00:00"
         },
         {
             "name": "symfony/monolog-bridge",
-<<<<<<< Updated upstream
-            "version": "v5.1.4",
-=======
             "version": "v5.1.5",
->>>>>>> Stashed changes
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/monolog-bridge.git",
@@ -8616,8 +8583,6 @@
             ],
             "description": "Symfony Monolog Bridge",
             "homepage": "https://symfony.com",
-<<<<<<< Updated upstream
-=======
             "funding": [
                 {
                     "url": "https://symfony.com/sponsor",
@@ -8632,7 +8597,6 @@
                     "type": "tidelift"
                 }
             ],
->>>>>>> Stashed changes
             "time": "2020-08-17T07:42:30+00:00"
         },
         {
@@ -8696,15 +8660,15 @@
                 "log",
                 "logging"
             ],
+            "support": {
+                "issues": "https://github.com/symfony/monolog-bundle/issues",
+                "source": "https://github.com/symfony/monolog-bundle/tree/v3.5.0"
+            },
             "time": "2019-11-13T13:11:14+00:00"
         },
         {
             "name": "symfony/options-resolver",
-<<<<<<< Updated upstream
-            "version": "v4.4.12",
-=======
             "version": "v4.4.13",
->>>>>>> Stashed changes
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/options-resolver.git",
@@ -8754,8 +8718,6 @@
                 "configuration",
                 "options"
             ],
-<<<<<<< Updated upstream
-=======
             "funding": [
                 {
                     "url": "https://symfony.com/sponsor",
@@ -8770,7 +8732,6 @@
                     "type": "tidelift"
                 }
             ],
->>>>>>> Stashed changes
             "time": "2020-07-10T09:12:14+00:00"
         },
         {
@@ -8833,8 +8794,6 @@
                 "polyfill",
                 "portable"
             ],
-<<<<<<< Updated upstream
-=======
             "funding": [
                 {
                     "url": "https://symfony.com/sponsor",
@@ -8849,7 +8808,6 @@
                     "type": "tidelift"
                 }
             ],
->>>>>>> Stashed changes
             "time": "2020-07-14T12:35:20+00:00"
         },
         {
@@ -8913,8 +8871,6 @@
                 "portable",
                 "shim"
             ],
-<<<<<<< Updated upstream
-=======
             "funding": [
                 {
                     "url": "https://symfony.com/sponsor",
@@ -8929,7 +8885,6 @@
                     "type": "tidelift"
                 }
             ],
->>>>>>> Stashed changes
             "time": "2020-07-14T12:35:20+00:00"
         },
         {
@@ -8994,8 +8949,6 @@
                 "portable",
                 "shim"
             ],
-<<<<<<< Updated upstream
-=======
             "funding": [
                 {
                     "url": "https://symfony.com/sponsor",
@@ -9010,7 +8963,6 @@
                     "type": "tidelift"
                 }
             ],
->>>>>>> Stashed changes
             "time": "2020-07-14T12:35:20+00:00"
         },
         {
@@ -9073,8 +9025,6 @@
                 "portable",
                 "shim"
             ],
-<<<<<<< Updated upstream
-=======
             "funding": [
                 {
                     "url": "https://symfony.com/sponsor",
@@ -9089,7 +9039,6 @@
                     "type": "tidelift"
                 }
             ],
->>>>>>> Stashed changes
             "time": "2020-07-14T12:35:20+00:00"
         },
         {
@@ -9161,8 +9110,6 @@
                 "portable",
                 "shim"
             ],
-<<<<<<< Updated upstream
-=======
             "funding": [
                 {
                     "url": "https://symfony.com/sponsor",
@@ -9177,7 +9124,6 @@
                     "type": "tidelift"
                 }
             ],
->>>>>>> Stashed changes
             "time": "2020-08-04T06:02:08+00:00"
         },
         {
@@ -9245,8 +9191,6 @@
                 "portable",
                 "shim"
             ],
-<<<<<<< Updated upstream
-=======
             "funding": [
                 {
                     "url": "https://symfony.com/sponsor",
@@ -9261,7 +9205,6 @@
                     "type": "tidelift"
                 }
             ],
->>>>>>> Stashed changes
             "time": "2020-07-14T12:35:20+00:00"
         },
         {
@@ -9325,129 +9268,6 @@
                 "portable",
                 "shim"
             ],
-            "time": "2020-07-14T12:35:20+00:00"
-        },
-        {
-            "name": "symfony/polyfill-php70",
-            "version": "v1.18.1",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/symfony/polyfill-php70.git",
-                "reference": "0dd93f2c578bdc9c72697eaa5f1dd25644e618d3"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/symfony/polyfill-php70/zipball/0dd93f2c578bdc9c72697eaa5f1dd25644e618d3",
-                "reference": "0dd93f2c578bdc9c72697eaa5f1dd25644e618d3",
-                "shasum": ""
-            },
-            "require": {
-                "paragonie/random_compat": "~1.0|~2.0|~9.99",
-                "php": ">=5.3.3"
-            },
-            "type": "library",
-            "extra": {
-                "branch-alias": {
-                    "dev-master": "1.18-dev"
-                },
-                "thanks": {
-                    "name": "symfony/polyfill",
-                    "url": "https://github.com/symfony/polyfill"
-                }
-            },
-            "autoload": {
-                "psr-4": {
-                    "Symfony\\Polyfill\\Php70\\": ""
-                },
-                "files": [
-                    "bootstrap.php"
-                ],
-                "classmap": [
-                    "Resources/stubs"
-                ]
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Nicolas Grekas",
-                    "email": "p@tchwork.com"
-                },
-                {
-                    "name": "Symfony Community",
-                    "homepage": "https://symfony.com/contributors"
-                }
-            ],
-<<<<<<< Updated upstream
-=======
-            "time": "2020-07-14T12:35:20+00:00"
-        },
-        {
-            "name": "symfony/polyfill-php70",
-            "version": "v1.18.1",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/symfony/polyfill-php70.git",
-                "reference": "0dd93f2c578bdc9c72697eaa5f1dd25644e618d3"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/symfony/polyfill-php70/zipball/0dd93f2c578bdc9c72697eaa5f1dd25644e618d3",
-                "reference": "0dd93f2c578bdc9c72697eaa5f1dd25644e618d3",
-                "shasum": ""
-            },
-            "require": {
-                "paragonie/random_compat": "~1.0|~2.0|~9.99",
-                "php": ">=5.3.3"
-            },
-            "type": "library",
-            "extra": {
-                "branch-alias": {
-                    "dev-master": "1.18-dev"
-                },
-                "thanks": {
-                    "name": "symfony/polyfill",
-                    "url": "https://github.com/symfony/polyfill"
-                }
-            },
-            "autoload": {
-                "psr-4": {
-                    "Symfony\\Polyfill\\Php70\\": ""
-                },
-                "files": [
-                    "bootstrap.php"
-                ],
-                "classmap": [
-                    "Resources/stubs"
-                ]
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Nicolas Grekas",
-                    "email": "p@tchwork.com"
-                },
-                {
-                    "name": "Symfony Community",
-                    "homepage": "https://symfony.com/contributors"
-                }
-            ],
->>>>>>> Stashed changes
-            "description": "Symfony polyfill backporting some PHP 7.0+ features to lower PHP versions",
-            "homepage": "https://symfony.com",
-            "keywords": [
-                "compatibility",
-                "polyfill",
-                "portable",
-                "shim"
-            ],
-<<<<<<< Updated upstream
-=======
             "funding": [
                 {
                     "url": "https://symfony.com/sponsor",
@@ -9462,7 +9282,83 @@
                     "type": "tidelift"
                 }
             ],
->>>>>>> Stashed changes
+            "time": "2020-07-14T12:35:20+00:00"
+        },
+        {
+            "name": "symfony/polyfill-php70",
+            "version": "v1.18.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/symfony/polyfill-php70.git",
+                "reference": "0dd93f2c578bdc9c72697eaa5f1dd25644e618d3"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/symfony/polyfill-php70/zipball/0dd93f2c578bdc9c72697eaa5f1dd25644e618d3",
+                "reference": "0dd93f2c578bdc9c72697eaa5f1dd25644e618d3",
+                "shasum": ""
+            },
+            "require": {
+                "paragonie/random_compat": "~1.0|~2.0|~9.99",
+                "php": ">=5.3.3"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.18-dev"
+                },
+                "thanks": {
+                    "name": "symfony/polyfill",
+                    "url": "https://github.com/symfony/polyfill"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Symfony\\Polyfill\\Php70\\": ""
+                },
+                "files": [
+                    "bootstrap.php"
+                ],
+                "classmap": [
+                    "Resources/stubs"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Nicolas Grekas",
+                    "email": "p@tchwork.com"
+                },
+                {
+                    "name": "Symfony Community",
+                    "homepage": "https://symfony.com/contributors"
+                }
+            ],
+            "description": "Symfony polyfill backporting some PHP 7.0+ features to lower PHP versions",
+            "homepage": "https://symfony.com",
+            "keywords": [
+                "compatibility",
+                "polyfill",
+                "portable",
+                "shim"
+            ],
+            "funding": [
+                {
+                    "url": "https://symfony.com/sponsor",
+                    "type": "custom"
+                },
+                {
+                    "url": "https://github.com/fabpot",
+                    "type": "github"
+                },
+                {
+                    "url": "https://tidelift.com/funding/github/packagist/symfony/symfony",
+                    "type": "tidelift"
+                }
+            ],
             "time": "2020-07-14T12:35:20+00:00"
         },
         {
@@ -9522,8 +9418,6 @@
                 "portable",
                 "shim"
             ],
-<<<<<<< Updated upstream
-=======
             "funding": [
                 {
                     "url": "https://symfony.com/sponsor",
@@ -9538,7 +9432,6 @@
                     "type": "tidelift"
                 }
             ],
->>>>>>> Stashed changes
             "time": "2020-07-14T12:35:20+00:00"
         },
         {
@@ -9601,8 +9494,6 @@
                 "portable",
                 "shim"
             ],
-<<<<<<< Updated upstream
-=======
             "funding": [
                 {
                     "url": "https://symfony.com/sponsor",
@@ -9617,7 +9508,6 @@
                     "type": "tidelift"
                 }
             ],
->>>>>>> Stashed changes
             "time": "2020-07-14T12:35:20+00:00"
         },
         {
@@ -9684,8 +9574,6 @@
                 "portable",
                 "shim"
             ],
-<<<<<<< Updated upstream
-=======
             "funding": [
                 {
                     "url": "https://symfony.com/sponsor",
@@ -9700,16 +9588,11 @@
                     "type": "tidelift"
                 }
             ],
->>>>>>> Stashed changes
             "time": "2020-07-14T12:35:20+00:00"
         },
         {
             "name": "symfony/process",
-<<<<<<< Updated upstream
-            "version": "v4.4.12",
-=======
             "version": "v4.4.13",
->>>>>>> Stashed changes
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/process.git",
@@ -9754,8 +9637,6 @@
             ],
             "description": "Symfony Process Component",
             "homepage": "https://symfony.com",
-<<<<<<< Updated upstream
-=======
             "funding": [
                 {
                     "url": "https://symfony.com/sponsor",
@@ -9770,16 +9651,11 @@
                     "type": "tidelift"
                 }
             ],
->>>>>>> Stashed changes
             "time": "2020-07-23T08:31:43+00:00"
         },
         {
             "name": "symfony/property-access",
-<<<<<<< Updated upstream
-            "version": "v4.4.12",
-=======
             "version": "v4.4.13",
->>>>>>> Stashed changes
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/property-access.git",
@@ -9842,8 +9718,6 @@
                 "property path",
                 "reflection"
             ],
-<<<<<<< Updated upstream
-=======
             "funding": [
                 {
                     "url": "https://symfony.com/sponsor",
@@ -9858,16 +9732,11 @@
                     "type": "tidelift"
                 }
             ],
->>>>>>> Stashed changes
             "time": "2020-08-13T14:18:44+00:00"
         },
         {
             "name": "symfony/proxy-manager-bridge",
-<<<<<<< Updated upstream
-            "version": "v4.4.12",
-=======
             "version": "v4.4.13",
->>>>>>> Stashed changes
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/proxy-manager-bridge.git",
@@ -9920,8 +9789,6 @@
             ],
             "description": "Symfony ProxyManager Bridge",
             "homepage": "https://symfony.com",
-<<<<<<< Updated upstream
-=======
             "funding": [
                 {
                     "url": "https://symfony.com/sponsor",
@@ -9936,16 +9803,11 @@
                     "type": "tidelift"
                 }
             ],
->>>>>>> Stashed changes
             "time": "2020-08-17T07:39:58+00:00"
         },
         {
             "name": "symfony/routing",
-<<<<<<< Updated upstream
-            "version": "v4.4.12",
-=======
             "version": "v4.4.13",
->>>>>>> Stashed changes
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/routing.git",
@@ -10017,8 +9879,6 @@
                 "uri",
                 "url"
             ],
-<<<<<<< Updated upstream
-=======
             "funding": [
                 {
                     "url": "https://symfony.com/sponsor",
@@ -10033,16 +9893,11 @@
                     "type": "tidelift"
                 }
             ],
->>>>>>> Stashed changes
             "time": "2020-08-10T07:27:51+00:00"
         },
         {
             "name": "symfony/security",
-<<<<<<< Updated upstream
-            "version": "v4.4.12",
-=======
             "version": "v4.4.13",
->>>>>>> Stashed changes
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/security.git",
@@ -10124,8 +9979,6 @@
             ],
             "description": "Symfony Security Component",
             "homepage": "https://symfony.com",
-<<<<<<< Updated upstream
-=======
             "funding": [
                 {
                     "url": "https://symfony.com/sponsor",
@@ -10140,16 +9993,11 @@
                     "type": "tidelift"
                 }
             ],
->>>>>>> Stashed changes
             "time": "2020-08-17T09:35:39+00:00"
         },
         {
             "name": "symfony/security-bundle",
-<<<<<<< Updated upstream
-            "version": "v4.4.12",
-=======
             "version": "v4.4.13",
->>>>>>> Stashed changes
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/security-bundle.git",
@@ -10228,8 +10076,6 @@
             ],
             "description": "Symfony SecurityBundle",
             "homepage": "https://symfony.com",
-<<<<<<< Updated upstream
-=======
             "funding": [
                 {
                     "url": "https://symfony.com/sponsor",
@@ -10244,23 +10090,10 @@
                     "type": "tidelift"
                 }
             ],
->>>>>>> Stashed changes
             "time": "2020-08-18T08:04:43+00:00"
         },
         {
             "name": "symfony/service-contracts",
-<<<<<<< Updated upstream
-            "version": "v2.1.3",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/symfony/service-contracts.git",
-                "reference": "58c7475e5457c5492c26cc740cc0ad7464be9442"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/symfony/service-contracts/zipball/58c7475e5457c5492c26cc740cc0ad7464be9442",
-                "reference": "58c7475e5457c5492c26cc740cc0ad7464be9442",
-=======
             "version": "v2.2.0",
             "source": {
                 "type": "git",
@@ -10271,7 +10104,6 @@
                 "type": "zip",
                 "url": "https://api.github.com/repos/symfony/service-contracts/zipball/d15da7ba4957ffb8f1747218be9e1a121fd298a1",
                 "reference": "d15da7ba4957ffb8f1747218be9e1a121fd298a1",
->>>>>>> Stashed changes
                 "shasum": ""
             },
             "require": {
@@ -10284,11 +10116,7 @@
             "type": "library",
             "extra": {
                 "branch-alias": {
-<<<<<<< Updated upstream
-                    "dev-master": "2.1-dev"
-=======
                     "dev-master": "2.2-dev"
->>>>>>> Stashed changes
                 },
                 "thanks": {
                     "name": "symfony/contracts",
@@ -10324,13 +10152,6 @@
                 "interoperability",
                 "standards"
             ],
-<<<<<<< Updated upstream
-            "time": "2020-07-06T13:23:11+00:00"
-        },
-        {
-            "name": "symfony/stopwatch",
-            "version": "v5.1.4",
-=======
             "funding": [
                 {
                     "url": "https://symfony.com/sponsor",
@@ -10350,7 +10171,6 @@
         {
             "name": "symfony/stopwatch",
             "version": "v5.1.5",
->>>>>>> Stashed changes
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/stopwatch.git",
@@ -10396,8 +10216,6 @@
             ],
             "description": "Symfony Stopwatch Component",
             "homepage": "https://symfony.com",
-<<<<<<< Updated upstream
-=======
             "funding": [
                 {
                     "url": "https://symfony.com/sponsor",
@@ -10412,16 +10230,11 @@
                     "type": "tidelift"
                 }
             ],
->>>>>>> Stashed changes
             "time": "2020-05-20T17:43:50+00:00"
         },
         {
             "name": "symfony/string",
-<<<<<<< Updated upstream
-            "version": "v5.1.4",
-=======
             "version": "v5.1.5",
->>>>>>> Stashed changes
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/string.git",
@@ -10488,8 +10301,6 @@
                 "utf-8",
                 "utf8"
             ],
-<<<<<<< Updated upstream
-=======
             "funding": [
                 {
                     "url": "https://symfony.com/sponsor",
@@ -10504,7 +10315,6 @@
                     "type": "tidelift"
                 }
             ],
->>>>>>> Stashed changes
             "time": "2020-08-17T07:48:54+00:00"
         },
         {
@@ -10570,15 +10380,15 @@
             ],
             "description": "Symfony SwiftmailerBundle",
             "homepage": "http://symfony.com",
+            "support": {
+                "issues": "https://github.com/symfony/swiftmailer-bundle/issues",
+                "source": "https://github.com/symfony/swiftmailer-bundle/tree/v3.4.0"
+            },
             "time": "2019-11-14T16:18:31+00:00"
         },
         {
             "name": "symfony/templating",
-<<<<<<< Updated upstream
-            "version": "v4.4.12",
-=======
             "version": "v4.4.13",
->>>>>>> Stashed changes
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/templating.git",
@@ -10630,8 +10440,6 @@
             ],
             "description": "Symfony Templating Component",
             "homepage": "https://symfony.com",
-<<<<<<< Updated upstream
-=======
             "funding": [
                 {
                     "url": "https://symfony.com/sponsor",
@@ -10646,7 +10454,6 @@
                     "type": "tidelift"
                 }
             ],
->>>>>>> Stashed changes
             "time": "2020-07-23T08:31:43+00:00"
         },
         {
@@ -10690,15 +10497,25 @@
                 }
             ],
             "description": "Encourages sending ⭐ and 💵 to fellow PHP package maintainers (not limited to Symfony components)!",
+            "funding": [
+                {
+                    "url": "https://symfony.com/sponsor",
+                    "type": "custom"
+                },
+                {
+                    "url": "https://github.com/fabpot",
+                    "type": "github"
+                },
+                {
+                    "url": "https://tidelift.com/funding/github/packagist/symfony/symfony",
+                    "type": "tidelift"
+                }
+            ],
             "time": "2020-06-23T10:36:34+00:00"
         },
         {
             "name": "symfony/translation",
-<<<<<<< Updated upstream
-            "version": "v4.4.12",
-=======
             "version": "v4.4.13",
->>>>>>> Stashed changes
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/translation.git",
@@ -10770,8 +10587,6 @@
             ],
             "description": "Symfony Translation Component",
             "homepage": "https://symfony.com",
-<<<<<<< Updated upstream
-=======
             "funding": [
                 {
                     "url": "https://symfony.com/sponsor",
@@ -10786,23 +10601,10 @@
                     "type": "tidelift"
                 }
             ],
->>>>>>> Stashed changes
             "time": "2020-08-17T09:56:45+00:00"
         },
         {
             "name": "symfony/translation-contracts",
-<<<<<<< Updated upstream
-            "version": "v1.1.9",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/symfony/translation-contracts.git",
-                "reference": "a5db6f7707fd35d137b1398734f2d745c8616ea2"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/symfony/translation-contracts/zipball/a5db6f7707fd35d137b1398734f2d745c8616ea2",
-                "reference": "a5db6f7707fd35d137b1398734f2d745c8616ea2",
-=======
             "version": "v1.1.10",
             "source": {
                 "type": "git",
@@ -10813,7 +10615,6 @@
                 "type": "zip",
                 "url": "https://api.github.com/repos/symfony/translation-contracts/zipball/84180a25fad31e23bebd26ca09d89464f082cacc",
                 "reference": "84180a25fad31e23bebd26ca09d89464f082cacc",
->>>>>>> Stashed changes
                 "shasum": ""
             },
             "require": {
@@ -10861,13 +10662,6 @@
                 "interoperability",
                 "standards"
             ],
-<<<<<<< Updated upstream
-            "time": "2020-07-06T13:19:58+00:00"
-        },
-        {
-            "name": "symfony/twig-bridge",
-            "version": "v4.4.12",
-=======
             "funding": [
                 {
                     "url": "https://symfony.com/sponsor",
@@ -10887,7 +10681,6 @@
         {
             "name": "symfony/twig-bridge",
             "version": "v4.4.13",
->>>>>>> Stashed changes
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/twig-bridge.git",
@@ -10986,8 +10779,6 @@
             ],
             "description": "Symfony Twig Bridge",
             "homepage": "https://symfony.com",
-<<<<<<< Updated upstream
-=======
             "funding": [
                 {
                     "url": "https://symfony.com/sponsor",
@@ -11002,16 +10793,11 @@
                     "type": "tidelift"
                 }
             ],
->>>>>>> Stashed changes
             "time": "2020-08-17T09:35:39+00:00"
         },
         {
             "name": "symfony/twig-bundle",
-<<<<<<< Updated upstream
-            "version": "v4.4.12",
-=======
             "version": "v4.4.13",
->>>>>>> Stashed changes
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/twig-bundle.git",
@@ -11082,8 +10868,6 @@
             ],
             "description": "Symfony TwigBundle",
             "homepage": "https://symfony.com",
-<<<<<<< Updated upstream
-=======
             "funding": [
                 {
                     "url": "https://symfony.com/sponsor",
@@ -11098,16 +10882,11 @@
                     "type": "tidelift"
                 }
             ],
->>>>>>> Stashed changes
             "time": "2020-05-20T08:37:50+00:00"
         },
         {
             "name": "symfony/validator",
-<<<<<<< Updated upstream
-            "version": "v4.4.12",
-=======
             "version": "v4.4.13",
->>>>>>> Stashed changes
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/validator.git",
@@ -11196,8 +10975,6 @@
             ],
             "description": "Symfony Validator Component",
             "homepage": "https://symfony.com",
-<<<<<<< Updated upstream
-=======
             "funding": [
                 {
                     "url": "https://symfony.com/sponsor",
@@ -11212,16 +10989,11 @@
                     "type": "tidelift"
                 }
             ],
->>>>>>> Stashed changes
             "time": "2020-08-21T09:47:32+00:00"
         },
         {
             "name": "symfony/var-dumper",
-<<<<<<< Updated upstream
-            "version": "v5.1.4",
-=======
             "version": "v5.1.5",
->>>>>>> Stashed changes
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/var-dumper.git",
@@ -11293,8 +11065,6 @@
                 "debug",
                 "dump"
             ],
-<<<<<<< Updated upstream
-=======
             "funding": [
                 {
                     "url": "https://symfony.com/sponsor",
@@ -11309,16 +11079,11 @@
                     "type": "tidelift"
                 }
             ],
->>>>>>> Stashed changes
             "time": "2020-08-17T07:42:30+00:00"
         },
         {
             "name": "symfony/var-exporter",
-<<<<<<< Updated upstream
-            "version": "v5.1.4",
-=======
             "version": "v5.1.5",
->>>>>>> Stashed changes
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/var-exporter.git",
@@ -11374,8 +11139,6 @@
                 "hydrate",
                 "instantiate",
                 "serialize"
-<<<<<<< Updated upstream
-=======
             ],
             "funding": [
                 {
@@ -11390,17 +11153,12 @@
                     "url": "https://tidelift.com/funding/github/packagist/symfony/symfony",
                     "type": "tidelift"
                 }
->>>>>>> Stashed changes
             ],
             "time": "2020-06-07T15:42:22+00:00"
         },
         {
             "name": "symfony/yaml",
-<<<<<<< Updated upstream
-            "version": "v4.4.12",
-=======
             "version": "v4.4.13",
->>>>>>> Stashed changes
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/yaml.git",
@@ -11455,8 +11213,6 @@
             ],
             "description": "Symfony Yaml Component",
             "homepage": "https://symfony.com",
-<<<<<<< Updated upstream
-=======
             "funding": [
                 {
                     "url": "https://symfony.com/sponsor",
@@ -11471,7 +11227,6 @@
                     "type": "tidelift"
                 }
             ],
->>>>>>> Stashed changes
             "time": "2020-08-26T08:30:46+00:00"
         },
         {
@@ -11525,8 +11280,6 @@
                 "intl",
                 "twig"
             ],
-<<<<<<< Updated upstream
-=======
             "funding": [
                 {
                     "url": "https://certification.symfony.com/",
@@ -11549,7 +11302,6 @@
                     "type": "tidelift"
                 }
             ],
->>>>>>> Stashed changes
             "time": "2020-06-22T06:15:56+00:00"
         },
         {
@@ -11615,8 +11367,6 @@
             "keywords": [
                 "templating"
             ],
-<<<<<<< Updated upstream
-=======
             "funding": [
                 {
                     "url": "https://github.com/fabpot",
@@ -11627,7 +11377,6 @@
                     "type": "tidelift"
                 }
             ],
->>>>>>> Stashed changes
             "time": "2020-08-05T15:09:04+00:00"
         },
         {
@@ -11737,6 +11486,10 @@
                 "page",
                 "paging"
             ],
+            "support": {
+                "issues": "https://github.com/whiteoctober/WhiteOctoberPagerfantaBundle/issues",
+                "source": "https://github.com/whiteoctober/WhiteOctoberPagerfantaBundle/tree/v1.3.2"
+            },
             "abandoned": "babdev/pagerfanta-bundle",
             "time": "2019-12-02T14:19:37+00:00"
         },
@@ -11802,6 +11555,10 @@
                 }
             ],
             "description": "A PHP library to support implementing representations for HATEOAS REST web services",
+            "support": {
+                "issues": "https://github.com/willdurand/Hateoas/issues",
+                "source": "https://github.com/willdurand/Hateoas/tree/2.12.0"
+            },
             "time": "2018-02-23T17:05:31+00:00"
         },
         {
@@ -11856,6 +11613,10 @@
                 "HATEOAS",
                 "rest"
             ],
+            "support": {
+                "issues": "https://github.com/willdurand/BazingaHateoasBundle/issues",
+                "source": "https://github.com/willdurand/BazingaHateoasBundle/tree/1.4.0"
+            },
             "time": "2018-01-27T13:03:07+00:00"
         },
         {
@@ -11896,6 +11657,10 @@
                 }
             ],
             "description": "JSONP callback validator.",
+            "support": {
+                "issues": "https://github.com/willdurand/JsonpCallbackValidator/issues",
+                "source": "https://github.com/willdurand/JsonpCallbackValidator/tree/master"
+            },
             "time": "2014-01-20T22:35:06+00:00"
         },
         {
@@ -11948,6 +11713,10 @@
                 "header",
                 "negotiation"
             ],
+            "support": {
+                "issues": "https://github.com/willdurand/Negotiation/issues",
+                "source": "https://github.com/willdurand/Negotiation/tree/2.x"
+            },
             "time": "2017-05-14T17:21:12+00:00"
         },
         {
@@ -12002,6 +11771,10 @@
                 "state",
                 "statemachine"
             ],
+            "support": {
+                "issues": "https://github.com/winzou/state-machine/issues",
+                "source": "https://github.com/winzou/state-machine/tree/master"
+            },
             "time": "2018-02-11T18:07:15+00:00"
         },
         {
@@ -12105,6 +11878,14 @@
                 "code",
                 "zf"
             ],
+            "support": {
+                "chat": "https://zendframework-slack.herokuapp.com",
+                "docs": "https://docs.zendframework.com/zend-code/",
+                "forum": "https://discourse.zendframework.com/c/questions/components",
+                "issues": "https://github.com/zendframework/zend-code/issues",
+                "rss": "https://github.com/zendframework/zend-code/releases.atom",
+                "source": "https://github.com/zendframework/zend-code"
+            },
             "abandoned": "laminas/laminas-code",
             "time": "2019-12-10T19:21:15+00:00"
         },
@@ -12160,6 +11941,10 @@
                 "events",
                 "zf2"
             ],
+            "support": {
+                "issues": "https://github.com/zendframework/zend-eventmanager/issues",
+                "source": "https://github.com/zendframework/zend-eventmanager/tree/master"
+            },
             "abandoned": "laminas/laminas-eventmanager",
             "time": "2018-04-25T15:33:34+00:00"
         },
@@ -12221,6 +12006,14 @@
                 "hydrator",
                 "zf"
             ],
+            "support": {
+                "chat": "https://zendframework-slack.herokuapp.com",
+                "docs": "https://docs.zendframework.com/zend-hydrator/",
+                "forum": "https://discourse.zendframework.com/c/questions/components",
+                "issues": "https://github.com/zendframework/zend-hydrator/issues",
+                "rss": "https://github.com/zendframework/zend-hydrator/releases.atom",
+                "source": "https://github.com/zendframework/zend-hydrator"
+            },
             "abandoned": "laminas/laminas-hydrator",
             "time": "2019-10-04T11:17:36+00:00"
         },
@@ -12268,6 +12061,14 @@
                 "stdlib",
                 "zf"
             ],
+            "support": {
+                "docs": "https://docs.zendframework.com/zend-stdlib/",
+                "forum": "https://discourse.zendframework.com/c/questions/components",
+                "issues": "https://github.com/zendframework/zend-stdlib/issues",
+                "rss": "https://github.com/zendframework/zend-stdlib/releases.atom",
+                "slack": "https://zendframework-slack.herokuapp.com",
+                "source": "https://github.com/zendframework/zend-stdlib"
+            },
             "abandoned": "laminas/laminas-stdlib",
             "time": "2018-08-28T21:34:05+00:00"
         }
@@ -12707,6 +12508,20 @@
                 "Xdebug",
                 "performance"
             ],
+            "funding": [
+                {
+                    "url": "https://packagist.com",
+                    "type": "custom"
+                },
+                {
+                    "url": "https://github.com/composer",
+                    "type": "github"
+                },
+                {
+                    "url": "https://tidelift.com/funding/github/packagist/composer/composer",
+                    "type": "tidelift"
+                }
+            ],
             "time": "2020-08-19T10:27:58+00:00"
         },
         {
@@ -12754,56 +12569,6 @@
                     "role": "Developer / IT Manager"
                 }
             ],
-<<<<<<< Updated upstream
-=======
-            "time": "2020-08-19T10:27:58+00:00"
-        },
-        {
-            "name": "dealerdirect/phpcodesniffer-composer-installer",
-            "version": "v0.7.0",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/Dealerdirect/phpcodesniffer-composer-installer.git",
-                "reference": "e8d808670b8f882188368faaf1144448c169c0b7"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/Dealerdirect/phpcodesniffer-composer-installer/zipball/e8d808670b8f882188368faaf1144448c169c0b7",
-                "reference": "e8d808670b8f882188368faaf1144448c169c0b7",
-                "shasum": ""
-            },
-            "require": {
-                "composer-plugin-api": "^1.0 || ^2.0",
-                "php": ">=5.3",
-                "squizlabs/php_codesniffer": "^2 || ^3 || 4.0.x-dev"
-            },
-            "require-dev": {
-                "composer/composer": "*",
-                "phpcompatibility/php-compatibility": "^9.0",
-                "sensiolabs/security-checker": "^4.1.0"
-            },
-            "type": "composer-plugin",
-            "extra": {
-                "class": "Dealerdirect\\Composer\\Plugin\\Installers\\PHPCodeSniffer\\Plugin"
-            },
-            "autoload": {
-                "psr-4": {
-                    "Dealerdirect\\Composer\\Plugin\\Installers\\PHPCodeSniffer\\": "src/"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Franck Nijhof",
-                    "email": "franck.nijhof@dealerdirect.com",
-                    "homepage": "http://www.frenck.nl",
-                    "role": "Developer / IT Manager"
-                }
-            ],
->>>>>>> Stashed changes
             "description": "PHP_CodeSniffer Standards Composer Installer Plugin",
             "homepage": "http://www.dealerdirect.com",
             "keywords": [
@@ -13406,15 +13171,12 @@
                 }
             ],
             "description": "A tool to automatically fix PHP code style",
-<<<<<<< Updated upstream
-=======
             "funding": [
                 {
                     "url": "https://github.com/keradus",
                     "type": "github"
                 }
             ],
->>>>>>> Stashed changes
             "time": "2020-06-27T23:57:46+00:00"
         },
         {
@@ -13478,20 +13240,20 @@
         },
         {
             "name": "jean85/pretty-package-versions",
-            "version": "1.5.0",
+            "version": "1.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Jean85/pretty-package-versions.git",
-                "reference": "e9f4324e88b8664be386d90cf60fbc202e1f7fc9"
+                "reference": "75c7effcf3f77501d0e0caa75111aff4daa0dd48"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Jean85/pretty-package-versions/zipball/e9f4324e88b8664be386d90cf60fbc202e1f7fc9",
-                "reference": "e9f4324e88b8664be386d90cf60fbc202e1f7fc9",
+                "url": "https://api.github.com/repos/Jean85/pretty-package-versions/zipball/75c7effcf3f77501d0e0caa75111aff4daa0dd48",
+                "reference": "75c7effcf3f77501d0e0caa75111aff4daa0dd48",
                 "shasum": ""
             },
             "require": {
-                "composer/package-versions-deprecated": "^1.8.0",
+                "ocramius/package-versions": "^1.2.0",
                 "php": "^7.0"
             },
             "require-dev": {
@@ -13525,7 +13287,7 @@
                 "release",
                 "versions"
             ],
-            "time": "2020-06-23T06:23:06+00:00"
+            "time": "2018-06-13T13:22:40+00:00"
         },
         {
             "name": "lakion/mink-debug-extension",
@@ -13717,15 +13479,12 @@
                 "object",
                 "object graph"
             ],
-<<<<<<< Updated upstream
-=======
             "funding": [
                 {
                     "url": "https://tidelift.com/funding/github/packagist/myclabs/deep-copy",
                     "type": "tidelift"
                 }
             ],
->>>>>>> Stashed changes
             "time": "2020-06-29T13:22:24+00:00"
         },
         {
@@ -13806,6 +13565,12 @@
                 "data",
                 "faker",
                 "test"
+            ],
+            "funding": [
+                {
+                    "url": "https://github.com/theofidry",
+                    "type": "github"
+                }
             ],
             "time": "2020-06-03T12:55:55+00:00"
         },
@@ -14015,18 +13780,6 @@
         },
         {
             "name": "nikic/php-parser",
-<<<<<<< Updated upstream
-            "version": "v4.9.1",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/nikic/PHP-Parser.git",
-                "reference": "88e519766fc58bd46b8265561fb79b54e2e00b28"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/nikic/PHP-Parser/zipball/88e519766fc58bd46b8265561fb79b54e2e00b28",
-                "reference": "88e519766fc58bd46b8265561fb79b54e2e00b28",
-=======
             "version": "v4.6.0",
             "source": {
                 "type": "git",
@@ -14037,7 +13790,6 @@
                 "type": "zip",
                 "url": "https://api.github.com/repos/nikic/PHP-Parser/zipball/c346bbfafe2ff60680258b631afb730d186ed864",
                 "reference": "c346bbfafe2ff60680258b631afb730d186ed864",
->>>>>>> Stashed changes
                 "shasum": ""
             },
             "require": {
@@ -14045,8 +13797,8 @@
                 "php": ">=7.0"
             },
             "require-dev": {
-                "ircmaxell/php-yacc": "^0.0.7",
-                "phpunit/phpunit": "^6.5 || ^7.0 || ^8.0 || ^9.0"
+                "ircmaxell/php-yacc": "0.0.5",
+                "phpunit/phpunit": "^6.5 || ^7.0 || ^8.0"
             },
             "bin": [
                 "bin/php-parse"
@@ -14054,7 +13806,7 @@
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "4.9-dev"
+                    "dev-master": "4.3-dev"
                 }
             },
             "autoload": {
@@ -14076,11 +13828,7 @@
                 "parser",
                 "php"
             ],
-<<<<<<< Updated upstream
-            "time": "2020-08-30T16:15:20+00:00"
-=======
             "time": "2020-07-02T17:12:47+00:00"
->>>>>>> Stashed changes
         },
         {
             "name": "openlss/lib-array2xml",
@@ -15863,8 +15611,6 @@
                 "MIT"
             ],
             "description": "Slevomat Coding Standard for PHP_CodeSniffer complements Consistence Coding Standard by providing sniffs with additional checks.",
-<<<<<<< Updated upstream
-=======
             "funding": [
                 {
                     "url": "https://github.com/kukulich",
@@ -15875,7 +15621,6 @@
                     "type": "tidelift"
                 }
             ],
->>>>>>> Stashed changes
             "time": "2020-08-31T07:02:52+00:00"
         },
         {
@@ -16030,11 +15775,7 @@
         },
         {
             "name": "symfony/browser-kit",
-<<<<<<< Updated upstream
-            "version": "v4.4.12",
-=======
             "version": "v4.4.13",
->>>>>>> Stashed changes
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/browser-kit.git",
@@ -16089,15 +15830,25 @@
             ],
             "description": "Symfony BrowserKit Component",
             "homepage": "https://symfony.com",
+            "funding": [
+                {
+                    "url": "https://symfony.com/sponsor",
+                    "type": "custom"
+                },
+                {
+                    "url": "https://github.com/fabpot",
+                    "type": "github"
+                },
+                {
+                    "url": "https://tidelift.com/funding/github/packagist/symfony/symfony",
+                    "type": "tidelift"
+                }
+            ],
             "time": "2020-05-22T17:28:00+00:00"
         },
         {
             "name": "symfony/css-selector",
-<<<<<<< Updated upstream
-            "version": "v5.1.4",
-=======
             "version": "v5.1.5",
->>>>>>> Stashed changes
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/css-selector.git",
@@ -16146,15 +15897,25 @@
             ],
             "description": "Symfony CssSelector Component",
             "homepage": "https://symfony.com",
+            "funding": [
+                {
+                    "url": "https://symfony.com/sponsor",
+                    "type": "custom"
+                },
+                {
+                    "url": "https://github.com/fabpot",
+                    "type": "github"
+                },
+                {
+                    "url": "https://tidelift.com/funding/github/packagist/symfony/symfony",
+                    "type": "tidelift"
+                }
+            ],
             "time": "2020-05-20T17:43:50+00:00"
         },
         {
             "name": "symfony/debug-bundle",
-<<<<<<< Updated upstream
-            "version": "v4.4.12",
-=======
             "version": "v4.4.13",
->>>>>>> Stashed changes
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/debug-bundle.git",
@@ -16216,15 +15977,25 @@
             ],
             "description": "Symfony DebugBundle",
             "homepage": "https://symfony.com",
+            "funding": [
+                {
+                    "url": "https://symfony.com/sponsor",
+                    "type": "custom"
+                },
+                {
+                    "url": "https://github.com/fabpot",
+                    "type": "github"
+                },
+                {
+                    "url": "https://tidelift.com/funding/github/packagist/symfony/symfony",
+                    "type": "tidelift"
+                }
+            ],
             "time": "2020-05-20T08:37:50+00:00"
         },
         {
             "name": "symfony/dom-crawler",
-<<<<<<< Updated upstream
-            "version": "v5.1.4",
-=======
             "version": "v5.1.5",
->>>>>>> Stashed changes
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/dom-crawler.git",
@@ -16282,8 +16053,6 @@
             ],
             "description": "Symfony DomCrawler Component",
             "homepage": "https://symfony.com",
-<<<<<<< Updated upstream
-=======
             "funding": [
                 {
                     "url": "https://symfony.com/sponsor",
@@ -16298,23 +16067,10 @@
                     "type": "tidelift"
                 }
             ],
->>>>>>> Stashed changes
             "time": "2020-08-12T08:45:47+00:00"
         },
         {
             "name": "symfony/http-client",
-<<<<<<< Updated upstream
-            "version": "v5.1.4",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/symfony/http-client.git",
-                "reference": "edf00ab1692aa2ad19ba87e58273c825b9f39c93"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/symfony/http-client/zipball/edf00ab1692aa2ad19ba87e58273c825b9f39c93",
-                "reference": "edf00ab1692aa2ad19ba87e58273c825b9f39c93",
-=======
             "version": "v5.1.5",
             "source": {
                 "type": "git",
@@ -16325,7 +16081,6 @@
                 "type": "zip",
                 "url": "https://api.github.com/repos/symfony/http-client/zipball/21c4372e9cd2305313f4d4792d7b9fa7c25ade53",
                 "reference": "21c4372e9cd2305313f4d4792d7b9fa7c25ade53",
->>>>>>> Stashed changes
                 "shasum": ""
             },
             "require": {
@@ -16384,22 +16139,6 @@
             ],
             "description": "Symfony HttpClient component",
             "homepage": "https://symfony.com",
-<<<<<<< Updated upstream
-            "time": "2020-08-30T07:26:18+00:00"
-        },
-        {
-            "name": "symfony/http-client-contracts",
-            "version": "v2.1.3",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/symfony/http-client-contracts.git",
-                "reference": "cd88921e9add61f2064c9c6b30de4f589db42962"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/symfony/http-client-contracts/zipball/cd88921e9add61f2064c9c6b30de4f589db42962",
-                "reference": "cd88921e9add61f2064c9c6b30de4f589db42962",
-=======
             "funding": [
                 {
                     "url": "https://symfony.com/sponsor",
@@ -16428,7 +16167,6 @@
                 "type": "zip",
                 "url": "https://api.github.com/repos/symfony/http-client-contracts/zipball/3a5d0fe7908daaa23e3dbf4cee3ba4bfbb19fdd3",
                 "reference": "3a5d0fe7908daaa23e3dbf4cee3ba4bfbb19fdd3",
->>>>>>> Stashed changes
                 "shasum": ""
             },
             "require": {
@@ -16440,11 +16178,7 @@
             "type": "library",
             "extra": {
                 "branch-alias": {
-<<<<<<< Updated upstream
-                    "dev-master": "2.1-dev"
-=======
                     "dev-master": "2.2-dev"
->>>>>>> Stashed changes
                 },
                 "thanks": {
                     "name": "symfony/contracts",
@@ -16480,13 +16214,6 @@
                 "interoperability",
                 "standards"
             ],
-<<<<<<< Updated upstream
-            "time": "2020-07-06T13:23:11+00:00"
-        },
-        {
-            "name": "symfony/web-profiler-bundle",
-            "version": "v4.4.12",
-=======
             "funding": [
                 {
                     "url": "https://symfony.com/sponsor",
@@ -16506,7 +16233,6 @@
         {
             "name": "symfony/web-profiler-bundle",
             "version": "v4.4.13",
->>>>>>> Stashed changes
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/web-profiler-bundle.git",
@@ -16568,8 +16294,6 @@
             ],
             "description": "Symfony WebProfilerBundle",
             "homepage": "https://symfony.com",
-<<<<<<< Updated upstream
-=======
             "funding": [
                 {
                     "url": "https://symfony.com/sponsor",
@@ -16584,7 +16308,6 @@
                     "type": "tidelift"
                 }
             ],
->>>>>>> Stashed changes
             "time": "2020-08-10T07:27:51+00:00"
         },
         {
@@ -16634,6 +16357,16 @@
                 "MIT"
             ],
             "description": "Set of Symplify rules for PHP_CodeSniffer and PHP CS Fixer.",
+            "funding": [
+                {
+                    "url": "https://github.com/tomasvotruba",
+                    "type": "github"
+                },
+                {
+                    "url": "https://www.patreon.com/rectorphp",
+                    "type": "patreon"
+                }
+            ],
             "time": "2019-12-18T20:34:38+00:00"
         },
         {
@@ -16700,6 +16433,16 @@
                 "MIT"
             ],
             "description": "Use Coding Standard with 0-knowledge of PHP-CS-Fixer and PHP_CodeSniffer.",
+            "funding": [
+                {
+                    "url": "https://github.com/tomasvotruba",
+                    "type": "github"
+                },
+                {
+                    "url": "https://www.patreon.com/rectorphp",
+                    "type": "patreon"
+                }
+            ],
             "time": "2019-12-18T20:34:38+00:00"
         },
         {
@@ -16746,6 +16489,16 @@
                 "MIT"
             ],
             "description": "Dependency Injection, Console and Kernel toolkit for Symplify packages.",
+            "funding": [
+                {
+                    "url": "https://github.com/tomasvotruba",
+                    "type": "github"
+                },
+                {
+                    "url": "https://www.patreon.com/rectorphp",
+                    "type": "patreon"
+                }
+            ],
             "time": "2019-12-15T11:32:54+00:00"
         },
         {
@@ -16789,6 +16542,16 @@
                 "MIT"
             ],
             "description": "Resolve config and sets from configs and cli opptions for CLI applications",
+            "funding": [
+                {
+                    "url": "https://github.com/tomasvotruba",
+                    "type": "github"
+                },
+                {
+                    "url": "https://www.patreon.com/rectorphp",
+                    "type": "patreon"
+                }
+            ],
             "time": "2019-12-18T20:34:38+00:00"
         },
         {
@@ -16830,6 +16593,16 @@
                 "MIT"
             ],
             "description": "Sanitized FileInfo with safe getRealPath() and other handy methods",
+            "funding": [
+                {
+                    "url": "https://github.com/tomasvotruba",
+                    "type": "github"
+                },
+                {
+                    "url": "https://www.patreon.com/rectorphp",
+                    "type": "patreon"
+                }
+            ],
             "time": "2019-12-09T11:18:37+00:00"
         },
         {
@@ -16954,15 +16727,12 @@
                 "orm",
                 "tests"
             ],
-<<<<<<< Updated upstream
-=======
             "funding": [
                 {
                     "url": "https://github.com/theofidry",
                     "type": "github"
                 }
             ],
->>>>>>> Stashed changes
             "time": "2020-07-30T22:54:19+00:00"
         },
         {
@@ -17003,15 +16773,12 @@
                 }
             ],
             "description": "A small library for converting tokenized PHP source code into XML and potentially other formats",
-<<<<<<< Updated upstream
-=======
             "funding": [
                 {
                     "url": "https://github.com/theseer",
                     "type": "github"
                 }
             ],
->>>>>>> Stashed changes
             "time": "2020-07-12T23:59:07+00:00"
         }
     ],
@@ -17026,5 +16793,6 @@
     "platform-dev": [],
     "platform-overrides": {
         "php": "7.3.15"
-    }
+    },
+    "plugin-api-version": "1.1.0"
 }

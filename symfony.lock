@@ -650,6 +650,9 @@
     "symfony/http-client": {
         "version": "v5.0.5"
     },
+    "symfony/http-client-contracts": {
+        "version": "v2.2.0"
+    },
     "symfony/http-foundation": {
         "version": "v4.1.3"
     },
