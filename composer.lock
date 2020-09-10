@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "18199accec78ad91d983b9466b5f238b",
+    "content-hash": "c65f778cb20f594192741dc3e641bcae",
     "packages": [
         {
             "name": "api-platform/core",
@@ -2035,16 +2035,16 @@
         },
         {
             "name": "friendsofsymfony/rest-bundle",
-            "version": "2.8.2",
+            "version": "2.8.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/FriendsOfSymfony/FOSRestBundle.git",
-                "reference": "88470cca1a99e4b55bb93a0f288fcb6230fce8d8"
+                "reference": "2000204f4ac6bf5515222fc5d9be1652ed138e8f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/FriendsOfSymfony/FOSRestBundle/zipball/88470cca1a99e4b55bb93a0f288fcb6230fce8d8",
-                "reference": "88470cca1a99e4b55bb93a0f288fcb6230fce8d8",
+                "url": "https://api.github.com/repos/FriendsOfSymfony/FOSRestBundle/zipball/2000204f4ac6bf5515222fc5d9be1652ed138e8f",
+                "reference": "2000204f4ac6bf5515222fc5d9be1652ed138e8f",
                 "shasum": ""
             },
             "require": {
@@ -2137,7 +2137,7 @@
             "keywords": [
                 "rest"
             ],
-            "time": "2020-07-14T14:31:53+00:00"
+            "time": "2020-09-10T06:51:53+00:00"
         },
         {
             "name": "fzaninotto/faker",
@@ -10830,6 +10830,106 @@
             "time": "2020-08-10T07:27:51+00:00"
         },
         {
+            "name": "symfony/security",
+            "version": "v4.4.13",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/symfony/security.git",
+                "reference": "fa230e3144150037f4d30dce6d4c4ac6f7f4795e"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/symfony/security/zipball/fa230e3144150037f4d30dce6d4c4ac6f7f4795e",
+                "reference": "fa230e3144150037f4d30dce6d4c4ac6f7f4795e",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=7.1.3",
+                "symfony/event-dispatcher-contracts": "^1.1|^2",
+                "symfony/http-foundation": "^3.4.40|^4.4.7|^5.0.7",
+                "symfony/http-kernel": "^4.4",
+                "symfony/property-access": "^3.4|^4.0|^5.0",
+                "symfony/service-contracts": "^1.1|^2"
+            },
+            "conflict": {
+                "symfony/event-dispatcher": ">=5",
+                "symfony/ldap": "<4.4"
+            },
+            "replace": {
+                "symfony/security-core": "self.version",
+                "symfony/security-csrf": "self.version",
+                "symfony/security-guard": "self.version",
+                "symfony/security-http": "self.version"
+            },
+            "require-dev": {
+                "psr/container": "^1.0",
+                "psr/log": "~1.0",
+                "symfony/expression-language": "^3.4|^4.0|^5.0",
+                "symfony/finder": "^3.4|^4.0|^5.0",
+                "symfony/ldap": "^4.4|^5.0",
+                "symfony/polyfill-ctype": "~1.8",
+                "symfony/polyfill-intl-icu": "~1.0",
+                "symfony/routing": "^3.4|^4.0|^5.0",
+                "symfony/validator": "^3.4.31|^4.3.4|^5.0"
+            },
+            "suggest": {
+                "psr/container-implementation": "To instantiate the Security class",
+                "symfony/expression-language": "For using the expression voter",
+                "symfony/form": "",
+                "symfony/ldap": "For using the LDAP user and authentication providers",
+                "symfony/routing": "For using the HttpUtils class to create sub-requests, redirect the user, and match URLs",
+                "symfony/validator": "For using the user password constraint"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "4.4-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Symfony\\Component\\Security\\": ""
+                },
+                "exclude-from-classmap": [
+                    "/Core/Tests/",
+                    "/Csrf/Tests/",
+                    "/Guard/Tests/",
+                    "/Http/Tests/"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Fabien Potencier",
+                    "email": "fabien@symfony.com"
+                },
+                {
+                    "name": "Symfony Community",
+                    "homepage": "https://symfony.com/contributors"
+                }
+            ],
+            "description": "Symfony Security Component",
+            "homepage": "https://symfony.com",
+            "funding": [
+                {
+                    "url": "https://symfony.com/sponsor",
+                    "type": "custom"
+                },
+                {
+                    "url": "https://github.com/fabpot",
+                    "type": "github"
+                },
+                {
+                    "url": "https://tidelift.com/funding/github/packagist/symfony/symfony",
+                    "type": "tidelift"
+                }
+            ],
+            "time": "2020-08-17T09:35:39+00:00"
+        },
+        {
             "name": "symfony/security-bundle",
             "version": "v4.4.13",
             "source": {
@@ -10925,314 +11025,6 @@
                 }
             ],
             "time": "2020-08-18T08:04:43+00:00"
-        },
-        {
-            "name": "symfony/security-core",
-            "version": "v4.4.13",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/symfony/security-core.git",
-                "reference": "3a78edfb975d4c35260af257f8dbe931ea9001cf"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/symfony/security-core/zipball/3a78edfb975d4c35260af257f8dbe931ea9001cf",
-                "reference": "3a78edfb975d4c35260af257f8dbe931ea9001cf",
-                "shasum": ""
-            },
-            "require": {
-                "php": ">=7.1.3",
-                "symfony/event-dispatcher-contracts": "^1.1|^2",
-                "symfony/service-contracts": "^1.1.6|^2"
-            },
-            "conflict": {
-                "symfony/event-dispatcher": "<4.3|>=5",
-                "symfony/ldap": "<4.4",
-                "symfony/security-guard": "<4.3"
-            },
-            "require-dev": {
-                "psr/container": "^1.0",
-                "psr/log": "~1.0",
-                "symfony/event-dispatcher": "^4.3",
-                "symfony/expression-language": "^3.4|^4.0|^5.0",
-                "symfony/http-foundation": "^3.4|^4.0|^5.0",
-                "symfony/ldap": "^4.4|^5.0",
-                "symfony/validator": "^3.4.31|^4.3.4|^5.0"
-            },
-            "suggest": {
-                "psr/container-implementation": "To instantiate the Security class",
-                "symfony/event-dispatcher": "",
-                "symfony/expression-language": "For using the expression voter",
-                "symfony/http-foundation": "",
-                "symfony/ldap": "For using LDAP integration",
-                "symfony/validator": "For using the user password constraint"
-            },
-            "type": "library",
-            "extra": {
-                "branch-alias": {
-                    "dev-master": "4.4-dev"
-                }
-            },
-            "autoload": {
-                "psr-4": {
-                    "Symfony\\Component\\Security\\Core\\": ""
-                },
-                "exclude-from-classmap": [
-                    "/Tests/"
-                ]
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Fabien Potencier",
-                    "email": "fabien@symfony.com"
-                },
-                {
-                    "name": "Symfony Community",
-                    "homepage": "https://symfony.com/contributors"
-                }
-            ],
-            "description": "Symfony Security Component - Core Library",
-            "homepage": "https://symfony.com",
-            "funding": [
-                {
-                    "url": "https://symfony.com/sponsor",
-                    "type": "custom"
-                },
-                {
-                    "url": "https://github.com/fabpot",
-                    "type": "github"
-                },
-                {
-                    "url": "https://tidelift.com/funding/github/packagist/symfony/symfony",
-                    "type": "tidelift"
-                }
-            ],
-            "time": "2020-08-17T09:35:39+00:00"
-        },
-        {
-            "name": "symfony/security-csrf",
-            "version": "v4.4.13",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/symfony/security-csrf.git",
-                "reference": "8788f6d4c8555b34d6f32f42b996b937b473f6b3"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/symfony/security-csrf/zipball/8788f6d4c8555b34d6f32f42b996b937b473f6b3",
-                "reference": "8788f6d4c8555b34d6f32f42b996b937b473f6b3",
-                "shasum": ""
-            },
-            "require": {
-                "php": ">=7.1.3",
-                "symfony/security-core": "^3.4|^4.0|^5.0"
-            },
-            "conflict": {
-                "symfony/http-foundation": "<3.4"
-            },
-            "require-dev": {
-                "symfony/http-foundation": "^3.4|^4.0|^5.0"
-            },
-            "suggest": {
-                "symfony/http-foundation": "For using the class SessionTokenStorage."
-            },
-            "type": "library",
-            "extra": {
-                "branch-alias": {
-                    "dev-master": "4.4-dev"
-                }
-            },
-            "autoload": {
-                "psr-4": {
-                    "Symfony\\Component\\Security\\Csrf\\": ""
-                },
-                "exclude-from-classmap": [
-                    "/Tests/"
-                ]
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Fabien Potencier",
-                    "email": "fabien@symfony.com"
-                },
-                {
-                    "name": "Symfony Community",
-                    "homepage": "https://symfony.com/contributors"
-                }
-            ],
-            "description": "Symfony Security Component - CSRF Library",
-            "homepage": "https://symfony.com",
-            "funding": [
-                {
-                    "url": "https://symfony.com/sponsor",
-                    "type": "custom"
-                },
-                {
-                    "url": "https://github.com/fabpot",
-                    "type": "github"
-                },
-                {
-                    "url": "https://tidelift.com/funding/github/packagist/symfony/symfony",
-                    "type": "tidelift"
-                }
-            ],
-            "time": "2020-05-20T08:37:50+00:00"
-        },
-        {
-            "name": "symfony/security-guard",
-            "version": "v4.4.13",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/symfony/security-guard.git",
-                "reference": "699162c3a9fcceb5ec8bce35a3dc2fcb79c6751e"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/symfony/security-guard/zipball/699162c3a9fcceb5ec8bce35a3dc2fcb79c6751e",
-                "reference": "699162c3a9fcceb5ec8bce35a3dc2fcb79c6751e",
-                "shasum": ""
-            },
-            "require": {
-                "php": ">=7.1.3",
-                "symfony/security-core": "^3.4.22|^4.2.3|^5.0",
-                "symfony/security-http": "^4.4.1"
-            },
-            "require-dev": {
-                "psr/log": "~1.0"
-            },
-            "type": "library",
-            "extra": {
-                "branch-alias": {
-                    "dev-master": "4.4-dev"
-                }
-            },
-            "autoload": {
-                "psr-4": {
-                    "Symfony\\Component\\Security\\Guard\\": ""
-                },
-                "exclude-from-classmap": [
-                    "/Tests/"
-                ]
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Fabien Potencier",
-                    "email": "fabien@symfony.com"
-                },
-                {
-                    "name": "Symfony Community",
-                    "homepage": "https://symfony.com/contributors"
-                }
-            ],
-            "description": "Symfony Security Component - Guard",
-            "homepage": "https://symfony.com",
-            "funding": [
-                {
-                    "url": "https://symfony.com/sponsor",
-                    "type": "custom"
-                },
-                {
-                    "url": "https://github.com/fabpot",
-                    "type": "github"
-                },
-                {
-                    "url": "https://tidelift.com/funding/github/packagist/symfony/symfony",
-                    "type": "tidelift"
-                }
-            ],
-            "time": "2020-05-20T08:37:50+00:00"
-        },
-        {
-            "name": "symfony/security-http",
-            "version": "v4.4.13",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/symfony/security-http.git",
-                "reference": "473da00f1244ead079619628a3781622877efdd3"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/symfony/security-http/zipball/473da00f1244ead079619628a3781622877efdd3",
-                "reference": "473da00f1244ead079619628a3781622877efdd3",
-                "shasum": ""
-            },
-            "require": {
-                "php": ">=7.1.3",
-                "symfony/http-foundation": "^3.4.40|^4.4.7|^5.0.7",
-                "symfony/http-kernel": "^4.4",
-                "symfony/property-access": "^3.4|^4.0|^5.0",
-                "symfony/security-core": "^4.4.8"
-            },
-            "conflict": {
-                "symfony/event-dispatcher": ">=5",
-                "symfony/security-csrf": "<3.4.11|~4.0,<4.0.11"
-            },
-            "require-dev": {
-                "psr/log": "~1.0",
-                "symfony/routing": "^3.4|^4.0|^5.0",
-                "symfony/security-csrf": "^3.4.11|^4.0.11|^5.0"
-            },
-            "suggest": {
-                "symfony/routing": "For using the HttpUtils class to create sub-requests, redirect the user, and match URLs",
-                "symfony/security-csrf": "For using tokens to protect authentication/logout attempts"
-            },
-            "type": "library",
-            "extra": {
-                "branch-alias": {
-                    "dev-master": "4.4-dev"
-                }
-            },
-            "autoload": {
-                "psr-4": {
-                    "Symfony\\Component\\Security\\Http\\": ""
-                },
-                "exclude-from-classmap": [
-                    "/Tests/"
-                ]
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Fabien Potencier",
-                    "email": "fabien@symfony.com"
-                },
-                {
-                    "name": "Symfony Community",
-                    "homepage": "https://symfony.com/contributors"
-                }
-            ],
-            "description": "Symfony Security Component - HTTP Integration",
-            "homepage": "https://symfony.com",
-            "funding": [
-                {
-                    "url": "https://symfony.com/sponsor",
-                    "type": "custom"
-                },
-                {
-                    "url": "https://github.com/fabpot",
-                    "type": "github"
-                },
-                {
-                    "url": "https://tidelift.com/funding/github/packagist/symfony/symfony",
-                    "type": "tidelift"
-                }
-            ],
-            "time": "2020-08-13T14:18:44+00:00"
         },
         {
             "name": "symfony/serializer",
@@ -17508,16 +17300,16 @@
         },
         {
             "name": "symplify/auto-bind-parameter",
-            "version": "8.2.26",
+            "version": "8.2.27",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symplify/auto-bind-parameter.git",
-                "reference": "2226a45bdf6d0dfdbf6a186edab5a1807c417b32"
+                "reference": "46fc6346b936503bf6a8a5268b50076962926f6a"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symplify/auto-bind-parameter/zipball/2226a45bdf6d0dfdbf6a186edab5a1807c417b32",
-                "reference": "2226a45bdf6d0dfdbf6a186edab5a1807c417b32",
+                "url": "https://api.github.com/repos/symplify/auto-bind-parameter/zipball/46fc6346b936503bf6a8a5268b50076962926f6a",
+                "reference": "46fc6346b936503bf6a8a5268b50076962926f6a",
                 "shasum": ""
             },
             "require": {
@@ -17528,7 +17320,7 @@
             },
             "require-dev": {
                 "phpunit/phpunit": "^8.5|^9.0",
-                "symplify/package-builder": "^8.2.26"
+                "symplify/package-builder": "^8.2.27"
             },
             "type": "library",
             "extra": {
@@ -17552,27 +17344,27 @@
                     "type": "github"
                 }
             ],
-            "time": "2020-09-08T21:13:31+00:00"
+            "time": "2020-09-09T15:14:24+00:00"
         },
         {
             "name": "symplify/autowire-array-parameter",
-            "version": "8.2.26",
+            "version": "8.2.27",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symplify/autowire-array-parameter.git",
-                "reference": "b0cbb5906e016e8aa6835d2912b98b39bfe3ec0e"
+                "reference": "b3e30113a5b933316f8951b939abe872221c1dbe"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symplify/autowire-array-parameter/zipball/b0cbb5906e016e8aa6835d2912b98b39bfe3ec0e",
-                "reference": "b0cbb5906e016e8aa6835d2912b98b39bfe3ec0e",
+                "url": "https://api.github.com/repos/symplify/autowire-array-parameter/zipball/b3e30113a5b933316f8951b939abe872221c1dbe",
+                "reference": "b3e30113a5b933316f8951b939abe872221c1dbe",
                 "shasum": ""
             },
             "require": {
                 "nette/utils": "^3.0",
                 "php": "^7.2|^8.0",
                 "symfony/dependency-injection": "^4.4|^5.0",
-                "symplify/package-builder": "^8.2.26"
+                "symplify/package-builder": "^8.2.27"
             },
             "require-dev": {
                 "phpunit/phpunit": "^8.5|^9.0"
@@ -17599,7 +17391,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2020-09-08T21:13:31+00:00"
+            "time": "2020-09-09T15:14:24+00:00"
         },
         {
             "name": "symplify/coding-standard",
@@ -17664,16 +17456,16 @@
         },
         {
             "name": "symplify/console-color-diff",
-            "version": "8.2.26",
+            "version": "8.2.27",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symplify/console-color-diff.git",
-                "reference": "7d756a7d8c622237fca3f92b66d61ba6885810d9"
+                "reference": "bf0a094df4a81dffec0d6ae78ed596d58e48ea15"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symplify/console-color-diff/zipball/7d756a7d8c622237fca3f92b66d61ba6885810d9",
-                "reference": "7d756a7d8c622237fca3f92b66d61ba6885810d9",
+                "url": "https://api.github.com/repos/symplify/console-color-diff/zipball/bf0a094df4a81dffec0d6ae78ed596d58e48ea15",
+                "reference": "bf0a094df4a81dffec0d6ae78ed596d58e48ea15",
                 "shasum": ""
             },
             "require": {
@@ -17683,7 +17475,7 @@
                 "symfony/console": "^4.4|^5.0",
                 "symfony/dependency-injection": "^4.4|^5.0",
                 "symfony/http-kernel": "^4.4|^5.0",
-                "symplify/package-builder": "^8.2.26"
+                "symplify/package-builder": "^8.2.27"
             },
             "require-dev": {
                 "phpunit/phpunit": "^8.5|^9.0"
@@ -17710,7 +17502,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2020-09-08T21:13:31+00:00"
+            "time": "2020-09-09T15:14:24+00:00"
         },
         {
             "name": "symplify/easy-coding-standard",
@@ -17790,16 +17582,16 @@
         },
         {
             "name": "symplify/package-builder",
-            "version": "8.2.26",
+            "version": "8.2.27",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symplify/package-builder.git",
-                "reference": "5c2ce7755f33838d8cf2236f30d05ecce3feddbe"
+                "reference": "2834efef41017bba74d1c5cf29397f3788fe68b4"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symplify/package-builder/zipball/5c2ce7755f33838d8cf2236f30d05ecce3feddbe",
-                "reference": "5c2ce7755f33838d8cf2236f30d05ecce3feddbe",
+                "url": "https://api.github.com/repos/symplify/package-builder/zipball/2834efef41017bba74d1c5cf29397f3788fe68b4",
+                "reference": "2834efef41017bba74d1c5cf29397f3788fe68b4",
                 "shasum": ""
             },
             "require": {
@@ -17891,23 +17683,23 @@
         },
         {
             "name": "symplify/phpstan-extensions",
-            "version": "8.2.26",
+            "version": "8.2.27",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symplify/phpstan-extensions.git",
-                "reference": "b56214bec66b306d1833e25420b418ceb1e982ae"
+                "reference": "7b84bb55fe31abe599476a0bc46f7252007bafad"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symplify/phpstan-extensions/zipball/b56214bec66b306d1833e25420b418ceb1e982ae",
-                "reference": "b56214bec66b306d1833e25420b418ceb1e982ae",
+                "url": "https://api.github.com/repos/symplify/phpstan-extensions/zipball/7b84bb55fe31abe599476a0bc46f7252007bafad",
+                "reference": "7b84bb55fe31abe599476a0bc46f7252007bafad",
                 "shasum": ""
             },
             "require": {
                 "php": "^7.2|^8.0",
                 "phpstan/phpstan": "^0.12.40",
-                "symplify/package-builder": "^8.2.26",
-                "symplify/smart-file-system": "^8.2.26"
+                "symplify/package-builder": "^8.2.27",
+                "symplify/smart-file-system": "^8.2.27"
             },
             "type": "library",
             "extra": {
@@ -17931,20 +17723,20 @@
                     "type": "github"
                 }
             ],
-            "time": "2020-09-08T21:13:31+00:00"
+            "time": "2020-09-09T15:14:24+00:00"
         },
         {
             "name": "symplify/set-config-resolver",
-            "version": "8.2.26",
+            "version": "8.2.27",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symplify/set-config-resolver.git",
-                "reference": "ff2148412475b9588826db7fb0d480c872620abb"
+                "reference": "9eda8bebb5d3c98b8799a8d6c97173df2c823f0a"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symplify/set-config-resolver/zipball/ff2148412475b9588826db7fb0d480c872620abb",
-                "reference": "ff2148412475b9588826db7fb0d480c872620abb",
+                "url": "https://api.github.com/repos/symplify/set-config-resolver/zipball/9eda8bebb5d3c98b8799a8d6c97173df2c823f0a",
+                "reference": "9eda8bebb5d3c98b8799a8d6c97173df2c823f0a",
                 "shasum": ""
             },
             "require": {
@@ -17956,7 +17748,7 @@
                 "symfony/filesystem": "^4.4|^5.0",
                 "symfony/finder": "^4.4|^5.0",
                 "symfony/yaml": "^4.4|^5.0",
-                "symplify/smart-file-system": "^8.2.26"
+                "symplify/smart-file-system": "^8.2.27"
             },
             "require-dev": {
                 "phpunit/phpunit": "^8.5|^9.0"
@@ -17983,20 +17775,20 @@
                     "type": "github"
                 }
             ],
-            "time": "2020-09-08T21:13:31+00:00"
+            "time": "2020-09-09T15:14:24+00:00"
         },
         {
             "name": "symplify/smart-file-system",
-            "version": "8.2.26",
+            "version": "8.2.27",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symplify/smart-file-system.git",
-                "reference": "4c6fa34a4deaa99b0cc57fff865c783b7408717d"
+                "reference": "503fa0080e5261874326b02f9cea506d6d7d099a"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symplify/smart-file-system/zipball/4c6fa34a4deaa99b0cc57fff865c783b7408717d",
-                "reference": "4c6fa34a4deaa99b0cc57fff865c783b7408717d",
+                "url": "https://api.github.com/repos/symplify/smart-file-system/zipball/503fa0080e5261874326b02f9cea506d6d7d099a",
+                "reference": "503fa0080e5261874326b02f9cea506d6d7d099a",
                 "shasum": ""
             },
             "require": {
@@ -18031,7 +17823,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2020-09-01T22:38:03+00:00"
+            "time": "2020-09-02T20:33:26+00:00"
         },
         {
             "name": "textalk/websocket",
