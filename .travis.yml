@@ -71,7 +71,7 @@ jobs:
             script:
                 - composer validate --strict
 
-                - vendor/bin/security-checker security:check
+                - $SYLIUS_CACHE_DIR/symfony security:check
 
                 - vendor/bin/ecs check src
 

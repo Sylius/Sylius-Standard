@@ -55,6 +55,9 @@
     "container-interop/container-interop": {
         "version": "1.2.0"
     },
+    "dealerdirect/phpcodesniffer-composer-installer": {
+        "version": "v0.7.0"
+    },
     "dmore/behat-chrome-extension": {
         "version": "1.3.0"
     },
@@ -292,6 +295,9 @@
             "ref": "7f6676627c1ceeeee204553d24a0545d5f918b7b"
         }
     },
+    "marcj/topsort": {
+        "version": "1.1.0"
+    },
     "matthiasnoback/symfony-config-test": {
         "version": "3.1.1"
     },
@@ -330,6 +336,9 @@
     },
     "nette/utils": {
         "version": "v2.5.2"
+    },
+    "nikic/php-parser": {
+        "version": "v4.6.0"
     },
     "ocramius/package-versions": {
         "version": "1.3.0"
@@ -430,6 +439,9 @@
     "phpstan/phpstan-symfony": {
         "version": "0.10.1"
     },
+    "phpstan/phpstan-webmozart-assert": {
+        "version": "0.12.7"
+    },
     "phpunit/php-code-coverage": {
         "version": "5.3.2"
     },
@@ -520,15 +532,6 @@
     "sebastian/version": {
         "version": "2.0.1"
     },
-    "sensiolabs/security-checker": {
-        "version": "4.0",
-        "recipe": {
-            "repo": "github.com/symfony/recipes",
-            "branch": "master",
-            "version": "4.0",
-            "ref": "421933bf8f0e75546ac8e00cb3eb12904fa2ac1a"
-        }
-    },
     "slevomat/coding-standard": {
         "version": "4.6.3"
     },
@@ -570,6 +573,9 @@
     },
     "sylius-labs/coding-standard": {
         "version": "v2.0.0"
+    },
+    "sylius-labs/doctrine-migrations-extra-bundle": {
+        "version": "v0.1.3"
     },
     "sylius-labs/polyfill-symfony-event-dispatcher": {
         "version": "v1.0.0"
@@ -682,9 +688,6 @@
             "ref": "87c585d24de9f43bca80ebcfd5cf5cb39445d95f"
         }
     },
-    "symfony/http-client": {
-        "version": "v5.0.5"
-    },
     "symfony/http-foundation": {
         "version": "v4.1.3"
     },
@@ -778,9 +781,6 @@
             "ref": "cda8b550123383d25827705d05a42acf6819fe4e"
         }
     },
-    "symfony/security": {
-        "version": "v4.1.3"
-    },
     "symfony/security-bundle": {
         "version": "3.3",
         "recipe": {
@@ -789,6 +789,18 @@
             "version": "3.3",
             "ref": "f8a63faa0d9521526499c0a8f403c9964ecb0527"
         }
+    },
+    "symfony/security-core": {
+        "version": "v4.4.13"
+    },
+    "symfony/security-csrf": {
+        "version": "v4.4.13"
+    },
+    "symfony/security-guard": {
+        "version": "v4.4.13"
+    },
+    "symfony/security-http": {
+        "version": "v4.4.13"
     },
     "symfony/serializer": {
         "version": "v5.1.2"
@@ -868,14 +880,29 @@
     "symfony/yaml": {
         "version": "v4.1.3"
     },
+    "symplify/auto-bind-parameter": {
+        "version": "8.2.25"
+    },
+    "symplify/autowire-array-parameter": {
+        "version": "8.2.25"
+    },
     "symplify/coding-standard": {
         "version": "v4.6.1"
+    },
+    "symplify/console-color-diff": {
+        "version": "8.2.25"
     },
     "symplify/easy-coding-standard": {
         "version": "v4.6.1"
     },
     "symplify/package-builder": {
         "version": "v4.6.1"
+    },
+    "symplify/parameter-name-guard": {
+        "version": "v8.2.1"
+    },
+    "symplify/phpstan-extensions": {
+        "version": "v8.1.19"
     },
     "symplify/set-config-resolver": {
         "version": "v7.1.3"
