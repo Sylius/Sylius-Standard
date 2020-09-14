@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "c65f778cb20f594192741dc3e641bcae",
+    "content-hash": "e0948a0b12e95b097a50a8d77de96cb8",
     "packages": [
         {
             "name": "api-platform/core",
@@ -671,16 +671,16 @@
         },
         {
             "name": "doctrine/dbal",
-            "version": "2.10.3",
+            "version": "2.10.4",
             "source": {
                 "type": "git",
                 "url": "https://github.com/doctrine/dbal.git",
-                "reference": "03ca23afc2ee062f5d3e32426ad37c34a4770dcf"
+                "reference": "47433196b6390d14409a33885ee42b6208160643"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/doctrine/dbal/zipball/03ca23afc2ee062f5d3e32426ad37c34a4770dcf",
-                "reference": "03ca23afc2ee062f5d3e32426ad37c34a4770dcf",
+                "url": "https://api.github.com/repos/doctrine/dbal/zipball/47433196b6390d14409a33885ee42b6208160643",
+                "reference": "47433196b6390d14409a33885ee42b6208160643",
                 "shasum": ""
             },
             "require": {
@@ -776,7 +776,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2020-09-02T01:35:42+00:00"
+            "time": "2020-09-12T21:20:41+00:00"
         },
         {
             "name": "doctrine/doctrine-bundle",
@@ -6843,16 +6843,16 @@
         },
         {
             "name": "sylius/sylius",
-            "version": "v1.8.0-RC.1",
+            "version": "v1.8.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Sylius/Sylius.git",
-                "reference": "d8c68e9ed888b050620c283c22f21473e7e4a038"
+                "reference": "f26fab44d0f1287dcd9c28fc4a9b72704cf664d9"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Sylius/Sylius/zipball/d8c68e9ed888b050620c283c22f21473e7e4a038",
-                "reference": "d8c68e9ed888b050620c283c22f21473e7e4a038",
+                "url": "https://api.github.com/repos/Sylius/Sylius/zipball/f26fab44d0f1287dcd9c28fc4a9b72704cf664d9",
+                "reference": "f26fab44d0f1287dcd9c28fc4a9b72704cf664d9",
                 "shasum": ""
             },
             "require": {
@@ -7077,7 +7077,7 @@
             ],
             "description": "E-Commerce platform for PHP, based on Symfony framework.",
             "homepage": "https://sylius.com",
-            "time": "2020-09-07T10:52:21+00:00"
+            "time": "2020-09-14T08:01:13+00:00"
         },
         {
             "name": "sylius/theme-bundle",
@@ -18004,9 +18004,7 @@
     ],
     "aliases": [],
     "minimum-stability": "stable",
-    "stability-flags": {
-        "sylius/sylius": 5
-    },
+    "stability-flags": [],
     "prefer-stable": true,
     "prefer-lowest": false,
     "platform": {
