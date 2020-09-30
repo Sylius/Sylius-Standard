@@ -4,18 +4,24 @@ declare(strict_types=1);
 
 namespace App\Entity\Product;
 
-use Doctrine\ORM\Mapping as ORM;
 use Sylius\Component\Core\Model\Product as BaseProduct;
-use Sylius\Component\Product\Model\ProductTranslationInterface;
 
-/**
- * @ORM\Entity
- * @ORM\Table(name="sylius_product")
- */
 class Product extends BaseProduct
 {
-    protected function createTranslation(): ProductTranslationInterface
+    const COLOR_RED   = 'red';
+    const COLOR_GREEN = 'green';
+    const COLOR_BLUE  = 'blue';
+
+    /** @var string|null */
+    protected $color;
+
+    public function getColor(): ?string
     {
-        return new ProductTranslation();
+        return $this->color;
+    }
+
+    public function setColor(?string $color): void
+    {
+        $this->color = $color;
     }
 }

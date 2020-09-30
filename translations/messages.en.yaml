@@ -1,0 +1,18 @@
+app:
+    form:
+        product:
+            color: Color
+            color_variations:
+                red: Red
+                green: Green
+                blue: Blue
+    ui:
+        shop:
+            product:
+                show:
+                    attribute:
+                        color: Color
+                        color_variations:
+                            red:   Red
+                            green: Green
+                            blue:  Blue
