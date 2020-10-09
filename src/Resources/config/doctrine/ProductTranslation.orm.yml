@@ -1,0 +1,5 @@
+App\Entity\ProductTranslation:
+    type: entity
+    table: sylius_product_translation
+    fields:
+        color: {type: string, nullable: false}

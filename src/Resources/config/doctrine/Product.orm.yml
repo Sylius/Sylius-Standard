@@ -1,0 +1,4 @@
+App\Entity\Product:
+    type: entity
+    table: sylius_product
+
