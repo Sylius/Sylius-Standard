@@ -153,7 +153,7 @@ WORKDIR /srv/sylius
 COPY --from=sylius_php /srv/sylius/public public/
 COPY --from=sylius_nodejs /srv/sylius/public public/
 
-FROM symfony_php as sylius_php_dev
+FROM sylius_php as sylius_php_dev
 
 ARG XDEBUG_VERSION=2.9.8
 RUN set -eux; \
