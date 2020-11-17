@@ -1,0 +1,23 @@
+<div class="ui segment">
+    <div class="ui {% if order.isShippingRequired() %}two{% else %}one{% endif %} column divided stackable grid">
+        <div class="column" id="sylius-billing-address" {{ sylius_test_html_attribute('billing-address') }}>
+            <div class="ui small dividing header">{{ 'sylius.ui.billing_address'|trans }}</div>
+            {% include '@SyliusShop/Common/_address.html.twig' with {'address': order.billingAddress} %}
+        </div>
+        {% if order.isShippingRequired() %}
+        <div class="column" id="sylius-shipping-address" {{ sylius_test_html_attribute('shipping-address') }}>
+            <div class="ui small dividing header">{{ 'sylius.ui.shipping_address'|trans }}</div>
+            {% include '@SyliusShop/Common/_address.html.twig' with {'address': order.shippingAddress} %}
+        </div>
+        {% endif %}
+    </div>
+</div>
+{% if sylius_is_billing_address_missing(order) %}
+<div class="ui icon message">
+    <i class="address card icon"></i>
+    <div class="content">
+        <div class="header">{{ 'sylius.pay_pal.missing_billing_address_header'|trans }}</div>
+        <p>{{ 'sylius.pay_pal.missing_billing_address_content'|trans }}</p>
+    </div>
+</div>
+{% endif %}
