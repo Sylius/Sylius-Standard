@@ -580,6 +580,9 @@
     "sylius/mailer-bundle": {
         "version": "v1.4.4"
     },
+    "sylius/paypal-plugin": {
+        "version": "v1.0.1"
+    },
     "sylius/registry": {
         "version": "v1.4.1"
     },
