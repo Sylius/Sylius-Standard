@@ -1,0 +1,13 @@
+---------------------------------------------------------------------------
+
+by oallain at 2020-11-15T17:14:07Z
+
+Hello @pamil
+
+To test it on this PR, I advise you to activate Github Actions by setup a "Simple workflow" and commit it on master, then rebase on master :wink:
+
+---------------------------------------------------------------------------
+
+by pamil at 2020-11-16T11:05:55Z
+
+@oallain thanks for the tip, currently checking the result at my fork: https://github.com/pamil/Sylius-Standard/actions
