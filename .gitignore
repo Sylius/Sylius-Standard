@@ -17,6 +17,7 @@
 /docker/mysql/data/
 
 ###> symfony/framework-bundle ###
+/composer.lock
 /.env.*.local
 /.env.local
 /.env.local.php
@@ -31,6 +32,7 @@
 ###< friendsofphp/php-cs-fixer ###
 
 ###> phpunit/phpunit ###
+/.phpunit.result.cache
 /phpunit.xml
 ###< phpunit/phpunit ###
 
