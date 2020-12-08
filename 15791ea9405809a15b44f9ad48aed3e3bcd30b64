@@ -1,0 +1,43 @@
+---------------------------------------------------------------------------
+
+by oallain at 2020-12-06T17:24:39Z
+
+Hello @pamil
+
+You have removed Travis but it's required to make PR green.
+Can you remove it from checklist?
+
+Regards
+
+---------------------------------------------------------------------------
+
+by Zales0123 at 2020-12-07T01:11:48Z
+
+Generally 👍 but I think we should also bump a PayPalPlugin minimal version to `^1.1`... with the current `^1.0.3`  there is still a possibility to install the version that does not support DoctrineMigrations 3.0. WDYT?
+
+---------------------------------------------------------------------------
+
+by oallain at 2020-12-07T08:21:33Z
+
+Hello @Zales0123
+
+You're right, I do it.
+Thanks :heart_eyes:
+
+---------------------------------------------------------------------------
+
+by oallain at 2020-12-07T10:29:19Z
+
+Behat checks are so random :disappointed:
+
+---------------------------------------------------------------------------
+
+by Zales0123 at 2020-12-07T12:30:29Z
+
+Indeed :/ we should think about switching to something more reliable for JS tests.
+
+---------------------------------------------------------------------------
+
+by GSadee at 2020-12-08T08:12:31Z
+
+Thanks, @oallain! :1st_place_medal:
