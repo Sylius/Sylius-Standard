@@ -167,12 +167,8 @@ jobs:
                 name: Run PHPUnit
                 run: vendor/bin/phpunit --colors=always
 
-            -   name: Run JS Behat (max 3 times)
-                uses: nick-invision/retry@v2
-                with:
-                    timeout_minutes: 15
-                    max_attempts: 3
-                    command: vendor/bin/behat --colors --strict --no-interaction -vvv -f progress --tags="@javascript && ~@todo && ~@cli" || vendor/bin/behat --colors --strict --no-interaction -vvv -f progress --tags="@javascript && ~@todo && ~@cli" --rerun
+            -   name: Run JS Behat
+                run: vendor/bin/behat --colors --strict --no-interaction -vvv -f progress --tags="@javascript && ~@todo && ~@cli" || vendor/bin/behat --colors --strict --no-interaction -vvv -f progress --tags="@javascript && ~@todo && ~@cli" --rerun || vendor/bin/behat --colors --strict --no-interaction -vvv -f progress --tags="@javascript && ~@todo && ~@cli" --rerun
 
             -
                 name: Upload Behat logs
