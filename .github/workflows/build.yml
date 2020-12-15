@@ -1,7 +1,9 @@
 name: Build
 
 on:
-    push: ~
+    push:
+        branches-ignore:
+            - 'dependabot/**'
     pull_request: ~
     release:
         types: [created]
