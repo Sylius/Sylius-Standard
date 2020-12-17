@@ -37,7 +37,7 @@
         "friends-of-behat/variadic-extension": "^1.3",
         "lakion/mink-debug-extension": "^1.2.3",
         "lchrusciel/api-test-case": "^5.0",
-        "phpspec/phpspec": "^6.2",
+        "phpspec/phpspec": "^7.0",
         "phpstan/extension-installer": "^1.0",
         "phpstan/phpstan": "0.12.42",
         "phpstan/phpstan-doctrine": "0.12.19",
