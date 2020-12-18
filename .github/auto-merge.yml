@@ -1,0 +1,8 @@
+requiredLabels:
+    - Dependencies
+
+deleteBranchAfterMerge: true
+
+requiredBaseBranches:
+    - master
+    - 1.8
