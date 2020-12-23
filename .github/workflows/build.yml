@@ -1,13 +1,16 @@
 name: Build
 
 on:
-    push: ~
+    push:
+        branches-ignore:
+            - 'dependabot/**'
     pull_request: ~
     release:
         types: [created]
     schedule:
         -
             cron: "0 1 * * 6" # Run at 1am every Saturday
+    workflow_dispatch: ~
 
 jobs:
     tests:
@@ -167,7 +170,12 @@ jobs:
                 name: Run PHPUnit
                 run: vendor/bin/phpunit --colors=always
 
-            -   name: Run JS Behat
+            -   
+                name: Run non-JS Behat
+                run: vendor/bin/behat --colors --strict --no-interaction -vvv -f progress --tags="~@javascript && ~@todo && ~@cli"
+            
+            -
+                name: Run JS Behat
                 run: vendor/bin/behat --colors --strict --no-interaction -vvv -f progress --tags="@javascript && ~@todo && ~@cli" || vendor/bin/behat --colors --strict --no-interaction -vvv -f progress --tags="@javascript && ~@todo && ~@cli" --rerun || vendor/bin/behat --colors --strict --no-interaction -vvv -f progress --tags="@javascript && ~@todo && ~@cli" --rerun
 
             -
