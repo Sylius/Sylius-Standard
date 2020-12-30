@@ -139,6 +139,9 @@
     "fig/link-util": {
         "version": "1.1.1"
     },
+    "friends-of-behat/mink-debug-extension": {
+        "version": "v2.0.1"
+    },
     "friends-of-behat/page-object-extension": {
         "version": "0.1"
     },
