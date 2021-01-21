@@ -22,7 +22,7 @@ jobs:
             fail-fast: false
             matrix:
                 php: [7.4, 7.3]
-                symfony: [^4.4]
+                symfony: [^4.4, ^5.2]
                 node: [10.x]
                 mysql: [5.7, 8.0]
 
@@ -84,7 +84,7 @@ jobs:
             -
                 name: Restrict Symfony version
                 if: matrix.symfony != ''
-                run: bin/require-symfony-version composer.json "${{ matrix.symfony }}"
+                run: composer config extra.symfony.require "${{ matrix.symfony }}"
 
             -
                 name: Get Composer cache directory
