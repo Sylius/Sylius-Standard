@@ -41,7 +41,7 @@
         "phpstan/extension-installer": "^1.0",
         "phpstan/phpstan": "0.12.68",
         "phpstan/phpstan-doctrine": "0.12.30",
-        "phpstan/phpstan-webmozart-assert": "0.12.8",
+        "phpstan/phpstan-webmozart-assert": "0.12.10",
         "phpunit/phpunit": "^8.5",
         "stripe/stripe-php": "^6.43",
         "sylius-labs/coding-standard": "^3.2",
