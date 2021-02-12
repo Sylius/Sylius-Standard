@@ -144,7 +144,7 @@ jobs:
 
             -   
                 name: Validate composer.json
-                run: composer validate --ansi --strict
+                run: composer validate --ansi --strict --no-check-publish
                 
             -   
                 name: Run security check
