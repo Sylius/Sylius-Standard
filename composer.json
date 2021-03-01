@@ -18,7 +18,7 @@
     ],
     "require": {
         "php": "^7.3",
-        "sylius/sylius": "~1.8.6",
+        "sylius/sylius": "~1.9.0",
         "symfony/dotenv": "^4.4",
         "symfony/flex": "^1.9",
         "sylius/paypal-plugin": "^1.1"
