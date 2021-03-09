@@ -40,7 +40,7 @@
         "lchrusciel/api-test-case": "^5.0",
         "phpspec/phpspec": "^7.0",
         "phpstan/extension-installer": "^1.0",
-        "phpstan/phpstan": "0.12.80",
+        "phpstan/phpstan": "0.12.81",
         "phpstan/phpstan-doctrine": "0.12.33",
         "phpstan/phpstan-webmozart-assert": "0.12.12",
         "phpunit/phpunit": "^8.5",
