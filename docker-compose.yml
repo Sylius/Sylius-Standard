@@ -5,11 +5,7 @@ services:
     build:
       context: .
       target: sylius_php
-      cache_from:
-        - quay.io/sylius/php:latest
-        - quay.io/sylius/nodejs:latest
-        - quay.io/sylius/nginx:latest
-    image: quay.io/sylius/php:latest
+    image: php:latest
     depends_on:
       - mysql
     environment:
@@ -46,11 +42,7 @@ services:
     build:
       context: .
       target: sylius_nodejs
-      cache_from:
-        - quay.io/sylius/php:latest
-        - quay.io/sylius/nodejs:latest
-        - quay.io/sylius/nginx:latest
-    image: quay.io/sylius/nodejs:latest
+    image: nodejs:latest
     depends_on:
       - php
     environment:
@@ -67,11 +59,7 @@ services:
     build:
       context: .
       target: sylius_nginx
-      cache_from:
-        - quay.io/sylius/php:latest
-        - quay.io/sylius/nodejs:latest
-        - quay.io/sylius/nginx:latest
-    image: quay.io/sylius/nginx:latest
+    image: nginx:latest
     depends_on:
       - php
       - nodejs # to ensure correct build order
