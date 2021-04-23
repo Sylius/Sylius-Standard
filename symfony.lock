@@ -187,12 +187,6 @@
     "friendsofphp/proxy-manager-lts": {
         "version": "v1.0.3"
     },
-    "friendsofsymfony/oauth-server-bundle": {
-        "version": "1.6.1"
-    },
-    "friendsofsymfony/oauth2-php": {
-        "version": "1.2.3"
-    },
     "friendsofsymfony/rest-bundle": {
         "version": "2.2",
         "recipe": {
