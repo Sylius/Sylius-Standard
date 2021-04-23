@@ -18,10 +18,8 @@
     ],
     "require": {
         "php": "^7.4",
-        "friendsofsymfony/oauth-server-bundle": ">2.0.0-alpha.0 ^2.0@dev",
         "sylius/paypal-plugin": "^1.1",
         "sylius/sylius": "~1.10.0@dev",
-        "sylius/admin-api-bundle": "^1.10",
         "symfony/dotenv": "^4.4 || ^5.2",
         "symfony/flex": "^1.11"
     },
