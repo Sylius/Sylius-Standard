@@ -1,6 +1,12 @@
 {
+    "aeon-php/calendar": {
+        "version": "0.16.4"
+    },
     "akeneo/phpspec-skip-example-extension": {
         "version": "v3.0.0"
+    },
+    "alcohol/iso4217": {
+        "version": "4.0.0"
     },
     "api-platform/core": {
         "version": "2.5",
@@ -361,14 +367,14 @@
     "nette/finder": {
         "version": "v2.4.2"
     },
+    "nette/neon": {
+        "version": "v3.2.2"
+    },
     "nette/robot-loader": {
         "version": "v3.0.4"
     },
     "nette/utils": {
         "version": "v2.5.2"
-    },
-    "nikic/php-parser": {
-        "version": "v4.10.4"
     },
     "ocramius/package-versions": {
         "version": "1.3.0"
@@ -970,17 +976,32 @@
     "symplify/coding-standard": {
         "version": "v4.6.1"
     },
+    "symplify/composer-json-manipulator": {
+        "version": "v9.2.24"
+    },
     "symplify/console-color-diff": {
         "version": "8.3.23"
+    },
+    "symplify/console-package-builder": {
+        "version": "v9.2.24"
     },
     "symplify/easy-coding-standard": {
         "version": "v4.6.1"
     },
+    "symplify/easy-testing": {
+        "version": "v9.2.24"
+    },
     "symplify/package-builder": {
         "version": "v4.6.1"
     },
+    "symplify/rule-doc-generator-contracts": {
+        "version": "v9.2.24"
+    },
     "symplify/set-config-resolver": {
         "version": "v7.1.3"
+    },
+    "symplify/skipper": {
+        "version": "v9.2.24"
     },
     "symplify/smart-file-system": {
         "version": "v7.1.3"

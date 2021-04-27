@@ -145,9 +145,9 @@ jobs:
                 name: Run security check
                 run: symfony security:check
 
-#            -
-#                name: Check coding standard
-#                run: vendor/bin/ecs check src
+            -
+                name: Check coding standard
+                run: vendor/bin/ecs check src
 
             -   
                 name: Run PHPStan
