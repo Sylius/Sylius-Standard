@@ -1,10 +1,17 @@
 {
     "name": "sylius/sylius-standard",
-    "description": "Starting point for projects powered by Sylius eCommerce.",
-    "keywords": ["symfony", "sylius", "distribution", "ecommerce", "cart", "shopping"],
     "type": "project",
-    "license": "MIT",
+    "description": "Starting point for projects powered by Sylius eCommerce.",
+    "keywords": [
+        "symfony",
+        "sylius",
+        "distribution",
+        "ecommerce",
+        "cart",
+        "shopping"
+    ],
     "homepage": "https://sylius.com",
+    "license": "MIT",
     "authors": [
         {
             "name": "Paweł Jędrzejewski"
@@ -18,10 +25,13 @@
     ],
     "require": {
         "php": "^7.3",
+        "sylius/paypal-plugin": "^1.1",
         "sylius/sylius": "~1.8.6",
         "symfony/dotenv": "^4.4",
-        "symfony/flex": "^1.9",
-        "sylius/paypal-plugin": "^1.1"
+        "symfony/flex": "^1.9"
+    },
+    "conflict": {
+        "symfony/form": "4.4.11 || 4.4.12"
     },
     "require-dev": {
         "behat/behat": "^3.7",
@@ -50,10 +60,20 @@
         "symfony/intl": "^4.4",
         "symfony/web-profiler-bundle": "^4.4"
     },
-    "conflict": {
-        "symfony/form": "4.4.11|4.4.12"
+    "config": {
+        "preferred-install": {
+            "*": "dist"
+        },
+        "sort-packages": true
     },
-    "prefer-stable": true,
+    "extra": {
+        "branch-alias": {
+            "dev-master": "1.8-dev"
+        },
+        "symfony": {
+            "allow-contrib": false
+        }
+    },
     "autoload": {
         "psr-4": {
             "App\\": "src/"
@@ -63,13 +83,12 @@
         "psr-4": {
             "App\\Tests\\": "tests/"
         },
-        "classmap": ["src/Kernel.php"]
+        "classmap": [
+            "src/Kernel.php"
+        ]
     },
+    "prefer-stable": true,
     "scripts": {
-        "auto-scripts": {
-            "cache:clear": "symfony-cmd",
-            "assets:install %PUBLIC_DIR%": "symfony-cmd"
-        },
         "post-install-cmd": [
             "@auto-scripts"
         ],
@@ -79,20 +98,10 @@
         "post-create-project-cmd": [
             "@php bin/console sylius:inform-about-gus --ansi",
             "@php bin/console sylius:show-available-plugins --ansi"
-        ]
-    },
-    "config": {
-        "preferred-install": {
-            "*": "dist"
-        },
-        "sort-packages": true
-    },
-    "extra": {
-        "symfony": {
-            "allow-contrib": false
-        },
-        "branch-alias": {
-            "dev-master": "1.8-dev"
+        ],
+        "auto-scripts": {
+            "cache:clear": "symfony-cmd",
+            "assets:install %PUBLIC_DIR%": "symfony-cmd"
         }
     }
 }
