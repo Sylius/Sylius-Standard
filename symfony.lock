@@ -637,6 +637,9 @@
     "sylius-labs/polyfill-symfony-security": {
         "version": "v1.0.0"
     },
+    "sylius/admin-api-bundle": {
+        "version": "v1.9.4"
+    },
     "sylius/fixtures-bundle": {
         "version": "v1.4.1"
     },
