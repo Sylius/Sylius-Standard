@@ -109,9 +109,6 @@
             "ref": "ae205d5114e719deb64d2110f56ef910787d1e04"
         }
     },
-    "doctrine/doctrine-cache-bundle": {
-        "version": "1.3.3"
-    },
     "doctrine/doctrine-migrations-bundle": {
         "version": "1.2",
         "recipe": {
@@ -140,9 +137,6 @@
         "version": "v2.6.2"
     },
     "doctrine/persistence": {
-        "version": "v1.0.0"
-    },
-    "doctrine/reflection": {
         "version": "v1.0.0"
     },
     "doctrine/sql-formatter": {
@@ -232,17 +226,11 @@
     "instaclick/php-webdriver": {
         "version": "1.4.5"
     },
-    "jdorn/sql-formatter": {
-        "version": "v1.2.17"
-    },
     "jean85/pretty-package-versions": {
         "version": "1.2"
     },
     "jms/metadata": {
         "version": "1.6.0"
-    },
-    "jms/parser-lib": {
-        "version": "1.0.0"
     },
     "jms/serializer": {
         "version": "1.13.0"
@@ -436,9 +424,6 @@
     "php-http/promise": {
         "version": "v1.0.0"
     },
-    "phpcollection/phpcollection": {
-        "version": "0.5.0"
-    },
     "phpdocumentor/reflection-common": {
         "version": "1.0.1"
     },
@@ -447,9 +432,6 @@
     },
     "phpdocumentor/type-resolver": {
         "version": "0.4.0"
-    },
-    "phpoption/phpoption": {
-        "version": "1.5.0"
     },
     "phpseclib/phpseclib": {
         "version": "2.0.30"
@@ -636,9 +618,6 @@
     },
     "sylius-labs/polyfill-symfony-security": {
         "version": "v1.0.0"
-    },
-    "sylius/admin-api-bundle": {
-        "version": "v1.9.4"
     },
     "sylius/fixtures-bundle": {
         "version": "v1.4.1"
@@ -828,9 +807,6 @@
     },
     "symfony/polyfill-php56": {
         "version": "v1.17.1"
-    },
-    "symfony/polyfill-php70": {
-        "version": "v1.9.0"
     },
     "symfony/polyfill-php72": {
         "version": "v1.9.0"
@@ -1035,9 +1011,6 @@
     },
     "webmozart/assert": {
         "version": "1.3.0"
-    },
-    "white-october/pagerfanta-bundle": {
-        "version": "v1.2.1"
     },
     "willdurand/hateoas": {
         "version": "2.12.0"
