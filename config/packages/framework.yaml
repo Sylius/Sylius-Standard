@@ -5,3 +5,6 @@ framework:
     csrf_protection: true
     session:
         handler_id: ~
+    serializer:
+        mapping:
+            paths: [ '%kernel.project_dir%/config/serialization' ]
