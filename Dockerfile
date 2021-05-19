@@ -74,7 +74,7 @@ WORKDIR /srv/sylius
 ARG APP_ENV=prod
 
 # prevent the reinstallation of vendors at every changes in the source code
-COPY composer.json symfony.lock ./
+COPY composer.json composer.lock symfony.lock ./
 RUN set -eux; \
     composer install --prefer-dist --no-autoloader --no-scripts --no-progress; \
     composer clear-cache
