@@ -106,7 +106,7 @@ RUN chmod +x /usr/local/bin/docker-entrypoint
 ENTRYPOINT ["docker-entrypoint"]
 CMD ["php-fpm"]
 
-FROM node:${NODE_VERSION}-alpine AS sylius_nodejs
+FROM node:${NODE_VERSION}-alpine AS sylius_node
 
 WORKDIR /srv/sylius
 
@@ -136,7 +136,7 @@ COPY gulpfile.babel.js .babelrc ./
 RUN set -eux; \
     GULP_ENV=prod yarn build
 
-COPY docker/nodejs/docker-entrypoint.sh /usr/local/bin/docker-entrypoint
+COPY docker/node/docker-entrypoint.sh /usr/local/bin/docker-entrypoint
 RUN chmod +x /usr/local/bin/docker-entrypoint
 
 ENTRYPOINT ["docker-entrypoint"]
@@ -149,4 +149,4 @@ COPY docker/nginx/conf.d/default.conf /etc/nginx/conf.d/
 WORKDIR /srv/sylius
 
 COPY --from=sylius_php /srv/sylius/public public/
-COPY --from=sylius_nodejs /srv/sylius/public public/
+COPY --from=sylius_node /srv/sylius/public public/

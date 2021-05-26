@@ -38,11 +38,11 @@ services:
     ports:
       - "3306:3306"
 
-  nodejs:
+  node:
     build:
       context: .
-      target: sylius_nodejs
-    image: nodejs:latest
+      target: sylius_node
+    image: node:latest
     depends_on:
       - php
     environment:
@@ -62,7 +62,7 @@ services:
     image: nginx:latest
     depends_on:
       - php
-      - nodejs # to ensure correct build order
+      - node # to ensure correct build order
     volumes:
       - ./public:/srv/sylius/public:ro
       # if you develop on Linux, you may use a bind-mounted host directory instead
