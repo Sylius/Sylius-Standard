@@ -1,0 +1,30 @@
+version: '3.4'
+
+services:
+  php:
+      volumes:
+      - sylius-nfs:/srv/sylius:rw,delegated
+      - public-nfs:/srv/sylius/public:rw,delegated
+      - public-media:/srv/sylius/public/media:rw,delegated
+  nodejs:
+      volumes:
+      - sylius-nfs:/srv/sylius:delegated
+      - public-nfs:/srv/sylius/public:rw,delegated
+  nginx:
+      volumes:
+      - sylius-nfs:/srv/sylius:cached
+      - public-media:/srv/sylius/public/media:ro,nocopy
+
+volumes:
+  sylius-nfs:
+    driver: local
+    driver_opts:
+      type: nfs
+      o: addr=host.docker.internal,rw,nolock,hard,nointr,nfsvers=3
+      device: :${PWD}
+  public-nfs:
+    driver: local
+    driver_opts:
+      type: nfs
+      o: addr=host.docker.internal,rw,nolock,hard,nointr,nfsvers=3
+      device: :${PWD}/public

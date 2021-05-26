@@ -1,15 +1,24 @@
 version: '3.4'
 
+x-cache-from:
+    - &sylius-cache-from
+        cache_from:
+            - ${NGINX_IMAGE:-nginx:latest}
+            - ${PHP_IMAGE:-php:latest}
+            - ${NODEJS_IMAGE:-node:latest}
+
 services:
   php:
     build:
       context: .
       target: sylius_php
-      cache_from:
-        - quay.io/sylius/php:latest
-        - quay.io/sylius/nodejs:latest
-        - quay.io/sylius/nginx:latest
-    image: quay.io/sylius/php:latest
+      <<: *sylius-cache-from
+    image: ${PHP_IMAGE:-php:latest}
+    healthcheck:
+        interval: 10s
+        timeout: 3s
+        retries: 3
+        start_period: 30s
     depends_on:
       - mysql
     environment:
@@ -46,11 +55,8 @@ services:
     build:
       context: .
       target: sylius_nodejs
-      cache_from:
-        - quay.io/sylius/php:latest
-        - quay.io/sylius/nodejs:latest
-        - quay.io/sylius/nginx:latest
-    image: quay.io/sylius/nodejs:latest
+      <<: *sylius-cache-from
+    image: ${NODEJS_IMAGE:-node:latest}
     depends_on:
       - php
     environment:
@@ -67,11 +73,8 @@ services:
     build:
       context: .
       target: sylius_nginx
-      cache_from:
-        - quay.io/sylius/php:latest
-        - quay.io/sylius/nodejs:latest
-        - quay.io/sylius/nginx:latest
-    image: quay.io/sylius/nginx:latest
+      <<: *sylius-cache-from
+    image: ${NGINX_IMAGE:-nginx:latest}
     depends_on:
       - php
       - nodejs # to ensure correct build order

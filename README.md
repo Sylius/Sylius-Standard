@@ -38,6 +38,36 @@ $ php bin/console server:start
 $ open http://localhost:8000/
 ```
 
+### For Docker installation
+
+```bash
+$ docker-compose up -d
+$ docker-compose run php php bin/console sylius:install
+$ open http://localhost/
+```
+
+> You may check if php-fpm is running just execution `docker-composer ps`
+
+If the pages not load the assets, just run the below commands:
+
+```bash
+$ docker-compose run nodejs yarn install
+$ docker-compose run nodejs yarn build
+```
+
+#### For MacOS Docker
+
+You need must enable the NFS (Network File System) to speed up your experience.
+
+```bash
+$ sh setup_native_nfs_docker_osx.sh
+```
+
+So, just append the NFS configuration using the command:
+```bash
+$ docker-compose -f docker-compose.yml -f docker-compose-nfs.yml up -d
+```
+
 Troubleshooting
 ---------------
 
