@@ -1,0 +1,39 @@
+---------------------------------------------------------------------------
+
+by arti0090 at 2021-04-07T17:09:40Z
+
+I am looking for some suggestions for this PR:
+1. As I find out the quay.io is now private repositories thats why I deleted it. Is this an OK thing?
+2. I have changed some lines for nginx to resolve automatically the IP's of containers. Still in my opinion there is an issue that (in my case) I need to wait for about 10minutes for nginx to work properly (otherwise I have 502 bad gateway error). Any solutions?
+
+Any other suggestions are really appreciated 😄
+
+---------------------------------------------------------------------------
+
+by tonicospinelli at 2021-05-26T05:44:25Z
+
+@arti0090 using docker I faced this prolonged response too. It's probably around php-fpm, the Nginx wait for it. Because of that you getting a Bad Gateway.
+
+---------------------------------------------------------------------------
+
+by tonicospinelli at 2021-05-26T05:46:55Z
+
+I'm trying to help with these little changes at: https://github.com/arti0090/Sylius-Standard/pull/1
+
+---------------------------------------------------------------------------
+
+by arti0090 at 2021-05-26T06:05:01Z
+
+@tonicospinelli I was making some investigations about nginx 502 error. It looks like the php container was working too slow, or being precise - nginx and php were starting at the same time but php was than starting doctrine scripts and also building assets. When it finished the nginx was able to show Sylius page with no trouble.
+
+---------------------------------------------------------------------------
+
+by gdarquie at 2021-05-28T08:51:08Z
+
+I can not wait to see this PR published, thanks @arti0090 and all reviewers ;-)
+
+---------------------------------------------------------------------------
+
+by lchrusciel at 2021-05-28T17:45:09Z
+
+Thank you, @arti0090! :tada:
