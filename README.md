@@ -43,22 +43,18 @@ $ open http://localhost:8000/
 Running the local environment with containers:
 
 ```bash
+$ docker-compose pull
+$ docker-compose build
+$ docker-compose -f docker-compose.yml -f docker/docker-compose.setup.yml run setup
 $ docker-compose up -d
-```
-
-> You may check if php-fpm is ready executing the command:
-> `docker-composer ps`. When it is ready, the State will be
-> **Up (healthy)**
-
-Before open the sylius webpage, you should install and configure your
-Shop.
-
-```
-$ docker-compose run php php bin/console sylius:install
 ```
 
 > follow the installation instructions to setup the application
 > database. Also you may add sample data.
+
+> You may check if php-fpm is ready executing the command:
+> `docker-composer ps`. When it is ready, the State will be
+> **Up (healthy)**
 
 Write the command on terminal or just click on [localhost](http://localhost)
 to open the Sylius Shop
@@ -74,8 +70,8 @@ $ open http://localhost/admin
 If the pages not load the assets, just run the below commands:
 
 ```bash
-$ docker-compose run nodejs yarn install
-$ docker-compose run nodejs yarn build
+$ docker-compose run assets yarn install
+$ docker-compose run assets yarn build
 ```
 
 If you want to see any php information or run any command from

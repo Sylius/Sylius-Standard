@@ -1,7 +1,7 @@
 # the different stages of this Dockerfile are meant to be built into separate images
 # https://docs.docker.com/compose/compose-file/#target
 
-ARG PHP_VERSION=7.4
+ARG PHP_VERSION=${PHP_VERSION:-7.4}
 ARG NODE_VERSION=10
 ARG NGINX_VERSION=1.17
 
@@ -64,7 +64,7 @@ COPY --from=composer:latest /usr/bin/composer /usr/bin/composer
 COPY docker/php/php.ini /usr/local/etc/php/php.tmp
 COPY docker/php/php-cli.ini /usr/local/etc/php/php-cli.tmp
 
-ARG PHP_DATE_TIMEZONE=UTC
+ARG PHP_DATE_TIMEZONE=${PHP_DATE_TIMEZONE:-UTC}
 RUN sh -c "envsubst < /usr/local/etc/php/php.tmp > /usr/local/etc/php/php.ini"
 RUN sh -c "envsubst < /usr/local/etc/php/php-cli.tmp > /usr/local/etc/php/php-cli.ini"
 
@@ -79,7 +79,7 @@ ENV PATH="${PATH}:/root/.composer/vendor/bin"
 WORKDIR /srv/sylius
 
 # build for production
-ARG APP_ENV=prod
+ARG APP_ENV=${APP_ENV}
 
 # prevent the reinstallation of vendors at every changes in the source code
 COPY composer.* symfony.lock ./

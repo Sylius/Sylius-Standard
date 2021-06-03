@@ -1,11 +1,6 @@
-apc.enable_cli = 1
-date.timezone = ${PHP_DATE_TIMEZONE}
-session.auto_start = Off
-short_open_tag = Off
-
 # http://symfony.com/doc/current/performance.html
-opcache.enable=1
-opcache.enable_cli = 1
+opcache.enable=${PHP_OPCACHE_ENABLED}
+opcache.enable_cli=${PHP_OPCACHE_ENABLED_CLI}
 opcache.enable_file_override=0
 opcache.error_log=/proc/self/fd/2
 opcache.fast_shutdown=1
@@ -14,9 +9,3 @@ opcache.max_accelerated_files = 524521
 opcache.memory_consumption = 256
 opcache.revalidate_freq=0
 opcache.validate_timestamps=0
-
-realpath_cache_size = 4096K
-realpath_cache_ttl = 600
-
-post_max_size = 6M
-upload_max_filesize = 5M
