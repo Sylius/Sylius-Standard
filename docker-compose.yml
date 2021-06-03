@@ -5,6 +5,9 @@ services:
     build:
       context: .
       target: sylius_php
+      args:
+        - APP_ENV=${APP_ENV}
+        - PHP_DATE_TIMEZONE=${PHP_DATE_TIMEZONE}
     image: php:latest
     healthcheck:
         interval: 10s
