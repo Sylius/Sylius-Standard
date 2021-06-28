@@ -55,12 +55,6 @@
     "composer/package-versions-deprecated": {
         "version": "1.11.99.1"
     },
-    "composer/semver": {
-        "version": "1.4.2"
-    },
-    "composer/xdebug-handler": {
-        "version": "1.2.0"
-    },
     "container-interop/container-interop": {
         "version": "1.2.0"
     },
@@ -175,15 +169,6 @@
     "friends-of-behat/variadic-extension": {
         "version": "v1.1.0"
     },
-    "friendsofphp/php-cs-fixer": {
-        "version": "2.2",
-        "recipe": {
-            "repo": "github.com/symfony/recipes",
-            "branch": "master",
-            "version": "2.2",
-            "ref": "81dee417d2cc60cd1c9d6208dff2ec22a1103e93"
-        }
-    },
     "friendsofphp/proxy-manager-lts": {
         "version": "v1.0.3"
     },
@@ -225,9 +210,6 @@
     },
     "instaclick/php-webdriver": {
         "version": "1.4.5"
-    },
-    "jean85/pretty-package-versions": {
-        "version": "1.2"
     },
     "jms/metadata": {
         "version": "1.6.0"
@@ -352,17 +334,8 @@
             "ref": "5ef2976310e8f9621c1a722a73bfbe115c1559a3"
         }
     },
-    "nette/finder": {
-        "version": "v2.4.2"
-    },
     "nette/neon": {
         "version": "v3.2.2"
-    },
-    "nette/robot-loader": {
-        "version": "v3.0.4"
-    },
-    "nette/utils": {
-        "version": "v2.5.2"
     },
     "ocramius/package-versions": {
         "version": "1.3.0"
@@ -399,9 +372,6 @@
     },
     "php": {
         "version": "7.3"
-    },
-    "php-cs-fixer/diff": {
-        "version": "v1.3.0"
     },
     "php-http/client-common": {
         "version": "1.7.0"
@@ -510,9 +480,6 @@
     },
     "psr/log": {
         "version": "1.0.2"
-    },
-    "psr/simple-cache": {
-        "version": "1.0.1"
     },
     "ralouphie/getallheaders": {
         "version": "2.0.5"
@@ -955,17 +922,8 @@
     "symfony/yaml": {
         "version": "v4.1.3"
     },
-    "symplify/autowire-array-parameter": {
-        "version": "8.3.23"
-    },
-    "symplify/coding-standard": {
-        "version": "v4.6.1"
-    },
     "symplify/composer-json-manipulator": {
         "version": "v9.2.24"
-    },
-    "symplify/console-color-diff": {
-        "version": "8.3.23"
     },
     "symplify/console-package-builder": {
         "version": "v9.2.24"
@@ -976,23 +934,11 @@
     "symplify/easy-testing": {
         "version": "v9.2.24"
     },
-    "symplify/package-builder": {
-        "version": "v4.6.1"
-    },
     "symplify/rule-doc-generator-contracts": {
         "version": "v9.2.24"
     },
-    "symplify/set-config-resolver": {
-        "version": "v7.1.3"
-    },
     "symplify/skipper": {
         "version": "v9.2.24"
-    },
-    "symplify/smart-file-system": {
-        "version": "v7.1.3"
-    },
-    "symplify/symplify-kernel": {
-        "version": "8.3.48"
     },
     "textalk/websocket": {
         "version": "1.3.1"
