@@ -1,22 +1,23 @@
 # the different stages of this Dockerfile are meant to be built into separate images
 # https://docs.docker.com/compose/compose-file/#target
 
-ARG PHP_VERSION=7.4
+ARG PHP_VERSION=${PHP_VERSION:-7.4}
 ARG NODE_VERSION=10
-ARG NGINX_VERSION=1.16
+ARG NGINX_VERSION=1.17
 
 FROM php:${PHP_VERSION}-fpm-alpine AS sylius_php
 
 # persistent / runtime deps
 RUN apk add --no-cache \
         acl \
+        fcgi \
         file \
         gettext \
         git \
         mariadb-client \
     ;
 
-ARG APCU_VERSION=5.1.17
+ARG APCU_VERSION=5.1.18
 RUN set -eux; \
     apk add --no-cache --virtual .build-deps \
         $PHPIZE_DEPS \
@@ -33,6 +34,7 @@ RUN set -eux; \
     ; \
     \
     docker-php-ext-configure gd --with-jpeg=/usr/include/ --with-webp=/usr/include --with-freetype=/usr/include/; \
+    docker-php-ext-configure zip; \
     docker-php-ext-install -j$(nproc) \
         exif \
         gd \
@@ -59,19 +61,25 @@ RUN set -eux; \
     \
     apk del .build-deps
 COPY --from=composer:latest /usr/bin/composer /usr/bin/composer
-COPY docker/php/php.ini /usr/local/etc/php/php.ini
-COPY docker/php/php-cli.ini /usr/local/etc/php/php-cli.ini
+COPY docker/php/php.ini /usr/local/etc/php/php.tmp
+COPY docker/php/php-cli.ini /usr/local/etc/php/php-cli.tmp
+
+ARG PHP_DATE_TIMEZONE=${PHP_DATE_TIMEZONE:-UTC}
+RUN sh -c "envsubst < /usr/local/etc/php/php.tmp > /usr/local/etc/php/php.ini"
+RUN sh -c "envsubst < /usr/local/etc/php/php-cli.tmp > /usr/local/etc/php/php-cli.ini"
 
 # https://getcomposer.org/doc/03-cli.md#composer-allow-superuser
 ENV COMPOSER_ALLOW_SUPERUSER=1
+# install Symfony Flex globally to speed up download of Composer packages (parallelized prefetching)
 RUN set -eux; \
+    composer global require "symfony/flex" --prefer-dist --no-progress --classmap-authoritative; \
     composer clear-cache
 ENV PATH="${PATH}:/root/.composer/vendor/bin"
 
 WORKDIR /srv/sylius
 
 # build for production
-ARG APP_ENV=prod
+ARG APP_ENV=${APP_ENV}
 
 # prevent the reinstallation of vendors at every changes in the source code
 COPY composer.* symfony.lock ./
@@ -93,6 +101,7 @@ RUN set -eux; \
     composer dump-autoload --classmap-authoritative; \
     APP_SECRET='' composer run-script post-install-cmd; \
     chmod +x bin/console; sync; \
+    bin/console assets:install --no-interaction; \
     bin/console sylius:install:assets; \
     bin/console sylius:theme:assets:install public
 
@@ -100,6 +109,12 @@ VOLUME /srv/sylius/var
 
 VOLUME /srv/sylius/public/media
 
+COPY docker/php/docker-healthcheck.sh /usr/local/bin/docker-healthcheck
+RUN chmod +x /usr/local/bin/docker-healthcheck
+
+HEALTHCHECK --interval=10s --timeout=3s --retries=3 CMD ["docker-healthcheck"]
+
+COPY docker/php/sylius.conf /usr/local/etc/php-fpm.d/zzz-sylius.conf
 COPY docker/php/docker-entrypoint.sh /usr/local/bin/docker-entrypoint
 RUN chmod +x /usr/local/bin/docker-entrypoint
 

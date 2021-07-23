@@ -1,0 +1,27 @@
+[global]
+error_log = ${PHP_FPM_ERROR_LOG} ;/proc/self/fd/2
+log_buffering = yes
+log_level = ${PHP_FPM_LOG_LEVEL} ; notice
+
+[www]
+user = www-data
+group = www-data
+listen = ${PHP_FPM_WWW_LISTEN} ;:-9000
+; check how to tuning you php-fpm
+; https://tideways.com/profiler/blog/an-introduction-to-php-fpm-tuning
+;
+; | Setting           | Value                                                        |
+; | max_children      | (Total RAM – Memory used for Linux, DB, etc.) / process size |
+; | start_servers     | Number of CPU cores x 4                                      |
+; | min_spare_servers | Number of CPU cores x 2                                      |
+; | max_spare_servers | Same as start_servers                                        |
+pm = ${PHP_FPM_PM} ;dynamic
+pm.max_children = ${PHP_FPM_WWW_PM_MAX_CHILDREN} ; 16
+pm.start_servers = ${PHP_FPM_WWW_PM_START_SERVERS} ; 16
+pm.min_spare_servers = ${PHP_FPM_WWW_PM_MIN_SPARE_SERVERS} ; 8
+pm.max_spare_servers = ${PHP_FPM_WWW_PM_MAX_SPARE_SERVERS} ; 16
+pm.max_requests = ${PHP_FPM_WWW_PM_MAX_REQUESTS} ; 200
+pm.status_path = /status
+
+ping.path = /ping
+ping.response = pong

@@ -1,0 +1,12 @@
+version: '3.4'
+
+services:
+    setup:
+        image: sylius/server:latest
+        env_file:
+            - .env
+        depends_on:
+            - sylius
+        command: "php ./bin/console sylius:install"
+        volumes:
+            - public-media:/srv/sylius/public/media:rw
