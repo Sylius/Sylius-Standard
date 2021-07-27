@@ -5,6 +5,8 @@
                   xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping
                                       http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
 
-    <entity name="App\Entity\Product\ProductTranslation" table="sylius_product_translation"/>
+    <entity name="App\Entity\Product\ProductTranslation" table="sylius_product_translation">
+        <field name="color" type="string" column="color" length="50" nullable="true"/>
+    </entity>
 
 </doctrine-mapping>
