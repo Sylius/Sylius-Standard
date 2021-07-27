@@ -1,0 +1,10 @@
+sylius:
+    form:
+        product:
+            color: Color
+    product:
+        color:
+            none: None
+            red: Red
+            blue: Blue
+            green: Green
