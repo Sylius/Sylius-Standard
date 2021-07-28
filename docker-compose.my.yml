@@ -1,0 +1,33 @@
+version: '3.7'
+services:
+    application:
+        build:
+            context: ./docker
+        volumes:
+            - .:/var/www/html/symfony-study
+        ports:
+            - 88:80
+        depends_on:
+            - "mysql"
+        working_dir: /var/www/html/symfony-study
+    mysql:
+        image: percona:5.7
+        environment:
+            - MYSQL_ROOT_PASSWORD=123
+            - MYSQL_DATABASE=sylius
+            - MYSQL_USER=sylius
+            - MYSQL_PASSWORD=123
+        volumes:
+            - mysql-sylius-data:/var/lib/mysql:rw
+            # you may use a bind-mounted host directory instead, so that it is harder to accidentally remove the volume and lose all your data!
+            # - ./docker/mysql/data:/var/lib/mysql:rw,delegated
+        ports:
+            - "3336:3306"
+    nodejs:
+        image: node:14.7.0
+        volumes:
+            - .:/var/www/html/symfony-study
+        working_dir: /var/www/html/symfony-study
+volumes:
+    mysql-sylius-data:
+        external: true
