@@ -50,7 +50,7 @@
         "phpspec/phpspec": "^7.0",
         "phpstan/extension-installer": "^1.0",
         "phpstan/phpstan": "0.12.94",
-        "phpstan/phpstan-doctrine": "0.12.39",
+        "phpstan/phpstan-doctrine": "0.12.42",
         "phpstan/phpstan-webmozart-assert": "0.12.12",
         "phpunit/phpunit": "^8.5",
         "stripe/stripe-php": "^6.43",
