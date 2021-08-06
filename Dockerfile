@@ -1,8 +1,11 @@
 # the different stages of this Dockerfile are meant to be built into separate images
 # https://docs.docker.com/compose/compose-file/#target
 
-ARG PHP_VERSION=7.3
-ARG NODE_VERSION=10
+# You should allow Docker to use 3Gi of RAM if you want composer install to work
+# If you use docker desktop on mac : https://docs.docker.com/docker-for-mac/#advanced
+
+ARG PHP_VERSION=7.4
+ARG NODE_VERSION=12
 ARG NGINX_VERSION=1.16
 
 FROM php:${PHP_VERSION}-fpm-alpine AS sylius_php
@@ -32,8 +35,8 @@ RUN set -eux; \
 		zlib-dev \
 	; \
 	\
-	docker-php-ext-configure gd --with-jpeg-dir=/usr/include/ --with-png-dir=/usr/include --with-webp-dir=/usr/include --with-freetype-dir=/usr/include/; \
-	docker-php-ext-configure zip --with-libzip; \
+	docker-php-ext-configure gd --with-jpeg --with-webp --with-freetype; \
+	docker-php-ext-configure zip; \
 	docker-php-ext-install -j$(nproc) \
 		exif \
 		gd \
@@ -66,6 +69,8 @@ COPY docker/php/php-cli.ini /usr/local/etc/php/php-cli.ini
 
 # https://getcomposer.org/doc/03-cli.md#composer-allow-superuser
 ENV COMPOSER_ALLOW_SUPERUSER=1
+# https://getcomposer.org/doc/03-cli.md#composer-memory-limit
+ENV COMPOSER_MEMORY_LIMIT=-1
 RUN set -eux; \
 	composer clear-cache
 ENV PATH="${PATH}:/root/.composer/vendor/bin"
@@ -76,9 +81,9 @@ WORKDIR /srv/sylius
 ARG APP_ENV=prod
 
 # prevent the reinstallation of vendors at every changes in the source code
-COPY composer.json composer.lock symfony.lock ./
+COPY composer.json symfony.lock ./
 RUN set -eux; \
-	composer install --prefer-dist --no-autoloader --no-scripts --no-progress --no-suggest; \
+	composer install --prefer-dist --no-autoloader --no-scripts --no-progress; \
 	composer clear-cache
 
 # copy only specifically what we need
