@@ -1,9 +1,9 @@
 # the different stages of this Dockerfile are meant to be built into separate images
 # https://docs.docker.com/compose/compose-file/#target
 
-ARG PHP_VERSION=7.3
-ARG NODE_VERSION=10
-ARG NGINX_VERSION=1.16
+ARG PHP_VERSION=7.4
+ARG NODE_VERSION=12
+ARG NGINX_VERSION=1.21
 
 FROM php:${PHP_VERSION}-fpm-alpine AS sylius_php
 
@@ -32,8 +32,8 @@ RUN set -eux; \
 		zlib-dev \
 	; \
 	\
-	docker-php-ext-configure gd --with-jpeg-dir=/usr/include/ --with-png-dir=/usr/include --with-webp-dir=/usr/include --with-freetype-dir=/usr/include/; \
-	docker-php-ext-configure zip --with-libzip; \
+	docker-php-ext-configure gd --with-jpeg --with-webp --with-freetype; \
+	docker-php-ext-configure zip --with-zip; \
 	docker-php-ext-install -j$(nproc) \
 		exif \
 		gd \
