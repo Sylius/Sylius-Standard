@@ -153,6 +153,7 @@ jobs:
 
             -
                 name: Check coding standard
+                if: matrix.php != '7.4'
                 run: vendor/bin/ecs check src
 
             -   
