@@ -78,13 +78,8 @@ ARG APP_ENV=prod
 # prevent the reinstallation of vendors at every changes in the source code
 COPY composer.* symfony.lock ./
 RUN set -eux; \
-<<<<<<< HEAD
     composer install --prefer-dist --no-autoloader --no-scripts --no-progress; \
     composer clear-cache
-=======
-	composer install --prefer-dist --no-autoloader --no-scripts --no-progress; \
-	composer clear-cache
->>>>>>> 1.10
 
 # copy only specifically what we need
 COPY .env .env.prod .env.test .env.test_cached ./
