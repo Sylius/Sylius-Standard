@@ -10,13 +10,14 @@ FROM php:${PHP_VERSION}-fpm-alpine AS sylius_php
 # persistent / runtime deps
 RUN apk add --no-cache \
         acl \
+        fcgi \
         file \
         gettext \
         git \
         mariadb-client \
     ;
 
-ARG APCU_VERSION=5.1.17
+ARG APCU_VERSION=5.1.18
 RUN set -eux; \
 	apk add --no-cache --virtual .build-deps \
 		$PHPIZE_DEPS \
@@ -64,6 +65,12 @@ COPY --from=composer:latest /usr/bin/composer /usr/bin/composer
 COPY docker/php/php.ini /usr/local/etc/php/php.ini
 COPY docker/php/php-cli.ini /usr/local/etc/php/php-cli.ini
 
+RUN set -eux; \
+	{ \
+		echo '[www]'; \
+		echo 'ping.path = /ping'; \
+	} | tee /usr/local/etc/php-fpm.d/docker-healthcheck.conf
+
 # https://getcomposer.org/doc/03-cli.md#composer-allow-superuser
 ENV COMPOSER_ALLOW_SUPERUSER=1
 RUN set -eux; \
@@ -93,6 +100,7 @@ COPY translations translations/
 RUN set -eux; \
     mkdir -p var/cache var/log; \
     composer dump-autoload --classmap-authoritative; \
+    composer dump-env prod; \
     APP_SECRET='' composer run-script post-install-cmd; \
     chmod +x bin/console; sync; \
     bin/console sylius:install:assets; \
@@ -101,6 +109,11 @@ RUN set -eux; \
 VOLUME /srv/sylius/var
 
 VOLUME /srv/sylius/public/media
+
+COPY docker/php/docker-healthcheck.sh /usr/local/bin/docker-healthcheck
+RUN chmod +x /usr/local/bin/docker-healthcheck
+
+HEALTHCHECK --interval=10s --timeout=3s --retries=3 CMD ["docker-healthcheck"]
 
 COPY docker/php/docker-entrypoint.sh /usr/local/bin/docker-entrypoint
 RUN chmod +x /usr/local/bin/docker-entrypoint
