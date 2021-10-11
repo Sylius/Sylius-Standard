@@ -2,6 +2,7 @@
 # https://symfony.com/doc/current/best_practices/configuration.html#application-related-configuration
 parameters:
     locale: en_US
+    sylius.catalog_promotion.scope.by_phrase: !php/const App\Model\CatalogPromotionScopeInterface::TYPE_BY_PHRASE
 
 services:
     # Default configuration for services in *this* file
@@ -33,3 +34,29 @@ services:
     App\Controller\:
         resource: '../src/Controller'
         tags: ['controller.service_arguments']
+
+    Sylius\Bundle\CoreBundle\Validator\Constraints\CatalogPromotionScopeValidator:
+        arguments:
+            - [ 
+                !php/const Sylius\Component\Core\Model\CatalogPromotionScopeInterface::TYPE_FOR_TAXONS,
+                !php/const Sylius\Component\Core\Model\CatalogPromotionScopeInterface::TYPE_FOR_VARIANTS,
+                !php/const App\Model\CatalogPromotionScopeInterface::TYPE_BY_PHRASE
+            ]
+            - !tagged_iterator { tag: 'sylius.catalog_promotion.scope_validator', index_by: 'key' }
+        tags: 
+            - { name: 'validator.constraint_validator', alias: 'sylius_catalog_promotion_scope'}
+
+    App\Validator\CatalogPromotionScope\ByPhraseScopeValidator:
+        tags:
+            - { name: 'sylius.catalog_promotion.scope_validator', key: 'by_phrase' }
+    
+    App\Provider\ByPhraseVariantsProvider:
+        arguments:
+            - '@sylius.repository.product_variant'
+        tags:
+            - { name: 'sylius.catalog_promotion.variants_provider' }
+
+    App\Form\Type\CatalogPromotionScope\ByPhraseScopeConfigurationType:
+        tags:
+            - { name: 'sylius.catalog_promotion.scope_configuration_type', key: '%sylius.catalog_promotion.scope.by_phrase%' }
+            - { name: 'form.type' }
