@@ -14,27 +14,44 @@ services:
         creds:
             database: sylius_dev
         host: database
-        port: 3306
     appserver:
+        # for behat config
+        host: appserver
         build_as_root:
-            # libraries needed to use refund plugin
+            # libraries needed if you use refund plugin
 #            - apt-get install zlib1g fontconfig libxrender1 libfreetype6 libxext6 libx11-6 libjpeg62-turbo-dev libjpeg-dev -y
 #            - cp .lando/bin/wkhtmltopdf .lando/bin/wkhtmltoimage /usr/local/bin
         run_as_root:
-            - apt update -y
-            - apt install vim -y
+            - lando/scripts/entrypoint.sh
+            - apt-get update -y
+#            uncomment to run behat JS
+#            - curl -sS https://get.symfony.com/cli/installer | bash
+#            - mv /root/.symfony/bin/symfony /usr/local/bin/symfony
+#            - symfony server:ca:install
+#            - APP_ENV=test symfony server:start --port=8080 --dir=public --allow-http --force-php-discovery -d
         overrides:
             environment:
-                #to debug served app
                 LANDO_HOST_IP: "host.docker.internal"
                 XDEBUG_CONFIG: "remote_enable=1 remote_host=host.docker.internal"
-                # to debug scripts
                 PHP_IDE_CONFIG: "serverName=sylius_standard.lndo.site"
                 PHP_INI_XDEBUG__REMOTE_PORT: "9003"
             extra_hosts:
                 - ${LANDO_HOST_IP_DEV:-host}:host-gateway
     node:
         type: node
+#   uncomment to run behat JS
+#    chrome:
+#        host: chrome
+#        portforward: true
+#        type: compose
+#        services:
+#            image: alpeware/chrome-headless-trunk
+#            command: /usr/bin/google-chrome-unstable \
+#                --disable-gpu --headless --no-sandbox --window-size=1440,900 \
+#                --remote-debugging-address=0.0.0.0 \
+#                --remote-debugging-port=9222 --user-data-dir=/data
+#            ports:
+#                - '9222:9222'
         
 tooling:
     behat:
