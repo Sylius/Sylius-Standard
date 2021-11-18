@@ -4,6 +4,10 @@ parameters:
     locale: en_US
 
 services:
+    app.form.extension.type.product:
+        class: App\Form\Extension\ProductTypeExtension
+        tags:
+            - { name: form.type_extension, extended_type: Sylius\Bundle\ProductBundle\Form\Type\ProductType }
     # Default configuration for services in *this* file
     _defaults:
         # Automatically injects dependencies in your services
