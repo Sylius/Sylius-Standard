@@ -5,4 +5,5 @@ App\Entity\Product\Product:
         color:
             type: string
             length: 255
-            nullable: true
+            options:
+                default: 'Red'
