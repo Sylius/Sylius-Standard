@@ -1,0 +1,8 @@
+App\Entity\Product\Product:
+    type: entity
+    table: sylius_product
+    fields:
+        color:
+            type: string
+            length: 255
+            nullable: true
