@@ -31,6 +31,7 @@
         "symfony/flex": "^1.11"
     },
     "conflict": {
+        "doctrine/dbal": "^3",
         "symfony/form": "4.4.11 || 4.4.12"
     },
     "require-dev": {
