@@ -12,6 +12,7 @@ class ProductTypeExtension extends AbstractTypeExtension {
     {
         $builder->add('color', ChoiceType::class, [
             'required' => false,
+            'multiple' => false,
             'label' => 'Color',
             'choices'  => [
                 'Red' => 'red',
