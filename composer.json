@@ -31,7 +31,8 @@
         "symfony/flex": "^1.11"
     },
     "conflict": {
-        "symfony/form": "4.4.11 || 4.4.12"
+        "symfony/form": "4.4.11 || 4.4.12",
+        "symfony/password-hasher": "^6.0"
     },
     "require-dev": {
         "behat/behat": "^3.7",
@@ -71,7 +72,8 @@
             "dev-master": "1.9-dev"
         },
         "symfony": {
-            "allow-contrib": false
+            "allow-contrib": false,
+            "require": "5.3.*"
         }
     },
     "autoload": {
