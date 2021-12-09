@@ -1,0 +1,16 @@
+---------------------------------------------------------------------------
+
+by jakubtobiasz at 2021-12-09T16:53:08Z
+
+@lchrusciel I've enabled Sylius API in `services_test.yaml`. I think it's the best place because we achieve passed tests along with Sylius API disabled by default in an app.
+
+I've run all tests on my fork and every one passed.
+
+edit:
+By the way I'd like to mention I've created a similar PR for PluginSkeleton https://github.com/Sylius/PluginSkeleton/pull/300.
+
+---------------------------------------------------------------------------
+
+by lchrusciel at 2021-12-09T21:01:42Z
+
+Thanks, Jakub! :1st_place_medal:
