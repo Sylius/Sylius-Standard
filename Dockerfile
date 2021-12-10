@@ -117,7 +117,7 @@ RUN set -eux; \
 		gcc \
 		git \
 		make \
-		python \
+		python2 \
 	;
 
 # prevent the reinstallation of vendors at every changes in the source code
