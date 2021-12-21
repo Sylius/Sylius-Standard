@@ -25,6 +25,7 @@
     ],
     "require": {
         "php": "^7.4 || ^8.0",
+        "doctrine/dbal": "^2.7",
         "sylius/paypal-plugin": "^1.2.1",
         "sylius/sylius": "^1.10",
         "symfony/dotenv": "^4.4 || ^5.2",
