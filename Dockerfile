@@ -113,13 +113,13 @@ FROM node:${NODE_VERSION}-alpine AS sylius_node
 WORKDIR /srv/sylius
 
 RUN set -eux; \
-    apk add --no-cache --virtual .build-deps \
-        g++ \
-        gcc \
-        git \
-        make \
-        python \
-    ;
+	apk add --no-cache --virtual .build-deps \
+		g++ \
+		gcc \
+		git \
+		make \
+		python2 \
+	;
 
 # prevent the reinstallation of vendors at every changes in the source code
 COPY package.json yarn.lock ./
