@@ -5,11 +5,12 @@ services:
     build:
       context: .
       target: sylius_php
-      cache_from:
-        - quay.io/sylius/php:latest
-        - quay.io/sylius/nodejs:latest
-        - quay.io/sylius/nginx:latest
-    image: quay.io/sylius/php:latest
+        # Quay does not work, should be replaced in future with f.e. ghcr.io
+        # cache_from:
+        #   - quay.io/sylius/php:latest
+        #   - quay.io/sylius/nodejs:latest
+        #   - quay.io/sylius/nginx:latest
+    image: php:latest
     depends_on:
       - mysql
     environment:
@@ -42,15 +43,16 @@ services:
     ports:
       - "3306:3306"
 
-  nodejs:
+  node:
     build:
       context: .
-      target: sylius_nodejs
-      cache_from:
-        - quay.io/sylius/php:latest
-        - quay.io/sylius/nodejs:latest
-        - quay.io/sylius/nginx:latest
-    image: quay.io/sylius/nodejs:latest
+      target: sylius_node
+      # Quay does not work, should be replaced in future with f.e. ghcr.io
+      # cache_from:
+      #   - quay.io/sylius/php:latest
+      #   - quay.io/sylius/nodejs:latest
+      #   - quay.io/sylius/nginx:latest
+    image: node:latest
     depends_on:
       - php
     environment:
@@ -67,14 +69,15 @@ services:
     build:
       context: .
       target: sylius_nginx
-      cache_from:
-        - quay.io/sylius/php:latest
-        - quay.io/sylius/nodejs:latest
-        - quay.io/sylius/nginx:latest
-    image: quay.io/sylius/nginx:latest
+    image: nginx:latest
+      # Quay does not work, should be replaced in future with f.e. ghcr.io
+      # cache_from:
+      #   - quay.io/sylius/php:latest
+      #   - quay.io/sylius/nodejs:latest
+      #   - quay.io/sylius/nginx:latest
     depends_on:
       - php
-      - nodejs # to ensure correct build order
+      - node # to ensure correct build order
     volumes:
       - ./public:/srv/sylius/public:ro
       # if you develop on Linux, you may use a bind-mounted host directory instead
