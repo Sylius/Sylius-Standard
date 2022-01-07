@@ -34,7 +34,3 @@ services:
         resource: '../src/Controller'
         tags: ['controller.service_arguments']
 
-    app.form.extension.type.product:
-        class: App\Form\Extension\CountryTypeExtension
-        tags:
-            - { name: form.type_extension, extended_type: Sylius\Bundle\ProductBundle\Form\Type\ProductType, priority: -5 }
