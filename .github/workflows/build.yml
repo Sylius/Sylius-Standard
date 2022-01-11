@@ -156,10 +156,6 @@ jobs:
                 name: Run PHPStan
                 run: vendor/bin/phpstan analyse -c phpstan.neon -l max src/
 
-            -   
-                name: Validate database schema
-                run: bin/console doctrine:schema:validate
-
             -
                 name: Run PHPSpec
                 run: vendor/bin/phpspec run --ansi -f progress --no-interaction
