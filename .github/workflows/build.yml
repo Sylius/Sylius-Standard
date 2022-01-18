@@ -136,6 +136,10 @@ jobs:
                 run: bin/console cache:warmup -vvv
 
             -
+                name: Prepare Messenger transport (Doctrine)
+                run: bin/console messenger:setup-transports -vvv
+
+            -
                 name: Load fixtures
                 run: bin/console sylius:fixtures:load -n
 
@@ -155,6 +159,10 @@ jobs:
             -   
                 name: Run PHPStan
                 run: vendor/bin/phpstan analyse -c phpstan.neon -l max src/
+
+            -
+                name: Validate database schema
+                run: bin/console doctrine:schema:validate
 
             -
                 name: Run PHPSpec
