@@ -1,0 +1,19 @@
+---------------------------------------------------------------------------
+
+by rimas-kudelis at 2022-01-19T08:58:23Z
+
+@loic425 I forgot to remove 4.4 from the build workflow . I guess that's why these builds were failing.
+
+---------------------------------------------------------------------------
+
+by rimas-kudelis at 2022-01-21T16:16:37Z
+
+This will be the first part then. The branch name used for this PR doesn't make much sense now, but let's say it doesn't matter. :smiley:
+
+One thing I'm still not sure of is whether to keep `dev-master` branch alias at `1.11-dev` or `1.12-dev`.
+
+---------------------------------------------------------------------------
+
+by lchrusciel at 2022-01-25T09:36:48Z
+
+Thank you, Rimas! :1st_place_medal:
