@@ -24,7 +24,7 @@
         }
     ],
     "require": {
-        "php": "^7.4 || ^8.0",
+        "php": "^8.0",
         "sylius/paypal-plugin": "^1.2.1",
         "sylius/sylius": "^1.11@dev",
         "symfony/dotenv": "^4.4 || ^5.2",
@@ -69,7 +69,7 @@
     },
     "extra": {
         "branch-alias": {
-            "dev-master": "1.10-dev"
+            "dev-master": "1.11-dev"
         },
         "symfony": {
             "allow-contrib": false
