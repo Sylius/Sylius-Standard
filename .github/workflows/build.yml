@@ -23,15 +23,11 @@ jobs:
         strategy:
             fail-fast: false
             matrix:
-                php: ["7.4", "8.0"]
-                symfony: ["^4.4", "^5.2"]
-                node: ["10.x"]
+                php: ["8.0"]
+                symfony: ["^5.4"]
+                node: ["14.x"]
                 mysql: ["5.7", "8.0"]
 
-                exclude:
-                    -
-                        php: "7.4"
-                        mysql: "5.7"
         env:
             APP_ENV: test_cached
             DATABASE_URL: "mysql://root:root@127.0.0.1/sylius?serverVersion=${{ matrix.mysql }}"
@@ -140,6 +136,10 @@ jobs:
                 run: bin/console cache:warmup -vvv
 
             -
+                name: Prepare Messenger transport (Doctrine)
+                run: bin/console messenger:setup-transports -vvv
+
+            -
                 name: Load fixtures
                 run: bin/console sylius:fixtures:load -n
 
@@ -160,7 +160,7 @@ jobs:
                 name: Run PHPStan
                 run: vendor/bin/phpstan analyse -c phpstan.neon -l max src/
 
-            -   
+            -
                 name: Validate database schema
                 run: bin/console doctrine:schema:validate
 
@@ -172,13 +172,17 @@ jobs:
                 name: Run PHPUnit
                 run: vendor/bin/phpunit --colors=always
 
+            -
+                name: Run managing catalog promotion scenarios
+                run: vendor/bin/behat --colors --strict --no-interaction -vvv -f progress --tags="~@javascript&&~@todo&&~@cli&&@managing_catalog_promotions"
+
             -   
-                name: Run non-JS Behat
-                run: vendor/bin/behat --colors --strict --no-interaction -vvv -f progress --tags="~@javascript && ~@todo && ~@cli"
+                name: Run non-JS Behat (without managing catalog promotion scenarios)
+                run: vendor/bin/behat --colors --strict --no-interaction -vvv -f progress --tags="~@javascript&&~@todo&&~@cli&&@~managing_catalog_promotions"
             
             -
                 name: Run JS Behat
-                run: vendor/bin/behat --colors --strict --no-interaction -vvv -f progress --tags="@javascript && ~@todo && ~@cli" || vendor/bin/behat --colors --strict --no-interaction -vvv -f progress --tags="@javascript && ~@todo && ~@cli" --rerun || vendor/bin/behat --colors --strict --no-interaction -vvv -f progress --tags="@javascript && ~@todo && ~@cli" --rerun
+                run: vendor/bin/behat --colors --strict --no-interaction -vvv -f progress --tags="@javascript&&~@todo&&~@cli" || vendor/bin/behat --colors --strict --no-interaction -vvv -f progress --tags="@javascript&&~@todo&&~@cli" --rerun || vendor/bin/behat --colors --strict --no-interaction -vvv -f progress --tags="@javascript&&~@todo&&~@cli" --rerun
 
             -
                 name: Upload Behat logs
