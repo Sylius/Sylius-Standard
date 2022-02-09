@@ -586,6 +586,9 @@
     "sylius-labs/polyfill-symfony-security": {
         "version": "v1.0.0"
     },
+    "sylius/calendar": {
+        "version": "v0.3.0"
+    },
     "sylius/fixtures-bundle": {
         "version": "v1.4.1"
     },
