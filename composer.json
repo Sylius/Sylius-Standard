@@ -26,7 +26,7 @@
     "require": {
         "php": "^8.0",
         "sylius/paypal-plugin": "^1.2.1",
-        "sylius/sylius": "^1.11@beta",
+        "sylius/sylius": "^1.11",
         "symfony/dotenv": "^5.4",
         "symfony/flex": "^2.1"
     },
