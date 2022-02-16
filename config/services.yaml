@@ -1,3 +1,7 @@
+imports:
+#    - { resource: 'fixtures/fixture_services.xml' }
+    - { resource: 'fixtures/color.yaml' }
+
 # Put parameters here that don't need to change on each machine where the app is deployed
 # https://symfony.com/doc/current/best_practices/configuration.html#application-related-configuration
 parameters:
@@ -33,3 +37,9 @@ services:
     App\Controller\:
         resource: '../src/Controller'
         tags: ['controller.service_arguments']
+        
+    App\Fixture\Factory\ProductAttributeColorFactory:
+        arguments: ['@sylius.factory.product_attribute', '@sylius.repository.product_attribute']
+        tags: ['sylius_fixtures.fixture']
+        autowire: false
+        

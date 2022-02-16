@@ -1,0 +1,5 @@
+sylius_fixtures:
+    suites:
+        custom_product_attributes:
+            fixtures:
+                colorSelect: ~
