@@ -1,0 +1,7 @@
+color:
+    label: Color
+
+colors:
+    red: Red
+    green: Green
+    blue: Blue

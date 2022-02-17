@@ -33,3 +33,8 @@ services:
     App\Controller\:
         resource: '../src/Controller'
         tags: ['controller.service_arguments']
+
+    App\Form\Type\ProductType:
+        tags: [ 'form.type' ]
+        arguments:
+            - 'App\Entity\Product\Product'

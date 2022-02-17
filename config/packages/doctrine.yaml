@@ -18,9 +18,13 @@ doctrine:
             default:
                 auto_mapping: true
                 mappings:
+                    xml:
+                        is_bundle: false
+                        type: xml
+                        dir: '%kernel.project_dir%/config/doctrine/Product'
+                        prefix: 'App\Entity\Product'
                     App:
                         is_bundle: false
                         type: annotation
                         dir: '%kernel.project_dir%/src/Entity'
                         prefix: 'App\Entity'
-                        alias: App

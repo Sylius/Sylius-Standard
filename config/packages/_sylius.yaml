@@ -28,18 +28,6 @@ sylius_addressing:
             classes:
                 model: App\Entity\Addressing\ZoneMember
 
-sylius_attribute:
-    resources:
-        product:
-            attribute:
-                classes:
-                    model: App\Entity\Product\ProductAttribute
-                translation:
-                    classes:
-                        model: App\Entity\Product\ProductAttributeTranslation
-            attribute_value:
-                classes:
-                    model: App\Entity\Product\ProductAttributeValue
 
 sylius_channel:
     resources:
@@ -48,15 +36,9 @@ sylius_channel:
                 model: App\Entity\Channel\Channel
 sylius_core:
     resources:
-        product_image:
-            classes:
-                model: App\Entity\Product\ProductImage
         taxon_image:
             classes:
                 model: App\Entity\Taxonomy\TaxonImage
-        product_taxon:
-            classes:
-                model: App\Entity\Product\ProductTaxon
         channel_pricing:
             classes:
                 model: App\Entity\Channel\ChannelPricing
@@ -129,36 +111,7 @@ sylius_product:
         product:
             classes:
                 model: App\Entity\Product\Product
-            translation:
-                classes:
-                    model: App\Entity\Product\ProductTranslation
-        product_variant:
-            classes:
-                model: App\Entity\Product\ProductVariant
-            translation:
-                classes:
-                    model: App\Entity\Product\ProductVariantTranslation
-        product_option:
-            classes:
-                model: App\Entity\Product\ProductOption
-            translation:
-                classes:
-                    model: App\Entity\Product\ProductOptionTranslation
-        product_option_value:
-            classes:
-                model: App\Entity\Product\ProductOptionValue
-            translation:
-                classes:
-                    model: App\Entity\Product\ProductOptionValueTranslation
-        product_association:
-            classes:
-                model: App\Entity\Product\ProductAssociation
-        product_association_type:
-            classes:
-                model: App\Entity\Product\ProductAssociationType
-            translation:
-                classes:
-                    model: App\Entity\Product\ProductAssociationTypeTranslation
+                form: App\Form\Type\ProductType
 
 sylius_promotion:
     resources:
@@ -175,12 +128,6 @@ sylius_promotion:
             classes:
                 model: App\Entity\Promotion\PromotionCoupon
 
-sylius_review:
-    resources:
-        product:
-            review:
-                classes:
-                    model: App\Entity\Product\ProductReview
 
 sylius_shipping:
     resources:
