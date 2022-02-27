@@ -46,7 +46,7 @@ jobs:
                 with:
                     php-version: "${{ matrix.php }}"
                     extensions: intl, mbstring
-                    tools: symfony
+                    tools: symfony, composer-unused
                     coverage: none
 
             -
@@ -123,6 +123,10 @@ jobs:
             -
                 name: Install PHP dependencies
                 run: composer install --no-interaction
+
+            -
+                name: Check for unused dependencies
+                run: composer-unused -o github
 
             -
                 name: Get Yarn cache directory
