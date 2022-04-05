@@ -10,14 +10,6 @@ use Sylius\Bundle\FixturesBundle\Fixture\FixtureInterface;
 
 class ProductAttributeFixtures extends AbstractFixture implements FixtureInterface
 {
-    private const ATTRIBUTE_NAME = 'Product color';
-    private const ATTRIBUTE_CODE = 'product_color';
-    private const ATTRIBUTE_VALUES = [
-        ProductAttribute::COLOR_RED,
-        ProductAttribute::COLOR_BLUE,
-        ProductAttribute::COLOR_GREEN,
-    ];
-
     private ObjectManager $manager;
     private AttributeFactoryInterface $attributeFactory;
     private FactoryInterface $attributeValueFactory;
@@ -49,8 +41,8 @@ class ProductAttributeFixtures extends AbstractFixture implements FixtureInterfa
     private function createAttribute(): AttributeInterface
     {
         $attribute = ($this->attributeFactory->createTyped('select'))
-            ->setName(self::ATTRIBUTE_NAME)
-            ->setCode(self::ATTRIBUTE_CODE);
+            ->setName(ProductAttribute::COLOR['name'])
+            ->setCode(ProductAttribute::COLOR['code']);
         $this->manager->persist($attribute);
 
         return $attribute;
@@ -58,7 +50,7 @@ class ProductAttributeFixtures extends AbstractFixture implements FixtureInterfa
 
     private function createAttributeValues(AttributeInterface $attribute): void
     {
-        foreach (self::ATTRIBUTE_VALUES as $value) {
+        foreach (ProductAttribute::COLOR['values'] as $value) {
             $color = ($this->attributeValueFactory->createNew())
                 ->setAttribute($attribute)
                 ->setValue($value);

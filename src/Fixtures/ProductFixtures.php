@@ -36,7 +36,7 @@ class ProductFixtures extends AbstractFixture implements FixtureInterface
     private function createProduct(): void
     {
         $product = ($this->productFactory->createNew())
-            ->setName('T-Shirt')
+            ->setName('Fake T-Shirt')
             ->setSlug('t-shirt')
             ->setCode('00001');
 
@@ -50,6 +50,6 @@ class ProductFixtures extends AbstractFixture implements FixtureInterface
     private function getColorAttribute(): ?AttributeValueInterface
     {
         return $this->manager->getRepository(ProductAttribute::class)
-            ->findOneBy(['code' => 'product_color']);
+            ->findOneBy(['code' => ProductAttribute::COLOR['code']]);
     }
 }

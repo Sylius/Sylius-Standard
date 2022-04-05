@@ -14,9 +14,15 @@ use Sylius\Component\Product\Model\ProductAttribute as BaseProductAttribute;
  */
 class ProductAttribute extends BaseProductAttribute
 {
-    public const COLOR_RED = 1;
-    public const COLOR_BLUE = 2;
-    public const COLOR_GREEN = 3;
+    public const COLOR = [
+        'name' => 'Product color',
+        'code' => 'product_color',
+        'values' => [
+            'red',
+            'green',
+            'blue',
+        ],
+    ];
 
     protected function createTranslation(): AttributeTranslationInterface
     {
