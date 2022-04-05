@@ -247,3 +247,6 @@ sylius_fixtures:
                 product_attribute:
                     priority: 1
                     options: ~
+                product:
+                    priority: 0
+                    options: ~
