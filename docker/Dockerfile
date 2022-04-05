@@ -16,7 +16,7 @@ RUN pecl install -o -f amqp \
     &&  docker-php-ext-enable amqp
 
 COPY --from=symfonycorp/cli:v4.21.6 /symfony /symfony
-COPY --from=composer:2.1 /usr/bin/composer /usr/bin/composer
+COPY --from=composer:2.0.8 /usr/bin/composer /usr/bin/composer
 
 RUN docker-php-ext-install exif
 #COPY php.ini "$PHP_INI_DIR/php.ini"
@@ -59,10 +59,10 @@ COPY docker/vhost.conf /etc/apache2/sites-available/symfony-study.conf
 ENTRYPOINT ["docker-entrypoint"]
 CMD ["php-fpm"]
 
-RUN a2ensite symfony-study
+#RUN a2ensite symfony-study
 
 
-FROM node:${NODE_VERSION}-alpine AS sylius_node
+FROM node:${NODE_VERSION}-alpine
 
 #WORKDIR /srv/sylius
 WORKDIR /var/www/html/symfony-study
