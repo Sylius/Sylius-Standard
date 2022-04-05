@@ -239,3 +239,11 @@ sylius_theme:
             scan_depth: 1
             directories:
                 - "%kernel.project_dir%/themes"
+
+sylius_fixtures:
+    suites:
+        dev:
+            fixtures:
+                product_attribute:
+                    priority: 1
+                    options: ~
