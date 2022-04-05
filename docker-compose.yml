@@ -1,33 +1,35 @@
-version: '3.7'
+version: "3.1"
 services:
-    application:
-        build:
-            context: ./
-        volumes:
-            - .:/var/www/html/symfony-study
+    sylius-webserver:
+        build: docker/webserver
+        container_name: sylius-webserver
         ports:
-            - 80:80
-        depends_on:
-            - "mysql"
-        working_dir: /var/www/html/symfony-study
-    mysql:
-        image: percona:5.7
-        environment:
-            - MYSQL_ROOT_PASSWORD=123
-            - MYSQL_DATABASE=sylius
-            - MYSQL_USER=sylius
-            - MYSQL_PASSWORD=123
+            - "8002:80"
         volumes:
-            - mysql-sylius-data:/var/lib/mysql:rw
-            # you may use a bind-mounted host directory instead, so that it is harder to accidentally remove the volume and lose all your data!
-            # - ./docker/mysql/data:/var/lib/mysql:rw,delegated
+            - .:/var/www/sylius
+            - sylius-var:/var/www/sylius/var
+            - ./docker/webserver/nginx.conf:/etc/nginx/sites-available/default
+            - ./docker/webserver/php.ini:/etc/php/8/fpm/conf.d/99-overrides.ini
+        networks:
+            sylius:
+                aliases:
+                    - sylius.local
+
+    sylius-database:
+        build: docker/database
+        container_name: sylius-database
         ports:
-            - "3306:3306"
-    nodejs:
-        image: node:14.7.0
+            - "8007:5432"
         volumes:
-            - .:/var/www/html/symfony-study
-        working_dir: /var/www/html/symfony-study
+            - sylius-database-postgres:/var/lib/postgresql
+            - ./docker/database/pg_hba.conf:/etc/postgresql/11/main/pg_hba.conf
+            - ./docker/database/postgresql.conf:/etc/postgresql/11/main/postgresql.conf
+        networks:
+            - sylius
+
 volumes:
-    mysql-sylius-data:
-        external: true
+    sylius-var:
+    sylius-database-postgres:
+
+networks:
+    sylius:
