@@ -38,6 +38,8 @@ $ php bin/console server:start
 $ open http://localhost:8000/
 ```
 
+For more detailed instruction please visit [installation chapter in our docs](https://docs.sylius.com/en/1.10/book/installation/installation.html).
+
 Troubleshooting
 ---------------
 
