@@ -1,0 +1,17 @@
+---------------------------------------------------------------------------
+
+by Roshyo at 2022-04-07T05:57:23Z
+
+But doesn't the messenger part require a command line to install and configure DB tables ?
+
+---------------------------------------------------------------------------
+
+by lchrusciel at 2022-04-07T08:04:57Z
+
+@Roshyo we are fine. It may be done by command line, but Symfony messenger will take care of it during initialization
+
+---------------------------------------------------------------------------
+
+by Zales0123 at 2022-04-13T10:30:58Z
+
+Thank you, Łukasz! :tada:
