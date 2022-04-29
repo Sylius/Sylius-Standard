@@ -26,7 +26,7 @@
     "require": {
         "php": "^8.0",
         "sylius/paypal-plugin": "^1.2.1",
-        "sylius/sylius": "^1.11",
+        "sylius/sylius": "dev-master",
         "symfony/dotenv": "^5.4",
         "symfony/flex": "^2.1"
     },
@@ -62,7 +62,13 @@
         "preferred-install": {
             "*": "dist"
         },
-        "sort-packages": true
+        "sort-packages": true,
+        "allow-plugins": {
+            "phpstan/extension-installer": true,
+            "dealerdirect/phpcodesniffer-composer-installer": true,
+            "symfony/flex": true,
+            "symfony/thanks": true
+        }
     },
     "extra": {
         "branch-alias": {
