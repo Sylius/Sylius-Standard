@@ -3,12 +3,7 @@ services:
     build:
       context: .
       target: sylius_php
-        # Quay does not work, should be replaced in future with f.e. ghcr.io
-        # cache_from:
-        #   - quay.io/sylius/php:latest
-        #   - quay.io/sylius/nodejs:latest
-        #   - quay.io/sylius/nginx:latest
-    image: php:latest
+    platform: linux/amd64
     depends_on:
       - mysql
     environment:
@@ -40,18 +35,13 @@ services:
       # you may use a bind-mounted host directory instead, so that it is harder to accidentally remove the volume and lose all your data!
       # - ./docker/mysql/data:/var/lib/mysql:rw,delegated
     ports:
-      - "3306:3306"
+      - 3306:3306
 
   node:
     build:
       context: .
       target: sylius_node
-      # Quay does not work, should be replaced in future with f.e. ghcr.io
-      # cache_from:
-      #   - quay.io/sylius/php:latest
-      #   - quay.io/sylius/nodejs:latest
-      #   - quay.io/sylius/nginx:latest
-    image: node:latest
+    platform: linux/amd64
     depends_on:
       - php
     environment:
@@ -61,19 +51,11 @@ services:
     volumes:
       - .:/srv/sylius:rw,cached
       - ./public:/srv/sylius/public:rw,delegated
-    ports:
-      - "35729:35729"
 
   nginx:
     build:
       context: .
       target: sylius_nginx
-    image: nginx:latest
-      # Quay does not work, should be replaced in future with f.e. ghcr.io
-      # cache_from:
-      #   - quay.io/sylius/php:latest
-      #   - quay.io/sylius/nodejs:latest
-      #   - quay.io/sylius/nginx:latest
     depends_on:
       - php
       - node # to ensure correct build order
@@ -83,7 +65,7 @@ services:
       # - ./public/media:/srv/sylius/public/media:ro
       - public-media:/srv/sylius/public/media:ro,nocopy
     ports:
-      - "80:80"
+      - 80:80
 
   mailhog:
     # do not use in production!
@@ -93,7 +75,7 @@ services:
     # volumes:
     #   - ./docker/mailhog/maildir:/maildir:rw,delegated
     ports:
-      - "8025:8025"
+      - 8025:8025
 
 volumes:
   mysql-data:

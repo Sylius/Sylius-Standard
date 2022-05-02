@@ -3,6 +3,7 @@ services:
     build:
       context: .
       target: sylius_php
+    platform: linux/amd64
     depends_on:
       - mysql
     environment:
