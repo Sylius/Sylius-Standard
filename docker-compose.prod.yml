@@ -1,8 +1,8 @@
-version: '3.4'
-
 services:
   php:
-    image: quay.io/sylius/php:latest
+    build:
+      context: .
+      target: sylius_php
     depends_on:
       - mysql
     environment:
@@ -20,7 +20,7 @@ services:
 
   mysql:
     # in production, we may want to use a managed database service
-    image: percona:5.7
+    image: mysql:5.7
     environment:
       - MYSQL_ROOT_PASSWORD=${MYSQL_ROOT_PASSWORD:?MYSQL_ROOT_PASSWORD is not set or empty}
       - MYSQL_DATABASE=sylius_prod
@@ -32,11 +32,11 @@ services:
 
   nginx:
     # in production, we may want to use a static website hosting service
-    image: quay.io/sylius/nginx:latest
+    image: nginx:1.21
     depends_on:
       - php
     volumes:
       # use a bind-mounted host directory, as we want to keep the media
       - ./public/media:/srv/sylius/public/media:ro
     ports:
-      - "80:80"
+      - 80:80

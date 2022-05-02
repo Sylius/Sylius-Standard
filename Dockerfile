@@ -2,7 +2,7 @@
 # https://docs.docker.com/compose/compose-file/#target
 
 ARG PHP_VERSION=8.0
-ARG NODE_VERSION=14
+ARG NODE_VERSION=13
 ARG NGINX_VERSION=1.21
 
 FROM php:${PHP_VERSION}-fpm-alpine AS sylius_php
