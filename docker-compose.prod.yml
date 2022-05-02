@@ -31,9 +31,27 @@ services:
       # use a bind-mounted host directory, because we never want to lose our data!
       - ./docker/mysql/data:/var/lib/mysql:rw,delegated
 
+  node:
+    build:
+      context: .
+      target: sylius_node
+    command: ["yarn", "build"]
+    platform: linux/amd64
+    depends_on:
+      - php
+    environment:
+      - GULP_ENV=dev
+      - PHP_HOST=php
+      - PHP_PORT=9000
+    volumes:
+      - .:/srv/sylius:rw,cached
+      - ./public:/srv/sylius/public:rw,delegated
+
   nginx:
     # in production, we may want to use a static website hosting service
-    image: nginx:1.21
+    build:
+      context: .
+      target: sylius_nginx
     depends_on:
       - php
     volumes:
