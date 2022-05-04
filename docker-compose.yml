@@ -54,6 +54,7 @@ services:
       #   - quay.io/sylius/nodejs:latest
       #   - quay.io/sylius/nginx:latest
     image: node:latest
+    command: ["yarn", "watch"]
     depends_on:
       - php
     environment:

@@ -142,7 +142,7 @@ COPY docker/node/docker-entrypoint.sh /usr/local/bin/docker-entrypoint
 RUN chmod +x /usr/local/bin/docker-entrypoint
 
 ENTRYPOINT ["docker-entrypoint"]
-CMD ["yarn", "watch"]
+CMD ["yarn", "build"]
 
 FROM nginx:${NGINX_VERSION}-alpine AS sylius_nginx
 
