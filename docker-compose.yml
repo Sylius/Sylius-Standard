@@ -30,7 +30,7 @@ services:
       - public-media:/srv/sylius/public/media:rw
 
   mysql:
-    image: percona:5.7
+    image: mysql:5.7 # Sylius is fully working on mysql 8.0 version
     platform: linux/amd64
     environment:
       - MYSQL_ROOT_PASSWORD=${MYSQL_ROOT_PASSWORD:-nopassword}
