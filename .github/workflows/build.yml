@@ -129,7 +129,7 @@ jobs:
                 name: Prepare test application assets
                 run: |
                     bin/console assets:install public -vvv
-                    yarn build
+                    GULP_ENV=prod yarn build
 
             -
                 name: Prepare test application cache
