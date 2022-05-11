@@ -1,0 +1,2 @@
+Maintenance: ['etc/', '.github/', '*.md']
+Docker: ['docker/', '.docker/', 'Dockerfile', 'docker-compose.*']
