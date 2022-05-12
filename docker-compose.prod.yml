@@ -20,7 +20,7 @@ services:
 
   mysql:
     # in production, we may want to use a managed database service
-    image: percona:5.7
+    image: mysql:5.7 # Sylius is fully working on mysql 8.0 version
     environment:
       - MYSQL_ROOT_PASSWORD=${MYSQL_ROOT_PASSWORD:?MYSQL_ROOT_PASSWORD is not set or empty}
       - MYSQL_DATABASE=sylius_prod
