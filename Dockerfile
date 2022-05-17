@@ -16,7 +16,7 @@ RUN apk add --no-cache \
         mariadb-client \
     ;
 
-ARG APCU_VERSION=5.1.17
+ARG APCU_VERSION=5.1.21
 RUN set -eux; \
 	apk add --no-cache --virtual .build-deps \
 		$PHPIZE_DEPS \

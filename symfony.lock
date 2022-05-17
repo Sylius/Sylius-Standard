@@ -2,9 +2,6 @@
     "aeon-php/calendar": {
         "version": "0.16.4"
     },
-    "akeneo/phpspec-skip-example-extension": {
-        "version": "v3.0.0"
-    },
     "alcohol/iso4217": {
         "version": "4.0.0"
     },
@@ -31,12 +28,6 @@
     "behat/gherkin": {
         "version": "v4.5.1"
     },
-    "behat/mink": {
-        "version": "1.7.x-dev"
-    },
-    "behat/mink-browserkit-driver": {
-        "version": "1.3.3"
-    },
     "behat/mink-selenium2-driver": {
         "version": "v1.3.1"
     },
@@ -54,9 +45,6 @@
     },
     "composer/package-versions-deprecated": {
         "version": "1.11.99.1"
-    },
-    "container-interop/container-interop": {
-        "version": "1.2.0"
     },
     "dealerdirect/phpcodesniffer-composer-installer": {
         "version": "v0.7.1"
@@ -139,6 +127,9 @@
     "egulias/email-validator": {
         "version": "2.1.5"
     },
+    "enshrined/svg-sanitize": {
+        "version": "0.15.4"
+    },
     "fakerphp/faker": {
         "version": "v1.12.0"
     },
@@ -196,15 +187,6 @@
     "hamcrest/hamcrest-php": {
         "version": "v2.0.0"
     },
-    "hwi/oauth-bundle": {
-        "version": "0.6",
-        "recipe": {
-            "repo": "github.com/symfony/recipes-contrib",
-            "branch": "master",
-            "version": "0.6",
-            "ref": "20cacc9b2da49d96ea55c8a8dd31324c5be88bc9"
-        }
-    },
     "imagine/imagine": {
         "version": "v0.7.1"
     },
@@ -241,14 +223,8 @@
     "laminas/laminas-code": {
         "version": "3.4.1"
     },
-    "laminas/laminas-eventmanager": {
-        "version": "3.3.0"
-    },
     "laminas/laminas-stdlib": {
         "version": "3.3.1"
-    },
-    "laminas/laminas-zendframework-bridge": {
-        "version": "1.1.1"
     },
     "lchrusciel/api-test-case": {
         "version": "v3.1.3"
@@ -265,20 +241,8 @@
     "league/uri-components": {
         "version": "1.8.1"
     },
-    "league/uri-hostname-parser": {
-        "version": "1.1.1"
-    },
     "league/uri-interfaces": {
         "version": "1.1.0"
-    },
-    "league/uri-manipulations": {
-        "version": "1.5.0"
-    },
-    "league/uri-parser": {
-        "version": "1.4.0"
-    },
-    "league/uri-schemes": {
-        "version": "1.2.0"
     },
     "lexik/jwt-authentication-bundle": {
         "version": "2.5",
@@ -304,15 +268,6 @@
     "marcj/topsort": {
         "version": "1.1.0"
     },
-    "matthiasnoback/symfony-config-test": {
-        "version": "3.1.1"
-    },
-    "matthiasnoback/symfony-dependency-injection-test": {
-        "version": "v2.3.1"
-    },
-    "mikey179/vfsstream": {
-        "version": "v1.6.5"
-    },
     "mockery/mockery": {
         "version": "1.1.0"
     },
@@ -334,23 +289,11 @@
             "ref": "5ef2976310e8f9621c1a722a73bfbe115c1559a3"
         }
     },
-    "nette/neon": {
-        "version": "v3.2.2"
-    },
-    "ocramius/package-versions": {
-        "version": "1.3.0"
-    },
-    "ocramius/proxy-manager": {
-        "version": "2.2.0"
-    },
     "openlss/lib-array2xml": {
         "version": "0.0.10"
     },
     "pagerfanta/pagerfanta": {
         "version": "v2.0.1"
-    },
-    "pamil/prophecy-common": {
-        "version": "v0.1.0"
     },
     "paragonie/random_compat": {
         "version": "v2.0.17"
@@ -369,15 +312,6 @@
     },
     "phar-io/version": {
         "version": "1.0.1"
-    },
-    "php": {
-        "version": "7.3"
-    },
-    "php-http/client-common": {
-        "version": "1.7.0"
-    },
-    "php-http/discovery": {
-        "version": "1.4.0"
     },
     "php-http/guzzle6-adapter": {
         "version": "v1.1.1"
@@ -426,9 +360,6 @@
     },
     "phpstan/phpstan-doctrine": {
         "version": "0.11.5"
-    },
-    "phpstan/phpstan-symfony": {
-        "version": "0.10.1"
     },
     "phpstan/phpstan-webmozart-assert": {
         "version": "0.12.8"
@@ -523,15 +454,6 @@
     "sebastian/version": {
         "version": "2.0.1"
     },
-    "sensiolabs/security-checker": {
-        "version": "4.0",
-        "recipe": {
-            "repo": "github.com/symfony/recipes",
-            "branch": "master",
-            "version": "4.0",
-            "ref": "421933bf8f0e75546ac8e00cb3eb12904fa2ac1a"
-        }
-    },
     "slevomat/coding-standard": {
         "version": "6.4.1"
     },
@@ -552,6 +474,9 @@
     },
     "squizlabs/php_codesniffer": {
         "version": "3.3.1"
+    },
+    "stella-maris/clock": {
+        "version": "0.1.4"
     },
     "stof/doctrine-extensions-bundle": {
         "version": "1.2",
@@ -709,12 +634,6 @@
             "ref": "87c585d24de9f43bca80ebcfd5cf5cb39445d95f"
         }
     },
-    "symfony/http-client": {
-        "version": "v5.0.5"
-    },
-    "symfony/http-client-contracts": {
-        "version": "v2.3.1"
-    },
     "symfony/http-foundation": {
         "version": "v4.1.3"
     },
@@ -793,9 +712,6 @@
     "symfony/polyfill-php81": {
         "version": "v1.23.0"
     },
-    "symfony/polyfill-util": {
-        "version": "v1.17.1"
-    },
     "symfony/process": {
         "version": "v4.1.3"
     },
@@ -819,9 +735,6 @@
             "version": "4.0",
             "ref": "cda8b550123383d25827705d05a42acf6819fe4e"
         }
-    },
-    "symfony/security": {
-        "version": "v4.1.3"
     },
     "symfony/security-bundle": {
         "version": "3.3",
@@ -925,23 +838,8 @@
     "symfony/yaml": {
         "version": "v4.1.3"
     },
-    "symplify/composer-json-manipulator": {
-        "version": "v9.2.24"
-    },
-    "symplify/console-package-builder": {
-        "version": "v9.2.24"
-    },
     "symplify/easy-coding-standard": {
         "version": "v4.6.1"
-    },
-    "symplify/easy-testing": {
-        "version": "v9.2.24"
-    },
-    "symplify/rule-doc-generator-contracts": {
-        "version": "v9.2.24"
-    },
-    "symplify/skipper": {
-        "version": "v9.2.24"
     },
     "textalk/websocket": {
         "version": "1.3.1"
@@ -984,11 +882,5 @@
     },
     "winzou/state-machine-bundle": {
         "version": "v0.3.1"
-    },
-    "zendframework/zend-code": {
-        "version": "3.3.1"
-    },
-    "zendframework/zend-eventmanager": {
-        "version": "3.2.1"
     }
 }
