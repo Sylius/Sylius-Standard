@@ -1,7 +1,6 @@
 <p align="center">
     <a href="https://sylius.com" target="_blank">
-        <img src="https://demo.sylius.com/assets/shop/img/logo-dark.png#gh-dark-mode-only" alt="Sylius Logo"/>
-        <img src="https://demo.sylius.com/assets/shop/img/logo-light.png#gh-light-mode-only" alt="Sylius Logo"/>
+        <img src="https://demo.sylius.com/assets/shop/img/logo.png" />
     </a>
 </p>
 
