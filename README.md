@@ -1,9 +1,5 @@
-<p align="center">
-    <a href="https://sylius.com" target="_blank">
-        <img src="https://master.demo.sylius.com/assets/shop/img/logo-dark.png#gh-dark-mode-only" alt="Sylius Logo"/>
-        <img src="https://master.demo.sylius.com/assets/shop/img/logo-light.png#gh-light-mode-only" alt="Sylius Logo"/>
-    </a>
-</p>
+![Sylius Logo](https://master.demo.sylius.com/assets/shop/img/logo-light.png#gh-light-mode-only)
+![Sylius Logo](https://master.demo.sylius.com/assets/shop/img/logo-dark.png#gh-dark-mode-only)
 
 <h1 align="center">Sylius Standard Edition</h1>
 
