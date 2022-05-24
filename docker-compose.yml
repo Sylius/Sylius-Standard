@@ -1,5 +1,6 @@
 services:
   php:
+    container_name: php
     build:
       context: .
       target: sylius_php
@@ -22,6 +23,7 @@ services:
       - public-media:/srv/sylius/public/media:rw
 
   mysql:
+    container_name: mysql
     image: mysql:5.7 # Sylius is fully working on mysql 8.0 version
     platform: linux/amd64
     environment:
@@ -37,6 +39,7 @@ services:
       - "3306:3306"
 
   node:
+    container_name: node
     build:
       context: .
       target: sylius_node
@@ -54,6 +57,7 @@ services:
       - "35729:35729"
 
   nginx:
+    container_name: nginx
     build:
       context: .
       target: sylius_nginx
