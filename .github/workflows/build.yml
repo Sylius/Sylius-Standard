@@ -16,7 +16,7 @@ jobs:
     tests:
         runs-on: ubuntu-18.04
 
-        name: "PHP ${{ matrix.php }}, Symfony ${{ matrix.symfony }}, MySQL ${{ matrix.mysql }}"
+        name: "PHP ${{ matrix.php }}, Symfony ${{ matrix.symfony }}, Node ${{ matrix.node }}, MySQL ${{ matrix.mysql }}"
 
         timeout-minutes: 50
 
