@@ -50,8 +50,6 @@ $ tail -f var/log/prod.log
 $ tail -f var/log/dev.log
 ```
 
-If you are using the supplied Vagrant development environment, please see the related [Troubleshooting guide](etc/vagrant/README.md#Troubleshooting) for more information.
-
 Contributing
 ------------
 
