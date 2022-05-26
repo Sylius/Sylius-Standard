@@ -5,30 +5,33 @@ services:
       target: sylius_php
     depends_on:
       - mysql
+    env_file:
+      - .env.prod
     environment:
-      - APP_ENV=prod
-      - APP_DEBUG=0
-      - APP_SECRET=EDITME
-      - DATABASE_URL=mysql://root@127.0.0.1/sylius_%kernel.environment%
-      - MAILER_URL=smtp://localhost
-      - PHP_DATE_TIMEZONE=${PHP_DATE_TIMEZONE:-UTC}
+      DATABASE_URL: mysql://sylius:${MYSQL_PASSWORD}@mysql/sylius_prod
+      MAILER_URL: smtp://localhost
+      PHP_DATE_TIMEZONE: ${PHP_DATE_TIMEZONE:-UTC}
     volumes:
       # use a bind-mounted host directory, as we want to keep the sessions
       - ./var/sessions:/srv/sylius/var/sessions:rw
       # use a bind-mounted host directory, as we want to keep the media
       - ./public/media:/srv/sylius/public/media:rw
+    networks:
+      - sylius
 
   mysql:
     # in production, we may want to use a managed database service
     image: mysql:5.7 # Sylius is fully working on mysql 8.0 version
     environment:
-      - MYSQL_ROOT_PASSWORD=${MYSQL_ROOT_PASSWORD:?MYSQL_ROOT_PASSWORD is not set or empty}
-      - MYSQL_DATABASE=sylius_prod
-      - MYSQL_USER=sylius
-      - MYSQL_PASSWORD=${MYSQL_PASSWORD:?MYSQL_PASSWORD is not set or empty}
+      MYSQL_RANDOM_ROOT_PASSWORD: true
+      MYSQL_DATABASE: sylius_prod
+      MYSQL_USER: sylius
+      MYSQL_PASSWORD: ${MYSQL_PASSWORD:?MYSQL_PASSWORD is not set or empty}
     volumes:
       # use a bind-mounted host directory, because we never want to lose our data!
       - ./docker/mysql/data:/var/lib/mysql:rw,delegated
+    networks:
+      - sylius
 
   nginx:
     # in production, we may want to use a static website hosting service
@@ -40,5 +43,11 @@ services:
     volumes:
       # use a bind-mounted host directory, as we want to keep the media
       - ./public/media:/srv/sylius/public/media:ro
+    networks:
+      - sylius
     ports:
-      - "80:80"
+      - 80:80
+
+networks:
+  sylius:
+    driver: bridge
