@@ -1,5 +1,6 @@
 services:
   php:
+    container_name: php
     build:
       context: .
       target: sylius_php
@@ -20,6 +21,7 @@ services:
       - sylius
 
   mysql:
+    container_name: mysql
     # in production, we may want to use a managed database service
     image: mysql:5.7 # Sylius is fully working on mysql 8.0 version
     environment:
@@ -34,6 +36,7 @@ services:
       - sylius
 
   nginx:
+    container_name: nginx
     # in production, we may want to use a static website hosting service
     build:
       context: .
