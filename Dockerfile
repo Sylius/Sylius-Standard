@@ -12,7 +12,6 @@ RUN apk add --no-cache \
         acl \
         file \
         gettext \
-        git \
         mariadb-client \
         unzip \
     ;
@@ -77,7 +76,6 @@ RUN set -eux; \
 	apk add --no-cache --virtual .build-deps \
 		g++ \
 		gcc \
-		git \
 		make \
 		python2 \
 	;
