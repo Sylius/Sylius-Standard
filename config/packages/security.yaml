@@ -25,6 +25,10 @@ security:
     encoders:
         Sylius\Component\User\Model\UserInterface: argon2i
     firewalls:
+        dev:
+            pattern: ^/(_(profiler|wdt)|css|images|js)/
+            security: false
+
         admin:
             switch_user: true
             context: admin
@@ -111,10 +115,6 @@ security:
                 invalidate_session: false
                 success_handler: sylius.handler.shop_user_logout
             anonymous: true
-
-        dev:
-            pattern: ^/(_(profiler|wdt)|css|images|js)/
-            security: false
 
         image_resolver:
             pattern: ^/media/cache/resolve
