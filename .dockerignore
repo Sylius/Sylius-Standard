@@ -13,12 +13,12 @@
 **/.idea
 **/Dockerfile
 **/Thumbs.db
+**/docker-compose*.yaml
+**/docker-compose*.yml
 .editorconfig
 .php_cs.cache
 .travis.yml
 composer.phar
-docker-compose*.yaml
-docker-compose*.yml
 docker/mysql/data/
 etc/build/*
 node_modules/
