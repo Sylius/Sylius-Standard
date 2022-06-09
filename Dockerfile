@@ -4,8 +4,9 @@
 ARG PHP_VERSION=8.0
 ARG NODE_VERSION=14
 ARG NGINX_VERSION=1.21
+ARG ALPINE_VERSION=3.15
 
-FROM php:${PHP_VERSION}-fpm-alpine AS sylius_php
+FROM php:${PHP_VERSION}-fpm-alpine${ALPINE_VERSION} AS sylius_php
 
 # persistent / runtime deps
 RUN apk add --no-cache \
@@ -68,7 +69,7 @@ RUN chmod +x /usr/local/bin/docker-entrypoint
 ENTRYPOINT ["docker-entrypoint"]
 CMD ["php-fpm"]
 
-FROM node:${NODE_VERSION}-alpine AS sylius_node
+FROM node:${NODE_VERSION}-alpine${ALPINE_VERSION} AS sylius_node
 
 WORKDIR /srv/sylius
 
