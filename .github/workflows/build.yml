@@ -3,8 +3,12 @@ name: Build
 on:
     push:
         branches-ignore:
-            - 'dependabot/**'
-    pull_request: ~
+            - "dependabot/**"
+        paths-ignore:
+            - "*.md"
+    pull_request:
+        paths-ignore:
+            - "*.md"
     release:
         types: [created]
     schedule:
