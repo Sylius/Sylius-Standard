@@ -7,12 +7,16 @@ jobs:
     auto-merge:
         runs-on: ubuntu-18.04
         steps:
-            -   uses: actions/checkout@v2
+            -
+                name: Checkout repository
+                uses: actions/checkout@v2
+                with:
+                    token: ${{ secrets.GITHUB_TOKEN }}
 
             -
                 name: Auto-merge minor dependencies upgrades
                 uses: ahmadnassri/action-dependabot-auto-merge@v2
                 with:
                     target: minor
-                    github-token: ${{ secrets.DEPENDABOT_TOKEN }}
+                    github-token: ${{ secrets.GITHUB_TOKEN }}
                     config: .github/dependabot.yml
