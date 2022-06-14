@@ -3,7 +3,7 @@ name: Build Docker Image
 on:
     push:
         branches-ignore:
-            - master
+            - 'dependabot/**'
         paths-ignore:
             - "*.md"
     pull_request:
