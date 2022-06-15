@@ -3,15 +3,16 @@ services:
     container_name: php
     build:
       context: .
-      target: sylius_php
+      target: sylius_php_prod
     depends_on:
       - mysql
-    env_file:
-      - .env.prod
     environment:
       DATABASE_URL: mysql://sylius:${MYSQL_PASSWORD}@mysql/sylius_prod
       MAILER_URL: smtp://localhost
       PHP_DATE_TIMEZONE: ${PHP_DATE_TIMEZONE:-UTC}
+      APP_ENV: prod
+      APP_DEBUG: 0
+      APP_SECRET: EDITME
     volumes:
       # use a bind-mounted host directory, as we want to keep the sessions
       - ./var/sessions:/srv/sylius/var/sessions:rw

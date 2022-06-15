@@ -3,7 +3,7 @@ services:
     container_name: php
     build:
       context: .
-      target: sylius_php
+      target: sylius_php_dev
     depends_on:
       - mysql
     environment:
