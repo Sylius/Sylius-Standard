@@ -13,7 +13,6 @@ RUN apk add --no-cache \
         acl \
         file \
         gettext \
-        mariadb-client \
         unzip \
     ;
 
