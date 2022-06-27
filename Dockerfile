@@ -5,6 +5,12 @@ ARG PHP_VERSION=8.0
 ARG NODE_VERSION=14
 ARG NGINX_VERSION=1.21
 ARG ALPINE_VERSION=3.15
+ARG COMPOSER_VERSION=2
+ARG PHP_EXTENSION_INSTALLER_VERSION=latest
+
+FROM composer:${COMPOSER_VERSION} AS composer
+
+FROM mlocati/php-extension-installer:${PHP_EXTENSION_INSTALLER_VERSION} AS php_extension_installer
 
 FROM php:${PHP_VERSION}-fpm-alpine${ALPINE_VERSION} AS sylius_php
 
@@ -16,11 +22,11 @@ RUN apk add --no-cache \
         unzip \
     ;
 
-COPY --from=mlocati/php-extension-installer /usr/bin/install-php-extensions /usr/local/bin/
+COPY --from=php_extension_installer /usr/bin/install-php-extensions /usr/local/bin/
 
 RUN install-php-extensions zip gd intl exif pdo_mysql opcache apcu xml curl mbstring
 
-COPY --from=composer:latest /usr/bin/composer /usr/bin/composer
+COPY --from=composer /usr/bin/composer /usr/bin/composer
 COPY docker/php/php.ini /usr/local/etc/php/php.ini
 COPY docker/php/php-cli.ini /usr/local/etc/php/php-cli.ini
 
