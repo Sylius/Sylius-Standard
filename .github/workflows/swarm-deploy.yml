@@ -1,4 +1,4 @@
-name: Build Docker Image
+name: Docker Swarm
 
 on:
     push:
@@ -14,7 +14,7 @@ on:
 
 jobs:
     build-image:
-        name: Build Docker Image and Test Docker Compose
+        name: Build and Push Docker Image [${{ matrix.platform }}, ${{ matrix.target }}
         env:
             MYSQL_PASSWORD: sylius-mysql
             DOCKER_BUILDKIT: 1 # Requires Latest Buildx in docker CLI
@@ -24,7 +24,7 @@ jobs:
             matrix:
                 platform: [linux/amd64,linux/arm64]
                 docker_compose: [docker-compose.yml,docker-compose.prod.yml]
-                targets: [sylius_nginx,sylius_php]
+                target: [sylius_nginx,sylius_php]
         
         runs-on: ubuntu-latest
         steps:
