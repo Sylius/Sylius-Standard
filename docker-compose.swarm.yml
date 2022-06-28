@@ -1,0 +1,105 @@
+services:
+    php:
+        image: ferror/sylius-demo:sylius_nginx
+        deploy:
+            endpoint_mode: vip
+            mode: replicated
+            replicas: 3
+            placement:
+                max_replicas_per_node: 6
+            resources:
+                reservations:
+                    cpus: "0.5"
+                    memory: 256M
+            restart_policy:
+                condition: on-failure
+                delay: 5s
+                max_attempts: 3
+                window: 90s
+            rollback_config:
+                parallelism: 2
+                delay: 5s
+                failure_action: pause
+                monitor: 5s
+                max_failure_ratio: 0
+                order: stop-first
+            update_config:
+                parallelism: 2
+                delay: 5s
+                failure_action: pause
+                monitor: 5s
+                max_failure_ratio: 0
+                order: stop-first
+        depends_on:
+            - mysql
+        environment:
+            DATABASE_URL: mysql://sylius:${MYSQL_PASSWORD}@mysql/sylius_prod
+            PHP_DATE_TIMEZONE: ${PHP_DATE_TIMEZONE:-UTC}
+        volumes:
+            - ./var/sessions:/srv/sylius/var/sessions:rw
+            - ./public/media:/srv/sylius/public/media:rw
+        networks:
+            - sylius
+    
+    mysql:
+        image: mysql:5.7
+        deploy:
+            endpoint_mode: vip
+            mode: global
+            resources:
+                reservations:
+                    cpus: "1"
+                    memory: 512M
+        environment:
+            MYSQL_RANDOM_ROOT_PASSWORD: true
+            MYSQL_DATABASE: sylius_prod
+            MYSQL_USER: sylius
+            MYSQL_PASSWORD: ${MYSQL_PASSWORD:?MYSQL_PASSWORD is not set or empty}
+        volumes:
+            - ./docker/mysql/data:/var/lib/mysql:rw,delegated
+        networks:
+            - sylius
+    
+    nginx:
+        image: ferror/sylius-demo:sylius_php
+        deploy:
+            endpoint_mode: vip
+            mode: replicated
+            replicas: 3
+            placement:
+                max_replicas_per_node: 6
+            resources:
+                reservations:
+                    cpus: "0.5"
+                    memory: 256M
+            restart_policy:
+                condition: on-failure
+                delay: 5s
+                max_attempts: 3
+                window: 90s
+            rollback_config:
+                parallelism: 2
+                delay: 5s
+                failure_action: pause
+                monitor: 5s
+                max_failure_ratio: 0
+                order: stop-first
+            update_config:
+                parallelism: 2
+                delay: 5s
+                failure_action: pause
+                monitor: 5s
+                max_failure_ratio: 0
+                order: stop-first
+        depends_on:
+            - php
+        volumes:
+            - ./public/media:/srv/sylius/public/media:ro
+        networks:
+            - sylius
+        ports:
+            - 80:80
+
+networks:
+    sylius:
+        driver: overlay
