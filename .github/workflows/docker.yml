@@ -28,7 +28,7 @@ jobs:
         steps:
             -
                 name: Set Up WSL
-                uses: actions/setup-wsl@v1
+                uses: vampire/setup-wsl@v1
                 if: matrix.ox == 'windows-latest'
             -
                 name: Set Up QEMU
