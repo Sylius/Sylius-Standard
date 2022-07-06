@@ -26,10 +26,6 @@ jobs:
         runs-on: windows-latest
         steps:
             -
-                name: Shutdown Default MySQL
-                run: sudo service mysql stop
-                if: matrix.platform == 'linux/amd64'
-            -
                 name: Checkout Code
                 uses: actions/checkout@v3
                 if: matrix.platform == 'linux/amd64'
