@@ -24,7 +24,7 @@ jobs:
                 docker_compose: [docker-compose.yml,docker-compose.prod.yml]
                 os: [windows-latest,ubuntu-latest]
         
-        runs-on: ${{ matrix.ox }}
+        runs-on: ${{ matrix.os }}
         steps:
             -
                 name: Set Up WSL
