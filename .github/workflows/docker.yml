@@ -32,11 +32,15 @@ jobs:
             -
                 name: Setup WSL
                 uses: vampire/setup-wsl@v1
+                with:
+                    distribution: Ubuntu-20.04
                 
             -
                 name: Setup Docker
                 shell: wsl-bash {0}
                 run: |
+                    apt-get update
+                    apt-get install curl -y
                     curl -fsSL https://get.docker.com -o get-docker.sh
                     sudo sh get-docker.sh
             -
