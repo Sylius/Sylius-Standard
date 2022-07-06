@@ -58,7 +58,16 @@ jobs:
                 run: docker compose -f ${{ matrix.docker_compose }} up -d
                 if: matrix.platform == 'linux/amd64'
             -
+                name: Setup Sylius Store
+                uses: vampire/setup-wsl@v1
+                run: docker compose -f ${{ matrix.docker_compose }} up -d
+                if: matrix.platform == 'linux/amd64' && matrix.ox == 'windows-latest'
+            -
                 name: Health Check Store
                 run: ./docker/test.sh
                 if: matrix.platform == 'linux/amd64'
-                    
+            -
+                name: Health Check Store
+                uses: vampire/setup-wsl@v1
+                run: ./docker/test.sh
+                if: matrix.platform == 'linux/amd64' && matrix.ox == 'windows-latest'
