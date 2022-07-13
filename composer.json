@@ -65,7 +65,8 @@
         "sort-packages": true,
         "allow-plugins": {
             "symfony/flex": true,
-            "dealerdirect/phpcodesniffer-composer-installer": false
+            "dealerdirect/phpcodesniffer-composer-installer": false,
+            "phpstan/extension-installer": true
         }
     },
     "extra": {
