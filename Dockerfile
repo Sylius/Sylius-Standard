@@ -125,5 +125,18 @@ WORKDIR /srv/sylius
 ARG APP_ENV=dev
 
 RUN set -eux; \
-    composer install --prefer-dist --no-autoloader --no-interaction --no-scripts --no-progress; \
+    composer install --prefer-dist --no-interaction --no-scripts --no-progress; \
     composer clear-cache
+
+FROM sylius_php_dev AS sylius_php_test
+
+WORKDIR /srv/sylius
+
+ARG APP_ENV=test_cached
+
+RUN mkdir -p etc/build/
+
+COPY behat.yml behat.yml
+COPY phpstan.neon phpstan.neon
+COPY phpspec.yaml phpspec.yaml
+COPY phpunit.xml phpunit.xml

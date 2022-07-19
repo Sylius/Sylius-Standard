@@ -11,6 +11,7 @@
 
 /behat.yml
 /phpspec.yml
+/phpspec.yaml
 
 /docker-compose.override.yaml
 /docker-compose.override.yml

@@ -11,6 +11,26 @@ on:
             - "*.md"
 
 jobs:
+    javascript:
+        name: Execute JS Behat Tests on Docker Compose
+        runs-on: ubuntu-latest
+        
+        steps:
+            -   name: Checkout Code
+                uses: actions/checkout@v3
+
+            -   name: Behat Configuration
+                run: |
+                    cp behat.yml.docker behat.yml
+                    cp phpspec.yaml.dist phpspec.yaml
+                    cp phpunit.xml.dist phpunit.xml
+
+            -   name: Run Behat
+                run: |
+                    docker compose -f docker-compose.test.yml up -d --build
+                    sleep 30
+                    docker compose -f docker-compose.test.yml exec php vendor/bin/behat --colors --strict --no-interaction -vvv -f progress --tags="@javascript&&~@cli&&~@todo"
+    
     build-image:
         name: Build Docker Image and Test Docker Compose
         env:

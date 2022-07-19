@@ -1,0 +1,47 @@
+services:
+  php:
+    container_name: php
+    build:
+      context: .
+      target: sylius_php_test
+    depends_on:
+      - mysql
+      - chrome
+    environment:
+      APP_ENV: test_cached
+      APP_DEBUG: 0
+      APP_SECRET: EDITME
+      DATABASE_URL: mysql://sylius:${MYSQL_PASSWORD:-nopassword}@mysql/sylius
+      MAILER_URL: smtp://null
+      PHP_DATE_TIMEZONE: ${PHP_DATE_TIMEZONE:-UTC}
+#      SYLIUS_BEHAT_BASE_URL: http://nginx
+#      SYLIUS_BEHAT_API_URL: http://chrome:9222
+    volumes:
+        - ./public/media:/srv/sylius/public/media:rw
+
+  mysql:
+    container_name: mysql
+    image: mysql:8.0
+    environment:
+      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD:-nopassword}
+      MYSQL_DATABASE: sylius
+      MYSQL_USER: sylius
+      MYSQL_PASSWORD: ${MYSQL_PASSWORD:-nopassword}
+
+  nginx:
+    container_name: nginx
+    build:
+      context: .
+      target: sylius_nginx
+    depends_on:
+      - php
+    ports:
+      - 80:80
+
+  chrome:
+    container_name: chrome
+    image: zenika/alpine-chrome
+    shm_size: "4gb"
+    command: "--enable-automation --disable-background-networking --no-default-browser-check --no-first-run --disable-popup-blocking --disable-default-apps --disable-translate --disable-extensions --no-sandbox --enable-features=Metal --headless --remote-debugging-port=9222 --remote-debugging-address=0.0.0.0 --window-size=1920,1080 --proxy-server='direct://' --proxy-bypass-list='*' --disable-dev-shm-usage --disable-software-rasterizer"
+    volumes:
+        - ./:/srv/sylius:rw,delegated

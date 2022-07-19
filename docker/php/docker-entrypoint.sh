@@ -11,8 +11,8 @@ if [ "$1" = 'php-fpm' ] || [ "$1" = 'bin/console' ]; then
 	setfacl -R -m u:www-data:rwX -m u:"$(whoami)":rwX var public/media
 	setfacl -dR -m u:www-data:rwX -m u:"$(whoami)":rwX var public/media
 
-	if [ "$APP_ENV" != 'prod' ]; then
-		composer install --prefer-dist --no-progress --no-interaction
+	if [ "$APP_ENV" = 'dev' ]; then
+		composer install --prefer-dist --no-interaction --no-scripts --no-progress
 		bin/console assets:install --no-interaction
 		bin/console sylius:theme:assets:install public --no-interaction
 	fi
@@ -23,7 +23,10 @@ if [ "$1" = 'php-fpm' ] || [ "$1" = 'bin/console' ]; then
 	done
 
     bin/console doctrine:migrations:migrate --no-interaction
-    bin/console sylius:fixtures:load --no-interaction
+
+    if [ "$APP_ENV" = 'dev' ] || [ "$APP_ENV" = 'prod' ]; then
+        bin/console sylius:fixtures:load --no-interaction
+    fi
 fi
 
 exec docker-php-entrypoint "$@"
