@@ -7,12 +7,14 @@ services:
     depends_on:
       - mysql
     environment:
-      - APP_ENV=dev
-      - APP_DEBUG=1
-      - APP_SECRET=EDITME
-      - DATABASE_URL=mysql://sylius:${MYSQL_PASSWORD:-nopassword}@mysql/sylius
-      - MAILER_URL=smtp://mailhog:1025
-      - PHP_DATE_TIMEZONE=${PHP_DATE_TIMEZONE:-UTC}
+      APP_ENV: dev
+      APP_DEBUG: 1
+      APP_SECRET: EDITME
+      DATABASE_URL: mysql://sylius:${MYSQL_PASSWORD:-nopassword}@mysql/sylius
+      MAILER_URL: smtp://mailhog:1025
+      PHP_DATE_TIMEZONE: ${PHP_DATE_TIMEZONE:-UTC}
+      # Sylius Plus authentication placeholder
+      # COMPOSER_AUTH: "{\"http-basic\":{\"http-basic.sylius.repo.packagist.com\":{\"username\":\"token\",\"password\":\"your-authentication-token-here\"}}}"
     volumes:
       - .:/srv/sylius:rw,cached
       # if you develop on Linux, you may use a bind-mounted host directory instead
@@ -27,10 +29,10 @@ services:
     image: mysql:5.7 # Sylius is fully working on mysql 8.0 version
     platform: linux/amd64
     environment:
-      - MYSQL_ROOT_PASSWORD=${MYSQL_ROOT_PASSWORD:-nopassword}
-      - MYSQL_DATABASE=sylius
-      - MYSQL_USER=sylius
-      - MYSQL_PASSWORD=${MYSQL_PASSWORD:-nopassword}
+      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD:-nopassword}
+      MYSQL_DATABASE: sylius
+      MYSQL_USER: sylius
+      MYSQL_PASSWORD: ${MYSQL_PASSWORD:-nopassword}
     volumes:
       - mysql-data:/var/lib/mysql:rw
       # you may use a bind-mounted host directory instead, so that it is harder to accidentally remove the volume and lose all your data!
@@ -47,9 +49,9 @@ services:
     depends_on:
       - php
     environment:
-      - GULP_ENV=dev
-      - PHP_HOST=php
-      - PHP_PORT=9000
+      GULP_ENV: dev
+      PHP_HOST: php
+      PHP_PORT: 9000
     volumes:
       - .:/srv/sylius:rw,cached
       - ./public:/srv/sylius/public:rw,delegated
@@ -76,7 +78,7 @@ services:
     # do not use in production!
     image: mailhog/mailhog:latest
     environment:
-      - MH_STORAGE=maildir
+      MH_STORAGE: maildir
     # volumes:
     #   - ./docker/mailhog/maildir:/maildir:rw,delegated
     ports:
