@@ -7,10 +7,8 @@ namespace App\Entity\Taxation;
 use Doctrine\ORM\Mapping as ORM;
 use Sylius\Component\Taxation\Model\TaxCategory as BaseTaxCategory;
 
-/**
- * @ORM\Entity
- * @ORM\Table(name="sylius_tax_category")
- */
+#[ORM\Entity]
+#[ORM\Table(name: 'sylius_tax_category')]
 class TaxCategory extends BaseTaxCategory
 {
 }

@@ -7,10 +7,8 @@ namespace App\Entity\Payment;
 use Doctrine\ORM\Mapping as ORM;
 use Sylius\Component\Core\Model\Payment as BasePayment;
 
-/**
- * @ORM\Entity
- * @ORM\Table(name="sylius_payment")
- */
+#[ORM\Entity]
+#[ORM\Table(name: 'sylius_payment')]
 class Payment extends BasePayment
 {
 }
