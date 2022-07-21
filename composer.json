@@ -28,7 +28,8 @@
         "sylius/paypal-plugin": "^1.2.1",
         "sylius/sylius": "^1.12@dev",
         "symfony/dotenv": "^5.4",
-        "symfony/flex": "^2.1"
+        "symfony/flex": "^2.1",
+        "webonyx/graphql-php": "^14.11"
     },
     "require-dev": {
         "behat/behat": "^3.7",
