@@ -19,12 +19,6 @@ jobs:
             -   name: Checkout Code
                 uses: actions/checkout@v3
 
-            -   name: Behat Configuration
-                run: |
-                    cp behat.yml.docker behat.yml
-                    cp phpspec.yaml.dist phpspec.yaml
-                    cp phpunit.xml.dist phpunit.xml
-
             -   name: Run Behat
                 run: |
                     docker compose -f docker-compose.test.yml up -d --build

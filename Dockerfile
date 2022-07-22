@@ -136,7 +136,7 @@ ARG APP_ENV=test_cached
 
 RUN mkdir -p etc/build/
 
-COPY behat.yml behat.yml
+COPY behat.yml.docker behat.yml
 COPY phpstan.neon phpstan.neon
-COPY phpspec.yaml phpspec.yaml
-COPY phpunit.xml phpunit.xml
+COPY phpspec.yaml.dist phpspec.yaml
+COPY phpunit.xml.dist phpunit.xml
