@@ -66,7 +66,7 @@
         "allow-plugins": {
             "symfony/flex": true,
             "dealerdirect/phpcodesniffer-composer-installer": false,
-            "phpstan/extension-installer": true,
+            "phpstan/extension-installer": false,
             "symfony/thanks": false
         }
     },

@@ -162,6 +162,15 @@ sylius_product:
 
 sylius_promotion:
     resources:
+        catalog_promotion:
+            classes:
+                model: App\Entity\Promotion\CatalogPromotion
+        catalog_promotion_action:
+            classes:
+                model: App\Entity\Promotion\CatalogPromotionAction
+        catalog_promotion_scope:
+            classes:
+                model: App\Entity\Promotion\CatalogPromotionScope
         promotion:
             classes:
                 model: App\Entity\Promotion\Promotion
