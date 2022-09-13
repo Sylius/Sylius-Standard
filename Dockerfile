@@ -24,7 +24,7 @@ RUN apk add --no-cache \
 
 COPY --from=php_extension_installer /usr/bin/install-php-extensions /usr/local/bin/
 
-RUN install-php-extensions zip gd intl exif pdo_mysql opcache apcu xml curl mbstring
+RUN install-php-extensions apcu curl exif gd iconv intl mbstring pdo_mysql opcache xml zip
 
 COPY --from=composer /usr/bin/composer /usr/bin/composer
 COPY docker/php/php.ini /usr/local/etc/php/php.ini
