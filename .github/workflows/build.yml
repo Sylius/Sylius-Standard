@@ -89,34 +89,8 @@ jobs:
                 run: composer config extra.symfony.require "${{ matrix.symfony }}"
 
             -
-                name: Get Composer cache directory
-                id: composer-cache
-                run: echo "::set-output name=dir::$(composer config cache-files-dir)"
-
-            -
-                name: Cache Composer
-                uses: actions/cache@v3
-                with:
-                    path: ${{ steps.composer-cache.outputs.dir }}
-                    key: ${{ runner.os }}-php-${{ matrix.php }}-composer-${{ hashFiles('**/composer.json **/composer.lock **/symfony.lock') }}
-                    restore-keys: ${{ runner.os }}-php-${{ matrix.php }}-composer-
-
-            -
                 name: Install PHP dependencies
                 run: composer update --no-interaction --no-scripts
-
-            -
-                name: Get Yarn cache directory
-                id: yarn-cache
-                run: echo "::set-output name=dir::$(yarn cache dir)"
-
-            -
-                name: Cache Yarn
-                uses: actions/cache@v3
-                with:
-                    path: ${{ steps.yarn-cache.outputs.dir }}
-                    key: ${{ runner.os }}-node-${{ matrix.node }}-yarn-${{ hashFiles('**/package.json **/yarn.lock') }}
-                    restore-keys: ${{ runner.os }}-node-${{ matrix.node }}-yarn-
 
             -
                 name: Install JS dependencies
