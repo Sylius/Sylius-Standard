@@ -82,7 +82,7 @@
     "repositories": [
         {
             "type": "vcs",
-            "url": "https://github.com/Ferror/Sylius"
+            "url": "https://github.com/Ferror/Sylius.git"
         }
     ],
     "autoload": {
