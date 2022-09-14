@@ -49,6 +49,8 @@ jobs:
                     extensions: intl
                     tools: symfony
                     coverage: none
+                env:
+                    COMPOSER_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
             -
                 name: Setup Node
