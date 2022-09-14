@@ -98,13 +98,12 @@ jobs:
                 uses: actions/cache@v3
                 with:
                     path: ${{ steps.composer-cache.outputs.dir }}
-                    key: ${{ runner.os }}-php-${{ matrix.php }}-composer-${{ hashFiles('**/composer.json **/composer.lock') }}
-                    restore-keys: |
-                        ${{ runner.os }}-php-${{ matrix.php }}-composer-
+                    key: ${{ runner.os }}-php-${{ matrix.php }}-composer-${{ hashFiles('**/composer.json **/composer.lock **/symfony.lock') }}
+                    restore-keys: ${{ runner.os }}-php-${{ matrix.php }}-composer-
 
             -
                 name: Install PHP dependencies
-                run: composer install --no-interaction
+                run: composer update --no-interaction --no-scripts
 
             -
                 name: Get Yarn cache directory
@@ -117,8 +116,7 @@ jobs:
                 with:
                     path: ${{ steps.yarn-cache.outputs.dir }}
                     key: ${{ runner.os }}-node-${{ matrix.node }}-yarn-${{ hashFiles('**/package.json **/yarn.lock') }}
-                    restore-keys: |
-                        ${{ runner.os }}-node-${{ matrix.node }}-yarn-
+                    restore-keys: ${{ runner.os }}-node-${{ matrix.node }}-yarn-
 
             -
                 name: Install JS dependencies
