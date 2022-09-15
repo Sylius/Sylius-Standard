@@ -23,7 +23,10 @@ if [ "$1" = 'php-fpm' ] || [ "$1" = 'bin/console' ]; then
 	done
 
     bin/console doctrine:migrations:migrate --no-interaction
-    bin/console sylius:fixtures:load --no-interaction
+
+    if [ "$APP_ENV" = 'dev' ]; then
+        bin/console sylius:fixtures:load --no-interaction
+    fi
 fi
 
 exec docker-php-entrypoint "$@"
