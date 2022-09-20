@@ -100,7 +100,7 @@ jobs:
                 
             -
                 name: Restrict doctrine/dbal version
-                run: composer require "doctrine/dbal:^3.0" --no-update --no-scripts --no-interaction
+                run: composer require "doctrine/orm:^2.13" --no-scripts --no-interaction
 
             -
                 name: Test Container
