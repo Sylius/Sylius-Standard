@@ -98,8 +98,21 @@ jobs:
                 name: Install JS dependencies
                 run: yarn install
                 
-            -   name: Restrict doctrine/dbal version
+            -
+                name: Restrict doctrine/dbal version
                 run: composer require "doctrine/dbal:^2.0" --no-update --no-scripts --no-interaction
+
+            -
+                name: Test Container
+                run: bin/console lint:container -vvv
+                
+            -
+                name: Prepare test application cache
+                run: bin/console cache:clear -vvv
+
+            -
+                name: Prepare test application cache
+                run: bin/console cache:warmup -vvv
 
             -
                 name: Prepare test application database
@@ -116,10 +129,6 @@ jobs:
                 run: |
                     bin/console assets:install public -vvv
                     GULP_ENV=prod yarn build
-
-            -
-                name: Prepare test application cache
-                run: bin/console cache:warmup -vvv
 
             -
                 name: Prepare Messenger transport (Doctrine)
