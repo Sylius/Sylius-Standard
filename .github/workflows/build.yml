@@ -97,6 +97,9 @@ jobs:
             -
                 name: Install JS dependencies
                 run: yarn install
+                
+            -   name: Restrict doctrine/dbal version
+                run: composer require "doctrine/dbal:^2.0" --no-update --no-scripts --no-interaction
 
             -
                 name: Prepare test application database
