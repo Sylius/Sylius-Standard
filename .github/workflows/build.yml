@@ -29,7 +29,7 @@ jobs:
             matrix:
                 php: ["8.0"]
                 symfony: ["^5.4"]
-                node: ["14.x", "16.x"]
+                node: ["16.x", "18.x"]
                 mysql: ["5.7", "8.0"]
 
         env:
@@ -133,7 +133,7 @@ jobs:
                 name: Prepare test application assets
                 run: |
                     bin/console assets:install public -vvv
-                    GULP_ENV=prod yarn build
+                    yarn encore production
 
             -
                 name: Prepare test application cache
@@ -147,20 +147,19 @@ jobs:
                 name: Load fixtures
                 run: bin/console sylius:fixtures:load -n
 
-            -   
+            -
                 name: Validate composer.json
                 run: composer validate --ansi --strict --no-check-publish
-                
-            -   
+
+            -
                 name: Run security check
                 run: symfony security:check
 
             -
                 name: Check coding standard
-                if: matrix.php != '7.4'
                 run: vendor/bin/ecs check src
 
-            -   
+            -
                 name: Run PHPStan
                 run: vendor/bin/phpstan analyse -c phpstan.neon -l max src/
 
@@ -180,10 +179,10 @@ jobs:
                 name: Run managing catalog promotion scenarios
                 run: vendor/bin/behat --colors --strict --no-interaction -vvv -f progress --tags="~@javascript&&~@todo&&~@cli&&@managing_catalog_promotions"
 
-            -   
+            -
                 name: Run non-JS Behat (without managing catalog promotion scenarios)
                 run: vendor/bin/behat --colors --strict --no-interaction -vvv -f progress --tags="~@javascript&&~@todo&&~@cli&&@~managing_catalog_promotions"
-            
+
             -
                 name: Run JS Behat
                 run: vendor/bin/behat --colors --strict --no-interaction -vvv -f progress --tags="@javascript&&~@todo&&~@cli" || vendor/bin/behat --colors --strict --no-interaction -vvv -f progress --tags="@javascript&&~@todo&&~@cli" --rerun || vendor/bin/behat --colors --strict --no-interaction -vvv -f progress --tags="@javascript&&~@todo&&~@cli" --rerun
