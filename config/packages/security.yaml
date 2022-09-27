@@ -1,15 +1,3 @@
-parameters:
-    sylius.security.admin_regex: "^/%sylius_admin.path_name%"
-    sylius.security.shop_regex: "^/(?!%sylius_admin.path_name%|api/.*|api$|media/.*)[^/]++"
-    sylius.security.new_api_route: "/api/v2"
-    sylius.security.new_api_regex: "^%sylius.security.new_api_route%"
-    sylius.security.new_api_admin_route: "%sylius.security.new_api_route%/admin"
-    sylius.security.new_api_admin_regex: "^%sylius.security.new_api_admin_route%"
-    sylius.security.new_api_shop_route: "%sylius.security.new_api_route%/shop"
-    sylius.security.new_api_shop_regex: "^%sylius.security.new_api_shop_route%"
-    sylius.security.new_api_user_account_route: "%sylius.security.new_api_shop_route%/account"
-    sylius.security.new_api_user_account_regex: "^%sylius.security.new_api_user_account_route%"
-
 security:
     enable_authenticator_manager: true
     providers:
@@ -21,14 +9,9 @@ security:
             id: sylius.shop_user_provider.email_or_name_based
         sylius_api_shop_user_provider:
             id: sylius.shop_user_provider.email_or_name_based
-
-    encoders:
+    password_hashers:
         Sylius\Component\User\Model\UserInterface: argon2i
     firewalls:
-        dev:
-            pattern: ^/(_(profiler|wdt)|css|images|js)/
-            security: false
-
         admin:
             switch_user: true
             context: admin
@@ -106,12 +89,11 @@ security:
                 remember_me_parameter: _remember_me
             logout:
                 path: sylius_shop_logout
-                target: sylius_shop_login
+                target: sylius_shop_homepage
                 invalidate_session: false
-                success_handler: sylius.handler.shop_user_logout
 
-        image_resolver:
-            pattern: ^/media/cache/resolve
+        dev:
+            pattern:  ^/(_(profiler|wdt)|css|images|js)/
             security: false
 
     access_control:
@@ -120,13 +102,14 @@ security:
         - { path: "%sylius.security.shop_regex%/_partial", role: PUBLIC_ACCESS, ips: [127.0.0.1, ::1] }
         - { path: "%sylius.security.shop_regex%/_partial", role: ROLE_NO_ACCESS }
 
+        - { path: "%sylius.security.admin_regex%/forgotten-password", role: PUBLIC_ACCESS }
+
         - { path: "%sylius.security.admin_regex%/login", role: PUBLIC_ACCESS }
         - { path: "%sylius.security.shop_regex%/login", role: PUBLIC_ACCESS }
 
         - { path: "%sylius.security.shop_regex%/register", role: PUBLIC_ACCESS }
         - { path: "%sylius.security.shop_regex%/verify", role: PUBLIC_ACCESS }
 
-        - { path: "%sylius.security.admin_regex%/forgotten-password", role: PUBLIC_ACCESS }
         - { path: "%sylius.security.admin_regex%", role: ROLE_ADMINISTRATION_ACCESS }
         - { path: "%sylius.security.shop_regex%/account", role: ROLE_USER }
 

@@ -18,18 +18,18 @@ on:
 
 jobs:
     tests:
-        runs-on: ubuntu-18.04
+        runs-on: ubuntu-20.04
 
-        name: "PHP ${{ matrix.php }}, Symfony ${{ matrix.symfony }}, MySQL ${{ matrix.mysql }}"
+        name: "PHP ${{ matrix.php }}, Symfony ${{ matrix.symfony }}, MySQL ${{ matrix.mysql }}, Node ${{ matrix.node }}"
 
         timeout-minutes: 50
 
         strategy:
             fail-fast: false
             matrix:
-                php: ["8.0"]
+                php: ["8.0", "8.1"]
                 symfony: ["^5.4"]
-                node: ["16.x", "18.x"]
+                node: ["16.x"]
                 mysql: ["5.7", "8.0"]
 
         env:
