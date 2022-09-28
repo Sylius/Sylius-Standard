@@ -3,7 +3,6 @@
 /public/js
 /public/media
 !/public/media/image/.gitkeep
-/public/build
 
 /etc/build/*
 !/etc/build/.gitignore
