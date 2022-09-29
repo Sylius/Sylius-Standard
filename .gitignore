@@ -4,8 +4,6 @@
 /public/media
 !/public/media/image/.gitkeep
 
-/node_modules
-
 /etc/build/*
 !/etc/build/.gitignore
 
@@ -40,3 +38,10 @@
 /config/jwt/*.pem
 !/config/jwt/*-test.pem
 ###< lexik/jwt-authentication-bundle ###
+
+###> symfony/webpack-encore-bundle ###
+/node_modules/
+/public/build/
+npm-debug.log
+yarn-error.log
+###< symfony/webpack-encore-bundle ###
