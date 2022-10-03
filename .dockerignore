@@ -25,6 +25,7 @@ node_modules/
 var/*
 vendor/
 public/assets/
+public/build/
 public/bundles/
 public/css/
 public/js/
