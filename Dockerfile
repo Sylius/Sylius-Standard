@@ -49,7 +49,6 @@ RUN set -eux; \
 
 # copy only specifically what we need
 COPY .env .env.prod .env.test .env.test_cached ./
-COPY assets assets/
 COPY bin bin/
 COPY config config/
 COPY public public/
@@ -84,6 +83,7 @@ RUN set -eux; \
 		g++ \
 		gcc \
 		make \
+        python2 \
 	;
 
 # prevent the reinstallation of vendors at every changes in the source code
@@ -95,17 +95,18 @@ RUN set -eux; \
 COPY --from=sylius_php_prod /srv/sylius/vendor/sylius/sylius/src/Sylius/Bundle/UiBundle/Resources/private       vendor/sylius/sylius/src/Sylius/Bundle/UiBundle/Resources/private/
 COPY --from=sylius_php_prod /srv/sylius/vendor/sylius/sylius/src/Sylius/Bundle/AdminBundle/Resources/private    vendor/sylius/sylius/src/Sylius/Bundle/AdminBundle/Resources/private/
 COPY --from=sylius_php_prod /srv/sylius/vendor/sylius/sylius/src/Sylius/Bundle/ShopBundle/Resources/private     vendor/sylius/sylius/src/Sylius/Bundle/ShopBundle/Resources/private/
-COPY --from=sylius_php_prod /srv/sylius/assets ./assets
+COPY --from=sylius_php_prod /srv/sylius/vendor/sylius/sylius/src/Sylius/Bundle/AdminBundle/gulpfile.babel.js    vendor/sylius/sylius/src/Sylius/Bundle/AdminBundle/gulpfile.babel.js
+COPY --from=sylius_php_prod /srv/sylius/vendor/sylius/sylius/src/Sylius/Bundle/ShopBundle/gulpfile.babel.js     vendor/sylius/sylius/src/Sylius/Bundle/ShopBundle/gulpfile.babel.js
 
-COPY webpack.config.js ./
+COPY gulpfile.babel.js .babelrc ./
 RUN set -eux; \
-    yarn build:prod;
+    GULP_ENV=prod yarn gulp:build;
 
 COPY docker/node/docker-entrypoint.sh /usr/local/bin/docker-entrypoint
 RUN chmod +x /usr/local/bin/docker-entrypoint
 
 ENTRYPOINT ["docker-entrypoint"]
-CMD ["yarn", "build"]
+CMD ["yarn", "gulp:build"]
 
 FROM nginx:${NGINX_VERSION}-alpine AS sylius_nginx
 
