@@ -27,8 +27,11 @@ COPY --from=php_extension_installer /usr/bin/install-php-extensions /usr/local/b
 RUN install-php-extensions apcu curl exif gd iconv intl mbstring pdo_mysql opcache xml zip
 
 COPY --from=composer /usr/bin/composer /usr/bin/composer
-COPY docker/php/php.ini /usr/local/etc/php/php.ini
-COPY docker/php/php-cli.ini /usr/local/etc/php/php-cli.ini
+COPY docker/php/prod/php.ini        $PHP_INI_DIR/php.ini
+COPY docker/php/prod/opcache.ini    $PHP_INI_DIR/conf.d/opcache.ini
+
+# copy file required by opcache preloading
+COPY config/preload.php /srv/sylius/config/preload.php
 
 # https://getcomposer.org/doc/03-cli.md#composer-allow-superuser
 ENV COMPOSER_ALLOW_SUPERUSER=1
@@ -120,6 +123,9 @@ COPY --from=base        /srv/sylius/public public/
 COPY --from=sylius_node /srv/sylius/public public/
 
 FROM sylius_php_prod AS sylius_php_dev
+
+COPY docker/php/dev/php.ini        $PHP_INI_DIR/php.ini
+COPY docker/php/dev/opcache.ini    $PHP_INI_DIR/conf.d/opcache.ini
 
 WORKDIR /srv/sylius
 
