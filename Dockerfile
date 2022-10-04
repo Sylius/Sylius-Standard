@@ -12,7 +12,7 @@ FROM composer:${COMPOSER_VERSION} AS composer
 
 FROM mlocati/php-extension-installer:${PHP_EXTENSION_INSTALLER_VERSION} AS php_extension_installer
 
-FROM php:${PHP_VERSION}-fpm-alpine${ALPINE_VERSION} AS sylius_php_prod
+FROM php:${PHP_VERSION}-fpm-alpine${ALPINE_VERSION} AS base
 
 # persistent / runtime deps
 RUN apk add --no-cache \
@@ -92,20 +92,23 @@ RUN set -eux; \
     yarn install; \
     yarn cache clean
 
-COPY --from=sylius_php_prod /srv/sylius/vendor/sylius/sylius/src/Sylius/Bundle/UiBundle/Resources/private       vendor/sylius/sylius/src/Sylius/Bundle/UiBundle/Resources/private/
-COPY --from=sylius_php_prod /srv/sylius/vendor/sylius/sylius/src/Sylius/Bundle/AdminBundle/Resources/private    vendor/sylius/sylius/src/Sylius/Bundle/AdminBundle/Resources/private/
-COPY --from=sylius_php_prod /srv/sylius/vendor/sylius/sylius/src/Sylius/Bundle/ShopBundle/Resources/private     vendor/sylius/sylius/src/Sylius/Bundle/ShopBundle/Resources/private/
-COPY --from=sylius_php_prod /srv/sylius/assets ./assets
+COPY --from=base /srv/sylius/vendor/sylius/sylius/src/Sylius/Bundle/UiBundle/Resources/private       vendor/sylius/sylius/src/Sylius/Bundle/UiBundle/Resources/private/
+COPY --from=base /srv/sylius/vendor/sylius/sylius/src/Sylius/Bundle/AdminBundle/Resources/private    vendor/sylius/sylius/src/Sylius/Bundle/AdminBundle/Resources/private/
+COPY --from=base /srv/sylius/vendor/sylius/sylius/src/Sylius/Bundle/ShopBundle/Resources/private     vendor/sylius/sylius/src/Sylius/Bundle/ShopBundle/Resources/private/
+COPY --from=base /srv/sylius/assets ./assets
 
 COPY webpack.config.js ./
-RUN set -eux; \
-    yarn build:prod;
+RUN yarn build:prod
 
 COPY docker/node/docker-entrypoint.sh /usr/local/bin/docker-entrypoint
 RUN chmod +x /usr/local/bin/docker-entrypoint
 
 ENTRYPOINT ["docker-entrypoint"]
-CMD ["yarn", "build"]
+CMD ["yarn", "build:prod"]
+
+FROM base AS sylius_php_prod
+
+COPY --from=sylius_node /srv/sylius/public/build public/build
 
 FROM nginx:${NGINX_VERSION}-alpine AS sylius_nginx
 
@@ -113,8 +116,8 @@ COPY docker/nginx/conf.d/default.conf /etc/nginx/conf.d/
 
 WORKDIR /srv/sylius
 
-COPY --from=sylius_php_prod /srv/sylius/public public/
-COPY --from=sylius_node     /srv/sylius/public public/
+COPY --from=base        /srv/sylius/public public/
+COPY --from=sylius_node /srv/sylius/public public/
 
 FROM sylius_php_prod AS sylius_php_dev
 

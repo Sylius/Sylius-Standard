@@ -44,7 +44,7 @@ adminConfig.resolve.alias['sylius/bundle'] = syliusBundles;
 adminConfig.externals = Object.assign({}, adminConfig.externals, { window: 'window', document: 'document' });
 adminConfig.name = 'admin';
 
-Encore.reset()
+Encore.reset();
 
 // App shop config
 Encore
