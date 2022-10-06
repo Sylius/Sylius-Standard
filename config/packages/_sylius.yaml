@@ -85,6 +85,9 @@ sylius_locale:
             classes:
                 model: App\Entity\Locale\Locale
 
+sylius_mailer:
+    sender_adapter: sylius.email_sender.adapter.symfony_mailer
+
 sylius_order:
     resources:
         order:
