@@ -128,3 +128,15 @@ ARG APP_ENV=dev
 RUN set -eux; \
     composer install --prefer-dist --no-autoloader --no-interaction --no-scripts --no-progress; \
     composer clear-cache
+
+FROM sylius_php_prod AS sylius_cron
+
+RUN set -eux; \
+	apk add --no-cache --virtual .build-deps \
+		apk-cron \
+	;
+
+COPY docker/cron/crontab /etc/crontabs/root
+
+ENTRYPOINT ["crond"]
+CMD ["-f"]

@@ -21,6 +21,22 @@ services:
     networks:
       - sylius
 
+  cron:
+    container_name: cron
+    build:
+      context: .
+      target: sylius_cron
+    depends_on:
+      - mysql
+    environment:
+      DATABASE_URL: mysql://sylius:${MYSQL_PASSWORD}@mysql/sylius_prod
+      PHP_DATE_TIMEZONE: ${PHP_DATE_TIMEZONE:-UTC}
+      APP_ENV: prod
+      APP_DEBUG: 0
+      APP_SECRET: EDITME
+    networks:
+      - sylius
+
   mysql:
     container_name: mysql
     # in production, we may want to use a managed database service
