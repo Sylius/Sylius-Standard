@@ -1,11 +1,11 @@
 # the different stages of this Dockerfile are meant to be built into separate images
 # https://docs.docker.com/compose/compose-file/#target
 
-ARG PHP_VERSION=8.0
+ARG PHP_VERSION=8.1
 ARG NODE_VERSION=16
 ARG NGINX_VERSION=1.21
 ARG ALPINE_VERSION=3.15
-ARG COMPOSER_VERSION=2
+ARG COMPOSER_VERSION=2.4
 ARG PHP_EXTENSION_INSTALLER_VERSION=latest
 
 FROM composer:${COMPOSER_VERSION} AS composer
@@ -24,7 +24,10 @@ RUN apk add --no-cache \
 
 COPY --from=php_extension_installer /usr/bin/install-php-extensions /usr/local/bin/
 
-RUN install-php-extensions apcu curl exif gd iconv intl mbstring pdo_mysql opcache xml zip
+# default PHP image extensions
+# ctype curl date dom fileinfo filter ftp hash iconv json libxml mbstring mysqlnd openssl pcre PDO pdo_sqlite Phar
+# posix readline Reflection session SimpleXML sodium SPL sqlite3 standard tokenizer xml xmlreader xmlwriter zlib
+RUN install-php-extensions apcu exif gd intl pdo_mysql opcache zip
 
 COPY --from=composer /usr/bin/composer /usr/bin/composer
 COPY docker/php/prod/php.ini        $PHP_INI_DIR/php.ini
@@ -51,7 +54,7 @@ RUN set -eux; \
     composer clear-cache
 
 # copy only specifically what we need
-COPY .env .env.prod .env.test .env.test_cached ./
+COPY .env .env.prod ./
 COPY assets assets/
 COPY bin bin/
 COPY config config/
@@ -128,6 +131,8 @@ COPY docker/php/dev/php.ini        $PHP_INI_DIR/php.ini
 COPY docker/php/dev/opcache.ini    $PHP_INI_DIR/conf.d/opcache.ini
 
 WORKDIR /srv/sylius
+
+COPY .env.test .env.test_cached ./
 
 ARG APP_ENV=dev
 

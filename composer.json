@@ -126,6 +126,7 @@
         "symfony/polyfill-intl-icu": "*",
         "symfony/polyfill-intl-idn": "*",
         "symfony/polyfill-intl-normalizer": "*",
+        "symfony/polyfill-mbstring": "*",
         "symfony/polyfill-php54": "*",
         "symfony/polyfill-php55": "*",
         "symfony/polyfill-php56": "*",
@@ -134,6 +135,7 @@
         "symfony/polyfill-php72": "*",
         "symfony/polyfill-php73": "*",
         "symfony/polyfill-php74": "*",
-        "symfony/polyfill-php80": "*"
+        "symfony/polyfill-php80": "*",
+        "symfony/polyfill-php81": "*"
     }
 }
