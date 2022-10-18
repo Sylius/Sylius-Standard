@@ -43,9 +43,6 @@
     "coduo/php-to-string": {
         "version": "2.0.1"
     },
-    "composer/package-versions-deprecated": {
-        "version": "1.11.99.1"
-    },
     "dealerdirect/phpcodesniffer-composer-installer": {
         "version": "v0.7.1"
     },
@@ -308,9 +305,6 @@
     "pagerfanta/pagerfanta": {
         "version": "v2.0.1"
     },
-    "paragonie/random_compat": {
-        "version": "v2.0.17"
-    },
     "payum/iso4217": {
         "version": "1.0.1"
     },
@@ -503,9 +497,6 @@
     "stripe/stripe-php": {
         "version": "v6.28.1"
     },
-    "swiftmailer/swiftmailer": {
-        "version": "v6.1.2"
-    },
     "sylius-labs/association-hydrator": {
         "version": "v1.1.0"
     },
@@ -656,6 +647,18 @@
     "symfony/intl": {
         "version": "v4.1.3"
     },
+    "symfony/mailer": {
+        "version": "5.4",
+        "recipe": {
+            "repo": "github.com/symfony/recipes",
+            "branch": "main",
+            "version": "4.3",
+            "ref": "97a61eabb351d7f6cb7702039bcfe07fe9d7e03c"
+        },
+        "files": [
+            "config/packages/mailer.yaml"
+        ]
+    },
     "symfony/messenger": {
         "version": "4.3",
         "recipe": {
@@ -751,15 +754,6 @@
     },
     "symfony/string": {
         "version": "v5.2.1"
-    },
-    "symfony/swiftmailer-bundle": {
-        "version": "2.5",
-        "recipe": {
-            "repo": "github.com/symfony/recipes",
-            "branch": "master",
-            "version": "2.5",
-            "ref": "3db029c03e452b4a23f7fc45cec7c922c2247eb8"
-        }
     },
     "symfony/templating": {
         "version": "v4.1.3"
