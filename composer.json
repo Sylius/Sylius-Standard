@@ -76,7 +76,11 @@
         },
         "symfony": {
             "allow-contrib": false,
-            "require": "^5.4"
+            "require": "^5.4",
+            "endpoint": [
+                "https://api.github.com/repos/Sylius/SyliusRecipes/contents/index.json?ref=flex/main",
+                "flex://defaults"
+            ]
         }
     },
     "autoload": {
