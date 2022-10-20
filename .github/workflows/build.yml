@@ -28,7 +28,7 @@ jobs:
             fail-fast: false
             matrix:
                 php: ["8.0", "8.1"]
-                symfony: ["^5.4"]
+                symfony: ["^5.4", "^6.0"]
                 node: ["16.x"]
                 mysql: ["5.7", "8.0"]
 
@@ -48,6 +48,14 @@ jobs:
                     extensions: intl
                     tools: symfony
                     coverage: none
+
+            -
+                name: Restrict Symfony version
+                if: matrix.symfony != ''
+                run: |
+                    composer global config --no-plugins allow-plugins.symfony/flex true
+                    composer global require --no-progress --no-scripts --no-plugins "symfony/flex:1.18.5"
+                    composer config extra.symfony.require "${{ matrix.symfony }}"
 
             -
                 name: Setup Node
