@@ -180,8 +180,12 @@ jobs:
                 run: vendor/bin/behat --colors --strict --no-interaction -vvv -f progress --tags="~@javascript&&~@todo&&~@cli&&@managing_catalog_promotions"
 
             -
-                name: Run non-JS Behat (without managing catalog promotion scenarios)
-                run: vendor/bin/behat --colors --strict --no-interaction -vvv -f progress --tags="~@javascript&&~@todo&&~@cli&&@~managing_catalog_promotions"
+                name: Run managing exchange rates scenarios
+                run: vendor/bin/behat --colors --strict --no-interaction -vvv -f progress --tags="~@javascript&&~@todo&&~@cli&&@managing_exchange_rates"
+
+            -
+                name: Run non-JS Behat (without managing catalog promotion scenarios and exchange rates)
+                run: vendor/bin/behat --colors --strict --no-interaction -vvv -f progress --tags="~@javascript&&~@todo&&~@cli&&@~managing_catalog_promotions&&@~managing_exchange_rates"
 
             -
                 name: Run JS Behat

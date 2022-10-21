@@ -1,7 +1,9 @@
 framework:
     translator: { fallbacks: ["%locale%"] }
     secret: '%env(APP_SECRET)%'
-    form: true
+    form:
+        enabled: true
+        legacy_error_messages: false
     csrf_protection: true
     session:
         handler_id: ~
