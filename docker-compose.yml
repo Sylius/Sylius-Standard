@@ -37,6 +37,8 @@ services:
       # - ./docker/mysql/data:/var/lib/mysql:rw,delegated
     ports:
       - "${MYSQL_PORT:-3306}:3306"
+    cap_add:
+      - SYS_NICE # prevent "mbind: Operation not permitted" errors
 
   node:
     container_name: node
