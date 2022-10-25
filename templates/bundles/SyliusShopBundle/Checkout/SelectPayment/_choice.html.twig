@@ -12,7 +12,7 @@
             </div>
         {% endif %}
         {% if method.gatewayConfig.factoryName == 'sylius.pay_pal' %}
-            {{ render(controller('Sylius\\PayPalPlugin\\Controller\\PayPalButtonsController:renderPaymentPageButtonsAction', {'orderId': order.id})) }}
+            {{ render(controller('Sylius\\PayPalPlugin\\Controller\\PayPalButtonsController::renderPaymentPageButtonsAction', {'orderId': order.id})) }}
         {% endif %}
     </div>
 </div>
