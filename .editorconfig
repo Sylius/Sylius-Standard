@@ -49,6 +49,12 @@ indent_style = space
 indent_size = 4
 trim_trailing_whitespace = false
 
+[docker-compose.{yaml,yml}]
+indent_size = 2
+
+[docker-compose.*.{yaml,yml}]
+indent_size = 2
+
 [.babelrc]
 indent_style = space
 indent_size = 2
