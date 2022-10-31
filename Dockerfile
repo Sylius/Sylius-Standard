@@ -42,7 +42,7 @@ ENV PATH="${PATH}:/root/.composer/vendor/bin"
 WORKDIR /srv/sylius
 
 # build for production
-ARG APP_ENV=prod
+ENV APP_ENV=prod
 
 # prevent the reinstallation of vendors at every changes in the source code
 COPY composer.* symfony.lock ./
@@ -129,7 +129,7 @@ COPY docker/php/dev/opcache.ini    $PHP_INI_DIR/conf.d/opcache.ini
 
 WORKDIR /srv/sylius
 
-ARG APP_ENV=dev
+ENV APP_ENV=dev
 
 RUN set -eux; \
     composer install --prefer-dist --no-autoloader --no-interaction --no-scripts --no-progress; \
@@ -143,6 +143,8 @@ RUN set -eux; \
 	;
 
 COPY docker/cron/crontab /etc/crontabs/root
+COPY docker/cron/docker-entrypoint.sh /usr/local/bin/docker-entrypoint
+RUN chmod +x /usr/local/bin/docker-entrypoint
 
-ENTRYPOINT ["crond"]
-CMD ["-f"]
+ENTRYPOINT ["docker-entrypoint"]
+CMD ["crond", "-f"]
