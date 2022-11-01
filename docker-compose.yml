@@ -26,12 +26,12 @@ services:
     container_name: migrations
     build:
       context: .
-      target: sylius_migrations
+      target: sylius_migrations_dev
     depends_on:
       - mysql
     environment:
       - APP_ENV=dev
-      - APP_DEBUG=0
+      - APP_DEBUG=1
       - APP_SECRET=EDITME
       - DATABASE_URL=mysql://sylius:${MYSQL_PASSWORD:-nopassword}@mysql/sylius
       - LOAD_FIXTURES=1

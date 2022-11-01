@@ -61,7 +61,7 @@ services:
     container_name: migrations
     build:
       context: .
-      target: sylius_migrations
+      target: sylius_migrations_prod
     depends_on:
       - mysql
     environment:
