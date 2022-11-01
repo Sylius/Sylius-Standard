@@ -15,8 +15,6 @@ services:
       MESSENGER_TRANSPORT_DSN: doctrine://default
       PHP_DATE_TIMEZONE: ${PHP_DATE_TIMEZONE:-UTC}
     volumes:
-      # use a bind-mounted host directory, as we want to keep the sessions
-      - ./var/sessions:/srv/sylius/var/sessions:rw
       # use a bind-mounted host directory, as we want to keep the media
       - ./public/media:/srv/sylius/public/media:rw
     networks:
