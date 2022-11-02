@@ -11,6 +11,8 @@ use Sylius\Component\Addressing\Model\Zone as BaseZone;
  * @ORM\Entity
  * @ORM\Table(name="sylius_zone")
  */
+#[ORM\Entity]
+#[ORM\Table(name: 'sylius_zone')]
 class Zone extends BaseZone
 {
 }
