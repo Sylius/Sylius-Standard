@@ -69,7 +69,7 @@ services:
       APP_DEBUG: 0
       APP_SECRET: EDITME
       DATABASE_URL: mysql://sylius:${MYSQL_PASSWORD}@mysql/sylius_prod
-      LOAD_FIXTURES: 0
+      LOAD_FIXTURES: ${LOAD_FIXTURES:-0}
       PHP_DATE_TIMEZONE: ${PHP_DATE_TIMEZONE:-UTC}
     networks:
       - sylius
