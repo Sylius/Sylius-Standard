@@ -1,0 +1,14 @@
+when@dev:
+    web_profiler:
+        toolbar: true
+        intercept_redirects: false
+
+when@test: &web_profiler_test
+    web_profiler:
+        toolbar: false
+        intercept_redirects: false
+
+    framework:
+        profiler: { collect: false }
+
+when@test_cached: *web_profiler_test

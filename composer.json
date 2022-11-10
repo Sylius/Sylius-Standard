@@ -25,9 +25,10 @@
     ],
     "require": {
         "php": "^8.0",
-        "sylius/paypal-plugin": "^1.5.x-dev",
-        "sylius/sylius": "^1.12.x-dev",
+        "sylius/paypal-plugin": "^1.5",
+        "sylius/sylius": "^1.12",
         "symfony/dotenv": "^5.4 || ^6.0",
+        "symfony/runtime": "^5.4 || ^6.0",
         "symfony/flex": "^2.1"
     },
     "require-dev": {
@@ -68,7 +69,8 @@
             "symfony/flex": true,
             "dealerdirect/phpcodesniffer-composer-installer": false,
             "phpstan/extension-installer": false,
-            "symfony/thanks": false
+            "symfony/thanks": false,
+            "symfony/runtime": true
         }
     },
     "extra": {
@@ -124,6 +126,7 @@
         "symfony/polyfill-intl-icu": "*",
         "symfony/polyfill-intl-idn": "*",
         "symfony/polyfill-intl-normalizer": "*",
+        "symfony/polyfill-mbstring": "*",
         "symfony/polyfill-php54": "*",
         "symfony/polyfill-php55": "*",
         "symfony/polyfill-php56": "*",
