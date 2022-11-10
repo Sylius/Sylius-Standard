@@ -1,47 +1,47 @@
-/public/assets
-/public/css
-/public/js
-/public/media
-!/public/media/image/.gitkeep
+/sylius/public/assets
+/sylius/public/css
+/sylius/public/js
+/sylius/public/media
+!/sylius/public/media/image/.gitkeep
 
-/etc/build/*
-!/etc/build/.gitignore
+/sylius/etc/build/*
+!/sylius/etc/build/.gitignore
 
-/behat.yml
-/phpspec.yml
+/sylius/behat.yml
+/sylius/phpspec.yml
 
 /docker-compose.override.yaml
 /docker-compose.override.yml
 /docker/mysql/data/
 
 ###> symfony/framework-bundle ###
-/composer.lock
-/.env.*.local
-/.env.local
-/.env.local.php
-/public/bundles
-/var/
-/vendor/
+/sylius/composer.lock
+/sylius/.env.*.local
+/sylius/.env.local
+/sylius/.env.local.php
+/sylius/public/bundles
+/sylius/var/
+/sylius/vendor/
 ###< symfony/framework-bundle ###
 
 ###> friendsofphp/php-cs-fixer ###
-/.php_cs
-/.php_cs.cache
+/sylius/.php_cs
+/sylius/.php_cs.cache
 ###< friendsofphp/php-cs-fixer ###
 
 ###> phpunit/phpunit ###
-/.phpunit.result.cache
-/phpunit.xml
+/sylius/.phpunit.result.cache
+/sylius/phpunit.xml
 ###< phpunit/phpunit ###
 
 ###> lexik/jwt-authentication-bundle ###
-/config/jwt/*.pem
-!/config/jwt/*-test.pem
+/sylius/config/jwt/*.pem
+!/sylius/config/jwt/*-test.pem
 ###< lexik/jwt-authentication-bundle ###
 
 ###> symfony/webpack-encore-bundle ###
-/node_modules/
-/public/build/
-npm-debug.log
-yarn-error.log
+/sylius/node_modules/
+/sylius/public/build/
+/sylius/npm-debug.log
+/sylius/yarn-error.log
 ###< symfony/webpack-encore-bundle ###

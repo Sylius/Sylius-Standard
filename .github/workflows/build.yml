@@ -16,6 +16,10 @@ on:
             cron: "0 1 * * 6" # Run at 1am every Saturday
     workflow_dispatch: ~
 
+defaults:
+    run:
+        working-directory: sylius
+
 jobs:
     tests:
         runs-on: ubuntu-20.04
