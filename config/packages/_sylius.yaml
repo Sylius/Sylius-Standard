@@ -10,6 +10,10 @@ imports:
 parameters:
     sylius_core.public_dir: '%kernel.project_dir%/public'
 
+when@dev:
+    sylius_api:
+        enabled: true
+
 sylius_addressing:
     resources:
         address:

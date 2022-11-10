@@ -7,10 +7,8 @@ namespace App\Entity\Shipping;
 use Doctrine\ORM\Mapping as ORM;
 use Sylius\Component\Shipping\Model\ShippingCategory as BaseShippingCategory;
 
-/**
- * @ORM\Entity
- * @ORM\Table(name="sylius_shipping_category")
- */
+#[ORM\Entity]
+#[ORM\Table(name: 'sylius_shipping_category')]
 class ShippingCategory extends BaseShippingCategory
 {
 }

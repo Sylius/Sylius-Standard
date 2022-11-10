@@ -10,3 +10,15 @@ framework:
     serializer:
         mapping:
             paths: [ '%kernel.project_dir%/config/serialization' ]
+
+when@dev:
+    framework:
+        profiler: { only_exceptions: false }
+
+when@test: &framework_test
+    framework:
+        test: true
+        session:
+            storage_factory_id: session.storage.factory.mock_file
+
+when@test_cached: *framework_test
