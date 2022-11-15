@@ -1,0 +1,11 @@
+---------------------------------------------------------------------------
+
+by Ferror at 2022-11-01T14:51:10Z
+
+PS. after this PR I will start working on the worker, cron, and migrations container to not have PHP-FPM. Those are going to be CLI-based containers
+
+---------------------------------------------------------------------------
+
+by GSadee at 2022-11-15T06:05:21Z
+
+Thank you, Zbigniew! :tada:
