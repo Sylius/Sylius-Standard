@@ -153,3 +153,19 @@ RUN chmod +x /usr/local/bin/docker-entrypoint
 
 ENTRYPOINT ["docker-entrypoint"]
 CMD ["crond", "-f"]
+
+FROM sylius_php_prod AS sylius_migrations_prod
+
+COPY docker/migrations/docker-entrypoint.sh /usr/local/bin/docker-entrypoint
+RUN chmod +x /usr/local/bin/docker-entrypoint
+
+ENTRYPOINT ["docker-entrypoint"]
+
+FROM sylius_php_dev AS sylius_migrations_dev
+
+COPY docker/migrations/docker-entrypoint.sh /usr/local/bin/docker-entrypoint
+RUN chmod +x /usr/local/bin/docker-entrypoint
+
+RUN composer dump-autoload --classmap-authoritative
+
+ENTRYPOINT ["docker-entrypoint"]

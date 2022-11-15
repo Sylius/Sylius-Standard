@@ -5,7 +5,7 @@ services:
       context: .
       target: sylius_php_dev
     depends_on:
-      - mysql
+      - migrations
     environment:
       - APP_ENV=dev
       - APP_DEBUG=1
@@ -21,6 +21,21 @@ services:
       # if you develop on Linux, you may use a bind-mounted host directory instead
       # - ./public/media:/srv/sylius/public/media:rw
       - public-media:/srv/sylius/public/media:rw
+
+  migrations:
+    container_name: migrations
+    build:
+      context: .
+      target: sylius_migrations_dev
+    depends_on:
+      - mysql
+    environment:
+      - APP_ENV=dev
+      - APP_DEBUG=1
+      - APP_SECRET=EDITME
+      - DATABASE_URL=mysql://sylius:${MYSQL_PASSWORD:-nopassword}@mysql/sylius
+      - LOAD_FIXTURES=1
+      - PHP_DATE_TIMEZONE=${PHP_DATE_TIMEZONE:-UTC}
 
   mysql:
     container_name: mysql
