@@ -45,7 +45,7 @@ ENV PATH="${PATH}:/root/.composer/vendor/bin"
 WORKDIR /srv/sylius
 
 # build for production
-ARG APP_ENV=prod
+ENV APP_ENV=prod
 
 # prevent the reinstallation of vendors at every changes in the source code
 COPY composer.* symfony.lock ./
@@ -132,9 +132,9 @@ COPY docker/php/dev/opcache.ini    $PHP_INI_DIR/conf.d/opcache.ini
 
 WORKDIR /srv/sylius
 
-COPY .env.test .env.test_cached ./
+ENV APP_ENV=dev
 
-ARG APP_ENV=dev
+COPY .env.test .env.test_cached ./
 
 RUN set -eux; \
     composer install --prefer-dist --no-autoloader --no-interaction --no-scripts --no-progress; \
@@ -151,3 +151,19 @@ COPY docker/cron/crontab /etc/crontabs/root
 
 ENTRYPOINT ["crond"]
 CMD ["-f"]
+
+FROM sylius_php_prod AS sylius_migrations_prod
+
+COPY docker/migrations/docker-entrypoint.sh /usr/local/bin/docker-entrypoint
+RUN chmod +x /usr/local/bin/docker-entrypoint
+
+ENTRYPOINT ["docker-entrypoint"]
+
+FROM sylius_php_dev AS sylius_migrations_dev
+
+COPY docker/migrations/docker-entrypoint.sh /usr/local/bin/docker-entrypoint
+RUN chmod +x /usr/local/bin/docker-entrypoint
+
+RUN composer dump-autoload --classmap-authoritative
+
+ENTRYPOINT ["docker-entrypoint"]
