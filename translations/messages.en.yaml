@@ -1,0 +1,4 @@
+sylius:
+    ui:
+        color_header: Color
+        no_color: Color not defined

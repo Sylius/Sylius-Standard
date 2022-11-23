@@ -252,3 +252,19 @@ sylius_theme:
             scan_depth: 1
             directories:
                 - "%kernel.project_dir%/themes"
+
+sylius_ui:
+    events:
+        sylius.shop.product.show.tab_details:
+            blocks:
+                legacy:
+                    template: "@SyliusUi/Block/_legacySonataEvent.html.twig"
+                    priority: 15
+                    context:
+                        event: sylius.shop.product.show.tab_details
+                description:
+                    template: "@SyliusShop/Product/Show/Tabs/Details/_description.html.twig"
+                    priority: 10
+                color:
+                    template: "@SyliusShop/Product/Show/Tabs/Details/_color.twig"
+                    priority: 10

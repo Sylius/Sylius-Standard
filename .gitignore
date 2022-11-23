@@ -9,6 +9,7 @@
 
 /behat.yml
 /phpspec.yml
+/.idea
 
 /docker-compose.override.yaml
 /docker-compose.override.yml

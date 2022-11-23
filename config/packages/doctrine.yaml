@@ -12,6 +12,8 @@ doctrine:
         charset: utf8mb4
 
         url: '%env(resolve:DATABASE_URL)%'
+        types:
+            color_type: App\Type\Color\ColorType
     orm:
         auto_generate_proxy_classes: '%kernel.debug%'
         entity_managers:

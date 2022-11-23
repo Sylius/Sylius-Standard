@@ -1,0 +1,7 @@
+<br>
+<h5>{{ 'sylius.ui.color_header'|trans }}</h5><br>
+{% if product.color is not null %}
+    {{ product.color }}
+{% else %}
+    {{ 'sylius.ui.no_color'|trans }}.
+{% endif %}
