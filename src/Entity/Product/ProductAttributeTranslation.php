@@ -7,8 +7,10 @@ namespace App\Entity\Product;
 use Doctrine\ORM\Mapping as ORM;
 use Sylius\Component\Product\Model\ProductAttributeTranslation as BaseProductAttributeTranslation;
 
-#[ORM\Entity]
-#[ORM\Table(name: 'sylius_product_attribute_translation')]
+/**
+ * @ORM\Entity
+ * @ORM\Table(name="sylius_product_attribute_translation")
+ */
 class ProductAttributeTranslation extends BaseProductAttributeTranslation
 {
 }

@@ -7,8 +7,10 @@ namespace App\Entity\Payment;
 use Doctrine\ORM\Mapping as ORM;
 use Sylius\Bundle\PayumBundle\Model\PaymentSecurityToken as BasePaymentSecurityToken;
 
-#[ORM\Entity]
-#[ORM\Table(name: 'sylius_payment_security_token')]
+/**
+ * @ORM\Entity
+ * @ORM\Table(name="sylius_payment_security_token")
+ */
 class PaymentSecurityToken extends BasePaymentSecurityToken
 {
 }

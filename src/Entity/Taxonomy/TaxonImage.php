@@ -7,8 +7,10 @@ namespace App\Entity\Taxonomy;
 use Doctrine\ORM\Mapping as ORM;
 use Sylius\Component\Core\Model\TaxonImage as BaseTaxonImage;
 
-#[ORM\Entity]
-#[ORM\Table(name: 'sylius_taxon_image')]
+/**
+ * @ORM\Entity
+ * @ORM\Table(name="sylius_taxon_image")
+ */
 class TaxonImage extends BaseTaxonImage
 {
 }
