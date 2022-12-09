@@ -1,7 +1,7 @@
 {
     "name": "sylius/sylius-standard",
     "type": "project",
-    "description": "Starting point for projects powered by Sylius eCommerce.",
+    "description": "Starting point for projects powered by Sylius eCommerce. Test",
     "keywords": [
         "symfony",
         "sylius",
