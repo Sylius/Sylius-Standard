@@ -1,0 +1,47 @@
+---------------------------------------------------------------------------
+
+by vvasiloi at 2022-11-11T06:55:18Z
+
+Since all `dependencies` are now `devDependencies`, are there any limitations users should be aware of?
+
+---------------------------------------------------------------------------
+
+by jakubtobiasz at 2022-11-11T07:44:48Z
+
+Nope, the whole application is built, so none dependency is used later.
+
+---------------------------------------------------------------------------
+
+by Ferror at 2022-11-15T15:43:17Z
+
+I don't understand why the Sylius frontend is dev dependency
+
+---------------------------------------------------------------------------
+
+by jakubtobiasz at 2022-11-16T11:26:45Z
+
+@Ferror notice all gulp, webpack, and others were in dev section. None of these packages are required by runtime, as they all are only used to build the result files. All of these deps can be placed in both dependencies and devDependencies (I mean the result will be the same) so as more deps were in dev then I placed this package as dev dependency too.
+
+---------------------------------------------------------------------------
+
+by Ferror at 2022-11-16T14:56:11Z
+
+> @Ferror notice all gulp, webpack, and others were in dev section. None of these packages are required by runtime, as they all are only used to build the result files. All of these deps can be placed in both dependencies and devDependencies (I mean the result will be the same) so as more deps were in dev then I placed this package as dev dependency too.
+
+Yea they were all in devDependency and then run with GULP_ENV=prod.
+
+---------------------------------------------------------------------------
+
+by jakubtobiasz at 2022-11-16T15:14:44Z
+
+> > @Ferror notice all gulp, webpack, and others were in dev section. None of these packages are required by runtime, as they all are only used to build the result files. All of these deps can be placed in both dependencies and devDependencies (I mean the result will be the same) so as more deps were in dev then I placed this package as dev dependency too.
+>
+> Yea they were all in devDependency and then run with GULP_ENV=prod.
+
+Now they are `yarn build:prod` what under the hood is `yarn encore production`, I don't see any difference.
+
+---------------------------------------------------------------------------
+
+by Rafikooo at 2022-12-13T10:23:01Z
+
+Thank you, Jakub! :1st_place_medal:
