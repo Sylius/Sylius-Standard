@@ -11,6 +11,8 @@ use Sylius\Component\Customer\Model\CustomerGroup as BaseCustomerGroup;
  * @ORM\Entity
  * @ORM\Table(name="sylius_customer_group")
  */
+#[ORM\Entity]
+#[ORM\Table(name: 'sylius_customer_group')]
 class CustomerGroup extends BaseCustomerGroup
 {
 }

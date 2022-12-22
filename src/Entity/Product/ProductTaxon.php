@@ -11,6 +11,8 @@ use Sylius\Component\Core\Model\ProductTaxon as BaseProductTaxon;
  * @ORM\Entity
  * @ORM\Table(name="sylius_product_taxon")
  */
+#[ORM\Entity]
+#[ORM\Table(name: 'sylius_product_taxon')]
 class ProductTaxon extends BaseProductTaxon
 {
 }

@@ -11,6 +11,8 @@ use Sylius\Component\Core\Model\OrderItem as BaseOrderItem;
  * @ORM\Entity
  * @ORM\Table(name="sylius_order_item")
  */
+#[ORM\Entity]
+#[ORM\Table(name: 'sylius_order_item')]
 class OrderItem extends BaseOrderItem
 {
 }

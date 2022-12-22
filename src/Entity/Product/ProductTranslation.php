@@ -11,6 +11,8 @@ use Sylius\Component\Core\Model\ProductTranslation as BaseProductTranslation;
  * @ORM\Entity
  * @ORM\Table(name="sylius_product_translation")
  */
+#[ORM\Entity]
+#[ORM\Table(name: 'sylius_product_translation')]
 class ProductTranslation extends BaseProductTranslation
 {
 }
