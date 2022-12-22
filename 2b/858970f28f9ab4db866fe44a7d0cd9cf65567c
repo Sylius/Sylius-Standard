@@ -1,0 +1,11 @@
+---------------------------------------------------------------------------
+
+by Rafikooo at 2022-12-20T16:44:46Z
+
+@NoResponseMate, as I recall, we agreed that in Sylius 1.12 we will stick with annotations, giving the ability to switch to the attributes, but we will use attributes as the default configuration with Sylius 1.13
+
+---------------------------------------------------------------------------
+
+by jakubtobiasz at 2022-12-22T12:02:06Z
+
+Thanks, Rafał! :tada:
