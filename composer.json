@@ -109,6 +109,7 @@
             "@auto-scripts"
         ],
         "post-create-project-cmd": [
+            "@php -r \"file_put_contents('.gitignore', str_replace('/composer.lock' . PHP_EOL, '', file_get_contents('.gitignore')));\"",
             "@php bin/console sylius:inform-about-gus --ansi",
             "@php bin/console sylius:show-available-plugins --ansi"
         ],
