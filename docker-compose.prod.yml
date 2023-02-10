@@ -13,6 +13,10 @@ services:
       DATABASE_URL: mysql://sylius:${MYSQL_PASSWORD}@mysql/sylius_prod
       MAILER_URL: smtp://localhost
       MESSENGER_TRANSPORT_DSN: doctrine://default
+      SYLIUS_MESSENGER_TRANSPORT_MAIN_DSN: doctrine://default
+      SYLIUS_MESSENGER_TRANSPORT_MAIN_FAILED_DSN: doctrine://default?queue_name=main_failed
+      SYLIUS_MESSENGER_TRANSPORT_CATALOG_PROMOTION_REMOVAL_DSN: doctrine://default?queue_name=catalog_promotion_removal
+      SYLIUS_MESSENGER_TRANSPORT_CATALOG_PROMOTION_REMOVAL_FAILED_DSN: doctrine://default?queue_name=catalog_promotion_removal_failed
       PHP_DATE_TIMEZONE: ${PHP_DATE_TIMEZONE:-UTC}
     volumes:
       # use a bind-mounted host directory, as we want to keep the sessions
@@ -53,6 +57,10 @@ services:
       APP_SECRET: EDITME
       DATABASE_URL: mysql://sylius:${MYSQL_PASSWORD}@mysql/sylius_prod
       MESSENGER_TRANSPORT_DSN: doctrine://default
+      SYLIUS_MESSENGER_TRANSPORT_MAIN_DSN: doctrine://default
+      SYLIUS_MESSENGER_TRANSPORT_MAIN_FAILED_DSN: doctrine://default?queue_name=main_failed
+      SYLIUS_MESSENGER_TRANSPORT_CATALOG_PROMOTION_REMOVAL_DSN: doctrine://default?queue_name=catalog_promotion_removal
+      SYLIUS_MESSENGER_TRANSPORT_CATALOG_PROMOTION_REMOVAL_FAILED_DSN: doctrine://default?queue_name=catalog_promotion_removal_failed
       PHP_DATE_TIMEZONE: ${PHP_DATE_TIMEZONE:-UTC}
     networks:
       - sylius
