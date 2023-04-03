@@ -60,6 +60,9 @@
         "symfony/intl": "^5.4 || ^6.0",
         "symfony/web-profiler-bundle": "^5.4 || ^6.0"
     },
+    "conflict": {
+        "symfony/framework-bundle": "6.2.8"
+    },
     "config": {
         "preferred-install": {
             "*": "dist"
