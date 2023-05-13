@@ -252,3 +252,10 @@ sylius_theme:
             scan_depth: 1
             directories:
                 - "%kernel.project_dir%/themes"
+
+sylius_resource:
+    resources:
+        app.payment_method_image:
+            classes:
+                model: App\Entity\Payment\PaymentMethodImage
+                form: App\Form\Type\PaymentMethodImageType
