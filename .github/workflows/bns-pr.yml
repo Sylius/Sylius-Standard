@@ -1,0 +1,87 @@
+name: Bunnyshell Update PR Environment
+concurrency: bns-pr-${{ github.event.number }}
+on:
+  pull_request_target:
+    types: [opened, reopened, synchronize]
+    branches:
+      - '*.*'
+jobs:
+  deploy:
+    name: Deploy PR Environment
+    runs-on: ubuntu-latest
+    outputs:
+      envId: ${{ env.BNS_ENV_ID }}
+      appEndpointUrl: ${{ env.APP_ENDPOINT_URL }}
+    steps:
+    - name: setup-yq
+      uses: frenck/action-setup-yq@v1
+    - name: Prepare vars
+      run: |-
+        echo "BNS_ENV_NAME=Sylius PR #${{ github.event.number }}" >> "$GITHUB_ENV"
+    - name: Check out the repo
+      uses: actions/checkout@v2
+    - name: Get Kubernetes integration
+      uses: addnab/docker-run-action@v3
+      with:
+        image: bunnyshell/cli:latest
+        options: -v ${{ github.env }}:/github/envs.txt
+        run: |-
+          set -ex
+          echo "CLUSTER_ID=`bns k8s-clusters list --token ${{ secrets.BUNNYSHELL_ACCESS_TOKEN }} --organization ${{ vars.BUNNYSHELL_ORGANIZATION_ID }} --non-interactive -o json \
+            | jq -r '._embedded.item[0].id'`" >> /github/envs.txt
+    - name: Check existing Environment
+      uses: addnab/docker-run-action@v3
+      with:
+        image: bunnyshell/cli:latest
+        options: -v ${{ github.workspace }}:/work -v ${{ github.env }}:/github/envs.txt
+        run: |-
+          set -ex
+          echo "BNS_ENV_ID=`bns environments list --search "${{ env.BNS_ENV_NAME }}" --token ${{ secrets.BUNNYSHELL_ACCESS_TOKEN }} --project ${{ vars.BUNNYSHELL_PROJECT_ID }} --non-interactive -o json \
+            | jq -r 'try ._embedded.item[0].id | select (.!=null)'`" >> /github/envs.txt
+    - name: Prepare bunnyshel.yaml
+      run: |-
+        set -ex
+        yq "(.components[] | select(.gitBranch != null)).gitBranch |= \"$GITHUB_HEAD_REF\"" .bunnyshell/templates/prod/bunnyshell.yaml > bunnyshell_pr.yaml
+    - name: Create Environment
+      uses: addnab/docker-run-action@v3
+      if: "${{ env.BNS_ENV_ID == '' }}"
+      with:
+        image: bunnyshell/cli:latest
+        options: -v ${{ github.workspace }}:/work -v ${{ github.env }}:/github/envs.txt
+        run: |-
+          set -ex
+          echo "BNS_ENV_CREATED=1" >> /github/envs.txt
+          echo "BNS_ENV_ID=`bns environments create --name "${{ env.BNS_ENV_NAME }}" --from-path /work/bunnyshell_pr.yaml --k8s "${{ env.CLUSTER_ID }}" --token ${{ secrets.BUNNYSHELL_ACCESS_TOKEN }} --project ${{ vars.BUNNYSHELL_PROJECT_ID }} --non-interactive -o json \
+            | jq -r '.id'`" >> /github/envs.txt
+    - name: Deploy Environment
+      uses: addnab/docker-run-action@v3
+      with:
+        image: bunnyshell/cli:latest
+        options: -v ${{ github.workspace }}:/work -v ${{ github.env }}:/github/envs.txt
+        run: |-
+          set -ex
+          DEPLOY_OUTPUT=`bns environments deploy --id ${{ env.BNS_ENV_ID }} --token ${{ secrets.BUNNYSHELL_ACCESS_TOKEN }} --non-interactive -o json`
+          echo "APP_ENDPOINT_URL=`echo \"$DEPLOY_OUTPUT\" | grep -A 100 '\[' | jq -r '.[] | select(.name == \"php\") | .endpoints[0]'`" >> /github/envs.txt
+    - name: Comment PR
+      uses: thollander/actions-comment-pull-request@v2
+      if: "${{ env.BNS_ENV_CREATED == '1' }}"
+      with:
+        message: |
+          *Bunnyshell* Environment created with the following endpoints:
+          - ${{ env.APP_ENDPOINT_URL }}
+  test:
+    name: Run E2E tests
+    runs-on: ubuntu-latest
+    needs: deploy
+    continue-on-error: true
+    steps:
+    - name: App tests
+      run: |-
+        set -ex
+        APP_ENDPOINT=${{ needs.deploy.outputs.appEndpointUrl }}
+        if [ -z "$APP_ENDPOINT" ]; then
+          echo "No APP_ENDPOINT"
+          exit 1
+        fi
+
+        curl -s --fail-with-body "$APP_ENDPOINT"

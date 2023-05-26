@@ -1,0 +1,33 @@
+name: Bunnyshell Delete PR Environment
+concurrency:
+  group: bns-pr-${{ github.event.number }}
+on:
+  pull_request_target:
+    types: [closed]
+    branches:
+      - '*.*'
+jobs:
+  deploy:
+    name: Delete PR Environment
+    runs-on: ubuntu-latest
+    steps:
+    - name: Check out the repo
+      uses: actions/checkout@v2
+    - name: Check existing Environment
+      uses: addnab/docker-run-action@v3
+      with:
+        image: bunnyshell/cli:latest
+        options: -v ${{ github.workspace }}:/work -v ${{ github.env }}:/github/envs.txt
+        run: |-
+          set -ex
+          BNS_ENV_NAME="Sylius PR #${{ github.event.number }}"
+          BNS_ENV_ID=`bns environments list --search "$BNS_ENV_NAME" --token ${{ secrets.BUNNYSHELL_ACCESS_TOKEN }} --project ${{ vars.BUNNYSHELL_PROJECT_ID }} --non-interactive -o json \
+            | jq -r "try ._embedded.item[0].id | select (.!=null)"`
+          echo "BNS_ENV_ID=$BNS_ENV_ID" >> /github/envs.txt
+    - name: Delete Environment
+      uses: addnab/docker-run-action@v3
+      if: "${{ env.BNS_ENV_ID != '' }}"
+      with:
+        image: bunnyshell/cli:latest
+        run: |-
+          bns environments delete --id "${{ env.BNS_ENV_ID }}" --token ${{ secrets.BUNNYSHELL_ACCESS_TOKEN }} --non-interactive -o json

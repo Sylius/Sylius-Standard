@@ -125,6 +125,12 @@ WORKDIR /srv/sylius
 COPY --from=base        /srv/sylius/public public/
 COPY --from=sylius_node /srv/sylius/public public/
 
+FROM sylius_nginx AS sylius_nginx_bunnyshell
+
+COPY docker/nginx/conf.d/bunnyshell.conf /etc/nginx/conf.d/default.conf
+
+RUN set -eux;
+
 FROM sylius_php_prod AS sylius_php_dev
 
 COPY docker/php/dev/php.ini        $PHP_INI_DIR/php.ini
@@ -139,6 +145,12 @@ COPY .env.test .env.test_cached ./
 RUN set -eux; \
     composer install --prefer-dist --no-autoloader --no-interaction --no-scripts --no-progress; \
     composer clear-cache
+
+FROM sylius_php_dev AS sylius_php_dev_bunnyshell
+
+# package.json is needed by the `node` container, for yarn watch
+# `php` and `node` containers share the same folder (the one from `php` container)
+COPY . .
 
 FROM sylius_php_prod AS sylius_cron
 
@@ -166,6 +178,6 @@ FROM sylius_php_dev AS sylius_migrations_dev
 COPY docker/migrations/docker-entrypoint.sh /usr/local/bin/docker-entrypoint
 RUN chmod +x /usr/local/bin/docker-entrypoint
 
-RUN composer dump-autoload --classmap-authoritative
+RUN composer dump-autoload --classmap-authoritative --optimize
 
 ENTRYPOINT ["docker-entrypoint"]
