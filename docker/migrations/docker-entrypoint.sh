@@ -22,7 +22,7 @@ php bin/console doctrine:migrations:migrate --no-interaction
 
 if [ "$LOAD_FIXTURES" = "1" ]; then
     php bin/console sylius:fixtures:load --no-interaction
-fi
 
-# make the image files created by fixtures accessible by fpm which runs with user www-data
-chown -R www-data:www-data public/media/image
+    # make the image files created by fixtures accessible by fpm which runs with user www-data
+    chown -R www-data:www-data public/media/image
+fi
