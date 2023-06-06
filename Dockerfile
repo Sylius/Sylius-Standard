@@ -118,6 +118,15 @@ COPY --from=sylius_node /srv/sylius/public/build public/build
 
 FROM nginx:${NGINX_VERSION}-alpine AS sylius_nginx
 
+ARG GID=82
+ARG UID=82
+ARG USERNAME="www-data"
+
+RUN set -x; \
+    addgroup -g $GID -S $USERNAME; \
+    adduser -S -D -H -u $UID -h /var/cache/nginx -s /sbin/nologin -G $USERNAME -g $USERNAME $USERNAME
+
+COPY docker/nginx/nginx.conf /etc/nginx/nginx.conf
 COPY docker/nginx/conf.d/default.conf /etc/nginx/conf.d/
 
 WORKDIR /srv/sylius
