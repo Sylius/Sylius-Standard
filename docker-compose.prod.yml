@@ -6,7 +6,7 @@ services:
       target: sylius_php_prod
     depends_on:
       - migrations
-    environment:
+    environment: &environments
       APP_DEBUG: 0
       APP_ENV: prod
       APP_SECRET: EDITME
@@ -33,12 +33,7 @@ services:
       target: sylius_cron
     depends_on:
       - migrations
-    environment:
-      APP_ENV: prod
-      APP_DEBUG: 0
-      APP_SECRET: EDITME
-      DATABASE_URL: mysql://sylius:${MYSQL_PASSWORD}@mysql/sylius_prod
-      PHP_DATE_TIMEZONE: ${PHP_DATE_TIMEZONE:-UTC}
+    environment: *environments
     networks:
       - sylius
 
@@ -51,17 +46,7 @@ services:
       target: sylius_php_prod
     depends_on:
       - migrations
-    environment:
-      APP_ENV: prod
-      APP_DEBUG: 0
-      APP_SECRET: EDITME
-      DATABASE_URL: mysql://sylius:${MYSQL_PASSWORD}@mysql/sylius_prod
-      MESSENGER_TRANSPORT_DSN: doctrine://default
-      SYLIUS_MESSENGER_TRANSPORT_MAIN_DSN: doctrine://default
-      SYLIUS_MESSENGER_TRANSPORT_MAIN_FAILED_DSN: doctrine://default?queue_name=main_failed
-      SYLIUS_MESSENGER_TRANSPORT_CATALOG_PROMOTION_REMOVAL_DSN: doctrine://default?queue_name=catalog_promotion_removal
-      SYLIUS_MESSENGER_TRANSPORT_CATALOG_PROMOTION_REMOVAL_FAILED_DSN: doctrine://default?queue_name=catalog_promotion_removal_failed
-      PHP_DATE_TIMEZONE: ${PHP_DATE_TIMEZONE:-UTC}
+    environment: *environments
     networks:
       - sylius
 
@@ -72,13 +57,7 @@ services:
       target: sylius_migrations_prod
     depends_on:
       - mysql
-    environment:
-      APP_ENV: prod
-      APP_DEBUG: 0
-      APP_SECRET: EDITME
-      DATABASE_URL: mysql://sylius:${MYSQL_PASSWORD}@mysql/sylius_prod
-      LOAD_FIXTURES: ${LOAD_FIXTURES:-0}
-      PHP_DATE_TIMEZONE: ${PHP_DATE_TIMEZONE:-UTC}
+    environment: *environments
     networks:
       - sylius
 
