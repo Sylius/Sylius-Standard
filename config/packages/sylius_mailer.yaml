@@ -1,0 +1,4 @@
+sylius_mailer:
+    sender:
+        name: Xapeta Store
+        address: no-reply@xapeta.com
