@@ -10,3 +10,7 @@ services:
         autoconfigure: true
 
     Twig\Extra\Intl\IntlExtension: ~
+
+when@test_cached:
+    twig:
+        strict_variables: true

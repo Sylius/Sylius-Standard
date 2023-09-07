@@ -1,11 +1,11 @@
 # the different stages of this Dockerfile are meant to be built into separate images
 # https://docs.docker.com/compose/compose-file/#target
 
-ARG PHP_VERSION=8.0
+ARG PHP_VERSION=8.1
 ARG NODE_VERSION=16
 ARG NGINX_VERSION=1.21
 ARG ALPINE_VERSION=3.15
-ARG COMPOSER_VERSION=2
+ARG COMPOSER_VERSION=2.4
 ARG PHP_EXTENSION_INSTALLER_VERSION=latest
 
 FROM composer:${COMPOSER_VERSION} AS composer
@@ -24,7 +24,10 @@ RUN apk add --no-cache \
 
 COPY --from=php_extension_installer /usr/bin/install-php-extensions /usr/local/bin/
 
-RUN install-php-extensions apcu curl exif gd iconv intl mbstring pdo_mysql opcache xml zip
+# default PHP image extensions
+# ctype curl date dom fileinfo filter ftp hash iconv json libxml mbstring mysqlnd openssl pcre PDO pdo_sqlite Phar
+# posix readline Reflection session SimpleXML sodium SPL sqlite3 standard tokenizer xml xmlreader xmlwriter zlib
+RUN install-php-extensions apcu exif gd intl pdo_mysql opcache zip
 
 COPY --from=composer /usr/bin/composer /usr/bin/composer
 COPY docker/php/prod/php.ini        $PHP_INI_DIR/php.ini
@@ -42,7 +45,7 @@ ENV PATH="${PATH}:/root/.composer/vendor/bin"
 WORKDIR /srv/sylius
 
 # build for production
-ARG APP_ENV=prod
+ENV APP_ENV=prod
 
 # prevent the reinstallation of vendors at every changes in the source code
 COPY composer.* symfony.lock ./
@@ -51,7 +54,7 @@ RUN set -eux; \
     composer clear-cache
 
 # copy only specifically what we need
-COPY .env .env.prod .env.test .env.test_cached ./
+COPY .env .env.prod ./
 COPY assets assets/
 COPY bin bin/
 COPY config config/
@@ -90,7 +93,7 @@ RUN set -eux; \
 	;
 
 # prevent the reinstallation of vendors at every changes in the source code
-COPY package.json yarn.lock ./
+COPY package.json yarn.* ./
 RUN set -eux; \
     yarn install; \
     yarn cache clean
@@ -129,7 +132,9 @@ COPY docker/php/dev/opcache.ini    $PHP_INI_DIR/conf.d/opcache.ini
 
 WORKDIR /srv/sylius
 
-ARG APP_ENV=dev
+ENV APP_ENV=dev
+
+COPY .env.test .env.test_cached ./
 
 RUN set -eux; \
     composer install --prefer-dist --no-autoloader --no-interaction --no-scripts --no-progress; \
@@ -143,6 +148,24 @@ RUN set -eux; \
 	;
 
 COPY docker/cron/crontab /etc/crontabs/root
+COPY docker/cron/docker-entrypoint.sh /usr/local/bin/docker-entrypoint
+RUN chmod +x /usr/local/bin/docker-entrypoint
 
-ENTRYPOINT ["crond"]
-CMD ["-f"]
+ENTRYPOINT ["docker-entrypoint"]
+CMD ["crond", "-f"]
+
+FROM sylius_php_prod AS sylius_migrations_prod
+
+COPY docker/migrations/docker-entrypoint.sh /usr/local/bin/docker-entrypoint
+RUN chmod +x /usr/local/bin/docker-entrypoint
+
+ENTRYPOINT ["docker-entrypoint"]
+
+FROM sylius_php_dev AS sylius_migrations_dev
+
+COPY docker/migrations/docker-entrypoint.sh /usr/local/bin/docker-entrypoint
+RUN chmod +x /usr/local/bin/docker-entrypoint
+
+RUN composer dump-autoload --classmap-authoritative
+
+ENTRYPOINT ["docker-entrypoint"]

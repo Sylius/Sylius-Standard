@@ -17,13 +17,11 @@ if [ "$1" = 'php-fpm' ] || [ "$1" = 'bin/console' ]; then
 		bin/console sylius:theme:assets:install public --no-interaction
 	fi
 
-	until bin/console doctrine:query:sql "select 1" >/dev/null 2>&1; do
-	    (>&2 echo "Waiting for MySQL to be ready...")
-		sleep 1
-	done
-
-    bin/console doctrine:migrations:migrate --no-interaction
-    bin/console sylius:fixtures:load --no-interaction
+	while ping -c1 migrations >/dev/null 2>&1;
+	do
+	    (>&2 echo "Waiting for Migrations container to finish")
+	    sleep 1;
+	done;
 fi
 
 exec docker-php-entrypoint "$@"

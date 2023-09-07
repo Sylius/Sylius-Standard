@@ -1,4 +1,5 @@
 /public/assets
+/public/build
 /public/css
 /public/js
 /public/media
@@ -42,6 +43,7 @@
 ###> symfony/webpack-encore-bundle ###
 /node_modules/
 /public/build/
-npm-debug.log
-yarn-error.log
+/npm-debug.log
+/yarn-error.log
+/yarn.lock
 ###< symfony/webpack-encore-bundle ###

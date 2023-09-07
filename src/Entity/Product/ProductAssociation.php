@@ -11,6 +11,8 @@ use Sylius\Component\Product\Model\ProductAssociation as BaseProductAssociation;
  * @ORM\Entity
  * @ORM\Table(name="sylius_product_association")
  */
+#[ORM\Entity]
+#[ORM\Table(name: 'sylius_product_association')]
 class ProductAssociation extends BaseProductAssociation
 {
 }

@@ -11,6 +11,8 @@ use Sylius\Bundle\PayumBundle\Model\PaymentSecurityToken as BasePaymentSecurityT
  * @ORM\Entity
  * @ORM\Table(name="sylius_payment_security_token")
  */
+#[ORM\Entity]
+#[ORM\Table(name: 'sylius_payment_security_token')]
 class PaymentSecurityToken extends BasePaymentSecurityToken
 {
 }

@@ -5,7 +5,7 @@ services:
       context: .
       target: sylius_php_prod
     depends_on:
-      - mysql
+      - migrations
     environment:
       APP_DEBUG: 0
       APP_ENV: prod
@@ -13,6 +13,10 @@ services:
       DATABASE_URL: mysql://sylius:${MYSQL_PASSWORD}@mysql/sylius_prod
       MAILER_URL: smtp://localhost
       MESSENGER_TRANSPORT_DSN: doctrine://default
+      SYLIUS_MESSENGER_TRANSPORT_MAIN_DSN: doctrine://default
+      SYLIUS_MESSENGER_TRANSPORT_MAIN_FAILED_DSN: doctrine://default?queue_name=main_failed
+      SYLIUS_MESSENGER_TRANSPORT_CATALOG_PROMOTION_REMOVAL_DSN: doctrine://default?queue_name=catalog_promotion_removal
+      SYLIUS_MESSENGER_TRANSPORT_CATALOG_PROMOTION_REMOVAL_FAILED_DSN: doctrine://default?queue_name=catalog_promotion_removal_failed
       PHP_DATE_TIMEZONE: ${PHP_DATE_TIMEZONE:-UTC}
     volumes:
       # use a bind-mounted host directory, as we want to keep the media
@@ -26,7 +30,7 @@ services:
       context: .
       target: sylius_cron
     depends_on:
-      - mysql
+      - migrations
     environment:
       APP_ENV: prod
       APP_DEBUG: 0
@@ -35,7 +39,7 @@ services:
       PHP_DATE_TIMEZONE: ${PHP_DATE_TIMEZONE:-UTC}
     networks:
       - sylius
-    
+
   worker:
     container_name: worker
     command: ["php", "bin/console", "messenger:consume", "main", "catalog_promotion_removal", "--limit=5", "--memory-limit=256M", "--time-limit=600"]
@@ -44,13 +48,34 @@ services:
       context: .
       target: sylius_php_prod
     depends_on:
-      - mysql
+      - migrations
     environment:
       APP_ENV: prod
       APP_DEBUG: 0
       APP_SECRET: EDITME
       DATABASE_URL: mysql://sylius:${MYSQL_PASSWORD}@mysql/sylius_prod
       MESSENGER_TRANSPORT_DSN: doctrine://default
+      SYLIUS_MESSENGER_TRANSPORT_MAIN_DSN: doctrine://default
+      SYLIUS_MESSENGER_TRANSPORT_MAIN_FAILED_DSN: doctrine://default?queue_name=main_failed
+      SYLIUS_MESSENGER_TRANSPORT_CATALOG_PROMOTION_REMOVAL_DSN: doctrine://default?queue_name=catalog_promotion_removal
+      SYLIUS_MESSENGER_TRANSPORT_CATALOG_PROMOTION_REMOVAL_FAILED_DSN: doctrine://default?queue_name=catalog_promotion_removal_failed
+      PHP_DATE_TIMEZONE: ${PHP_DATE_TIMEZONE:-UTC}
+    networks:
+      - sylius
+
+  migrations:
+    container_name: migrations
+    build:
+      context: .
+      target: sylius_migrations_prod
+    depends_on:
+      - mysql
+    environment:
+      APP_ENV: prod
+      APP_DEBUG: 0
+      APP_SECRET: EDITME
+      DATABASE_URL: mysql://sylius:${MYSQL_PASSWORD}@mysql/sylius_prod
+      LOAD_FIXTURES: ${LOAD_FIXTURES:-0}
       PHP_DATE_TIMEZONE: ${PHP_DATE_TIMEZONE:-UTC}
     networks:
       - sylius

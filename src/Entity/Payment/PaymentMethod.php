@@ -12,6 +12,8 @@ use Sylius\Component\Payment\Model\PaymentMethodTranslationInterface;
  * @ORM\Entity
  * @ORM\Table(name="sylius_payment_method")
  */
+#[ORM\Entity]
+#[ORM\Table(name: 'sylius_payment_method')]
 class PaymentMethod extends BasePaymentMethod
 {
     protected function createTranslation(): PaymentMethodTranslationInterface

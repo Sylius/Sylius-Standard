@@ -11,6 +11,8 @@ use Sylius\Component\Addressing\Model\Country as BaseCountry;
  * @ORM\Entity
  * @ORM\Table(name="sylius_country")
  */
+#[ORM\Entity]
+#[ORM\Table(name: 'sylius_country')]
 class Country extends BaseCountry
 {
 }

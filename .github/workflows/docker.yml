@@ -50,7 +50,7 @@ jobs:
                 if: matrix.platform == 'linux/amd64'
             -
                 name: Setup Sylius Store
-                run: docker compose -f ${{ matrix.docker_compose }} up -d
+                run: LOAD_FIXTURES=1 docker compose -f ${{ matrix.docker_compose }} up -d
                 if: matrix.platform == 'linux/amd64'
             -
                 name: Health Check Store

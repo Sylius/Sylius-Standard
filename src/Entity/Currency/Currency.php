@@ -11,6 +11,8 @@ use Sylius\Component\Currency\Model\Currency as BaseCurrency;
  * @ORM\Entity
  * @ORM\Table(name="sylius_currency")
  */
+#[ORM\Entity]
+#[ORM\Table(name: 'sylius_currency')]
 class Currency extends BaseCurrency
 {
 }
