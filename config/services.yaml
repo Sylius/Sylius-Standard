@@ -33,3 +33,8 @@ services:
     App\Controller\:
         resource: '../src/Controller'
         tags: ['controller.service_arguments']
+
+    app.form.extension.type.product_color:
+        class: App\Form\Extension\ProductColorType
+        tags:
+            - { name: form.type_extension, extended_type: Sylius\Bundle\ProductBundle\Form\Type\ProductType }
