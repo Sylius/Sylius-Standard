@@ -19,27 +19,6 @@ sylius_paypal:
     requirements:
         _locale: ^[A-Za-z]{2,4}(_([A-Za-z]{4}|[0-9]{3}))?(_([A-Za-z]{2}|[0-9]{3}))?$     
 
-# Should be removed after SyliusPayPalPlugin 1.5.1 release
-sylius_shop_order_show:
-    path: /order/{tokenValue}
-    methods: [GET, PUT]
-    defaults:
-        _controller: sylius.controller.order::updateAction
-        _sylius:
-            template: "@SyliusShop/Order/show.html.twig"
-            repository:
-                method: findOneBy
-                arguments: [tokenValue: $tokenValue]
-            form:
-                type: Sylius\PayPalPlugin\Form\Type\SelectPaymentType
-                options:
-                    validation_groups: [sylius_order_pay]
-            redirect:
-                route: sylius_shop_order_pay
-                parameters:
-                    tokenValue: resource.tokenValue
-            flash: false
-
 # see https://web.dev/change-password-url/
 sylius_shop_request_password_reset_token_redirect:
     path: /.well-known/change-password
