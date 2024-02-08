@@ -1,0 +1,8 @@
+sylius:
+    form:
+        product:
+            select_color: - Select color -
+            color: Color
+            red: Red
+            blue: Blue
+            green: Green
