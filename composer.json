@@ -27,8 +27,8 @@
         "php": "^8.0",
         "sylius/paypal-plugin": "^1.5",
         "sylius/sylius": "^1.12.11",
-        "symfony/dotenv": "^5.4 || ^6.0",
-        "symfony/runtime": "^5.4 || ^6.0",
+        "symfony/dotenv": "^5.4 || ^6.4",
+        "symfony/runtime": "^5.4 || ^6.4",
         "symfony/flex": "^2.4"
     },
     "require-dev": {
@@ -55,10 +55,10 @@
         "stripe/stripe-php": "^6.43",
         "sylius-labs/coding-standard": "^4.0",
         "sylius/sylius-rector": "^1.0",
-        "symfony/browser-kit": "^5.4 || ^6.0",
-        "symfony/debug-bundle": "^5.4 || ^6.0",
-        "symfony/intl": "^5.4 || ^6.0",
-        "symfony/web-profiler-bundle": "^5.4 || ^6.0"
+        "symfony/browser-kit": "^5.4 || ^6.4",
+        "symfony/debug-bundle": "^5.4 || ^6.4",
+        "symfony/intl": "^5.4 || ^6.4",
+        "symfony/web-profiler-bundle": "^5.4 || ^6.4"
     },
     "conflict": {
         "symfony/framework-bundle": "6.2.8",
@@ -83,7 +83,7 @@
         },
         "symfony": {
             "allow-contrib": false,
-            "require": "^6.0",
+            "require": "^6.4",
             "endpoint": [
                 "https://api.github.com/repos/Sylius/SyliusRecipes/contents/index.json?ref=flex/main",
                 "flex://defaults"
