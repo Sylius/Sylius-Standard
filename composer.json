@@ -29,7 +29,7 @@
         "sylius/sylius": "^1.12.11",
         "symfony/dotenv": "^5.4 || ^6.0",
         "symfony/runtime": "^5.4 || ^6.0",
-        "symfony/flex": "^2.1"
+        "symfony/flex": "^2.4"
     },
     "require-dev": {
         "behat/behat": "^3.7",
