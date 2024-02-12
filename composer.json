@@ -61,7 +61,8 @@
         "symfony/web-profiler-bundle": "^5.4 || ^6.0"
     },
     "conflict": {
-        "symfony/framework-bundle": "6.2.8"
+        "symfony/framework-bundle": "6.2.8",
+        "behat/mink-selenium2-driver": ">=1.7.0"
     },
     "config": {
         "preferred-install": {
