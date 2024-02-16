@@ -5,7 +5,9 @@ imports:
     - { resource: "@SyliusApiBundle/Resources/config/app/config.yaml" }
 
     - { resource: "@SyliusShopBundle/Resources/config/app/config.yml" }
-    - { resource: "@SyliusPayPalPlugin/Resources/config/config.yaml" }
+
+# Restore before Sylius 1.13 release
+#    - { resource: "@SyliusPayPalPlugin/Resources/config/config.yaml" }
     - { resource: "../parameters.yaml" }
 
 parameters:

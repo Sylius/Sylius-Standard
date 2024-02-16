@@ -25,7 +25,6 @@
     ],
     "require": {
         "php": "^8.0",
-        "sylius/paypal-plugin": "^1.5",
         "sylius/sylius": "1.13.x-dev",
         "symfony/dotenv": "^5.4 || ^6.4",
         "symfony/runtime": "^5.4 || ^6.4",
