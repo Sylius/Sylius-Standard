@@ -185,6 +185,9 @@ jobs:
                 name: Run PHPUnit
                 run: vendor/bin/phpunit --colors=always
 
+            -   name: Install Behat driver
+                run: vendor/bin/bdi detect drivers
+
             -
                 name: Run managing catalog promotion scenarios
                 run: vendor/bin/behat --colors --strict --no-interaction -vvv -f progress --tags="~@javascript&&~@todo&&~@cli&&@managing_catalog_promotions"
