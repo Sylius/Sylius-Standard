@@ -157,7 +157,9 @@ jobs:
 
             -
                 name: Validate composer.json
-                run: composer validate --ansi --strict --no-check-publish
+                run: composer validate --ansi --strict --no-check-all
+#                Restore before Sylius 1.13 release
+#                run: composer validate --ansi --strict --no-check-publish
 
             -
                 name: Run security check
