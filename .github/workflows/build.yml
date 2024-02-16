@@ -30,7 +30,7 @@ jobs:
                 php: ["8.0", "8.1"]
                 symfony: ["^5.4", "^6.4"]
                 node: ["16.x"]
-                mysql: ["8.0"]
+                mysql: ["8.3"]
                 exclude:
                     -
                         php: "8.0"
