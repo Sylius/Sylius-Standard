@@ -299,6 +299,18 @@
             "ref": "5ef2976310e8f9621c1a722a73bfbe115c1559a3"
         }
     },
+    "nyholm/psr7": {
+        "version": "1.8",
+        "recipe": {
+            "repo": "github.com/symfony/recipes",
+            "branch": "main",
+            "version": "1.0",
+            "ref": "4a8c0345442dcca1d8a2c65633dcf0285dd5a5a2"
+        },
+        "files": [
+            "config/packages/nyholm_psr7.yaml"
+        ]
+    },
     "openlss/lib-array2xml": {
         "version": "0.0.10"
     },
@@ -343,9 +355,6 @@
     },
     "phpdocumentor/type-resolver": {
         "version": "0.4.0"
-    },
-    "phpseclib/phpseclib": {
-        "version": "2.0.30"
     },
     "phpspec/php-diff": {
         "version": "v1.1.0"
@@ -526,9 +535,6 @@
     },
     "sylius/mailer-bundle": {
         "version": "v1.4.4"
-    },
-    "sylius/paypal-plugin": {
-        "version": "v1.0.1"
     },
     "sylius/registry": {
         "version": "v1.4.1"
@@ -829,6 +835,18 @@
             "config/packages/webpack_encore.yaml",
             "package.json",
             "webpack.config.js"
+        ]
+    },
+    "symfony/workflow": {
+        "version": "6.4",
+        "recipe": {
+            "repo": "github.com/symfony/recipes",
+            "branch": "main",
+            "version": "3.3",
+            "ref": "3b2f8ca32a07fcb00f899649053943fa3d8bbfb6"
+        },
+        "files": [
+            "config/packages/workflow.yaml"
         ]
     },
     "symfony/yaml": {
