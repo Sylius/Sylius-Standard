@@ -39,7 +39,7 @@ services:
 
   mysql:
     container_name: mysql
-    image: mysql:5.7 # Sylius is fully working on mysql 8.0 version
+    image: mysql:8.3
     platform: linux/amd64
     environment:
       - MYSQL_ROOT_PASSWORD=${MYSQL_ROOT_PASSWORD:-nopassword}
