@@ -24,7 +24,7 @@
         }
     ],
     "require": {
-        "php": "^8.0",
+        "php": "^8.1",
         "sylius/sylius": "1.13.x-dev",
         "symfony/dotenv": "^5.4 || ^6.4",
         "symfony/runtime": "^5.4 || ^6.4",
