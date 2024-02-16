@@ -67,6 +67,12 @@ sylius_core:
         channel_pricing:
             classes:
                 model: App\Entity\Channel\ChannelPricing
+        channel_price_history_config:
+            classes:
+                model: App\Entity\Channel\ChannelPriceHistoryConfig
+        channel_pricing_log_entry:
+            classes:
+                model: App\Entity\Channel\ChannelPricingLogEntry
 
 sylius_currency:
     resources:
