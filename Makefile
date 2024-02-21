@@ -29,3 +29,12 @@ install:
 
 clean:
 	@ENV=$(ENV) DOCKER_USER=$(DOCKER_USER) docker-compose down -v
+
+php-shell:
+	@ENV=$(ENV) DOCKER_USER=$(DOCKER_USER) docker-compose exec php sh
+
+node-shell:
+	@ENV=$(ENV) DOCKER_USER=$(DOCKER_USER) docker-compose run --rm -i nodejs sh
+
+yarn-watch:
+	@ENV=$(ENV) DOCKER_USER=$(DOCKER_USER) docker-compose run --rm -i nodejs "yarn watch"
