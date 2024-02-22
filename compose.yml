@@ -1,18 +1,6 @@
 services:
   php:
     image: ghcr.io/sylius/sylius-php:8.2-alpine
-    environment:
-      APP_DEBUG: 0
-      APP_ENV: prod
-      APP_SECRET: EDITME
-      DATABASE_URL: "mysql://root@mysql/sylius_%kernel.environment%"
-      MAILER_URL: null://null
-      MESSENGER_TRANSPORT_DSN: doctrine://default
-      SYLIUS_MESSENGER_TRANSPORT_MAIN_DSN: doctrine://default
-      SYLIUS_MESSENGER_TRANSPORT_MAIN_FAILED_DSN: doctrine://default?queue_name=main_failed
-      SYLIUS_MESSENGER_TRANSPORT_CATALOG_PROMOTION_REMOVAL_DSN: doctrine://default?queue_name=catalog_promotion_removal
-      SYLIUS_MESSENGER_TRANSPORT_CATALOG_PROMOTION_REMOVAL_FAILED_DSN: doctrine://default?queue_name=catalog_promotion_removal_failed
-      PHP_DATE_TIMEZONE: ${PHP_DATE_TIMEZONE:-UTC}
   mysql:
     image: mysql:5.7 # Sylius is fully working on mysql 8.0 version
     platform: linux/amd64
