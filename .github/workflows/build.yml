@@ -57,6 +57,13 @@ jobs:
                     composer global require --no-progress --no-scripts --no-plugins "symfony/flex:^2.4"
                     composer config extra.symfony.require "${{ matrix.symfony }}"
 
+            # These dependencies since Sylius 1.13 have been shifted to dev ones: https://github.com/Sylius/Sylius/pull/15485
+            -
+                name: Add Payum dependencies
+                run: |
+                    composer require --dev --no-update --no-progress --no-scripts --no-plugins "payum/paypal-express-checkout-nvp:^1.7.3"
+                    composer require --dev --no-update --no-progress --no-scripts --no-plugins "payum/stripe:^1.7.3"
+
             -
                 name: Setup Node
                 uses: actions/setup-node@v2
