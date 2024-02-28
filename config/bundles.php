@@ -6,6 +6,7 @@ return [
     Symfony\Bundle\SecurityBundle\SecurityBundle::class => ['all' => true],
     Symfony\Bundle\TwigBundle\TwigBundle::class => ['all' => true],
     Doctrine\Bundle\DoctrineBundle\DoctrineBundle::class => ['all' => true],
+    Sylius\Abstraction\StateMachine\SyliusStateMachineAbstractionBundle::class => ['all' => true],
     Sylius\Calendar\SyliusCalendarBundle::class => ['all' => true],
     Sylius\Bundle\OrderBundle\SyliusOrderBundle::class => ['all' => true],
     Sylius\Bundle\MoneyBundle\SyliusMoneyBundle::class => ['all' => true],
@@ -56,7 +57,7 @@ return [
     Lexik\Bundle\JWTAuthenticationBundle\LexikJWTAuthenticationBundle::class => ['all' => true],
     Sylius\Bundle\ApiBundle\SyliusApiBundle::class => ['all' => true],
     SyliusLabs\DoctrineMigrationsExtraBundle\SyliusLabsDoctrineMigrationsExtraBundle::class => ['all' => true],
-    Sylius\PayPalPlugin\SyliusPayPalPlugin::class => ['all' => true],
+//    Sylius\PayPalPlugin\SyliusPayPalPlugin::class => ['all' => true], // Restore before Sylius 1.13 release
     SyliusLabs\Polyfill\Symfony\Security\Bundle\SyliusLabsPolyfillSymfonySecurityBundle::class => ['all' => true],
     League\FlysystemBundle\FlysystemBundle::class => ['all' => true],
     Symfony\WebpackEncoreBundle\WebpackEncoreBundle::class => ['all' => true],

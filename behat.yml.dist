@@ -10,6 +10,7 @@ default:
 
     extensions:
         DMore\ChromeExtension\Behat\ServiceContainer\ChromeExtension: ~
+        Robertfausk\Behat\PantherExtension: ~
 
         FriendsOfBehat\MinkDebugExtension:
             directory: etc/build
@@ -24,6 +25,10 @@ default:
             sessions:
                 symfony:
                     symfony: ~
+                chromedriver:
+                    chrome:
+                        api_url: http://127.0.0.1:9222
+                        validate_certificate: false
                 chrome_headless:
                     chrome:
                         api_url: http://127.0.0.1:9222
@@ -50,6 +55,18 @@ default:
                 firefox:
                     selenium2:
                         browser: firefox
+                panther:
+                    panther:
+                        manager_options:
+                            connection_timeout_in_ms: 5000
+                            request_timeout_in_ms: 120000
+                            chromedriver_arguments:
+                                - --log-path=etc/build/chromedriver.log
+                                - --verbose
+                            capabilities:
+                                acceptSslCerts: true
+                                acceptInsecureCerts: true
+                                unexpectedAlertBehaviour: accept
             show_auto: false
 
         FriendsOfBehat\SymfonyExtension: ~
@@ -60,6 +77,8 @@ default:
             paths:
                 - "vendor/sylius/sylius/features"
                 - "features"
+
+        SyliusLabs\SuiteTagsExtension: ~
 
     gherkin:
         filters:
