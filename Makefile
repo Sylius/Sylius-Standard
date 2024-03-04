@@ -36,5 +36,5 @@ php-shell:
 node-shell:
 	@ENV=$(ENV) DOCKER_USER=$(DOCKER_USER) docker-compose run --rm -i nodejs sh
 
-yarn-watch:
-	@ENV=$(ENV) DOCKER_USER=$(DOCKER_USER) docker-compose run --rm -i nodejs "yarn watch"
+node-watch:
+	@ENV=$(ENV) DOCKER_USER=$(DOCKER_USER) docker-compose run --rm -i nodejs "npm run watch"
