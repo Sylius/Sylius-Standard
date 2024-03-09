@@ -3,14 +3,14 @@ const Encore = require('@symfony/webpack-encore');
 
 const SyliusAdmin = require('@sylius-ui/admin');
 
-const uiBundleScripts = path.resolve(__dirname, 'src/Sylius/Bundle/UiBundle/Resources/private/js/');
-const uiBundleResources = path.resolve(__dirname, 'src/Sylius/Bundle/UiBundle/Resources/private/');
+const uiBundleScripts = path.resolve(__dirname, 'vendor/sylius/sylius/src/Sylius/Bundle/UiBundle/Resources/private/js/');
+const uiBundleResources = path.resolve(__dirname, 'vendor/sylius/sylius/src/Sylius/Bundle/UiBundle/Resources/private/');
 
 // Shop config
 Encore
   .setOutputPath('public/build/shop/')
   .setPublicPath('/build/shop')
-  .addEntry('shop-entry', './src/Sylius/Bundle/ShopBundle/Resources/private/entry.js')
+  .addEntry('shop-entry', './vendor/sylius/sylius/src/Sylius/Bundle/ShopBundle/Resources/private/entry.js')
   .disableSingleRuntimeChunk()
   .cleanupOutputBeforeBuild()
   .enableSourceMaps(!Encore.isProduction())

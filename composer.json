@@ -25,7 +25,7 @@
     ],
     "require": {
         "php": "^8.2",
-        "sylius/sylius": "2.0.x-dev",
+        "sylius/sylius": "dev-bootstrap-admin-panel",
         "symfony/dotenv": "^6.4.0",
         "symfony/runtime": "^5.4 || ^6.4",
         "symfony/flex": "^2.4"
@@ -76,7 +76,9 @@
             "dealerdirect/phpcodesniffer-composer-installer": false,
             "phpstan/extension-installer": false,
             "symfony/thanks": false,
-            "symfony/runtime": true
+            "symfony/runtime": true,
+            "cweagans/composer-patches": true,
+            "szeidler/composer-patches-cli": true
         }
     },
     "extra": {
