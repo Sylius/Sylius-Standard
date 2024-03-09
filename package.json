@@ -3,11 +3,15 @@
   "scripts": {
     "build": "encore dev",
     "build:prod": "encore production",
-    "postinstall": "semantic-ui-css-patch",
     "lint": "yarn lint:js",
     "watch": "encore dev --watch"
   },
   "devDependencies": {
-    "@sylius-ui/frontend": "^1.0"
+    "@hotwired/stimulus": "^3.0.0",
+    "@sylius-ui/frontend": "file:assets",
+    "@symfony/stimulus-bridge": "^3.2.0",
+    "@symfony/ux-autocomplete": "file:vendor/symfony/ux-autocomplete/assets",
+    "@symfony/ux-live-component": "file:vendor/symfony/ux-live-component/assets",
+    "tom-select": "^2.2.2"
   }
 }
