@@ -5,7 +5,9 @@ imports:
     - { resource: "@SyliusApiBundle/Resources/config/app/config.yaml" }
 
     - { resource: "@SyliusShopBundle/Resources/config/app/config.yml" }
-    - { resource: "@SyliusPayPalPlugin/Resources/config/config.yaml" }
+
+# Restore before Sylius 1.13 release
+#    - { resource: "@SyliusPayPalPlugin/Resources/config/config.yaml" }
     - { resource: "../parameters.yaml" }
 
 parameters:
@@ -65,6 +67,12 @@ sylius_core:
         channel_pricing:
             classes:
                 model: App\Entity\Channel\ChannelPricing
+        channel_price_history_config:
+            classes:
+                model: App\Entity\Channel\ChannelPriceHistoryConfig
+        channel_pricing_log_entry:
+            classes:
+                model: App\Entity\Channel\ChannelPricingLogEntry
 
 sylius_currency:
     resources:

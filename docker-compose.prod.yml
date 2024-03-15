@@ -85,7 +85,7 @@ services:
   mysql:
     container_name: mysql
     # in production, we may want to use a managed database service
-    image: mysql:5.7 # Sylius is fully working on mysql 8.0 version
+    image: mysql:8.3
     environment:
       MYSQL_RANDOM_ROOT_PASSWORD: true
       MYSQL_DATABASE: sylius_prod

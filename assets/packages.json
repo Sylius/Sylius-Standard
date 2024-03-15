@@ -14,7 +14,7 @@
     "watch": "encore dev --watch"
   },
   "dependencies": {
-    "@sylius-ui/admin": "file:../Sylius/src/Sylius/Bundle/AdminBundle",
+    "@sylius-ui/admin": "file:src/Sylius/Bundle/AdminBundle",
     "chart.js": "^3.7.1",
     "jquery": "^3.5.0",
     "jquery.dirtyforms": "^2.0.0",

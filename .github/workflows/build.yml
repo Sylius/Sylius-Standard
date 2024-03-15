@@ -27,14 +27,10 @@ jobs:
         strategy:
             fail-fast: false
             matrix:
-                php: ["8.0", "8.1"]
-                symfony: ["^5.4", "^6.4"]
-                node: ["16.x"]
-                mysql: ["5.7", "8.0"]
-                exclude:
-                    -
-                        php: "8.0"
-                        symfony: "^6.4"
+                php: ["8.2"]
+                symfony: ["^6.4"]
+                node: ["20.x"]
+                mysql: ["8.3"]
 
         env:
             APP_ENV: test_cached
@@ -161,7 +157,9 @@ jobs:
 
             -
                 name: Validate composer.json
-                run: composer validate --ansi --strict --no-check-publish
+                run: composer validate --ansi --strict --no-check-all
+#                Restore before Sylius 2.0 release
+#                run: composer validate --ansi --strict --no-check-publish
 
             -
                 name: Run security check
@@ -186,6 +184,9 @@ jobs:
             -
                 name: Run PHPUnit
                 run: vendor/bin/phpunit --colors=always
+
+            -   name: Install Behat driver
+                run: vendor/bin/bdi detect drivers
 
             -
                 name: Run managing catalog promotion scenarios

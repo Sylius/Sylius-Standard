@@ -12,12 +12,13 @@
         {% endif %}
     </div>
 </div>
-{% if sylius_is_billing_address_missing(order) %}
-<div class="ui icon message">
-    <i class="address card icon"></i>
-    <div class="content">
-        <div class="header">{{ 'sylius.pay_pal.missing_billing_address_header'|trans }}</div>
-        <p>{{ 'sylius.pay_pal.missing_billing_address_content'|trans }}</p>
-    </div>
-</div>
-{% endif %}
+{# Restore before Sylius 1.13 release #}
+{#{% if sylius_is_billing_address_missing(order) %}#}
+{#<div class="ui icon message">#}
+{#    <i class="address card icon"></i>#}
+{#    <div class="content">#}
+{#        <div class="header">{{ 'sylius.pay_pal.missing_billing_address_header'|trans }}</div>#}
+{#        <p>{{ 'sylius.pay_pal.missing_billing_address_content'|trans }}</p>#}
+{#    </div>#}
+{#</div>#}
+{#{% endif %}#}
