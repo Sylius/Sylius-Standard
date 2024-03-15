@@ -7,8 +7,8 @@ parameters:
 
 doctrine:
     dbal:
+        schema_filter: '~^(?!messenger_messages|sessions)~'
         url: '%env(resolve:DATABASE_URL)%'
-
     orm:
         auto_generate_proxy_classes: '%kernel.debug%'
         entity_managers:

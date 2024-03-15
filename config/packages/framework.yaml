@@ -6,7 +6,7 @@ framework:
         legacy_error_messages: false
     csrf_protection: true
     session:
-        handler_id: ~
+        handler_id: Symfony\Component\HttpFoundation\Session\Storage\Handler\PdoSessionHandler
     serializer:
         mapping:
             paths: [ '%kernel.project_dir%/config/serialization' ]
