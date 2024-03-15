@@ -1,0 +1,183 @@
+kind: Environment
+name: 'Sylius dev'
+type: primary
+environmentVariables:
+    MYSQL_DATABASE: sylius
+    MYSQL_PASSWORD: nopassword
+    MYSQL_ROOT_PASSWORD: nopassword
+    MYSQL_USER: sylius
+components:
+    -
+        kind: SidecarContainer
+        name: nginx
+        gitRepo: 'https://github.com/bunnyshell/Sylius-Standard.git'
+        gitBranch: '1.12'
+        gitApplicationPath: /
+        dockerCompose:
+            build:
+                context: .
+                target: sylius_nginx_bunnyshell
+            environment:
+                FPM_HOST: localhost
+            ports:
+                - '80:80'
+        volumes:
+            -
+                name: public-media
+                mount: /srv/sylius/public/media
+                subPath: ''
+    -
+        kind: SidecarContainer
+        name: node
+        gitRepo: 'https://github.com/bunnyshell/Sylius-Standard.git'
+        gitBranch: '1.12'
+        gitApplicationPath: /
+        dockerCompose:
+            build:
+                context: .
+                target: sylius_node
+            command:
+                - yarn
+                - watch
+            environment:
+                GULP_ENV: dev
+                PHP_HOST: localhost
+                PHP_PORT: '9000'
+            ports:
+                - '35729:35729'
+        volumes:
+            -
+                name: public-media
+                mount: /srv/sylius/public/media
+                subPath: ''
+    -
+        kind: InitContainer
+        name: init-migrations
+        gitRepo: 'https://github.com/bunnyshell/Sylius-Standard.git'
+        gitBranch: '1.12'
+        gitApplicationPath: /
+        dockerCompose:
+            build:
+                context: .
+                target: sylius_migrations_dev
+            environment:
+                APP_DEBUG: '1'
+                APP_ENV: dev
+                APP_SECRET: EDITME
+                BASE_DOMAIN: '{{ components.php.ingress.hosts[0] }}'
+                DATABASE_URL: 'mysql://{{ env.vars.MYSQL_USER }}:{{ env.vars.MYSQL_PASSWORD }}@mysql/{{ env.vars.MYSQL_DATABASE }}'
+                LOAD_FIXTURES: '1'
+                PHP_DATE_TIMEZONE: UTC
+        volumes:
+            -
+                name: public-media
+                mount: /srv/sylius/public/media
+                subPath: ''
+    -
+        kind: Application
+        name: php
+        gitRepo: 'https://github.com/bunnyshell/Sylius-Standard.git'
+        gitBranch: '1.12'
+        gitApplicationPath: /
+        dockerCompose:
+            build:
+                context: .
+                target: sylius_php_dev_bunnyshell
+            environment:
+                APP_DEBUG: '1'
+                APP_ENV: dev
+                APP_SECRET: EDITME
+                DATABASE_URL: 'mysql://{{ env.vars.MYSQL_USER }}:{{ env.vars.MYSQL_PASSWORD }}@mysql/{{ env.vars.MYSQL_DATABASE }}'
+                MAILER_DSN: 'smtp://mailhog:1025'
+                PHP_DATE_TIMEZONE: UTC
+            ports:
+                - '9000:9000'
+                - '80:80'
+        pod:
+            init_containers:
+                -
+                    from: init-migrations
+                    name: init-migrations
+                    shared_paths:
+                        -
+                            path: /srv/sylius
+                            target:
+                                path: /srv/sylius
+                                container: '@parent'
+                            initial_contents: '@target'
+            sidecar_containers:
+                -
+                    from: node
+                    name: node
+                    shared_paths:
+                        -
+                            path: /srv/sylius
+                            target:
+                                path: /srv/sylius
+                                container: '@parent'
+                            initial_contents: '@target'
+                -
+                    from: nginx
+                    name: nginx
+                    shared_paths:
+                        -
+                            path: /srv/sylius/public
+                            target:
+                                path: /srv/sylius/public
+                                container: '@parent'
+                            initial_contents: '@target'
+        hosts:
+            -
+                hostname: 'store-{{ env.base_domain }}'
+                path: /
+                servicePort: 80
+        volumes:
+            -
+                name: public-media
+                mount: /srv/sylius/public/media
+                subPath: ''
+    -
+        kind: Database
+        name: mysql
+        dockerCompose:
+            cap_add:
+                - SYS_NICE
+            command: '--default-authentication-plugin=mysql_native_password --log_bin_trust_function_creators=1'
+            image: 'mysql:8.0'
+            ports:
+                - '3306:3306'
+        volumes:
+            -
+                name: mysql-data
+                mount: /var/lib/mysql
+                subPath: ''
+    -
+        kind: Service
+        name: mailhog
+        dockerCompose:
+            environment:
+                MH_STORAGE: maildir
+            image: 'mailhog/mailhog:latest'
+            ports:
+                - '8025:8025'
+                - '1025:1025'
+        hosts:
+            -
+                hostname: 'mailhog-{{ env.base_domain }}'
+                path: /
+                servicePort: 8025
+volumes:
+  -
+      name: mysql-data
+      size: 1Gi
+      type: disk
+  -
+      name: public-media
+      size: 1Gi
+      type: network
+dev:
+  php:
+      -
+        containers:
+            php:
+                remoteDevProfile: php_dev

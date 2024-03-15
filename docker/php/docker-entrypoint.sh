@@ -1,5 +1,5 @@
 #!/bin/sh
-set -e
+set -ex
 
 # first arg is `-f` or `--some-option`
 if [ "${1#-}" != "$1" ]; then
@@ -8,8 +8,8 @@ fi
 
 if [ "$1" = 'php-fpm' ] || [ "$1" = 'bin/console' ]; then
 	mkdir -p var/cache var/log var/sessions public/media
-	setfacl -R -m u:www-data:rwX -m u:"$(whoami)":rwX var public/media
-	setfacl -dR -m u:www-data:rwX -m u:"$(whoami)":rwX var public/media
+# 	setfacl -R -m u:www-data:rwX -m u:"$(whoami)":rwX var public/media
+# 	setfacl -dR -m u:www-data:rwX -m u:"$(whoami)":rwX var public/media
 
 	if [ "$APP_ENV" != 'prod' ]; then
 		composer install --prefer-dist --no-progress --no-interaction
