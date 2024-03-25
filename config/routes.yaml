@@ -1,3 +1,2 @@
-# Restore before Sylius 1.13 release
-#sylius_paypal_webhook:
-#    resource: "@SyliusPayPalPlugin/Resources/config/webhook_routing.yaml"
+sylius_paypal_webhook:
+    resource: "@SyliusPayPalPlugin/Resources/config/webhook_routing.yaml"
