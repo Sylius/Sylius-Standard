@@ -13,6 +13,8 @@
 
 /docker-compose.override.yaml
 /docker-compose.override.yml
+/compose.override.yaml
+/compose.override.yml
 /docker/mysql/data/
 
 ###> symfony/framework-bundle ###
@@ -46,4 +48,5 @@
 /npm-debug.log
 /yarn-error.log
 /yarn.lock
+/package-lock.json
 ###< symfony/webpack-encore-bundle ###

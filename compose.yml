@@ -1,0 +1,20 @@
+services:
+    php:
+        image: ghcr.io/sylius/sylius-php:8.2-alpine
+    mysql:
+        image: mysql:8.0
+        platform: linux/amd64
+        healthcheck:
+            test: '/usr/bin/mysql --execute "SHOW databases;"'
+            timeout: 3s
+            interval: 1s
+            retries: 10
+        environment:
+            MYSQL_ALLOW_EMPTY_PASSWORD: 1
+        cap_add:
+            - SYS_NICE # prevent "mbind: Operation not permitted" errors
+    nginx:
+        image: ghcr.io/sylius/sylius-nginx:latest
+    mailhog:
+        # do not use in production!
+        image: mailhog/mailhog:latest
