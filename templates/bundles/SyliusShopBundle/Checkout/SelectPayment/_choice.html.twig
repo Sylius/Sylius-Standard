@@ -11,9 +11,8 @@
                 <p>{{ method.description }}</p>
             </div>
         {% endif %}
-{# Restore before Sylius 1.13 release #}
-{#        {% if method.gatewayConfig.factoryName == 'sylius.pay_pal' %}#}
-{#            {{ render(controller('Sylius\\PayPalPlugin\\Controller\\PayPalButtonsController::renderPaymentPageButtonsAction', {'orderId': order.id})) }}#}
-{#        {% endif %}#}
+        {% if method.gatewayConfig.factoryName == 'sylius.pay_pal' %}
+            {{ render(controller('Sylius\\PayPalPlugin\\Controller\\PayPalButtonsController::renderPaymentPageButtonsAction', {'orderId': order.id})) }}
+        {% endif %}
     </div>
 </div>
