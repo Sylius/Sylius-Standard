@@ -66,17 +66,18 @@ dependencies:
     php:
         composer/composer: '^2'
 
+crons:
+    cancel-unpaid-orders:
+        spec: "0 2 * * *"
+        cmd: "php bin/console sylius:cancel-unpaid-orders"
+    generate-promotion-coupons:
+        spec: "0 2 * * *"
+        cmd: "php bin/console sylius:promotion:generate-coupons"
+    php bin/console sylius:remove-expired-carts:
+        spec: "0 2 * * *"
+        cmd: "php bin/console sylius:cancel-unpaid-orders"
+        
 hooks:
-    cron:
-        -   name: cancel-unpaid-orders
-            schedule: '0 2 * * *'
-            command: 'php bin/console sylius:cancel-unpaid-orders'
-        -   name: generate-promotion-coupons
-            schedule: '0 2 * * *'
-            command: 'php bin/console sylius:promotion:generate-coupons'
-        -   name: remove-expired-carts
-            schedule: '0 2 * * *'
-            command: 'php bin/console sylius:remove-expired-carts'
     build: |
         set -e 
         cp .env.platform.dist .env.local
