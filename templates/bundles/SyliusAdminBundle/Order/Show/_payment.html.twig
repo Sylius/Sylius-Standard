@@ -32,16 +32,15 @@
             </form>
         </div>
     {% endif %}
-    {# Restore before Sylius 1.13 release #}
-{#    {% if#}
-{#        payment.method.gatewayConfig.factoryName == 'sylius.pay_pal' and#}
-{#        payment.state == 'refunded'#}
-{#    %}#}
-{#        <div class="ui icon mini message">#}
-{#            <i class="paypal icon"></i>#}
-{#            <div class="content">#}
-{#                <p>{{ 'sylius.pay_pal.tender_type'|trans }}</p>#}
-{#            </div>#}
-{#        </div>#}
-{#    {% endif %}#}
+    {% if
+        payment.method.gatewayConfig.factoryName == 'sylius.pay_pal' and
+        payment.state == 'refunded'
+    %}
+        <div class="ui icon mini message">
+            <i class="paypal icon"></i>
+            <div class="content">
+                <p>{{ 'sylius.pay_pal.tender_type'|trans }}</p>
+            </div>
+        </div>
+    {% endif %}
 </div>
