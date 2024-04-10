@@ -53,13 +53,14 @@
         "version": "2.7.0"
     },
     "doctrine/annotations": {
-        "version": "1.0",
+        "version": "2.0",
         "recipe": {
             "repo": "github.com/symfony/recipes",
-            "branch": "master",
-            "version": "1.0",
-            "ref": "cb4152ebcadbe620ea2261da1a1c5a9b8cea7672"
-        }
+            "branch": "main",
+            "version": "1.10",
+            "ref": "64d8583af5ea57b7afa4aba4b159907f3a148b05"
+        },
+        "files": []
     },
     "doctrine/cache": {
         "version": "v1.8.0"
