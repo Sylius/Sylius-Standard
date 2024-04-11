@@ -1,6 +1,6 @@
 <p align="center">
     <a href="https://sylius.com" target="_blank">
-        <img src="https://demo.sylius.com/assets/shop/img/logo.png" />
+        <img src="https://media.sylius.com/sylius-logo-800.png" />
     </a>
 </p>
 
