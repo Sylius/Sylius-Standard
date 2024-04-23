@@ -1,4 +1,3 @@
-version: "3.8"
 services:
     php:
         image: ghcr.io/sylius/sylius-php:8.2-fixuid-xdebug-alpine
@@ -41,7 +40,7 @@ services:
         volumes:
             - mysql-data:/var/lib/mysql:rw
         ports:
-            - "8051:3306"
+            - "3306:3306"
     nginx:
         volumes:
             - ./public:/srv/sylius/public:ro
@@ -49,7 +48,7 @@ services:
 #            - ./public/media:/srv/sylius/public/media:ro
             - public-media:/srv/sylius/public/media:ro,nocopy
         ports:
-            - "8050:80"
+            - "80:80"
     nodejs:
         image: node:${NODE_VERSION:-18}-alpine
         user: ${DOCKER_USER:-1000:1000}
@@ -64,7 +63,7 @@ services:
             - ./public:/srv/sylius/public:rw,delegated
     mailhog:
         ports:
-            - "8052:8025"
+            - "8025:8025"
 
 volumes:
     mysql-data:

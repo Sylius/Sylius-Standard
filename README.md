@@ -47,28 +47,9 @@ For more detailed instruction please visit [installation chapter in our docs](ht
 #### Development
 
 Make sure you have installed [Docker](https://docs.docker.com/get-docker/) on your local machine.
-Execute `docker compose up -d` in your favorite terminal and wait some time until the services will be ready. You might want to see docker logs.
+Execute `make init` in your favorite terminal and wait some time until the services will be ready.
 Then enter `localhost` in your browser or execute `open localhost` in your terminal.
 
-#### Production
-
-The simplest way to deploy your Sylius store via Docker is via `docker-compose.prod.yml` configuration file.
-To do that you need to install [Docker](https://docs.docker.com/get-docker/) on your VPS and define `MYSQL_PASSWORD` environment.
-Then execute `docker compose -f docker-compose.prod.yml up -d` command in your terminal. The `MYSQL_PASSWORD` env will be automatically
-applied to the rest of the config.
-
-> When using a Virtual Private Server (VPS) we recommend having at least 2GB of RAM memory
-
-**Quick deploy:**
-```bash
-curl -fsSL https://get.docker.com -o get-docker.sh
-sudo sh get-docker.sh
-
-export MYSQL_PASSWORD=SLyPJLaye7
-
-docker compose -f docker-compose.prod.yml up -d
-docker compose -f docker-compose.prod.yml exec php bin/console sylius:fixtures:load --no-interaction
-```
 
 ## Troubleshooting
 
