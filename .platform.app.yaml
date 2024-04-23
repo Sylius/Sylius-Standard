@@ -1,6 +1,6 @@
 name: sylius
 
-type: php:8.1
+type: php:8.3
 
 relationships:
     database: "db:mysql"
@@ -8,11 +8,30 @@ relationships:
 disk: 2048
 
 mounts:
-    "/var/cache": "shared:files/cache"
-    "/var/log": "shared:files/log"
-    "/var/sessions": "shared:files/sessions"
-    "/public/uploads": "shared:files/uploads"
-    "/public/media": "shared:files/media"
+    "config/jwt":
+        source: local
+        source_path: jwt
+    "/var/cache":
+        source: local
+        source_path: cache
+    "/var/log":
+        source: local
+        source_path: log
+    "/var/sessions":
+        source: local
+        source_path: sessions
+    "/public/assets":
+        source: local
+        source_path: assets
+    "/public/bundles":
+        source: local
+        source_path: bundles
+    "/public/uploads":
+        source: local
+        source_path: uploads
+    "/public/media":
+        source: local
+        source_path: media
 
 web:
     locations:
@@ -56,44 +75,38 @@ variables:
         N_PREFIX: /app/.global
 
 build:
-    flavor: none
+    flavor: composer
 
 dependencies:
     nodejs:
         n: "*"
         yarn: "*"
-        gulp-cli: "*"
     php:
         composer/composer: '^2'
 
 crons:
-    cancel-unpaid-orders:
+    sylius-cancel-unpaid-orders:
         spec: "0 2 * * *"
-        cmd: "php bin/console sylius:cancel-unpaid-orders"
-    generate-promotion-coupons:
+        cmd: "php bin/console --env=prod sylius:cancel-unpaid-orders"
+    sylius-remove-expired-carts:
         spec: "0 2 * * *"
-        cmd: "php bin/console sylius:promotion:generate-coupons"
-    php bin/console sylius:remove-expired-carts:
-        spec: "0 2 * * *"
-        cmd: "php bin/console sylius:cancel-unpaid-orders"
-        
+        cmd: "php bin/console --env=prod sylius:remove-expired-carts"
+
 hooks:
     build: |
         set -e 
-        cp .env.platform.dist .env.local
-        composer --no-ansi --no-interaction install --no-progress --prefer-dist --optimize-autoloader
         curl -fs https://get.symfony.com/cloud/configurator | bash
         n auto
         hash -r
-        yarn install
-        GULP_ENV=prod yarn build
-    
+        yarn install --frozen-lockfile
+        yarn build:prod
+
     deploy: |
         set -e
         symfony-deploy
         rm -rf var/cache/*
         mkdir -p public/media/image
-        bin/console sylius:install -n
         bin/console sylius:fixtures:load -n
+        bin/console lexik:jwt:generate-keypair --skip-if-exists
         bin/console assets:install --symlink --relative public
         bin/console cache:clear
