@@ -106,7 +106,6 @@
         ]
     },
     "prefer-stable": true,
-    "minimum-stability": "dev",
     "scripts": {
         "post-install-cmd": [
             "@auto-scripts"
