@@ -26,7 +26,7 @@
     "require": {
         "php": "^8.0",
         "sylius/paypal-plugin": "^1.5.2",
-        "sylius/sylius": "^1.12.11",
+        "sylius/sylius": "~1.12.11",
         "symfony/dotenv": "^5.4 || ^6.4",
         "symfony/runtime": "^5.4 || ^6.4",
         "symfony/flex": "^2.4"
@@ -74,6 +74,7 @@
         "allow-plugins": {
             "symfony/flex": true,
             "dealerdirect/phpcodesniffer-composer-installer": false,
+            "php-http/discovery": true,
             "phpstan/extension-installer": false,
             "symfony/thanks": false,
             "symfony/runtime": true
@@ -106,7 +107,6 @@
         ]
     },
     "prefer-stable": true,
-    "minimum-stability": "dev",
     "scripts": {
         "post-install-cmd": [
             "@auto-scripts"
