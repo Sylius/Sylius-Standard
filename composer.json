@@ -54,7 +54,7 @@
         "phpunit/phpunit": "^9.6",
         "polishsymfonycommunity/symfony-mocker-container": "^1.0",
         "robertfausk/behat-panther-extension": "^1.1",
-        "stripe/stripe-php": "^7.0 || ^8.0",
+        "stripe/stripe-php": "^14.3.0",
         "sylius-labs/coding-standard": "^4.0",
         "sylius-labs/suite-tags-extension": "^0.1.0",
         "sylius/sylius-rector": "^2.0",
