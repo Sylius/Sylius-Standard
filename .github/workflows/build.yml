@@ -191,9 +191,6 @@ jobs:
             -
                 name: Run PHPUnit
                 run: vendor/bin/phpunit --colors=always
-                
-            -   name: Install Behat driver
-                run: vendor/bin/bdi detect drivers
 
             -   name: Install Behat driver
                 run: vendor/bin/bdi detect drivers
