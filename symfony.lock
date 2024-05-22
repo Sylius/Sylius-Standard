@@ -320,9 +320,6 @@
     "payum/iso4217": {
         "version": "1.0.1"
     },
-    "payum/payum": {
-        "version": "1.5.0"
-    },
     "payum/payum-bundle": {
         "version": "2.3.1"
     },
@@ -343,9 +340,6 @@
         "files": [
             "config/packages/http_discovery.yaml"
         ]
-    },
-    "php-http/guzzle6-adapter": {
-        "version": "v1.1.1"
     },
     "php-http/httplug": {
         "version": "v1.1.0"
@@ -485,9 +479,6 @@
     "sonata-project/block-bundle": {
         "version": "3.12.1"
     },
-    "sonata-project/cache": {
-        "version": "2.0.1"
-    },
     "sonata-project/doctrine-extensions": {
         "version": "1.1.0"
     },
@@ -553,6 +544,15 @@
     },
     "sylius/resource-bundle": {
         "version": "v1.4.4"
+    },
+    "sylius/state-machine-abstraction": {
+        "version": "1.13",
+        "recipe": {
+            "repo": "github.com/Sylius/SyliusRecipes",
+            "branch": "main",
+            "version": "1.13",
+            "ref": "d538f7c966e2d796543c3be72cb65072bf74504e"
+        }
     },
     "sylius/sylius": {
         "version": "v1.3.6"
@@ -875,9 +875,6 @@
     },
     "symplify/easy-coding-standard": {
         "version": "v4.6.1"
-    },
-    "textalk/websocket": {
-        "version": "1.3.1"
     },
     "theofidry/alice-data-fixtures": {
         "version": "1.0",
