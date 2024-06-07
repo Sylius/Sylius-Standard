@@ -1,0 +1,20 @@
+<script>
+    const quantityInput = document.getElementById('sylius_add_to_cart_cartItem_quantity');
+
+    //preventing to show alert multiple times after once after 70.
+    let isAllowedToShowAlert = true;
+    quantityInput.addEventListener('change', function () {
+        console.log(isAllowedToShowAlert);
+        const value = Number(quantityInput.value);
+
+        if (value >= 70 && isAllowedToShowAlert) {
+            isAllowedToShowAlert = false;
+            alert('Great Choice!');
+        }
+
+        //reset after going below 70
+        if (value < 70) {
+            isAllowedToShowAlert = true;
+        }
+    });
+</script>

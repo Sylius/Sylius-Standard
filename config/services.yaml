@@ -28,3 +28,9 @@ services:
     App\Controller\:
         resource: '../src/Controller'
         tags: ['controller.service_arguments']
+        
+    App\Form\Extension\CartItemTypeExtension:
+        arguments:
+            - '@translator.default'
+        tags:
+            - { name: form.type_extension, extended_type: Sylius\Bundle\OrderBundle\Form\Type\CartItemType, priority: -1}

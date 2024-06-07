@@ -1,0 +1,5 @@
+sylius_ui:
+    events:
+        sylius.shop.product.show.add_to_cart_form:
+            blocks:
+                quantity_listener: 'bundles/SyliusShopBundle/Cart/cartQuantityListener.html.twig'

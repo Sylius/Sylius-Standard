@@ -15,4 +15,9 @@ use Sylius\Component\Core\Model\OrderItem as BaseOrderItem;
 #[ORM\Table(name: 'sylius_order_item')]
 class OrderItem extends BaseOrderItem
 {
+    public function __construct()
+    {
+        parent::__construct();
+        $this->quantity = 10;
+    }
 }

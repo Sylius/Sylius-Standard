@@ -1,0 +1,4 @@
+app:
+    form:
+        quantity:
+            invalid: The quantity must be a multiple of 10
