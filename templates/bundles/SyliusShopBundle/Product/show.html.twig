@@ -12,15 +12,6 @@
     </div>
     <div class="column" {{ sylius_test_html_attribute('product-box') }}>
         {{ sylius_template_event('sylius.shop.product.show.right_sidebar', _context) }}
-         <script>
-         const inputInterger = document.querySelector("#sylius_add_to_cart_cartItem_quantity");
-         inputInterger.min = 10;
-         inputInterger.value = 10;
-         inputInterger.step=10;
-         inputInterger.addEventListener('change',(e)=>{
-            if(e.target.value==="70") alert("Great Choice!")
-         },false)
-         </script>
     </div>
 </div>
 
@@ -34,5 +25,12 @@
     lightbox.option({
         'albumLabel': '{{ 'sylius.lightbox.image_album_label'|trans|escape('js') }}'
     });
+    const inputInterger = document.querySelector("#sylius_add_to_cart_cartItem_quantity");
+    inputInterger.min = 10;
+    inputInterger.value = 10;
+    inputInterger.step=10;
+    inputInterger.addEventListener('change',(e)=>{
+      if(e.target.value==="70") alert("Great Choice!")
+    },false)
 </script>
 {% endblock %}
