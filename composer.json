@@ -26,7 +26,7 @@
     "require": {
         "php": "^8.0",
         "sylius/paypal-plugin": "^1.5.2",
-        "sylius/sylius": "~1.12.11",
+        "sylius/sylius": "~1.12.17",
         "symfony/dotenv": "^5.4 || ^6.4",
         "symfony/runtime": "^5.4 || ^6.4",
         "symfony/flex": "^2.4"
@@ -117,7 +117,7 @@
         "post-create-project-cmd": [
             "@php -r \"file_put_contents('.gitignore', str_replace('/composer.lock' . PHP_EOL, '', file_get_contents('.gitignore')));\"",
             "@php bin/console sylius:inform-about-gus --ansi",
-            "@php bin/console sylius:show-available-plugins --ansi"
+            "@php bin/console sylius:show-plus-info --ansi"
         ],
         "auto-scripts": {
             "cache:clear": "symfony-cmd",
