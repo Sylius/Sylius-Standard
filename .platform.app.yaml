@@ -110,7 +110,7 @@ hooks:
         rm -rf var/cache/*
         mkdir -p public/media/image
         bin/console doctrine:database:create --if-not-exists
-        bin/console doctrine:schema:update --force
+        bin/console doctrine:migrations:migrate -n
         bin/console sylius:fixtures:load -n
         bin/console lexik:jwt:generate-keypair --skip-if-exists
         bin/console assets:install --symlink --relative public
