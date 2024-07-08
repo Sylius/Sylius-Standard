@@ -94,18 +94,23 @@ crons:
 
 hooks:
     build: |
-        set -e 
-        curl -fs https://get.symfony.com/cloud/configurator | bash
+        set -e
         n auto
         hash -r
+        curl -sS https://get.symfony.com/cli/installer | bash
+        mv "$PLATFORM_APP_DIR/.symfony5/bin/symfony" "$PLATFORM_APP_DIR/.global/bin/symfony"
+        cat >> "$PLATFORM_APP_DIR/.global/environment" <<EOS
+            export \$(symfony var:export)
+        EOS
         yarn install --frozen-lockfile
         yarn build:prod
 
     deploy: |
         set -e
-        symfony-deploy
         rm -rf var/cache/*
         mkdir -p public/media/image
+        bin/console doctrine:database:create --if-not-exists
+        bin/console doctrine:migrations:migrate -n
         bin/console sylius:fixtures:load -n
         bin/console lexik:jwt:generate-keypair --skip-if-exists
         bin/console assets:install --symlink --relative public
