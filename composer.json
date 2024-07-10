@@ -59,7 +59,7 @@
         "sylius-labs/coding-standard": "^4.0",
         "sylius-labs/suite-tags-extension": "^0.2",
         "sylius/sylius-rector": "^2.0",
-        "symfony/browser-kit": "^5.4 || ^6.4",
+        "symfony/browser-kit": "^7.1.1",
         "symfony/debug-bundle": "^5.4 || ^6.4",
         "symfony/http-client": "^5.4 || ^6.4",
         "symfony/intl": "^5.4 || ^6.4",
