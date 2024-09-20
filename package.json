@@ -9,7 +9,7 @@
   "dependencies": {
     "@hotwired/stimulus": "^3.0.0",
     "@popperjs/core": "^2.11.8",
-    "@symfony/stimulus-bridge": "^3.2.2",
+    "@symfony/stimulus-bridge": "^3.2.0",
     "@symfony/webpack-encore": "^3.1.0",
     "@tabler/core": "^1.0.0-beta20",
     "apexcharts": "^3.41.0",
@@ -25,5 +25,8 @@
     "@sylius-ui/admin": "file:vendor/sylius/sylius/src/Sylius/Bundle/AdminBundle",
     "@sylius-ui/shop": "file:vendor/sylius/sylius/src/Sylius/Bundle/ShopBundle",
     "tom-select": "^2.2.2"
+  },
+  "devDependencies": {
+    "@symfony/stimulus-bundle": "file:vendor/symfony/stimulus-bundle/assets"
   }
 }
