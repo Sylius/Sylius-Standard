@@ -38,7 +38,7 @@ jobs:
 
         steps:
             -
-                uses: actions/checkout@v2
+                uses: actions/checkout@v4
 
             -
                 name: Setup PHP
@@ -66,7 +66,7 @@ jobs:
 
             -
                 name: Setup Node
-                uses: actions/setup-node@v2
+                uses: actions/setup-node@v4
                 with:
                     node-version: "${{ matrix.node }}"
 
@@ -109,7 +109,7 @@ jobs:
 
             -
                 name: Cache Composer
-                uses: actions/cache@v2
+                uses: actions/cache@v4
                 with:
                     path: ${{ steps.composer-cache.outputs.dir }}
                     key: ${{ runner.os }}-php-${{ matrix.php }}-composer-${{ hashFiles('**/composer.json **/composer.lock') }}
@@ -127,7 +127,7 @@ jobs:
 
             -
                 name: Cache Yarn
-                uses: actions/cache@v2
+                uses: actions/cache@v4
                 with:
                     path: ${{ steps.yarn-cache.outputs.dir }}
                     key: ${{ runner.os }}-node-${{ matrix.node }}-yarn-${{ hashFiles('**/package.json **/yarn.lock') }}
@@ -164,9 +164,7 @@ jobs:
 
             -
                 name: Validate composer.json
-                run: composer validate --ansi --strict --no-check-all
-#                Restore before Sylius 1.13 release
-#                run: composer validate --ansi --strict --no-check-publish
+                run: composer validate --ansi --strict --no-check-publish
 
             -
                 name: Run security check
@@ -192,7 +190,8 @@ jobs:
                 name: Run PHPUnit
                 run: vendor/bin/phpunit --colors=always
 
-            -   name: Install Behat driver
+            -   
+                name: Install Behat driver
                 run: vendor/bin/bdi detect drivers
 
             -
@@ -217,7 +216,7 @@ jobs:
 
             -
                 name: Upload Behat logs
-                uses: actions/upload-artifact@v2
+                uses: actions/upload-artifact@v4
                 if: failure()
                 with:
                     name: "Behat logs (PHP ${{ matrix.php }}, Symfony ${{ matrix.symfony }}, MySQL ${{ matrix.mysql }})"
