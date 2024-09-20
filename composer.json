@@ -63,7 +63,7 @@
         "symfony/debug-bundle": "^5.4 || ^6.4",
         "symfony/http-client": "^5.4 || ^6.4",
         "symfony/intl": "^5.4 || ^6.4",
-        "symfony/web-profiler-bundle": "^5.4 || ^6.4"
+        "symfony/web-profiler-bundle": "^7.1.4"
     },
     "conflict": {
         "symfony/framework-bundle": "6.2.8",
