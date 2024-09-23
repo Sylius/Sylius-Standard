@@ -4,10 +4,6 @@ const Encore = require('@symfony/webpack-encore');
 const SyliusAdmin = require('@sylius-ui/admin');
 const SyliusShop = require('@sylius-ui/shop');
 
-const syliusBundles = path.resolve(__dirname, 'vendor/sylius/sylius/src/Sylius/Bundle/');
-const uiBundleScripts = path.resolve(syliusBundles, 'UiBundle/Resources/private/js/');
-const uiBundleResources = path.resolve(syliusBundles, 'UiBundle/Resources/private/');
-
 // Admin config
 const adminConfig = SyliusAdmin.getWebpackConfig(path.resolve(__dirname));
 
@@ -27,9 +23,6 @@ Encore
 
 const appShopConfig = Encore.getWebpackConfig();
 
-appShopConfig.resolve.alias['sylius/ui'] = uiBundleScripts;
-appShopConfig.resolve.alias['sylius/ui-resources'] = uiBundleResources;
-appShopConfig.resolve.alias['sylius/bundle'] = syliusBundles;
 appShopConfig.externals = Object.assign({}, appShopConfig.externals, { window: 'window', document: 'document' });
 appShopConfig.name = 'app.shop';
 
@@ -48,9 +41,6 @@ Encore
 
 const appAdminConfig = Encore.getWebpackConfig();
 
-appAdminConfig.resolve.alias['sylius/ui'] = uiBundleScripts;
-appAdminConfig.resolve.alias['sylius/ui-resources'] = uiBundleResources;
-appAdminConfig.resolve.alias['sylius/bundle'] = syliusBundles;
 appAdminConfig.externals = Object.assign({}, appAdminConfig.externals, { window: 'window', document: 'document' });
 appAdminConfig.name = 'app.admin';
 
