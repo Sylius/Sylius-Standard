@@ -22,7 +22,7 @@ jobs:
 
         name: "PHP ${{ matrix.php }}, Symfony ${{ matrix.symfony }}, MySQL ${{ matrix.mysql }}, Node ${{ matrix.node }}"
 
-        timeout-minutes: 50
+        timeout-minutes: 90
 
         strategy:
             fail-fast: false
