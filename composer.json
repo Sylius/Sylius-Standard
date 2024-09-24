@@ -26,10 +26,10 @@
     ],
     "require": {
         "php": "^8.2",
-        "sylius/sylius": "symfony-7-dev",
-        "symfony/dotenv": "^6.4 || ^7.0",
+        "sylius/sylius": "2.0.x-dev",
+        "symfony/dotenv": "^6.4 || ^7.1",
         "symfony/flex": "^2.4",
-        "symfony/runtime": "^6.4 || ^7.0"
+        "symfony/runtime": "^6.4 || ^7.1"
     },
     "require-dev": {
         "behat/behat": "^3.7",
@@ -58,11 +58,11 @@
         "sylius-labs/coding-standard": "^4.0",
         "sylius-labs/suite-tags-extension": "^0.2",
         "sylius/sylius-rector": "^2.0",
-        "symfony/browser-kit": "^6.4 || ^7.0",
-        "symfony/debug-bundle": "^6.4 || ^7.0",
-        "symfony/http-client": "^6.4 || ^7.0",
-        "symfony/intl": "^6.4 || ^7.0",
-        "symfony/web-profiler-bundle": "^6.4 || ^7.0"
+        "symfony/browser-kit": "^6.4 || ^7.1",
+        "symfony/debug-bundle": "^6.4 || ^7.1",
+        "symfony/http-client": "^6.4 || ^7.1",
+        "symfony/intl": "^6.4 || ^7.1",
+        "symfony/web-profiler-bundle": "^6.4 || ^7.1"
     },
     "config": {
         "preferred-install": {
@@ -84,7 +84,7 @@
         },
         "symfony": {
             "allow-contrib": false,
-            "require": "^7.0",
+            "require": "^7.1",
             "endpoint": [
                 "https://api.github.com/repos/Sylius/SyliusRecipes/contents/index.json?ref=flex/main",
                 "flex://defaults"
