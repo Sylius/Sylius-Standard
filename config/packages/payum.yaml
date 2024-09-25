@@ -1,4 +1,4 @@
-payum:
-    gateways:
-        offline:
-            factory: offline
+#payum:
+#    gateways:
+#        offline:
+#            factory: offline
