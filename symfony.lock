@@ -476,35 +476,33 @@
             "ref": "6c1ceb662f8997085f739cd089bfbef67f245983"
         }
     },
-    "sylius-labs/association-hydrator": {
-        "version": "v1.1.0"
-    },
-    "sylius-labs/coding-standard": {
-        "version": "v2.0.0"
-    },
     "sylius-labs/doctrine-migrations-extra-bundle": {
-        "version": "v0.1.3"
-    },
-    "sylius-labs/polyfill-symfony-event-dispatcher": {
-        "version": "v1.0.0"
+        "version": "v0.2.2"
     },
     "sylius/fixtures-bundle": {
-        "version": "v1.4.1"
+        "version": "v1.9.0"
     },
     "sylius/grid-bundle": {
-        "version": "v1.5.1"
+        "version": "v1.13.0-ALPHA.3"
     },
     "sylius/mailer-bundle": {
-        "version": "v1.4.4"
-    },
-    "sylius/registry": {
-        "version": "v1.4.1"
+        "version": "v2.1.0-BETA.1"
     },
     "sylius/resource-bundle": {
-        "version": "v1.4.4"
+        "version": "1.12",
+        "recipe": {
+            "repo": "github.com/symfony/recipes-contrib",
+            "branch": "main",
+            "version": "1.9",
+            "ref": "ee21c1fc90778f4b01c20e72c320cc34f8839c1e"
+        },
+        "files": [
+            "config/packages/sylius_resource.yaml",
+            "config/routes/sylius_resource.yaml"
+        ]
     },
     "sylius/sylius": {
-        "version": "1.13",
+        "version": "2.0",
         "recipe": {
             "repo": "github.com/Sylius/SyliusRecipes",
             "branch": "main",
@@ -513,7 +511,7 @@
         }
     },
     "sylius/theme-bundle": {
-        "version": "v1.4.6"
+        "version": "v2.4.0"
     },
     "sylius/twig-hooks": {
         "version": "v0.3.0"
