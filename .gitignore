@@ -8,8 +8,6 @@
 /etc/build/*
 !/etc/build/.gitignore
 
-/behat.yml
-
 /drivers/
 
 /docker-compose.override.yaml
@@ -51,3 +49,7 @@
 /yarn.lock
 /package-lock.json
 ###< symfony/webpack-encore-bundle ###
+
+###> phpstan/phpstan ###
+phpstan.neon
+###< phpstan/phpstan ###

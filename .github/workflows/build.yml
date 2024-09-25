@@ -171,7 +171,7 @@ jobs:
 
             -
                 name: Run PHPStan
-                run: vendor/bin/phpstan analyse -c phpstan.neon -l max src/
+                run: vendor/bin/phpstan analyse -c phpstan.dist.neon -l max src/
 
             -
                 name: Validate database schema

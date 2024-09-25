@@ -75,7 +75,7 @@ indent_size = 4
 indent_style = space
 indent_size = 2
 
-[phpstan.neon]
+[phpstan.dist.neon]
 indent_style = space
 indent_size = 4
 
