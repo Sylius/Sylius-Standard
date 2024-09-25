@@ -20,7 +20,7 @@ Enjoy being an eCommerce Developer again!
 
 Powerful REST API allows for easy integrations and creating unique customer experience on any device.
 
-We're using full-stack Behavior-Driven-Development, with [phpspec](http://phpspec.net) and [Behat](http://behat.org)
+We're using full-stack Behavior-Driven-Development, with [Behat](http://behat.org)
 
 ## Documentation
 

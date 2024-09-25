@@ -9,7 +9,6 @@
 !/etc/build/.gitignore
 
 /behat.yml
-/phpspec.yml
 
 /drivers/
 
