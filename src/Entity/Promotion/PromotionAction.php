@@ -7,10 +7,6 @@ namespace App\Entity\Promotion;
 use Doctrine\ORM\Mapping as ORM;
 use Sylius\Component\Promotion\Model\PromotionAction as BasePromotionAction;
 
-/**
- * @ORM\Entity
- * @ORM\Table(name="sylius_promotion_action")
- */
 #[ORM\Entity]
 #[ORM\Table(name: 'sylius_promotion_action')]
 class PromotionAction extends BasePromotionAction
