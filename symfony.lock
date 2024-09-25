@@ -317,11 +317,17 @@
     "pagerfanta/pagerfanta": {
         "version": "v2.0.1"
     },
-    "payum/iso4217": {
-        "version": "1.0.1"
-    },
     "payum/payum-bundle": {
-        "version": "2.3.1"
+        "version": "2.6",
+        "recipe": {
+            "repo": "github.com/symfony/recipes-contrib",
+            "branch": "main",
+            "version": "2.4",
+            "ref": "518ac22defa04a8a1d82479ed362e2921487adf0"
+        },
+        "files": [
+            "config/packages/payum.yaml"
+        ]
     },
     "phar-io/manifest": {
         "version": "1.0.1"
