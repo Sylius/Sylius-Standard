@@ -23,7 +23,7 @@ when@dev:
                 process_psr_3_messages: false
                 channels: ["!event", "!doctrine", "!console"]
 
-when@test:
+when@test: &test
     monolog:
         handlers:
             main:
@@ -35,6 +35,8 @@ when@test:
                 type: stream
                 path: "%kernel.logs_dir%/%kernel.environment%.log"
                 level: debug
+
+when@test_cached: *test
 
 when@prod:
     monolog:
