@@ -59,13 +59,7 @@
             "branch": "main",
             "version": "2.0",
             "ref": "1e012e04f573524ca83795cd19df9ea690adb604"
-        },
-        "files": [
-            "behat.yml.dist",
-            "config/services_test.yaml",
-            "features/demo.feature",
-            "tests/Behat/DemoContext.php"
-        ]
+        }
     },
     "friendsofsymfony/rest-bundle": {
         "version": "3.7",
@@ -74,10 +68,7 @@
             "branch": "main",
             "version": "3.0",
             "ref": "3762cc4e4f2d6faabeca5a151b41c8c791bd96e5"
-        },
-        "files": [
-            "config/packages/fos_rest.yaml"
-        ]
+        }
     },
     "jms/serializer-bundle": {
         "version": "5.4",
@@ -86,10 +77,7 @@
             "branch": "main",
             "version": "4.0",
             "ref": "cc04e10cf7171525b50c18b36004edf64cb478be"
-        },
-        "files": [
-            "config/packages/jms_serializer.yaml"
-        ]
+        }
     },
     "knplabs/knp-gaufrette-bundle": {
         "version": "v0.9.0"
@@ -129,11 +117,7 @@
             "branch": "main",
             "version": "1.8",
             "ref": "d1227d002b70d1a1f941d91845fcd7ac7fbfc929"
-        },
-        "files": [
-            "config/packages/liip_imagine.yaml",
-            "config/routes/liip_imagine.yaml"
-        ]
+        }
     },
     "nelmio/alice": {
         "version": "3.13",
@@ -166,10 +150,7 @@
             "branch": "main",
             "version": "2.4",
             "ref": "518ac22defa04a8a1d82479ed362e2921487adf0"
-        },
-        "files": [
-            "config/packages/payum.yaml"
-        ]
+        }
     },
     "php-http/discovery": {
         "version": "1.20",
@@ -190,10 +171,7 @@
             "branch": "main",
             "version": "1.0",
             "ref": "5e490cc197fb6bb1ae22e5abbc531ddc633b6767"
-        },
-        "files": [
-            "phpstan.dist.neon"
-        ]
+        }
     },
     "phpunit/phpunit": {
         "version": "10.5",
@@ -243,10 +221,7 @@
             "branch": "main",
             "version": "1.2",
             "ref": "e805aba9eff5372e2d149a9ff56566769e22819d"
-        },
-        "files": [
-            "config/packages/stof_doctrine_extensions.yaml"
-        ]
+        }
     },
     "sylius-labs/doctrine-migrations-extra-bundle": {
         "version": "v0.2.2"
@@ -267,11 +242,7 @@
             "branch": "main",
             "version": "1.9",
             "ref": "ee21c1fc90778f4b01c20e72c320cc34f8839c1e"
-        },
-        "files": [
-            "config/packages/sylius_resource.yaml",
-            "config/routes/sylius_resource.yaml"
-        ]
+        }
     },
     "sylius/sylius": {
         "version": "2.0",
