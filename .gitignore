@@ -8,9 +8,6 @@
 /etc/build/*
 !/etc/build/.gitignore
 
-/behat.yml
-/phpspec.yml
-
 /drivers/
 
 /docker-compose.override.yaml
@@ -52,3 +49,15 @@
 /yarn.lock
 /package-lock.json
 ###< symfony/webpack-encore-bundle ###
+
+###> phpstan/phpstan ###
+phpstan.neon
+###< phpstan/phpstan ###
+
+###> friends-of-behat/symfony-extension ###
+/behat.yml
+###< friends-of-behat/symfony-extension ###
+
+###> liip/imagine-bundle ###
+/public/media/cache/
+###< liip/imagine-bundle ###

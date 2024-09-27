@@ -7,10 +7,6 @@ namespace App\Entity\Product;
 use Doctrine\ORM\Mapping as ORM;
 use Sylius\Component\Core\Model\ProductReview as BaseProductReview;
 
-/**
- * @ORM\Entity
- * @ORM\Table(name="sylius_product_review")
- */
 #[ORM\Entity]
 #[ORM\Table(name: 'sylius_product_review')]
 class ProductReview extends BaseProductReview
