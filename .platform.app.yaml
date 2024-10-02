@@ -84,6 +84,10 @@ dependencies:
     php:
         composer/composer: '^2'
 
+runtime:
+    extensions:
+        - sodium
+
 crons:
     sylius-cancel-unpaid-orders:
         spec: "0 2 * * *"
