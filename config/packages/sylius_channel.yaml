@@ -1,0 +1,3 @@
+when@test_cached:
+    sylius_channel:
+        debug: true
