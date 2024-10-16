@@ -560,8 +560,5 @@
     },
     "twig/extra-bundle": {
         "version": "v3.13.0"
-    },
-    "winzou/state-machine-bundle": {
-        "version": "v0.6.2"
     }
 }
