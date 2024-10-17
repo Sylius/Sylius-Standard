@@ -3,6 +3,7 @@ imports:
     - { resource: "@SyliusAdminBundle/Resources/config/app/config.yml" }
     - { resource: "@SyliusApiBundle/Resources/config/app/config.yaml" }
     - { resource: "@SyliusShopBundle/Resources/config/app/config.yml" }
+    - { resource: "@SyliusPayumBundle/Resources/config/app/config.yaml" }
 
     - { resource: "../parameters.yaml" }
 
@@ -123,16 +124,15 @@ sylius_payment:
         payment:
             classes:
                 model: App\Entity\Payment\Payment
+        gateway_config:
+            classes:
+                model: App\Entity\Payment\GatewayConfig
 
 sylius_payum:
     resources:
         payment_security_token:
             classes:
                 model: App\Entity\Payment\PaymentSecurityToken
-        gateway_config:
-            classes:
-                model: App\Entity\Payment\GatewayConfig
-
 sylius_product:
     resources:
         product:

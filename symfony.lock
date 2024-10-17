@@ -273,6 +273,15 @@
     "sylius/theme-bundle": {
         "version": "v2.4.0"
     },
+    "sylius/twig-extra": {
+        "version": "0.4",
+        "recipe": {
+            "repo": "github.com/symfony/recipes-contrib",
+            "branch": "main",
+            "version": "0.4",
+            "ref": "00e1c7f2e97de7b0d990e507e1541fd05d4cdbfe"
+        }
+    },
     "sylius/twig-hooks": {
         "version": "v0.3.0"
     },
@@ -442,6 +451,15 @@
             "templates/base.html.twig"
         ]
     },
+    "symfony/uid": {
+        "version": "7.1",
+        "recipe": {
+            "repo": "github.com/symfony/recipes",
+            "branch": "main",
+            "version": "7.0",
+            "ref": "0df5844274d871b37fc3816c57a768ffc60a43a5"
+        }
+    },
     "symfony/ux-autocomplete": {
         "version": "2.20",
         "recipe": {
@@ -542,8 +560,5 @@
     },
     "twig/extra-bundle": {
         "version": "v3.13.0"
-    },
-    "winzou/state-machine-bundle": {
-        "version": "v0.6.2"
     }
 }
