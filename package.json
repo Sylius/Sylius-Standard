@@ -3,7 +3,6 @@
   "scripts": {
     "build": "encore dev",
     "build:prod": "encore production",
-    "lint": "yarn lint:js",
     "watch": "encore dev --watch"
   },
   "dependencies": {
@@ -13,12 +12,9 @@
     "@symfony/ux-live-component": "file:vendor/symfony/ux-live-component/assets"
   },
   "devDependencies": {
-    "@babel/plugin-proposal-object-rest-spread": "^7.18.9",
     "@hotwired/stimulus": "^3.0.0",
     "@symfony/stimulus-bridge": "^3.2.0",
     "@symfony/webpack-encore": "^5.0.1",
-    "sass": "^1.54.8",
-    "sass-loader": "^16.0.2",
     "tom-select": "^2.2.2"
   }
 }
