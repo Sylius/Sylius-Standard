@@ -28,3 +28,16 @@ services:
     App\Controller\:
         resource: '../src/Controller'
         tags: ['controller.service_arguments']
+
+    # Custom extension to "enable" different configurations, based on future needs
+    App\Form\Type\Extension\CartItemTypeQuantityExtension:
+        arguments:
+            - '@sylius.form.data_mapper.order_item_quantity'
+        tags:
+            - { name: 'form.type_extension' }
+
+    # Decorating limited to only this service, as it's the only one that needs to be decorated to fulfill "task" requirements
+    App\Form\Type\Order\AddToCartType:
+        decorates: 'sylius.form.type.add_to_cart'
+        arguments:
+            - '@.inner'

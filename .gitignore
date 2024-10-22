@@ -4,6 +4,7 @@
 /public/js
 /public/media
 !/public/media/image/.gitkeep
+.idea
 
 /etc/build/*
 !/etc/build/.gitignore

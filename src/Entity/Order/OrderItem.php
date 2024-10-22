@@ -15,4 +15,5 @@ use Sylius\Component\Core\Model\OrderItem as BaseOrderItem;
 #[ORM\Table(name: 'sylius_order_item')]
 class OrderItem extends BaseOrderItem
 {
+    protected $quantity = 10;
 }
