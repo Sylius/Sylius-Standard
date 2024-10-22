@@ -1,0 +1,20 @@
+#!/bin/bash
+
+if [[ ${#} -eq 0 ]] ; then
+    echo -e "\\nPHP module name required!\\n"
+    exit 1
+fi
+
+for phpmod in "${@}" ; do
+
+    files=($(find /usr/local/etc/php/available-ini -type f -iname "*${phpmod}*.ini" -exec ls -1 '{}' +))
+
+    for i in "${files[@]}" ; do
+        ln -s "${i}" /usr/local/etc/php/conf.d
+    done
+
+    if [[ ${#files[@]} -eq 0 ]] ; then
+        docker-php-ext-enable "${phpmod}"
+    fi
+
+done

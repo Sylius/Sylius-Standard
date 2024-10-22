@@ -1,0 +1,59 @@
+services:
+  php:
+    container_name: malaberg-php
+    hostname: malaberg-php
+    build:
+      context: docker/php
+    volumes:
+      - ./:/app
+      - ~/.bash_history:/root/.bash_history
+    environment:
+      PHP_IDE_CONFIG: "serverName=malaberg-php"
+    tty: true
+
+  malaberg-nginx:
+    container_name: malaberg-nginx
+    hostname: malaberg-nginx
+    build:
+      context: docker/nginx
+    volumes:
+      - ./:/var/www
+    depends_on:
+      - php
+    ports:
+      - "80:80"
+    tty: true
+
+  database:
+    image: mariadb
+    container_name: malaberg-db
+    hostname: malaberg-db
+    volumes:
+      - ./var/db:/var/lib/mysql:rw
+    ports:
+      - "3306:3306"
+    command: --default-authentication-plugin=mysql_native_password
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: db
+      MYSQL_USER: db
+      MYSQL_PASSWORD: db
+
+  maildev:
+    image: maildev/maildev
+    container_name: malaberg-maildev
+    command: bin/maildev --web 80 --smtp 25 --hide-extensions STARTTLS
+    ports:
+      - "8021:80"
+
+  nodejs:
+    image: node:${NODE_VERSION:-18}-alpine
+    working_dir: /srv/sylius
+    entrypoint: [ "/bin/sh","-c" ]
+    command:
+      - |
+        npm install
+        npm run build
+    volumes:
+      - ./:/srv/sylius:rw,cached
+      - ./public:/srv/sylius/public:rw,delegated

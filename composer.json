@@ -1,7 +1,5 @@
 {
-    "name": "sylius/sylius-standard",
     "type": "project",
-    "description": "Starting point for projects powered by Sylius eCommerce.",
     "keywords": [
         "symfony",
         "sylius",
@@ -11,7 +9,7 @@
         "shopping"
     ],
     "homepage": "https://sylius.com",
-    "license": "MIT",
+    "license": "proprietary",
     "authors": [
         {
             "name": "Paweł Jędrzejewski"
@@ -84,9 +82,6 @@
         }
     },
     "extra": {
-        "branch-alias": {
-            "dev-main": "1.13-dev"
-        },
         "symfony": {
             "allow-contrib": false,
             "require": "^6.4",

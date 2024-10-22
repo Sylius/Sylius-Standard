@@ -1,0 +1,11 @@
+#!/bin/bash
+if [ $# -eq 0 ]
+  then
+    echo "Please pass a php module name"
+    exit
+fi
+
+for phpmod in "$@"
+do
+    rm -f /usr/local/etc/php/conf.d/*$phpmod*.ini
+done

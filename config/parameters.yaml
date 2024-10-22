@@ -1,2 +1,4 @@
 parameters:
     locale: en_US
+    app.order.item.qty.min: 10
+    app.order.item.qty.step: 10
