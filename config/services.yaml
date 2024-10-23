@@ -28,3 +28,9 @@ services:
     App\Controller\:
         resource: '../src/Controller'
         tags: ['controller.service_arguments']
+        
+    app.form.extension.type.cart_item:
+        class: App\Form\Extension\CartItemTypeExtension
+        tags:
+            - { name: form.type_extension, extended_type: Sylius\Bundle\OrderBundle\Form\Type\CartItemType }
+
