@@ -16,6 +16,10 @@ on:
             cron: "0 1 * * 6" # Run at 1am every Saturday
     workflow_dispatch: ~
 
+concurrency:
+    group: build-${{ github.workflow }}-${{ github.ref }}
+    cancel-in-progress: true
+
 jobs:
     tests:
         runs-on: ubuntu-latest
