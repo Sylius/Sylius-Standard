@@ -1,8 +1,8 @@
-when@test: &test
+when@test: &plugin_test
     sylius_test_plugin_main:
         path: /test/main
         controller: Symfony\Bundle\FrameworkBundle\Controller\TemplateController::templateAction
         defaults:
             template: "@SyliusTestPlugin/main.html.twig"
 
-when@test_cached: *test
+when@test_cached: *plugin_test

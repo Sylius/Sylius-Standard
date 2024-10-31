@@ -10,10 +10,6 @@ imports:
 parameters:
     sylius_core.public_dir: '%kernel.project_dir%/public'
 
-when@dev:
-    sylius_api:
-        enabled: true
-
 sylius_addressing:
     resources:
         address:
@@ -258,14 +254,3 @@ sylius_user:
             user:
                 classes:
                     model: App\Entity\User\UserOAuth
-
-sylius_shop:
-    product_grid:
-        include_all_descendants: true
-
-sylius_theme:
-    sources:
-        filesystem:
-            scan_depth: 1
-            directories:
-                - "%kernel.project_dir%/themes"
