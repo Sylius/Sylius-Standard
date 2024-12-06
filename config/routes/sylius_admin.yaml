@@ -1,3 +1,22 @@
 sylius_admin:
     resource: "@SyliusAdminBundle/Resources/config/routing.yml"
     prefix: '/%sylius_admin.path_name%'
+    
+sylius_admin_order_note_update:
+    path: /orders/{id}/editnote
+    methods: [GET, PUT]
+    defaults:
+        _controller: sylius.controller.order::updateAction
+        _sylius:
+            section: admin
+            repository:
+                method: findOrderById
+                arguments:
+                    - '$id'
+            permission: true
+            template: "admin/order/edit/edit_notes.html.twig"
+            form:
+                type: Sylius\Bundle\AdminBundle\Form\Type\OrderType
+                options:
+                    validation_groups:
+                        - sylius_shipping_address_update

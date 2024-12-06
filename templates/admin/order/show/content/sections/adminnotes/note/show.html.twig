@@ -1,0 +1,9 @@
+{% set order = hookable_metadata.context.resource %}
+
+<td class="px-3 py-3">
+    {% if order.adminnotes is not null %}
+        <span class="px-3">{{ order.adminnotes }}</span>
+    {% else %}
+        <span class="px-3 text-secondary italic">{{ 'sylius.ui.empty_admin_notes'|trans }}</span>
+    {% endif %}
+</td>

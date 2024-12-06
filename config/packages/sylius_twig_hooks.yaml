@@ -1,0 +1,35 @@
+sylius_twig_hooks:
+    hooks:
+        'sylius_admin.order.show.content.sections#left':
+            adminnotes:
+                template: 'admin/order/show/content/sections/adminnotes.html.twig'
+                priority: 400
+        
+        'sylius_admin.order.show.content.sections.adminnotes':
+            header:
+                template: 'admin/order/show/content/sections/adminnotes/header.html.twig'
+                priority: 100
+            note:
+                template: 'admin/order/show/content/sections/adminnotes/note.html.twig'
+                priority: 0
+        'sylius_admin.order.show.content.sections.adminnotes.header':
+            title:
+                template: 'admin/order/show/content/sections/adminnotes/header/title.html.twig'
+                priority: 0                
+        
+        'sylius_admin.order.edit.edit_notes':
+            form:
+                template: 'admin/order/edit/edit_notes/form/form.html.twig'
+                priority: 0
+            header:
+                template: 'admin/order/edit/edit_notes/header/title.html.twig'
+                priority: 100
+        
+        
+        'sylius_admin.order.show.content.sections.adminnotes.note':
+            edit:
+                template: 'admin/order/show/content/sections/adminnotes/note/edit.html.twig'
+                priority: 0
+            show:
+                template: 'admin/order/show/content/sections/adminnotes/note/show.html.twig'
+                priority: 100

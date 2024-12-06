@@ -1,0 +1,5 @@
+sylius:
+    ui:
+        admin_notes: 'Note'
+        empty_admin_notes: 'There is no note for this order'
+        edit_admin_note: 'Edit admin note'

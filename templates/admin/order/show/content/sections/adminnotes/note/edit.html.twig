@@ -1,0 +1,7 @@
+{% set order = hookable_metadata.context.resource %}
+
+<div class="mb-3">
+    <a class="btn ms-2" href="{{ path('sylius_admin_order_note_update', { id: order.id }) }}" {{ sylius_test_html_attribute('adminnotes-edit-button') }}>
+        {{ 'sylius.ui.edit'|trans }}
+    </a>
+</div>
