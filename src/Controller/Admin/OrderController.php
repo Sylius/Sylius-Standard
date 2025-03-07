@@ -4,10 +4,8 @@ declare(strict_types=1);
 
 namespace App\Controller\Admin;
 
-// use Sylius\Bundle\CoreBundle\Controller\OrderController as BaseOrderController;
 use Doctrine\ORM\EntityManagerInterface;
 use Sylius\Bundle\CoreBundle\Doctrine\ORM\OrderRepository;
-use Sylius\Component\Core\Model\OrderInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
