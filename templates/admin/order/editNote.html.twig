@@ -1,0 +1,10 @@
+<div id="container">
+	{% hook 'sylius_admin.common.component.sidebar' %}
+	<div class="ui segment">
+		<h4 class="ui dividing header">Order Note</h4>
+		<form method="post" action="{{ app.request.uri ~ '/note' }}">
+			<textarea name="note" rows="4" placeholder="Enter your note here..."></textarea>
+			<button class="ui button primary" type="submit">Save Note</button>
+		</form>
+	</div>
+</div>

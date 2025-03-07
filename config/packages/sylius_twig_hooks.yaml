@@ -1,0 +1,5 @@
+sylius_twig_hooks:
+    hooks:
+        'sylius_admin.order.show.content.sections.general':
+            editNote:
+                template: 'admin/order/editNote.html.twig'
