@@ -9,5 +9,11 @@
   },
   "devDependencies": {
     "@sylius-ui/frontend": "^1.0"
+  },
+  "dependencies": {
+    "bazinga-translator": "^7.0.0",
+    "intl-messageformat": "^10.7.16",
+    "lodash.get": "^4.4.2",
+    "shepherd.js": "11.0"
   }
 }
