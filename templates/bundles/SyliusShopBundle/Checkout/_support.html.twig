@@ -1,0 +1,19 @@
+{% if true == mollie_render_apple_pay_direct() %}
+    {% include '@SyliusMolliePlugin/Shop/Checkout/SelectPayment/_applePayButton.html.twig' %}
+{% endif %}
+
+<h2 class="ui center aligned icon header">
+    <i class="circular phone icon"></i>
+        {{ order.channel.contactPhoneNumber }}
+    <span class="sub header">
+        {{ 'sylius.ui.need_assistance'|trans }} {{ 'sylius.ui.call_us'|trans }}
+    </span>
+</h2>
+
+<div class="ui divider"></div>
+
+<div class="ui center aligned basic segment">
+    <i class="huge cc mastercard icon"></i>
+    <i class="huge cc visa icon"></i>
+    <i class="huge cc paypal card icon"></i>
+</div>
