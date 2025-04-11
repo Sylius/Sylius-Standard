@@ -89,9 +89,27 @@ jobs:
                 name: Install certificates
                 run: symfony server:ca:install
 
+            -   name: Remove default Google Chrome installation
+                run: |
+                    which google-chrome && google-chrome --version || echo "Google Chrome successfully removed"
+                    sudo dpkg --remove google-chrome-stable
+                    sudo apt-get purge -y google-chrome-stable
+                    sudo rm -f /usr/bin/google-chrome /usr/bin/chromedriver
+                    which google-chrome && google-chrome --version || echo "Google Chrome successfully removed"
+                    which chromedriver || echo "Google Chromedriver successfully removed"
+                shell: bash
+
+            -   name: Setup Chrome
+                uses: browser-actions/setup-chrome@latest
+                with:
+                    chrome-version: "134"
+                    install-chromedriver: 'true'
+
             -
                 name: Run Chrome Headless
-                run: google-chrome-stable --enable-automation --disable-background-networking --no-default-browser-check --no-first-run --disable-popup-blocking --disable-default-apps --allow-insecure-localhost --disable-translate --disable-extensions --no-sandbox --enable-features=Metal --headless --remote-debugging-port=9222 --window-size=2880,1800 --proxy-server='direct://' --proxy-bypass-list='*' http://127.0.0.1 > /dev/null 2>&1 &
+                run: |
+                    export DISPLAY=:99
+                    chrome --enable-automation --disable-background-networking --no-default-browser-check --no-first-run --disable-popup-blocking --disable-default-apps --allow-insecure-localhost --disable-translate --remote-debugging-port=9222 --disable-extensions --no-sandbox --enable-features=Metal --headless --window-size=2880,1800 --proxy-server='direct://' --proxy-bypass-list='*' http://127.0.0.1 > /dev/null 2>&1 &
 
             -
                 name: Run webserver
