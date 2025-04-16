@@ -18,7 +18,7 @@ on:
 
 jobs:
     tests:
-        runs-on: ubuntu-20.04
+        runs-on: ubuntu-latest
 
         name: "PHP ${{ matrix.php }}, Symfony ${{ matrix.symfony }}, MySQL ${{ matrix.mysql }}, Node ${{ matrix.node }}"
 
@@ -63,6 +63,10 @@ jobs:
                 run: |
                     composer require --dev --no-update --no-progress --no-scripts --no-plugins "payum/paypal-express-checkout-nvp:^1.7.3"
                     composer require --dev --no-update --no-progress --no-scripts --no-plugins "payum/stripe:^1.7.3"
+
+            -
+                name: Allow excluding features in behat
+                run: composer require friends-of-behat/exclude-specifications-extension --dev
 
             -
                 name: Setup Node
@@ -206,7 +210,7 @@ jobs:
 
             -
                 name: Run non-JS Behat (without managing catalog promotion scenarios and exchange rates)
-                run: vendor/bin/behat --colors --strict --no-interaction -vvv -f progress --tags="~@javascript&&~@mink:chromedriver&&~@todo&&~@cli&&~@managing_catalog_promotions&&~@managing_exchange_rates"
+                run: vendor/bin/behat --colors --strict --no-interaction -vvv -f progress --tags="~@javascript&&~@mink:chromedriver&&~@todo&&~@cli&&~@managing_catalog_promotions&&~@managing_exchange_rates" --profile=build
 
             -
                 name: Run JS Behat (Chromedriver)

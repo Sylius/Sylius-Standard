@@ -1,0 +1,35 @@
+{% set mollieFactoryName = constant('Sylius\\MolliePlugin\\Payum\\Factory\\MollieGatewayFactory::FACTORY_NAME') %}
+{% set mollieRecurringFactoryName = constant('Sylius\\MolliePlugin\\Payum\\Factory\\MollieSubscriptionGatewayFactory::FACTORY_NAME') %}
+
+<div class="ui segment">
+    <div class="ui dividing header">{{ 'sylius.ui.payment'|trans }} #{{ loop.index }}</div>
+    <div class="ui fluid stackable items">
+        {{ form_errors(form.method) }}
+
+        {% set isRendered = false %}
+
+        {% for key, choice_form in form.method %}
+            {% if form.method.vars.choices[key].data.gatewayConfig.factoryName in [mollieFactoryName, mollieRecurringFactoryName] %}
+                {% if not isRendered %}
+                    {{ form_row(form.details.cartToken) }}
+                    {{ form_row(form.details.saveCardInfo) }}
+                    {{ form_row(form.details.useSavedCards) }}
+                    {% set isRendered = true %}
+                {% endif %}
+                {% include '@SyliusMolliePlugin/Shop/Checkout/SelectPayment/_choiceMollie.html.twig' with {
+                    'form': choice_form,
+                    'method': form.method.vars.choices[key].data,
+                    'mollie_payment_options': form.details
+                } %}
+            {% else %}
+                {% include '@SyliusShop/Checkout/SelectPayment/_choice.html.twig' with {
+                    'form': choice_form,
+                    'method': form.method.vars.choices[key].data,
+                    'mollie_payment_options': form.details
+                } %}
+            {% endif %}
+        {% else %}
+            {% include '@SyliusShop/Checkout/SelectPayment/_unavailable.html.twig' %}
+        {% endfor %}
+    </div>
+</div>

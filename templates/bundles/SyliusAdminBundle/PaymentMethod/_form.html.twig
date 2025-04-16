@@ -1,0 +1,90 @@
+{% import '@SyliusUi/Macro/flags.html.twig' as flags %}
+
+{% form_theme form '@SyliusMolliePlugin/Admin/PaymentMethod/_mollie_gateway_help_theme.html.twig' %}
+
+{% set mollieStandardGateway = constant('Sylius\\MolliePlugin\\Payum\\Factory\\MollieGatewayFactory::FACTORY_NAME') %}
+{% set mollieRecuringGateway = constant('Sylius\\MolliePlugin\\Payum\\Factory\\MollieSubscriptionGatewayFactory::FACTORY_NAME') %}
+
+{% if form.vars.value.gatewayConfig.factoryName is same as (mollieStandardGateway) %}
+    {% include '@SyliusMolliePlugin/Admin/PaymentMethod/_mollieMessage.html.twig' %}
+    {{ mollie_render_version_widget() }}
+{% endif %}
+
+<div class="ui segment">
+    <h4 class="ui dividing header">{{ 'sylius.ui.details'|trans }}</h4>
+    {{ form_errors(form) }}
+
+    <div class="two fields">
+        {{ form_row(form.code) }}
+        {{ form_row(form.position) }}
+    </div>
+    {{ form_row(form.enabled) }}
+    {{ form_row(form.channels) }}
+</div>
+
+<div class="ui segment">
+    <h4 class="ui dividing header">{{ 'sylius.ui.gateway_configuration'|trans }}</h4>
+    {{ form_row(form.gatewayConfig.factoryName) }}
+
+    {% if form.gatewayConfig.config is defined %}
+        {% for field in form.gatewayConfig.config %}
+            {% if loop.index is odd and field.vars.name != 'api_key_test' %}
+                <div class="two field">
+                    {% endif %}
+
+                {% if field.vars.name == 'environment' %}
+                    {{ form_widget(field, { 'attr': { 'class': 'js-onboardingWizard-environment' } }) }}
+                    {{ form_errors(field) }}
+
+                {% elseif field.vars.name == 'profile_id' %}
+                    </div>
+                        <div class="two field js-onboardingWizard-profile-api">
+                        <div class="js-two-fields-test">
+                        <div class="required field">
+                        <label for="sylius_payment_method_gatewayConfig_config_profile_id" class="required">
+                            {{ field.vars.label|trans|raw|nl2br }}
+                        </label>
+                    {{ form_widget(field) }}
+                    {{ form_errors(field) }}
+                </div>
+
+    {% elseif field.vars.name == 'api_key_test' %}
+        {% include '@SyliusMolliePlugin/Admin/PaymentMethod/_api_test_key.html.twig' %}
+        </div>
+
+    {% elseif field.vars.name == 'api_key_live' %}
+        {% include '@SyliusMolliePlugin/Admin/PaymentMethod/_api_live_key.html.twig' %}
+        </div>
+
+    {% else %}
+        {{ form_row(field) }}
+        {{ form_help(field) }}
+        {% endif %}
+
+        {% if loop.index is even and field.vars.name != 'profile_id' %}</div>{% endif %}
+            {% endfor %}
+        {% endif %}
+    </div>
+
+{% if form.vars.value.gatewayConfig.factoryName in [mollieStandardGateway, mollieRecuringGateway] %}
+    {% include '@SyliusMolliePlugin/Admin/PaymentMethod/_mollieMethodsForm.html.twig' %}
+{% endif %}
+
+<div class="ui styled fluid accordion">
+    {% for locale, translationForm in form.translations %}
+        <div class="title{% if 0 == loop.index0 %} active{% endif %}">
+            <i class="dropdown icon"></i>
+            {{ flags.fromLocaleCode(locale) }} {{ locale|sylius_locale_name }}
+        </div>
+        <div class="content{% if 0 == loop.index0 %} active{% endif %}">
+            {{ form_row(translationForm.name) }}
+            {{ form_row(translationForm.description) }}
+            <div class="ui compact message">
+                <p>
+                    <i class="icon info circle"></i> {{ 'sylius.ui.the_instructions_below_will_be_displayed_to_the_customer'|trans }}.
+                </p>
+            </div>
+            {{ form_row(translationForm.instructions) }}
+        </div>
+    {% endfor %}
+</div>
