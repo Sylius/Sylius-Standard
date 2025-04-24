@@ -32,7 +32,15 @@
             </div>
         {% endif %}
     {% endif %}
-    {% if payment.method.gatewayConfig.factoryName == 'mollie' and sm_can(payment, 'refund', 'sylius_payment') %}
+    {% if payment.method.gatewayConfig.factoryName == 'sylius.pay_pal' andpayment.state == 'refunded' %}
+        <div class="ui icon mini message">
+            <i class="paypal icon"></i>
+            <div class="content">
+                <p>{{ 'sylius.pay_pal.tender_type'|trans }}</p>
+            </div>
+        </div>
+    {% endif %}
+    {% if payment.method.gatewayConfig.factoryName == constant('Sylius\\MolliePlugin\\Payum\\Factory\\MollieGatewayFactory::FACTORY_NAME') and sm_can(payment, 'refund', 'sylius_payment') %}
         <div class="ui segment">
             <form action="{{ path('sylius_admin_order_payment_refund', {'orderId': order.id, 'id': payment.id}) }}" method="post" novalidate>
                 <input type="hidden" name="_method" value="PUT">

@@ -1,4 +1,7 @@
 <!DOCTYPE html>
+
+{% import "@SyliusUi/Macro/rtl.html.twig" as rtl %}
+
 {% set mollie = constant('Sylius\\MolliePlugin\\Payum\\Factory\\MollieGatewayFactory::FACTORY_NAME') %}
 
 <html lang="{{ sylius.localeCode|split('_')[0] }}">
@@ -6,23 +9,17 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-
-    <title>{% block title %}Sylius Mollie{% endblock %}</title>
-
+    <title>{% block title %}Sylius{% endblock %}</title>
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
 
     {% block metatags %}
     {% endblock %}
 
     {% block stylesheets %}
-        <!--[if lt IE 9]>
-        <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
-        <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
-        <![endif]-->
     {% endblock %}
 </head>
 
-<body>
+<body> {{ rtl.default(sylius.localeCode) }}>
 <div class="admin-layout">
     <script>
         const layoutBreakpoint = 768;
@@ -45,7 +42,6 @@
     </script>
 
     <div class="admin-layout__sidebar">
-
         <div class="admin-layout__nav">
             {% block sidebar %}
             {% endblock %}
@@ -62,7 +58,9 @@
                 {% endblock %}
             </div>
         </div>
+
         {% include '@SyliusMolliePlugin/Ui/OnboardingWizard/_navigation.html.twig' %}
+
         <div class="admin-layout__content">
             {% block flash_messages %}
                 {% include '@SyliusUi/_flashes.html.twig' %}

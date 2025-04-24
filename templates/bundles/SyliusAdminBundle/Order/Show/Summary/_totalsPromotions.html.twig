@@ -9,7 +9,7 @@
         {% set orderPromotionAdjustments = sylius_aggregate_adjustments(order.getAdjustmentsRecursively(orderPromotionAdjustment)) %}
         {% set unitPromotionAdjustments = sylius_aggregate_adjustments(order.getAdjustmentsRecursively(unitPromotionAdjustment)) %}
         {% set promotionAdjustments = orderPromotionAdjustments|merge(unitPromotionAdjustments) %}
-        {% if not promotionAdjustments is empty %}
+        {% if promotionAdjustments is not empty %}
             <div class="ui relaxed divided list">
                 <div class="item"><strong>{{ 'sylius.ui.promotions'|trans }}:</strong></div>
                 {% for label, amount in promotionAdjustments %}
