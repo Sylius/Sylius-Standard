@@ -1,6 +1,9 @@
 services:
     php:
         image: ghcr.io/sylius/sylius-php:8.3-alpine
+        volumes:
+            - ./docker/php/conf.d/disable_opcache.ini:/usr/local/etc/php/conf.d/disable_opcache.ini:ro
+            - ./docker/php/conf.d/memory_limit.ini:/usr/local/etc/php/conf.d/memory_limit.ini:ro
     mysql:
         image: mysql:8.4
         platform: linux/amd64

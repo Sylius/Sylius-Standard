@@ -7,7 +7,7 @@ services:
                 condition: service_healthy
         environment:
             # You can move these environment variables to your .env.local file
-            APP_ENV: ${ENV:-prod}
+            APP_ENV: ${ENV:-dev}
             APP_SECRET: EDITME
             DATABASE_URL: "mysql://root@mysql/sylius_%kernel.environment%"
             MAILER_DSN: smtp://mailhog:1025
