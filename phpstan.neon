@@ -1,3 +1,6 @@
 parameters:
+    reportUnmatchedIgnoredErrors: false
     ignoreErrors:
         - '/Generator expects value type Symfony\\Component\\HttpKernel\\Bundle\\BundleInterface\, object given\./'
+    excludePaths:
+        - 'src/Kernel.php'
