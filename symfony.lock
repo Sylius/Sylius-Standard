@@ -193,27 +193,11 @@
     "sylius/fixtures-bundle": {
         "version": "v1.9.0"
     },
-    "sylius/gmv-bundle": {
-        "version": "v1.0.0"
-    },
     "sylius/grid-bundle": {
         "version": "v1.13.0"
     },
     "sylius/mailer-bundle": {
         "version": "v2.1.0"
-    },
-    "sylius/multi-source-inventory-plugin": {
-        "version": "2.0",
-        "recipe": {
-            "repo": "github.com/Sylius/SyliusRecipes",
-            "branch": "main",
-            "version": "2.0",
-            "ref": "d5679748eed3fcbb7cc8fde52e82e4464143329d"
-        },
-        "files": [
-            "config/packages/sylius_multi_source_inventory_plugin.yaml",
-            "config/routes/sylius_multi_source_inventory_plugin.yaml"
-        ]
     },
     "sylius/paypal-plugin": {
         "version": "2.0",

@@ -1,2 +1,0 @@
-imports:
-    - { resource: "@SyliusMultiSourceInventoryPlugin/config/config.yaml" }
