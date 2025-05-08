@@ -25,6 +25,7 @@
     ],
     "require": {
         "php": "^8.2",
+        "sylius/multi-source-inventory-plugin": "^2.0",
         "sylius/paypal-plugin": "^2.0",
         "sylius/sylius": "~2.0.0",
         "symfony/dotenv": "^6.4 || ^7.1",
