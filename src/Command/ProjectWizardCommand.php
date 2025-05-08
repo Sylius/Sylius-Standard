@@ -83,18 +83,19 @@ class ProjectWizardCommand extends Command
             Process::fromShellCommandline('composer config extra.symfony.allow-contrib true')->run();
             Process::fromShellCommandline('yarn add trix@^2.0.0 swiper@^11.2.6')->run();
         }
-        // Multi Source Inventory
+
+        // Multi Source Inventory Plugin
         if (isset($data['plugins']['sylius/multi-source-inventory-plugin'])) {
             $io->section('Recreating rector.php for Multi Source Inventory plugin');
             $rectorFile = getcwd() . '/rector.php';
 
-            // 1) Usuń stary plik
+            // Remove old file
             if (file_exists($rectorFile)) {
                 $filesystem->remove($rectorFile);
                 $io->text('Removed existing rector.php');
             }
 
-            // 2) Stwórz nowy z dokładnie tymi regułami
+            // Create new rector.php with required set
             $newContent = <<<'PHP'
 <?php
 
@@ -116,6 +117,16 @@ PHP;
 
             $filesystem->dumpFile($rectorFile, $newContent);
             $io->text('Created new rector.php with MULTI_SOURCE_INVENTORY_PLUGIN set');
+
+            // Run Rector
+            $io->section('Running Rector for Multi Source Inventory');
+            $rectorProc = new Process(['vendor/bin/rector']);
+            $rectorProc->setTty(Process::isTtySupported());
+            $rectorProc->run();
+            if (!$rectorProc->isSuccessful()) {
+                $io->error('Rector run failed: ' . $rectorProc->getErrorOutput());
+                return Command::FAILURE;
+            }
         }
 
         // Final common steps
