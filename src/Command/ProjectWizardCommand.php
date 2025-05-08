@@ -11,6 +11,7 @@ use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
 use Symfony\Component\Console\Style\SymfonyStyle;
 use Symfony\Component\Process\Process;
+use Symfony\Component\Filesystem\Filesystem;
 
 #[AsCommand(
     name: 'project:install-plugins',
@@ -21,7 +22,6 @@ class ProjectWizardCommand extends Command
     protected function configure(): void
     {
         $this
-        ->setDescription('Installs and configures Sylius plugins based on a JSON config file')
         ->addArgument(
             'config-file',
             InputArgument::OPTIONAL,
@@ -35,58 +35,106 @@ class ProjectWizardCommand extends Command
         $io = new SymfonyStyle($input, $output);
         $configPath = $input->getArgument('config-file');
 
-        // 1) Load and parse JSON config
+        // Load config
         if (!file_exists($configPath)) {
         $io->error("Configuration file '$configPath' not found.");
             return Command::FAILURE;
         }
-        $raw = file_get_contents($configPath);
-        $data = json_decode($raw, true);
-        if (!is_array($data) || !isset($data['plugins']) || !is_array($data['plugins'])) {
-        $io->error('Invalid config format: expected top-level "plugins" object.');
+        $data = json_decode(file_get_contents($configPath), true);
+        if (!isset($data['plugins']) || !is_array($data['plugins'])) {
+        $io->error('Invalid config: missing "plugins" array.');
             return Command::FAILURE;
         }
 
-        // 2) Extract plugins list
-        $plugins = $data['plugins']; // ['vendor/pkg' => '^1.0', ...]
+        // Show plugins
         $io->title('Plugins to install:');
-        foreach ($plugins as $pkg => $version) {
+        foreach ($data['plugins'] as $pkg => $version) {
         $io->text(" - $pkg ($version)");
         }
         $io->newLine();
 
-        // 3) Composer require each plugin with version
-        foreach ($plugins as $pkg => $version) {
-        $io->section("Installing $pkg:");
-            $requireArg = sprintf('%s:%s', $pkg, $version);
-            $proc = new Process(['composer', 'require', $requireArg, '--no-interaction']);
-            $proc->setTty(Process::isTtySupported());
-            $proc->run();
-            if (!$proc->isSuccessful()) {
-            $io->error("Failed to install $pkg:\n" . $proc->getErrorOutput());
+        // Ensure auto-accept Symfony recipes
+        $io->section('Configuring Symfony Flex to auto-accept contrib recipes');
+        Process::fromShellCommandline('composer config extra.symfony.allow-contrib true')->run();
+
+        $filesystem = new Filesystem();
+
+        // Install each plugin
+        foreach ($data['plugins'] as $pkg => $version) {
+        $io->section("Installing $pkg");
+            $args = ['composer', 'require', sprintf('%s:%s', $pkg, $version), '--no-interaction'];
+            // disable scripts for certain packages
+            if (in_array($pkg, ['sylius/multi-source-inventory-plugin', 'sylius/loyalty-plugin'], true)) {
+            $args[] = '--no-scripts';
+            }
+            $process = new Process($args);
+            $process->setTty(Process::isTtySupported());
+            $process->run();
+            if (!$process->isSuccessful()) {
+            $io->error("Failed to install $pkg:\n" . $process->getErrorOutput());
                 return Command::FAILURE;
             }
         }
 
-        // 4) Optional post-install steps
-        if (isset($plugins['sylius/cms-plugin'])) {
+        // Plugin-specific post steps
+        // CMS Plugin
+        if (isset($data['plugins']['sylius/cms-plugin'])) {
         $io->section('Running CMS post-install steps');
             Process::fromShellCommandline('composer config extra.symfony.allow-contrib true')->run();
             Process::fromShellCommandline('yarn add trix@^2.0.0 swiper@^11.2.6')->run();
         }
-        if (isset($plugins['loyalty']) || isset($plugins['sylius/loyalty-plugin'])) {
-        $io->section('Applying Loyalty rector set');
-            Process::fromShellCommandline('vendor/bin/rector')->run();
+        // Multi Source Inventory
+        if (isset($data['plugins']['sylius/multi-source-inventory-plugin'])) {
+        $io->section('Applying Multi Source Inventory plugin recipes');
+            $rectorFile = getcwd() . '/rector.php';
+            if (file_exists($rectorFile)) {
+            $content = file_get_contents($rectorFile);
+                if (strpos($content, 'MULTI_SOURCE_INVENTORY_PLUGIN') === false) {
+                $insertion = "    \$rectorConfig->sets([\n        SyliusPlus::MULTI_SOURCE_INVENTORY_PLUGIN,\n    ]);\n";
+                    $content = str_replace(');', $insertion . ');', $content);
+                    file_put_contents($rectorFile, $content);
+                    $io->text('Updated rector.php with MULTI_SOURCE_INVENTORY_PLUGIN set');
+                }
+            }
+            $pkgConfig = getcwd() . '/config/packages/sylius_multi_source_inventory_plugin.yaml';
+            $yaml = <<<YAML
+imports:
+    - { resource: "@SyliusMultiSourceInventoryPlugin/src/Integration/CustomerService/Resources/config/parameters.yaml" }
+parameters:
+    sylius.form.type.add_to_cart.validation_groups:
+        - sylius_multi_source_inventory
+YAML;
+            $filesystem->dumpFile($pkgConfig, $yaml);
+            $io->text('Created config/packages/sylius_multi_source_inventory_plugin.yaml');
+        }
+        // Loyalty Plugin
+        if (isset($data['plugins']['sylius/loyalty-plugin'])) {
+        $io->section('Applying Loyalty Plugin recipes');
+            $rectorFile = getcwd() . '/rector.php';
+            if (file_exists($rectorFile)) {
+            $content = file_get_contents($rectorFile);
+                if (strpos($content, 'LOYALTY_PLUGIN') === false) {
+                $insertion = "    \$rectorConfig->sets([\n        SyliusPlus::LOYALTY_PLUGIN,\n    ]);\n";
+                    $content = str_replace(');', $insertion . ');', $content);
+                    file_put_contents($rectorFile, $content);
+                    $io->text('Updated rector.php with LOYALTY_PLUGIN set');
+                }
+            }
         }
 
-        // 5) Common final steps
+        // Final common steps
         $io->section('Running database migrations');
         Process::fromShellCommandline('bin/console doctrine:migrations:migrate --no-interaction')->run();
 
-        $io->section('Clearing cache');
-        Process::fromShellCommandline('bin/console cache:clear')->run();
+        $io->section('Installing assets and building front');
+        Process::fromShellCommandline('bin/console assets:install')->run();
+        Process::fromShellCommandline('yarn encore dev')->run();
 
-        $io->success('All plugins installed and configured.');
+        $io->section('Clearing and warming up cache');
+        Process::fromShellCommandline('bin/console cache:clear')->run();
+        Process::fromShellCommandline('bin/console cache:warmup')->run();
+
+        $io->success('All plugins installed and configured successfully.');
         return Command::SUCCESS;
     }
 }
