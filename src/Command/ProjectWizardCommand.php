@@ -76,8 +76,6 @@ class ProjectWizardCommand extends Command
             }
         }
 
-        // Plugin-specific post steps
-        // CMS Plugin
         if (isset($data['plugins']['sylius/cms-plugin'])) {
             $io->section('Running CMS post-install steps');
             Process::fromShellCommandline('composer config extra.symfony.allow-contrib true')->run();
@@ -96,31 +94,6 @@ class ProjectWizardCommand extends Command
                     $io->text('Updated rector.php with MULTI_SOURCE_INVENTORY_PLUGIN set');
                 }
             }
-            $pkgConfig = getcwd() . '/config/packages/sylius_multi_source_inventory_plugin.yaml';
-            $yaml = <<<YAML
-imports:
-    - { resource: "@SyliusMultiSourceInventoryPlugin/src/Integration/CustomerService/Resources/config/parameters.yaml" }
-parameters:
-    sylius.form.type.add_to_cart.validation_groups:
-        - sylius_multi_source_inventory
-YAML;
-            $filesystem->dumpFile($pkgConfig, $yaml);
-            $io->text('Created config/packages/sylius_multi_source_inventory_plugin.yaml');
-        }
-        // Loyalty Plugin
-        if (isset($data['plugins']['sylius/loyalty-plugin'])) {
-            $io->section('Applying Loyalty Plugin recipes');
-            $rectorFile = getcwd() . '/rector.php';
-            if (file_exists($rectorFile)) {
-                $content = file_get_contents($rectorFile);
-                if (strpos($content, 'LOYALTY_PLUGIN') === false) {
-                    $insertion = "    \$rectorConfig->sets([\n        SyliusPlus::LOYALTY_PLUGIN,\n    ]);\n";
-                    $content = str_replace(');', $insertion . ');', $content);
-                    file_put_contents($rectorFile, $content);
-                    $io->text('Updated rector.php with LOYALTY_PLUGIN set');
-                }
-            }
-        }
 
         // Final common steps
         // Remove existing cache directories to avoid stale container errors
