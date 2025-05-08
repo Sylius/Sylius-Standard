@@ -1,0 +1,6 @@
+{
+  "plugins": {
+    "sylius/multi-source-inventory-plugin": "^2.0",
+    "sylius/cms-plugin": "^1.0"
+  }
+}
