@@ -1,0 +1,55 @@
+imports:
+    - { resource: "@SyliusMarketplaceSuitePlugin/config/config.yaml" }
+
+sylius_channel:
+    resources:
+        channel:
+            classes:
+                repository: App\Repository\ChannelRepository
+
+sylius_customer:
+    resources:
+        customer:
+            classes:
+                repository: App\Repository\CustomerRepository
+
+sylius_order:
+    resources:
+        order:
+            classes:
+                repository: App\Repository\OrderRepository
+                controller: Sylius\MarketplaceSuite\Component\Core\Common\Controller\Resource\OrderController
+
+sylius_payment:
+    resources:
+        payment:
+            classes:
+                repository: App\Repository\PaymentRepository
+
+sylius_product:
+    resources:
+        product:
+            classes:
+                repository: App\Repository\ProductRepository
+        product_variant:
+            classes:
+                repository: App\Repository\ProductVariantRepository
+
+sylius_review:
+    resources:
+        product:
+            review:
+                classes:
+                    repository: App\Repository\ProductReviewRepository
+
+sylius_shipping:
+    resources:
+        shipment:
+            classes:
+                repository: App\Repository\ShipmentRepository
+
+sylius_taxonomy:
+    resources:
+        taxon:
+            classes:
+                repository: App\Repository\TaxonRepository

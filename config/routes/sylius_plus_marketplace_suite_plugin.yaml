@@ -1,0 +1,2 @@
+sylius_marketplace_suite:
+    resource: "@SyliusMarketplaceSuitePlugin/config/routes.yaml"

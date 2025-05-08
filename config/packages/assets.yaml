@@ -1,6 +1,10 @@
 framework:
     assets:
         packages:
+            marketplace_suite_shop:
+                json_manifest_path: '%kernel.project_dir%/public/build/sylius/marketplacesuite/shop/manifest.json'
+            marketplace_suite_admin:
+                json_manifest_path: '%kernel.project_dir%/public/build/sylius/marketplacesuite/admin/manifest.json'
             admin:
                 json_manifest_path: '%kernel.project_dir%/public/build/admin/manifest.json'
             shop:
