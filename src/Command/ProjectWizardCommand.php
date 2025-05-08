@@ -22,12 +22,12 @@ class ProjectWizardCommand extends Command
     protected function configure(): void
     {
         $this
-        ->addArgument(
-            'config-file',
-            InputArgument::OPTIONAL,
-            'Path to booster JSON config',
-            'booster.json'
-        );
+            ->addArgument(
+                'config-file',
+                InputArgument::OPTIONAL,
+                'Path to booster JSON config',
+                'booster.json'
+            );
     }
 
     protected function execute(InputInterface $input, OutputInterface $output): int
@@ -37,19 +37,19 @@ class ProjectWizardCommand extends Command
 
         // Load config
         if (!file_exists($configPath)) {
-        $io->error("Configuration file '$configPath' not found.");
+            $io->error("Configuration file '$configPath' not found.");
             return Command::FAILURE;
         }
         $data = json_decode(file_get_contents($configPath), true);
         if (!isset($data['plugins']) || !is_array($data['plugins'])) {
-        $io->error('Invalid config: missing "plugins" array.');
+            $io->error('Invalid config: missing "plugins" array.');
             return Command::FAILURE;
         }
 
         // Show plugins
         $io->title('Plugins to install:');
         foreach ($data['plugins'] as $pkg => $version) {
-        $io->text(" - $pkg ($version)");
+            $io->text(" - $pkg ($version)");
         }
         $io->newLine();
 
@@ -61,17 +61,17 @@ class ProjectWizardCommand extends Command
 
         // Install each plugin
         foreach ($data['plugins'] as $pkg => $version) {
-        $io->section("Installing $pkg");
+            $io->section("Installing $pkg");
             $args = ['composer', 'require', sprintf('%s:%s', $pkg, $version), '--no-interaction'];
             // disable scripts for certain packages
             if (in_array($pkg, ['sylius/multi-source-inventory-plugin', 'sylius/loyalty-plugin'], true)) {
-            $args[] = '--no-scripts';
+                $args[] = '--no-scripts';
             }
             $process = new Process($args);
             $process->setTty(Process::isTtySupported());
             $process->run();
             if (!$process->isSuccessful()) {
-            $io->error("Failed to install $pkg:\n" . $process->getErrorOutput());
+                $io->error("Failed to install $pkg:\n" . $process->getErrorOutput());
                 return Command::FAILURE;
             }
         }
@@ -79,18 +79,18 @@ class ProjectWizardCommand extends Command
         // Plugin-specific post steps
         // CMS Plugin
         if (isset($data['plugins']['sylius/cms-plugin'])) {
-        $io->section('Running CMS post-install steps');
+            $io->section('Running CMS post-install steps');
             Process::fromShellCommandline('composer config extra.symfony.allow-contrib true')->run();
             Process::fromShellCommandline('yarn add trix@^2.0.0 swiper@^11.2.6')->run();
         }
         // Multi Source Inventory
         if (isset($data['plugins']['sylius/multi-source-inventory-plugin'])) {
-        $io->section('Applying Multi Source Inventory plugin recipes');
+            $io->section('Applying Multi Source Inventory plugin recipes');
             $rectorFile = getcwd() . '/rector.php';
             if (file_exists($rectorFile)) {
-            $content = file_get_contents($rectorFile);
+                $content = file_get_contents($rectorFile);
                 if (strpos($content, 'MULTI_SOURCE_INVENTORY_PLUGIN') === false) {
-                $insertion = "    \$rectorConfig->sets([\n        SyliusPlus::MULTI_SOURCE_INVENTORY_PLUGIN,\n    ]);\n";
+                    $insertion = "    \$rectorConfig->sets([\n        SyliusPlus::MULTI_SOURCE_INVENTORY_PLUGIN,\n    ]);\n";
                     $content = str_replace(');', $insertion . ');', $content);
                     file_put_contents($rectorFile, $content);
                     $io->text('Updated rector.php with MULTI_SOURCE_INVENTORY_PLUGIN set');
@@ -109,12 +109,12 @@ YAML;
         }
         // Loyalty Plugin
         if (isset($data['plugins']['sylius/loyalty-plugin'])) {
-        $io->section('Applying Loyalty Plugin recipes');
+            $io->section('Applying Loyalty Plugin recipes');
             $rectorFile = getcwd() . '/rector.php';
             if (file_exists($rectorFile)) {
-            $content = file_get_contents($rectorFile);
+                $content = file_get_contents($rectorFile);
                 if (strpos($content, 'LOYALTY_PLUGIN') === false) {
-                $insertion = "    \$rectorConfig->sets([\n        SyliusPlus::LOYALTY_PLUGIN,\n    ]);\n";
+                    $insertion = "    \$rectorConfig->sets([\n        SyliusPlus::LOYALTY_PLUGIN,\n    ]);\n";
                     $content = str_replace(');', $insertion . ');', $content);
                     file_put_contents($rectorFile, $content);
                     $io->text('Updated rector.php with LOYALTY_PLUGIN set');
@@ -123,6 +123,13 @@ YAML;
         }
 
         // Final common steps
+        // Remove existing cache directories to avoid stale container errors
+        $io->section('Removing existing cache directories');
+        $filesystem->remove([
+            getcwd() . '/var/cache/dev',
+            getcwd() . '/var/cache/prod',
+        ]);
+
         $io->section('Running database migrations');
         Process::fromShellCommandline('bin/console doctrine:migrations:migrate --no-interaction')->run();
 
