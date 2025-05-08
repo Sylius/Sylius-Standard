@@ -62,4 +62,7 @@ return [
     Symfony\UX\Icons\UXIconsBundle::class => ['all' => true],
     FOS\RestBundle\FOSRestBundle::class => ['all' => true],
     Sylius\PayPalPlugin\SyliusPayPalPlugin::class => ['all' => true],
+    Sylius\GmvBundle\SyliusGmvBundle::class => ['all' => true],
+    Sylius\MultiSourceInventoryPlugin\SyliusMultiSourceInventoryPlugin::class => ['all' => true],
+    Sylius\CmsPlugin\SyliusCmsPlugin::class => ['all' => true],
 ];

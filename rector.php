@@ -12,4 +12,5 @@ return static function (RectorConfig $rectorConfig): void {
     $rectorConfig->paths([
         __DIR__ . '/src'
     ]);
+    $rectorConfig->sets([SyliusPlus::MULTI_SOURCE_INVENTORY_PLUGIN]);
 };
