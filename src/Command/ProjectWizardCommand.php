@@ -76,6 +76,8 @@ class ProjectWizardCommand extends Command
             }
         }
 
+        // Plugin-specific post steps
+        // CMS Plugin
         if (isset($data['plugins']['sylius/cms-plugin'])) {
             $io->section('Running CMS post-install steps');
             Process::fromShellCommandline('composer config extra.symfony.allow-contrib true')->run();
@@ -83,17 +85,37 @@ class ProjectWizardCommand extends Command
         }
         // Multi Source Inventory
         if (isset($data['plugins']['sylius/multi-source-inventory-plugin'])) {
-            $io->section('Applying Multi Source Inventory plugin recipes');
+            $io->section('Recreating rector.php for Multi Source Inventory plugin');
             $rectorFile = getcwd() . '/rector.php';
+
+            // 1) Usuń stary plik
             if (file_exists($rectorFile)) {
-                $content = file_get_contents($rectorFile);
-                if (strpos($content, 'MULTI_SOURCE_INVENTORY_PLUGIN') === false) {
-                    $insertion = "    \$rectorConfig->sets([\n        SyliusPlus::MULTI_SOURCE_INVENTORY_PLUGIN,\n    ]);\n";
-                    $content = str_replace(');', $insertion . ');', $content);
-                    file_put_contents($rectorFile, $content);
-                    $io->text('Updated rector.php with MULTI_SOURCE_INVENTORY_PLUGIN set');
-                }
+                $filesystem->remove($rectorFile);
+                $io->text('Removed existing rector.php');
             }
+
+            // 2) Stwórz nowy z dokładnie tymi regułami
+            $newContent = <<<'PHP'
+<?php
+
+declare(strict_types=1);
+
+use Rector\Config\RectorConfig;
+use Sylius\SyliusRector\Set\SyliusPlus;
+
+return static function (RectorConfig $rectorConfig): void {
+    $rectorConfig->importNames();
+    $rectorConfig->removeUnusedImports();
+    $rectorConfig->import(__DIR__ . '/vendor/sylius/sylius-rector/config/config.php');
+    $rectorConfig->paths([
+        __DIR__ . '/src'
+    ]);
+    $rectorConfig->sets([SyliusPlus::MULTI_SOURCE_INVENTORY_PLUGIN]);
+};
+PHP;
+
+            $filesystem->dumpFile($rectorFile, $newContent);
+            $io->text('Created new rector.php with MULTI_SOURCE_INVENTORY_PLUGIN set');
         }
 
         // Final common steps
