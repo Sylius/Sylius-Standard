@@ -94,6 +94,7 @@ class ProjectWizardCommand extends Command
                     $io->text('Updated rector.php with MULTI_SOURCE_INVENTORY_PLUGIN set');
                 }
             }
+        }
 
         // Final common steps
         // Remove existing cache directories to avoid stale container errors
