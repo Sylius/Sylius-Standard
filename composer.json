@@ -137,5 +137,11 @@
         "symfony/polyfill-php81": "*",
         "symfony/polyfill-php82": "*",
         "symfony/polyfill-php83": "*"
+    },
+    "repositories": {
+        "sylius": {
+            "type": "composer",
+            "url": "https://sylius.repo.packagist.com/sylius/"
+        }
     }
 }
