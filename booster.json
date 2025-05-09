@@ -1,5 +1,6 @@
 {
   "plugins": {
+    "sylius/cms-plugin": "^1.0",
     "sylius/loyalty-plugin": "^2.0"
   }
 }
