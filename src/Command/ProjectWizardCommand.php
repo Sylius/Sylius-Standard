@@ -232,6 +232,9 @@ PHP;
             $io->warning('Cache warmup failed: ' . $warmup->getErrorOutput());
         }
 
+        $this->getApplication()->getKernel()->shutdown();
+        $io->success('All plugins installed and configured successfully.');
+
         return Command::SUCCESS;
     }
 }
