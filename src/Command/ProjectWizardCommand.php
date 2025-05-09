@@ -12,6 +12,7 @@ use Symfony\Component\Console\Output\OutputInterface;
 use Symfony\Component\Console\Style\SymfonyStyle;
 use Symfony\Component\Process\Process;
 use Symfony\Component\Filesystem\Filesystem;
+use Symfony\Component\Yaml\Yaml;
 
 #[AsCommand(
     name: 'project:install-plugins',
@@ -35,7 +36,6 @@ class ProjectWizardCommand extends Command
         $io = new SymfonyStyle($input, $output);
         $configPath = $input->getArgument('config-file');
 
-        // Load config
         if (!file_exists($configPath)) {
             $io->error("Configuration file '$configPath' not found.");
             return Command::FAILURE;
@@ -46,41 +46,34 @@ class ProjectWizardCommand extends Command
             return Command::FAILURE;
         }
 
-        // Show plugins
         $io->title('Plugins to install:');
         foreach ($data['plugins'] as $pkg => $version) {
             $io->text(" - $pkg ($version)");
         }
         $io->newLine();
 
-        // Ensure auto-accept Symfony recipes
         $io->section('Configuring Symfony Flex to auto-accept contrib recipes');
         Process::fromShellCommandline('composer config extra.symfony.allow-contrib true')->run();
 
         $filesystem = new Filesystem();
 
-        // Install each plugin
         foreach ($data['plugins'] as $pkg => $version) {
             $io->section("Installing $pkg");
             $args = ['composer', 'require', sprintf('%s:%s', $pkg, $version), '--no-interaction'];
-            // disable scripts for certain packages
-            if (in_array($pkg, ['sylius/multi-source-inventory-plugin', 'sylius/loyalty-plugin'], true)) {
+            if (in_array($pkg, ['sylius/multi-source-inventory-plugin', 'sylius/loyalty-plugin', 'sylius/return-plugin'], true)) {
                 $args[] = '--no-scripts';
             }
-            $process = new Process($args);
-            $process->setTty(Process::isTtySupported());
-            $process->run();
-            if (!$process->isSuccessful()) {
-                $io->error("Failed to install $pkg:\n" . $process->getErrorOutput());
+            $proc = new Process($args);
+            $proc->setTty(Process::isTtySupported());
+            $proc->run();
+            if (!$proc->isSuccessful()) {
+                $io->error("Failed to install $pkg:\n" . $proc->getErrorOutput());
                 return Command::FAILURE;
             }
         }
 
-        // Plugin-specific post steps
-        // CMS Plugin
         if (isset($data['plugins']['sylius/cms-plugin'])) {
             $io->section('Running CMS post-install steps');
-            Process::fromShellCommandline('composer config extra.symfony.allow-contrib true')->run();
             Process::fromShellCommandline('yarn add trix@^2.0.0 swiper@^11.2.6')->run();
         }
 
@@ -129,8 +122,6 @@ PHP;
             }
         }
 
-
-
         // Loyalty Plugin
         if (isset($data['plugins']['sylius/loyalty-plugin'])) {
             $io->section('Recreating rector.php for Loyalty plugin');
@@ -142,114 +133,34 @@ PHP;
                 $io->text('Removed existing rector.php');
             }
 
-            // Create new rector.php with required set
-            $newContent = <<<'PHP'
-<?php
-
-declare(strict_types=1);
-
-use Rector\Config\RectorConfig;
-use Sylius\SyliusRector\Set\SyliusPlus;
-
-return static function (RectorConfig $rectorConfig): void {
-    $rectorConfig->importNames();
-    $rectorConfig->removeUnusedImports();
-    $rectorConfig->import(__DIR__ . '/vendor/sylius/sylius-rector/config/config.php');
-    $rectorConfig->paths([
-        __DIR__ . '/src'
-    ]);
-    $rectorConfig->sets([SyliusPlus::LOYALTY_PLUGIN]);
-};
-PHP;
-
-            $filesystem->dumpFile($rectorFile, $newContent);
-            $io->text('Created new rector.php with LOYALTY_PLUGIN set');
-
-            // Run Rector
-            $io->section('Running Rector for Loyalty');
-            $rectorProc = new Process(['vendor/bin/rector']);
-            $rectorProc->setTty(Process::isTtySupported());
-            $rectorProc->run();
-            if (!$rectorProc->isSuccessful()) {
-                $io->error('Rector run failed: ' . $rectorProc->getErrorOutput());
-                return Command::FAILURE;
-            }
-        }
-
-
-
-
-
-        // Return Plugin steps
+        // Return Plugin update
         if (isset($data['plugins']['sylius/return-plugin'])) {
-        $io->section('Recreating rector.php for Return plugin');
-            $rectorFile = getcwd() . '/rector.php';
-            if (file_exists($rectorFile)) {
-            $filesystem->remove($rectorFile);
-                $io->text('Removed existing rector.php');
-            }
-            $newContent = <<<'PHP'
-<?php
-
-declare(strict_types=1);
-
-use Rector\Config\RectorConfig;
-use Sylius\SyliusRector\Set\SyliusPlus;
-
-return static function (RectorConfig $rectorConfig): void {
-    $rectorConfig->importNames();
-    $rectorConfig->removeUnusedImports();
-    $rectorConfig->import(__DIR__ . '/vendor/sylius/sylius-rector/config/config.php');
-    $rectorConfig->paths([
-        __DIR__ . '/src'
-    ]);
-    $rectorConfig->sets([SyliusPlus::RETURN_PLUGIN]);
-};
-PHP;
-            $filesystem->dumpFile($rectorFile, $newContent);
-            $io->text('Created new rector.php with RETURN_PLUGIN set');
-            $io->section('Running Rector for Return');
-            $rectorProc = new Process(['vendor/bin/rector']);
-            $rectorProc->setTty(Process::isTtySupported());
-            $rectorProc->run();
-            if (!$rectorProc->isSuccessful()) {
-            $io->error('Rector run failed: ' . $rectorProc->getErrorOutput());
-                return Command::FAILURE;
-            }
-
-            // Update YAML config for Return Plugin
-            $io->section('Updating sylius_return_plugin.yaml config');
+            $io->section('Updating Return Plugin YAML configuration');
             $yamlFile = getcwd() . '/config/packages/sylius_return_plugin.yaml';
             if (file_exists($yamlFile)) {
-            $cfg = file_get_contents($yamlFile);
-                // disable PDF generator
-                $cfg = preg_replace(
-                '/pdf_generator:\s*enabled:\s*true/',
-                'pdf_generator:\n        enabled: false',
-                $cfg
-                );
-                // append refund config if missing
-                if (strpos($cfg, 'sylius_refund:') === false) {
-                $cfg .= "\nsylius_refund:\n    pdf_generator:\n        enabled: false\n";
-                }
-                file_put_contents($yamlFile, $cfg);
-                $io->text('Overwritten sylius_return_plugin.yaml with new settings');
+                $config = Yaml::parseFile($yamlFile);
+                // Override pdf_generator enabled
+                $config['sylius_return']['pdf_generator']['enabled'] = false;
+                // Add refund pdf_generator
+                $config['sylius_refund']['pdf_generator']['enabled'] = false;
+                // Dump YAML preserving imports
+                $imports = $config['imports'] ?? [];
+                $body = $config;
+                unset($body['imports']);
+                $newYaml = Yaml::dump([ 'imports' => $imports ] + $body, 4, 2);
+                $filesystem->dumpFile($yamlFile, $newYaml);
+                $io->text('Overwritten sylius_return_plugin.yaml with pdf_generator disabled and refund config');
             }
         }
 
-        // Final common steps
-        // Remove existing cache directories to avoid stale container errors
         $io->section('Removing existing cache directories');
-        $filesystem->remove([
-            getcwd() . '/var/cache/dev',
-            getcwd() . '/var/cache/prod',
-        ]);
+        $filesystem->remove([getcwd() . '/var/cache/dev', getcwd() . '/var/cache/prod']);
 
-        $io->section('Running database schema sync');
-        $migrateProc = Process::fromShellCommandline('bin/console doctrine:schema:update --force --complete');
-        $migrateProc->run();
-        if (!$migrateProc->isSuccessful()) {
-            $io->error('Database sync failed: ' . $migrateProc->getErrorOutput());
+        $io->section('Running database sync');
+        $sync = Process::fromShellCommandline('bin/console doctrine:schema:update --force --complete');
+        $sync->run();
+        if (!$sync->isSuccessful()) {
+            $io->error('Database sync failed: ' . $sync->getErrorOutput());
             return Command::FAILURE;
         }
 
@@ -263,12 +174,12 @@ PHP;
 
         $io->success('All plugins installed and configured successfully.');
 
-        $io->section('Default fixtures');
-        $fixturesProcess = Process::fromShellCommandline('bin/console sylius:fixtures:load --no-interaction');;
-        $fixturesProcess->setTty(Process::isTtySupported());
-        $fixturesProcess->run();
-        if (!$fixturesProcess->isSuccessful()) {
-            $io->error('Fixtures load failed: ' . $fixturesProcess->getErrorOutput());
+        $io->section('Loading default fixtures');
+        $fixtures = Process::fromShellCommandline('bin/console sylius:fixtures:load --no-interaction');
+        $fixtures->setTty(Process::isTtySupported());
+        $fixtures->run();
+        if (!$fixtures->isSuccessful()) {
+            $io->error('Fixtures load failed: ' . $fixtures->getErrorOutput());
             return Command::FAILURE;
         }
 
