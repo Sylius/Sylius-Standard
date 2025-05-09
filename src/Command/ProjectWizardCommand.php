@@ -154,6 +154,16 @@ PHP;
         Process::fromShellCommandline('bin/console cache:warmup')->run();
 
         $io->success('All plugins installed and configured successfully.');
+
+        $io->section('Default fixtures');
+        $fixturesProcess = Process::fromShellCommandline('bin/console sylius:fixtures:load --no-interaction');;
+        $fixturesProcess->setTty(Process::isTtySupported());
+        $fixturesProcess->run();
+        if (!$fixturesProcess->isSuccessful()) {
+            $io->error('Fixtures load failed: ' . $fixturesProcess->getErrorOutput());
+            return Command::FAILURE;
+        }
+
         return Command::SUCCESS;
     }
 }
