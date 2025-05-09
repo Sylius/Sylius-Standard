@@ -198,20 +198,6 @@ PHP;
             }
         }
 
-        // Final common steps
-//        $io->section('Clearing cache using Symfony command (avoid manual removal)');
-//        $clearProc = Process::fromShellCommandline('bin/console cache:clear --no-warmup');
-//        $clearProc->run();
-//        if (!$clearProc->isSuccessful()) {
-//            $io->warning('Cache clear warning: ' . $clearProc->getErrorOutput());
-//        }
-//        $io->section('Warming up cache');
-//        $warmupProc = Process::fromShellCommandline('bin/console cache:warmup');
-//        $warmupProc->run();
-//        if (!$warmupProc->isSuccessful()) {
-//            $io->warning('Cache warmup warning: ' . $warmupProc->getErrorOutput());
-//        }
-
         $io->section('Running database sync');
         $sync = Process::fromShellCommandline('bin/console doctrine:schema:update --force --complete');
         $sync->run();
@@ -235,9 +221,16 @@ PHP;
             return Command::FAILURE;
         }
 
-        $io->section('Clearing and warming up cache');
-        Process::fromShellCommandline('bin/console cache:clear')->run();
-        Process::fromShellCommandline('bin/console cache:warmup')->run();
+        $io->section('Removing old cache directory');
+        $filesystem->remove(getcwd().'/var/cache/dev');
+        $io->text('Cache directory removed.');
+
+        $io->section('Running cache warmup in a fresh process');
+        $warmup = new Process(['bin/console', 'cache:warmup'], getcwd());
+        $warmup->run();
+        if (!$warmup->isSuccessful()) {
+            $io->warning('Cache warmup failed: ' . $warmup->getErrorOutput());
+        }
 
         return Command::SUCCESS;
     }
