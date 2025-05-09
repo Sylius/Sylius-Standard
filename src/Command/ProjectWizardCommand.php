@@ -134,7 +134,8 @@ PHP;
             }
         }
 
-        // Return Plugin update
+
+        // Return Plugin
         if (isset($data['plugins']['sylius/return-plugin'])) {
             $io->section('Updating Return Plugin YAML configuration');
             $yamlFile = getcwd() . '/config/packages/sylius_return_plugin.yaml';
@@ -151,6 +152,49 @@ PHP;
                 $newYaml = Yaml::dump([ 'imports' => $imports ] + $body, 4, 2);
                 $filesystem->dumpFile($yamlFile, $newYaml);
                 $io->text('Overwritten sylius_return_plugin.yaml with pdf_generator disabled and refund config');
+            }
+
+            $io->section('Recreating rector.php for Return plugin');
+
+            $rectorFile = getcwd() . '/rector.php';
+
+            // Remove old file
+            if (file_exists($rectorFile)) {
+                $filesystem->remove($rectorFile);
+                $io->text('Removed existing rector.php');
+            }
+
+            // Create new rector.php with required set
+            $newContent = <<<'PHP'
+<?php
+
+declare(strict_types=1);
+
+use Rector\Config\RectorConfig;
+use Sylius\SyliusRector\Set\SyliusPlus;
+
+return static function (RectorConfig $rectorConfig): void {
+    $rectorConfig->importNames();
+    $rectorConfig->removeUnusedImports();
+    $rectorConfig->import(__DIR__ . '/vendor/sylius/sylius-rector/config/config.php');
+    $rectorConfig->paths([
+        __DIR__ . '/src'
+    ]);
+    $rectorConfig->sets([SyliusPlus::RETURN_PLUGIN]);
+};
+PHP;
+
+            $filesystem->dumpFile($rectorFile, $newContent);
+            $io->text('Created new rector.php with RETURN_PLUGIN set');
+
+            // Run Rector
+            $io->section('Running Rector for Return');
+            $rectorProc = new Process(['vendor/bin/rector']);
+            $rectorProc->setTty(Process::isTtySupported());
+            $rectorProc->run();
+            if (!$rectorProc->isSuccessful()) {
+                $io->error('Rector run failed: ' . $rectorProc->getErrorOutput());
+                return Command::FAILURE;
             }
         }
 
