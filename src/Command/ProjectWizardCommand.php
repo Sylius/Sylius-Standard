@@ -180,18 +180,14 @@ PHP;
 
 
 
-        // Return Plugin
+        // Return Plugin steps
         if (isset($data['plugins']['sylius/return-plugin'])) {
-            $io->section('Recreating rector.php for Return plugin');
+        $io->section('Recreating rector.php for Return plugin');
             $rectorFile = getcwd() . '/rector.php';
-
-            // Remove old file
             if (file_exists($rectorFile)) {
-                $filesystem->remove($rectorFile);
+            $filesystem->remove($rectorFile);
                 $io->text('Removed existing rector.php');
             }
-
-            // Create new rector.php with required set
             $newContent = <<<'PHP'
 <?php
 
@@ -210,21 +206,36 @@ return static function (RectorConfig $rectorConfig): void {
     $rectorConfig->sets([SyliusPlus::RETURN_PLUGIN]);
 };
 PHP;
-
             $filesystem->dumpFile($rectorFile, $newContent);
             $io->text('Created new rector.php with RETURN_PLUGIN set');
-
-            // Run Rector
             $io->section('Running Rector for Return');
             $rectorProc = new Process(['vendor/bin/rector']);
             $rectorProc->setTty(Process::isTtySupported());
             $rectorProc->run();
             if (!$rectorProc->isSuccessful()) {
-                $io->error('Rector run failed: ' . $rectorProc->getErrorOutput());
+            $io->error('Rector run failed: ' . $rectorProc->getErrorOutput());
                 return Command::FAILURE;
             }
-        }
 
+            // Update YAML config for Return Plugin
+            $io->section('Updating sylius_return_plugin.yaml config');
+            $yamlFile = getcwd() . '/config/packages/sylius_return_plugin.yaml';
+            if (file_exists($yamlFile)) {
+            $cfg = file_get_contents($yamlFile);
+                // disable PDF generator
+                $cfg = preg_replace(
+                '/pdf_generator:\s*enabled:\s*true/',
+                'pdf_generator:\n        enabled: false',
+                $cfg
+                );
+                // append refund config if missing
+                if (strpos($cfg, 'sylius_refund:') === false) {
+                $cfg .= "\nsylius_refund:\n    pdf_generator:\n        enabled: false\n";
+                }
+                file_put_contents($yamlFile, $cfg);
+                $io->text('Overwritten sylius_return_plugin.yaml with new settings');
+            }
+        }
 
         // Final common steps
         // Remove existing cache directories to avoid stale container errors
