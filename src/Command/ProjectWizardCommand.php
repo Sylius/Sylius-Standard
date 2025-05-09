@@ -138,7 +138,12 @@ PHP;
         ]);
 
         $io->section('Running database migrations');
-        Process::fromShellCommandline('bin/console doctrine:migrations:migrate --no-interaction')->run();
+        $migrateProc = Process::fromShellCommandline('bin/console doctrine:migrations:migrate --no-interaction');
+        $migrateProc->run();
+        if (!$migrateProc->isSuccessful()) {
+            $io->error('Database migrations failed: ' . $migrateProc->getErrorOutput());
+            return Command::FAILURE;
+        }
 
         $io->section('Installing assets and building front');
         Process::fromShellCommandline('bin/console assets:install')->run();
