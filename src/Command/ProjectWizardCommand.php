@@ -137,11 +137,11 @@ PHP;
             getcwd() . '/var/cache/prod',
         ]);
 
-        $io->section('Running database migrations');
-        $migrateProc = Process::fromShellCommandline('bin/console doctrine:migrations:migrate --no-interaction');
+        $io->section('Running database schema sync');
+        $migrateProc = Process::fromShellCommandline('bin/console doctrine:schema:update --force --complete');
         $migrateProc->run();
         if (!$migrateProc->isSuccessful()) {
-            $io->error('Database migrations failed: ' . $migrateProc->getErrorOutput());
+            $io->error('Database sync failed: ' . $migrateProc->getErrorOutput());
             return Command::FAILURE;
         }
 
