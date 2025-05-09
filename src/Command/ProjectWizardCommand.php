@@ -132,6 +132,7 @@ PHP;
                 $filesystem->remove($rectorFile);
                 $io->text('Removed existing rector.php');
             }
+        }
 
         // Return Plugin update
         if (isset($data['plugins']['sylius/return-plugin'])) {
