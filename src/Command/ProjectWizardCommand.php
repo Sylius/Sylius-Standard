@@ -199,18 +199,18 @@ PHP;
         }
 
         // Final common steps
-        $io->section('Clearing cache using Symfony command (avoid manual removal)');
-        $clearProc = Process::fromShellCommandline('bin/console cache:clear --no-warmup');
-        $clearProc->run();
-        if (!$clearProc->isSuccessful()) {
-            $io->warning('Cache clear warning: ' . $clearProc->getErrorOutput());
-        }
-        $io->section('Warming up cache');
-        $warmupProc = Process::fromShellCommandline('bin/console cache:warmup');
-        $warmupProc->run();
-        if (!$warmupProc->isSuccessful()) {
-            $io->warning('Cache warmup warning: ' . $warmupProc->getErrorOutput());
-        }
+//        $io->section('Clearing cache using Symfony command (avoid manual removal)');
+//        $clearProc = Process::fromShellCommandline('bin/console cache:clear --no-warmup');
+//        $clearProc->run();
+//        if (!$clearProc->isSuccessful()) {
+//            $io->warning('Cache clear warning: ' . $clearProc->getErrorOutput());
+//        }
+//        $io->section('Warming up cache');
+//        $warmupProc = Process::fromShellCommandline('bin/console cache:warmup');
+//        $warmupProc->run();
+//        if (!$warmupProc->isSuccessful()) {
+//            $io->warning('Cache warmup warning: ' . $warmupProc->getErrorOutput());
+//        }
 
         $io->section('Running database sync');
         $sync = Process::fromShellCommandline('bin/console doctrine:schema:update --force --complete');
@@ -224,10 +224,6 @@ PHP;
         Process::fromShellCommandline('bin/console assets:install')->run();
         Process::fromShellCommandline('yarn encore dev')->run();
 
-        $io->section('Clearing and warming up cache');
-        Process::fromShellCommandline('bin/console cache:clear')->run();
-        Process::fromShellCommandline('bin/console cache:warmup')->run();
-
         $io->success('All plugins installed and configured successfully.');
 
         $io->section('Loading default fixtures');
@@ -238,6 +234,10 @@ PHP;
             $io->error('Fixtures load failed: ' . $fixtures->getErrorOutput());
             return Command::FAILURE;
         }
+
+        $io->section('Clearing and warming up cache');
+        Process::fromShellCommandline('bin/console cache:clear')->run();
+        Process::fromShellCommandline('bin/console cache:warmup')->run();
 
         return Command::SUCCESS;
     }
