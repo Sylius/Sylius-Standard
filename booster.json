@@ -1,7 +1,5 @@
 {
   "plugins": {
-    "sylius/cms-plugin": "^1.0",
-    "sylius/loyalty-plugin": "^2.0",
     "sylius/return-plugin": "^2.0"
   }
 }
