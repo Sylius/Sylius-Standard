@@ -198,8 +198,19 @@ PHP;
             }
         }
 
-        $io->section('Removing existing cache directories');
-        $filesystem->remove([getcwd() . '/var/cache/dev', getcwd() . '/var/cache/prod']);
+        // Final common steps
+        $io->section('Clearing cache using Symfony command (avoid manual removal)');
+        $clearProc = Process::fromShellCommandline('bin/console cache:clear --no-warmup');
+        $clearProc->run();
+        if (!$clearProc->isSuccessful()) {
+            $io->warning('Cache clear warning: ' . $clearProc->getErrorOutput());
+        }
+        $io->section('Warming up cache');
+        $warmupProc = Process::fromShellCommandline('bin/console cache:warmup');
+        $warmupProc->run();
+        if (!$warmupProc->isSuccessful()) {
+            $io->warning('Cache warmup warning: ' . $warmupProc->getErrorOutput());
+        }
 
         $io->section('Running database sync');
         $sync = Process::fromShellCommandline('bin/console doctrine:schema:update --force --complete');
