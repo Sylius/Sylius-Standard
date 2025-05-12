@@ -4,34 +4,22 @@ declare(strict_types=1);
 
 namespace App\Command;
 
-use App\Plugin\Installer\PluginInstallerInterface;
 use Symfony\Component\Console\Attribute\AsCommand;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputArgument;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
 use Symfony\Component\Console\Style\SymfonyStyle;
-use Symfony\Component\DependencyInjection\Attribute\TaggedIterator;
-use Symfony\Component\DependencyInjection\ContainerInterface;
 use Symfony\Component\Process\Process;
 use Symfony\Component\Filesystem\Filesystem;
 use Symfony\Component\Yaml\Yaml;
 
 #[AsCommand(
-    name: 'project:install-plugins',
+    name: 'project:install-plugins-legacy',
     description: 'Installs and configures Sylius plugins based on a JSON config file'
 )]
 class ProjectWizardCommand extends Command
 {
-    /** @var iterable<PluginInstallerInterface> */
-    private $installers;
-
-    public function __construct(#[TaggedIterator('app.plugin_installer')] iterable $installers)
-    {
-        parent::__construct();
-        $this->installers = $installers;
-    }
-
     protected function configure(): void
     {
         $this
@@ -86,31 +74,6 @@ class ProjectWizardCommand extends Command
             if (!$proc->isSuccessful()) {
                 $io->error("Failed to install $pkg:\n" . $proc->getErrorOutput());
                 return Command::FAILURE;
-            }
-        }
-
-        $fs    = new Filesystem();
-        $kernel = $this->getApplication()->getKernel();
-
-        $io->section('Rebuilding service container to load new installers');
-//        $fs->remove($kernel->getCacheDir());
-        $io->section('Shutting down kernel');
-        $kernel->shutdown();
-        $io->section('Booting kernel');
-        $kernel->boot();
-        /** @var ContainerInterface $container */
-        $container = $kernel->getContainer();
-
-        $io->section('Running post-install steps for plugins');
-        $tagged = $container->findTaggedServiceIds('app.plugin_installer');
-        dd($tagged);
-        foreach ($tagged as $serviceId => $tags) {
-            $installer = $container->get($serviceId);
-            foreach ($data['plugins'] as $pkg => $version) {
-                if ($installer->supports($pkg)) {
-                    $io->section("Running post-install for $pkg");
-                    $installer->install($version);
-                }
             }
         }
 
