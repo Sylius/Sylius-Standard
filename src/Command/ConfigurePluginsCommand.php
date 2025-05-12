@@ -31,7 +31,6 @@ class ConfigurePluginsCommand extends Command
 
     protected function execute(InputInterface $input, OutputInterface $output): int
     {
-        dd(":D");
         $io = new SymfonyStyle($input, $output);
 
         $configPath = 'booster.json';

@@ -87,6 +87,7 @@ class ProjectInstallPluginsCommand extends Command
             $io->error('Nie udało się wykonać post-install: ' . $process->getErrorOutput());
             return Command::FAILURE;
         }
+        $io->section('Proces zależny śmignął, lecimy dalej');
 
         $io->section('Running database sync');
         $sync = Process::fromShellCommandline('bin/console doctrine:schema:update --force --complete');
