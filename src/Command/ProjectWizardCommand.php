@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace App\Command;
 
+use App\Plugin\Installer\PluginInstallerInterface;
 use Symfony\Component\Console\Attribute\AsCommand;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputArgument;
@@ -20,6 +21,15 @@ use Symfony\Component\Yaml\Yaml;
 )]
 class ProjectWizardCommand extends Command
 {
+    /** @var iterable<PluginInstallerInterface> */
+    private $installers;
+
+    public function __construct(iterable $installers)
+    {
+        parent::__construct();
+        $this->installers = $installers;
+    }
+
     protected function configure(): void
     {
         $this
@@ -57,6 +67,11 @@ class ProjectWizardCommand extends Command
 
         $filesystem = new Filesystem();
 
+        if (count($data['plugins']) === 0) {
+            $io->success('No plugins to install.');
+            return Command::SUCCESS;
+        }
+
         foreach ($data['plugins'] as $pkg => $version) {
             $io->section("Installing $pkg");
             $args = ['composer', 'require', sprintf('%s:%s', $pkg, $version), '--no-interaction'];
@@ -72,10 +87,18 @@ class ProjectWizardCommand extends Command
             }
         }
 
-        if (isset($data['plugins']['sylius/cms-plugin'])) {
-            $io->section('Running CMS post-install steps');
-            Process::fromShellCommandline('yarn add trix@^2.0.0 swiper@^11.2.6')->run();
+        foreach ($this->installers as $installer) {
+            if ($installer->supports($pkg)) {
+                $io->section('Running post-install steps for ' . $pkg);
+                $installer->install($version);
+                break;
+            }
         }
+
+//        if (isset($data['plugins']['sylius/cms-plugin'])) {
+//            $io->section('Running CMS post-install steps');
+//            Process::fromShellCommandline('yarn add trix@^2.0.0 swiper@^11.2.6')->run();
+//        }
 
         // Multi Source Inventory Plugin
         if (isset($data['plugins']['sylius/multi-source-inventory-plugin'])) {
