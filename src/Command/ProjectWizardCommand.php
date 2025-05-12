@@ -12,6 +12,7 @@ use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
 use Symfony\Component\Console\Style\SymfonyStyle;
 use Symfony\Component\DependencyInjection\Attribute\TaggedIterator;
+use Symfony\Component\DependencyInjection\ContainerInterface;
 use Symfony\Component\Process\Process;
 use Symfony\Component\Filesystem\Filesystem;
 use Symfony\Component\Yaml\Yaml;
@@ -85,6 +86,28 @@ class ProjectWizardCommand extends Command
             if (!$proc->isSuccessful()) {
                 $io->error("Failed to install $pkg:\n" . $proc->getErrorOutput());
                 return Command::FAILURE;
+            }
+        }
+
+        $fs    = new Filesystem();
+        $kernel = $this->getApplication()->getKernel();
+
+        $io->section('Rebuilding service container to load new installers');
+        $fs->remove($kernel->getCacheDir());
+        $kernel->shutdown();
+        $kernel->boot();
+        /** @var ContainerInterface $container */
+        $container = $kernel->getContainer();
+
+        $tagged = $container->findTaggedServiceIds('app.plugin_installer');
+        dd($tagged);
+        foreach ($tagged as $serviceId => $tags) {
+            $installer = $container->get($serviceId);
+            foreach ($data['plugins'] as $pkg => $version) {
+                if ($installer->supports($pkg)) {
+                    $io->section("Running post-install for $pkg");
+                    $installer->install($version);
+                }
             }
         }
 
