@@ -93,12 +93,15 @@ class ProjectWizardCommand extends Command
         $kernel = $this->getApplication()->getKernel();
 
         $io->section('Rebuilding service container to load new installers');
-        $fs->remove($kernel->getCacheDir());
+//        $fs->remove($kernel->getCacheDir());
+        $io->section('Shutting down kernel');
         $kernel->shutdown();
+        $io->section('Booting kernel');
         $kernel->boot();
         /** @var ContainerInterface $container */
         $container = $kernel->getContainer();
 
+        $io->section('Running post-install steps for plugins');
         $tagged = $container->findTaggedServiceIds('app.plugin_installer');
         dd($tagged);
         foreach ($tagged as $serviceId => $tags) {
