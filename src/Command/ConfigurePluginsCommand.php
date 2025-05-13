@@ -19,7 +19,7 @@ use Symfony\Component\DependencyInjection\Attribute\TaggedIterator;
 class ConfigurePluginsCommand extends Command
 {
     /** @var iterable<PluginInstallerInterface> */
-    private $installers;
+    private iterable $installers;
 
     public function __construct(
         #[TaggedIterator('app.plugin_installer')]
