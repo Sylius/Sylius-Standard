@@ -61,6 +61,9 @@ class ProjectInstallPluginsCommand extends Command
             return Command::SUCCESS;
         }
 
+        $io->section('Add Sylius Packagist repository');
+        Process::fromShellCommandline('composer config repositories.sylius composer https://sylius.repo.packagist.com/sylius/')->run();
+
         foreach ($data['plugins'] as $pkg => $version) {
             $io->section("Installing $pkg");
             $args = ['composer', 'require', sprintf('%s:%s', $pkg, $version), '--no-interaction'];
