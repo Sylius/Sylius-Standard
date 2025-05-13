@@ -1,6 +1,5 @@
 {
   "plugins": {
-    "sylius/cms-plugin": "dev-booster",
     "sylius/b2b-kit": "dev-booster"
   }
 }
