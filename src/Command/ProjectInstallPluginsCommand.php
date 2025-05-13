@@ -40,6 +40,7 @@ class ProjectInstallPluginsCommand extends Command
             $io->error("Configuration file '$configPath' not found.");
             return Command::FAILURE;
         }
+
         $data = json_decode(file_get_contents($configPath), true);
         if (!isset($data['plugins']) || !is_array($data['plugins'])) {
             $io->error('Invalid config: missing "plugins" array.');
@@ -54,8 +55,6 @@ class ProjectInstallPluginsCommand extends Command
 
         $io->section('Configuring Symfony Flex to auto-accept contrib recipes');
         Process::fromShellCommandline('composer config extra.symfony.allow-contrib true')->run();
-
-        $filesystem = new Filesystem();
 
         if (count($data['plugins']) === 0) {
             $io->success('No plugins to install.');
@@ -111,10 +110,6 @@ class ProjectInstallPluginsCommand extends Command
             $io->error('Fixtures load failed: ' . $fixtures->getErrorOutput());
             return Command::FAILURE;
         }
-
-        $io->section('Removing old cache directory');
-        $filesystem->remove(getcwd().'/var/cache/dev');
-        $io->text('Cache directory removed.');
 
         $io->section('Running cache warmup in a fresh process');
         $warmup = new Process(['bin/console', 'cache:warmup'], getcwd());
