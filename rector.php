@@ -1,18 +1,17 @@
 <?php
-
 declare(strict_types=1);
-
 use Rector\Config\RectorConfig;
-use Sylius\SyliusRector\Set\SyliusPlus;
 
 return static function (RectorConfig $rectorConfig): void {
-    $rectorConfig->import(__DIR__ . '/vendor/sylius/sylius-rector/config/config.php');
     $rectorConfig->paths([__DIR__ . '/src']);
 
-    foreach (glob(__DIR__ . '/vendor/sylius/*/rector.php') as $pluginRectorConfig) {
-        /** @var callable $configurePlugin */
-        $configurePlugin = require $pluginRectorConfig;
-        $configurePlugin($rectorConfig);
+    foreach (glob(__DIR__ . '/vendor/*/*/composer.json') as $file) {
+        $data = json_decode(file_get_contents($file), true);
+        $sets = $data['extra']['sylius-plugin-installer']['rector-sets'] ?? [];
+        foreach ($sets as $setReference) {
+            [$class, $const] = explode('::', $setReference, 2);
+            $rectorConfig->sets([constant($class . '::' . $const)]);
+        }
     }
 
     $rectorConfig->importNames();
