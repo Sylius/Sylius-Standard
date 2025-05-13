@@ -66,7 +66,7 @@ class ProjectInstallPluginsCommand extends Command
 
         foreach ($data['plugins'] as $pkg => $version) {
             $io->section("Installing $pkg");
-            $args = ['composer', 'require', sprintf('%s:%s', $pkg, $version), '--no-interaction'];
+            $args = ['composer', 'require', sprintf('%s:%s', $pkg, $version), '--no-interaction', '--no-scripts'];
             if (in_array($pkg, ['sylius/multi-source-inventory-plugin', 'sylius/loyalty-plugin', 'sylius/return-plugin'], true)) {
                 $args[] = '--no-scripts';
             }
