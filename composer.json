@@ -139,9 +139,9 @@
         "symfony/polyfill-php83": "*"
     },
     "repositories": {
-        "sylius": {
-            "type": "composer",
-            "url": "https://sylius.repo.packagist.com/sylius/"
+        "sylius-plus": {
+            "type": "github",
+            "url": "git@github.com:Sylius/SharedKernel.git"
         }
     }
 }
