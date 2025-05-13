@@ -1,0 +1,2 @@
+sylius_b2b_suite:
+    resource: "@SyliusB2BKitPlugin/config/routes/routes.yaml"
