@@ -11,8 +11,6 @@ use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
 use Symfony\Component\Console\Style\SymfonyStyle;
 use Symfony\Component\Process\Process;
-use Symfony\Component\Filesystem\Filesystem;
-use Symfony\Component\Yaml\Yaml;
 
 #[AsCommand(
     name: 'project:install-plugins',
