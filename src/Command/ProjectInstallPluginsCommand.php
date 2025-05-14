@@ -135,14 +135,12 @@ class ProjectInstallPluginsCommand extends Command
 
         // 1. Import required config into config/packages/_sylius.yaml
         Process::fromShellCommandline(
-            'grep -q \'- { resource: "@BitBagSyliusElasticsearchPlugin/config/config.yml" }\' config/packages/_sylius.yaml '.
-            '|| sed -i \'\' $\'/imports:/a\\\n    - { resource: "@BitBagSyliusElasticsearchPlugin/config/config.yml" }\' config/packages/_sylius.yaml'
+            "sed -i '' $'/imports:/a\\\n    - { resource: \"@BitBagSyliusElasticsearchPlugin/config/config.yml\" }\\\n' config/packages/_sylius.yaml"
         )->run();
 
         // 2. Import routing before sylius_shop in config/routes.yaml
         Process::fromShellCommandline(
-            'grep -q \'bitbag_sylius_elasticsearch_plugin: { resource: "@BitBagSyliusElasticsearchPlugin/config/routing.yml" }\' config/routes/sylius_shop.yaml '.
-            '|| sed -i \'\' $\'/sylius_shop:/i\\\nbitbag_sylius_elasticsearch_plugin: { resource: "@BitBagSyliusElasticsearchPlugin/config/routing.yml" }\' config/routes/sylius_shop.yaml'
+            "sed -i '' $'/sylius_shop:/i\\\nbitbag_sylius_elasticsearch_plugin:\\\n    resource: \"@BitBagSyliusElasticsearchPlugin/config/routing.yml\"\\\n' config/routes/sylius_shop.yaml"
         )->run();
 
         Process::fromShellCommandline(
