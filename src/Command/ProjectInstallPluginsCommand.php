@@ -83,17 +83,19 @@ class ProjectInstallPluginsCommand extends Command
         if ($pkg === 'sylius/b2b-kit') {
             // 1. Import required config into config/packages/_sylius.yaml
             Process::fromShellCommandline(
-                'sed -i "/imports:/a \    - { resource: \'@BitBagSyliusElasticsearchPlugin/config/config.yml\' }" config/packages/_sylius.yaml'
+                "sed -i '/imports:/a\\
+    - { resource: \"@BitBagSyliusElasticsearchPlugin/config/config.yml\" }' config/packages/_sylius.yaml"
             )->run();
 
             // 2. Import routing before sylius_shop in config/routes.yaml
             Process::fromShellCommandline(
-                'sed -i "/sylius_shop:/i \bitbag_sylius_elasticsearch_plugin:\n    resource: \'@BitBagSyliusElasticsearchPlugin/config/routing.yml\'" config/routes.yaml'
+                "sed -i '/sylius_shop:/i\nbitbag_sylius_elasticsearch_plugin:\\
+    resource: \"@BitBagSyliusElasticsearchPlugin/config/routing.yml\"' config/routes.yaml"
             )->run();
 
             // 3. Remove the Elasticsearch plugin routing from config/routes.yaml
             Process::fromShellCommandline(
-                'sed -i "/bitbag_sylius_elasticsearch_plugin:/,+1d" config/routes.yaml'
+                "sed -i '/bitbag_sylius_elasticsearch_plugin:/,+1d' config/routes.yaml"
             )->run();
         }
 
