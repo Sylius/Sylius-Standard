@@ -1,0 +1,30 @@
+{
+  "minimal": {
+    "static-checks": {
+      "include": [
+        {
+          "php": "8.2",
+          "symfony": "^6.4"
+        },
+        {
+          "php": "8.3",
+          "symfony": "^7.1"
+        }
+      ]
+    },
+    "e2e-mysql": {
+      "include": [
+        {
+          "php": "8.2",
+          "symfony": "^6.4",
+          "mysql": "8.4"
+        },
+        {
+          "php": "8.3",
+          "symfony": "^7.1",
+          "mysql": "8.4"
+        }
+      ]
+    }
+  }
+}

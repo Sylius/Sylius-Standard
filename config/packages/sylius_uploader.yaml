@@ -1,0 +1,6 @@
+when@test: &sylius_uploader_test
+    services:
+        sylius.generator.image_path:
+            class: Sylius\Behat\Service\Generator\UploadedImagePathGenerator
+
+when@test_cached: *sylius_uploader_test

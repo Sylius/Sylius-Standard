@@ -1,0 +1,24 @@
+framework:
+    translator: { fallbacks: ["%locale%"] }
+    secret: '%env(APP_SECRET)%'
+    form:
+        enabled: true
+    csrf_protection: true
+    http_method_override: true
+    session:
+        handler_id: ~
+    serializer:
+        mapping:
+            paths: [ '%kernel.project_dir%/config/serialization' ]
+
+when@dev:
+    framework:
+        profiler: { only_exceptions: false }
+
+when@test: &framework_test
+    framework:
+        test: true
+        session:
+            storage_factory_id: session.storage.factory.mock_file
+
+when@test_cached: *framework_test

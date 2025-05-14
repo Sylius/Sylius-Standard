@@ -1,0 +1,5 @@
+when@test: &fidry_alice_data_fixtures_test
+    fidry_alice_data_fixtures:
+        default_purge_mode: no_purge
+
+when@test_cached: *fidry_alice_data_fixtures_test

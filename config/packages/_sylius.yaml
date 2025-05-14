@@ -1,0 +1,281 @@
+imports:
+    - { resource: "@SyliusCoreBundle/Resources/config/app/config.yml" }
+    - { resource: "@SyliusPayumBundle/Resources/config/app/config.yaml" }
+    - { resource: "@SyliusAdminBundle/Resources/config/app/config.yml" }
+    - { resource: "@SyliusShopBundle/Resources/config/app/config.yml" }
+    - { resource: "@SyliusApiBundle/Resources/config/app/config.yaml" }
+
+    - { resource: "../parameters.yaml" }
+
+parameters:
+    sylius_core.public_dir: '%kernel.project_dir%/public'
+
+sylius_addressing:
+    resources:
+        address:
+            classes:
+                model: App\Entity\Addressing\Address
+        country:
+            classes:
+                model: App\Entity\Addressing\Country
+        province:
+            classes:
+                model: App\Entity\Addressing\Province
+        zone:
+            classes:
+                model: App\Entity\Addressing\Zone
+        zone_member:
+            classes:
+                model: App\Entity\Addressing\ZoneMember
+
+sylius_attribute:
+    resources:
+        product:
+            attribute:
+                classes:
+                    model: App\Entity\Product\ProductAttribute
+                translation:
+                    classes:
+                        model: App\Entity\Product\ProductAttributeTranslation
+            attribute_value:
+                classes:
+                    model: App\Entity\Product\ProductAttributeValue
+
+sylius_channel:
+    resources:
+        channel:
+            classes:
+                model: App\Entity\Channel\Channel
+
+sylius_core:
+    resources:
+        avatar_image:
+            classes:
+                model: App\Entity\User\AvatarImage
+        product_image:
+            classes:
+                model: App\Entity\Product\ProductImage
+        taxon_image:
+            classes:
+                model: App\Entity\Taxonomy\TaxonImage
+        product_taxon:
+            classes:
+                model: App\Entity\Product\ProductTaxon
+        channel_pricing:
+            classes:
+                model: App\Entity\Channel\ChannelPricing
+        channel_price_history_config:
+            classes:
+                model: App\Entity\Channel\ChannelPriceHistoryConfig
+        channel_pricing_log_entry:
+            classes:
+                model: App\Entity\Channel\ChannelPricingLogEntry
+        shop_billing_data:
+            classes:
+                model: App\Entity\Channel\ShopBillingData
+
+sylius_currency:
+    resources:
+        currency:
+            classes:
+                model: App\Entity\Currency\Currency
+        exchange_rate:
+            classes:
+                model: App\Entity\Currency\ExchangeRate
+
+sylius_customer:
+    resources:
+        customer:
+            classes:
+                model: App\Entity\Customer\Customer
+        customer_group:
+            classes:
+                model: App\Entity\Customer\CustomerGroup
+
+sylius_locale:
+    resources:
+        locale:
+            classes:
+                model: App\Entity\Locale\Locale
+
+sylius_order:
+    resources:
+        order:
+            classes:
+                model: App\Entity\Order\Order
+        order_item:
+            classes:
+                model: App\Entity\Order\OrderItem
+        order_item_unit:
+            classes:
+                model: App\Entity\Order\OrderItemUnit
+        adjustment:
+            classes:
+                model: App\Entity\Order\Adjustment
+        order_sequence:
+            classes:
+                model: App\Entity\Order\OrderSequence
+
+sylius_payment:
+    resources:
+        payment_method:
+            classes:
+                model: App\Entity\Payment\PaymentMethod
+            translation:
+                classes:
+                    model: App\Entity\Payment\PaymentMethodTranslation
+        payment:
+            classes:
+                model: App\Entity\Payment\Payment
+        payment_request:
+            classes:
+                model: App\Entity\Payment\PaymentRequest
+        gateway_config:
+            classes:
+                model: App\Entity\Payment\GatewayConfig
+
+sylius_payum:
+    resources:
+        payment_security_token:
+            classes:
+                model: App\Entity\Payment\PaymentSecurityToken
+
+sylius_product:
+    resources:
+        product:
+            classes:
+                model: App\Entity\Product\Product
+            translation:
+                classes:
+                    model: App\Entity\Product\ProductTranslation
+        product_variant:
+            classes:
+                model: App\Entity\Product\ProductVariant
+            translation:
+                classes:
+                    model: App\Entity\Product\ProductVariantTranslation
+        product_option:
+            classes:
+                model: App\Entity\Product\ProductOption
+            translation:
+                classes:
+                    model: App\Entity\Product\ProductOptionTranslation
+        product_option_value:
+            classes:
+                model: App\Entity\Product\ProductOptionValue
+            translation:
+                classes:
+                    model: App\Entity\Product\ProductOptionValueTranslation
+        product_association:
+            classes:
+                model: App\Entity\Product\ProductAssociation
+        product_association_type:
+            classes:
+                model: App\Entity\Product\ProductAssociationType
+            translation:
+                classes:
+                    model: App\Entity\Product\ProductAssociationTypeTranslation
+
+sylius_promotion:
+    resources:
+        catalog_promotion:
+            classes:
+                model: App\Entity\Promotion\CatalogPromotion
+            translation:
+                classes:
+                    model: App\Entity\Promotion\CatalogPromotionTranslation
+        catalog_promotion_action:
+            classes:
+                model: App\Entity\Promotion\CatalogPromotionAction
+        catalog_promotion_scope:
+            classes:
+                model: App\Entity\Promotion\CatalogPromotionScope
+        promotion:
+            classes:
+                model: App\Entity\Promotion\Promotion
+            translation:
+                classes:
+                    model: App\Entity\Promotion\PromotionTranslation
+        promotion_rule:
+            classes:
+                model: App\Entity\Promotion\PromotionRule
+        promotion_action:
+            classes:
+                model: App\Entity\Promotion\PromotionAction
+        promotion_coupon:
+            classes:
+                model: App\Entity\Promotion\PromotionCoupon
+
+sylius_review:
+    resources:
+        product:
+            review:
+                classes:
+                    model: App\Entity\Product\ProductReview
+
+sylius_shipping:
+    resources:
+        shipment:
+            classes:
+                model: App\Entity\Shipping\Shipment
+        shipping_method:
+            classes:
+                model: App\Entity\Shipping\ShippingMethod
+            translation:
+                classes:
+                    model: App\Entity\Shipping\ShippingMethodTranslation
+        shipping_method_rule:
+            classes:
+                model: App\Entity\Shipping\ShippingMethodRule
+        shipping_category:
+            classes:
+                model: App\Entity\Shipping\ShippingCategory
+
+sylius_taxation:
+    resources:
+        tax_category:
+            classes:
+                model: App\Entity\Taxation\TaxCategory
+        tax_rate:
+            classes:
+                model: App\Entity\Taxation\TaxRate
+
+sylius_taxonomy:
+    resources:
+        taxon:
+            classes:
+                model: App\Entity\Taxonomy\Taxon
+            translation:
+                classes:
+                    model: App\Entity\Taxonomy\TaxonTranslation
+
+sylius_user:
+    resources:
+        admin:
+            user:
+                classes:
+                    model: App\Entity\User\AdminUser
+        shop:
+            user:
+                classes:
+                    model: App\Entity\User\ShopUser
+        oauth:
+            user:
+                classes:
+                    model: App\Entity\User\UserOAuth
+
+sylius_twig_hooks:
+    hooks:
+        'sylius_admin.base#stylesheets':
+            app_styles:
+                template: 'admin/stylesheets.html.twig'
+        'sylius_admin.base#javascripts':
+            app_javascripts:
+                template: 'admin/javascripts.html.twig'
+
+        'sylius_shop.base#stylesheets':
+            app_styles:
+                template: 'shop/stylesheets.html.twig'
+        'sylius_shop.base#javascripts':
+            app_javascripts:
+                template: 'shop/javascripts.html.twig'

@@ -1,0 +1,3 @@
+sylius_labs_doctrine_migrations_extra:
+    migrations:
+        'App\Migrations': ~

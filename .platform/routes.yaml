@@ -1,0 +1,7 @@
+"https://{default}/":
+    type: upstream
+    upstream: "sylius:http"
+
+"https://www.{default}/":
+    type: redirect
+    to: "https://{default}/"

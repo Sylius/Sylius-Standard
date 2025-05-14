@@ -1,0 +1,6 @@
+when@test: &sylius_admin_test
+    sylius_admin:
+        notifications:
+            hub_enabled: false
+
+when@test_cached: *sylius_admin_test

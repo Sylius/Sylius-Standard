@@ -1,0 +1,13 @@
+sylius_theme:
+    sources:
+        filesystem:
+            scan_depth: 1
+            directories:
+                - "%kernel.project_dir%/themes"
+
+when@test: &sylius_theme_test
+    sylius_theme:
+        sources:
+            test: ~
+
+when@test_cached: *sylius_theme_test
