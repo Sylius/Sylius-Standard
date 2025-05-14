@@ -4,11 +4,14 @@ declare(strict_types=1);
 
 namespace App\Entity\Addressing;
 
+use Sylius\B2BKit\Entity\AddressInterface;
+use Sylius\B2BKit\Entity\AddressAwareTrait;
 use Doctrine\ORM\Mapping as ORM;
 use Sylius\Component\Core\Model\Address as BaseAddress;
 
 #[ORM\Entity]
 #[ORM\Table(name: 'sylius_address')]
-class Address extends BaseAddress
+class Address extends BaseAddress implements AddressInterface
 {
+    use AddressAwareTrait;
 }

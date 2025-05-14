@@ -1,4 +1,5 @@
 imports:
+    - { resource: "@BitBagSyliusElasticsearchPlugin/config/config.yml" }
     - { resource: "@SyliusCoreBundle/Resources/config/app/config.yml" }
     - { resource: "@SyliusPayumBundle/Resources/config/app/config.yaml" }
     - { resource: "@SyliusAdminBundle/Resources/config/app/config.yml" }
