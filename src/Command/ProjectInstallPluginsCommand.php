@@ -95,35 +95,30 @@ class ProjectInstallPluginsCommand extends Command
                 "sed -i '' '/^[[:space:]]*indexes:/,/^[[:space:]]*app: ~$/d' config/packages/fos_elastica.yaml"
             )->run();
 
-            //rakowy rektor
+            // 1. Overwrite entire ProductVariant entity with B2B-enabled version
             Process::fromShellCommandline(
-                "sed -i '' '/^namespace App\\Entity\\Product;/a \
-\
-use BitBag\\SyliusElasticsearchPlugin\\Model\\ProductVariantInterface as BitBagElasticsearchPluginVariant; \
-use BitBag\\SyliusElasticsearchPlugin\\Model\\ProductVariantTrait;' src/Entity/Product/ProductVariant.php
-"
+                'cat > src/Entity/Product/ProductVariant.php << \'EOF\'
+<?php
+
+declare(strict_types=1);
+
+namespace App\Entity\Product;
+
+use BitBag\SyliusElasticsearchPlugin\Model\ProductVariantInterface as BitBagElasticsearchPluginVariant;
+use BitBag\SyliusElasticsearchPlugin\Model\ProductVariantTrait;
+use Doctrine\ORM\Mapping as ORM;
+use Sylius\Component\Core\Model\ProductVariant as BaseProductVariant;
+
+#[ORM\Entity]
+#[ORM\Table(name: \'sylius_product_variant\')]
+class ProductVariant extends BaseProductVariant implements BitBagElasticsearchPluginVariant
+{
+    use ProductVariantTrait;
+
+    // Custom B2B overrides can be placed here
+}
+EOF'
             )->run();
-
-            Process::fromShellCommandline(
-                "sed -i '' '/^class ProductVariant extends BaseProductVariant.*$/ s/$/ implements BitBagElasticsearchPluginVariant/' \"src/Entity/Product/ProductVariant.php\""
-            )->run();
-
-
-            // 4a) Dodanie implements
-            Process::fromShellCommandline(
-                'grep -q "implements BitBagElasticsearchPluginVariant" src/Entity/Product/ProductVariant.php || ' .
-                'sed -i \'\' \'/^class ProductVariant extends BaseProductVariant / s/$/ implements BitBagElasticsearchPluginVariant/\' ' .
-                'src/Entity/Product/ProductVariant.php'
-            )->run();
-
-// 4b) Dodanie trait tylko przy klasie
-            Process::fromShellCommandline(
-                'grep -q "use ProductVariantTrait;" src/Entity/Product/ProductVariant.php || ' .
-                'sed -i \'\' \'/^class ProductVariant /{ :a; n; /^[[:space:]]*{$/! ba; a\\    use ProductVariantTrait; }\' ' .
-                'src/Entity/Product/ProductVariant.php'
-            )->run();
-
-
 
 
             // 3. Remove the Elasticsearch plugin routing from config/routes.yaml
