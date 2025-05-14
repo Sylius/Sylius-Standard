@@ -62,10 +62,4 @@ return [
     Symfony\UX\Icons\UXIconsBundle::class => ['all' => true],
     FOS\RestBundle\FOSRestBundle::class => ['all' => true],
     Sylius\PayPalPlugin\SyliusPayPalPlugin::class => ['all' => true],
-    FOS\ElasticaBundle\FOSElasticaBundle::class => ['all' => true],
-    Sylius\GmvBundle\SyliusGmvBundle::class => ['all' => true],
-    OldSound\RabbitMqBundle\OldSoundRabbitMqBundle::class => ['all' => true],
-    BitBag\SyliusElasticsearchPlugin\BitBagSyliusElasticsearchPlugin::class => ['all' => true],
-    Sylius\B2BKit\SyliusB2BKitPlugin::class => ['all' => true],
-    Sylius\CmsPlugin\SyliusCmsPlugin::class => ['all' => true],
 ];
