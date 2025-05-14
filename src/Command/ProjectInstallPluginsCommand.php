@@ -133,20 +133,17 @@ class ProjectInstallPluginsCommand extends Command
     {
         // Obejście braku receptur w bitbag elasticsearch
 
-// 1. Import config — tylko jeśli nie ma jeszcze wpisu
+        // 1. Import required config into config/packages/_sylius.yaml
         Process::fromShellCommandline(
-            "grep -q \"- { resource: '@BitBagSyliusElasticsearchPlugin/config/config.yml' }\" config/packages/_sylius.yaml || " .
-            "sed -i '' '/imports:/a\\
-    - { resource: \"@BitBagSyliusElasticsearchPlugin/config/config.yml\" }' config/packages/_sylius.yaml"
+            'grep -q \'- { resource: "@BitBagSyliusElasticsearchPlugin/config/config.yml" }\' config/packages/_sylius.yaml '.
+            '|| sed -i \'\' $\'/imports:/a\\\n    - { resource: "@BitBagSyliusElasticsearchPlugin/config/config.yml" }\' config/packages/_sylius.yaml'
         )->run();
 
-// 2. Import routing — tylko jeśli nie ma jeszcze wpisu
+        // 2. Import routing before sylius_shop in config/routes.yaml
         Process::fromShellCommandline(
-            "grep -q \"bitbag_sylius_elasticsearch_plugin: { resource: '@BitBagSyliusElasticsearchPlugin/config/routing.yml' }\" config/routes/sylius_shop.yaml || " .
-            "sed -i '' '/sylius_shop:/i\\
-bitbag_sylius_elasticsearch_plugin: { resource: \"@BitBagSyliusElasticsearchPlugin/config/routing.yml\" }' config/routes/sylius_shop.yaml"
+            'grep -q \'bitbag_sylius_elasticsearch_plugin: { resource: "@BitBagSyliusElasticsearchPlugin/config/routing.yml" }\' config/routes/sylius_shop.yaml '.
+            '|| sed -i \'\' $\'/sylius_shop:/i\\\nbitbag_sylius_elasticsearch_plugin: { resource: "@BitBagSyliusElasticsearchPlugin/config/routing.yml" }\' config/routes/sylius_shop.yaml'
         )->run();
-
 
         Process::fromShellCommandline(
             "sed -i '' '/^[[:space:]]*indexes:/,/^[[:space:]]*app: ~$/d' config/packages/fos_elastica.yaml"
