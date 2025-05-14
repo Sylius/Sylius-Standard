@@ -79,6 +79,24 @@ class ProjectInstallPluginsCommand extends Command
             }
         }
 
+        // Obejście braku receptur w bitbag elasticsearch
+        if ($pkg === 'sylius/b2b-kit') {
+            // 1. Import required config
+            Process::fromShellCommandline(
+                'php bin/console config:append config/packages/_sylius.yaml "- { resource: \'@BitBagSyliusElasticsearchPlugin/config/config.yml\' }"'
+            )->run();
+
+            // 2. Import routing before sylius_shop
+            Process::fromShellCommandline(
+                'php bin/console config:prepend config/routes/sylius_shop.yaml "bitbag_sylius_elasticsearch_plugin: { resource: \'@BitBagSyliusElasticsearchPlugin/config/routing.yml\' }"'
+            )->run();
+
+            // 3. Remove the Elasticsearch plugin routing from config/routes.yaml
+            Process::fromShellCommandline(
+                'php bin/console config:remove config/routes.yaml sylius_elasticsearch_plugin'
+            )->run();
+        }
+
         $io->section('Uruchamiam drugi przebieg post-install');
         $php = PHP_BINARY;
         $console = $this->getApplication()->getName() === 'console' ? 'bin/console' : $_SERVER['argv'][0];
