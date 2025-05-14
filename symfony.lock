@@ -16,9 +16,6 @@
     "babdev/pagerfanta-bundle": {
         "version": "v4.5.0"
     },
-    "bitbag/elasticsearch-plugin": {
-        "version": "v5.2.1"
-    },
     "doctrine/annotations": {
         "version": "2.0",
         "recipe": {
@@ -63,18 +60,6 @@
             "version": "2.0",
             "ref": "1e012e04f573524ca83795cd19df9ea690adb604"
         }
-    },
-    "friendsofsymfony/elastica-bundle": {
-        "version": "6.6",
-        "recipe": {
-            "repo": "github.com/symfony/recipes-contrib",
-            "branch": "main",
-            "version": "5.0",
-            "ref": "46c9cd2c1e07f0fcfd97e96f12b03b2e0845c4cd"
-        },
-        "files": [
-            "config/packages/fos_elastica.yaml"
-        ]
     },
     "friendsofsymfony/rest-bundle": {
         "version": "3.8",
@@ -149,19 +134,6 @@
             "ref": "518ac22defa04a8a1d82479ed362e2921487adf0"
         }
     },
-    "php-amqplib/rabbitmq-bundle": {
-        "version": "2.17",
-        "recipe": {
-            "repo": "github.com/symfony/recipes-contrib",
-            "branch": "main",
-            "version": "1.12",
-            "ref": "ce3ca2e4577270c4f518539aa6b9e878998fcfef"
-        },
-        "files": [
-            "config/packages/old_sound_rabbit_mq.yaml",
-            "src/Consumer/.gitignore"
-        ]
-    },
     "php-http/discovery": {
         "version": "1.20",
         "recipe": {
@@ -218,24 +190,8 @@
     "sylius-labs/doctrine-migrations-extra-bundle": {
         "version": "v0.2.2"
     },
-    "sylius/b2b-kit": {
-        "version": "2.0",
-        "recipe": {
-            "repo": "github.com/Sylius/SyliusRecipes",
-            "branch": "main",
-            "version": "2.0",
-            "ref": "760847ac7da4c3f49dd43971b839f8cbf8a32c13"
-        },
-        "files": [
-            "config/packages/_sylius_b2b_suite.yaml",
-            "config/routes/sylius_b2b_suite.yaml"
-        ]
-    },
     "sylius/fixtures-bundle": {
         "version": "v1.9.0"
-    },
-    "sylius/gmv-bundle": {
-        "version": "v1.0.0"
     },
     "sylius/grid-bundle": {
         "version": "v1.13.0"
