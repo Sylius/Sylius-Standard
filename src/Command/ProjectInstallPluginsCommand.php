@@ -83,8 +83,7 @@ class ProjectInstallPluginsCommand extends Command
         if ($pkg === 'sylius/b2b-kit') {
             // 1. Import required config into config/packages/_sylius.yaml
             Process::fromShellCommandline(
-                "sed -i '/imports:/a\\
-    - { resource: \"@BitBagSyliusElasticsearchPlugin/config/config.yml\" }' config/packages/_sylius.yaml"
+                "sed -i '/imports:/a\\- { resource: \"@BitBagSyliusElasticsearchPlugin/config/config.yml\" }' config/packages/_sylius.yaml"
             )->run();
 
             // 2. Import routing before sylius_shop in config/routes.yaml
