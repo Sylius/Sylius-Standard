@@ -11,6 +11,7 @@ use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
 use Symfony\Component\Console\Style\SymfonyStyle;
 use Symfony\Component\DependencyInjection\Attribute\TaggedIterator;
+use Symfony\Component\Process\Process;
 
 #[AsCommand(
     name: 'project:configure-plugins',
@@ -54,6 +55,11 @@ class ConfigurePluginsCommand extends Command
                 }
             }
         }
+
+        //rector
+        $io->section('Running Rector');
+        $process = Process::fromShellCommandline('vendor/bin/rector process src');
+        $process->run();
 
         $io->success('All post-install steps completed.');
         return Command::SUCCESS;
