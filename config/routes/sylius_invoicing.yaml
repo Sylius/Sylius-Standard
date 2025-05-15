@@ -1,2 +1,0 @@
-sylius_invoicing:
-    resource: "@SyliusInvoicingPlugin/config/routes.yaml"
