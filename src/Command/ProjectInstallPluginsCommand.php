@@ -75,6 +75,8 @@ class ProjectInstallPluginsCommand extends Command
                 $io->error("Failed to install $pkg:\n" . $proc->getErrorOutput());
                 return Command::FAILURE;
             }
+            $io->info('Podsumowanie instalacji pakietu:');
+            $io->info($proc->getOutput());
 
             if ($pkg === 'sylius/b2b-kit') {
                 $this->rakowaInstalacjaElastica();
