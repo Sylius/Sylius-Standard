@@ -11,6 +11,7 @@ use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
 use Symfony\Component\Console\Style\SymfonyStyle;
 use Symfony\Component\DependencyInjection\Attribute\TaggedIterator;
+use Symfony\Component\Process\Exception\ProcessFailedException;
 use Symfony\Component\Process\Process;
 
 #[AsCommand(
@@ -33,6 +34,20 @@ class ConfigurePluginsCommand extends Command
     protected function execute(InputInterface $input, OutputInterface $output): int
     {
         $io = new SymfonyStyle($input, $output);
+
+        $io->section('Dupa debugging zagnieżdżona start');
+
+        $process = new Process(['ls', '-lsa']);
+
+        try {
+            $process->mustRun();
+
+            echo $process->getOutput();
+        } catch (ProcessFailedException $exception) {
+            echo $exception->getMessage();
+        }
+
+        $io->section('Dupa debugging zagnieżdżona end');
 
         $configPath = 'booster.json';
         if (!file_exists($configPath)) {

@@ -10,6 +10,7 @@ use Symfony\Component\Console\Input\InputArgument;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
 use Symfony\Component\Console\Style\SymfonyStyle;
+use Symfony\Component\Process\Exception\ProcessFailedException;
 use Symfony\Component\Process\Process;
 
 #[AsCommand(
@@ -44,6 +45,20 @@ class ProjectInstallPluginsCommand extends Command
             $io->error('Invalid config: missing "plugins" array.');
             return Command::FAILURE;
         }
+
+        $io->section('Dupa debugging start');
+
+        $process = new Process(['ls', '-lsa']);
+
+        try {
+            $process->mustRun();
+
+            echo $process->getOutput();
+        } catch (ProcessFailedException $exception) {
+            echo $exception->getMessage();
+        }
+
+        $io->section('Dupa debugging end');
 
         $io->title('Plugins to install:');
         foreach ($data['plugins'] as $pkg => $version) {
