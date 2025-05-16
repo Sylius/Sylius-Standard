@@ -67,9 +67,13 @@ class PluginOrchestratorCommand extends Command
 
         foreach ($data['plugins'] as $pkg => $version) {
             $io->info("Installing $pkg");
-            $args = ['composer', 'require', sprintf('%s:%s', $pkg, $version)];
-            $proc = new Process($args);
-            $proc->mustRun();
+
+            $process = Process::fromShellCommandline(
+                sprintf('composer require %s:%s --no-scripts --no-interaction', $pkg, $version),
+            );
+
+            $process->mustRun();
+
             if ($pkg === 'sylius/b2b-kit') {
                 $this->rakowaInstalacjaElastica();
             }
