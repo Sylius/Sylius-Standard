@@ -3,5 +3,5 @@ db:
     disk: 256
 
 elasticsearch:
-    type: elasticsearch:7.17
+    type: elasticsearch:7.10
     disk: 256
