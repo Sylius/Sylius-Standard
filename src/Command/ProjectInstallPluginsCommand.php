@@ -93,13 +93,13 @@ class ProjectInstallPluginsCommand extends Command
         }
         $io->section('Proces zależny śmignął, lecimy dalej');
 
-        $io->section('Running database sync');
-        $sync = Process::fromShellCommandline('bin/console doctrine:schema:update --force --complete');
-        $sync->run();
-        if (!$sync->isSuccessful()) {
-            $io->error('Database sync failed: ' . $sync->getErrorOutput());
-            return Command::FAILURE;
-        }
+//        $io->section('Running database sync');
+//        $sync = Process::fromShellCommandline('bin/console doctrine:schema:update --force --complete');
+//        $sync->run();
+//        if (!$sync->isSuccessful()) {
+//            $io->error('Database sync failed: ' . $sync->getErrorOutput());
+//            return Command::FAILURE;
+//        }
 
         $io->section('Installing assets and building front');
         Process::fromShellCommandline('bin/console assets:install')->run();
@@ -107,14 +107,14 @@ class ProjectInstallPluginsCommand extends Command
 
         $io->success('All plugins installed and configured successfully.');
 
-        $io->section('Loading default fixtures');
-        $fixtures = Process::fromShellCommandline('bin/console sylius:fixtures:load --no-interaction');
-        $fixtures->setTty(Process::isTtySupported());
-        $fixtures->run();
-        if (!$fixtures->isSuccessful()) {
-            $io->error('Fixtures load failed: ' . $fixtures->getErrorOutput());
-            return Command::FAILURE;
-        }
+//        $io->section('Loading default fixtures');
+//        $fixtures = Process::fromShellCommandline('bin/console sylius:fixtures:load --no-interaction');
+//        $fixtures->setTty(Process::isTtySupported());
+//        $fixtures->run();
+//        if (!$fixtures->isSuccessful()) {
+//            $io->error('Fixtures load failed: ' . $fixtures->getErrorOutput());
+//            return Command::FAILURE;
+//        }
 
         $io->section('Running cache warmup in a fresh process');
         $warmup = new Process(['bin/console', 'cache:warmup'], getcwd());
