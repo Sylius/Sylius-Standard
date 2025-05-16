@@ -33,7 +33,13 @@ class PluginInstallCommand extends Command
     protected function execute(InputInterface $input, OutputInterface $output): int
     {
         $io = new SymfonyStyle($input, $output);
+        $io->section('Command 1');
 
+        $warmup = new Process(['bin/console', 'cache:warmup'], getcwd());
+        $warmup->run();
+        if (!$warmup->isSuccessful()) {
+            $io->warning('Cache warmup failed: ' . $warmup->getErrorOutput());
+        }
 
         $configPath = 'booster.json';
         if (!file_exists($configPath)) {
@@ -65,6 +71,14 @@ class PluginInstallCommand extends Command
         $io->title('Installing assets and building front');
         Process::fromShellCommandline('bin/console assets:install')->run();
         Process::fromShellCommandline('yarn encore dev')->run();
+
+
+
+        $warmup = new Process(['bin/console', 'cache:warmup'], getcwd());
+        $warmup->run();
+        if (!$warmup->isSuccessful()) {
+            $io->warning('Cache warmup failed: ' . $warmup->getErrorOutput());
+        }
 
         return Command::SUCCESS;
     }

@@ -34,6 +34,14 @@ class PluginFinalizeCommand extends Command
     {
         $io = new SymfonyStyle($input, $output);
 
+        $io->section('Command 2');
+
+        $warmup = new Process(['bin/console', 'cache:warmup'], getcwd());
+        $warmup->run();
+        if (!$warmup->isSuccessful()) {
+            $io->warning('Cache warmup failed: ' . $warmup->getErrorOutput());
+        }
+
 
         $configPath = 'booster.json';
         if (!file_exists($configPath)) {
