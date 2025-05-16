@@ -83,9 +83,10 @@ class ProjectInstallPluginsCommand extends Command
             if (in_array($pkg, ['sylius/multi-source-inventory-plugin', 'sylius/loyalty-plugin', 'sylius/return-plugin'], true)) {
                 $args[] = '--no-scripts';
             }
+            dump($args);
             $proc = new Process($args);
-            $proc->setTty(Process::isTtySupported());
-            $proc->run();
+//            $proc->setTty(Process::isTtySupported());
+            $proc->mustRun();
             if (!$proc->isSuccessful()) {
                 $io->error("Failed to install $pkg:\n" . $proc->getErrorOutput());
                 return Command::FAILURE;
