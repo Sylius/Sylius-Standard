@@ -47,6 +47,8 @@ class ConfigurePluginsCommand extends Command
 
         $io->title('Running post-install steps for plugins');
         foreach ($data['plugins'] as $pkg => $version) {
+            // Available installers count
+            $io->info("Available installers: " . count($this->installers));
             foreach ($this->installers as $installer) {
                 if ($installer->supports($pkg)) {
                     $io->section("Post-install for $pkg");
