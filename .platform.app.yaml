@@ -107,7 +107,8 @@ hooks:
         cat >> "$PLATFORM_APP_DIR/.global/environment" <<EOS
             export \$(symfony var:export)
         EOS
-        bin/console project:install-plugins
+        bin/console sylius:plugin-installer:init
+        bin/console sylius:plugin-installer:install
         yarn install --frozen-lockfile
         yarn build:prod
 
@@ -116,7 +117,7 @@ hooks:
         rm -rf var/cache/*
         mkdir -p public/media/image
         bin/console doctrine:database:create --if-not-exists
-        bin/console doctrine:schema:update --force --complete
+        bin/console sylius:plugin-installer:finalize
         bin/console sylius:fixtures:load -n
         bin/console lexik:jwt:generate-keypair --skip-if-exists
         bin/console assets:install --symlink --relative public
