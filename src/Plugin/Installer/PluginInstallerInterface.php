@@ -14,9 +14,13 @@ declare(strict_types=1);
 
 namespace App\Plugin\Installer;
 
+use Symfony\Component\Console\Style\SymfonyStyle;
+
 interface PluginInstallerInterface
 {
     public function supports(string $packageName): bool;
 
-    public function install(string $version, $input, $output): void;
+    public function install(SymfonyStyle $io): void;
+
+    public function finalize(SymfonyStyle $io): void;
 }

@@ -14,10 +14,10 @@ use Symfony\Component\Process\Exception\ProcessFailedException;
 use Symfony\Component\Process\Process;
 
 #[AsCommand(
-    name: 'project:install-plugins',
-    description: 'Installs and configures Sylius plugins based on a JSON config file'
+    name: 'sylius:plugin-installer:init',
+    description: 'Install Sylius plugins'
 )]
-class ProjectInstallPluginsCommand extends Command
+class PluginInstallerCommand extends Command
 {
     protected function configure(): void
     {
@@ -33,8 +33,9 @@ class ProjectInstallPluginsCommand extends Command
     protected function execute(InputInterface $input, OutputInterface $output): int
     {
         $io = new SymfonyStyle($input, $output);
-        $configPath = $input->getArgument('config-file');
+        $io->section('Plugin installation started');
 
+        $configPath = $input->getArgument('config-file');
         if (!file_exists($configPath)) {
             $io->error("Configuration file '$configPath' not found.");
             return Command::FAILURE;
@@ -46,19 +47,6 @@ class ProjectInstallPluginsCommand extends Command
             return Command::FAILURE;
         }
 
-        $io->section('Dupa debugging start');
-
-        $process = new Process(['ls', '-lsa']);
-
-        try {
-            $process->mustRun();
-
-            echo $process->getOutput();
-        } catch (ProcessFailedException $exception) {
-            echo $exception->getMessage();
-        }
-
-        $io->section('Dupa debugging end');
 
         $io->title('Plugins to install:');
         foreach ($data['plugins'] as $pkg => $version) {
@@ -66,7 +54,7 @@ class ProjectInstallPluginsCommand extends Command
         }
         $io->newLine();
 
-        $io->section('Configuring Symfony Flex to auto-accept contrib recipes');
+        $io->info('Configuring Symfony Flex to auto-accept contrib recipes');
         Process::fromShellCommandline('composer config extra.symfony.allow-contrib true')->run();
 
         if (count($data['plugins']) === 0) {
@@ -74,27 +62,14 @@ class ProjectInstallPluginsCommand extends Command
             return Command::SUCCESS;
         }
 
-        $io->section('Add Sylius Packagist repository');
+        $io->info('Add Sylius Packagist repository');
         Process::fromShellCommandline('composer config repositories.sylius composer https://sylius.repo.packagist.com/sylius/')->run();
 
         foreach ($data['plugins'] as $pkg => $version) {
-            $io->section("Installing $pkg");
+            $io->info("Installing $pkg");
             $args = ['composer', 'require', sprintf('%s:%s', $pkg, $version)];
-//            if (in_array($pkg, ['sylius/multi-source-inventory-plugin', 'sylius/loyalty-plugin', 'sylius/return-plugin'], true)) {
-//                $args[] = '--no-scripts';
-//            }
-            dump($args);
             $proc = new Process($args);
-//            $proc->setTty(Process::isTtySupported());
             $proc->mustRun();
-            echo $proc->getOutput();
-            if (!$proc->isSuccessful()) {
-                $io->error("Failed to install $pkg:\n" . $proc->getErrorOutput());
-                return Command::FAILURE;
-            }
-            $io->info('Podsumowanie instalacji pakietu:');
-            $io->info($proc->getOutput());
-
             if ($pkg === 'sylius/b2b-kit') {
                 $this->rakowaInstalacjaElastica();
             }
@@ -103,38 +78,8 @@ class ProjectInstallPluginsCommand extends Command
         $io->section('Uruchamiam drugi przebieg post-install');
         $php = PHP_BINARY;
         $console = $this->getApplication()->getName() === 'console' ? 'bin/console' : $_SERVER['argv'][0];
-        $process = new Process([$php, $console, 'project:configure-plugins', '--no-interaction']);
-        $process->setTty(Process::isTtySupported());
-        $process->run();
-        if (!$process->isSuccessful()) {
-            $io->error('Nie udało się wykonać post-install: ' . $process->getErrorOutput());
-            return Command::FAILURE;
-        }
-        $io->info($process->getOutput());
-        $io->section('Proces zależny śmignął, lecimy dalej');
-
-//        $io->section('Running database sync');
-//        $sync = Process::fromShellCommandline('bin/console doctrine:schema:update --force --complete');
-//        $sync->run();
-//        if (!$sync->isSuccessful()) {
-//            $io->error('Database sync failed: ' . $sync->getErrorOutput());
-//            return Command::FAILURE;
-//        }
-
-        $io->section('Installing assets and building front');
-        Process::fromShellCommandline('bin/console assets:install')->run();
-        Process::fromShellCommandline('yarn encore dev')->run();
-
-        $io->success('All plugins installed and configured successfully.');
-
-//        $io->section('Loading default fixtures');
-//        $fixtures = Process::fromShellCommandline('bin/console sylius:fixtures:load --no-interaction');
-//        $fixtures->setTty(Process::isTtySupported());
-//        $fixtures->run();
-//        if (!$fixtures->isSuccessful()) {
-//            $io->error('Fixtures load failed: ' . $fixtures->getErrorOutput());
-//            return Command::FAILURE;
-//        }
+        $process = new Process([$php, $console, 'sylius:plugin:finalize-installation', '--no-interaction']);
+        $process->mustRun();
 
         $io->section('Running cache warmup in a fresh process');
         $warmup = new Process(['bin/console', 'cache:warmup'], getcwd());

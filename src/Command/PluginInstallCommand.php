@@ -15,10 +15,10 @@ use Symfony\Component\Process\Exception\ProcessFailedException;
 use Symfony\Component\Process\Process;
 
 #[AsCommand(
-    name: 'project:configure-plugins',
-    description: 'Runs post-install configuration steps for Sylius plugins'
+    name: 'sylius:plugin:finalize-installation',
+    description: 'Finalize plugin installation steps'
 )]
-class ConfigurePluginsCommand extends Command
+class FinalizePluginInstallationCommand extends Command
 {
     /** @var iterable<PluginInstallerInterface> */
     private iterable $installers;
@@ -35,19 +35,6 @@ class ConfigurePluginsCommand extends Command
     {
         $io = new SymfonyStyle($input, $output);
 
-        $io->section('Dupa debugging zagnieżdżona start');
-
-        $process = new Process(['ls', '-lsa']);
-
-        try {
-            $process->mustRun();
-
-            echo $process->getOutput();
-        } catch (ProcessFailedException $exception) {
-            echo $exception->getMessage();
-        }
-
-        $io->section('Dupa debugging zagnieżdżona end');
 
         $configPath = 'booster.json';
         if (!file_exists($configPath)) {
@@ -60,34 +47,58 @@ class ConfigurePluginsCommand extends Command
             return Command::FAILURE;
         }
 
-        $io->title('Running post-install steps for plugins');
+        $io->title('Run installers for plugins:');
         foreach ($data['plugins'] as $pkg => $version) {
-            // Available installers count
-            $io->section('Czy konfigi są');
-            $process = new Process(['ls config/packages', '-lsa']);
-            $process->run();
-            if ($process->isSuccessful()) {
-                $io->info($process->getOutput());
-            } else {
-                $io->error($process->getErrorOutput());
-            }
-
-            $io->info("Available installers: " . count($this->installers));
+            $io->info("Available installers for : " . count($this->installers));
             foreach ($this->installers as $installer) {
                 if ($installer->supports($pkg)) {
                     $io->section("Post-install for $pkg");
-                    $installer->install($version, $input, $output);
+                    $installer->install($io);
                     break;
                 }
             }
         }
 
-        //rector
+        foreach ($data['plugins'] as $pkg => $version) {
+            $io->info("Available installers for : " . count($this->installers));
+            foreach ($this->installers as $installer) {
+                if ($installer->supports($pkg)) {
+                    $io->section("Post-install for $pkg");
+                    $installer->finalize($io);
+                    break;
+                }
+            }
+        }
+
         $io->section('Running Rector');
         $process = Process::fromShellCommandline('vendor/bin/rector process src');
         $process->run();
 
-        $io->success('All post-install steps completed.');
+
+        $io->section('Running database sync');
+        $sync = Process::fromShellCommandline('bin/console doctrine:schema:update --force --complete');
+        $sync->run();
+        if (!$sync->isSuccessful()) {
+            $io->error('Database sync failed: ' . $sync->getErrorOutput());
+            return Command::FAILURE;
+        }
+
+        $io->section('Installing assets and building front');
+        Process::fromShellCommandline('bin/console assets:install')->run();
+        Process::fromShellCommandline('yarn encore dev')->run();
+
+
+        $io->section('Loading default fixtures');
+        $fixtures = Process::fromShellCommandline('bin/console sylius:fixtures:load --no-interaction');
+        $fixtures->setTty(Process::isTtySupported());
+        $fixtures->run();
+        if (!$fixtures->isSuccessful()) {
+            $io->error('Fixtures load failed: ' . $fixtures->getErrorOutput());
+            return Command::FAILURE;
+        }
+
+
+
         return Command::SUCCESS;
     }
 }
