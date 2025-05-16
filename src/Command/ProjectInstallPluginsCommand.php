@@ -79,14 +79,15 @@ class ProjectInstallPluginsCommand extends Command
 
         foreach ($data['plugins'] as $pkg => $version) {
             $io->section("Installing $pkg");
-            $args = ['composer', 'require', sprintf('%s:%s', $pkg, $version), '--no-interaction', '--no-scripts'];
-            if (in_array($pkg, ['sylius/multi-source-inventory-plugin', 'sylius/loyalty-plugin', 'sylius/return-plugin'], true)) {
-                $args[] = '--no-scripts';
-            }
+            $args = ['composer', 'require', sprintf('%s:%s', $pkg, $version)];
+//            if (in_array($pkg, ['sylius/multi-source-inventory-plugin', 'sylius/loyalty-plugin', 'sylius/return-plugin'], true)) {
+//                $args[] = '--no-scripts';
+//            }
             dump($args);
             $proc = new Process($args);
 //            $proc->setTty(Process::isTtySupported());
             $proc->mustRun();
+            echo $proc->getOutput();
             if (!$proc->isSuccessful()) {
                 $io->error("Failed to install $pkg:\n" . $proc->getErrorOutput());
                 return Command::FAILURE;

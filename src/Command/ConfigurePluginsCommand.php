@@ -63,6 +63,15 @@ class ConfigurePluginsCommand extends Command
         $io->title('Running post-install steps for plugins');
         foreach ($data['plugins'] as $pkg => $version) {
             // Available installers count
+            $io->section('Czy konfigi są');
+            $process = new Process(['ls config/packages', '-lsa']);
+            $process->run();
+            if ($process->isSuccessful()) {
+                $io->info($process->getOutput());
+            } else {
+                $io->error($process->getErrorOutput());
+            }
+
             $io->info("Available installers: " . count($this->installers));
             foreach ($this->installers as $installer) {
                 if ($installer->supports($pkg)) {
