@@ -117,6 +117,8 @@ hooks:
         rm -rf var/cache/*
         mkdir -p public/media/image
         bin/console doctrine:database:create --if-not-exists
+        bin/console debug:container | grep sylius_cms
+        bin/console debug:container --tag=app.plugin_installer
         bin/console sylius:plugin-installer:finalize
         bin/console sylius:fixtures:load -n
         bin/console lexik:jwt:generate-keypair --skip-if-exists
