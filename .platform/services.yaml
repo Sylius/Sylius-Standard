@@ -1,3 +1,7 @@
 db:
     type: mysql:11.0
     disk: 256
+
+elasticsearch:
+    type: elasticsearch:8.5
+    disk: 256

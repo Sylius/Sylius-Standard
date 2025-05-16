@@ -4,6 +4,7 @@ type: php:8.3
 
 relationships:
     database: "db:mysql"
+    elasticsearch: "elasticsearch:elasticsearch"
 
 disk: 2048
 
