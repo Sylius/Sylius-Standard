@@ -18,5 +18,5 @@ interface PluginInstallerInterface
 {
     public function supports(string $packageName): bool;
 
-    public function install(string $version): void;
+    public function install(string $version, $input, $output): void;
 }

@@ -50,7 +50,7 @@ class ConfigurePluginsCommand extends Command
             foreach ($this->installers as $installer) {
                 if ($installer->supports($pkg)) {
                     $io->section("Post-install for $pkg");
-                    $installer->install($version);
+                    $installer->install($version, $input, $output);
                     break;
                 }
             }
