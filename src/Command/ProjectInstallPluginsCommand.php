@@ -91,6 +91,7 @@ class ProjectInstallPluginsCommand extends Command
             $io->error('Nie udało się wykonać post-install: ' . $process->getErrorOutput());
             return Command::FAILURE;
         }
+        $io->info($process->getOutput());
         $io->section('Proces zależny śmignął, lecimy dalej');
 
 //        $io->section('Running database sync');
