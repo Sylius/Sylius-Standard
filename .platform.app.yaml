@@ -108,6 +108,7 @@ hooks:
         EOS
         bin/console doctrine:database:create --if-not-exists
         bin/console doctrine:schema:update --force --complete
+        bin/console project:install-plugins
         yarn install --frozen-lockfile
         yarn build:prod
 
@@ -115,7 +116,6 @@ hooks:
         set -e
         rm -rf var/cache/*
         mkdir -p public/media/image
-        bin/console project:install-plugins
         bin/console sylius:fixtures:load -n
         bin/console lexik:jwt:generate-keypair --skip-if-exists
         bin/console assets:install --symlink --relative public
