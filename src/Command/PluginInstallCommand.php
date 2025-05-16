@@ -15,10 +15,10 @@ use Symfony\Component\Process\Exception\ProcessFailedException;
 use Symfony\Component\Process\Process;
 
 #[AsCommand(
-    name: 'sylius:plugin:finalize-installation',
+    name: 'sylius:plugin-installer:install',
     description: 'Finalize plugin installation steps'
 )]
-class FinalizePluginInstallationCommand extends Command
+class PluginInstallCommand extends Command
 {
     /** @var iterable<PluginInstallerInterface> */
     private iterable $installers;
@@ -52,52 +52,20 @@ class FinalizePluginInstallationCommand extends Command
             $io->info("Available installers for : " . count($this->installers));
             foreach ($this->installers as $installer) {
                 if ($installer->supports($pkg)) {
-                    $io->section("Post-install for $pkg");
+                    $io->info("Installer found for $pkg");
                     $installer->install($io);
                     break;
                 }
             }
         }
 
-        foreach ($data['plugins'] as $pkg => $version) {
-            $io->info("Available installers for : " . count($this->installers));
-            foreach ($this->installers as $installer) {
-                if ($installer->supports($pkg)) {
-                    $io->section("Post-install for $pkg");
-                    $installer->finalize($io);
-                    break;
-                }
-            }
-        }
-
-        $io->section('Running Rector');
+        $io->title('Running Rector');
         $process = Process::fromShellCommandline('vendor/bin/rector process src');
         $process->run();
 
-
-        $io->section('Running database sync');
-        $sync = Process::fromShellCommandline('bin/console doctrine:schema:update --force --complete');
-        $sync->run();
-        if (!$sync->isSuccessful()) {
-            $io->error('Database sync failed: ' . $sync->getErrorOutput());
-            return Command::FAILURE;
-        }
-
-        $io->section('Installing assets and building front');
+        $io->title('Installing assets and building front');
         Process::fromShellCommandline('bin/console assets:install')->run();
         Process::fromShellCommandline('yarn encore dev')->run();
-
-
-        $io->section('Loading default fixtures');
-        $fixtures = Process::fromShellCommandline('bin/console sylius:fixtures:load --no-interaction');
-        $fixtures->setTty(Process::isTtySupported());
-        $fixtures->run();
-        if (!$fixtures->isSuccessful()) {
-            $io->error('Fixtures load failed: ' . $fixtures->getErrorOutput());
-            return Command::FAILURE;
-        }
-
-
 
         return Command::SUCCESS;
     }
