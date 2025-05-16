@@ -17,7 +17,7 @@ use Symfony\Component\Process\Process;
     name: 'sylius:plugin-installer:init',
     description: 'Install Sylius plugins'
 )]
-class PluginInstallerCommand extends Command
+class PluginOrchestratorCommand extends Command
 {
     protected function configure(): void
     {
@@ -74,22 +74,6 @@ class PluginInstallerCommand extends Command
                 $this->rakowaInstalacjaElastica();
             }
         }
-
-        $io->section('Uruchamiam drugi przebieg post-install');
-        $php = PHP_BINARY;
-        $console = $this->getApplication()->getName() === 'console' ? 'bin/console' : $_SERVER['argv'][0];
-        $process = new Process([$php, $console, 'sylius:plugin:finalize-installation', '--no-interaction']);
-        $process->mustRun();
-
-        $io->section('Running cache warmup in a fresh process');
-        $warmup = new Process(['bin/console', 'cache:warmup'], getcwd());
-        $warmup->run();
-        if (!$warmup->isSuccessful()) {
-            $io->warning('Cache warmup failed: ' . $warmup->getErrorOutput());
-        }
-
-        $this->getApplication()->getKernel()->shutdown();
-        $io->success('All plugins installed and configured successfully.');
 
         return Command::SUCCESS;
     }
