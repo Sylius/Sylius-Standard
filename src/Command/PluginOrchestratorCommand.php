@@ -79,6 +79,11 @@ class PluginOrchestratorCommand extends Command
             }
         }
 
+        $io->title('ELES init:');
+        $io->text(Process::fromShellCommandline('ls -la config/packages')->mustRun()->getOutput());
+        $io->text(Process::fromShellCommandline('cat config/packages/_sylius.yaml | head -n 10')->mustRun()->getOutput());
+
+
         return Command::SUCCESS;
     }
 
