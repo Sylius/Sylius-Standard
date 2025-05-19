@@ -93,16 +93,16 @@ class PluginOrchestratorCommand extends Command
 
         // 1. Import required config into config/packages/_sylius.yaml
         Process::fromShellCommandline(
-            "sed -i $'/imports:/a\\\n    - { resource: \"@BitBagSyliusElasticsearchPlugin/config/config.yml\" }\\\n' config/packages/_sylius.yaml"
+            "sed -i '' $'/imports:/a\\\n    - { resource: \"@BitBagSyliusElasticsearchPlugin/config/config.yml\" }\\\n' config/packages/_sylius.yaml"
         )->run();
 
         // 2. Import routing before sylius_shop in config/routes.yaml
         Process::fromShellCommandline(
-            "sed -i $'/sylius_shop:/i\\\nbitbag_sylius_elasticsearch_plugin:\\\n    resource: \"@BitBagSyliusElasticsearchPlugin/config/routing.yml\"\\\n' config/routes/sylius_shop.yaml"
+            "sed -i '' $'/sylius_shop:/i\\\nbitbag_sylius_elasticsearch_plugin:\\\n    resource: \"@BitBagSyliusElasticsearchPlugin/config/routing.yml\"\\\n' config/routes/sylius_shop.yaml"
         )->run();
 
         Process::fromShellCommandline(
-            "sed -i '/^[[:space:]]*indexes:/,/^[[:space:]]*app: ~$/d' config/packages/fos_elastica.yaml"
+            "sed -i '' '/^[[:space:]]*indexes:/,/^[[:space:]]*app: ~$/d' config/packages/fos_elastica.yaml"
         )->run();
 
         // 1. Overwrite entire ProductVariant entity with B2B-enabled version
@@ -137,7 +137,7 @@ EOF'
 
         // 3. Remove the Elasticsearch plugin routing from config/routes.yaml
         Process::fromShellCommandline(
-            "sed -i $'/bitbag_sylius_elasticsearch_plugin:/,+1d' config/routes.yaml"
+            "sed -i '' $'/bitbag_sylius_elasticsearch_plugin:/,+1d' config/routes.yaml"
         )->run();
     }
 }
