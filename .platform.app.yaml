@@ -108,7 +108,6 @@ hooks:
             export \$(symfony var:export)
         EOS
         bin/console sylius:plugin-installer:init
-        bin/console debug:container | grep sylius_cms
         bin/console debug:container --tag=app.plugin_installer
         bin/console sylius:plugin-installer:install
         yarn install --frozen-lockfile
