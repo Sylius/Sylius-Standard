@@ -120,7 +120,6 @@ hooks:
         bin/console doctrine:database:create --if-not-exists
         bin/console doctrine:schema:update --force --complete
         bin/console sylius:plugin-installer:finalize
-#        bin/console sylius:fixtures:load -n
         bin/console lexik:jwt:generate-keypair --skip-if-exists
         bin/console assets:install --symlink --relative public
         bin/console cache:clear
