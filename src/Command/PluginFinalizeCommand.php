@@ -54,9 +54,9 @@ class PluginFinalizeCommand extends Command
             return Command::FAILURE;
         }
 
-
-//        $io->title('Check GIT diff before finalization:');
-//        $io->text(Process::fromShellCommandline('git status')->mustRun()->getErrorOutput());
+        $io->title('ELES:');
+        $io->text(Process::fromShellCommandline('ls -la config/packages')->mustRun()->getOutput());
+        $io->text(Process::fromShellCommandline('cat config/packages/_sylius.yaml | head -n 10')->mustRun()->getOutput());
 
         $io->title('Run installers for plugins:');
         foreach ($data['plugins'] as $pkg => $version) {
