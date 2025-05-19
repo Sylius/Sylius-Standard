@@ -54,6 +54,10 @@ class PluginFinalizeCommand extends Command
             return Command::FAILURE;
         }
 
+
+        $io->title('Check GIT diff before finalization:');
+        Process::fromShellCommandline('git status')->run();
+
         $io->title('Run installers for plugins:');
         foreach ($data['plugins'] as $pkg => $version) {
             $io->info('Available finalizers for "' . $pkg . '": ' . count($this->installers));
