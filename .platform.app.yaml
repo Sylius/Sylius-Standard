@@ -109,6 +109,8 @@ hooks:
         EOS
         bin/console sylius:plugin-installer:init
         bin/console debug:container --tag=app.plugin_installer
+        bin/console debug:container --env=dev --tag=app.plugin_installer
+        bin/console debug:container --env=prod --tag=app.plugin_installer
         bin/console sylius:plugin-installer:install
         yarn install --frozen-lockfile
         yarn build:prod
