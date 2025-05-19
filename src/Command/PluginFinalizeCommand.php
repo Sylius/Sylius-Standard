@@ -22,10 +22,11 @@ class PluginFinalizeCommand extends Command
     /** @var iterable<PluginInstallerInterface> */
     private iterable $installers;
 
-    public function __construct(iterable $installers)
-    {
+    public function __construct(
+        #[TaggedIterator('app.plugin_installer')]
+        iterable $installers
+    ) {
         parent::__construct();
-
         $this->installers = $installers;
     }
 

@@ -28,14 +28,3 @@ services:
     App\Controller\:
         resource: '../src/Controller'
         tags: ['controller.service_arguments']
-
-    App\Command\PluginInstallCommand:
-        arguments: [ 
-            !tagged_iterator { tag: 'app.plugin_installer', default_index_method: 'getIndex' } 
-        ]
-
-    App\Command\PluginFinalizeCommand:
-        arguments: [
-            !tagged_iterator { tag: 'app.plugin_installer', default_index_method: 'getIndex' }
-        ]
-
