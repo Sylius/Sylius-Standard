@@ -107,9 +107,9 @@ hooks:
         cat >> "$PLATFORM_APP_DIR/.global/environment" <<EOS
             export \$(symfony var:export)
         EOS
+        bin/console sylius:plugin-installer:init
         bin/console cache:clear --env=prod --no-warmup
         bin/console cache:warmup --env=prod
-        bin/console sylius:plugin-installer:init
         bin/console sylius:plugin-installer:install
         yarn install --frozen-lockfile
         yarn build:prod
