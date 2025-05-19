@@ -54,7 +54,7 @@ class PluginInstallCommand extends Command
 
         $io->title('Run installers for plugins:');
         foreach ($data['plugins'] as $pkg => $version) {
-            $io->info("Available installers for : " . count($this->installers));
+            $io->info('Available installers for "' . $pkg . '": ' . count($this->installers));
             foreach ($this->installers as $installer) {
                 if ($installer->supports($pkg)) {
                     $io->info("Installer found for $pkg");
