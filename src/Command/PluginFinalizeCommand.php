@@ -54,18 +54,6 @@ class PluginFinalizeCommand extends Command
             return Command::FAILURE;
         }
 
-        $io->title('Run installers for plugins:');
-        foreach ($data['plugins'] as $pkg => $version) {
-            $io->info('Available finalizers for "' . $pkg . '": ' . count($this->installers));
-            foreach ($this->installers as $installer) {
-                if ($installer->supports($pkg)) {
-                    $io->info("Finalizing installation for $pkg");
-                    $installer->finalize($io);
-                    break;
-                }
-            }
-        }
-
         $io->section('Running database sync');
         $sync = Process::fromShellCommandline('bin/console doctrine:schema:update --force --complete');
         $sync->run();
@@ -81,6 +69,18 @@ class PluginFinalizeCommand extends Command
         if (!$fixtures->isSuccessful()) {
             $io->error('Fixtures load failed: ' . $fixtures->getErrorOutput());
             return Command::FAILURE;
+        }
+
+        $io->title('Run installers for plugins:');
+        foreach ($data['plugins'] as $pkg => $version) {
+            $io->info('Available finalizers for "' . $pkg . '": ' . count($this->installers));
+            foreach ($this->installers as $installer) {
+                if ($installer->supports($pkg)) {
+                    $io->info("Finalizing installation for $pkg");
+                    $installer->finalize($io);
+                    break;
+                }
+            }
         }
 
         $io->section('Running cache warmup in a fresh process');
