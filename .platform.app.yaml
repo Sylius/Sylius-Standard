@@ -74,6 +74,7 @@ variables:
         APP_ENV: 'prod'
         APP_DEBUG: 0
         N_PREFIX: /app/.global
+        ELASTICSEARCH_URL: 'http://{relationship:elasticsearch:host}:{relationship:elasticsearch:port}'
 
 build:
     flavor: composer
