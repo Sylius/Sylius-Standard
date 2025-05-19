@@ -12,6 +12,7 @@ use Symfony\Component\Console\Output\OutputInterface;
 use Symfony\Component\Console\Style\SymfonyStyle;
 use Symfony\Component\Process\Exception\ProcessFailedException;
 use Symfony\Component\Process\Process;
+use Symfony\Component\Yaml\Yaml;
 
 #[AsCommand(
     name: 'sylius:plugin-installer:init',
@@ -92,18 +93,48 @@ class PluginOrchestratorCommand extends Command
         // Obejście braku receptur w bitbag elasticsearch
 
         // 1. Import required config into config/packages/_sylius.yaml
-        Process::fromShellCommandline(
-            "sed -i '' $'/imports:/a\\\n    - { resource: \"@BitBagSyliusElasticsearchPlugin/config/config.yml\" }\\\n' config/packages/_sylius.yaml"
-        )->run();
+        $syliusConfigFile = 'config/packages/_sylius.yaml';
+        $syliusConfig = Yaml::parseFile($syliusConfigFile);
+        if (!isset($syliusConfig['imports']) || !is_array($syliusConfig['imports'])) {
+            $syliusConfig['imports'] = [];
+        }
+        // Prepend BitBag Elasticsearch import
+        array_unshift(
+            $syliusConfig['imports'],
+            ['resource' => '@BitBagSyliusElasticsearchPlugin/config/config.yml']
+        );
+        file_put_contents(
+            $syliusConfigFile,
+            Yaml::dump($syliusConfig,4, 2)
+        );
+
 
         // 2. Import routing before sylius_shop in config/routes.yaml
-        Process::fromShellCommandline(
-            "sed -i '' $'/sylius_shop:/i\\\nbitbag_sylius_elasticsearch_plugin:\\\n    resource: \"@BitBagSyliusElasticsearchPlugin/config/routing.yml\"\\\n' config/routes/sylius_shop.yaml"
-        )->run();
+        $shopRoutesFile = 'config/routes/sylius_shop.yaml';
+        $shopRoutes = Yaml::parseFile($shopRoutesFile);
+        $newRoutes = [];
+        foreach ($shopRoutes as $routeName => $routeConfig) {
+            if ($routeName === 'sylius_shop') {
+                $newRoutes['bitbag_sylius_elasticsearch_plugin'] = [
+                    'resource' => '@BitBagSyliusElasticsearchPlugin/config/routing.yml',
+                ];
+            }
+            $newRoutes[$routeName] = $routeConfig;
+        }
+        file_put_contents(
+            $shopRoutesFile,
+            Yaml::dump($newRoutes, 4, 2)
+        );
 
-        Process::fromShellCommandline(
-            "sed -i '' '/^[[:space:]]*indexes:/,/^[[:space:]]*app: ~$/d' config/packages/fos_elastica.yaml"
-        )->run();
+        $elasticConfigFile = 'config/packages/fos_elastica.yaml';
+        $elasticConfig = Yaml::parseFile($elasticConfigFile);
+        if (isset($elasticConfig['fos_elastica']['indexes'])) {
+            unset($elasticConfig['fos_elastica']['indexes']);
+        }
+        file_put_contents(
+            $elasticConfigFile,
+            Yaml::dump($elasticConfig, 4, 2)
+        );
 
         // 1. Overwrite entire ProductVariant entity with B2B-enabled version
         Process::fromShellCommandline(
@@ -134,10 +165,14 @@ class ProductVariant extends BaseProductVariant implements BitBagElasticsearchPl
 EOF'
         )->run();
 
-
-        // 3. Remove the Elasticsearch plugin routing from config/routes.yaml
-        Process::fromShellCommandline(
-            "sed -i '' $'/bitbag_sylius_elasticsearch_plugin:/,+1d' config/routes.yaml"
-        )->run();
+        $routesFile = 'config/routes.yaml';
+        $routesConfig = Yaml::parseFile($routesFile);
+        if (isset($routesConfig['bitbag_sylius_elasticsearch_plugin'])) {
+            unset($routesConfig['bitbag_sylius_elasticsearch_plugin']);
+        }
+        file_put_contents(
+            $routesFile,
+            Yaml::dump($routesConfig, 4, 2)
+        );
     }
 }
