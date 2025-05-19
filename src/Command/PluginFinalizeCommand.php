@@ -54,10 +54,6 @@ class PluginFinalizeCommand extends Command
             return Command::FAILURE;
         }
 
-        $io->title('ELES:');
-        $io->text(Process::fromShellCommandline('ls -la config/packages')->mustRun()->getOutput());
-        $io->text(Process::fromShellCommandline('cat config/packages/_sylius.yaml | head -n 10')->mustRun()->getOutput());
-
         $io->title('Run installers for plugins:');
         foreach ($data['plugins'] as $pkg => $version) {
             $io->info('Available finalizers for "' . $pkg . '": ' . count($this->installers));
