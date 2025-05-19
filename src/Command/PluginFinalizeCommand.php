@@ -55,8 +55,8 @@ class PluginFinalizeCommand extends Command
         }
 
 
-        $io->title('Check GIT diff before finalization:');
-        $io->text(Process::fromShellCommandline('git status')->mustRun()->getErrorOutput());
+//        $io->title('Check GIT diff before finalization:');
+//        $io->text(Process::fromShellCommandline('git status')->mustRun()->getErrorOutput());
 
         $io->title('Run installers for plugins:');
         foreach ($data['plugins'] as $pkg => $version) {

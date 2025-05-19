@@ -52,8 +52,8 @@ class PluginInstallCommand extends Command
             return Command::FAILURE;
         }
 
-        $io->title('Check GIT diff before installation:');
-        $io->text(Process::fromShellCommandline('git status')->mustRun()->getErrorOutput());
+//        $io->title('Check GIT diff before installation:');
+//        $io->text(Process::fromShellCommandline('git status')->mustRun()->getErrorOutput());
 
         $io->title('Run installers for plugins:');
         foreach ($data['plugins'] as $pkg => $version) {
