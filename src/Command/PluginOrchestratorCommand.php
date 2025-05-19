@@ -105,7 +105,7 @@ class PluginOrchestratorCommand extends Command
         );
         file_put_contents(
             $syliusConfigFile,
-            Yaml::dump($syliusConfig)
+            Yaml::dump($syliusConfig, inline: 10)
         );
 
 
@@ -123,7 +123,7 @@ class PluginOrchestratorCommand extends Command
         }
         file_put_contents(
             $shopRoutesFile,
-            Yaml::dump($newRoutes)
+            Yaml::dump($newRoutes, inline: 10)
         );
 
         $elasticConfigFile = 'config/packages/fos_elastica.yaml';
@@ -133,7 +133,7 @@ class PluginOrchestratorCommand extends Command
         }
         file_put_contents(
             $elasticConfigFile,
-            Yaml::dump($elasticConfig)
+            Yaml::dump($elasticConfig, inline: 10)
         );
 
         // 1. Overwrite entire ProductVariant entity with B2B-enabled version
@@ -172,7 +172,7 @@ EOF'
         }
         file_put_contents(
             $routesFile,
-            Yaml::dump($routesConfig)
+            Yaml::dump($routesConfig, inline: 10)
         );
     }
 }
