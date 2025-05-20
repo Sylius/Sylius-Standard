@@ -25,7 +25,6 @@ class PluginOrchestratorCommand extends Command
         $io = new SymfonyStyle($input, $output);
         $io->section('Plugin installation started');
 
-
         $io->title('Plugins to install:');
         $plugins = $this->loadPlugins($io);
 

@@ -15,7 +15,7 @@ use Symfony\Component\Process\Process;
 
 #[AsCommand(
     name: 'sylius:plugin-installer:install',
-    description: 'Finalize plugin installation steps based on PLATFORM_DEMO_PLUGINS_JSON'
+    description: 'Finalize plugin installation steps based on SYLIUS_PLUGINS_JSON'
 )]
 class PluginInstallCommand extends Command
 {
@@ -24,7 +24,7 @@ class PluginInstallCommand extends Command
     /** @param iterable<PluginInstallerInterface> $installers */
     public function __construct(
         #[TaggedIterator('app.plugin_installer')]
-        private readonly iterable $installers
+        private readonly iterable $installers,
     ) {
         parent::__construct();
     }
