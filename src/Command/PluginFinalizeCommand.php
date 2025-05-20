@@ -19,6 +19,8 @@ use Symfony\Component\Process\Process;
 )]
 class PluginFinalizeCommand extends Command
 {
+    use PluginConfigTrait;
+
     /** @var iterable<PluginInstallerInterface> */
     private iterable $installers;
 
@@ -42,18 +44,6 @@ class PluginFinalizeCommand extends Command
             $io->warning('Cache warmup failed: ' . $warmup->getErrorOutput());
         }
 
-
-        $configPath = 'booster.json';
-        if (!file_exists($configPath)) {
-            $io->error("Configuration file '$configPath' not found.");
-            return Command::FAILURE;
-        }
-        $data = json_decode(file_get_contents($configPath), true);
-        if (!isset($data['plugins']) || !is_array($data['plugins'])) {
-            $io->error('Invalid config: missing "plugins" array.');
-            return Command::FAILURE;
-        }
-
         $io->section('Running database sync');
         $sync = Process::fromShellCommandline('bin/console doctrine:schema:update --force --complete');
         $sync->run();
@@ -72,7 +62,8 @@ class PluginFinalizeCommand extends Command
         }
 
         $io->title('Run installers for plugins:');
-        foreach ($data['plugins'] as $pkg => $version) {
+        $plugins = $this->loadPlugins($io);
+        foreach ($plugins as $pkg => $version) {
             $io->info('Available finalizers for "' . $pkg . '": ' . count($this->installers));
             foreach ($this->installers as $installer) {
                 if ($installer->supports($pkg)) {

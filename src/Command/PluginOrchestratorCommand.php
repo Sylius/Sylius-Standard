@@ -6,7 +6,6 @@ namespace App\Command;
 
 use Symfony\Component\Console\Attribute\AsCommand;
 use Symfony\Component\Console\Command\Command;
-use Symfony\Component\Console\Input\InputArgument;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
 use Symfony\Component\Console\Style\SymfonyStyle;
@@ -19,37 +18,18 @@ use Symfony\Component\Yaml\Yaml;
 )]
 class PluginOrchestratorCommand extends Command
 {
-    protected function configure(): void
-    {
-        $this
-            ->addArgument(
-                'config-file',
-                InputArgument::OPTIONAL,
-                'Path to booster JSON config',
-                'booster.json'
-            );
-    }
+    use PluginConfigTrait;
 
     protected function execute(InputInterface $input, OutputInterface $output): int
     {
         $io = new SymfonyStyle($input, $output);
         $io->section('Plugin installation started');
 
-        $configPath = $input->getArgument('config-file');
-        if (!file_exists($configPath)) {
-            $io->error("Configuration file '$configPath' not found.");
-            return Command::FAILURE;
-        }
-
-        $data = json_decode(file_get_contents($configPath), true);
-        if (!isset($data['plugins']) || !is_array($data['plugins'])) {
-            $io->error('Invalid config: missing "plugins" array.');
-            return Command::FAILURE;
-        }
-
 
         $io->title('Plugins to install:');
-        foreach ($data['plugins'] as $pkg => $version) {
+        $plugins = $this->loadPlugins($io);
+
+        foreach ($plugins as $pkg => $version) {
             $io->text(" - $pkg ($version)");
         }
         $io->newLine();
@@ -57,7 +37,7 @@ class PluginOrchestratorCommand extends Command
         $io->info('Configuring Symfony Flex to auto-accept contrib recipes');
         Process::fromShellCommandline('composer config extra.symfony.allow-contrib true')->run();
 
-        if (count($data['plugins']) === 0) {
+        if (count($plugins) === 0) {
             $io->success('No plugins to install.');
             return Command::SUCCESS;
         }
@@ -65,7 +45,7 @@ class PluginOrchestratorCommand extends Command
         $io->info('Add Sylius Packagist repository');
         Process::fromShellCommandline('composer config repositories.sylius composer https://sylius.repo.packagist.com/sylius/')->run();
 
-        foreach ($data['plugins'] as $pkg => $version) {
+        foreach ($plugins as $pkg => $version) {
             $io->info("Installing $pkg");
 
             // Require tagged version to resolve symfony recipes correctly

@@ -19,7 +19,7 @@ use Symfony\Component\Process\Process;
 )]
 class PluginInstallCommand extends Command
 {
-    private const ENV_PLUGINS = 'SYLIUS_PLUGINS_JSON';
+    use PluginConfigTrait;
 
     /** @param iterable<PluginInstallerInterface> $installers */
     public function __construct(
@@ -33,23 +33,7 @@ class PluginInstallCommand extends Command
     {
         $io = new SymfonyStyle($input, $output);
 
-        $rawJson = getenv(self::ENV_PLUGINS);
-        if (false === $rawJson || '' === trim($rawJson)) {
-            $io->error(sprintf('Environment variable %s is not set or empty.', self::ENV_PLUGINS));
-            return Command::FAILURE;
-        }
-
-        try {
-            $plugins = json_decode($rawJson, true, 512, JSON_THROW_ON_ERROR);
-        } catch (\JsonException $e) {
-            $io->error(sprintf('Invalid JSON in %s: %s', self::ENV_PLUGINS, $e->getMessage()));
-            return Command::FAILURE;
-        }
-
-        if (!is_array($plugins)) {
-            $io->error(sprintf('%s JSON does not decode to an array.', self::ENV_PLUGINS));
-            return Command::FAILURE;
-        }
+        $plugins = $this->loadPlugins($io);
 
         $io->title('Run installers for plugins:');
         foreach ($plugins as $package => $version) {
