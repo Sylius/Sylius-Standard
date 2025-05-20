@@ -15,49 +15,47 @@ use Symfony\Component\Process\Process;
 
 #[AsCommand(
     name: 'sylius:plugin-installer:install',
-    description: 'Finalize plugin installation steps'
+    description: 'Finalize plugin installation steps based on PLATFORM_DEMO_PLUGINS_JSON'
 )]
 class PluginInstallCommand extends Command
 {
-    /** @var iterable<PluginInstallerInterface> */
-    private iterable $installers;
+    private const ENV_PLUGINS = 'SYLIUS_PLUGINS_JSON';
 
+    /** @param iterable<PluginInstallerInterface> $installers */
     public function __construct(
         #[TaggedIterator('app.plugin_installer')]
-        iterable $installers
+        private readonly iterable $installers
     ) {
         parent::__construct();
-        $this->installers = $installers;
     }
 
     protected function execute(InputInterface $input, OutputInterface $output): int
     {
         $io = new SymfonyStyle($input, $output);
-        $io->section('Command 1');
 
-        $warmup = new Process(['bin/console', 'cache:warmup'], getcwd());
-        $warmup->run();
-        if (!$warmup->isSuccessful()) {
-            $io->warning('Cache warmup failed: ' . $warmup->getErrorOutput());
-        }
-
-        $configPath = 'booster.json';
-        if (!file_exists($configPath)) {
-            $io->error("Configuration file '$configPath' not found.");
+        $rawJson = getenv(self::ENV_PLUGINS);
+        if (false === $rawJson || '' === trim($rawJson)) {
+            $io->error(sprintf('Environment variable %s is not set or empty.', self::ENV_PLUGINS));
             return Command::FAILURE;
         }
-        $data = json_decode(file_get_contents($configPath), true);
-        if (!isset($data['plugins']) || !is_array($data['plugins'])) {
-            $io->error('Invalid config: missing "plugins" array.');
+
+        try {
+            $plugins = json_decode($rawJson, true, 512, JSON_THROW_ON_ERROR);
+        } catch (\JsonException $e) {
+            $io->error(sprintf('Invalid JSON in %s: %s', self::ENV_PLUGINS, $e->getMessage()));
+            return Command::FAILURE;
+        }
+
+        if (!is_array($plugins)) {
+            $io->error(sprintf('%s JSON does not decode to an array.', self::ENV_PLUGINS));
             return Command::FAILURE;
         }
 
         $io->title('Run installers for plugins:');
-        foreach ($data['plugins'] as $pkg => $version) {
-            $io->info('Available installers for "' . $pkg . '": ' . count($this->installers));
+        foreach ($plugins as $package => $version) {
+            $io->info('Available installers for "' . $package . '": ' . count($this->installers));
             foreach ($this->installers as $installer) {
-                if ($installer->supports($pkg)) {
-                    $io->info("Installer found for $pkg");
+                if ($installer->supports($package)) {
                     $installer->install($io);
                     break;
                 }
@@ -79,6 +77,8 @@ class PluginInstallCommand extends Command
         if (!$warmup->isSuccessful()) {
             $io->warning('Cache warmup failed: ' . $warmup->getErrorOutput());
         }
+
+        $io->success('Plugin installation workflow completed.');
 
         return Command::SUCCESS;
     }
