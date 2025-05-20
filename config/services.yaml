@@ -1,3 +1,6 @@
+parameters:
+    sylius_plugins: '%env(json:SYLIUS_PLUGINS_JSON)%'
+
 services:
     # Default configuration for services in *this* file
     _defaults:
