@@ -11,6 +11,7 @@ use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
 use Symfony\Component\Console\Style\SymfonyStyle;
 use Symfony\Component\DependencyInjection\Attribute\TaggedIterator;
+use Symfony\Component\DependencyInjection\Exception\ParameterNotFoundException;
 use Symfony\Component\Process\Process;
 
 #[AsCommand(
@@ -62,7 +63,13 @@ class PluginFinalizeCommand extends Command
         }
 
         $io->title('Run installers for plugins:');
-        $plugins = $this->loadPlugins($io);
+        try {
+            $plugins = $this->loadPlugins($io);
+        } catch (EnvNotFoundException) {
+            $io->info('No plugins to process.');
+
+            return Command::SUCCESS;
+        }
         foreach ($plugins as $pkg => $version) {
             $io->info('Available finalizers for "' . $pkg . '": ' . count($this->installers));
             foreach ($this->installers as $installer) {

@@ -11,6 +11,7 @@ use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
 use Symfony\Component\Console\Style\SymfonyStyle;
 use Symfony\Component\DependencyInjection\Attribute\TaggedIterator;
+use Symfony\Component\DependencyInjection\Exception\ParameterNotFoundException;
 use Symfony\Component\Process\Process;
 
 #[AsCommand(
@@ -33,7 +34,13 @@ class PluginInstallCommand extends Command
     {
         $io = new SymfonyStyle($input, $output);
 
-        $plugins = $this->loadPlugins($io);
+        try {
+            $plugins = $this->loadPlugins($io);
+        } catch (EnvNotFoundException) {
+            $io->info('No plugins to process.');
+
+            return Command::SUCCESS;
+        }
 
         $io->title('Run installers for plugins:');
         foreach ($plugins as $package => $version) {
