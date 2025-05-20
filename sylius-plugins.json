@@ -1,6 +1,6 @@
 {
   "plugins": {
-    "sylius/b2b-kit": "2.0.x-dev",
+    "sylius/return-plugin": "2.0.x-dev",
     "sylius/cms-plugin": "1.0.x-dev",
     "sylius/invoicing-plugin": "2.0.x-dev"
   }
