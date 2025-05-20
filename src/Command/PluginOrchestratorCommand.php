@@ -68,11 +68,16 @@ class PluginOrchestratorCommand extends Command
         foreach ($data['plugins'] as $pkg => $version) {
             $io->info("Installing $pkg");
 
-            $process = Process::fromShellCommandline(
+            // Require tagged version to resolve symfony recipes correctly
+            Process::fromShellCommandline(
                 sprintf('composer require %s:%s --no-scripts --no-interaction', $pkg, $version),
-            );
+            )->mustRun();
 
-            $process->mustRun();
+            // Once recipes exists - require dev-booster branch to has access custom plugin code
+            Process::fromShellCommandline(
+                sprintf('composer require "%s:dev-booster" --no-scripts --no-interaction', $pkg),
+            )->mustRun();
+
 
             if ($pkg === 'sylius/b2b-kit') {
                 $this->rakowaInstalacjaElastica();
