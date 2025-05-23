@@ -100,15 +100,21 @@ class PluginManagerCommand extends Command
             return $proc->getExitCode();
         }
 
-        // ==== STAGE=install ====
-        $io->section('⚙️  Installing plugins');
+        try {
+            $this->runCommonPreSteps($io);
+        } catch (\RuntimeException $e) {
+            $io->error('Failed to load fixtures: ' . $e->getMessage());
+            return Command::FAILURE;
+        }
+
+        $io->section('Installing plugins');
         foreach ($plugins as $plugin) {
             $installer = $this->findInstallerFor($plugin);
             $installer->install($io);
             $installer->finalize($io);
         }
 
-        $this->runCommonSteps($io);
+        $this->runCommonPostSteps($io);
 
         $io->success('All plugins installed.');
         return Command::SUCCESS;
@@ -125,7 +131,21 @@ class PluginManagerCommand extends Command
         throw new \RuntimeException(sprintf('No installer found for package "%s"', $plugin));
     }
 
-    private function runCommonSteps(SymfonyStyle $io): void
+    private function runCommonPreSteps(SymfonyStyle $io): void
+    {
+        $io->section('Loading default fixtures');
+        $process = Process::fromShellCommandline('bin/console sylius:fixtures:load --no-interaction');
+        $process->setTty(Process::isTtySupported());
+        $process->run();
+
+        if (!$process->isSuccessful()) {
+            throw new \RuntimeException('Fixtures load failed: ' . $process->getErrorOutput());
+        }
+
+        $io->success('Fixtures loaded successfully.');
+    }
+
+    private function runCommonPostSteps(SymfonyStyle $io): void
     {
         $clear = new Process(['bin/console', 'cache:clear'], getcwd());
         $clear->run();
