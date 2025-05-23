@@ -4,7 +4,6 @@ declare(strict_types=1);
 
 namespace App\Command;
 
-use App\Plugin\Installer\PluginInstallerInterface;
 use Symfony\Component\Console\Attribute\AsCommand;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputInterface;
@@ -12,7 +11,6 @@ use Symfony\Component\Console\Input\InputOption;
 use Symfony\Component\Console\Output\OutputInterface;
 use Symfony\Component\Console\Style\SymfonyStyle;
 use Symfony\Component\DependencyInjection\Attribute\AutowireIterator;
-use Symfony\Component\DependencyInjection\Attribute\TaggedIterator;
 use Symfony\Component\Process\Process;
 
 #[AsCommand(
@@ -126,6 +124,8 @@ class PluginManagerCommand extends Command
             $installer->finalize($io);
         }
 
+        $this->runCommonSteps($io);
+
         $io->success('All plugins installed.');
         return Command::SUCCESS;
     }
@@ -139,5 +139,22 @@ class PluginManagerCommand extends Command
         }
 
         throw new \RuntimeException(sprintf('No installer found for package "%s"', $pkg));
+    }
+
+    private function runCommonSteps(SymfonyStyle $io): void
+    {
+        $clear = new Process(['bin/console', 'cache:clear'], getcwd());
+        $clear->run();
+        if (!$clear->isSuccessful()) {
+            $io->warning('Cache clear failed: ' . $clear->getErrorOutput());
+        }
+
+        $warmup = new Process(['bin/console', 'cache:warmup'], getcwd());
+        $warmup->run();
+        if (!$warmup->isSuccessful()) {
+            $io->warning('Cache warmup failed: ' . $warmup->getErrorOutput());
+        }
+
+        $io->success('All plugins installed and configured successfully.');
     }
 }
