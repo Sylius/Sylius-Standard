@@ -80,6 +80,7 @@ class PluginManagerCommand extends Command
                 return Command::SUCCESS;
             }
 
+            $plugins = $plugins ?? [];
             $plugins[$selected] = $supportedPlugins[$selected];
         }
 
@@ -114,7 +115,7 @@ class PluginManagerCommand extends Command
 
             $cmd = array_merge(
                 [PHP_BINARY, 'bin/console', self::$defaultName, '--stage=install', '--mode=auto'],
-                array_map(fn(array $plugin) => "--plugins={$plugin}", $flatPlugins)
+                array_map(fn(string $plugin): string => "--plugins={$plugin}", $flatPlugins)
             );
             $proc = new Process($cmd, getcwd());
             $proc->setTty(Process::isTtySupported());
@@ -125,12 +126,17 @@ class PluginManagerCommand extends Command
 
         // Stage: install
         $io->section('Installing plugins');
-        foreach ($plugins as $plugin) {
+        foreach (array_keys($plugins) as $plugin) {
             $installer = $this->findInstallerFor($plugin);
             $installer->install($io);
         }
 
-        $this->runCommonPostSteps($io);
+        try {
+            $this->runCommonPostSteps($io);
+        } catch (\Throwable $e) {
+            $io->error($e->getMessage());
+            return Command::FAILURE;
+        }
 
         $io->success('All plugins installed.');
         return Command::SUCCESS;
