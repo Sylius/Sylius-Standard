@@ -11,7 +11,7 @@ use Symfony\Component\DependencyInjection\ContainerInterface;
 trait PluginConfigTrait
 {
     private const ENV_PLUGINS = 'SYLIUS_PLUGINS_JSON';
-    private const FILE_NAME   = 'sylius-plugins.json';
+    private const FILE_NAME = 'sylius-plugins.json';
 
     /**
      * @return array<string,string>  [package => version]
@@ -47,5 +47,17 @@ trait PluginConfigTrait
         $io->text(sprintf('Loaded plugin config from env var %s', self::ENV_PLUGINS));
 
         return $plugins;
+    }
+
+    private function getSupportedPlugins(): array
+    {
+        return [
+            "sylius/b2b-kit" => "2.0.x-dev",
+            "sylius/cms-plugin" => "1.0.x-dev",
+            "sylius/customer-service-plugin" => "2.0.x-dev",
+            "sylius/loyalty-plugin" => "2.0.x-dev",
+            "sylius/return-plugin" => "2.0.x-dev",
+            "sylius/invoicing-plugin" => "2.0.x-dev",
+        ];
     }
 }
