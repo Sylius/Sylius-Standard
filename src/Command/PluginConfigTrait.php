@@ -20,9 +20,9 @@ trait PluginConfigTrait
     {
         /* @var ContainerInterface $container */
         $container = $this->getApplication()->getKernel()->getContainer();
-
         $projectDir = $container->getParameter('kernel.project_dir');
         $filePath = $projectDir . DIRECTORY_SEPARATOR . self::FILE_NAME;
+
         if (file_exists($filePath)) {
             $io->text(sprintf('Loading plugin config from "%s"', $filePath));
             $raw = file_get_contents($filePath);
@@ -30,23 +30,17 @@ trait PluginConfigTrait
                 $data = json_decode($raw, true, 512, JSON_THROW_ON_ERROR);
             } catch (JsonException $e) {
                 $io->warning(sprintf('Invalid JSON in %s: %s', self::FILE_NAME, $e->getMessage()));
+                return [];
             }
 
-            if (!empty($data) && is_array($data)) {
+            if (is_array($data) && !empty($data)) {
                 return $data;
             }
-            $io->warning(sprintf('File %s did not decode to an array, falling back to env-var.', self::FILE_NAME));
+
+            $io->warning(sprintf('File %s did not decode to a non-empty array, falling back to none.', self::FILE_NAME));
         }
 
-        $plugins = $container->getParameter('sylius_plugins') ?? [];
-        if (!is_array($plugins)) {
-            $io->error(sprintf('Env var %s did not decode to an array.', self::ENV_PLUGINS));
-            throw new \RuntimeException('Plugins JSON not an array');
-        }
-
-        $io->text(sprintf('Loaded plugin config from env var %s', self::ENV_PLUGINS));
-
-        return $plugins;
+        return [];
     }
 
     private function getSupportedPlugins(): array
@@ -59,5 +53,51 @@ trait PluginConfigTrait
             "sylius/return-plugin" => "2.0.x-dev",
             "sylius/invoicing-plugin" => "2.0.x-dev",
         ];
+    }
+
+    /**
+     * @return string[]  List of installed Sylius "plugin" packages
+     */
+    private function getInstalledPlugins(): array
+    {
+        /* @var ContainerInterface $container */
+        $container = $this->getApplication()->getKernel()->getContainer();
+        $projectDir = $container->getParameter('kernel.project_dir');
+        $lockFile = $projectDir . '/composer.lock';
+
+        if (!file_exists($lockFile)) {
+            return [];
+        }
+
+        $raw = file_get_contents($lockFile);
+        if (false === $raw) {
+            return [];
+        }
+
+        try {
+            $data = json_decode($raw, true, 512, JSON_THROW_ON_ERROR);
+        } catch (JsonException $e) {
+            // nieprawidłowy JSON w composer.lock
+            return [];
+        }
+
+        $packages = $data['packages'] ?? [];
+        if (isset($data['packages-dev']) && is_array($data['packages-dev'])) {
+            $packages = array_merge($packages, $data['packages-dev']);
+        }
+
+        $installed = [];
+        foreach ($packages as $package) {
+            if (!isset($package['name'])) {
+                continue;
+            }
+            $name = $package['name'];
+            if (str_starts_with($name, 'sylius/') &&
+                preg_match('/-(plugin|kit|suite)$/', $name)) {
+                $installed[] = $name;
+            }
+        }
+
+        return $installed;
     }
 }
