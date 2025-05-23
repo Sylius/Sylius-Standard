@@ -4,9 +4,10 @@ declare(strict_types=1);
 
 namespace App\Command;
 
+use RuntimeException;
+use Exception;
 use Symfony\Component\Console\Attribute\AsCommand;
 use Symfony\Component\Console\Command\Command;
-use Symfony\Component\Console\Exception\RunCommandFailedException;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Input\InputOption;
 use Symfony\Component\Console\Output\OutputInterface;
@@ -105,9 +106,15 @@ class PluginManagerCommand extends Command
             $process->run();
 
             $io->section('🔄 Restarting plugin-manager in install mode');
+            $flatPlugins = array_map(
+                fn(string $name, string $version): string => "$name:$version",
+                array_keys($plugins),
+                array_values($plugins)
+            );
+
             $cmd = array_merge(
                 [PHP_BINARY, 'bin/console', self::$defaultName, '--stage=install', '--mode=auto'],
-                array_map(fn(string $plugin) => "--plugins={$plugin}", array_keys($plugins))
+                array_map(fn(array $plugin) => "--plugins={$plugin}", $flatPlugins)
             );
             $proc = new Process($cmd, getcwd());
             $proc->setTty(Process::isTtySupported());
@@ -137,7 +144,7 @@ class PluginManagerCommand extends Command
             }
         }
 
-        throw new \RuntimeException(sprintf('No installer found for package "%s"', $plugin));
+        throw new RuntimeException(sprintf('No installer found for package "%s"', $plugin));
     }
 
     private function runCommonPostSteps(SymfonyStyle $io): void
@@ -151,7 +158,7 @@ class PluginManagerCommand extends Command
         $sync->run();
         if (!$sync->isSuccessful()) {
             $io->error('Database sync failed: ' . $sync->getErrorOutput());
-            throw new \Exception('Database sync failed');
+            throw new Exception('Database sync failed');
         }
 
         $io->section('Loading default fixtures');
@@ -160,7 +167,7 @@ class PluginManagerCommand extends Command
         $process->run();
 
         if (!$process->isSuccessful()) {
-            throw new \RuntimeException('Fixtures load failed: ' . $process->getErrorOutput());
+            throw new RuntimeException('Fixtures load failed: ' . $process->getErrorOutput());
         }
 
         $io->success('Fixtures loaded successfully.');
