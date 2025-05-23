@@ -21,6 +21,9 @@ class PluginManagerCommand extends Command
 {
     use PluginConfigTrait;
 
+    protected const MODE_MANUAL = 'manual';
+    protected const MODE_AUTO = 'auto';
+
     protected static $defaultName = 'sylius:plugin-manager';
 
     public function __construct(#[AutowireIterator('app.plugin_installer')] private readonly iterable $installers)
@@ -31,68 +34,50 @@ class PluginManagerCommand extends Command
     protected function configure(): void
     {
         $this
-            ->addOption('stage', null, InputOption::VALUE_REQUIRED, 'require|install', 'require')
-            ->addOption('plugins', null, InputOption::VALUE_REQUIRED | InputOption::VALUE_IS_ARRAY,
-                'Plugin names to process, e.g. sylius/return-plugin')
-            ->addOption('no-interaction', 'n', InputOption::VALUE_NONE, 'Non-interactive mode');
+            ->addOption('mode', null, InputOption::VALUE_OPTIONAL, 'manual|auto', self::MODE_MANUAL)
+            ->addOption('stage', null, InputOption::VALUE_OPTIONAL, 'require|install', 'require')
+            ->addOption('plugins', null, InputOption::VALUE_OPTIONAL | InputOption::VALUE_IS_ARRAY,
+                'Plugin names to process, e.g. sylius/return-plugin');
     }
 
     protected function execute(InputInterface $input, OutputInterface $output): int
     {
         $io = new SymfonyStyle($input, $output);
+        $io->title('Sylius Plugin Manager');
+
+        $mode = $input->getOption('mode');
         $stage = $input->getOption('stage');
-        $packages = $input->getOption('plugins');
+        $plugins = $input->getOption('plugins');
 
-        // 1) wybór pluginów (tylko w stage=require && interactive)
-        if ($stage === 'require' && !$input->getOption('no-interaction')) {
-            // 1. Pobieramy deklarację wszystkich wspieranych pluginów
-            $supportedPlugins = $this->getSupportedPlugins(); // [pkg => version, ...]
+        $supportedPlugins = $this->getSupportedPlugins();
+        $installedPlugins = $this->getInstalledPlugins();
 
-            // 2. Pobieramy listę faktycznie zainstalowanych w vendor/
-            $installedPlugins = $this->getInstalledPlugins(); // ['sylius/return-plugin', ...]
-
-            // 3. Wyświetlamy tabelę: Package | Version | Installed
-            $io->title('Available Sylius plugins');
+        if ($mode === self::MODE_MANUAL) {
+            $io->title('Select plugin to manage');
             $rows = [];
-            foreach ($supportedPlugins as $pkg => $version) {
-                $rows[] = [
-                    $pkg,
-                    $version,
-                    in_array($pkg, $installedPlugins, true) ? '✅' : '',
-                ];
+            foreach ($supportedPlugins as $plugin => $version) {
+                $rows[] = [$plugin, $version, in_array($plugin, $installedPlugins, true) ? '✅' : ''];
             }
-            $io->table(['Package', 'Version', 'Installed'], $rows);
+            $io->table(['Plugin', 'Version', 'Installed'], $rows);
 
-            // 4. Wybór wielokrotny
-            $choices = array_keys($supportedPlugins);
-            // domyślnie zaznaczamy te, które już są w vendor/
-            $default = array_values(array_intersect($choices, $installedPlugins));
+            $selected = $io->choice('Select plugin to manage', array_keys($supportedPlugins));
 
-            // Uwaga: 5 argumentów: question, choices, default, maxAttempts, multiselect
-            $selected = $io->choice(
-                'Select plugin(s) to require',
-                $choices,
-            );
-
-            // 5. Jeśli nic nie wybrano — kończymy
             if (empty($selected)) {
                 $io->warning('No plugins selected, aborting.');
                 return Command::SUCCESS;
             }
 
-            // 6. Nadpisujemy wejściowy array $packages
-            $packages[$selected] = $supportedPlugins[$selected];
+            $plugins[$selected] = $supportedPlugins[$selected];
         }
 
-
-        if (empty($packages)) {
+        if (empty($plugins)) {
             $io->error('No plugins specified.');
             return Command::FAILURE;
         }
 
         if ($stage === 'require') {
-            $io->section('📦 Requiring packages');
-            foreach ($packages as $package => $version) {
+            $io->section('📦 Requiring plugins');
+            foreach ($plugins as $package => $version) {
                 // Require tagged version to resolve symfony recipes correctly
                 Process::fromShellCommandline("composer require $package:$version --no-scripts --no-interaction")
                     ->mustRun(fn($type, $buffer) => $output->write($buffer));
@@ -102,10 +87,9 @@ class PluginManagerCommand extends Command
                     ->mustRun(fn($type, $buffer) => $output->write($buffer));
             }
 
-            // 2) Self‐reexec w trybie install
             $cmd = array_merge(
-                [PHP_BINARY, 'bin/console', self::$defaultName, '--stage=install', '--no-interaction'],
-                array_map(fn($p) => "--plugins=$p", $packages)
+                [PHP_BINARY, 'bin/console', self::$defaultName, '--stage=install', '--mode=auto'],
+                array_map(fn(string $plugin) => "--plugins={$plugin}", array_keys($plugins))
             );
 
             $io->section('🔄 Restarting plugin-manager in install mode');
@@ -118,8 +102,8 @@ class PluginManagerCommand extends Command
 
         // ==== STAGE=install ====
         $io->section('⚙️  Installing plugins');
-        foreach ($packages as $pkg) {
-            $installer = $this->findInstallerFor($pkg);
+        foreach ($plugins as $plugin) {
+            $installer = $this->findInstallerFor($plugin);
             $installer->install($io);
             $installer->finalize($io);
         }
@@ -130,15 +114,15 @@ class PluginManagerCommand extends Command
         return Command::SUCCESS;
     }
 
-    private function findInstallerFor(mixed $pkg)
+    private function findInstallerFor(mixed $plugin)
     {
         foreach ($this->installers as $installer) {
-            if ($installer->supports($pkg)) {
+            if ($installer->supports($plugin)) {
                 return $installer;
             }
         }
 
-        throw new \RuntimeException(sprintf('No installer found for package "%s"', $pkg));
+        throw new \RuntimeException(sprintf('No installer found for package "%s"', $plugin));
     }
 
     private function runCommonSteps(SymfonyStyle $io): void
