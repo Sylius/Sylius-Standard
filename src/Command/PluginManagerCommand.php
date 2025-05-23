@@ -38,43 +38,44 @@ class PluginManagerCommand extends Command
         $packages = $input->getOption('plugins');
 
         // 1) wybór pluginów (tylko w stage=require && interactive)
-        if ($stage === 'require' && $input->getOption('no-interaction') === false) {
+        if ($stage === 'require' && !$input->getOption('no-interaction')) {
             // 1. Pobieramy deklarację wszystkich wspieranych pluginów
             $supportedPlugins = $this->getSupportedPlugins(); // [pkg => version, ...]
-            $installedPlugins = $this->getInstalledPlugins($io);
 
-            // 3. Wyświetlamy tabelę: Plugin | Version | Installed
+            // 2. Pobieramy listę faktycznie zainstalowanych w vendor/
+            $installedPlugins = $this->getInstalledPlugins(); // ['sylius/return-plugin', ...]
+
+            // 3. Wyświetlamy tabelę: Package | Version | Installed
             $io->title('Available Sylius plugins');
             $rows = [];
             foreach ($supportedPlugins as $pkg => $version) {
                 $rows[] = [
                     $pkg,
                     $version,
-                    isset($installedPlugins[$pkg]) ? '✅' : '',
+                    in_array($pkg, $installedPlugins, true) ? '✅' : '',
                 ];
             }
             $io->table(['Package', 'Version', 'Installed'], $rows);
 
             // 4. Wybór wielokrotny
             $choices = array_keys($supportedPlugins);
-            // domyślnie zaznaczamy te już włączone
-            $default = array_values(array_intersect($choices, array_keys($installedPlugins)));
+            // domyślnie zaznaczamy te, które już są w vendor/
+            $default = array_values(array_intersect($choices, $installedPlugins));
+
+            // Uwaga: 5 argumentów: question, choices, default, maxAttempts, multiselect
             $selected = $io->choice(
                 'Select plugin(s) to require',
                 $choices,
-                $default,
-                true,
-                true // multi-select
             );
 
-            // 5. Jeżeli nic nie wybrano – wychodzimy
+            // 5. Jeśli nic nie wybrano — kończymy
             if (empty($selected)) {
                 $io->warning('No plugins selected, aborting.');
                 return Command::SUCCESS;
             }
 
-            // 6. Nadpisujemy listę $pkgs pluginami wybranymi przez użytkownika
-            $packages = $selected;
+            // 6. Nadpisujemy wejściowy array $packages
+            $packages[] = $selected;
         }
 
 
