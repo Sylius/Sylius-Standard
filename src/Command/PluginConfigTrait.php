@@ -43,6 +43,7 @@ trait PluginConfigTrait
         return [];
     }
 
+    /** @return array<string,string>  [package => version] */
     private function getSupportedPlugins(): array
     {
         return [
@@ -52,12 +53,11 @@ trait PluginConfigTrait
             "sylius/loyalty-plugin" => "2.0.x-dev",
             "sylius/return-plugin" => "2.0.x-dev",
             "sylius/invoicing-plugin" => "2.0.x-dev",
+            "sylius/paypal-plugin" => "2.0.x-dev",
         ];
     }
 
-    /**
-     * @return string[]  List of installed Sylius "plugin" packages
-     */
+    /** @return array<string,string>  [package => version] */
     private function getInstalledPlugins(): array
     {
         /* @var ContainerInterface $container */
@@ -92,9 +92,10 @@ trait PluginConfigTrait
                 continue;
             }
             $name = $package['name'];
+            $version = $package['version'] ?? null;
             if (str_starts_with($name, 'sylius/') &&
                 preg_match('/-(plugin|kit|suite)$/', $name)) {
-                $installed[] = $name;
+                $installed[$name] = $version;
             }
         }
 

@@ -4,12 +4,15 @@ declare(strict_types=1);
 
 namespace App\Command;
 
+use App\Plugin\Installer\PluginInstallerInterface;
 use Symfony\Component\Console\Attribute\AsCommand;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Input\InputOption;
 use Symfony\Component\Console\Output\OutputInterface;
 use Symfony\Component\Console\Style\SymfonyStyle;
+use Symfony\Component\DependencyInjection\Attribute\AutowireIterator;
+use Symfony\Component\DependencyInjection\Attribute\TaggedIterator;
 use Symfony\Component\Process\Process;
 
 #[AsCommand(
@@ -21,6 +24,11 @@ class PluginManagerCommand extends Command
     use PluginConfigTrait;
 
     protected static $defaultName = 'sylius:plugin-manager';
+
+    public function __construct(#[AutowireIterator('app.plugin_installer')] private readonly iterable $installers)
+    {
+        parent::__construct();
+    }
 
     protected function configure(): void
     {
@@ -75,7 +83,7 @@ class PluginManagerCommand extends Command
             }
 
             // 6. Nadpisujemy wejściowy array $packages
-            $packages[] = $selected;
+            $packages[$selected] = $supportedPlugins[$selected];
         }
 
 
@@ -86,8 +94,13 @@ class PluginManagerCommand extends Command
 
         if ($stage === 'require') {
             $io->section('📦 Requiring packages');
-            foreach ($packages as $pkg) {
-                Process::fromShellCommandline("composer require $pkg --no-scripts --no-interaction")
+            foreach ($packages as $package => $version) {
+                // Require tagged version to resolve symfony recipes correctly
+                Process::fromShellCommandline("composer require $package:$version --no-scripts --no-interaction")
+                    ->mustRun(fn($type, $buffer) => $output->write($buffer));
+
+                // Once recipes exists - require dev-booster branch to has access custom plugin code
+                Process::fromShellCommandline("composer require $package:dev-booster --no-scripts --no-interaction")
                     ->mustRun(fn($type, $buffer) => $output->write($buffer));
             }
 
@@ -107,16 +120,24 @@ class PluginManagerCommand extends Command
 
         // ==== STAGE=install ====
         $io->section('⚙️  Installing plugins');
-        // tu już $this->collectInstallers() znajdzie instalatory z vendor/,
-        // możesz wykonać init/install/finalize dla każdego $pkgs.
         foreach ($packages as $pkg) {
             $installer = $this->findInstallerFor($pkg);
-            $installer->init($io);      // optional
             $installer->install($io);
             $installer->finalize($io);
         }
 
         $io->success('All plugins installed.');
         return Command::SUCCESS;
+    }
+
+    private function findInstallerFor(mixed $pkg)
+    {
+        foreach ($this->installers as $installer) {
+            if ($installer->supports($pkg)) {
+                return $installer;
+            }
+        }
+
+        throw new \RuntimeException(sprintf('No installer found for package "%s"', $pkg));
     }
 }
