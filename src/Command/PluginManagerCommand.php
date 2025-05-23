@@ -4,103 +4,118 @@ declare(strict_types=1);
 
 namespace App\Command;
 
-use App\Plugin\Installer\PluginInstallerInterface;
 use Symfony\Component\Console\Attribute\AsCommand;
 use Symfony\Component\Console\Command\Command;
-use Symfony\Component\Console\Input\InputArgument;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Input\InputOption;
 use Symfony\Component\Console\Output\OutputInterface;
 use Symfony\Component\Console\Style\SymfonyStyle;
-use Symfony\Component\DependencyInjection\Attribute\TaggedIterator;
-use Symfony\Component\DependencyInjection\Exception\EnvNotFoundException;
 use Symfony\Component\Process\Process;
 
 #[AsCommand(
     name: 'sylius:plugin-manager',
-    description: 'List, install or uninstall Sylius plugins'
+    description: 'Require and install Sylius plugins in one go'
 )]
 class PluginManagerCommand extends Command
 {
     use PluginConfigTrait;
 
+    protected static $defaultName = 'sylius:plugin-manager';
+
     protected function configure(): void
     {
         $this
-            ->addArgument('action', InputArgument::OPTIONAL, 'install|uninstall|list', null)
-            ->addArgument('plugins', InputArgument::IS_ARRAY | InputArgument::OPTIONAL,
-                'One or more plugin names (e.g. sylius/return-plugin)')
-            ->addOption('no-interaction', 'n', InputOption::VALUE_NONE,
-                'Run in non-interactive (automated) mode');
+            ->addOption('stage', null, InputOption::VALUE_REQUIRED, 'require|install', 'require')
+            ->addOption('plugins', null, InputOption::VALUE_REQUIRED | InputOption::VALUE_IS_ARRAY,
+                'Plugin names to process, e.g. sylius/return-plugin')
+            ->addOption('no-interaction', 'n', InputOption::VALUE_NONE, 'Non-interactive mode');
     }
 
     protected function execute(InputInterface $input, OutputInterface $output): int
     {
         $io = new SymfonyStyle($input, $output);
-        $action = $input->getArgument('action');
-        $choices = $input->getArgument('plugins');
-        $nonInt = $input->getOption('no-interaction');
+        $stage = $input->getOption('stage');
+        $packages = $input->getOption('plugins');
 
-        // 1) Zebranie mapy wszystkich dostępnych instalatorów
-        $map = $this->collectInstallers(); // ['sylius/return-plugin' => $installer, ...]
+        // 1) wybór pluginów (tylko w stage=require && interactive)
+        if ($stage === 'require' && $input->getOption('no-interaction') === false) {
+            // 1. Pobieramy deklarację wszystkich wspieranych pluginów
+            $supportedPlugins = $this->getSupportedPlugins(); // [pkg => version, ...]
+            $installedPlugins = $this->getInstalledPlugins($io);
 
-        // 2) Tryb interaktywny
-        if (!$nonInt && $action === null) {
-            // a) lista i status
+            // 3. Wyświetlamy tabelę: Plugin | Version | Installed
+            $io->title('Available Sylius plugins');
             $rows = [];
-            foreach ($map as $name => $installer) {
+            foreach ($supportedPlugins as $pkg => $version) {
                 $rows[] = [
-                    $name,
-                    in_array($name, $this->loadEnabledPlugins()) ? '✅ enabled' : '—',
-                    $installer->getMeta()['description'],
+                    $pkg,
+                    $version,
+                    isset($installedPlugins[$pkg]) ? '✅' : '',
                 ];
             }
-            $io->table(['Plugin', 'Status', 'Description'], $rows);
+            $io->table(['Package', 'Version', 'Installed'], $rows);
 
-            // b) wybór akcji
-            $action = $io->choice(
-                'What do you want to do?',
-                ['list', 'install', 'uninstall', 'quit'],
-                'quit'
+            // 4. Wybór wielokrotny
+            $choices = array_keys($supportedPlugins);
+            // domyślnie zaznaczamy te już włączone
+            $default = array_values(array_intersect($choices, array_keys($installedPlugins)));
+            $selected = $io->choice(
+                'Select plugin(s) to require',
+                $choices,
+                $default,
+                true,
+                true // multi-select
             );
-            if ($action === 'quit') {
+
+            // 5. Jeżeli nic nie wybrano – wychodzimy
+            if (empty($selected)) {
+                $io->warning('No plugins selected, aborting.');
                 return Command::SUCCESS;
             }
 
-            // c) wybór pluginów
-            $default = [];
-            if ($action === 'uninstall') {
-                $default = $this->loadEnabledPlugins();
-            }
-            $choices = $io->multiselect(
-                sprintf('Select plugins to %s', $action),
-                array_keys($map),
-                $default
-            );
+            // 6. Nadpisujemy listę $pkgs pluginami wybranymi przez użytkownika
+            $packages = $selected;
         }
 
-        // 3) Tryb nie-interaktywny wymaga podania action + co najmniej jednego pluginu
-        if ($nonInt && ($action === null || empty($choices))) {
-            $io->error('In automated mode you must specify an action and at least one plugin.');
+
+        if (empty($packages)) {
+            $io->error('No plugins specified.');
             return Command::FAILURE;
         }
 
-        // 4) Wykonanie ruchu
-        switch ($action) {
-            case 'list':
-                // już pokazaliśmy w tabeli -> nic więcej
-                break;
+        if ($stage === 'require') {
+            $io->section('📦 Requiring packages');
+            foreach ($packages as $pkg) {
+                Process::fromShellCommandline("composer require $pkg --no-scripts --no-interaction")
+                    ->mustRun(fn($type, $buffer) => $output->write($buffer));
+            }
 
-            case 'install':
-                $this->pipelineInstall($choices, $io);
-                break;
+            // 2) Self‐reexec w trybie install
+            $cmd = array_merge(
+                [PHP_BINARY, 'bin/console', self::$defaultName, '--stage=install', '--no-interaction'],
+                array_map(fn($p) => "--plugins=$p", $packages)
+            );
 
-            case 'uninstall':
-                $this->pipelineUninstall($choices, $io);
-                break;
+            $io->section('🔄 Restarting plugin-manager in install mode');
+            $proc = new Process($cmd, getcwd());
+            $proc->setTty(Process::isTtySupported());
+            $proc->run(fn($type, $buffer) => $output->write($buffer));
+
+            return $proc->getExitCode();
         }
 
+        // ==== STAGE=install ====
+        $io->section('⚙️  Installing plugins');
+        // tu już $this->collectInstallers() znajdzie instalatory z vendor/,
+        // możesz wykonać init/install/finalize dla każdego $pkgs.
+        foreach ($packages as $pkg) {
+            $installer = $this->findInstallerFor($pkg);
+            $installer->init($io);      // optional
+            $installer->install($io);
+            $installer->finalize($io);
+        }
+
+        $io->success('All plugins installed.');
         return Command::SUCCESS;
     }
-
 }
