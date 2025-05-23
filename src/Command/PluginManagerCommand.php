@@ -6,6 +6,7 @@ namespace App\Command;
 
 use Symfony\Component\Console\Attribute\AsCommand;
 use Symfony\Component\Console\Command\Command;
+use Symfony\Component\Console\Exception\RunCommandFailedException;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Input\InputOption;
 use Symfony\Component\Console\Output\OutputInterface;
@@ -48,9 +49,20 @@ class PluginManagerCommand extends Command
         $mode = $input->getOption('mode');
         $stage = $input->getOption('stage');
         $plugins = $input->getOption('plugins');
+        if ($plugins !== null) {
+            $names    = array_map(fn($p) => explode(':', $p, 2)[0], $plugins);
+            $versions = array_map(fn($p) => explode(':', $p, 2)[1], $plugins);
+            $plugins  = array_combine($names, $versions) ?: [];
+        }
 
         $supportedPlugins = $this->getSupportedPlugins();
         $installedPlugins = $this->getInstalledPlugins();
+
+        $io->info('Configuring Symfony Flex to auto-accept contrib recipes');
+        Process::fromShellCommandline('composer config extra.symfony.allow-contrib true')->run();
+
+        $io->info('Add Sylius Packagist repository');
+        Process::fromShellCommandline('composer config repositories.sylius composer https://sylius.repo.packagist.com/sylius/')->run();
 
         if ($mode === self::MODE_MANUAL) {
             $io->title('Select plugin to manage');
@@ -87,12 +99,16 @@ class PluginManagerCommand extends Command
                     ->mustRun(fn($type, $buffer) => $output->write($buffer));
             }
 
+
+            $io->title('Running Rector');
+            $process = Process::fromShellCommandline('vendor/bin/rector process src');
+            $process->run();
+
+            $io->section('🔄 Restarting plugin-manager in install mode');
             $cmd = array_merge(
                 [PHP_BINARY, 'bin/console', self::$defaultName, '--stage=install', '--mode=auto'],
                 array_map(fn(string $plugin) => "--plugins={$plugin}", array_keys($plugins))
             );
-
-            $io->section('🔄 Restarting plugin-manager in install mode');
             $proc = new Process($cmd, getcwd());
             $proc->setTty(Process::isTtySupported());
             $proc->run(fn($type, $buffer) => $output->write($buffer));
@@ -100,18 +116,11 @@ class PluginManagerCommand extends Command
             return $proc->getExitCode();
         }
 
-        try {
-            $this->runCommonPreSteps($io);
-        } catch (\RuntimeException $e) {
-            $io->error('Failed to load fixtures: ' . $e->getMessage());
-            return Command::FAILURE;
-        }
-
+        // Stage: install
         $io->section('Installing plugins');
         foreach ($plugins as $plugin) {
             $installer = $this->findInstallerFor($plugin);
             $installer->install($io);
-            $installer->finalize($io);
         }
 
         $this->runCommonPostSteps($io);
@@ -131,8 +140,20 @@ class PluginManagerCommand extends Command
         throw new \RuntimeException(sprintf('No installer found for package "%s"', $plugin));
     }
 
-    private function runCommonPreSteps(SymfonyStyle $io): void
+    private function runCommonPostSteps(SymfonyStyle $io): void
     {
+        $io->title('Installing assets and building front');
+        Process::fromShellCommandline('bin/console assets:install')->run();
+        Process::fromShellCommandline('yarn encore dev')->run();
+
+        $io->section('Running database sync');
+        $sync = Process::fromShellCommandline('bin/console doctrine:schema:update --force --complete');
+        $sync->run();
+        if (!$sync->isSuccessful()) {
+            $io->error('Database sync failed: ' . $sync->getErrorOutput());
+            throw new \Exception('Database sync failed');
+        }
+
         $io->section('Loading default fixtures');
         $process = Process::fromShellCommandline('bin/console sylius:fixtures:load --no-interaction');
         $process->setTty(Process::isTtySupported());
@@ -143,10 +164,6 @@ class PluginManagerCommand extends Command
         }
 
         $io->success('Fixtures loaded successfully.');
-    }
-
-    private function runCommonPostSteps(SymfonyStyle $io): void
-    {
         $clear = new Process(['bin/console', 'cache:clear'], getcwd());
         $clear->run();
         if (!$clear->isSuccessful()) {
