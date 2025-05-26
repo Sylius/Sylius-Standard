@@ -40,8 +40,6 @@ services:
     mysql:
         volumes:
             - mysql-data:/var/lib/mysql:rw
-        ports:
-            - "3306:3306"
     nginx:
         depends_on:
             php:
@@ -52,7 +50,7 @@ services:
 #            - ./public/media:/srv/sylius/public/media:ro
             - public-media:/srv/sylius/public/media:ro,nocopy
         ports:
-            - "80:80"
+            - "8080:80"
     nodejs:
         image: node:${NODE_VERSION:-22}-alpine
         user: ${DOCKER_USER:-1000:1000}
