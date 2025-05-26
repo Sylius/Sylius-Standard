@@ -125,6 +125,18 @@
             "config/packages/nelmio_alice.yaml"
         ]
     },
+    "nelmio/security-bundle": {
+        "version": "3.5",
+        "recipe": {
+            "repo": "github.com/symfony/recipes",
+            "branch": "main",
+            "version": "2.4",
+            "ref": "71045833e4f882ad9de8c95fe47efb99a1eec2f7"
+        },
+        "files": [
+            "config/packages/nelmio_security.yaml"
+        ]
+    },
     "payum/payum-bundle": {
         "version": "2.6",
         "recipe": {

@@ -7,6 +7,11 @@ framework:
     http_method_override: true
     session:
         handler_id: ~
+        # Jeżeli na dev masz HTTPS na 8000, zostaw true; jeżeli HTTP, użyj false
+        cookie_secure: true
+        # Wymagane, by ciasteczko było wysyłane w cross-site contexts
+        cookie_samesite: 'none'
+
     serializer:
         mapping:
             paths: [ '%kernel.project_dir%/config/serialization' ]
