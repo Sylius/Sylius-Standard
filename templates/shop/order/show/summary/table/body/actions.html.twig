@@ -1,0 +1,8 @@
+<td class="text-end">
+    <form method="POST" action="{{ path('shop_reorder_item', {'id': hookable_metadata.context.item.id}) }}">
+        <input type="hidden" name="_token" value="{{ csrf_token('reorder_item_' ~ hookable_metadata.context.item.id) }}">
+        <button type="submit" class="btn btn-primary">
+            Reorder
+        </button>
+    </form>
+</td>
