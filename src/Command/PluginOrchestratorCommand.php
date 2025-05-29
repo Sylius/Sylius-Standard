@@ -19,7 +19,7 @@ use Symfony\Component\Yaml\Yaml;
 )]
 class PluginOrchestratorCommand extends Command
 {
-    use PluginConfigTrait;
+    use ConfigTrait;
 
     protected function execute(InputInterface $input, OutputInterface $output): int
     {

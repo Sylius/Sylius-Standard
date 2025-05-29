@@ -20,7 +20,7 @@ use Symfony\Component\Process\Process;
 )]
 class PluginFinalizeCommand extends Command
 {
-    use PluginConfigTrait;
+    use ConfigTrait;
 
     /** @var iterable<PluginInstallerInterface> */
     private iterable $installers;

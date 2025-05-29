@@ -21,7 +21,7 @@ use Symfony\Component\Process\Process;
 )]
 class PluginManagerCommand extends Command
 {
-    use PluginConfigTrait;
+    use ConfigTrait;
 
     protected const MODE_MANUAL = 'manual';
     protected const MODE_AUTO = 'auto';

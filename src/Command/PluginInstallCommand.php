@@ -20,7 +20,7 @@ use Symfony\Component\Process\Process;
 )]
 class PluginInstallCommand extends Command
 {
-    use PluginConfigTrait;
+    use ConfigTrait;
 
     /** @param iterable<PluginInstallerInterface> $installers */
     public function __construct(

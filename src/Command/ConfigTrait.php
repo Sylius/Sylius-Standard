@@ -8,10 +8,10 @@ use JsonException;
 use Symfony\Component\Console\Style\SymfonyStyle;
 use Symfony\Component\DependencyInjection\ContainerInterface;
 
-trait PluginConfigTrait
+trait ConfigTrait
 {
     private const ENV_PLUGINS = 'SYLIUS_PLUGINS_JSON';
-    private const FILE_NAME = 'sylius-plugins.json';
+    private const FILE_NAME = 'booster.json';
 
     /**
      * @return array<string,string>  [package => version]
@@ -34,7 +34,37 @@ trait PluginConfigTrait
             }
 
             if (is_array($data) && !empty($data)) {
-                return $data;
+                return $data['plugins'] ?? [];
+            }
+
+            $io->warning(sprintf('File %s did not decode to a non-empty array, falling back to none.', self::FILE_NAME));
+        }
+
+        return [];
+    }
+
+    /**
+     * @return array<string,string>
+     */
+    private function loadThemes(SymfonyStyle $io): array
+    {
+        /* @var ContainerInterface $container */
+        $container = $this->getApplication()->getKernel()->getContainer();
+        $projectDir = $container->getParameter('kernel.project_dir');
+        $filePath = $projectDir . DIRECTORY_SEPARATOR . self::FILE_NAME;
+
+        if (file_exists($filePath)) {
+            $io->text(sprintf('Loading plugin config from "%s"', $filePath));
+            $raw = file_get_contents($filePath);
+            try {
+                $data = json_decode($raw, true, 512, JSON_THROW_ON_ERROR);
+            } catch (JsonException $e) {
+                $io->warning(sprintf('Invalid JSON in %s: %s', self::FILE_NAME, $e->getMessage()));
+                return [];
+            }
+
+            if (is_array($data) && !empty($data)) {
+                return $data['themes'] ?? [];
             }
 
             $io->warning(sprintf('File %s did not decode to a non-empty array, falling back to none.', self::FILE_NAME));
