@@ -174,12 +174,12 @@ class PluginManagerCommand extends Command
     private function runCommonPostSteps(SymfonyStyle $io): void
     {
         $io->title('Installing assets and building front');
-        Process::fromShellCommandline('bin/console assets:install')->run();
-        Process::fromShellCommandline('yarn encore dev')->run();
+        Process::fromShellCommandline('bin/console assets:install')->setTimeout(0)->run();
+        Process::fromShellCommandline('yarn encore dev')->setTimeout(0)->run();
 
         $io->section('Running database sync');
         $sync = Process::fromShellCommandline('bin/console doctrine:schema:update --force --complete');
-        $sync->run();
+        $sync->setTimeout(0)->run();
         if (!$sync->isSuccessful()) {
             $io->error('Database sync failed: ' . $sync->getErrorOutput());
             throw new Exception('Database sync failed');
@@ -202,7 +202,7 @@ class PluginManagerCommand extends Command
         }
 
         $warmup = new Process(['bin/console', 'cache:warmup'], getcwd());
-        $warmup->run();
+        $warmup->setTimeout(0)->run();
         if (!$warmup->isSuccessful()) {
             $io->warning('Cache warmup failed: ' . $warmup->getErrorOutput());
         }
