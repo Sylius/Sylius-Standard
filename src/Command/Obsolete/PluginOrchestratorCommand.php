@@ -2,8 +2,9 @@
 
 declare(strict_types=1);
 
-namespace App\Command;
+namespace App\Command\Obsolete;
 
+use App\Command\ConfigTrait;
 use Symfony\Component\Console\Attribute\AsCommand;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputInterface;
