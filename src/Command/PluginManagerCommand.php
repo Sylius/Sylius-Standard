@@ -174,8 +174,12 @@ class PluginManagerCommand extends Command
     private function runCommonPostSteps(SymfonyStyle $io): void
     {
         $io->title('Installing assets and building front');
-        Process::fromShellCommandline('bin/console assets:install')->setTimeout(0)->run();
-        Process::fromShellCommandline('yarn encore dev')->setTimeout(0)->run();
+        Process::fromShellCommandline('bin/console assets:install')
+            ->setTty(Process::isTtySupported())
+            ->setTimeout(0)->mustRun(fn($type, $buffer) => $io->write($buffer));
+        Process::fromShellCommandline('yarn encore dev')
+            ->setTty(Process::isTtySupported())
+            ->setTimeout(0)->mustRun(fn($type, $buffer) => $io->write($buffer));
 
         $io->section('Running database sync');
         $sync = Process::fromShellCommandline('bin/console doctrine:schema:update --force --complete');
