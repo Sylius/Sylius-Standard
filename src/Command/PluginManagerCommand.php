@@ -116,8 +116,8 @@ class PluginManagerCommand extends Command
 
         // Configure composer
         $io->info('Configuring Symfony Flex and Sylius Packagist');
-        Process::fromShellCommandline('composer config extra.symfony.allow-contrib true')->run();
-        Process::fromShellCommandline('composer config repositories.sylius composer https://sylius.repo.packagist.com/sylius/')->run();
+        Process::fromShellCommandline('composer config extra.symfony.allow-contrib true')->setTimeout(0)->run();
+        Process::fromShellCommandline('composer config repositories.sylius composer https://sylius.repo.packagist.com/sylius/')->setTimeout(0)->run();
 
         // Stage: require
         if ($stage === 'require') {
@@ -193,7 +193,7 @@ class PluginManagerCommand extends Command
         $io->section('Loading default fixtures');
         $process = Process::fromShellCommandline('bin/console sylius:fixtures:load --no-interaction');
         $process->setTty(Process::isTtySupported());
-        $process->run();
+        $process->setTimeout(0)->run();
 
         if (!$process->isSuccessful()) {
             throw new RuntimeException('Fixtures load failed: ' . $process->getErrorOutput());
@@ -201,7 +201,7 @@ class PluginManagerCommand extends Command
 
         $io->success('Fixtures loaded successfully.');
         $clear = new Process(['bin/console', 'cache:clear'], getcwd());
-        $clear->run();
+        $clear->setTimeout(0)->run();
         if (!$clear->isSuccessful()) {
             $io->warning('Cache clear failed: ' . $clear->getErrorOutput());
         }
