@@ -4,15 +4,16 @@ declare(strict_types=1);
 
 namespace App\Command;
 
+use Throwable;
 use RuntimeException;
 use Exception;
 use Symfony\Component\Console\Attribute\AsCommand;
 use Symfony\Component\Console\Command\Command;
-use Symfony\Component\Console\Input\InputArgument;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Input\InputOption;
 use Symfony\Component\Console\Output\OutputInterface;
 use Symfony\Component\Console\Style\SymfonyStyle;
+use Symfony\Component\DependencyInjection\Attribute\Autowire;
 use Symfony\Component\DependencyInjection\Attribute\AutowireIterator;
 use Symfony\Component\Process\Process;
 
@@ -30,7 +31,8 @@ class PluginManagerCommand extends Command
     protected static $defaultName = 'sylius:plugin-manager';
 
     public function __construct(
-        #[AutowireIterator('app.plugin_installer')] private readonly iterable $installers
+        #[AutowireIterator('app.plugin_installer')] private readonly iterable $installers,
+        #[Autowire('%kernel.project_dir%')] private readonly string $projectDir,
     ) {
         parent::__construct();
     }
@@ -139,6 +141,12 @@ class PluginManagerCommand extends Command
             $process = new Process($cmd, $projectDir ?? null);
             $process->setTty(Process::isTtySupported());
             $process->setTimeout(0)->run(fn($type, $buffer) => $output->write($buffer));
+
+            $io->title('Running Rector');
+            $process = Process::fromShellCommandline('vendor/bin/rector process src');
+            $process->run();
+
+
             return $process->getExitCode();
         }
 
@@ -151,7 +159,7 @@ class PluginManagerCommand extends Command
 
         try {
             $this->runCommonPostSteps($io);
-        } catch (\Throwable $e) {
+        } catch (Throwable $e) {
             $io->error($e->getMessage());
             return Command::FAILURE;
         }
@@ -174,15 +182,22 @@ class PluginManagerCommand extends Command
     private function runCommonPostSteps(SymfonyStyle $io): void
     {
         $io->title('Installing assets and building front');
-        Process::fromShellCommandline('bin/console assets:install')
-            ->setTty(Process::isTtySupported())
-            ->setTimeout(0)->mustRun(fn($type, $buffer) => $io->write($buffer));
+        $process = Process::fromShellCommandline('bin/console assets:install -n', $this->projectDir);
+        $process
+            ->setTimeout(0)
+            ->run(function ($type, $buffer) use ($io) {
+                $io->write($buffer);
+            });
+
+        if (0 !== $process->getExitCode()) {
+            throw new RuntimeException('assets:install failed');
+        }
         Process::fromShellCommandline('yarn encore production')
             ->setTty(Process::isTtySupported())
             ->setTimeout(0)->mustRun(fn($type, $buffer) => $io->write($buffer));
 
         $io->section('Running database sync');
-        $sync = Process::fromShellCommandline('bin/console doctrine:schema:update --force --complete');
+        $sync = Process::fromShellCommandline('bin/console doctrine:schema:update -n --force --complete');
         $sync->setTimeout(0)->run();
         if (!$sync->isSuccessful()) {
             $io->error('Database sync failed: ' . $sync->getErrorOutput());
@@ -190,7 +205,7 @@ class PluginManagerCommand extends Command
         }
 
         $io->section('Loading default fixtures');
-        $process = Process::fromShellCommandline('bin/console sylius:fixtures:load --no-interaction');
+        $process = Process::fromShellCommandline('bin/console sylius:fixtures:load -n');
         $process->setTty(Process::isTtySupported());
         $process->setTimeout(0)->run();
 
