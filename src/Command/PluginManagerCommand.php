@@ -74,16 +74,40 @@ class PluginManagerCommand extends Command
                 return Command::SUCCESS;
             }
         } else {
-            // Manual or auto with CLI
-            $raw = $input->getOption('plugins') ?: [];
-            foreach ($raw as $p) {
-                [$name, $version] = explode(':', $p, 2) + [1 => null];
-                if ($version === null) {
-                    $io->error("Invalid plugin format, expected name:version, got '\$p'");
-                    return Command::FAILURE;
-                }
-                $plugins[$name] = $version;
+            $plugins = $input->getOption('plugins');
+            if ($plugins !== null) {
+                $names    = array_map(fn($p) => explode(':', $p, 2)[0], $plugins);
+                $versions = array_map(fn($p) => explode(':', $p, 2)[1], $plugins);
+                $plugins  = array_combine($names, $versions) ?: [];
             }
+            $supportedPlugins = $this->getSupportedPlugins();
+            $installedPlugins = $this->getInstalledPlugins();
+
+            $io->info('Configuring Symfony Flex to auto-accept contrib recipes');
+            Process::fromShellCommandline('composer config extra.symfony.allow-contrib true')->run();
+
+            $io->info('Add Sylius Packagist repository');
+            Process::fromShellCommandline('composer config repositories.sylius composer https://sylius.repo.packagist.com/sylius/')->run();
+
+            if ($mode === self::MODE_MANUAL) {
+                $io->title('Select plugin to manage');
+                $rows = [];
+                foreach ($supportedPlugins as $plugin => $version) {
+                    $rows[] = [$plugin, $version, in_array($plugin, $installedPlugins, true) ? '✅' : ''];
+                }
+                $io->table(['Plugin', 'Version', 'Installed'], $rows);
+
+                $selected = $io->choice('Select plugin to manage', array_keys($supportedPlugins));
+
+                if (empty($selected)) {
+                    $io->warning('No plugins selected, aborting.');
+                    return Command::SUCCESS;
+                }
+
+                $plugins = $plugins ?? [];
+                $plugins[$selected] = $supportedPlugins[$selected];
+            }
+
             if (empty($plugins)) {
                 $io->error('No plugins specified.');
                 return Command::FAILURE;
@@ -99,7 +123,12 @@ class PluginManagerCommand extends Command
         if ($stage === 'require') {
             $io->section('📦 Requiring plugins');
             foreach ($plugins as $package => $version) {
+                // Require tagged version to resolve symfony recipes correctly
                 Process::fromShellCommandline("composer require $package:$version --no-scripts --no-interaction")
+                    ->mustRun(fn($type, $buffer) => $output->write($buffer));
+
+                // Once recipes exists - require dev-booster branch to has access custom plugin code
+                Process::fromShellCommandline("composer require $package:dev-booster --no-scripts --no-interaction")
                     ->mustRun(fn($type, $buffer) => $output->write($buffer));
             }
 
