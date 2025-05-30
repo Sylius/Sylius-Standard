@@ -52,10 +52,13 @@ class StoreCreator extends Command
         $json = file_get_contents($configPath);
         $data = json_decode($json, true, 512, JSON_THROW_ON_ERROR);
 
-        // Plugins
         if (!empty($data['plugins'])) {
             $io->section('Installing plugins');
-            $process = $this->runConsoleCommand('sylius:plugin-manager', ['manage', 'install'], $io);
+            $process = $this->runConsoleCommand(
+                'sylius:plugin-manager',
+                [sprintf('--template=%s', $storeName)],
+                $io,
+            );
             if ($process->getExitCode() !== 0) {
                 $io->error('Plugin installation failed.');
                 return Command::FAILURE;
@@ -91,22 +94,18 @@ class StoreCreator extends Command
         string $command,
         array $arguments,
         SymfonyStyle $io,
-        bool $skipBuild = false
     ): Process {
         $parts = array_merge(["bin/console", $command], $arguments);
-        if ($command === 'sylius:theme-creator' && $skipBuild) {
-            // pass --skip-build flag
-            $parts[] = '--skip-build';
-        }
-
         $process = Process::fromShellCommandline(
             implode(' ', $parts),
             $this->projectDir
         );
 
         $io->write(sprintf('Running: %s', implode(' ', $parts)));
-        $process->run(function ($type, $buffer) use ($io) {
-            $io->write($buffer);
+        $process
+            ->setTimeout(0)
+            ->run(function ($type, $buffer) use ($io) {
+                $io->write($buffer);
         });
 
         return $process;
