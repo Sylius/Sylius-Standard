@@ -114,11 +114,6 @@ class PluginManagerCommand extends Command
             }
         }
 
-        // Configure composer
-        $io->info('Configuring Symfony Flex and Sylius Packagist');
-        Process::fromShellCommandline('composer config extra.symfony.allow-contrib true')->setTimeout(0)->run();
-        Process::fromShellCommandline('composer config repositories.sylius composer https://sylius.repo.packagist.com/sylius/')->setTimeout(0)->run();
-
         // Stage: require
         if ($stage === 'require') {
             $io->section('📦 Requiring plugins');
