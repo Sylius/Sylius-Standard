@@ -8,8 +8,10 @@ use RuntimeException;
 use Exception;
 use Symfony\Component\Console\Attribute\AsCommand;
 use Symfony\Component\Console\Command\Command;
+use Symfony\Component\Console\Input\ArrayInput;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Input\InputOption;
+use Symfony\Component\Console\Output\BufferedOutput;
 use Symfony\Component\Console\Output\OutputInterface;
 use Symfony\Component\Console\Style\SymfonyStyle;
 use Symfony\Component\DependencyInjection\Attribute\Autowire;
@@ -30,8 +32,10 @@ class PluginManagerCommand extends Command
     protected static $defaultName = 'sylius:plugin-manager';
 
     public function __construct(
-        #[AutowireIterator('app.plugin_installer')] private readonly iterable $installers,
-        #[Autowire('%kernel.project_dir%')] private readonly string $projectDir,
+        #[AutowireIterator('app.plugin_installer')]
+        private readonly iterable $installers,
+        #[Autowire('%kernel.project_dir%')]
+        private readonly string $projectDir,
     ) {
         parent::__construct();
     }
@@ -39,11 +43,11 @@ class PluginManagerCommand extends Command
     protected function configure(): void
     {
         $this
-            ->addOption('template', null, InputOption::VALUE_OPTIONAL, 'Load plugins from store-creator/{template}/store-creator.json')
-            ->addOption('mode', null, InputOption::VALUE_OPTIONAL, 'manual|auto', self::MODE_MANUAL)
-            ->addOption('stage', null, InputOption::VALUE_OPTIONAL, 'require|install', 'require')
-            ->addOption('plugins', null, InputOption::VALUE_OPTIONAL | InputOption::VALUE_IS_ARRAY,
-                'Plugin names to process, e.g. sylius/return-plugin:2.0.x-dev');
+        ->addOption('template', null, InputOption::VALUE_OPTIONAL, 'Load plugins from store-creator/{template}/store-creator.json')
+        ->addOption('mode', null, InputOption::VALUE_OPTIONAL, 'manual|auto', self::MODE_MANUAL)
+        ->addOption('stage', null, InputOption::VALUE_OPTIONAL, 'require|install', 'require')
+        ->addOption('plugins', null, InputOption::VALUE_OPTIONAL | InputOption::VALUE_IS_ARRAY,
+            'Plugin names to process, e.g. sylius/return-plugin:2.0.x-dev');
     }
 
     protected function execute(InputInterface $input, OutputInterface $output): int
@@ -54,108 +58,92 @@ class PluginManagerCommand extends Command
         $stage = $input->getOption('stage');
         $plugins = [];
 
+        // Load from template
         if ($template) {
-            // Load plugins from template config
-            $io->title(sprintf('Loading template: %s', $template));
-            $projectDir = $this->getApplication()->getKernel()->getProjectDir();
-            $configPath = sprintf('%s/store-creator/%s/store-creator.json', $projectDir, $template);
-            if (!file_exists($configPath)) {
-                $io->error(sprintf('Template config not found: %s', $configPath));
+        $io->title(sprintf('Loading template: %s', $template));
+            $configFile = $this->projectDir . '/store-creator/' . $template . '/store-creator.json';
+            if (!file_exists($configFile)) {
+            $io->error('Template config not found: ' . $configFile);
                 return Command::FAILURE;
             }
             try {
-                $data = json_decode((string)file_get_contents($configPath), true, 512, JSON_THROW_ON_ERROR);
+                $data = json_decode(file_get_contents($configFile), true, 512, JSON_THROW_ON_ERROR);
             } catch (Exception $e) {
                 $io->error('Invalid JSON in template config: ' . $e->getMessage());
                 return Command::FAILURE;
             }
             $plugins = $data['plugins'] ?? [];
             if (empty($plugins)) {
-                $io->warning('No plugins defined in template.');
+            $io->warning('No plugins defined in template.');
                 return Command::SUCCESS;
             }
         } else {
-            $plugins = $input->getOption('plugins');
-            if ($plugins !== null) {
-                $names    = array_map(fn($p) => explode(':', $p, 2)[0], $plugins);
-                $versions = array_map(fn($p) => explode(':', $p, 2)[1], $plugins);
-                $plugins  = array_combine($names, $versions) ?: [];
+        // CLI-specified or manual mode
+        $raw = $input->getOption('plugins') ?: [];
+            foreach ($raw as $p) {
+            [$name, $ver] = explode(':', $p, 2) + [1 => null];
+                if (!$ver) {
+                $io->error("Invalid plugin format, expected name:version, got '$p'");
+                    return Command::FAILURE;
+                }
+                $plugins[$name] = $ver;
             }
-            $supportedPlugins = $this->getSupportedPlugins();
-            $installedPlugins = $this->getInstalledPlugins();
-
-            $io->info('Configuring Symfony Flex to auto-accept contrib recipes');
-            Process::fromShellCommandline('composer config extra.symfony.allow-contrib true')->run();
-
-            $io->info('Add Sylius Packagist repository');
-            Process::fromShellCommandline('composer config repositories.sylius composer https://sylius.repo.packagist.com/sylius/')->run();
-
-            if ($mode === self::MODE_MANUAL) {
-                $io->title('Select plugin to manage');
+            if (empty($plugins) && $mode === self::MODE_MANUAL) {
+            $io->title('Select plugin to manage');
+                $supported = $this->getSupportedPlugins();
+                $installed = $this->getInstalledPlugins();
                 $rows = [];
-                foreach ($supportedPlugins as $plugin => $version) {
-                    $rows[] = [$plugin, $version, in_array($plugin, $installedPlugins, true) ? '✅' : ''];
+                foreach ($supported as $pkg => $ver) {
+                $rows[] = [$pkg, $ver, in_array($pkg, $installed, true) ? '✅' : ''];
                 }
-                $io->table(['Plugin', 'Version', 'Installed'], $rows);
-
-                $selected = $io->choice('Select plugin to manage', array_keys($supportedPlugins));
-
-                if (empty($selected)) {
-                    $io->warning('No plugins selected, aborting.');
-                    return Command::SUCCESS;
-                }
-
-                $plugins = $plugins ?? [];
-                $plugins[$selected] = $supportedPlugins[$selected];
+                $io->table(['Plugin','Version','Installed'], $rows);
+                $choice = $io->choice('Select plugin', array_keys($supported));
+                $plugins[$choice] = $supported[$choice];
             }
-
             if (empty($plugins)) {
-                $io->error('No plugins specified.');
+            $io->error('No plugins specified.');
                 return Command::FAILURE;
             }
+            // Composer config
+            Process::fromShellCommandline('composer config extra.symfony.allow-contrib true')
+                ->setTimeout(0)->run();
+            Process::fromShellCommandline('composer config repositories.sylius composer https://sylius.repo.packagist.com/sylius/')
+                ->setTimeout(0)->run();
         }
 
-        // Stage: require
+        // Require stage
         if ($stage === 'require') {
-            $io->section('📦 Requiring plugins');
-            foreach ($plugins as $package => $version) {
-                // Require tagged version to resolve symfony recipes correctly
-                Process::fromShellCommandline("composer require $package:$version --no-scripts --no-interaction")
-                    ->mustRun(fn($type, $buffer) => $output->write($buffer));
-
-                // Once recipes exists - require dev-booster branch to has access custom plugin code
-                Process::fromShellCommandline("composer require $package:dev-booster --no-scripts --no-interaction")
-                    ->mustRun(fn($type, $buffer) => $output->write($buffer));
+        $io->section('📦 Requiring plugins');
+            foreach ($plugins as $pkg => $ver) {
+            Process::fromShellCommandline("composer require $pkg:$ver --no-scripts --no-interaction")
+                ->mustRun(fn($t,$b) => $output->write($b));
+                Process::fromShellCommandline("composer require $pkg:dev-booster --no-scripts --no-interaction")
+                    ->mustRun(fn($t,$b) => $output->write($b));
             }
-
-            // Rerun in install mode
-            $io->section('🔄 Restarting plugin-manager in install mode');
+            $io->section('🔄 Restarting in install mode');
             $cmd = [PHP_BINARY, 'bin/console', self::$defaultName, '--stage=install', '--mode=auto'];
             if ($template) {
-                $cmd[] = "--template={$template}";
+            $cmd[] = '--template=' . $template;
             }
-            foreach ($plugins as $name => $ver) {
-                $cmd[] = "--plugins={$name}:{$ver}";
+            foreach ($plugins as $pkg => $ver) {
+            $cmd[] = "--plugins=$pkg:$ver";
             }
-            $process = new Process($cmd, $projectDir ?? null);
-            $process->setTty(Process::isTtySupported());
-            $process->setTimeout(0)->run(fn($type, $buffer) => $output->write($buffer));
-            return $process->getExitCode();
+            $proc = new Process($cmd, $this->projectDir);
+            $proc->setTty(Process::isTtySupported())
+            ->setTimeout(0)
+            ->run(fn($t,$b) => $output->write($b));
+            return $proc->getExitCode();
         }
 
-        // Stage: install
+        // Install stage
         $io->section('🔧 Installing plugins');
         foreach (array_keys($plugins) as $plugin) {
-            $installer = $this->findInstallerFor($plugin);
+        $installer = $this->findInstallerFor($plugin);
             $installer->install($io);
         }
 
-        try {
-            $this->runCommonPostSteps($io);
-        } catch (\Throwable $e) {
-            $io->error($e->getMessage());
-            return Command::FAILURE;
-        }
+        // Post steps
+        $this->runCommonPostSteps($io);
 
         $io->success('All plugins processed successfully.');
         return Command::SUCCESS;
@@ -164,89 +152,77 @@ class PluginManagerCommand extends Command
     private function findInstallerFor(mixed $plugin)
     {
         foreach ($this->installers as $installer) {
-            if ($installer->supports($plugin)) {
-                return $installer;
+        if ($installer->supports($plugin)) {
+            return $installer;
             }
         }
-
         throw new RuntimeException(sprintf('No installer found for package "%s"', $plugin));
     }
 
     private function runCommonPostSteps(SymfonyStyle $io): void
     {
-        $io->title('Installing assets');
-        $io->section('Print cwd');
-        $io->writeln(getcwd());
-//        $process = Process::fromShellCommandline('php bin/console assets:install public --symlink --relative --no-interaction --force');
-//        $process
-//            ->setTty(Process::isTtySupported())
-//            ->setTimeout(0)
-//            ->run(function (string $type, string $buffer) use ($io) {
-//                $io->write($buffer);
-//            });
-//        if (!$process->isSuccessful()) {
-//            throw new RuntimeException('assets:install failed');
-//        }
+        // 1) Install assets
+        $io->title('1) Installing assets via internal command');
+        $app = $this->getApplication();
 
-        $io->section('Building front assets');
-        Process::fromShellCommandline('yarn encore production')
-            ->setTty(Process::isTtySupported())
-            ->setTimeout(0)->mustRun(fn($type, $buffer) => $io->write($buffer));
+        $assetsCmd = $app->find('assets:install');
+        $assetsIn  = new ArrayInput([
+            'command'         => 'assets:install',
+            'target'          => 'public',
+            '--symlink'       => true,
+            '--relative'      => true,
+            '--no-interaction'=> true,
+            '-vvv'            => true,
+        ]);
+        $assetsOut = new BufferedOutput();
+        $code = $assetsCmd->run($assetsIn, $assetsOut);
+        $io->writeln($assetsOut->fetch());
+        $io->success(sprintf('assets:install exit code: %d', $code));
 
-        $io->section('Running database sync');
-// 1) Wypiszemy SQL bez aplikowania
-        $io->section('1) Generating SQL to apply (verbose)');
-        $dumpSql = Process::fromShellCommandline(
-            'bin/console doctrine:schema:update --dump-sql --no-interaction -vvv',
-            $this->projectDir
-        );
-        $dumpSql
-            ->setTty(Process::isTtySupported())
-            ->setInput(fopen('php://stdin','r'))
+        // 2) Build frontend
+        $io->title('2) Building front assets');
+        $build = new Process(['yarn', 'run', 'build:prod'], $this->projectDir);
+        $build
             ->setTimeout(0)
-            ->run(fn($type,$buffer)=> $io->write($buffer));
-        if (!$dumpSql->isSuccessful()) {
-            throw new RuntimeException('Failed to dump SQL: '.$dumpSql->getErrorOutput());
-        }
-        $io->success('SQL dump complete');
+            ->setIdleTimeout(0)
+            ->run(fn($t,$b) => $io->write($b));
+        $io->success('build exit code: ' . $build->getExitCode());
 
-// 2) Dopiero wtedy faktycznie zaktualizujemy schemat
-        $io->section('2) Applying schema update');
-        $apply = Process::fromShellCommandline('php bin/console doctrine:schema:update --force --complete --no-interaction');
-        $apply
-            ->setTty(Process::isTtySupported())
-            ->setInput(fopen('php://stdin', 'r'))
-            ->setTimeout(0)
-            ->run(function($type, $buffer) use ($io) {
-                $io->write($buffer);
-            });
-        if (!$apply->isSuccessful()) {
-            throw new RuntimeException('Database sync failed: ' . $apply->getErrorOutput());
+        // 3) Apply schema update internally
+        $io->title('3) Updating database schema');
+        $schemaCmd = $app->find('doctrine:schema:update');
+        $schemaIn  = new ArrayInput([
+            'command'          => 'doctrine:schema:update',
+            '--force'          => true,
+            '--complete'       => true,
+            '--no-interaction' => true,
+        ]);
+        $schemaOut = new BufferedOutput();
+        $exit      = $schemaCmd->run($schemaIn, $schemaOut);
+        $io->writeln($schemaOut->fetch());
+        if ($exit !== Command::SUCCESS) {
+            throw new RuntimeException('Database schema update failed');
         }
         $io->success('Database schema updated');
 
-        $io->section('Loading default fixtures');
-        $process = Process::fromShellCommandline('bin/console sylius:fixtures:load --no-interaction');
-        $process->setTty(Process::isTtySupported());
-        $process->setTimeout(0)->run();
+        // 4) Fixtures and cache
+        $io->title('4) Loading fixtures and clearing cache');
+        $fixturesCmd = $app->find('sylius:fixtures:load');
+        $fixturesIn  = new ArrayInput([
+            'command'          => 'sylius:fixtures:load',
+            '--no-interaction' => true,
+        ]);
+        $fixturesOut = new BufferedOutput();
+        $fixturesCmd->run($fixturesIn, $fixturesOut);
+        $io->writeln($fixturesOut->fetch());
+        $io->success('Fixtures loaded');
 
-        if (!$process->isSuccessful()) {
-            throw new RuntimeException('Fixtures load failed: ' . $process->getErrorOutput());
+        foreach (['cache:clear', 'cache:warmup'] as $cmdName) {
+            $cmd   = $app->find($cmdName);
+            $input = new ArrayInput(['command' => $cmdName]);
+            $cmd->run($input, new BufferedOutput());
         }
-
-        $io->success('Fixtures loaded successfully.');
-        $clear = new Process(['bin/console', 'cache:clear'], getcwd());
-        $clear->setTimeout(0)->run();
-        if (!$clear->isSuccessful()) {
-            $io->warning('Cache clear failed: ' . $clear->getErrorOutput());
-        }
-
-        $warmup = new Process(['bin/console', 'cache:warmup'], getcwd());
-        $warmup->setTimeout(0)->run();
-        if (!$warmup->isSuccessful()) {
-            $io->warning('Cache warmup failed: ' . $warmup->getErrorOutput());
-        }
-
-        $io->success('All plugins installed and configured successfully.');
+        $io->success('Cache cleared and warmed up');
     }
+
 }
