@@ -100,13 +100,13 @@ class StoreCreator extends Command
             implode(' ', $parts),
             $this->projectDir
         );
-
-        $io->write(sprintf('Running: %s', implode(' ', $parts)));
+// przekazujemy TTY tak, jakby to była Twoja konsola
         $process
+            ->setTty(Process::isTtySupported())
             ->setTimeout(0)
             ->run(function ($type, $buffer) use ($io) {
                 $io->write($buffer);
-        });
+            });
 
         return $process;
     }
