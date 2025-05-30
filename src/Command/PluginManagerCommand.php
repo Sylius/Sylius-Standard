@@ -177,7 +177,7 @@ class PluginManagerCommand extends Command
         Process::fromShellCommandline('bin/console assets:install')
             ->setTty(Process::isTtySupported())
             ->setTimeout(0)->mustRun(fn($type, $buffer) => $io->write($buffer));
-        Process::fromShellCommandline('yarn encore dev')
+        Process::fromShellCommandline('yarn encore production')
             ->setTty(Process::isTtySupported())
             ->setTimeout(0)->mustRun(fn($type, $buffer) => $io->write($buffer));
 
