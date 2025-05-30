@@ -1,7 +1,7 @@
 # config/packages/sylius_twig_hooks.yaml
-sylius_twig_hooks:
-    hooks:
-        'sylius_shop.base.header.content.logo':
-            content:
-                template: 'templates/shared/logo.html.twig'
-                priority: 0
+#sylius_twig_hooks:
+#    hooks:
+#        'sylius_shop.base.header.content.logo':
+#            content:
+#                template: 'templates/shared/logo.html.twig'
+#                priority: 0
