@@ -143,7 +143,7 @@ class PluginManagerCommand extends Command
             }
             $process = new Process($cmd, $projectDir ?? null);
             $process->setTty(Process::isTtySupported());
-            $process->run(fn($type, $buffer) => $output->write($buffer));
+            $process->setTimeout(0)->run(fn($type, $buffer) => $output->write($buffer));
             return $process->getExitCode();
         }
 
