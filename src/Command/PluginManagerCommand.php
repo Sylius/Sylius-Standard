@@ -8,11 +8,11 @@ use RuntimeException;
 use Exception;
 use Symfony\Component\Console\Attribute\AsCommand;
 use Symfony\Component\Console\Command\Command;
-use Symfony\Component\Console\Input\InputArgument;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Input\InputOption;
 use Symfony\Component\Console\Output\OutputInterface;
 use Symfony\Component\Console\Style\SymfonyStyle;
+use Symfony\Component\DependencyInjection\Attribute\Autowire;
 use Symfony\Component\DependencyInjection\Attribute\AutowireIterator;
 use Symfony\Component\Process\Process;
 
@@ -30,7 +30,8 @@ class PluginManagerCommand extends Command
     protected static $defaultName = 'sylius:plugin-manager';
 
     public function __construct(
-        #[AutowireIterator('app.plugin_installer')] private readonly iterable $installers
+        #[AutowireIterator('app.plugin_installer')] private readonly iterable $installers,
+        #[Autowire('%kernel.project_dir%')] private readonly string $projectDir,
     ) {
         parent::__construct();
     }
@@ -173,21 +174,56 @@ class PluginManagerCommand extends Command
 
     private function runCommonPostSteps(SymfonyStyle $io): void
     {
-        $io->title('Installing assets and building front');
-        Process::fromShellCommandline('bin/console assets:install')
-            ->setTty(Process::isTtySupported())
-            ->setTimeout(0)->mustRun(fn($type, $buffer) => $io->write($buffer));
+        $io->title('Installing assets');
+        $io->section('Print cwd');
+        $io->writeln(getcwd());
+//        $process = Process::fromShellCommandline('php bin/console assets:install public --symlink --relative --no-interaction --force');
+//        $process
+//            ->setTty(Process::isTtySupported())
+//            ->setTimeout(0)
+//            ->run(function (string $type, string $buffer) use ($io) {
+//                $io->write($buffer);
+//            });
+//        if (!$process->isSuccessful()) {
+//            throw new RuntimeException('assets:install failed');
+//        }
+
+        $io->section('Building front assets');
         Process::fromShellCommandline('yarn encore production')
             ->setTty(Process::isTtySupported())
             ->setTimeout(0)->mustRun(fn($type, $buffer) => $io->write($buffer));
 
         $io->section('Running database sync');
-        $sync = Process::fromShellCommandline('bin/console doctrine:schema:update --force --complete');
-        $sync->setTimeout(0)->run();
-        if (!$sync->isSuccessful()) {
-            $io->error('Database sync failed: ' . $sync->getErrorOutput());
-            throw new Exception('Database sync failed');
+// 1) Wypiszemy SQL bez aplikowania
+        $io->section('1) Generating SQL to apply (verbose)');
+        $dumpSql = Process::fromShellCommandline(
+            'bin/console doctrine:schema:update --dump-sql --no-interaction -vvv',
+            $this->projectDir
+        );
+        $dumpSql
+            ->setTty(Process::isTtySupported())
+            ->setInput(fopen('php://stdin','r'))
+            ->setTimeout(0)
+            ->run(fn($type,$buffer)=> $io->write($buffer));
+        if (!$dumpSql->isSuccessful()) {
+            throw new RuntimeException('Failed to dump SQL: '.$dumpSql->getErrorOutput());
         }
+        $io->success('SQL dump complete');
+
+// 2) Dopiero wtedy faktycznie zaktualizujemy schemat
+        $io->section('2) Applying schema update');
+        $apply = Process::fromShellCommandline('php bin/console doctrine:schema:update --force --complete --no-interaction');
+        $apply
+            ->setTty(Process::isTtySupported())
+            ->setInput(fopen('php://stdin', 'r'))
+            ->setTimeout(0)
+            ->run(function($type, $buffer) use ($io) {
+                $io->write($buffer);
+            });
+        if (!$apply->isSuccessful()) {
+            throw new RuntimeException('Database sync failed: ' . $apply->getErrorOutput());
+        }
+        $io->success('Database schema updated');
 
         $io->section('Loading default fixtures');
         $process = Process::fromShellCommandline('bin/console sylius:fixtures:load --no-interaction');
