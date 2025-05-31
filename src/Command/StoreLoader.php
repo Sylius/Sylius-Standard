@@ -15,10 +15,10 @@ use Symfony\Component\Process\Process;
 use Symfony\Component\HttpKernel\KernelInterface;
 
 #[AsCommand(
-    name: 'sylius:store-creator',
+    name: 'sylius:dx:store-loader',
     description: 'Orchestrate Sylius installation: plugins, fixtures, themes',
 )]
-class StoreCreator extends Command
+class StoreLoader extends Command
 {
     private string $projectDir;
 
@@ -55,7 +55,7 @@ class StoreCreator extends Command
         if (!empty($data['plugins'])) {
             $io->section('Installing plugins');
             $process = $this->runConsoleCommand(
-                'sylius:plugin-manager',
+                'sylius:dx:plugin-manager',
                 [sprintf('--template=%s', $storeName)],
                 $io,
             );
@@ -65,16 +65,16 @@ class StoreCreator extends Command
             }
         }
 
-        // Fixtures
-//        if (!empty($data['fixtures']['suite'] ?? null)) {
-//            $suite = $data['fixtures']['suite'];
-//            $io->section(sprintf('Loading fixtures suite: %s', $suite));
-//            $process = $this->runConsoleCommand('sylius:fixtures:load', [$suite], $io);
-//            if ($process->getExitCode() !== 0) {
-//                $io->error('Fixtures loading failed.');
-//                return Command::FAILURE;
-//            }
-//        }
+//         Fixtures
+        if (!empty($data['fixtures']['suite'] ?? null)) {
+            $suite = $data['fixtures']['suite'];
+            $io->section(sprintf('Loading fixtures suite: %s', $suite));
+            $process = $this->runConsoleCommand('sylius:fixtures:load --no-interaction', [$suite], $io);
+            if ($process->getExitCode() !== 0) {
+                $io->error('Fixtures loading failed.');
+                return Command::FAILURE;
+            }
+        }
 
         // Theme
 //        if (!empty($data['themes'])) {
@@ -104,9 +104,8 @@ class StoreCreator extends Command
         $process
             ->setTty(Process::isTtySupported())
             ->setTimeout(0)
-            ->run(function ($type, $buffer) use ($io) {
-                $io->write($buffer);
-            });
+            ->mustRun()
+        ;
 
         return $process;
     }

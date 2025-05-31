@@ -14,10 +14,10 @@ use Symfony\Component\Process\Process;
 use Symfony\Component\HttpKernel\KernelInterface;
 
 #[AsCommand(
-    name: 'sylius:theme-creator',
-    description: 'Manage Sylius themes',
+    name: 'sylius:dx:theme-loader',
+    description: 'Load themes from configuration and generate stylesheets',
 )]
-class ThemeCreator extends Command
+class ThemeLoader extends Command
 {
     use ConfigTrait;
 

@@ -18,17 +18,17 @@ use Symfony\Component\DependencyInjection\Attribute\AutowireIterator;
 use Symfony\Component\Process\Process;
 
 #[AsCommand(
-    name: 'sylius:plugin-manager',
+    name: 'sylius:dx:plugin-manager',
     description: 'Require and install Sylius plugins in one go'
 )]
-class PluginManagerCommand extends Command
+class PluginManager extends Command
 {
     use ConfigTrait;
 
     protected const MODE_MANUAL = 'manual';
     protected const MODE_AUTO = 'auto';
 
-    protected static $defaultName = 'sylius:plugin-manager';
+    protected static $defaultName = 'sylius:dx:plugin-manager';
 
     public function __construct(
         #[AutowireIterator('app.plugin_installer')] private readonly iterable $installers,
