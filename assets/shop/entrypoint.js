@@ -25,4 +25,3 @@ window.addEventListener('message', event => {
     .map(([name, value]) => `* { ${name}: ${value} !important; }`)
     .join('\n');
 });
-import './styles/custom-theme.scss';
