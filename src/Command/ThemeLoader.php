@@ -15,6 +15,7 @@ use Symfony\Component\Console\Output\OutputInterface;
 use Symfony\Component\Console\Style\SymfonyStyle;
 use Symfony\Component\Process\Process;
 use Symfony\Component\HttpKernel\KernelInterface;
+use Symfony\Component\Yaml\Yaml;
 
 #[AsCommand(
     name: 'sylius:dx:theme-loader',
@@ -23,6 +24,8 @@ use Symfony\Component\HttpKernel\KernelInterface;
 class ThemeLoader extends Command
 {
     use ConfigTrait;
+
+    const SHOP_LOGO_HEIGHT_FACTOR = 70;
 
     private string $projectDir;
 
@@ -135,11 +138,6 @@ class ThemeLoader extends Command
                 continue;
             }
 
-            $manager = new ImageManager(new Driver());
-            $image = $manager->read($logoSrc);
-            $image->resize(height:  50);
-            $image->save();
-
 
             $assetsImagesDir = $this->projectDir . sprintf('/assets/%s/images', $area);
             if (!is_dir($assetsImagesDir) && !mkdir($assetsImagesDir, 0755, true) && !is_dir($assetsImagesDir)) {
@@ -154,6 +152,17 @@ class ThemeLoader extends Command
 
             copy($logoSrc, $destLogoInAssets);
             $io->success(sprintf('Copied logo for area "%s" to assets: %s', $area, $destLogoInAssets));
+
+            $io->text('Adjust size of logo');
+            $manager = new ImageManager(new Driver());
+            $image = $manager->read($destLogoInAssets);
+            $size = $image->size();
+            $aspectRatio = $size->width() / $size->height();
+            $image->resize(
+                width: (int)round(self::SHOP_LOGO_HEIGHT_FACTOR * $aspectRatio), // Szerokość proporcjonalna
+                height: (int)(self::SHOP_LOGO_HEIGHT_FACTOR / $aspectRatio),
+            );
+            $image->save();
         }
 
         //
@@ -262,6 +271,8 @@ YAML;
             if (empty($themeConfig['logo'])) {
                 continue;
             }
+            $yaml = new Yaml();
+
 
             if ($area === 'shop') {
                 $hookKey      = 'sylius_shop.base.header.content.logo';
