@@ -38,6 +38,15 @@ class StoreLoader extends Command
 
     protected function execute(InputInterface $input, OutputInterface $output): int
     {
+        set_error_handler(function($errno, $errstr) {
+            if (str_contains($errstr, 'getConsole_ErrorListenerService.php')) {
+                // zwracając true: mówimy PHP, że błąd obsłużony i nie musi go wypisywać
+                return true;
+            }
+            // dla wszystkich pozostałych komunikatów przywróć domyślną obsługę (disable current handler)
+            return false;
+        });
+
         $io = new SymfonyStyle($input, $output);
         $storeName = $input->getArgument('store');
         $configPath = sprintf('%s/store-creator/%s/store-creator.json', $this->projectDir, $storeName);
