@@ -217,6 +217,10 @@ class PluginManager extends Command
         // Pobieramy ten sam katalog cache (np. var/cache/dev/ContainerXXX)
         $cacheDir = $this->getApplication()->getKernel()->getContainer()->getParameter('kernel.cache_dir');
 
+        $io->section('[Plugin Manager] ==========CACHE DIR==========');
+        $io->writeln($cacheDir);
+        $io->section('[Plugin Manager] ==========CACHE DIR==========');
+
         $env = [
             'SYMFONY_CACHE_DIR' => $cacheDir,
             'APP_ENV'           => 'dev',

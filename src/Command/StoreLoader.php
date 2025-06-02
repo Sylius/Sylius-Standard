@@ -144,6 +144,9 @@ class StoreLoader extends Command
         // Dzięki temu każdy "php bin/console" użyje tego samego cache, a nie będzie próbował wygenerować nowego
         $cacheDir = $this->getApplication()->getKernel()->getContainer()->getParameter('kernel.cache_dir');
 
+        $io->section('[Store Loader] ==========CACHE DIR==========');
+        $io->writeln($cacheDir);
+        $io->section('[Store Loader] ==========CACHE DIR==========');
         // Ustawiamy zmienne środowiskowe tak, aby Symfony korzystało z dokładnie tego cache‐dir:
         $env = [
             'SYMFONY_CACHE_DIR' => $cacheDir,
