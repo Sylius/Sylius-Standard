@@ -52,8 +52,8 @@ class StoreLoader extends Command
         $json = file_get_contents($configPath);
         $data = json_decode($json, true, 512, JSON_THROW_ON_ERROR);
 
+        $io->section('[Store Loader] PLUGINS');
         if (!empty($data['plugins'])) {
-            $io->section('Installing plugins');
             $process = $this->runConsoleCommand(
                 'sylius:dx:plugin-manager',
                 [sprintf('--template=%s', $storeName)],
@@ -65,6 +65,7 @@ class StoreLoader extends Command
             }
         }
 
+        $io->section('[Store Loader] FIXTURES');
         if (!empty($data['fixtures']['suite'] ?? null)) {
             $io->section('Loading fixtures');
             $process = $this->runConsoleCommand(
@@ -78,6 +79,7 @@ class StoreLoader extends Command
             }
         }
 
+        $io->section('[Store Loader] THEMES');
         if (!empty($data['themes'])) {
             $io->section('Applying theme');
             $process = $this->runConsoleCommand(
