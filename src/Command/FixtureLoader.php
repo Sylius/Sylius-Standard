@@ -28,12 +28,27 @@ class FixtureLoader extends Command
     protected function configure(): void
     {
         $this->addArgument('store', InputOption::VALUE_REQUIRED, 'Name of the store directory under store-creator/');
+        $this->addOption('load-suite', null, InputOption::VALUE_OPTIONAL, 'Load a specific fixtures suite', null);
         $this->addOption('force', 'f', InputOption::VALUE_NONE, 'Overwrite existing theme files');
     }
 
     protected function execute(InputInterface $input, OutputInterface $output): int
     {
         $io = new SymfonyStyle($input, $output);
+
+        if ($input->getOption('load-suite')) {
+            $io->section('[Fixture Loader] Loading fixtures suite');
+            $suite = $input->getOption('load-suite');
+            $process = $this->runConsoleCommand('sylius:fixtures:load', [$suite, '--no-interaction'], $io);
+            if ($process->getExitCode() !== 0) {
+                $io->error('Fixtures loading failed.');
+                return Command::FAILURE;
+            }
+
+            $io->success('Fixtures suite loaded successfully.');
+            return Command::SUCCESS;
+        }
+
         $storeName = $input->getArgument('store');
         $configPath = sprintf('%s/store-creator/%s/store-creator.json', $this->projectDir, $storeName);
         $fixturesPath = sprintf('%s/store-creator/%s/fixtures/fixtures.yaml', $this->projectDir, $storeName);
@@ -75,14 +90,20 @@ class FixtureLoader extends Command
             $io->warning('No images directory found, skipping image copy.');
         }
 
-        if (!empty($data['fixtures']['suite'] ?? null)) {
-            $suite = $data['fixtures']['suite'];
-            $io->section(sprintf('Loading fixtures suite: %s', $suite));
-            $process = $this->runConsoleCommand('sylius:fixtures:load', [$suite, '--no-interaction'], $io);
-            if ($process->getExitCode() !== 0) {
-                $io->error('Fixtures loading failed.');
-                return Command::FAILURE;
-            }
+        $io->section('[Fixture Loader] Reload cache');
+        $this->runConsoleCommand('cache:clear', [], $io);
+        $this->runConsoleCommand('cache:warmup', [], $io);
+
+        $io->text('[Fixture Loader] Rerun fixture-loader command');
+        $suite = $data['fixtures']['suite'] ?? 'default';
+        $process = $this->runConsoleCommand(
+            'sylius:dx:fixture-loader',
+            [$storeName, '--force', sprintf('--load-suite=%s', $suite)],
+            $io,
+        );
+        if ($process->getExitCode() !== 0) {
+            $io->error('Fixture loading failed.');
+            return Command::FAILURE;
         }
 
         $io->success('Fixtures loaded successfully.');
@@ -100,7 +121,7 @@ class FixtureLoader extends Command
             implode(' ', $parts),
             $this->projectDir
         );
-// przekazujemy TTY tak, jakby to była Twoja konsola
+
         $process
             ->setTty(Process::isTtySupported())
             ->setTimeout(0)

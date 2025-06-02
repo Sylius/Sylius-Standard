@@ -58,11 +58,6 @@ class ThemeLoader extends Command
                 ->setTimeout(0)
                 ->run(fn($type, $buffer) => $io->write($buffer));
 
-            if (!$installProcess->isSuccessful()) {
-                $io->error('Nie udało się zainstalować "intervention/image".');
-                return Command::FAILURE;
-            }
-            $io->success('Zainstalowano "intervention/image". Teraz uruchamiam ponownie tę samą komendę.');
 
             // Budujemy polecenie ponownego uruchomienia
             $php = escapeshellarg(PHP_BINARY);
