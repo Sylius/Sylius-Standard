@@ -55,9 +55,6 @@ class PluginManager extends Command
         $stage    = $input->getOption('stage');
         $plugins  = [];
 
-        // 0) Najpierw wyczyść cache, żeby nie było konfliktu przy kolejnych reloadach kontenera
-        $this->runConsole(['bin/console', 'cache:clear', '--no-debug'], $io);
-
         //
         // 1) Wczytywanie listy pluginów
         //
@@ -197,10 +194,6 @@ class PluginManager extends Command
 
         $io->section('Loading default fixtures');
         $this->runConsole(['bin/console', 'sylius:fixtures:load', '-n', '--no-debug'], $io);
-
-        // Cache clear & warmup
-        $this->runConsole(['bin/console', 'cache:clear', '--no-debug'], $io);
-        $this->runConsole(['bin/console', 'cache:warmup', '--no-debug'], $io);
 
         $io->success('All plugins installed and configured successfully.');
     }

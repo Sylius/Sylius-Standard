@@ -90,10 +90,6 @@ class FixtureLoader extends Command
             $io->warning('No images directory found, skipping image copy.');
         }
 
-        $io->section('[Fixture Loader] Reload cache');
-        $this->runConsoleCommand('cache:clear', [], $io);
-        $this->runConsoleCommand('cache:warmup', [], $io);
-
         $io->text('[Fixture Loader] Rerun fixture-loader command');
         $suite = $data['fixtures']['suite'] ?? 'default';
         $process = $this->runConsoleCommand(
