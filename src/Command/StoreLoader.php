@@ -118,6 +118,7 @@ class StoreLoader extends Command
         array $arguments,
         SymfonyStyle $io,
     ): Process {
+        $arguments['--no-debug'] = true;
         $parts = array_merge(["bin/console", $command], $arguments);
         $process = Process::fromShellCommandline(
             implode(' ', $parts),
