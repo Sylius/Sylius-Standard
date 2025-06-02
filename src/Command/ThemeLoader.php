@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace App\Command;
 
+use Throwable;
 use Intervention\Image\ImageManager;
 use Intervention\Image\Drivers\Gd\Driver;
 use Symfony\Component\Console\Attribute\AsCommand;
@@ -19,7 +20,7 @@ use Symfony\Component\Yaml\Yaml;
 
 #[AsCommand(
     name: 'sylius:dx:theme-loader',
-    description: 'Load themes from configuration and generate stylesheets (SCSS + logo assets)',
+    description: 'Load themes from configuration and generate stylesheets (SCSS + logo assets + button styles)',
 )]
 class ThemeLoader extends Command
 {
@@ -44,7 +45,7 @@ class ThemeLoader extends Command
 
     protected function execute(InputInterface $input, OutputInterface $output): int
     {
-        $io    = new SymfonyStyle($input, $output);
+        $io = new SymfonyStyle($input, $output);
         $store = (string)$input->getArgument('store');
         $force = (bool)$input->getOption('force');
 
@@ -58,9 +59,9 @@ class ThemeLoader extends Command
         }
 
         try {
-            $raw  = file_get_contents($configPath);
+            $raw = file_get_contents($configPath);
             $data = json_decode($raw, true, 512, JSON_THROW_ON_ERROR);
-        } catch (\Throwable $e) {
+        } catch (Throwable $e) {
             $io->error('Invalid JSON in store-creator.json: ' . $e->getMessage());
             return Command::FAILURE;
         }
@@ -73,13 +74,13 @@ class ThemeLoader extends Command
 
         $io->text('Loaded theme areas: ' . implode(', ', array_keys($themes)));
 
-        // 2) For each area (shop, admin, etc.) generate SCSS and copy logo into assets/<area>/images/
+        // 2) For each area (shop, admin, etc.) generate SCSS, copy logo into assets/<area>/images/, and add .btn-primary rules
         foreach ($themes as $area => $themeConfig) {
             $io->section(sprintf('Processing theme variables and logo for area: %s', $area));
 
-            // 2a) Generacja custom-theme.scss → assets/<area>/styles/custom-theme.scss
+            // 2a) Generate custom-theme.scss → assets/<area>/styles/custom-theme.scss
             $relativeStylesDir = sprintf('assets/%s/styles', $area);
-            $stylesDir         = $this->projectDir . '/' . ltrim($relativeStylesDir, '/');
+            $stylesDir = $this->projectDir . '/' . ltrim($relativeStylesDir, '/');
             if (!is_dir($stylesDir) && !mkdir($stylesDir, 0755, true) && !is_dir($stylesDir)) {
                 $io->error(sprintf('Failed to create styles directory: %s', $stylesDir));
                 continue;
@@ -87,24 +88,49 @@ class ThemeLoader extends Command
 
             $themeFile = $stylesDir . '/custom-theme.scss';
             if (file_exists($themeFile) && !$force) {
-                $io->warning(sprintf('SCSS theme file already exists, skipping: %s', $themeFile));
-            } else {
-                $variables = $themeConfig['cssVariables'] ?? [];
-                $lines     = [":root {"];
-                foreach ($variables as $name => $value) {
-                    $lines[] = sprintf('    %s: %s;', $name, $value);
-                }
-                $lines[] = '}';
-
-                file_put_contents($themeFile, implode("\n", $lines) . "\n");
-                $io->success(sprintf('Generated theme file: %s', $themeFile));
+                $io->warning(sprintf('SCSS theme file already exists, overwriting: %s', $themeFile));
             }
+            $variables = $themeConfig['cssVariables'] ?? [];
+            $lines = [":root {"];
+            foreach ($variables as $name => $value) {
+                $lines[] = sprintf('    %s: %s;', $name, $value);
+            }
+            $lines[] = "}";
 
-            // Dopisanie importu w assets/<area>/entrypoint.js
+            // 2a.1) Append .btn-primary block
+            $btnColor = $variables['--bs-text-color'] ?? '#000';
+            $btnBg = $variables['--bs-btn-bg'] ?? ($variables['--bs-primary'] ?? '#000');
+            $btnHoverBg = $variables['--bs-btn-hover-bg'] ?? ($variables['--bs-primary'] ?? '#000');
+            $btnFocusShadow = $variables['--bs-primary-rgb'] ?? '0, 0, 0';
+            $btnActiveBg = $variables['--bs-primary'] ?? '#000';
+            $btnDisabledBg = $variables['--bs-btn-bg'] ?? ($variables['--bs-primary'] ?? '#000');
+
+            $lines[] = "";
+            $lines[] = ".btn-primary {";
+            $lines[] = sprintf('    --bs-btn-color: %s;', $btnColor);
+            $lines[] = sprintf('    --bs-btn-bg: %s;', $btnBg);
+            $lines[] = sprintf('    --bs-btn-border-color: %s;', $btnBg);
+            $lines[] = sprintf('    --bs-btn-hover-color: %s;', $btnColor);
+            $lines[] = sprintf('    --bs-btn-hover-bg: %s;', $btnHoverBg);
+            $lines[] = sprintf('    --bs-btn-hover-border-color: %s;', $btnHoverBg);
+            $lines[] = sprintf('    --bs-btn-focus-shadow-rgb: %s;', $btnFocusShadow);
+            $lines[] = sprintf('    --bs-btn-active-color: %s;', $btnColor);
+            $lines[] = sprintf('    --bs-btn-active-bg: %s;', $btnActiveBg);
+            $lines[] = sprintf('    --bs-btn-active-border-color: %s;', $btnActiveBg);
+            $lines[] = '    --bs-btn-active-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125);';
+            $lines[] = sprintf('    --bs-btn-disabled-color: %s;', $btnColor);
+            $lines[] = sprintf('    --bs-btn-disabled-bg: %s;', $btnDisabledBg);
+            $lines[] = sprintf('    --bs-btn-disabled-border-color: %s;', $btnDisabledBg);
+            $lines[] = "}";
+
+            file_put_contents($themeFile, implode("\n", $lines) . "\n");
+            $io->success(sprintf('Generated theme file with variables and .btn-primary: %s', $themeFile));
+
+            // 2b) Append import to assets/<area>/entrypoint.js
             $entryFile = $this->projectDir . sprintf('/assets/%s/entrypoint.js', $area);
             if (file_exists($entryFile)) {
                 $importLine = "import './styles/custom-theme.scss';";
-                $content    = file_get_contents($entryFile);
+                $content = file_get_contents($entryFile);
                 if (strpos($content, $importLine) === false) {
                     $content = rtrim($content, "\n") . "\n" . $importLine . "\n";
                     file_put_contents($entryFile, $content);
@@ -116,14 +142,15 @@ class ThemeLoader extends Command
                 $io->warning(sprintf('entrypoint.js not found for area "%s": %s', $area, $entryFile));
             }
 
-            // 2b) Kopiowanie logo → assets/<area>/images/<logoFilename>
+            // 2c) Copy logo → assets/<area>/images/<logoFilename> and normalize size
             if (empty($themeConfig['logo'])) {
                 $io->text(sprintf('No logo defined for area "%s", skipping logo copy.', $area));
                 continue;
             }
 
             $logoFilename = $themeConfig['logo'];
-            $logoSrc      = sprintf('%s/store-creator/%s/themes/%s/%s',
+            $logoSrc = sprintf(
+                '%s/store-creator/%s/themes/%s/%s',
                 $this->projectDir,
                 $store,
                 $area,
@@ -133,7 +160,6 @@ class ThemeLoader extends Command
                 $io->warning(sprintf('Logo file for area "%s" not found: %s', $area, $logoSrc));
                 continue;
             }
-
 
             $assetsImagesDir = $this->projectDir . sprintf('/assets/%s/images', $area);
             if (!is_dir($assetsImagesDir) && !mkdir($assetsImagesDir, 0755, true) && !is_dir($assetsImagesDir)) {
@@ -149,16 +175,18 @@ class ThemeLoader extends Command
             copy($logoSrc, $destLogoInAssets);
             $io->success(sprintf('Copied logo for area "%s" to assets: %s', $area, $destLogoInAssets));
 
-            $io->text('Adjust size of logo');
+            // Normalize size preserving aspect ratio, ensuring height = SHOP_LOGO_HEIGHT_FACTOR
+            $io->text('Adjusting logo size');
             $manager = new ImageManager(new Driver());
             $image = $manager->read($destLogoInAssets);
             $size = $image->size();
             $aspectRatio = $size->width() / $size->height();
             $image->resize(
-                width: (int)round(self::SHOP_LOGO_HEIGHT_FACTOR * $aspectRatio), // Szerokość proporcjonalna
-                height: (int)(self::SHOP_LOGO_HEIGHT_FACTOR / $aspectRatio),
+                width: (int)round(self::SHOP_LOGO_HEIGHT_FACTOR * $aspectRatio),
+                height: self::SHOP_LOGO_HEIGHT_FACTOR
             );
             $image->save();
+            $io->success('Resized logo to consistent height');
         }
 
         // 3) Rebuild assets via Webpack Encore (to generate hashed filenames)
@@ -171,17 +199,17 @@ class ThemeLoader extends Command
         }
         $io->success('Assets built successfully.');
 
-        // 4) After build – locate hashed logo and generate Twig template in templates/<area>/logo.html.twig
+        // 4) After build – locate hashed logo file and generate Twig template in templates/<area>/logo.html.twig
         foreach ($themes as $area => $themeConfig) {
             if (empty($themeConfig['logo'])) {
                 continue;
             }
 
             $logoFilename = $themeConfig['logo'];
-            // Directory where Encore outputs hashed images:
+            // Encore output directory for images
             $publicImagesDir = sprintf('%s/public/build/app/%s/images', $this->projectDir, $area);
             if (!is_dir($publicImagesDir)) {
-                $io->warning(sprintf('After build, no images dir found: %s', $publicImagesDir));
+                $io->warning(sprintf('After build, images dir not found: %s', $publicImagesDir));
                 continue;
             }
 
@@ -191,7 +219,6 @@ class ThemeLoader extends Command
             $matches = glob($pattern);
 
             if (empty($matches)) {
-                // Try fallback to original name
                 $fallbackPath = sprintf('%s/%s', $publicImagesDir, $logoFilename);
                 if (file_exists($fallbackPath)) {
                     $matches[] = $fallbackPath;
@@ -204,8 +231,6 @@ class ThemeLoader extends Command
             }
 
             $hashedFullPath = $matches[0];
-            // Convert to public-relative asset path
-            // e.g. "build/shop/images/logo.abc123.png"
             $relativePublicPath = substr($hashedFullPath, strlen($this->projectDir . '/public/'));
 
             $twigDir = $this->projectDir . '/templates/' . $area;
@@ -215,9 +240,9 @@ class ThemeLoader extends Command
             }
 
             $twigFilename = 'logo.html.twig';
-            $twigPath     = $twigDir . '/' . $twigFilename;
-            $assetPath    = $relativePublicPath;
-            $routeName    = ($area === 'shop') ? 'sylius_shop_homepage' : 'sylius_admin_dashboard';
+            $twigPath = $twigDir . '/' . $twigFilename;
+            $assetPath = $relativePublicPath;
+            $routeName = ($area === 'shop') ? 'sylius_shop_homepage' : 'sylius_admin_dashboard';
 
             $twigContent = <<<TWIG
 {# templates/{$area}/{$twigFilename} #}
