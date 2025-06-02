@@ -142,16 +142,17 @@ class PluginManager extends Command
             $process->setTty(Process::isTtySupported());
             $process->setTimeout(0)->run(fn($type, $buffer) => $output->write($buffer));
 
-            $io->title('Running Rector');
-            $process = Process::fromShellCommandline('vendor/bin/rector process src');
-            $process->run();
-
-
             return $process->getExitCode();
         }
 
         // Stage: install
         $io->section('🔧 Installing plugins');
+
+        $io->title('Running Rector');
+        $process = Process::fromShellCommandline('vendor/bin/rector process src');
+        $process->run(fn ($type, $buffer) => $io->write($buffer));
+
+        $io->title('Installing plugins');
         foreach (array_keys($plugins) as $plugin) {
             $installer = $this->findInstallerFor($plugin);
             $installer->install($io);
