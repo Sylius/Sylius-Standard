@@ -25,7 +25,7 @@ class ThemeLoader extends Command
 {
     use ConfigTrait;
 
-    const SHOP_LOGO_HEIGHT_FACTOR = 70;
+    private const SHOP_LOGO_HEIGHT_FACTOR = 70;
 
     private string $projectDir;
 
@@ -50,9 +50,7 @@ class ThemeLoader extends Command
 
         $io->title(sprintf('Sylius Theme Loader (store: %s)', $store));
 
-        //
-        // 1) Ładowanie konfiguracji JSON
-        //
+        // 1) Load JSON configuration
         $configPath = sprintf('%s/store-creator/%s/store-creator.json', $this->projectDir, $store);
         if (!file_exists($configPath)) {
             $io->error(sprintf('Configuration file not found: %s', $configPath));
@@ -75,9 +73,7 @@ class ThemeLoader extends Command
 
         $io->text('Loaded theme areas: ' . implode(', ', array_keys($themes)));
 
-        //
-        // 2) Dla każdego obszaru („area”: shop, admin, itd.) generujemy SCSS i kopiujemy plik logo do assets/<area>/images/
-        //
+        // 2) For each area (shop, admin, etc.) generate SCSS and copy logo into assets/<area>/images/
         foreach ($themes as $area => $themeConfig) {
             $io->section(sprintf('Processing theme variables and logo for area: %s', $area));
 
@@ -165,9 +161,7 @@ class ThemeLoader extends Command
             $image->save();
         }
 
-        //
-        // 3) Rebuild assets przez Webpack Encore (aby wyprodukować hashowane nazwy obrazów)
-        //
+        // 3) Rebuild assets via Webpack Encore (to generate hashed filenames)
         $io->section('Building assets with Webpack Encore');
         $process = Process::fromShellCommandline('yarn encore dev', $this->projectDir);
         $process->run(fn($type, $buffer) => $io->write($buffer));
@@ -177,32 +171,27 @@ class ThemeLoader extends Command
         }
         $io->success('Assets built successfully.');
 
-        //
-        // 4) Po buildzie – odczytamy rzeczywistą nazwę zhaszowanego logo i wygenerujemy Twig w odpowiednim katalogu templates/<area>/
-        //
+        // 4) After build – locate hashed logo and generate Twig template in templates/<area>/logo.html.twig
         foreach ($themes as $area => $themeConfig) {
             if (empty($themeConfig['logo'])) {
                 continue;
             }
 
             $logoFilename = $themeConfig['logo'];
-            // Katalog z wytworzonymi przez Encore plikami obrazów:
+            // Directory where Encore outputs hashed images:
             $publicImagesDir = sprintf('%s/public/build/app/%s/images', $this->projectDir, $area);
             if (!is_dir($publicImagesDir)) {
-                $io->warning(sprintf('Po buildzie nie znaleziono katalogu z obrazami: %s', $publicImagesDir));
+                $io->warning(sprintf('After build, no images dir found: %s', $publicImagesDir));
                 continue;
             }
 
-            // Wyciągamy bazową nazwę (bez rozszerzenia):
             $basename = pathinfo($logoFilename, PATHINFO_FILENAME);
             $extension = pathinfo($logoFilename, PATHINFO_EXTENSION);
-
-            // Szukamy w katalogu pliku matching „basename.*.extension” (np. logo.abc123.png)
             $pattern = sprintf('%s/%s.*.%s', $publicImagesDir, $basename, $extension);
             $matches = glob($pattern);
 
             if (empty($matches)) {
-                // Jeżeli wynik pusty, spróbujemy fallback do oryginalnej nazwy (bez hasha)
+                // Try fallback to original name
                 $fallbackPath = sprintf('%s/%s', $publicImagesDir, $logoFilename);
                 if (file_exists($fallbackPath)) {
                     $matches[] = $fallbackPath;
@@ -210,30 +199,25 @@ class ThemeLoader extends Command
             }
 
             if (empty($matches)) {
-                $io->warning(sprintf('Nie znaleziono zhaszowanego pliku logo w: %s (pattern: %s)', $publicImagesDir, $pattern));
+                $io->warning(sprintf('No hashed logo found in %s (pattern: %s)', $publicImagesDir, $pattern));
                 continue;
             }
 
-            // Zwykle glob zwróci tablicę, bierzemy pierwszy pasujący:
             $hashedFullPath = $matches[0];
-            // Teraz konwertujemy na ścieżkę relatywną względem katalogu public/
-            // public/build/<area>/images/logo.abc123.png
+            // Convert to public-relative asset path
+            // e.g. "build/shop/images/logo.abc123.png"
             $relativePublicPath = substr($hashedFullPath, strlen($this->projectDir . '/public/'));
 
-            // Czyli: "build/<area>/images/logo.abc123.png"
-            // Generujemy Twig‐a w templates/<area>/logo.html.twig
-            $twigDir    = $this->projectDir . '/templates/' . $area;
+            $twigDir = $this->projectDir . '/templates/' . $area;
             if (!is_dir($twigDir) && !mkdir($twigDir, 0755, true) && !is_dir($twigDir)) {
-                $io->error(sprintf('Failed to create templates directory for area "%s": %s', $area, $twigDir));
+                $io->error(sprintf('Failed to create templates dir for area "%s": %s', $area, $twigDir));
                 continue;
             }
 
             $twigFilename = 'logo.html.twig';
             $twigPath     = $twigDir . '/' . $twigFilename;
-
-            // Właściwe odwołanie w Twig:
-            $assetPath   = $relativePublicPath; // np. "build/shop/images/logo.abc123.png"
-            $routeName   = ($area === 'shop') ? 'sylius_shop_homepage' : 'sylius_admin_dashboard';
+            $assetPath    = $relativePublicPath;
+            $routeName    = ($area === 'shop') ? 'sylius_shop_homepage' : 'sylius_admin_dashboard';
 
             $twigContent = <<<TWIG
 {# templates/{$area}/{$twigFilename} #}
@@ -243,73 +227,64 @@ class ThemeLoader extends Command
 TWIG;
 
             if (file_exists($twigPath) && !$force) {
-                $io->warning(sprintf('Twig template already exists, overwriting: %s', $twigPath));
+                $io->warning(sprintf('Twig logo template already exists, overwriting: %s', $twigPath));
             }
 
             file_put_contents($twigPath, $twigContent . "\n");
             $io->success(sprintf('Created Twig logo template for area "%s": %s', $area, $twigPath));
         }
 
-        //
-        // 5) Aktualizacja konfiguracji Sylius Twig Hooks
-        //
+        // 5) Update Sylius Twig Hooks using Symfony Yaml component
         $io->section('Updating Twig hook configuration');
         $hooksConfigPath = $this->projectDir . '/config/packages/sylius_twig_hooks.yaml';
 
+        // If file does not exist, create base structure
         if (!file_exists($hooksConfigPath)) {
-            $baseConfig = <<<YAML
-sylius_twig_hooks:
-    hooks:
-YAML;
-            file_put_contents($hooksConfigPath, $baseConfig . "\n");
+            $baseConfig = [
+                'sylius_twig_hooks' => [
+                    'hooks' => []
+                ]
+            ];
+            file_put_contents($hooksConfigPath, Yaml::dump($baseConfig, 4));
             $io->success(sprintf('Created new hook config: %s', $hooksConfigPath));
         }
 
-        $hooksContent = file_get_contents($hooksConfigPath);
+        // Parse existing YAML
+        $hooksConfig = Yaml::parseFile($hooksConfigPath);
+        if (!isset($hooksConfig['sylius_twig_hooks']['hooks']) || !is_array($hooksConfig['sylius_twig_hooks']['hooks'])) {
+            $hooksConfig['sylius_twig_hooks']['hooks'] = [];
+        }
 
         foreach ($themes as $area => $themeConfig) {
             if (empty($themeConfig['logo'])) {
                 continue;
             }
-            $yaml = new Yaml();
-
 
             if ($area === 'shop') {
-                $hookKey      = 'sylius_shop.base.header.content.logo';
-                $twigTemplate = sprintf('%s/logo.html.twig', $area); // shop/logo.html.twig
+                $hookKey = 'sylius_shop.base.header.content.logo';
+                $twigTemplate = sprintf('%s/logo.html.twig', $area);
             } else {
-                $hookKey      = 'sylius_admin.layout.header';
-                $twigTemplate = sprintf('%s/logo.html.twig', $area); // admin/logo.html.twig
+                $hookKey = 'sylius_admin.layout.header';
+                $twigTemplate = sprintf('%s/logo.html.twig', $area);
             }
 
-            if (strpos($hooksContent, $hookKey) !== false) {
-                $io->text(sprintf('Hook "%s" already present, skipping.', $hookKey));
-                continue;
-            }
+            $hooksConfig['sylius_twig_hooks']['hooks'][$hookKey] = [
+                'content' => [
+                    'template' => $twigTemplate,
+                    'priority' => 0,
+                ],
+            ];
 
-            $snippet = <<<YAML
+            // Disable new collection hook
+            $hooksConfig['sylius_twig_hooks']['hooks']['sylius_shop.homepage.index']['new_collection']['enabled'] = false;
 
-        '{$hookKey}':
-            content:
-                template: '{$twigTemplate}'
-                priority: 0
-YAML;
-            $updated = preg_replace(
-                '/(sylius_twig_hooks:\s*\n\s*hooks:\s*)/m',
-                "\$1" . $snippet,
-                $hooksContent,
-                1
-            );
-
-            if ($updated === null) {
-                $io->error('Failed to update hooks config (preg_replace returned null).');
-            } else {
-                file_put_contents($hooksConfigPath, $updated);
-                $hooksContent = $updated;
-                $io->success(sprintf('Appended hook "%s" to %s', $hookKey, $hooksConfigPath));
-            }
+            $io->success(sprintf('Appended hook "%s" to %s', $hookKey, $hooksConfigPath));
         }
 
+        // Dump back to YAML
+        file_put_contents($hooksConfigPath, Yaml::dump($hooksConfig, 8));
+
+        $io->success('Theme loader completed successfully.');
         return Command::SUCCESS;
     }
 }

@@ -36,6 +36,7 @@ class FixtureLoader extends Command
         $io = new SymfonyStyle($input, $output);
         $storeName = $input->getArgument('store');
         $configPath = sprintf('%s/store-creator/%s/store-creator.json', $this->projectDir, $storeName);
+        $fixturesPath = sprintf('%s/store-creator/%s/fixtures/fixtures.yaml', $this->projectDir, $storeName);
 
         if (!file_exists($configPath)) {
             $io->error(sprintf('Configuration file not found: %s', $configPath));
@@ -46,6 +47,8 @@ class FixtureLoader extends Command
 
         $json = file_get_contents($configPath);
         $data = json_decode($json, true, 512, JSON_THROW_ON_ERROR);
+
+        copy($fixturesPath, $this->projectDir . '/config/packages/fixtures.yaml');
 
         if (!empty($data['fixtures']['suite'] ?? null)) {
             $suite = $data['fixtures']['suite'];
