@@ -65,26 +65,31 @@ class StoreLoader extends Command
             }
         }
 
-//         Fixtures
         if (!empty($data['fixtures']['suite'] ?? null)) {
-            $suite = $data['fixtures']['suite'];
-            $io->section(sprintf('Loading fixtures suite: %s', $suite));
-            $process = $this->runConsoleCommand('sylius:fixtures:load --no-interaction', [$suite], $io);
+            $io->section('Loading fixtures');
+            $process = $this->runConsoleCommand(
+                'sylius:dx:fixture-loader',
+                [$storeName],
+                $io,
+            );
             if ($process->getExitCode() !== 0) {
-                $io->error('Fixtures loading failed.');
+                $io->error('Fixture loading failed.');
                 return Command::FAILURE;
             }
         }
 
-        // Theme
-//        if (!empty($data['themes'])) {
-//            $io->section('Applying theme');
-//            $process = $this->runConsoleCommand('sylius:theme-creator', [$storeName], $io, $input->getOption('skip-build'));
-//            if ($process->getExitCode() !== 0) {
-//                $io->error('Theme application failed.');
-//                return Command::FAILURE;
-//            }
-//        }
+        if (!empty($data['themes'])) {
+            $io->section('Applying theme');
+            $process = $this->runConsoleCommand(
+                'sylius:dx:theme-loader',
+                [$storeName],
+                $io,
+            );
+            if ($process->getExitCode() !== 0) {
+                $io->error('Theme application failed.');
+                return Command::FAILURE;
+            }
+        }
 
         $io->success('Store creation complete!');
         return Command::SUCCESS;
@@ -100,11 +105,11 @@ class StoreLoader extends Command
             implode(' ', $parts),
             $this->projectDir
         );
-// przekazujemy TTY tak, jakby to była Twoja konsola
+
         $process
             ->setTty(Process::isTtySupported())
             ->setTimeout(0)
-            ->mustRun()
+            ->mustRun(fn ($type, $buffer) => $io->write($buffer))
         ;
 
         return $process;
