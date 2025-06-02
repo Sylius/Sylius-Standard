@@ -48,12 +48,37 @@ class FixtureLoader extends Command
         $json = file_get_contents($configPath);
         $data = json_decode($json, true, 512, JSON_THROW_ON_ERROR);
 
-        copy($fixturesPath, $this->projectDir . '/config/packages/fixtures.yaml');
+        $result = copy($fixturesPath, $this->projectDir . '/config/packages/fixtures.yaml');
+        if (!$result) {
+            $io->error(sprintf('Failed to copy fixtures from %s to %s', $fixturesPath, $this->projectDir . '/config/packages/fixtures.yaml'));
+            return Command::FAILURE;
+        }
+
+        // Skopiuj wszystkie zdjęcia
+        $imagesDir = sprintf('%s/store-creator/%s/fixtures/images', $this->projectDir, $storeName);
+        if (is_dir($imagesDir)) {
+            $io->section('Copying images');
+            $destinationDir = $this->projectDir . '/var/fixture_img';
+            $process = Process::fromShellCommandline(
+                sprintf('cp -r %s/* %s', escapeshellarg($imagesDir), escapeshellarg($destinationDir)),
+            );
+            $process->run(
+                function ($type, $buffer) use ($io) {
+                    $io->write($buffer);
+                }
+            );
+            if ($process->getExitCode() !== 0) {
+                $io->error('Failed to copy images.');
+                return Command::FAILURE;
+            }
+        } else {
+            $io->warning('No images directory found, skipping image copy.');
+        }
 
         if (!empty($data['fixtures']['suite'] ?? null)) {
             $suite = $data['fixtures']['suite'];
             $io->section(sprintf('Loading fixtures suite: %s', $suite));
-            $process = $this->runConsoleCommand('sylius:fixtures:load', [$suite], $io);
+            $process = $this->runConsoleCommand('sylius:fixtures:load', [$suite, '--no-interaction'], $io);
             if ($process->getExitCode() !== 0) {
                 $io->error('Fixtures loading failed.');
                 return Command::FAILURE;
