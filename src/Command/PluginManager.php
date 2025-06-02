@@ -109,8 +109,8 @@ class PluginManager extends Command
             }
 
             // Zawsze ustawiamy Flex aby akceptował contrib i dodajemy Sylius Packagist repo
-            Process::fromShellCommandline('composer config extra.symfony.allow-contrib true')->run();
-            Process::fromShellCommandline('composer config repositories.sylius composer https://sylius.repo.packagist.com/sylius/')->run();
+            Process::fromShellCommandline('composer config extra.symfony.allow-contrib true')->setTimeout(0)->run();
+            Process::fromShellCommandline('composer config repositories.sylius composer https://sylius.repo.packagist.com/sylius/')->setTimeout(0)->run();
         }
 
         //
@@ -120,8 +120,10 @@ class PluginManager extends Command
             $io->section('📦 Requiring plugins');
             foreach ($plugins as $package => $version) {
                 Process::fromShellCommandline("composer require $package:$version --no-scripts --no-interaction")
+                    ->setTimeout(0)
                     ->mustRun(fn($type, $buffer) => $output->write($buffer));
                 Process::fromShellCommandline("composer require $package:dev-booster --no-scripts --no-interaction")
+                    ->setTimeout(0)
                     ->mustRun(fn($type, $buffer) => $output->write($buffer));
             }
 
