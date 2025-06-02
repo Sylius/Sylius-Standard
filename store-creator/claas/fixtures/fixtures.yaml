@@ -15,8 +15,8 @@ sylius_fixtures:
                                 password: 'sylius'
                                 enabled: true
                                 locale_code: '%locale%'
-                                first_name: 'John'
-                                last_name: 'Doe'
+                                first_name: 'Anna'
+                                last_name: 'Kowalska'
                                 avatar: '@SyliusCoreBundle/Resources/fixtures/adminAvatars/john.webp'
 
                             -   email: 'api@example.com'
@@ -24,8 +24,8 @@ sylius_fixtures:
                                 password: 'sylius-api'
                                 enabled: true
                                 locale_code: '%locale%'
-                                first_name: 'Luke'
-                                last_name: 'Brushwood'
+                                first_name: 'Piotr'
+                                last_name: 'Nowak'
                                 api: true
                                 avatar: '@SyliusCoreBundle/Resources/fixtures/adminAvatars/luke.webp'
 
@@ -43,7 +43,7 @@ sylius_fixtures:
                             - PL
                         zones:
                             WORLD:
-                                name: Świat
+                                name: 'Globus'
                                 countries:
                                     - PL
                 menu_taxon:
@@ -52,14 +52,14 @@ sylius_fixtures:
                         custom:
                             category:
                                 code: SŁODYCZE
-                                name: Słodycze
+                                name: 'Przekąski'
                                 translations:
-                                    pl_PL: { name: Słodycze }
+                                    pl_PL: { name: 'Przekąski' }
                 channel:
                     options:
                         custom:
                             jutrzenka_bydgoszcz:
-                                name: 'Jutrzenka Bydgoszcz'
+                                name: 'Smakoland Warszawa'
                                 code: jutrzenka_bydgoszcz
                                 locales:
                                     - pl_PL
@@ -73,12 +73,12 @@ sylius_fixtures:
                         custom:
                             vat_slodycze:
                                 code: vat_slodycze
-                                name: 'VAT na słodycze'
+                                name: 'VAT na przekąski'
                 tax_rate:
                     options:
                         custom:
                             vat_slodycze_pl:
-                                name: 'VAT Polska - słodycze'
+                                name: 'VAT Polska - przekąski'
                                 zone: WORLD
                                 category: vat_slodycze
                                 amount: 0.23
@@ -87,20 +87,20 @@ sylius_fixtures:
                         custom:
                             slug:
                                 code: czekoladowe
-                                name: Czekoladowe
+                                name: 'Wyroby czekoladowe'
                                 slug: czekoladowe
                                 translations:
-                                    pl_PL: { name: Czekoladowe, slug: czekoladowe }
+                                    pl_PL: { name: 'Wyroby czekoladowe', slug: czekoladowe }
                     name: taxon
                 taxon-ciastka:
                     options:
                         custom:
                             slug:
                                 code: ciastka
-                                name: Ciastka
+                                name: 'Herbatniki'
                                 slug: ciastka
                                 translations:
-                                    pl_PL: { name: Ciastka, slug: ciastka }
+                                    pl_PL: { name: 'Herbatniki', slug: ciastka }
                     name: taxon
                 product_attribute:
                     name: product_attribute
@@ -108,28 +108,28 @@ sylius_fixtures:
                         custom:
                             -
                                 code: waga
-                                name: Waga
+                                name: 'Wymiary'
                                 type: text
                             -
                                 code: opakowanie
-                                name: Opakowanie
+                                name: 'Typ opakowania'
                                 type: text
                             -
                                 code: smak
-                                name: Smak
+                                name: 'Rodzaj smaku'
                                 type: text
                             -
                                 code: producent
-                                name: Producent
+                                name: 'Marka'
                                 type: text
                 tshirt_product:
                     name: product
                     options:
                         custom:
                             -
-                                name: 'Wiśnie w czekoladzie Jutrzenka'
-                                description: 'Wiśnie w czekoladzie Jutrzenka to klasyczny polski przysmak łączący soczyste owoce z delikatną czekoladą. Każda wiśnia jest starannie wyselekcjonowana i pokryta warstwą wysokiej jakości czekolady, tworząc idealne połączenie słodyczy i kwasowości. Produkt ten jest doskonały jako przekąska lub elegancki dodatek do deserów. Opakowanie 80 g sprawia, że jest to idealny wybór na prezent lub chwilę przyjemności w ciągu dnia.'
-                                short_description: 'Soczyste wiśnie pokryte delikatną czekoladą, idealne na deser lub prezent.'
+                                name: 'Wiśnie w czekoladzie Smakoland'
+                                description: 'Wiśnie w czekoladzie Smakoland to wyjątkowy przysmak łączący soczyste owoce z delikatną czekoladą własnej marki. Każda wiśnia jest starannie wyselekcjonowana i pokryta wysokiej jakości czekoladą, tworząc doskonałe połączenie słodyczy i kwasowości. Produkt stanowi idealną przekąskę lub elegancki dodatek do deserów. Opakowanie 80 g sprawia, że jest to trafiony wybór na prezent lub chwilę przyjemności w ciągu dnia.'
+                                short_description: 'Soczyste wiśnie w czekoladzie Smakoland, idealne na deser lub prezent.'
                                 tax_category: vat_slodycze
                                 main_taxon: czekoladowe
                                 taxons:
@@ -138,14 +138,14 @@ sylius_fixtures:
                                     waga: '80 g'
                                     opakowanie: Torebka
                                     smak: 'Wiśnia w czekoladzie'
-                                    producent: Jutrzenka
+                                    producent: Smakoland
                                 product_options: {  }
                                 images:
                                     - { path: '%kernel.project_dir%/var/fixture_img/Wi__nie_w_czekoladzie_Jutrzenka_main.png', type: main }
                             -
-                                name: 'Herbatniki Petit Beurre Jutrzenka'
-                                description: 'Herbatniki Petit Beurre Jutrzenka to tradycyjne, kruche ciasteczka o maślanym smaku, które od lat cieszą się popularnością w polskich domach. Ich prosty skład i klasyczny kształt sprawiają, że są idealne do kawy, herbaty czy jako baza do deserów. Opakowanie zawiera 100 g ciastek, które zachwycają swoją chrupkością i delikatnym smakiem.'
-                                short_description: 'Tradycyjne maślane herbatniki, idealne do kawy lub jako baza do deserów.'
+                                name: 'Herbatniki Petit Beurre Smakoland'
+                                description: 'Herbatniki Petit Beurre Smakoland to tradycyjne, kruche ciasteczka o maślanym smaku, które zachwycają od pierwszego kęsa. Prosta receptura i klasyczny kształt sprawiają, że doskonale pasują do kawy, herbaty oraz jako baza do deserów. Opakowanie zawiera 100 g chrupiących ciastek o delikatnym smaku.'
+                                short_description: 'Tradycyjne herbatniki Petit Beurre Smakoland, idealne do kawy lub jako baza do deserów.'
                                 tax_category: vat_slodycze
                                 main_taxon: ciastka
                                 taxons:
@@ -153,8 +153,8 @@ sylius_fixtures:
                                 product_attributes:
                                     waga: '100 g'
                                     opakowanie: Folia
-                                    smak: Maślany
-                                    producent: Jutrzenka
+                                    smak: 'Maślany'
+                                    producent: Smakoland
                                 product_options: {  }
                                 images:
                                     - { path: '%kernel.project_dir%/var/fixture_img/Herbatniki_Petit_Beurre_Jutrzenka_main.png', type: main }

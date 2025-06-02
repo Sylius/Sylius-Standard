@@ -1,6 +1,6 @@
 sylius_fixtures:
     suites:
-        jutrzenka_bydgoszcz:
+        john_deere:
             listeners:
                 orm_purger: ~
                 images_purger: ~
@@ -127,9 +127,9 @@ sylius_fixtures:
                     options:
                         custom:
                             -
-                                name: 'Wiśnie w czekoladzie Jutrzenka'
-                                description: 'Wiśnie w czekoladzie Jutrzenka to klasyczny polski przysmak łączący soczyste owoce z delikatną czekoladą. Każda wiśnia jest starannie wyselekcjonowana i pokryta warstwą wysokiej jakości czekolady, tworząc idealne połączenie słodyczy i kwasowości. Produkt ten jest doskonały jako przekąska lub elegancki dodatek do deserów. Opakowanie 80 g sprawia, że jest to idealny wybór na prezent lub chwilę przyjemności w ciągu dnia.'
-                                short_description: 'Soczyste wiśnie pokryte delikatną czekoladą, idealne na deser lub prezent.'
+                                name: 'John Deere 6430'
+                                description: 'Traktor John Deere 6430 to maszyna, która łączy w sobie moc i wydajność. Wyposażony w silnik o mocy 140 KM, jest idealnym rozwiązaniem dla rolników poszukujących niezawodnego sprzętu do pracy na polu. Jego zaawansowane technologie zapewniają komfort i efektywność, a solidna konstrukcja gwarantuje długowieczność. Traktor ten jest nie tylko funkcjonalny, ale także estetyczny, co czyni go doskonałym wyborem dla każdego gospodarstwa.'
+                                short_description: 'Traktor John Deere 6430 o mocy 140 KM, idealny do pracy na polu.'
                                 tax_category: vat_slodycze
                                 main_taxon: czekoladowe
                                 taxons:
@@ -141,11 +141,11 @@ sylius_fixtures:
                                     producent: Jutrzenka
                                 product_options: {  }
                                 images:
-                                    - { path: '%kernel.project_dir%/var/fixture_img/Wi__nie_w_czekoladzie_Jutrzenka_main.png', type: main }
+                                    - { path: '%kernel.project_dir%/var/fixture_img/JD_6430.jpeg', type: main }
                             -
-                                name: 'Herbatniki Petit Beurre Jutrzenka'
-                                description: 'Herbatniki Petit Beurre Jutrzenka to tradycyjne, kruche ciasteczka o maślanym smaku, które od lat cieszą się popularnością w polskich domach. Ich prosty skład i klasyczny kształt sprawiają, że są idealne do kawy, herbaty czy jako baza do deserów. Opakowanie zawiera 100 g ciastek, które zachwycają swoją chrupkością i delikatnym smakiem.'
-                                short_description: 'Tradycyjne maślane herbatniki, idealne do kawy lub jako baza do deserów.'
+                                name: 'John Deere 7530'
+                                description: 'Traktor John Deere 7530 to potężna maszyna, która zapewnia doskonałą wydajność i komfort pracy. Wyposażony w silnik o mocy 180 KM, jest idealnym rozwiązaniem dla wymagających zadań rolniczych. Jego nowoczesne technologie i ergonomiczny design sprawiają, że praca staje się przyjemnością. Solidna konstrukcja gwarantuje niezawodność i długowieczność, co czyni go nieocenionym narzędziem w każdym gospodarstwie.'
+                                short_description: 'Traktor John Deere 7530 o mocy 180 KM, idealny do wymagających zadań rolniczych.'
                                 tax_category: vat_slodycze
                                 main_taxon: ciastka
                                 taxons:
@@ -157,4 +157,4 @@ sylius_fixtures:
                                     producent: Jutrzenka
                                 product_options: {  }
                                 images:
-                                    - { path: '%kernel.project_dir%/var/fixture_img/Herbatniki_Petit_Beurre_Jutrzenka_main.png', type: main }
+                                    - { path: '%kernel.project_dir%/var/fixture_img/JD_7R.jpeg', type: main }
