@@ -216,7 +216,20 @@ class ThemeLoader extends Command
             $io->success('Resized logo to consistent height');
         }
 
-        // 3) Rebuild assets via Webpack Encore (to generate hashed filenames)
+        foreach ($themes as $area => $themeConfig) {
+            if (empty($themeConfig['logo'])) {
+                continue;
+            }
+
+            $logoFilename = $themeConfig['logo'];
+            // Encore output directory for images
+            $publicImagesDir = sprintf('%s/public/build/app/%s/images', $this->projectDir, $area);
+            if (!is_dir($publicImagesDir)) {
+                Process::fromShellCommandline('mkdir -p ' . escapeshellarg($publicImagesDir), $this->projectDir)
+                    ->run(fn($type, $buffer) => $io->write($buffer));
+            }
+        }
+
         $io->section('Building assets with Webpack Encore');
         $process = Process::fromShellCommandline('yarn encore dev', $this->projectDir);
         $process->run(fn($type, $buffer) => $io->write($buffer));
@@ -236,8 +249,8 @@ class ThemeLoader extends Command
             // Encore output directory for images
             $publicImagesDir = sprintf('%s/public/build/app/%s/images', $this->projectDir, $area);
             if (!is_dir($publicImagesDir)) {
-                $io->warning(sprintf('After build, images dir not found: %s', $publicImagesDir));
-                continue;
+                Process::fromShellCommandline('mkdir -p ' . escapeshellarg($publicImagesDir), $this->projectDir)
+                    ->run(fn($type, $buffer) => $io->write($buffer));
             }
 
             $basename = pathinfo($logoFilename, PATHINFO_FILENAME);
@@ -250,11 +263,6 @@ class ThemeLoader extends Command
                 if (file_exists($fallbackPath)) {
                     $matches[] = $fallbackPath;
                 }
-            }
-
-            if (empty($matches)) {
-                $io->warning(sprintf('No hashed logo found in %s (pattern: %s)', $publicImagesDir, $pattern));
-                continue;
             }
 
             $hashedFullPath = $matches[0];
