@@ -79,6 +79,13 @@ class StoreLoader extends Command
             }
         }
 
+        $io->section('[Store Loader] Add Intervention Image package');
+        $process = Process::fromShellCommandline(
+            'composer require intervention/image',
+            $this->projectDir,
+        );
+        $process->run(fn($type, $buffer) => $io->write($buffer));
+
         $io->section('[Store Loader] THEMES');
         if ($data['themes'] ?? false) {
             $io->section('Applying theme');

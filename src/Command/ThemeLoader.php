@@ -177,11 +177,6 @@ class ThemeLoader extends Command
 
             // Normalize size preserving aspect ratio, ensuring height = SHOP_LOGO_HEIGHT_FACTOR
             $io->text('[Theme Loader] Normalizing logo size');
-            $process = Process::fromShellCommandline(
-                'composer require intervention/image',
-                $this->projectDir,
-            );
-            $process->run(fn($type, $buffer) => $io->write($buffer));
 
             $manager = new ImageManager(new Driver());
             $image = $manager->read($destLogoInAssets);
