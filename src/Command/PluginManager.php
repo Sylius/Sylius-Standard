@@ -198,7 +198,7 @@ class PluginManager extends Command
 
         $io->section('Running database sync');
         $sync = Process::fromShellCommandline('bin/console doctrine:schema:update -n --force --complete');
-        $sync->setTimeout(0)->run();
+        $sync->setTimeout(0)->run(fn ($type, $buffer) => $io->write($buffer));
         if (!$sync->isSuccessful()) {
             $io->error('Database sync failed: ' . $sync->getErrorOutput());
             throw new Exception('Database sync failed');
