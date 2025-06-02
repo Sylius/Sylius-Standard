@@ -223,6 +223,7 @@ class PluginManager extends Command
 
         $env = [
             'SYMFONY_CACHE_DIR' => $cacheDir,
+            'APP_DEBUG'        => '0',
             'APP_ENV'           => 'dev',
         ];
 

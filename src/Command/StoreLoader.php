@@ -150,6 +150,7 @@ class StoreLoader extends Command
         // Ustawiamy zmienne środowiskowe tak, aby Symfony korzystało z dokładnie tego cache‐dir:
         $env = [
             'SYMFONY_CACHE_DIR' => $cacheDir,
+            'APP_DEBUG'        => '0',
             'APP_ENV'           => 'dev',
         ];
 
