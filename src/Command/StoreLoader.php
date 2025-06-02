@@ -66,7 +66,7 @@ class StoreLoader extends Command
         }
 
         $io->section('[Store Loader] FIXTURES');
-        if (!empty($data['fixtures']['suite'] ?? null)) {
+        if ($data['fixtures']['suite'] ?? false) {
             $io->section('Loading fixtures');
             $process = $this->runConsoleCommand(
                 'sylius:dx:fixture-loader',
@@ -80,7 +80,7 @@ class StoreLoader extends Command
         }
 
         $io->section('[Store Loader] THEMES');
-        if (!empty($data['themes'])) {
+        if ($data['themes'] ?? false) {
             $io->section('Applying theme');
             $process = $this->runConsoleCommand(
                 'sylius:dx:theme-loader',
