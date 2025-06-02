@@ -49,6 +49,37 @@ class ThemeLoader extends Command
         $store = (string)$input->getArgument('store');
         $force = (bool)$input->getOption('force');
 
+
+        $io->text('[Theme Loader] Checking for "intervention/image" package...');
+        if (!class_exists(ImageManager::class)) {
+            $io->text('Paczka "intervention/image" nie została znaleziona. Instaluję...');
+            $installProcess = Process::fromShellCommandline('composer require intervention/image', $this->projectDir);
+            $installProcess
+                ->setTimeout(0)
+                ->run(fn($type, $buffer) => $io->write($buffer));
+
+            if (!$installProcess->isSuccessful()) {
+                $io->error('Nie udało się zainstalować "intervention/image".');
+                return Command::FAILURE;
+            }
+            $io->success('Zainstalowano "intervention/image". Teraz uruchamiam ponownie tę samą komendę.');
+
+            // Budujemy polecenie ponownego uruchomienia
+            $php = escapeshellarg(PHP_BINARY);
+            $console = escapeshellarg($this->projectDir . '/bin/console');
+            $cmd = [$php, $console, 'sylius:dx:theme-loader', $store];
+            if ($force) {
+                $cmd[] = '--force';
+            }
+
+            $rerun = new Process($cmd, $this->projectDir);
+            $rerun
+                ->setTimeout(0)
+                ->run(fn($type, $buffer) => $io->write($buffer));
+
+            return $rerun->getExitCode();
+        }
+
         $io->title(sprintf('Sylius Theme Loader (store: %s)', $store));
 
         // 1) Load JSON configuration
