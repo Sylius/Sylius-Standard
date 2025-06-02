@@ -50,6 +50,8 @@ class PluginManager extends Command
     protected function execute(InputInterface $input, OutputInterface $output): int
     {
         $io = new SymfonyStyle($input, $output);
+        $this->runConsole(['bin/console', 'cache:clear', '--no-debug'], $io);
+        
         $template = $input->getOption('template');
         $mode = $template ? self::MODE_AUTO : $input->getOption('mode');
         $stage = $input->getOption('stage');
@@ -58,8 +60,7 @@ class PluginManager extends Command
         if ($template) {
             // Load plugins from template config
             $io->title(sprintf('Loading template: %s', $template));
-            $projectDir = $this->getApplication()->getKernel()->getProjectDir();
-            $configPath = sprintf('%s/store-creator/%s/store-creator.json', $projectDir, $template);
+            $configPath = sprintf('%s/store-creator/%s/store-creator.json', $this->projectDir, $template);
             if (!file_exists($configPath)) {
                 $io->error(sprintf('Template config not found: %s', $configPath));
                 return Command::FAILURE;
@@ -76,44 +77,41 @@ class PluginManager extends Command
                 return Command::SUCCESS;
             }
         } else {
-            $plugins = $input->getOption('plugins');
-            if ($plugins !== null) {
-                $names    = array_map(fn($p) => explode(':', $p, 2)[0], $plugins);
-                $versions = array_map(fn($p) => explode(':', $p, 2)[1], $plugins);
-                $plugins  = array_combine($names, $versions) ?: [];
+            $raw = $input->getOption('plugins') ?: [];
+            foreach ($raw as $p) {
+                [$name, $ver] = explode(':', $p, 2) + [1 => null];
+                if (!$ver) {
+                    $io->error("Invalid plugin format, expected name:version, got '$p'");
+                    return Command::FAILURE;
+                }
+                $plugins[$name] = $ver;
             }
-            $supportedPlugins = $this->getSupportedPlugins();
-            $installedPlugins = $this->getInstalledPlugins();
 
-            $io->info('Configuring Symfony Flex to auto-accept contrib recipes');
-            Process::fromShellCommandline('composer config extra.symfony.allow-contrib true')->run();
-
-            $io->info('Add Sylius Packagist repository');
-            Process::fromShellCommandline('composer config repositories.sylius composer https://sylius.repo.packagist.com/sylius/')->run();
-
-            if ($mode === self::MODE_MANUAL) {
+            if (empty($plugins) && $mode === self::MODE_MANUAL) {
                 $io->title('Select plugin to manage');
+                $supported = $this->getSupportedPlugins();
+                $installed = $this->getInstalledPlugins();
                 $rows = [];
-                foreach ($supportedPlugins as $plugin => $version) {
-                    $rows[] = [$plugin, $version, in_array($plugin, $installedPlugins, true) ? '✅' : ''];
+                foreach ($supported as $pkg => $ver) {
+                    $rows[] = [$pkg, $ver, in_array($pkg, $installed, true) ? '✅' : ''];
                 }
-                $io->table(['Plugin', 'Version', 'Installed'], $rows);
-
-                $selected = $io->choice('Select plugin to manage', array_keys($supportedPlugins));
-
-                if (empty($selected)) {
-                    $io->warning('No plugins selected, aborting.');
-                    return Command::SUCCESS;
-                }
-
-                $plugins = $plugins ?? [];
-                $plugins[$selected] = $supportedPlugins[$selected];
+                $io->table(['Plugin','Version','Installed'], $rows);
+                $choice = $io->choice('Select plugin', array_keys($supported));
+                $plugins[$choice] = $supported[$choice];
             }
 
             if (empty($plugins)) {
                 $io->error('No plugins specified.');
                 return Command::FAILURE;
             }
+
+            // Configure Symfony Flex to auto-accept contrib recipes
+            Process::fromShellCommandline('composer config extra.symfony.allow-contrib true')
+                ->run();
+
+            // Add Sylius Packagist repository
+            Process::fromShellCommandline('composer config repositories.sylius composer https://sylius.repo.packagist.com/sylius/')
+                ->run();
         }
 
         // Stage: require
@@ -131,26 +129,26 @@ class PluginManager extends Command
 
             // Rerun in install mode
             $io->section('🔄 Restarting plugin-manager in install mode');
-            $cmd = [PHP_BINARY, 'bin/console', self::$defaultName, '--stage=install', '--mode=auto'];
-            if ($template) {
-                $cmd[] = "--template={$template}";
-            }
-            foreach ($plugins as $name => $ver) {
-                $cmd[] = "--plugins={$name}:{$ver}";
-            }
-            $process = new Process($cmd, $projectDir ?? null);
-            $process->setTty(Process::isTtySupported());
-            $process->setTimeout(0)->run(fn($type, $buffer) => $output->write($buffer));
+            $cmdParts = array_merge(
+                ['bin/console', self::$defaultName, '--stage=install', '--mode=auto', '--no-debug'],
+                $template ? ["--template={$template}"] : [],
+                array_map(fn($name, $ver) => "--plugins={$name}:{$ver}", array_keys($plugins), $plugins)
+            );
 
-            return $process->getExitCode();
+            $this->runConsole(
+                $cmdParts,
+                $io,
+                ['cwd' => $this->projectDir]
+            );
+
+            return Command::SUCCESS;
         }
 
         // Stage: install
         $io->section('🔧 Installing plugins');
 
         $io->title('Running Rector');
-        $process = Process::fromShellCommandline('vendor/bin/rector process src');
-        $process->setTimeout(0)->run(fn ($type, $buffer) => $io->write($buffer));
+        $this->runConsole(['vendor/bin/rector', 'process', 'src'], $io, ['cwd' => $this->projectDir]);
 
         $io->title('Installing plugins');
         foreach (array_keys($plugins) as $plugin) {
@@ -183,50 +181,63 @@ class PluginManager extends Command
     private function runCommonPostSteps(SymfonyStyle $io): void
     {
         $io->title('Installing assets and building front');
-        $process = Process::fromShellCommandline('bin/console assets:install -n', $this->projectDir);
-        $process
-            ->setTimeout(0)
-            ->run(function ($type, $buffer) use ($io) {
-                $io->write($buffer);
-            });
 
-        if (0 !== $process->getExitCode()) {
-            throw new RuntimeException('assets:install failed');
-        }
-        Process::fromShellCommandline('yarn encore production')
-            ->setTty(Process::isTtySupported())
-            ->setTimeout(0)->mustRun(fn($type, $buffer) => $io->write($buffer));
+        // assets:install
+        $this->runConsole(
+            ['bin/console', 'assets:install', '-n', '--no-debug'],
+            $io
+        );
+
+        // yarn encore production
+        $this->runConsole(
+            ['yarn', 'encore', 'production'],
+            $io,
+            ['cwd' => $this->projectDir]
+        );
 
         $io->section('Running database sync');
-        $sync = Process::fromShellCommandline('bin/console doctrine:schema:update -n --force --complete');
-        $sync->setTimeout(0)->run(fn ($type, $buffer) => $io->write($buffer));
-        if (!$sync->isSuccessful()) {
-            $io->error('Database sync failed: ' . $sync->getErrorOutput());
-            throw new Exception('Database sync failed');
-        }
+        $this->runConsole(
+            ['bin/console', 'doctrine:schema:update', '-n', '--force', '--complete', '--no-debug'],
+            $io
+        );
 
         $io->section('Loading default fixtures');
-        $process = Process::fromShellCommandline('bin/console sylius:fixtures:load -n');
-        $process->setTty(Process::isTtySupported());
-        $process->setTimeout(0)->run();
+        $this->runConsole(
+            ['bin/console', 'sylius:fixtures:load', '-n', '--no-debug'],
+            $io
+        );
 
-        if (!$process->isSuccessful()) {
-            throw new RuntimeException('Fixtures load failed: ' . $process->getErrorOutput());
-        }
-
-        $io->success('Fixtures loaded successfully.');
-        $clear = new Process(['bin/console', 'cache:clear'], getcwd());
+        $clear = new Process(['bin/console', 'cache:clear', '--no-debug'], $this->projectDir);
         $clear->setTimeout(0)->run();
         if (!$clear->isSuccessful()) {
             $io->warning('Cache clear failed: ' . $clear->getErrorOutput());
         }
 
-        $warmup = new Process(['bin/console', 'cache:warmup'], getcwd());
+        $warmup = new Process(['bin/console', 'cache:warmup', '--no-debug'], $this->projectDir);
         $warmup->setTimeout(0)->run();
         if (!$warmup->isSuccessful()) {
             $io->warning('Cache warmup failed: ' . $warmup->getErrorOutput());
         }
 
         $io->success('All plugins installed and configured successfully.');
+    }
+
+    /**
+     * Używa Process->mustRun lub run, w zależności od potrzeby, aby uruchomić polecenie w cieniu.
+     * Argumenty przekazujemy jako tablicę (każdy element będzie escaped automatycznie przy array-notation).
+     * Jeżeli exit code ≠ 0, rzuca wyjątek ProcessFailedException.
+     *
+     * @param string[] $commandParts    Tablica kolejnych fragmentów polecenia (np. ['bin/console','assets:install','-n','--no-debug'])
+     * @param SymfonyStyle $io
+     * @param array<string,mixed> $options  Opcje Process (np. ['cwd' => '/pełna/ścieżka'])
+     */
+    private function runConsole(array $commandParts, SymfonyStyle $io, array $options = []): void
+    {
+        $process = new Process($commandParts, $options['cwd'] ?? $this->projectDir);
+        $process
+            ->setTty(Process::isTtySupported())
+            ->setTimeout(0)
+            ->mustRun(fn($type, $buffer) => $io->write($buffer))
+        ;
     }
 }
