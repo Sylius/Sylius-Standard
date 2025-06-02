@@ -150,7 +150,7 @@ class PluginManager extends Command
 
         $io->title('Running Rector');
         $process = Process::fromShellCommandline('vendor/bin/rector process src');
-        $process->run(fn ($type, $buffer) => $io->write($buffer));
+        $process->setTimeout(0)->run(fn ($type, $buffer) => $io->write($buffer));
 
         $io->title('Installing plugins');
         foreach (array_keys($plugins) as $plugin) {
