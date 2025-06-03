@@ -30,6 +30,8 @@ class ThemeLoader extends Command
 
     private string $projectDir;
 
+    private SymfonyStyle $io;
+
     public function __construct(KernelInterface $kernel)
     {
         parent::__construct();
@@ -45,13 +47,13 @@ class ThemeLoader extends Command
 
     protected function execute(InputInterface $input, OutputInterface $output): int
     {
-        $io = new SymfonyStyle($input, $output);
+        $this->io = new SymfonyStyle($input, $output);
         $store = (string)$input->getArgument('store');
         $force = (bool)$input->getOption('force');
 
         $configPath = sprintf('%s/store-creator/%s/store-creator.json', $this->projectDir, $store);
         if (!file_exists($configPath)) {
-            $io->error(sprintf('Configuration file not found: %s', $configPath));
+            $this->io->error(sprintf('Configuration file not found: %s', $configPath));
             return Command::FAILURE;
         }
 
@@ -59,33 +61,33 @@ class ThemeLoader extends Command
             $raw = file_get_contents($configPath);
             $data = json_decode($raw, true, 512, JSON_THROW_ON_ERROR);
         } catch (Throwable $e) {
-            $io->error('Invalid JSON in store-creator.json: ' . $e->getMessage());
+            $this->io->error('Invalid JSON in store-creator.json: ' . $e->getMessage());
             return Command::FAILURE;
         }
 
         $themes = $data['themes'] ?? [];
         if (empty($themes)) {
-            $io->warning('No themes defined in configuration.');
+            $this->io->warning('No themes defined in configuration.');
             return Command::SUCCESS;
         }
 
-        $io->text('Loaded theme areas: ' . implode(', ', array_keys($themes)));
+        $this->io->text('Loaded theme areas: ' . implode(', ', array_keys($themes)));
 
         // 2) For each area (shop, admin, etc.) generate SCSS, copy logo into assets/<area>/images/, and add .btn-primary rules
-        foreach ($themes as $area => $themeConfig) {
-            $io->section(sprintf('Processing theme variables and logo for area: %s', $area));
+        foreach ($themes as $section => $themeConfig) {
+            $this->io->section(sprintf('Processing theme variables and logo for area: %s', $section));
 
             // 2a) Generate custom-theme.scss → assets/<area>/styles/custom-theme.scss
-            $relativeStylesDir = sprintf('assets/%s/styles', $area);
+            $relativeStylesDir = sprintf('assets/%s/styles', $section);
             $stylesDir = $this->projectDir . '/' . ltrim($relativeStylesDir, '/');
             if (!is_dir($stylesDir) && !mkdir($stylesDir, 0755, true) && !is_dir($stylesDir)) {
-                $io->error(sprintf('Failed to create styles directory: %s', $stylesDir));
+                $this->io->error(sprintf('Failed to create styles directory: %s', $stylesDir));
                 continue;
             }
 
             $themeFile = $stylesDir . '/custom-theme.scss';
             if (file_exists($themeFile) && !$force) {
-                $io->warning(sprintf('SCSS theme file already exists, overwriting: %s', $themeFile));
+                $this->io->warning(sprintf('SCSS theme file already exists, overwriting: %s', $themeFile));
             }
             $variables = $themeConfig['cssVariables'] ?? [];
             $lines = [":root {"];
@@ -121,27 +123,27 @@ class ThemeLoader extends Command
             $lines[] = "}";
 
             file_put_contents($themeFile, implode("\n", $lines) . "\n");
-            $io->success(sprintf('Generated theme file with variables and .btn-primary: %s', $themeFile));
+            $this->io->success(sprintf('Generated theme file with variables and .btn-primary: %s', $themeFile));
 
             // 2b) Append import to assets/<area>/entrypoint.js
-            $entryFile = $this->projectDir . sprintf('/assets/%s/entrypoint.js', $area);
+            $entryFile = $this->projectDir . sprintf('/assets/%s/entrypoint.js', $section);
             if (file_exists($entryFile)) {
                 $importLine = "import './styles/custom-theme.scss';";
                 $content = file_get_contents($entryFile);
                 if (strpos($content, $importLine) === false) {
                     $content = rtrim($content, "\n") . "\n" . $importLine . "\n";
                     file_put_contents($entryFile, $content);
-                    $io->success(sprintf('Appended SCSS import to %s', $entryFile));
+                    $this->io->success(sprintf('Appended SCSS import to %s', $entryFile));
                 } else {
-                    $io->text(sprintf('Import already present in %s', $entryFile));
+                    $this->io->text(sprintf('Import already present in %s', $entryFile));
                 }
             } else {
-                $io->warning(sprintf('entrypoint.js not found for area "%s": %s', $area, $entryFile));
+                $this->io->warning(sprintf('entrypoint.js not found for area "%s": %s', $section, $entryFile));
             }
 
             // 2c) Copy logo → assets/<area>/images/<logoFilename> and normalize size
             if (empty($themeConfig['logo'])) {
-                $io->text(sprintf('No logo defined for area "%s", skipping logo copy.', $area));
+                $this->io->text(sprintf('No logo defined for area "%s", skipping logo copy.', $section));
                 continue;
             }
 
@@ -150,30 +152,30 @@ class ThemeLoader extends Command
                 '%s/store-creator/%s/themes/%s/%s',
                 $this->projectDir,
                 $store,
-                $area,
+                $section,
                 $logoFilename
             );
             if (!file_exists($logoSrc)) {
-                $io->warning(sprintf('Logo file for area "%s" not found: %s', $area, $logoSrc));
+                $this->io->warning(sprintf('Logo file for area "%s" not found: %s', $section, $logoSrc));
                 continue;
             }
 
-            $assetsImagesDir = $this->projectDir . sprintf('/assets/%s/images', $area);
+            $assetsImagesDir = $this->projectDir . sprintf('/assets/%s/images', $section);
             if (!is_dir($assetsImagesDir) && !mkdir($assetsImagesDir, 0755, true) && !is_dir($assetsImagesDir)) {
-                $io->error(sprintf('Failed to create assets images directory: %s', $assetsImagesDir));
+                $this->io->error(sprintf('Failed to create assets images directory: %s', $assetsImagesDir));
                 continue;
             }
 
             $destLogoInAssets = $assetsImagesDir . '/' . $logoFilename;
             if (file_exists($destLogoInAssets) && !$force) {
-                $io->warning(sprintf('Logo already exists in assets (won’t overwrite unless --force): %s', $destLogoInAssets));
+                $this->io->warning(sprintf('Logo already exists in assets (won’t overwrite unless --force): %s', $destLogoInAssets));
             }
 
             copy($logoSrc, $destLogoInAssets);
-            $io->success(sprintf('Copied logo for area "%s" to assets: %s', $area, $destLogoInAssets));
+            $this->io->success(sprintf('Copied logo for area "%s" to assets: %s', $section, $destLogoInAssets));
 
             // Normalize size preserving aspect ratio, ensuring height = SHOP_LOGO_HEIGHT_FACTOR
-            $io->text('[Theme Loader] Normalizing logo size');
+            $this->io->text('[Theme Loader] Normalizing logo size');
 
             $manager = new ImageManager(new Driver());
             $image = $manager->read($destLogoInAssets);
@@ -184,44 +186,34 @@ class ThemeLoader extends Command
                 height: self::SHOP_LOGO_HEIGHT_FACTOR
             );
             $image->save();
-            $io->success('Resized logo to consistent height');
+            $this->io->success('Resized logo to consistent height');
         }
 
-        foreach ($themes as $area => $themeConfig) {
-            if (empty($themeConfig['logo'])) {
-                continue;
-            }
 
-            $logoFilename = $themeConfig['logo'];
-            // Encore output directory for images
-            $publicImagesDir = sprintf('%s/public/build/app/%s/images', $this->projectDir, $area);
-            if (!is_dir($publicImagesDir)) {
-                Process::fromShellCommandline('mkdir -p ' . escapeshellarg($publicImagesDir), $this->projectDir)
-                    ->run(fn($type, $buffer) => $io->write($buffer));
-            }
-        }
+        $this->createDirectory('shop');
+        $this->createDirectory('admin');
 
-        $io->section('Building assets with Webpack Encore');
+        $this->io->section('Building assets with Webpack Encore');
         $process = Process::fromShellCommandline('yarn encore dev', $this->projectDir);
-        $process->run(fn($type, $buffer) => $io->write($buffer));
+        $process->run(fn($type, $buffer) => $this->io->write($buffer));
         if (!$process->isSuccessful()) {
-            $io->error('Asset build failed.');
+            $this->io->error('Asset build failed.');
             return Command::FAILURE;
         }
-        $io->success('Assets built successfully.');
+        $this->io->success('Assets built successfully.');
 
         // 4) After build – locate hashed logo file and generate Twig template in templates/<area>/logo.html.twig
-        foreach ($themes as $area => $themeConfig) {
+        foreach ($themes as $section => $themeConfig) {
             if (empty($themeConfig['logo'])) {
                 continue;
             }
 
             $logoFilename = $themeConfig['logo'];
             // Encore output directory for images
-            $publicImagesDir = sprintf('%s/public/build/app/%s/images', $this->projectDir, $area);
+            $publicImagesDir = sprintf('%s/public/build/app/%s/images', $this->projectDir, $section);
             if (!is_dir($publicImagesDir)) {
                 Process::fromShellCommandline('mkdir -p ' . escapeshellarg($publicImagesDir), $this->projectDir)
-                    ->run(fn($type, $buffer) => $io->write($buffer));
+                    ->run(fn($type, $buffer) => $this->io->write($buffer));
             }
 
             $basename = pathinfo($logoFilename, PATHINFO_FILENAME);
@@ -239,34 +231,37 @@ class ThemeLoader extends Command
             $hashedFullPath = $matches[0];
             $relativePublicPath = substr($hashedFullPath, strlen($this->projectDir . '/public/'));
 
-            $twigDir = $this->projectDir . '/templates/' . $area;
+            $twigDir = $this->projectDir . '/templates/' . $section;
             if (!is_dir($twigDir) && !mkdir($twigDir, 0755, true) && !is_dir($twigDir)) {
-                $io->error(sprintf('Failed to create templates dir for area "%s": %s', $area, $twigDir));
+                $this->io->error(sprintf('Failed to create templates dir for area "%s": %s', $section, $twigDir));
                 continue;
             }
 
             $twigFilename = 'logo.html.twig';
             $twigPath = $twigDir . '/' . $twigFilename;
             $assetPath = $relativePublicPath;
-            $routeName = ($area === 'shop') ? 'sylius_shop_homepage' : 'sylius_admin_dashboard';
+            $routeName = ($section === 'shop') ? 'sylius_shop_homepage' : 'sylius_admin_dashboard';
 
             $twigContent = <<<TWIG
-{# templates/{$area}/{$twigFilename} #}
-<a href="{{ path('{$routeName}') }}" class="app-{$area}-logo">
-    <img src="{{ asset('{$assetPath}') }}" alt="Logo {$area}" />
+{# templates/{$section}/{$twigFilename} #}
+<a href="{{ path('{$routeName}') }}" class="app-{$section}-logo">
+    <img src="{{ asset('{$assetPath}') }}" alt="Logo {$section}" />
 </a>
 TWIG;
 
             if (file_exists($twigPath) && !$force) {
-                $io->warning(sprintf('Twig logo template already exists, overwriting: %s', $twigPath));
+                $this->io->warning(sprintf('Twig logo template already exists, overwriting: %s', $twigPath));
             }
 
             file_put_contents($twigPath, $twigContent . "\n");
-            $io->success(sprintf('Created Twig logo template for area "%s": %s', $area, $twigPath));
+            $this->io->success(sprintf('Created Twig logo template for area "%s": %s', $section, $twigPath));
         }
 
+
+        // YAML
+
         // 5) Update Sylius Twig Hooks using Symfony Yaml component
-        $io->section('Updating Twig hook configuration');
+        $this->io->section('Updating Twig hook configuration');
         $hooksConfigPath = $this->projectDir . '/config/packages/sylius_twig_hooks.yaml';
 
         // If file does not exist, create base structure
@@ -277,45 +272,59 @@ TWIG;
                 ]
             ];
             file_put_contents($hooksConfigPath, Yaml::dump($baseConfig, 4));
-            $io->success(sprintf('Created new hook config: %s', $hooksConfigPath));
+            $this->io->success(sprintf('Created new hook config: %s', $hooksConfigPath));
         }
 
-        // Parse existing YAML
         $hooksConfig = Yaml::parseFile($hooksConfigPath);
-        if (!isset($hooksConfig['sylius_twig_hooks']['hooks']) || !is_array($hooksConfig['sylius_twig_hooks']['hooks'])) {
-            $hooksConfig['sylius_twig_hooks']['hooks'] = [];
-        }
+        $hooksConfig = $this->overrideLogo('shop', $hooksConfig);
+        $hooksConfig = $this->disableNewCollectionHookable($hooksConfig);
+        $hooksConfig = $this->disableBanner($hooksConfig);
 
-        foreach ($themes as $area => $themeConfig) {
-            if (empty($themeConfig['logo'])) {
-                continue;
-            }
-
-            if ($area === 'shop') {
-                $hookKey = 'sylius_shop.base.header.content.logo';
-                $twigTemplate = sprintf('%s/logo.html.twig', $area);
-            } else {
-                $hookKey = 'sylius_admin.layout.header';
-                $twigTemplate = sprintf('%s/logo.html.twig', $area);
-            }
-
-            $hooksConfig['sylius_twig_hooks']['hooks'][$hookKey] = [
-                'content' => [
-                    'template' => $twigTemplate,
-                    'priority' => 0,
-                ],
-            ];
-
-            // Disable new collection hook
-            $hooksConfig['sylius_twig_hooks']['hooks']['sylius_shop.homepage.index']['new_collection']['enabled'] = false;
-
-            $io->success(sprintf('Appended hook "%s" to %s', $hookKey, $hooksConfigPath));
-        }
-
-        // Dump back to YAML
         file_put_contents($hooksConfigPath, Yaml::dump($hooksConfig, 8));
 
-        $io->success('Theme loader completed successfully.');
+        $this->io->text('Clearing cache');
+        $process = Process::fromShellCommandline('php bin/console cache:clear', $this->projectDir);
+        $process->run(fn($type, $buffer) => $this->io->write($buffer));
+
+        $this->io->success('[Theme Loader] Theme loading complete!');
+
         return Command::SUCCESS;
+    }
+
+    private function createDirectory(string $section): void
+    {
+        $publicImagesDir = sprintf('%s/public/build/app/%s/images', $this->projectDir, $section);
+        if (!is_dir($publicImagesDir)) {
+            Process::fromShellCommandline('mkdir -p ' . escapeshellarg($publicImagesDir), $this->projectDir)
+                ->run(fn($type, $buffer) => $this->io->write($buffer));
+        }
+    }
+
+    private function overrideLogo(string $section, mixed $hooksConfig): array
+    {
+        $hookKey = sprintf('sylius_%s.base.header.content.logo', $section);
+        $twigTemplate = sprintf('%s/logo.html.twig', $section);
+
+        $hooksConfig['sylius_twig_hooks']['hooks'][$hookKey] = [
+            'content' => [
+                'template' => $twigTemplate,
+                'priority' => 0,
+            ],
+        ];
+
+        return $hooksConfig;
+    }
+    private function disableNewCollectionHookable(mixed $hooksConfig): array
+    {
+        $hooksConfig['sylius_twig_hooks']['hooks']['sylius_shop.homepage.index']['new_collection']['enabled'] = false;
+
+        return $hooksConfig;
+    }
+
+    private function disableBanner(mixed $hooksConfig): array
+    {
+        $hooksConfig['sylius_twig_hooks']['hooks']['sylius_shop.homepage.index']['banner']['enabled'] = false;
+
+        return $hooksConfig;
     }
 }
