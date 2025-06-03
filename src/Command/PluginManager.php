@@ -4,7 +4,6 @@ declare(strict_types=1);
 
 namespace App\Command;
 
-use Throwable;
 use RuntimeException;
 use Exception;
 use Symfony\Component\Console\Attribute\AsCommand;

@@ -50,17 +50,18 @@ class StoreLoader extends Command
         $this->io->title(sprintf('Creating store: %s', $storeName));
 
         $this->io->section('[Store Loader] PLUGINS');
-        $this->runCommand(['bin/console', 'sylius:dx:plugin-manager', sprintf('--store=%s', $storeName), '--no-debug']);
-        $this->runCommand(['bin/console', 'sylius:dx:plugin-manager', '--stage=install', sprintf('--store=%s', $storeName), '--no-debug']);
+        $this->runCommand(['php', 'bin/console', 'sylius:dx:plugin-manager', sprintf('--store=%s', $storeName), '--no-debug']);
+        $this->runCommand(['php', 'bin/console', 'sylius:dx:plugin-manager', '--stage=install', sprintf('--store=%s', $storeName), '--no-debug']);
 
         $this->io->section('[Store Loader] FIXTURES');
-        $this->runCommand(['bin/console', 'sylius:dx:fixture-loader', $storeName, '--no-debug']);
+        $this->runCommand(['php', 'bin/console', 'sylius:dx:fixture-loader', $storeName, '--no-debug']);
 
         $this->io->section('[Store Loader] THEMES');
-        $this->runCommand(['composer require intervention/image', '--no-update']);
-        $this->runCommand(['bin/console', 'sylius:dx:theme-loader', $storeName, '--no-debug']);
+        $this->runCommand(['composer', 'require', 'intervention/image', '--no-update']);
+        $this->runCommand(['php', 'bin/console', 'sylius:dx:theme-loader', $storeName, '--no-debug']);
 
         $this->io->success('Store creation complete!');
+
         return Command::SUCCESS;
     }
 
