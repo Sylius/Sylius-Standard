@@ -4,72 +4,39 @@ declare(strict_types=1);
 
 namespace App\Command;
 
-use JsonException;
-use Symfony\Component\Console\Style\SymfonyStyle;
+use Symfony\Component\DependencyInjection\ContainerInterface;
 
 trait ConfigTrait
 {
-    private const ENV_PLUGINS = 'SYLIUS_PLUGINS_JSON';
-    private const FILE_NAME = 'booster.json';
-
-    /**
-     * @return array<string,string>  [package => version]
-     */
-    private function loadPlugins(SymfonyStyle $io): array
+    public function validateStore(string $store): void
     {
-        /* @var ContainerInterface $container */
-        $container = $this->getApplication()->getKernel()->getContainer();
-        $projectDir = $container->getParameter('kernel.project_dir');
-        $filePath = $projectDir . DIRECTORY_SEPARATOR . self::FILE_NAME;
+        $configPath = sprintf('%s/store-creator/%s/store-creator.json', $this->projectDir, $store);
 
-        if (file_exists($filePath)) {
-            $io->text(sprintf('Loading plugin config from "%s"', $filePath));
-            $raw = file_get_contents($filePath);
-            try {
-                $data = json_decode($raw, true, 512, JSON_THROW_ON_ERROR);
-            } catch (JsonException $e) {
-                $io->warning(sprintf('Invalid JSON in %s: %s', self::FILE_NAME, $e->getMessage()));
-                return [];
-            }
-
-            if (is_array($data) && !empty($data)) {
-                return $data['plugins'] ?? [];
-            }
-
-            $io->warning(sprintf('File %s did not decode to a non-empty array, falling back to none.', self::FILE_NAME));
+        if (!file_exists($configPath)) {
+            throw new \RuntimeException(sprintf('Configuration file not found: %s', $configPath));
         }
-
-        return [];
     }
 
-    /**
-     * @return array<string,string>
-     */
-    private function loadThemes(SymfonyStyle $io): array
+    public function getPluginsByStore(string $store): array
     {
-        /* @var ContainerInterface $container */
-        $container = $this->getApplication()->getKernel()->getContainer();
-        $projectDir = $container->getParameter('kernel.project_dir');
-        $filePath = $projectDir . DIRECTORY_SEPARATOR . self::FILE_NAME;
+        $configPath = sprintf('%s/store-creator/%s/store-creator.json', $this->projectDir, $store);
+        if (!file_exists($configPath)) {
 
-        if (file_exists($filePath)) {
-            $io->text(sprintf('Loading plugin config from "%s"', $filePath));
-            $raw = file_get_contents($filePath);
-            try {
-                $data = json_decode($raw, true, 512, JSON_THROW_ON_ERROR);
-            } catch (JsonException $e) {
-                $io->warning(sprintf('Invalid JSON in %s: %s', self::FILE_NAME, $e->getMessage()));
-                return [];
-            }
-
-            if (is_array($data) && !empty($data)) {
-                return $data['themes'] ?? [];
-            }
-
-            $io->warning(sprintf('File %s did not decode to a non-empty array, falling back to none.', self::FILE_NAME));
+            throw new \RuntimeException(sprintf('Configuration file not found: %s', $configPath));
         }
 
-        return [];
+        try {
+            $data = json_decode((string)file_get_contents($configPath), true, 512, JSON_THROW_ON_ERROR);
+        } catch (\Exception $e) {
+            throw new \RuntimeException(sprintf('Failed to parse JSON from %s: %s', $configPath, $e->getMessage()));
+        }
+
+        $plugins = $data['plugins'] ?? [];
+        if (empty($plugins)) {
+            throw new \RuntimeException(sprintf('No plugins found in configuration: %s', $configPath));
+        }
+
+        return $plugins;
     }
 
     /** @return array<string,string>  [package => version] */

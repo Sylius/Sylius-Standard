@@ -17,8 +17,10 @@ use Symfony\Component\HttpKernel\KernelInterface;
     name: 'sylius:dx:store-loader',
     description: 'Orchestrate Sylius installation: plugins, fixtures, themes',
 )]
-class StoreLoader extends Command
+class StoreLoader extends Command implements BuildAndDeployContextSeparatorInterface
 {
+    use ConfigTrait;
+
     private string $projectDir;
 
     private SymfonyStyle $io;
@@ -32,33 +34,42 @@ class StoreLoader extends Command
     protected function configure(): void
     {
         $this
-            ->addArgument('store', InputArgument::REQUIRED, 'Name of the store directory under store-creator/');
+            ->setDescription('Orchestrate Sylius installation: plugins, fixtures, themes')
+            ->addArgument('store', InputArgument::REQUIRED, 'Name of the store directory under store-creator/')
+            ->addOption('build', null, InputArgument::OPTIONAL, 'Build the store before loading', false)
+            ->addOption('deploy', null, InputArgument::OPTIONAL, 'Deploy the store after loading', false);
     }
 
     protected function execute(InputInterface $input, OutputInterface $output): int
     {
         $this->io = new SymfonyStyle($input, $output);
 
-        $storeName = (string)$input->getArgument('store');
-        $configPath = sprintf('%s/store-creator/%s/store-creator.json', $this->projectDir, $storeName);
+        $store = $input->getArgument('store');
+        $this->validateStore($store);
 
-        if (!file_exists($configPath)) {
-            $this->io->error(sprintf('Store configuration not found: %s', $configPath));
+        $this->io->title(sprintf('Creating store: %s', $store));
+
+        if ($input->getOption('build') === false && $input->getOption('deploy') === false) {
+            $this->io->error('You must specify at least one of the options: --build or --deploy');
             return Command::FAILURE;
         }
 
-        $this->io->title(sprintf('Creating store: %s', $storeName));
+        if ($input->getOption('build')) {
+            $this->io->section('[Store Loader] BUILD');
+            $this->build($store);
+        }
 
-        $this->io->section('[Store Loader] PLUGINS');
-        $this->runCommand(['php', 'bin/console', 'sylius:dx:plugin-manager', sprintf('--store=%s', $storeName), '--no-debug']);
-        $this->runCommand(['php', 'bin/console', 'sylius:dx:plugin-manager', '--stage=install', sprintf('--store=%s', $storeName), '--no-debug']);
+        if ($input->getOption('deploy')) {
+            $this->io->section('[Store Loader] DEPLOY');
+            $this->deploy($store);
+        }
 
-        $this->io->section('[Store Loader] FIXTURES');
-        $this->runCommand(['php', 'bin/console', 'sylius:dx:fixture-loader', $storeName, '--no-debug']);
-
-        $this->io->section('[Store Loader] THEMES');
-        $this->runCommand(['composer', 'require', 'intervention/image']);
-        $this->runCommand(['php', 'bin/console', 'sylius:dx:theme-loader', $storeName, '--no-debug']);
+//        $this->io->section('[Store Loader] FIXTURES');
+//        $this->runCommand(['php', 'bin/console', 'sylius:dx:fixture-loader', $store, '--no-debug']);
+//
+//        $this->io->section('[Store Loader] THEMES');
+//        $this->runCommand(['composer', 'require', 'intervention/image']);
+//        $this->runCommand(['php', 'bin/console', 'sylius:dx:theme-loader', $store, '--no-debug']);
 
         $this->io->success('Store creation complete!');
 
@@ -74,5 +85,18 @@ class StoreLoader extends Command
             ->mustRun(fn(string $type, string $buffer) => $this->io->write($buffer));
 
         return $process->getExitCode();
+    }
+
+    public function build(string $store): void
+    {
+        $this->io->section('[Store Loader] PLUGINS');
+
+        $this->runCommand(['php', 'bin/console', 'sylius:dx:plugin:prepare', $store]);
+        $this->runCommand(['php', 'bin/console', 'sylius:dx:plugin:install', $store]);
+    }
+
+    public function deploy(string $store): void
+    {
+        // TODO: Implement deploy() method.
     }
 }

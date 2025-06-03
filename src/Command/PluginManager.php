@@ -45,8 +45,7 @@ class PluginManager extends Command
             ->addOption('store', null, InputOption::VALUE_OPTIONAL, 'Load plugins from store-creator/{store}/store-creator.json')
             ->addOption('mode', null, InputOption::VALUE_OPTIONAL, 'manual|auto', self::MODE_MANUAL)
             ->addOption('stage', null, InputOption::VALUE_OPTIONAL, 'require|install', 'require')
-            ->addOption('plugins', null, InputOption::VALUE_OPTIONAL | InputOption::VALUE_IS_ARRAY,
-                'Plugin names to process, e.g. sylius/return-plugin:2.0.x-dev');
+        ;
     }
 
     protected function execute(InputInterface $input, OutputInterface $output): int
@@ -105,14 +104,10 @@ class PluginManager extends Command
                 return Command::FAILURE;
             }
 
-            // Zawsze ustawiamy Flex aby akceptował contrib i dodajemy Sylius Packagist repo
             Process::fromShellCommandline('composer config extra.symfony.allow-contrib true')->setTimeout(0)->run();
             Process::fromShellCommandline('composer config repositories.sylius composer https://sylius.repo.packagist.com/sylius/')->setTimeout(0)->run();
         }
 
-        //
-        // 2) Jeżeli etap = "require", to wykonujemy composer require ... i restartujemy siebie w trybie "install"
-        //
         if ($stage === 'require') {
             $this->io->section('📦 Requiring plugins');
             foreach ($plugins as $package => $version) {
@@ -124,18 +119,6 @@ class PluginManager extends Command
                     ->mustRun(fn($type, $buffer) => $output->write($buffer));
             }
 
-//            $this->io->section('🔄 Restarting plugin-manager in install mode');
-//            $cmdParts = array_merge(
-//                ['bin/console', self::$defaultName, '--stage=install', '--mode=auto', '--no-debug'],
-//                $store ? ["--store={$store}"] : [],
-//                array_map(
-//                    fn($name, $ver) => "--plugins={$name}:{$ver}",
-//                    array_keys($plugins),
-//                    $plugins
-//                )
-//            );
-//
-//            $this->runCommand($cmdParts);
             return Command::SUCCESS;
         }
 

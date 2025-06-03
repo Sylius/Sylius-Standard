@@ -4,7 +4,6 @@ declare(strict_types=1);
 
 namespace App\Command\Obsolete;
 
-use App\Command\ConfigTrait;
 use Symfony\Component\Console\Attribute\AsCommand;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputInterface;
@@ -20,7 +19,7 @@ use Symfony\Component\Yaml\Yaml;
 )]
 class PluginOrchestratorCommand extends Command
 {
-    use ConfigTrait;
+    use PluginConfigTrait;
 
     protected function execute(InputInterface $input, OutputInterface $output): int
     {

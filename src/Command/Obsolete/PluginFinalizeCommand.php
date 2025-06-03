@@ -4,7 +4,6 @@ declare(strict_types=1);
 
 namespace App\Command\Obsolete;
 
-use App\Command\ConfigTrait;
 use App\Plugin\Installer\PluginInstallerInterface;
 use Symfony\Component\Console\Attribute\AsCommand;
 use Symfony\Component\Console\Command\Command;
@@ -21,7 +20,7 @@ use Symfony\Component\Process\Process;
 )]
 class PluginFinalizeCommand extends Command
 {
-    use ConfigTrait;
+    use PluginConfigTrait;
 
     /** @var iterable<PluginInstallerInterface> */
     private iterable $installers;

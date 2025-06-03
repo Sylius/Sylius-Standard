@@ -14,10 +14,10 @@ use Symfony\Component\DependencyInjection\Attribute\Autowire;
 use Symfony\Component\Process\Process;
 
 #[AsCommand(
-    name: 'sylius:dx:fixture-loader',
+    name: 'sylius:dx:fixture:prepare',
     description: 'Load fixtures from configuration'
 )]
-class FixtureLoader extends Command
+class FixturePreparer extends Command
 {
     public function __construct(
         #[Autowire('%kernel.project_dir%')] private readonly string $projectDir,
@@ -28,37 +28,22 @@ class FixtureLoader extends Command
     protected function configure(): void
     {
         $this->addArgument('store', InputOption::VALUE_REQUIRED, 'Name of the store directory under store-creator/');
-        $this->addOption('suite', null, InputOption::VALUE_OPTIONAL, 'Load a specific fixtures suite', null);
-        $this->addOption('force', 'f', InputOption::VALUE_NONE, 'Overwrite existing theme files');
     }
 
     protected function execute(InputInterface $input, OutputInterface $output): int
     {
         $io = new SymfonyStyle($input, $output);
 
-        if ($input->getOption('suite')) {
-            $io->section('[Fixture Loader] Loading fixtures suite');
-            $suite = $input->getOption('suite');
-            $process = $this->runConsoleCommand('sylius:fixtures:load', [$suite, '--no-interaction'], $io);
-            if ($process->getExitCode() !== 0) {
-                $io->error('Fixtures loading failed.');
-                return Command::FAILURE;
-            }
-
-            $io->success('Fixtures suite loaded successfully.');
-            return Command::SUCCESS;
-        }
-
-        $storeName = $input->getArgument('store');
-        $configPath = sprintf('%s/store-creator/%s/store-creator.json', $this->projectDir, $storeName);
-        $fixturesPath = sprintf('%s/store-creator/%s/fixtures/fixtures.yaml', $this->projectDir, $storeName);
+        $store = $input->getArgument('store');
+        $configPath = sprintf('%s/store-creator/%s/store-creator.json', $this->projectDir, $store);
+        $fixturesPath = sprintf('%s/store-creator/%s/fixtures/fixtures.yaml', $this->projectDir, $store);
 
         if (!file_exists($configPath)) {
             $io->error(sprintf('Configuration file not found: %s', $configPath));
             return Command::FAILURE;
         }
 
-        $io->title(sprintf('Loading fixtures for store: %s', $storeName));
+        $io->title(sprintf('Loading fixtures for store: %s', $store));
 
         $json = file_get_contents($configPath);
         $data = json_decode($json, true, 512, JSON_THROW_ON_ERROR);
@@ -70,7 +55,7 @@ class FixtureLoader extends Command
         }
 
         // Skopiuj wszystkie zdjęcia
-        $imagesDir = sprintf('%s/store-creator/%s/fixtures/images', $this->projectDir, $storeName);
+        $imagesDir = sprintf('%s/store-creator/%s/fixtures/images', $this->projectDir, $store);
         if (is_dir($imagesDir)) {
             $io->section('Copying images');
             $destinationDir = $this->projectDir . '/var/fixture_img';
@@ -98,7 +83,7 @@ class FixtureLoader extends Command
         $suite = $data['fixtures']['suite'] ?? 'default';
         $process = $this->runConsoleCommand(
             'sylius:dx:fixture-loader',
-            [$storeName, '--force', sprintf('--suite=%s', $suite)],
+            [$store, '--force', sprintf('--suite=%s', $suite)],
             $io,
         );
         if ($process->getExitCode() !== 0) {
