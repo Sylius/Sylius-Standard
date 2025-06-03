@@ -69,18 +69,6 @@ class StoreLoader extends Command
                 $io->error('Plugin installation failed.');
                 return Command::FAILURE;
             }
-
-            $io->section('🔄 Restarting plugin-manager in install mode');
-            $cmdParts = array_merge(
-                ['bin/console', 'sylius:dx:plugin-manager', '--stage=install', '--template=' . $storeName . '}', '--as-subprocess', '--mode=auto', '--no-debug'],
-                array_map(
-                    fn($name, $ver) => "--plugins={$name}:{$ver}",
-                    array_keys($plugins),
-                    $plugins
-                )
-            );
-
-
             $io->success('Plugins installed successfully.');
         } else {
             $io->text('No plugins to install.');
