@@ -40,7 +40,8 @@ class PluginManager extends Command
     protected function configure(): void
     {
         $this
-            ->addOption('template', null, InputOption::VALUE_OPTIONAL, 'Load plugins from store-creator/{template}/store-creator.json')
+            ->addOption('preset', null, InputOption::VALUE_OPTIONAL, 'Load plugins from store-creator/{preset}/store-creator.json')
+            ->addOption('as-subprocess', null, InputOption::VALUE_OPTIONAL, 'Run as subprocess')
             ->addOption('mode',     null, InputOption::VALUE_OPTIONAL, 'manual|auto', self::MODE_MANUAL)
             ->addOption('stage',    null, InputOption::VALUE_OPTIONAL, 'require|install', 'require')
             ->addOption('plugins',  null, InputOption::VALUE_OPTIONAL | InputOption::VALUE_IS_ARRAY,
@@ -50,30 +51,30 @@ class PluginManager extends Command
     protected function execute(InputInterface $input, OutputInterface $output): int
     {
         $io       = new SymfonyStyle($input, $output);
-        $template = $input->getOption('template');
-        $mode     = $template ? self::MODE_AUTO : $input->getOption('mode');
+        $preset = $input->getOption('preset');
+        $mode     = $preset ? self::MODE_AUTO : $input->getOption('mode');
         $stage    = $input->getOption('stage');
         $plugins  = [];
 
         //
         // 1) Wczytywanie listy pluginów
         //
-        if ($template) {
-            $io->title(sprintf('Loading template: %s', $template));
-            $configPath = sprintf('%s/store-creator/%s/store-creator.json', $this->projectDir, $template);
+        if ($preset) {
+            $io->title(sprintf('Loading preset: %s', $preset));
+            $configPath = sprintf('%s/store-creator/%s/store-creator.json', $this->projectDir, $preset);
             if (!file_exists($configPath)) {
-                $io->error(sprintf('Template config not found: %s', $configPath));
+                $io->error(sprintf('Preset config not found: %s', $configPath));
                 return Command::FAILURE;
             }
             try {
                 $data = json_decode((string)file_get_contents($configPath), true, 512, JSON_THROW_ON_ERROR);
             } catch (Exception $e) {
-                $io->error('Invalid JSON in template config: ' . $e->getMessage());
+                $io->error('Invalid JSON in preset config: ' . $e->getMessage());
                 return Command::FAILURE;
             }
             $plugins = $data['plugins'] ?? [];
             if (empty($plugins)) {
-                $io->warning('No plugins defined in template.');
+                $io->warning('No plugins defined in preset.');
                 return Command::SUCCESS;
             }
         } else {
@@ -124,10 +125,15 @@ class PluginManager extends Command
                     ->mustRun(fn($type, $buffer) => $output->write($buffer));
             }
 
+            if ($input->getOption('as-subprocess')) {
+                $io->success('Plugins required successfully. Restarting in install mode...');
+                return Command::SUCCESS;
+            }
+
             $io->section('🔄 Restarting plugin-manager in install mode');
             $cmdParts = array_merge(
                 ['bin/console', self::$defaultName, '--stage=install', '--mode=auto', '--no-debug'],
-                $template ? ["--template={$template}"] : [],
+                $preset ? ["--preset={$preset}"] : [],
                 array_map(
                     fn($name, $ver) => "--plugins={$name}:{$ver}",
                     array_keys($plugins),
