@@ -33,7 +33,7 @@ class StoreLoader extends Command
     protected function configure(): void
     {
         $this
-            ->addArgument('store', InputArgument::REQUIRED, 'Name of the store directory under store-creator/')
+            ->addArgument('store', InputArgument::REQUIRED, 'Name of the store directory under store-creator/');
     }
 
     protected function execute(InputInterface $input, OutputInterface $output): int
@@ -49,9 +49,6 @@ class StoreLoader extends Command
         }
 
         $this->io->title(sprintf('Creating store: %s', $storeName));
-
-        $json = file_get_contents($configPath);
-        $data = json_decode($json, true, 512, JSON_THROW_ON_ERROR);
 
         $this->io->section('[Store Loader] PLUGINS');
         $this->runCommand(['bin/console', 'sylius:dx:plugin-manager', sprintf('--template=%s', $storeName), '--no-debug']);
