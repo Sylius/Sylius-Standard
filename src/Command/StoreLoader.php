@@ -44,27 +44,27 @@ class StoreLoader extends Command
         $configPath = sprintf('%s/store-creator/%s/store-creator.json', $this->projectDir, $storeName);
 
         if (!file_exists($configPath)) {
-            $io->error(sprintf('Store configuration not found: %s', $configPath));
+            $this->io->error(sprintf('Store configuration not found: %s', $configPath));
             return Command::FAILURE;
         }
 
-        $io->title(sprintf('Creating store: %s', $storeName));
+        $this->io->title(sprintf('Creating store: %s', $storeName));
 
         $json = file_get_contents($configPath);
         $data = json_decode($json, true, 512, JSON_THROW_ON_ERROR);
 
-        $io->section('[Store Loader] PLUGINS');
+        $this->io->section('[Store Loader] PLUGINS');
         $this->runCommand(['bin/console', 'sylius:dx:plugin-manager', sprintf('--template=%s', $storeName), '--no-debug']);
         $this->runCommand(['bin/console', 'sylius:dx:plugin-manager', '--stage=install', sprintf('--template=%s', $storeName), '--no-debug']);
 
-        $io->section('[Store Loader] FIXTURES');
+        $this->io->section('[Store Loader] FIXTURES');
         $this->runCommand(['bin/console', 'sylius:dx:fixture-loader', $storeName, '--no-debug']);
 
-        $io->section('[Store Loader] THEMES');
+        $this->io->section('[Store Loader] THEMES');
         $this->runCommand(['composer require intervention/image', '--no-update']);
         $this->runCommand(['bin/console', 'sylius:dx:theme-loader', $storeName, '--no-debug']);
 
-        $io->success('Store creation complete!');
+        $this->io->success('Store creation complete!');
         return Command::SUCCESS;
     }
 
