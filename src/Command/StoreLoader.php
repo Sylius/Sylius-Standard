@@ -57,7 +57,7 @@ class StoreLoader extends Command
         $this->runCommand(['php', 'bin/console', 'sylius:dx:fixture-loader', $storeName, '--no-debug']);
 
         $this->io->section('[Store Loader] THEMES');
-        $this->runCommand(['composer', 'require', 'intervention/image', '--no-update']);
+        $this->runCommand(['composer', 'require', 'intervention/image']);
         $this->runCommand(['php', 'bin/console', 'sylius:dx:theme-loader', $storeName, '--no-debug']);
 
         $this->io->success('Store creation complete!');
