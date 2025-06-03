@@ -8,7 +8,6 @@ use Symfony\Component\Console\Attribute\AsCommand;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputArgument;
 use Symfony\Component\Console\Input\InputInterface;
-use Symfony\Component\Console\Input\InputOption;
 use Symfony\Component\Console\Output\OutputInterface;
 use Symfony\Component\Console\Style\SymfonyStyle;
 use Symfony\Component\Process\Process;
@@ -51,8 +50,8 @@ class StoreLoader extends Command
         $this->io->title(sprintf('Creating store: %s', $storeName));
 
         $this->io->section('[Store Loader] PLUGINS');
-        $this->runCommand(['bin/console', 'sylius:dx:plugin-manager', sprintf('--template=%s', $storeName), '--no-debug']);
-        $this->runCommand(['bin/console', 'sylius:dx:plugin-manager', '--stage=install', sprintf('--template=%s', $storeName), '--no-debug']);
+        $this->runCommand(['bin/console', 'sylius:dx:plugin-manager', sprintf('--store=%s', $storeName), '--no-debug']);
+        $this->runCommand(['bin/console', 'sylius:dx:plugin-manager', '--stage=install', sprintf('--store=%s', $storeName), '--no-debug']);
 
         $this->io->section('[Store Loader] FIXTURES');
         $this->runCommand(['bin/console', 'sylius:dx:fixture-loader', $storeName, '--no-debug']);

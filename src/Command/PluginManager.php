@@ -26,54 +26,55 @@ class PluginManager extends Command
     use ConfigTrait;
 
     protected const MODE_MANUAL = 'manual';
-    protected const MODE_AUTO   = 'auto';
+    protected const MODE_AUTO = 'auto';
 
     protected static $defaultName = 'sylius:dx:plugin-manager';
+
+    private SymfonyStyle $io;
 
     public function __construct(
         #[AutowireIterator('app.plugin_installer')] private readonly iterable $installers,
         #[Autowire('%kernel.project_dir%')] private readonly string $projectDir,
-    ) {
+    )
+    {
         parent::__construct();
     }
 
     protected function configure(): void
     {
         $this
-            ->addOption('template', null, InputOption::VALUE_OPTIONAL, 'Load plugins from store-creator/{template}/store-creator.json')
-            ->addOption('mode',     null, InputOption::VALUE_OPTIONAL, 'manual|auto', self::MODE_MANUAL)
-            ->addOption('stage',    null, InputOption::VALUE_OPTIONAL, 'require|install', 'require')
-            ->addOption('plugins',  null, InputOption::VALUE_OPTIONAL | InputOption::VALUE_IS_ARRAY,
+            ->addOption('store', null, InputOption::VALUE_OPTIONAL, 'Load plugins from store-creator/{store}/store-creator.json')
+            ->addOption('mode', null, InputOption::VALUE_OPTIONAL, 'manual|auto', self::MODE_MANUAL)
+            ->addOption('stage', null, InputOption::VALUE_OPTIONAL, 'require|install', 'require')
+            ->addOption('plugins', null, InputOption::VALUE_OPTIONAL | InputOption::VALUE_IS_ARRAY,
                 'Plugin names to process, e.g. sylius/return-plugin:2.0.x-dev');
     }
 
     protected function execute(InputInterface $input, OutputInterface $output): int
     {
-        $io       = new SymfonyStyle($input, $output);
-        $template = $input->getOption('template');
-        $mode     = $template ? self::MODE_AUTO : $input->getOption('mode');
-        $stage    = $input->getOption('stage');
-        $plugins  = [];
+        $this->io = new SymfonyStyle($input, $output);
 
-        //
-        // 1) Wczytywanie listy pluginów
-        //
-        if ($template) {
-            $io->title(sprintf('Loading template: %s', $template));
-            $configPath = sprintf('%s/store-creator/%s/store-creator.json', $this->projectDir, $template);
+        $store = $input->getOption('store');
+        $mode = $store ? self::MODE_AUTO : $input->getOption('mode');
+        $stage = $input->getOption('stage');
+        $plugins = [];
+
+        if ($store) {
+            $this->io->title(sprintf('Loading store: %s', $store));
+            $configPath = sprintf('%s/store-creator/%s/store-creator.json', $this->projectDir, $store);
             if (!file_exists($configPath)) {
-                $io->error(sprintf('Template config not found: %s', $configPath));
+                $this->io->error(sprintf('Template config not found: %s', $configPath));
                 return Command::FAILURE;
             }
             try {
                 $data = json_decode((string)file_get_contents($configPath), true, 512, JSON_THROW_ON_ERROR);
             } catch (Exception $e) {
-                $io->error('Invalid JSON in template config: ' . $e->getMessage());
+                $this->io->error('Invalid JSON in store config: ' . $e->getMessage());
                 return Command::FAILURE;
             }
             $plugins = $data['plugins'] ?? [];
             if (empty($plugins)) {
-                $io->warning('No plugins defined in template.');
+                $this->io->warning('No plugins defined in store.');
                 return Command::SUCCESS;
             }
         } else {
@@ -81,27 +82,27 @@ class PluginManager extends Command
             foreach ($raw as $p) {
                 [$name, $ver] = explode(':', $p, 2) + [1 => null];
                 if (!$ver) {
-                    $io->error("Invalid plugin format, expected name:version, got '$p'");
+                    $this->io->error("Invalid plugin format, expected name:version, got '$p'");
                     return Command::FAILURE;
                 }
                 $plugins[$name] = $ver;
             }
 
             if (empty($plugins) && $mode === self::MODE_MANUAL) {
-                $io->title('Select plugin to manage');
+                $this->io->title('Select plugin to manage');
                 $supported = $this->getSupportedPlugins();
                 $installed = $this->getInstalledPlugins();
                 $rows = [];
                 foreach ($supported as $pkg => $ver) {
                     $rows[] = [$pkg, $ver, in_array($pkg, $installed, true) ? '✅' : ''];
                 }
-                $io->table(['Plugin','Version','Installed'], $rows);
-                $choice = $io->choice('Select plugin', array_keys($supported));
+                $this->io->table(['Plugin', 'Version', 'Installed'], $rows);
+                $choice = $this->io->choice('Select plugin', array_keys($supported));
                 $plugins[$choice] = $supported[$choice];
             }
 
             if (empty($plugins)) {
-                $io->error('No plugins specified.');
+                $this->io->error('No plugins specified.');
                 return Command::FAILURE;
             }
 
@@ -114,7 +115,7 @@ class PluginManager extends Command
         // 2) Jeżeli etap = "require", to wykonujemy composer require ... i restartujemy siebie w trybie "install"
         //
         if ($stage === 'require') {
-            $io->section('📦 Requiring plugins');
+            $this->io->section('📦 Requiring plugins');
             foreach ($plugins as $package => $version) {
                 Process::fromShellCommandline("composer require $package:$version --no-scripts --no-interaction")
                     ->setTimeout(0)
@@ -124,47 +125,33 @@ class PluginManager extends Command
                     ->mustRun(fn($type, $buffer) => $output->write($buffer));
             }
 
-            $io->section('🔄 Restarting plugin-manager in install mode');
-            $cmdParts = array_merge(
-                ['bin/console', self::$defaultName, '--stage=install', '--mode=auto', '--no-debug'],
-                $template ? ["--template={$template}"] : [],
-                array_map(
-                    fn($name, $ver) => "--plugins={$name}:{$ver}",
-                    array_keys($plugins),
-                    $plugins
-                )
-            );
-
-            $this->runConsole($cmdParts, $io);
+//            $this->io->section('🔄 Restarting plugin-manager in install mode');
+//            $cmdParts = array_merge(
+//                ['bin/console', self::$defaultName, '--stage=install', '--mode=auto', '--no-debug'],
+//                $store ? ["--store={$store}"] : [],
+//                array_map(
+//                    fn($name, $ver) => "--plugins={$name}:{$ver}",
+//                    array_keys($plugins),
+//                    $plugins
+//                )
+//            );
+//
+//            $this->runCommand($cmdParts);
             return Command::SUCCESS;
         }
 
-        //
-        // 3) Etap "install" – uruchamiamy Rector, instalujemy pluginy i wykonujemy post‐steps
-        //
-        $io->section('🔧 Installing plugins');
+        $this->io->title('Running Rector');
+        $this->runCommand(['vendor/bin/rector', 'process', 'src']);
 
-        $io->title('Running Rector');
-        $this->runConsole(
-            ['vendor/bin/rector', 'process', 'src'],
-            $io,
-            ['cwd' => $this->projectDir]
-        );
-
-        $io->title('Installing plugins');
+        $this->io->title('Installing plugins');
         foreach (array_keys($plugins) as $plugin) {
             $installer = $this->findInstallerFor($plugin);
-            $installer->install($io);
+            $installer->install($this->io);
         }
 
-        try {
-            $this->runCommonPostSteps($io);
-        } catch (Throwable $e) {
-            $io->error($e->getMessage());
-            return Command::FAILURE;
-        }
+        $this->runCommonPostSteps();
+        $this->io->success('All plugins processed successfully.');
 
-        $io->success('All plugins processed successfully.');
         return Command::SUCCESS;
     }
 
@@ -179,53 +166,29 @@ class PluginManager extends Command
         throw new RuntimeException(sprintf('No installer found for package "%s"', $plugin));
     }
 
-    private function runCommonPostSteps(SymfonyStyle $io): void
+    private function runCommonPostSteps(): void
     {
-        $io->title('Installing assets and building front');
+        $this->io->title('Installing assets and building front');
+        $this->runCommand(['bin/console', 'assets:install', '-n', '--no-debug']);
+        $this->runCommand(['yarn', 'encore', 'production']);
 
-        // assets:install
-        $this->runConsole(['bin/console', 'assets:install', '-n', '--no-debug'], $io);
+        $this->io->section('Running database sync');
+        $this->runCommand(['bin/console', 'doctrine:schema:update', '-n', '--force', '--complete', '--no-debug']);
 
-        // yarn encore production
-        $this->runConsole(['yarn', 'encore', 'production'], $io, ['cwd' => $this->projectDir]);
+//        $this->io->section('Loading default fixtures');
+//        $this->runCommand(['bin/console', 'sylius:fixtures:load', '-n', '--no-debug'], $this->io);
 
-        $io->section('Running database sync');
-        $this->runConsole(['bin/console', 'doctrine:schema:update', '-n', '--force', '--complete', '--no-debug'], $io);
-
-        $io->section('Loading default fixtures');
-        $this->runConsole(['bin/console', 'sylius:fixtures:load', '-n', '--no-debug'], $io);
-
-        $io->success('All plugins installed and configured successfully.');
+        $this->io->success('All plugins installed and configured successfully.');
     }
 
-    /**
-     * Uruchamia pod‐proces Symfony Console w trybie „no-debug” i z zachowaniem tego samego var/cache/dev.
-     *
-     * @param string[]    $commandParts  Tablica fragmentów komendy np. ['bin/console','assets:install','-n','--no-debug']
-     * @param SymfonyStyle $io
-     * @param array<string,string> $options  Dodatkowe opcje (np. ['cwd' => '/pełna/ścieżka'])
-     */
-    private function runConsole(array $commandParts, SymfonyStyle $io, array $options = []): void
+    private function runCommand(array $command): int
     {
-        // Pobieramy ten sam katalog cache (np. var/cache/dev/ContainerXXX)
-        $cacheDir = $this->getApplication()->getKernel()->getContainer()->getParameter('kernel.cache_dir');
-
-        $io->section('[Plugin Manager] ==========CACHE DIR==========');
-        $io->writeln($cacheDir);
-        $io->section('[Plugin Manager] ==========CACHE DIR==========');
-
-        $env = [
-            'SYMFONY_CACHE_DIR' => $cacheDir,
-            'APP_DEBUG'        => '0',
-            'APP_ENV'           => 'dev',
-        ];
-
-        $process = new Process($commandParts, $options['cwd'] ?? $this->projectDir, $env);
+        $process = new Process($command, $this->projectDir);
         $process
             ->setTty(Process::isTtySupported())
             ->setTimeout(0)
-            ->mustRun(function (string $type, string $buffer) use ($io) {
-                $io->write($buffer);
-            });
+            ->mustRun(fn(string $type, string $buffer) => $this->io->write($buffer));
+
+        return $process->getExitCode();
     }
 }
