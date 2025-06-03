@@ -17,7 +17,8 @@
                 "--bs-primary-rgb": "54, 124, 43",
                 "--bs-bg-opacity": "1"
             },
-            "logo": "logo.png"
+            "logo": "logo.png",
+            "banner": false
         }
     },
     "fixtures": {
