@@ -42,7 +42,7 @@ trait ConfigTrait
 
         $config = json_decode(file_get_contents($configPath), true, 512, JSON_THROW_ON_ERROR);
 
-        return $config['name'] ?? throw new RuntimeException(sprintf('Store name not found in configuration: %s', $configPath));
+        return $config['name'] ?? throw new RuntimeException(sprintf('Invalid JSON structure in %s', $configPath));
     }
 
     public function getPluginsByStore(string $store): array
