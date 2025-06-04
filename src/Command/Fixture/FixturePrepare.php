@@ -69,33 +69,12 @@ class FixturePrepare extends Command
             $io->warning('No images directory found, skipping image copy.');
         }
 
-        $io->section('[Fixture Loader] Reload cache');
-        $this->runConsoleCommand('cache:clear', [], $io);
-        $this->runConsoleCommand('cache:warmup', [], $io);
+//        $io->section('[Fixture Loader] Reload cache');
+//        $this->runConsoleCommand('cache:clear', [], $io);
+//        $this->runConsoleCommand('cache:warmup', [], $io);
 
         $io->success('Fixtures prepared successfully.');
 
         return Command::SUCCESS;
-    }
-
-    private function runConsoleCommand(
-        string $command,
-        array $arguments,
-        SymfonyStyle $io,
-    ): Process {
-        $parts = array_merge(["bin/console", $command], $arguments);
-        $process = Process::fromShellCommandline(
-            implode(' ', $parts),
-            $this->projectDir
-        );
-
-        $process
-            ->setTty(Process::isTtySupported())
-            ->setTimeout(0)
-            ->run(function ($type, $buffer) use ($io) {
-                $io->write($buffer);
-            });
-
-        return $process;
     }
 }

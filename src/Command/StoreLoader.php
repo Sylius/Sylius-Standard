@@ -105,6 +105,7 @@ class StoreLoader extends Command implements BuildAndDeployContextSeparatorInter
 
     public function deploy(string $store): void
     {
+        $this->io->section('[Store Loader] FIXTURES');
         $this->runCommand(['php', 'bin/console', 'sylius:dx:fixture:load', $store]);
     }
 }
