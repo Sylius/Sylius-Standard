@@ -109,7 +109,9 @@ hooks:
             export \$(symfony var:export)
         EOS
         yarn install --frozen-lockfile
-        bin/console sylius:dx:store-loader --build
+        rm -rf var/cache/prod
+        bin/console cache:warmup --env=prod --no-debug
+        bin/console sylius:dx:store-loader --env=prod --build
         bin/console sylius:dx:theme:prepare
         yarn build:prod
 
