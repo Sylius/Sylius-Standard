@@ -4,10 +4,12 @@ declare(strict_types=1);
 
 namespace App\Command;
 
+use RuntimeException;
 use Symfony\Component\Console\Attribute\AsCommand;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputArgument;
 use Symfony\Component\Console\Input\InputInterface;
+use Symfony\Component\Console\Input\InputOption;
 use Symfony\Component\Console\Output\OutputInterface;
 use Symfony\Component\Console\Style\SymfonyStyle;
 use Symfony\Component\Process\Process;
@@ -36,8 +38,8 @@ class StoreLoader extends Command implements BuildAndDeployContextSeparatorInter
         $this
             ->setDescription('Orchestrate Sylius installation: plugins, fixtures, themes')
             ->addArgument('store', InputArgument::REQUIRED, 'Name of the store directory under store-creator/')
-            ->addOption('build', null, InputArgument::OPTIONAL, 'Build the store before loading', false)
-            ->addOption('deploy', null, InputArgument::OPTIONAL, 'Deploy the store after loading', false);
+            ->addOption('build', null, InputOption::VALUE_NONE, 'Build the store before loading')
+            ->addOption('deploy', null, InputOption::VALUE_NONE, 'Deploy the store after loading');
     }
 
     protected function execute(InputInterface $input, OutputInterface $output): int
@@ -47,7 +49,7 @@ class StoreLoader extends Command implements BuildAndDeployContextSeparatorInter
         $store = $input->getArgument('store');
         try {
             $this->validateStore($store);
-        } catch (\RuntimeException $e) {
+        } catch (RuntimeException $e) {
             $this->io->error($e->getMessage());
             return Command::FAILURE;
         }
@@ -68,9 +70,6 @@ class StoreLoader extends Command implements BuildAndDeployContextSeparatorInter
             $this->io->section('[Store Loader] DEPLOY');
             $this->deploy($store);
         }
-
-//        $this->io->section('[Store Loader] FIXTURES');
-//        $this->runCommand(['php', 'bin/console', 'sylius:dx:fixture-loader', $store, '--no-debug']);
 //
 //        $this->io->section('[Store Loader] THEMES');
 //        $this->runCommand(['composer', 'require', 'intervention/image']);
@@ -98,10 +97,14 @@ class StoreLoader extends Command implements BuildAndDeployContextSeparatorInter
 
         $this->runCommand(['php', 'bin/console', 'sylius:dx:plugin:prepare', $store]);
         $this->runCommand(['php', 'bin/console', 'sylius:dx:plugin:install', $store]);
+
+
+        $this->io->section('[Store Loader] FIXTURES');
+        $this->runCommand(['php', 'bin/console', 'sylius:dx:fixture:prepare', $store, '--build']);
     }
 
     public function deploy(string $store): void
     {
-        // TODO: Implement deploy() method.
+        $this->runCommand(['php', 'bin/console', 'sylius:dx:fixture:load', $store]);
     }
 }

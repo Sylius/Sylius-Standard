@@ -2,8 +2,9 @@
 
 declare(strict_types=1);
 
-namespace App\Command;
+namespace App\Command\Fixture;
 
+use App\Command\ConfigTrait;
 use Symfony\Component\Console\Attribute\AsCommand;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputInterface;
@@ -14,11 +15,13 @@ use Symfony\Component\DependencyInjection\Attribute\Autowire;
 use Symfony\Component\Process\Process;
 
 #[AsCommand(
-    name: 'sylius:dx:fixture-loader',
-    description: 'Load fixtures from configuration'
+    name: 'sylius:dx:fixture:prepare',
+    description: 'Prepare and load fixtures for a specific store',
 )]
-class FixtureLoader extends Command
+class FixturePrepare extends Command
 {
+    use ConfigTrait;
+
     public function __construct(
         #[Autowire('%kernel.project_dir%')] private readonly string $projectDir,
     ){
@@ -28,40 +31,17 @@ class FixtureLoader extends Command
     protected function configure(): void
     {
         $this->addArgument('store', InputOption::VALUE_REQUIRED, 'Name of the store directory under store-creator/');
-        $this->addOption('suite', null, InputOption::VALUE_OPTIONAL, 'Load a specific fixtures suite', null);
-        $this->addOption('force', 'f', InputOption::VALUE_NONE, 'Overwrite existing theme files');
     }
 
     protected function execute(InputInterface $input, OutputInterface $output): int
     {
         $io = new SymfonyStyle($input, $output);
 
-        if ($input->getOption('suite')) {
-            $io->section('[Fixture Loader] Loading fixtures suite');
-            $suite = $input->getOption('suite');
-            $process = $this->runConsoleCommand('sylius:fixtures:load', [$suite, '--no-interaction'], $io);
-            if ($process->getExitCode() !== 0) {
-                $io->error('Fixtures loading failed.');
-                return Command::FAILURE;
-            }
+        $store = $input->getArgument('store');
+        $fixturesPath = $this->getFixturesPathByStore($store);
 
-            $io->success('Fixtures suite loaded successfully.');
-            return Command::SUCCESS;
-        }
+        $io->section(sprintf('Preparing fixtures for store: %s', $store));
 
-        $storeName = $input->getArgument('store');
-        $configPath = sprintf('%s/store-creator/%s/store-creator.json', $this->projectDir, $storeName);
-        $fixturesPath = sprintf('%s/store-creator/%s/fixtures/fixtures.yaml', $this->projectDir, $storeName);
-
-        if (!file_exists($configPath)) {
-            $io->error(sprintf('Configuration file not found: %s', $configPath));
-            return Command::FAILURE;
-        }
-
-        $io->title(sprintf('Loading fixtures for store: %s', $storeName));
-
-        $json = file_get_contents($configPath);
-        $data = json_decode($json, true, 512, JSON_THROW_ON_ERROR);
 
         $result = copy($fixturesPath, $this->projectDir . '/config/packages/fixtures.yaml');
         if (!$result) {
@@ -69,8 +49,7 @@ class FixtureLoader extends Command
             return Command::FAILURE;
         }
 
-        // Skopiuj wszystkie zdjęcia
-        $imagesDir = sprintf('%s/store-creator/%s/fixtures/images', $this->projectDir, $storeName);
+        $imagesDir = sprintf('%s/store-creator/%s/fixtures/images', $this->projectDir, $store);
         if (is_dir($imagesDir)) {
             $io->section('Copying images');
             $destinationDir = $this->projectDir . '/var/fixture_img';
@@ -94,19 +73,7 @@ class FixtureLoader extends Command
         $this->runConsoleCommand('cache:clear', [], $io);
         $this->runConsoleCommand('cache:warmup', [], $io);
 
-        $io->text('[Fixture Loader] Rerun fixture-loader command');
-        $suite = $data['fixtures']['suite'] ?? 'default';
-        $process = $this->runConsoleCommand(
-            'sylius:dx:fixture-loader',
-            [$storeName, '--force', sprintf('--suite=%s', $suite)],
-            $io,
-        );
-        if ($process->getExitCode() !== 0) {
-            $io->error('Fixture loading failed.');
-            return Command::FAILURE;
-        }
-
-        $io->success('Fixtures loaded successfully.');
+        $io->success('Fixtures prepared successfully.');
 
         return Command::SUCCESS;
     }

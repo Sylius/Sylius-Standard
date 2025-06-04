@@ -5,7 +5,6 @@ declare(strict_types=1);
 namespace App\Command\Plugin;
 
 use App\Command\ConfigTrait;
-use RuntimeException;
 use Symfony\Component\Console\Attribute\AsCommand;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputInterface;
@@ -16,14 +15,14 @@ use Symfony\Component\DependencyInjection\Attribute\Autowire;
 use Symfony\Component\Process\Process;
 
 #[AsCommand(
-    name: 'sylius:dx:plugin:preparer',
+    name: 'sylius:dx:plugin:prepare',
     description: 'Require Sylius plugins in one go'
 )]
-class PluginPreparer extends Command
+class PluginPrepare extends Command
 {
     use ConfigTrait;
 
-    protected static $defaultName = 'sylius:dx:plugin:preparer';
+    protected static $defaultName = 'sylius:dx:plugin:prepare';
 
     private SymfonyStyle $io;
 
@@ -35,7 +34,7 @@ class PluginPreparer extends Command
     protected function configure(): void
     {
         $this
-            ->addOption('store', null, InputOption::VALUE_OPTIONAL, 'Load plugins from store-creator/{store}/store-creator.json')
+            ->addArgument('store', InputOption::VALUE_REQUIRED, 'Name of the store directory under store-creator/')
         ;
     }
 
@@ -43,7 +42,7 @@ class PluginPreparer extends Command
     {
         $this->io = new SymfonyStyle($input, $output);
 
-        $store = $input->getOption('store');
+        $store = $input->getArgument('store');
         $this->validateStore($store);
         $plugins = $this->getPluginsByStore($store);
 
@@ -62,42 +61,15 @@ class PluginPreparer extends Command
                 ->mustRun(fn($type, $buffer) => $output->write($buffer));
         }
 
-
         $this->io->title('[Plugin Preparer] Running Rector');
         $this->runCommand(['vendor/bin/rector', 'process', 'src']);
 
         $this->io->title('[Plugin Preparer] Running assets installation');
-        $this->runCommand(['bin/console', 'assets:install', '-n', '--no-debug']);
-
-        $this->io->title('[Plugin Preparer] Building front assets');
-        $this->runCommand(['yarn', 'encore', 'production']);
-
+        $this->runCommand(['bin/console', 'assets:install', '-n']);
 
         $this->io->success('[Plugin Preparer] Plugins installed successfully.');
 
         return Command::SUCCESS;
-    }
-
-    private function findInstallerFor(mixed $plugin)
-    {
-        foreach ($this->installers as $installer) {
-            if ($installer->supports($plugin)) {
-                return $installer;
-            }
-        }
-
-        throw new RuntimeException(sprintf('No installer found for package "%s"', $plugin));
-    }
-
-    private function runCommonPostSteps(): void
-    {
-        $this->io->section('Running database sync');
-        $this->runCommand(['bin/console', 'doctrine:schema:update', '-n', '--force', '--complete', '--no-debug']);
-
-//        $this->io->section('Loading default fixtures');
-//        $this->runCommand(['bin/console', 'sylius:fixtures:load', '-n', '--no-debug'], $this->io);
-
-        $this->io->success('All plugins installed and configured successfully.');
     }
 
     private function runCommand(array $command): int

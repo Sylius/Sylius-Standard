@@ -4,7 +4,8 @@ declare(strict_types=1);
 
 namespace App\Command;
 
-use Symfony\Component\DependencyInjection\ContainerInterface;
+use RuntimeException;
+use Exception;
 
 trait ConfigTrait
 {
@@ -13,7 +14,7 @@ trait ConfigTrait
         $configPath = sprintf('%s/store-creator/%s/store-creator.json', $this->projectDir, $store);
 
         if (!file_exists($configPath)) {
-            throw new \RuntimeException(sprintf('Configuration file not found: %s', $configPath));
+            throw new RuntimeException(sprintf('Configuration file not found: %s', $configPath));
         }
     }
 
@@ -22,21 +23,32 @@ trait ConfigTrait
         $configPath = sprintf('%s/store-creator/%s/store-creator.json', $this->projectDir, $store);
         if (!file_exists($configPath)) {
 
-            throw new \RuntimeException(sprintf('Configuration file not found: %s', $configPath));
+            throw new RuntimeException(sprintf('Configuration file not found: %s', $configPath));
         }
 
         try {
             $data = json_decode((string)file_get_contents($configPath), true, 512, JSON_THROW_ON_ERROR);
-        } catch (\Exception $e) {
-            throw new \RuntimeException(sprintf('Failed to parse JSON from %s: %s', $configPath, $e->getMessage()));
+        } catch (Exception $e) {
+            throw new RuntimeException(sprintf('Failed to parse JSON from %s: %s', $configPath, $e->getMessage()));
         }
 
         $plugins = $data['plugins'] ?? [];
         if (empty($plugins)) {
-            throw new \RuntimeException(sprintf('No plugins found in configuration: %s', $configPath));
+            throw new RuntimeException(sprintf('No plugins found in configuration: %s', $configPath));
         }
 
         return $plugins;
+    }
+
+    public function getFixturesPathByStore(string $store): string
+    {
+        $fixturesPath = sprintf('%s/store-creator/%s/fixtures/fixtures.yaml', $this->projectDir, $store);
+
+        if (!file_exists($fixturesPath)) {
+            throw new RuntimeException(sprintf('Fixtures file not found: %s', $fixturesPath));
+        }
+
+        return $fixturesPath;
     }
 
     /** @return array<string,string>  [package => version] */

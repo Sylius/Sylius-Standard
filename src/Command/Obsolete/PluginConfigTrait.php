@@ -4,7 +4,6 @@ declare(strict_types=1);
 
 namespace App\Command\Obsolete;
 
-use App\Command\ContainerInterface;
 use JsonException;
 use Symfony\Component\Console\Style\SymfonyStyle;
 
