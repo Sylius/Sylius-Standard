@@ -91,8 +91,8 @@ class StoreLoader extends Command implements BuildAndDeployContextSeparatorInter
 
         $this->io->section('[Store Loader] THEMES');
         $this->runCommand(['composer', 'require', 'intervention/image']);
-        $this->runCommand(['php', 'bin/console', 'cache:clear', '--no-warmup']);
-        $this->runCommand(['php', 'bin/console', 'cache:warmup']);
+//        $this->runCommand(['php', 'bin/console', 'cache:clear', '--no-warmup']);
+//        $this->runCommand(['php', 'bin/console', 'cache:warmup']);
 
         $this->runCommand(['php', 'bin/console', 'sylius:dx:theme:prepare', $store]);
     }
