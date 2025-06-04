@@ -281,9 +281,6 @@ TWIG;
 
         file_put_contents($hooksConfigPath, Yaml::dump($hooksConfig, 8));
 
-        $this->io->text('Clearing cache');
-        $process = Process::fromShellCommandline('php bin/console cache:clear', $this->projectDir);
-        $process = Process::fromShellCommandline('php bin/console cache:warmup', $this->projectDir);
         $process->run(fn($type, $buffer) => $this->io->write($buffer));
 
         $this->io->success('[Theme Loader] Theme loading complete!');
