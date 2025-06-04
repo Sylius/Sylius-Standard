@@ -86,6 +86,8 @@ class StoreLoader extends Command implements BuildAndDeployContextSeparatorInter
         $this->io->section('[Store Loader] PLUGINS');
 
         $this->runCommand(['php', 'bin/console', 'sylius:dx:plugin:prepare', $store]);
+        $this->runCommand(['php', 'bin/console', 'cache:clear', '--no-warmup']);
+        $this->runCommand(['php', 'bin/console', 'cache:warmup']);
         $this->runCommand(['php', 'bin/console', 'sylius:dx:plugin:install', $store]);
 
 
