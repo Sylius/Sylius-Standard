@@ -42,7 +42,7 @@ class PluginManager extends Command
     protected function configure(): void
     {
         $this
-            ->addOption('store', null, InputOption::VALUE_OPTIONAL, 'Load plugins from store-creator/{store}/store-creator.json')
+            ->addOption('store', null, InputOption::VALUE_OPTIONAL, 'Load plugins from store-preset/store-preset.json')
             ->addOption('mode', null, InputOption::VALUE_OPTIONAL, 'manual|auto', self::MODE_MANUAL)
             ->addOption('stage', null, InputOption::VALUE_OPTIONAL, 'require|install', 'require')
         ;
@@ -59,7 +59,7 @@ class PluginManager extends Command
 
         if ($store) {
             $this->io->title(sprintf('Loading store: %s', $store));
-            $configPath = sprintf('%s/store-creator/%s/store-creator.json', $this->projectDir, $store);
+            $configPath = sprintf('%s/store-preset/store-preset.json', $this->projectDir);
             if (!file_exists($configPath)) {
                 $this->io->error(sprintf('Template config not found: %s', $configPath));
                 return Command::FAILURE;

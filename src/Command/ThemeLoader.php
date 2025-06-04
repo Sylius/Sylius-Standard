@@ -41,7 +41,7 @@ class ThemeLoader extends Command
     protected function configure(): void
     {
         $this
-            ->addArgument('store', InputArgument::REQUIRED, 'Name of the store directory under store-creator/')
+            ->addArgument('store', InputArgument::REQUIRED, 'Name of the store directory under store-preset/')
             ->addOption('force', 'f', InputOption::VALUE_NONE, 'Overwrite existing theme files');
     }
 
@@ -51,7 +51,7 @@ class ThemeLoader extends Command
         $store = (string)$input->getArgument('store');
         $force = (bool)$input->getOption('force');
 
-        $configPath = sprintf('%s/store-creator/%s/store-creator.json', $this->projectDir, $store);
+        $configPath = sprintf('%s/store-preset/store-preset.json', $this->projectDir);
         if (!file_exists($configPath)) {
             $this->io->error(sprintf('Configuration file not found: %s', $configPath));
             return Command::FAILURE;
@@ -61,7 +61,7 @@ class ThemeLoader extends Command
             $raw = file_get_contents($configPath);
             $data = json_decode($raw, true, 512, JSON_THROW_ON_ERROR);
         } catch (Throwable $e) {
-            $this->io->error('Invalid JSON in store-creator.json: ' . $e->getMessage());
+            $this->io->error('Invalid JSON in store-preset.json: ' . $e->getMessage());
             return Command::FAILURE;
         }
 
@@ -149,9 +149,8 @@ class ThemeLoader extends Command
 
             $logoFilename = $themeConfig['logo'];
             $logoSrc = sprintf(
-                '%s/store-creator/%s/themes/%s/%s',
+                '%s/store-preset/themes/%s/%s',
                 $this->projectDir,
-                $store,
                 $section,
                 $logoFilename
             );

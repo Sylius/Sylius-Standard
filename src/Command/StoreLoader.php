@@ -4,7 +4,6 @@ declare(strict_types=1);
 
 namespace App\Command;
 
-use RuntimeException;
 use Symfony\Component\Console\Attribute\AsCommand;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputArgument;
@@ -37,7 +36,7 @@ class StoreLoader extends Command implements BuildAndDeployContextSeparatorInter
     {
         $this
             ->setDescription('Orchestrate Sylius installation: plugins, fixtures, themes')
-            ->addArgument('store', InputArgument::REQUIRED, 'Name of the store directory under store-creator/')
+            ->addArgument('store', InputArgument::OPTIONAL, 'Name of the store directory under store-preset/')
             ->addOption('build', null, InputOption::VALUE_NONE, 'Build the store before loading')
             ->addOption('deploy', null, InputOption::VALUE_NONE, 'Deploy the store after loading');
     }
@@ -47,11 +46,10 @@ class StoreLoader extends Command implements BuildAndDeployContextSeparatorInter
         $this->io = new SymfonyStyle($input, $output);
 
         $store = $input->getArgument('store');
-        try {
-            $this->validateStore($store);
-        } catch (RuntimeException $e) {
-            $this->io->error($e->getMessage());
-            return Command::FAILURE;
+
+        $store === null ? $this->validateStore() : $this->validateStore($store);
+        if ($store === null) {
+            $store = $this->getStoreName();
         }
 
         $this->io->title(sprintf('Creating store: %s', $store));
@@ -102,7 +100,7 @@ class StoreLoader extends Command implements BuildAndDeployContextSeparatorInter
 
 
         $this->io->section('[Store Loader] FIXTURES');
-        $this->runCommand(['php', 'bin/console', 'sylius:dx:fixture:load', $store]);
+        $this->runCommand(['php', 'bin/console', 'sylius:dx:fixture:load']);
     }
 
     private function runCommand(array $command): int

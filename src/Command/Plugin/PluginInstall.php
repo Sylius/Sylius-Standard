@@ -38,7 +38,7 @@ class PluginInstall extends Command
     protected function configure(): void
     {
         $this
-            ->addArgument('store', InputOption::VALUE_REQUIRED, 'Name of the store directory under store-creator/')
+            ->addArgument('store', InputOption::VALUE_REQUIRED, 'Name of the store directory under store-preset/')
         ;
     }
 

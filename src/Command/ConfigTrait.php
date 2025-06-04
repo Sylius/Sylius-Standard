@@ -9,18 +9,45 @@ use Exception;
 
 trait ConfigTrait
 {
-    public function validateStore(string $store): void
+    public function validateStore(?string $store = null): void
     {
-        $configPath = sprintf('%s/store-creator/%s/store-creator.json', $this->projectDir, $store);
+        $configPath = sprintf('%s/store-preset/store-preset.json', $this->projectDir);
 
         if (!file_exists($configPath)) {
             throw new RuntimeException(sprintf('Configuration file not found: %s', $configPath));
         }
+
+        if ($store === null) {
+            return;
+        }
+
+        $config = json_decode(file_get_contents($configPath), true, 512, JSON_THROW_ON_ERROR);
+        if ($config['name'] !== $store) {
+            throw new RuntimeException(sprintf(
+                'Store name "%s" does not match the expected name "%s" in %s',
+                $store,
+                $config['name'],
+                $configPath
+            ));
+        }
+    }
+
+    public function getStoreName(): string
+    {
+        $configPath = sprintf('%s/store-preset/store-preset.json', $this->projectDir);
+
+        if (!file_exists($configPath)) {
+            throw new RuntimeException(sprintf('Configuration file not found: %s', $configPath));
+        }
+
+        $config = json_decode(file_get_contents($configPath), true, 512, JSON_THROW_ON_ERROR);
+
+        return $config['name'] ?? throw new RuntimeException(sprintf('Store name not found in configuration: %s', $configPath));
     }
 
     public function getPluginsByStore(string $store): array
     {
-        $configPath = sprintf('%s/store-creator/%s/store-creator.json', $this->projectDir, $store);
+        $configPath = sprintf('%s/store-preset/store-preset.json', $this->projectDir);
         if (!file_exists($configPath)) {
 
             throw new RuntimeException(sprintf('Configuration file not found: %s', $configPath));
@@ -40,9 +67,9 @@ trait ConfigTrait
         return $plugins;
     }
 
-    public function getFixturesPathByStore(string $store): string
+    public function getFixturesPath(): string
     {
-        $fixturesPath = sprintf('%s/store-creator/%s/fixtures/fixtures.yaml', $this->projectDir, $store);
+        $fixturesPath = sprintf('%s/store-preset/fixtures/fixtures.yaml', $this->projectDir);
 
         if (!file_exists($fixturesPath)) {
             throw new RuntimeException(sprintf('Fixtures file not found: %s', $fixturesPath));

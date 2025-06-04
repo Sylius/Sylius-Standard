@@ -30,18 +30,16 @@ class FixturePrepare extends Command
 
     protected function configure(): void
     {
-        $this->addArgument('store', InputOption::VALUE_REQUIRED, 'Name of the store directory under store-creator/');
+        $this->addArgument('store', InputOption::VALUE_REQUIRED, 'Name of the store directory under store-preset/');
     }
 
     protected function execute(InputInterface $input, OutputInterface $output): int
     {
         $io = new SymfonyStyle($input, $output);
 
-        $store = $input->getArgument('store');
-        $fixturesPath = $this->getFixturesPathByStore($store);
+        $fixturesPath = $this->getFixturesPath();
 
-        $io->section(sprintf('Preparing fixtures for store: %s', $store));
-
+        $io->section('[Fixture Loader] Preparing fixtures suite');
 
         $result = copy($fixturesPath, $this->projectDir . '/config/packages/fixtures.yaml');
         if (!$result) {
@@ -49,7 +47,7 @@ class FixturePrepare extends Command
             return Command::FAILURE;
         }
 
-        $imagesDir = sprintf('%s/store-creator/%s/fixtures/images', $this->projectDir, $store);
+        $imagesDir = sprintf('%s/store-preset/fixtures/images', $this->projectDir);
         if (is_dir($imagesDir)) {
             $io->section('Copying images');
             $destinationDir = $this->projectDir . '/var/fixture_img';

@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace App\Command\Fixture;
 
+use App\Command\ConfigTrait;
 use Symfony\Component\Console\Attribute\AsCommand;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputInterface;
@@ -19,6 +20,8 @@ use Symfony\Component\Process\Process;
 )]
 class FixtureLoad extends Command
 {
+    use ConfigTrait;
+
     public function __construct(
         #[Autowire('%kernel.project_dir%')] private readonly string $projectDir,
     ){
@@ -27,7 +30,7 @@ class FixtureLoad extends Command
 
     protected function configure(): void
     {
-        $this->addArgument('store', InputOption::VALUE_REQUIRED, 'Name of the store directory under store-creator/');
+        $this->addArgument('store', InputOption::VALUE_OPTIONAL, 'Name of the store directory under store-preset/', null);
     }
 
     protected function execute(InputInterface $input, OutputInterface $output): int
@@ -35,6 +38,11 @@ class FixtureLoad extends Command
         $io = new SymfonyStyle($input, $output);
 
         $store = $input->getArgument('store');
+
+        if (empty($store)) {
+            $store = $this->getStoreName();
+        }
+
         $io->section('[Fixture Loader] Loading fixtures suite');
         $process = $this->runConsoleCommand([$store, '--no-interaction'], $io);
         if ($process->getExitCode() !== 0) {
