@@ -100,6 +100,8 @@ class StoreLoader extends Command implements BuildAndDeployContextSeparatorInter
         $this->io->section('[Store Loader] PLUGINS');
 
         $this->io->info('[Plugin Installer] Running database schema update');
+        $this->runCommand(['bin/console', 'doctrine:database:drop', '--if-exists', '-n', '--force']);
+        $this->runCommand(['bin/console', 'doctrine:database:create', '-n']);
         $this->runCommand(['bin/console', 'doctrine:schema:update', '-n', '--force', '--complete']);
 
         if ($store === null) {
