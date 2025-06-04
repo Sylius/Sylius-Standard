@@ -46,14 +46,8 @@ class StoreLoader extends Command implements BuildAndDeployContextSeparatorInter
         $this->io = new SymfonyStyle($input, $output);
 
         $store = $input->getArgument('store');
-
         if (empty($store)) {
             $store = $this->getStoreName();
-
-            if (empty($store)) {
-                $this->io->success('Store preset missing. To use this command, you must specify a store name as an argument or ensure that the store-preset/store-preset.json file exists with a valid store name.');
-                return Command::SUCCESS;
-            }
         }
 
         $this->io->title(sprintf('Creating store: %s', $store));
@@ -65,6 +59,10 @@ class StoreLoader extends Command implements BuildAndDeployContextSeparatorInter
 
         if ($input->getOption('build')) {
             $this->io->section('[Store Loader] BUILD');
+            if (empty($store)) {
+                $this->io->success('Store preset missing. To use this command, you must specify a store name as an argument or ensure that the store-preset/store-preset.json file exists with a valid store name.');
+                return Command::SUCCESS;
+            }
             $this->build($store);
             $this->io->success('[Store Loader] BUILD completed successfully.');
         }
@@ -95,13 +93,19 @@ class StoreLoader extends Command implements BuildAndDeployContextSeparatorInter
         $this->runCommand(['php', 'bin/console', 'sylius:dx:fixture:prepare', $store]);
     }
 
-    public function deploy(string $store): void
+    public function deploy(?string $store = null): void
     {
         $this->io->section('[Store Loader] PLUGINS');
 
         $this->io->info('[Plugin Installer] Running database schema update');
         $this->runCommand(['bin/console', 'doctrine:schema:update', '-n', '--force', '--complete']);
 
+        if ($store === null) {
+            $this->io->info(['Store Loader] No store specified, loading default suite']);
+            $this->runCommand(['php', 'bin/console', 'sylius:fixtures:load', '-n']);
+
+            return;
+        }
 
         $this->io->section('[Store Loader] FIXTURES');
         $this->runCommand(['php', 'bin/console', 'sylius:dx:fixture:load']);

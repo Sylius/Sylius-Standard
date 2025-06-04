@@ -18,5 +18,5 @@ interface BuildAndDeployContextSeparatorInterface
 {
     public function build(string $store): void;
 
-    public function deploy(string $store): void;
+    public function deploy(?string $store = null): void;
 }
