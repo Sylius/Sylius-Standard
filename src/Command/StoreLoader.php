@@ -47,9 +47,13 @@ class StoreLoader extends Command implements BuildAndDeployContextSeparatorInter
 
         $store = $input->getArgument('store');
 
-        $store === null ? $this->validateStore() : $this->validateStore($store);
-        if ($store === null) {
+        if (empty($store)) {
             $store = $this->getStoreName();
+
+            if (empty($store)) {
+                $this->io->success('Store preset missing. To use this command, you must specify a store name as an argument or ensure that the store-preset/store-preset.json file exists with a valid store name.');
+                return Command::SUCCESS;
+            }
         }
 
         $this->io->title(sprintf('Creating store: %s', $store));

@@ -32,12 +32,12 @@ trait ConfigTrait
         }
     }
 
-    public function getStoreName(): string
+    public function getStoreName(): ?string
     {
         $configPath = sprintf('%s/store-preset/store-preset.json', $this->projectDir);
 
         if (!file_exists($configPath)) {
-            throw new RuntimeException(sprintf('Configuration file not found: %s', $configPath));
+            return null;
         }
 
         $config = json_decode(file_get_contents($configPath), true, 512, JSON_THROW_ON_ERROR);
