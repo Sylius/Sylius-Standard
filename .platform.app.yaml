@@ -101,6 +101,8 @@ crons:
 hooks:
     build: |
         set -e
+
+        # 1. Ustawiamy Node.js / Symfony CLI
         n auto
         hash -r
         curl -sS https://get.symfony.com/cli/installer | bash
@@ -108,11 +110,23 @@ hooks:
         cat >> "$PLATFORM_APP_DIR/.global/environment" <<EOS
             export \$(symfony var:export)
         EOS
+
+        # 2. Instalujemy frontowe zależności
         yarn install --frozen-lockfile
+
+        # 3. Usuwamy ewentualny stary cache prod
         rm -rf var/cache/prod
-        bin/console cache:warmup --env=prod --no-debug
+
+        # 4. Wykonujemy StoreLoader (dodanie fixtures, pluginów, itp.) w trybie prod
         bin/console sylius:dx:store-loader --env=prod --build
-        bin/console sylius:dx:theme:prepare
+
+        # 5. Wykonujemy ThemePrepare (jeśli jest, np. kopiowanie zasobów theme’ów)
+        bin/console sylius:dx:theme:prepare --env=prod
+
+        # 6. Teraz generujemy / „warm‐up” cache prod już po wszystkich modyfikacjach
+        bin/console cache:warmup --env=prod --no-debug
+
+        # 7. Na koniec budujemy assets do produkcji
         yarn build:prod
 
     deploy: |
