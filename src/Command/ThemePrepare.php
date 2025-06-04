@@ -38,18 +38,9 @@ class ThemePrepare extends Command
         $this->projectDir = $kernel->getProjectDir();
     }
 
-    protected function configure(): void
-    {
-        $this
-            ->addArgument('store', InputArgument::REQUIRED, 'Name of the store directory under store-preset/')
-            ->addOption('force', 'f', InputOption::VALUE_NONE, 'Overwrite existing theme files');
-    }
-
     protected function execute(InputInterface $input, OutputInterface $output): int
     {
         $this->io = new SymfonyStyle($input, $output);
-        $store = (string)$input->getArgument('store');
-        $force = (bool)$input->getOption('force');
 
         $configPath = sprintf('%s/store-preset/store-preset.json', $this->projectDir);
         if (!file_exists($configPath)) {
@@ -86,7 +77,7 @@ class ThemePrepare extends Command
             }
 
             $themeFile = $stylesDir . '/custom-theme.scss';
-            if (file_exists($themeFile) && !$force) {
+            if (file_exists($themeFile)) {
                 $this->io->warning(sprintf('SCSS theme file already exists, overwriting: %s', $themeFile));
             }
             $variables = $themeConfig['cssVariables'] ?? [];
@@ -166,7 +157,7 @@ class ThemePrepare extends Command
             }
 
             $destLogoInAssets = $assetsImagesDir . '/' . $logoFilename;
-            if (file_exists($destLogoInAssets) && !$force) {
+            if (file_exists($destLogoInAssets)) {
                 $this->io->warning(sprintf('Logo already exists in assets (won’t overwrite unless --force): %s', $destLogoInAssets));
             }
 
@@ -248,7 +239,7 @@ class ThemePrepare extends Command
 </a>
 TWIG;
 
-            if (file_exists($twigPath) && !$force) {
+            if (file_exists($twigPath)) {
                 $this->io->warning(sprintf('Twig logo template already exists, overwriting: %s', $twigPath));
             }
 
