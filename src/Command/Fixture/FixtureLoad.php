@@ -37,7 +37,7 @@ class FixtureLoad extends Command
     {
         $io = new SymfonyStyle($input, $output);
 
-        $store = $input->getArgument('store');
+        $store = $this->getStoreName();
 
         if (empty($store)) {
             $store = $this->getStoreName();

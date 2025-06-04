@@ -44,11 +44,7 @@ class StoreLoader extends Command implements BuildAndDeployContextSeparatorInter
     protected function execute(InputInterface $input, OutputInterface $output): int
     {
         $this->io = new SymfonyStyle($input, $output);
-
-        $store = $input->getArgument('store');
-        if (empty($store)) {
-            $store = $this->getStoreName();
-        }
+        $store = $this->getStoreName();
 
         $this->io->title(sprintf('Creating store: %s', $store));
 

@@ -42,7 +42,7 @@ class PluginPrepare extends Command
     {
         $this->io = new SymfonyStyle($input, $output);
 
-        $store = $input->getArgument('store') ?? $this->getStoreName();
+        $store = $this->getStoreName();
         $this->validateStore($store);
         $plugins = $this->getPluginsByStore($store);
 
