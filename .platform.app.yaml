@@ -110,7 +110,7 @@ hooks:
         EOS
         yarn install --frozen-lockfile
         bin/console sylius:dx:store-loader --build
-        bin/console sylius:dx:theme:load
+        bin/console sylius:dx:theme:prepare
         yarn build:prod
 
     deploy: |
