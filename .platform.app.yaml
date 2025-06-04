@@ -108,8 +108,8 @@ hooks:
         cat >> "$PLATFORM_APP_DIR/.global/environment" <<EOS
             export \$(symfony var:export)
         EOS
-        bin/console sylius:dx:store-loader --build
         yarn install --frozen-lockfile
+        bin/console sylius:dx:store-loader --build
         yarn build:prod
 
     deploy: |
