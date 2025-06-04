@@ -85,11 +85,11 @@ class StoreLoader extends Command implements BuildAndDeployContextSeparatorInter
         $this->io->section('[Store Loader] FIXTURES');
         $this->runCommand(['php', 'bin/console', 'sylius:dx:fixture:prepare', $store]);
 
-//        $this->io->section('[Store Loader] THEMES');
-//        $this->runCommand(['php', 'bin/console', 'cache:clear', '--no-warmup']);
-//        $this->runCommand(['php', 'bin/console', 'cache:warmup']);
+        $this->io->section('[Store Loader] THEMES');
+        $this->runCommand(['php', 'bin/console', 'cache:clear', '--no-warmup']);
+        $this->runCommand(['php', 'bin/console', 'cache:warmup']);
 
-//        $this->runCommand(['php', 'bin/console', 'sylius:dx:theme:prepare', $store]);
+        $this->runCommand(['php', 'bin/console', 'sylius:dx:theme:prepare', $store]);
     }
 
     public function deploy(?string $store = null): void
