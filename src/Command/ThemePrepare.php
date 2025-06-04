@@ -19,10 +19,10 @@ use Symfony\Component\HttpKernel\KernelInterface;
 use Symfony\Component\Yaml\Yaml;
 
 #[AsCommand(
-    name: 'sylius:dx:theme-loader',
+    name: 'sylius:dx:theme:prepare',
     description: 'Load themes from configuration and generate stylesheets (SCSS + logo assets + button styles)',
 )]
-class ThemeLoader extends Command
+class ThemePrepare extends Command
 {
     use ConfigTrait;
 

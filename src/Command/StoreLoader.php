@@ -72,11 +72,6 @@ class StoreLoader extends Command implements BuildAndDeployContextSeparatorInter
             $this->deploy($store);
             $this->io->success('[Store Loader] DEPLOY completed successfully.');
         }
-//
-//        $this->io->section('[Store Loader] THEMES');
-//        $this->runCommand(['composer', 'require', 'intervention/image']);
-//        $this->runCommand(['php', 'bin/console', 'sylius:dx:theme-loader', $store, '--no-debug']);
-
 
         return Command::SUCCESS;
     }
@@ -93,6 +88,10 @@ class StoreLoader extends Command implements BuildAndDeployContextSeparatorInter
 
         $this->io->section('[Store Loader] FIXTURES');
         $this->runCommand(['php', 'bin/console', 'sylius:dx:fixture:prepare', $store]);
+
+        $this->io->section('[Store Loader] THEMES');
+        $this->runCommand(['composer', 'require', 'intervention/image']);
+        $this->runCommand(['php', 'bin/console', 'sylius:dx:theme:prepare', $store]);
     }
 
     public function deploy(?string $store = null): void
