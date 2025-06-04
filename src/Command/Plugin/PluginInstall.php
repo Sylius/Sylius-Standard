@@ -59,9 +59,6 @@ class PluginInstall extends Command
         $this->io->section('[Plugin Installer] Running assets build');
         $this->runCommand(['yarn', 'encore', 'production']);
 
-        $this->io->section('[Plugin Installer] Running database schema update');
-        $this->runCommand(['bin/console', 'doctrine:schema:update', '-n', '--force', '--complete', '--no-debug']);
-
         $this->io->success('All plugins processed successfully.');
 
         return Command::SUCCESS;

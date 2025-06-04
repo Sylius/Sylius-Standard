@@ -64,31 +64,21 @@ class StoreLoader extends Command implements BuildAndDeployContextSeparatorInter
         if ($input->getOption('build')) {
             $this->io->section('[Store Loader] BUILD');
             $this->build($store);
+            $this->io->success('[Store Loader] BUILD completed successfully.');
         }
 
         if ($input->getOption('deploy')) {
             $this->io->section('[Store Loader] DEPLOY');
             $this->deploy($store);
+            $this->io->success('[Store Loader] DEPLOY completed successfully.');
         }
 //
 //        $this->io->section('[Store Loader] THEMES');
 //        $this->runCommand(['composer', 'require', 'intervention/image']);
 //        $this->runCommand(['php', 'bin/console', 'sylius:dx:theme-loader', $store, '--no-debug']);
 
-        $this->io->success('Store creation complete!');
 
         return Command::SUCCESS;
-    }
-
-    private function runCommand(array $command): int
-    {
-        $process = new Process($command, $this->projectDir);
-        $process
-            ->setTty(Process::isTtySupported())
-            ->setTimeout(0)
-            ->mustRun(fn(string $type, string $buffer) => $this->io->write($buffer));
-
-        return $process->getExitCode();
     }
 
     public function build(string $store): void
@@ -100,12 +90,29 @@ class StoreLoader extends Command implements BuildAndDeployContextSeparatorInter
 
 
         $this->io->section('[Store Loader] FIXTURES');
-        $this->runCommand(['php', 'bin/console', 'sylius:dx:fixture:prepare', $store, '--build']);
+        $this->runCommand(['php', 'bin/console', 'sylius:dx:fixture:prepare', $store]);
     }
 
     public function deploy(string $store): void
     {
+        $this->io->section('[Store Loader] PLUGINS');
+
+        $this->io->info('[Plugin Installer] Running database schema update');
+        $this->runCommand(['bin/console', 'doctrine:schema:update', '-n', '--force', '--complete']);
+
+
         $this->io->section('[Store Loader] FIXTURES');
         $this->runCommand(['php', 'bin/console', 'sylius:dx:fixture:load', $store]);
+    }
+
+    private function runCommand(array $command): int
+    {
+        $process = new Process($command, $this->projectDir);
+        $process
+            ->setTty(Process::isTtySupported())
+            ->setTimeout(0)
+            ->mustRun(fn(string $type, string $buffer) => $this->io->write($buffer));
+
+        return $process->getExitCode();
     }
 }
