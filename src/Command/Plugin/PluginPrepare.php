@@ -34,7 +34,7 @@ class PluginPrepare extends Command
     protected function configure(): void
     {
         $this
-            ->addArgument('store', InputOption::VALUE_REQUIRED, 'Name of the store directory under store-preset/')
+            ->addArgument('store', InputOption::VALUE_OPTIONAL, 'Name of the store directory under store-preset/')
         ;
     }
 
@@ -42,7 +42,7 @@ class PluginPrepare extends Command
     {
         $this->io = new SymfonyStyle($input, $output);
 
-        $store = $input->getArgument('store');
+        $store = $input->getArgument('store') ?? $this->getStoreName();
         $this->validateStore($store);
         $plugins = $this->getPluginsByStore($store);
 
@@ -60,6 +60,8 @@ class PluginPrepare extends Command
                 ->setTimeout(0)
                 ->mustRun(fn($type, $buffer) => $output->write($buffer));
         }
+
+        $this->runCommand(['composer', 'require', 'intervention/image']);
 
         $this->io->title('[Plugin Preparer] Running Rector');
         $this->runCommand(['vendor/bin/rector', 'process', 'src']);

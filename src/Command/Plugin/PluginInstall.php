@@ -37,16 +37,13 @@ class PluginInstall extends Command
 
     protected function configure(): void
     {
-        $this
-            ->addArgument('store', InputOption::VALUE_REQUIRED, 'Name of the store directory under store-preset/')
-        ;
     }
 
     protected function execute(InputInterface $input, OutputInterface $output): int
     {
         $this->io = new SymfonyStyle($input, $output);
 
-        $store = $input->getArgument('store');
+        $store = $input->getArgument('store') ?? $this->getStoreName();
         $this->validateStore($store);
         $plugins = $this->getPluginsByStore($store);
 
