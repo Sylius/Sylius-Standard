@@ -25,6 +25,7 @@
     ],
     "require": {
         "php": "^8.2",
+        "sylius/dx": "dev-poc",
         "sylius/paypal-plugin": "^2.0",
         "sylius/sylius": "^2.1",
         "symfony/dotenv": "^6.4 || ^7.2",
@@ -105,7 +106,8 @@
     "prefer-stable": true,
     "scripts": {
         "post-install-cmd": [
-            "@auto-scripts"
+            "@auto-scripts",
+            "Sylius\\DXBundle\\Composer\\Installer::createStoreLoaderSymlink"
         ],
         "post-update-cmd": [
             "@auto-scripts"
@@ -137,5 +139,12 @@
         "symfony/polyfill-php81": "*",
         "symfony/polyfill-php82": "*",
         "symfony/polyfill-php83": "*"
-    }
+    },
+    "minimum-stability": "dev",
+    "repositories": [
+        {
+            "type": "path",
+            "url": "../DX"
+        }
+    ]
 }
