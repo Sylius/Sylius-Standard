@@ -1,0 +1,160 @@
+sylius_fixtures:
+    suites:
+        john:
+            listeners:
+                orm_purger: ~
+                images_purger: ~
+                logger: ~
+            fixtures:
+                admin_user:
+                    name: 'admin_user'
+                    options:
+                        custom:
+                            -   email: 'sylius@example.com'
+                                username: 'sylius'
+                                password: 'sylius'
+                                enabled: true
+                                locale_code: '%locale%'
+                                first_name: 'John'
+                                last_name: 'Doe'
+                                avatar: '@SyliusCoreBundle/Resources/fixtures/adminAvatars/john.webp'
+
+                            -   email: 'api@example.com'
+                                username: 'api'
+                                password: 'sylius-api'
+                                enabled: true
+                                locale_code: '%locale%'
+                                first_name: 'Luke'
+                                last_name: 'Brushwood'
+                                api: true
+                                avatar: '@SyliusCoreBundle/Resources/fixtures/adminAvatars/luke.webp'
+
+                locale:
+                    options:
+                        locales:
+                            - pl_PL
+                currency:
+                    options:
+                        currencies:
+                            - PLN
+                geographical:
+                    options:
+                        countries:
+                            - PL
+                        zones:
+                            WORLD:
+                                name: Świat
+                                countries:
+                                    - PL
+                menu_taxon:
+                    name: taxon
+                    options:
+                        custom:
+                            category:
+                                code: SŁODYCZE
+                                name: Słodycze
+                                translations:
+                                    pl_PL: { name: Słodycze }
+                channel:
+                    options:
+                        custom:
+                            jutrzenka_bydgoszcz:
+                                name: 'Jutrzenka Bydgoszcz'
+                                code: jutrzenka_bydgoszcz
+                                locales:
+                                    - pl_PL
+                                currencies:
+                                    - PLN
+                                enabled: true
+                                hostname: localhost
+                                theme_name: default
+                tax_category:
+                    options:
+                        custom:
+                            vat_slodycze:
+                                code: vat_slodycze
+                                name: 'VAT na słodycze'
+                tax_rate:
+                    options:
+                        custom:
+                            vat_slodycze_pl:
+                                name: 'VAT Polska - słodycze'
+                                zone: WORLD
+                                category: vat_slodycze
+                                amount: 0.23
+                taxon-czekoladowe:
+                    options:
+                        custom:
+                            slug:
+                                code: czekoladowe
+                                name: Czekoladowe
+                                slug: czekoladowe
+                                translations:
+                                    pl_PL: { name: Czekoladowe, slug: czekoladowe }
+                    name: taxon
+                taxon-ciastka:
+                    options:
+                        custom:
+                            slug:
+                                code: ciastka
+                                name: Ciastka
+                                slug: ciastka
+                                translations:
+                                    pl_PL: { name: Ciastka, slug: ciastka }
+                    name: taxon
+                product_attribute:
+                    name: product_attribute
+                    options:
+                        custom:
+                            -
+                                code: waga
+                                name: Waga
+                                type: text
+                            -
+                                code: opakowanie
+                                name: Opakowanie
+                                type: text
+                            -
+                                code: smak
+                                name: Smak
+                                type: text
+                            -
+                                code: producent
+                                name: Producent
+                                type: text
+                tshirt_product:
+                    name: product
+                    options:
+                        custom:
+                            -
+                                name: 'John Deere 6430'
+                                description: 'Traktor John Deere 6430 to maszyna, która łączy w sobie moc i wydajność. Wyposażony w silnik o mocy 140 KM, jest idealnym rozwiązaniem dla rolników poszukujących niezawodnego sprzętu do pracy na polu. Jego zaawansowane technologie zapewniają komfort i efektywność, a solidna konstrukcja gwarantuje długowieczność. Traktor ten jest nie tylko funkcjonalny, ale także estetyczny, co czyni go doskonałym wyborem dla każdego gospodarstwa.'
+                                short_description: 'Traktor John Deere 6430 o mocy 140 KM, idealny do pracy na polu.'
+                                tax_category: vat_slodycze
+                                main_taxon: czekoladowe
+                                taxons:
+                                    - czekoladowe
+                                product_attributes:
+                                    waga: '80 g'
+                                    opakowanie: Torebka
+                                    smak: 'Wiśnia w czekoladzie'
+                                    producent: Jutrzenka
+                                product_options: {  }
+                                images:
+                                    - { path: '%kernel.project_dir%/var/fixture_img/JD_6430.jpeg', type: main }
+                            -
+                                name: 'John Deere 7530'
+                                description: 'Traktor John Deere 7530 to potężna maszyna, która zapewnia doskonałą wydajność i komfort pracy. Wyposażony w silnik o mocy 180 KM, jest idealnym rozwiązaniem dla wymagających zadań rolniczych. Jego nowoczesne technologie i ergonomiczny design sprawiają, że praca staje się przyjemnością. Solidna konstrukcja gwarantuje niezawodność i długowieczność, co czyni go nieocenionym narzędziem w każdym gospodarstwie.'
+                                short_description: 'Traktor John Deere 7530 o mocy 180 KM, idealny do wymagających zadań rolniczych.'
+                                tax_category: vat_slodycze
+                                main_taxon: ciastka
+                                taxons:
+                                    - ciastka
+                                product_attributes:
+                                    waga: '100 g'
+                                    opakowanie: Folia
+                                    smak: Maślany
+                                    producent: Jutrzenka
+                                product_options: {  }
+                                images:
+                                    - { path: '%kernel.project_dir%/var/fixture_img/JD_7R.jpeg', type: main }

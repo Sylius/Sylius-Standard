@@ -1,0 +1,31 @@
+{
+    "name": "john",
+    "plugins": {
+        "sylius/cms-plugin": "^1.0",
+        "sylius/wishlist-plugin": "^1.0",
+        "sylius/refund-plugin": "^2.0",
+        "sylius/invoicing-plugin": "^2.0"
+    },
+    "themes": {
+        "shop": {
+            "cssVariables": {
+                "--bs-btn-bg": "#367c2b",
+                "--bs-btn-hover-bg": "#2c6222",
+                "--bs-body-bg": "#f9f5f5",
+                "--bs-text-color": "#224c00",
+                "--bs-link-color": "#ffde00",
+                "--bs-link-hover-color": "#e6c600",
+                "--bs-link-color-rgb": "255, 222, 0",
+                "--bs-link-hover-color-rgb": "230, 198, 0",
+                "--bs-primary": "#367c2b",
+                "--bs-primary-rgb": "54, 124, 43",
+                "--bs-bg-opacity": "1"
+            },
+            "logo": "logo.png",
+            "banner": false
+        }
+    },
+    "fixtures": {
+        "suite": "john_deere"
+    }
+}
