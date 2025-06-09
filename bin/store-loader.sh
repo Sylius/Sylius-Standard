@@ -131,7 +131,7 @@ if $DEPLOY; then
   else
     echo
     echo -e "${BLUE}[Store Loader] FIXTURES${RESET}"
-    php bin/console sylius:dx:fixture:load "$STORE_NAME"
+    php bin/console sylius:dx:fixture:load
   fi
 
   echo
