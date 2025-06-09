@@ -1,9 +1,6 @@
 {
     "name": "john",
     "plugins": {
-        "sylius/cms-plugin": "^1.0",
-        "sylius/wishlist-plugin": "^1.0",
-        "sylius/refund-plugin": "^2.0",
         "sylius/invoicing-plugin": "^2.0"
     },
     "themes": {

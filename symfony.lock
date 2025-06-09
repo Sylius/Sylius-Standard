@@ -199,6 +199,9 @@
     "sylius-labs/doctrine-migrations-extra-bundle": {
         "version": "v0.2.2"
     },
+    "sylius/dx": {
+        "version": "dev-poc"
+    },
     "sylius/fixtures-bundle": {
         "version": "v1.9.0"
     },
