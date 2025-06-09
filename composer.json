@@ -27,7 +27,7 @@
         "php": "^8.2",
         "sylius/dx": "dev-poc",
         "sylius/paypal-plugin": "^2.0",
-        "sylius/sylius": "^2.1",
+        "sylius/sylius": "~2.0.0",
         "symfony/dotenv": "^6.4 || ^7.2",
         "symfony/flex": "^2.7",
         "symfony/runtime": "^6.4 || ^7.2"
@@ -82,7 +82,7 @@
             "dev-main": "2.1-dev"
         },
         "symfony": {
-            "allow-contrib": false,
+            "allow-contrib": "true",
             "require": "^7.2",
             "endpoint": [
                 "https://api.github.com/repos/Sylius/SyliusRecipes/contents/index.json?ref=flex/main",
@@ -141,10 +141,14 @@
         "symfony/polyfill-php83": "*"
     },
     "minimum-stability": "dev",
-    "repositories": [
-        {
+    "repositories": {
+        "sylius": {
+            "type": "composer",
+            "url": "https://sylius.repo.packagist.com/sylius/"
+        },
+        "dx": {
             "type": "path",
             "url": "../DX"
         }
-    ]
+    }
 }
