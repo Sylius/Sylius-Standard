@@ -125,6 +125,10 @@ if $DEPLOY; then
   php bin/console doctrine:database:create -n
   php bin/console doctrine:schema:update -n --force --complete
 
+  echo -e "Rebuilding the cache to ensure all configurations are properly loaded..."
+  php bin/console cache:clear --no-warmup
+  php bin/console cache:warmup
+
   if [ -z "$STORE_NAME" ]; then
     echo -e "${YELLOW}Warning:${RESET} No store configured in store-preset. Loading default fixtures."
     php bin/console sylius:fixtures:load -n
