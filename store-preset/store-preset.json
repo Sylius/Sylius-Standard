@@ -1,0 +1,31 @@
+{
+  "name": "car_parts",
+  "plugins": {
+    "sylius/cms-plugin": "^1.0",
+    "sylius/wishlist-plugin": "^1.0",
+    "sylius/refund-plugin": "^2.0",
+    "sylius/invoicing-plugin": "^2.0"
+  },
+  "themes": {
+    "shop": {
+      "cssVariables": {
+        "--bs-btn-bg": "#5d182f",
+        "--bs-btn-hover-bg": "#4a1327",
+        "--bs-body-bg": "#f9f5f5",
+        "--bs-text-color": "#3f0d12",
+        "--bs-link-color": "#5d182f",
+        "--bs-link-hover-color": "#4a1327",
+        "--bs-link-color-rgb": "93, 24, 47",
+        "--bs-link-hover-color-rgb": "74, 19, 39",
+        "--bs-primary": "#5d182f",
+        "--bs-primary-rgb": "93, 24, 47",
+        "--bs-bg-opacity": "1"
+      },
+      "logo": "logo.png",
+      "banner": "banner.png"
+    }
+  },
+  "fixtures": {
+    "suite": "car_parts"
+  }
+}

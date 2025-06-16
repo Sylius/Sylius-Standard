@@ -25,8 +25,9 @@
     ],
     "require": {
         "php": "^8.2",
-        "sylius/paypal-plugin": "^2.0",
         "sylius/mollie-plugin": "^3.0",
+        "sylius/paypal-plugin": "^2.0",
+        "sylius/store-assembler": "dev-main",
         "sylius/sylius": "~2.0.8",
         "symfony/dotenv": "^6.4 || ^7.1",
         "symfony/flex": "^2.4",
@@ -138,5 +139,11 @@
         "symfony/polyfill-php81": "*",
         "symfony/polyfill-php82": "*",
         "symfony/polyfill-php83": "*"
+    },
+    "repositories": {
+        "sylius-assembler": {
+            "type": "vcs",
+            "url": "git@github.com:Sylius/StoreAssembler.git"
+        }
     }
 }

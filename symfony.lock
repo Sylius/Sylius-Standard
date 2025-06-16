@@ -243,6 +243,9 @@
             "ref": "cde8dd6145be3135af63787aa5c5858c3f289c7a"
         }
     },
+    "sylius/store-assembler": {
+        "version": "dev-main"
+    },
     "sylius/sylius": {
         "version": "2.0",
         "recipe": {

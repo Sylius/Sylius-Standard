@@ -1,0 +1,223 @@
+sylius_fixtures:
+    suites:
+        car_parts:
+            listeners:
+                orm_purger: ~
+                images_purger: ~
+                logger: ~
+            fixtures:
+                admin_user:
+                    name: 'admin_user'
+                    options:
+                        custom:
+                            -   email: 'sylius@example.com'
+                                username: 'sylius'
+                                password: 'sylius'
+                                enabled: true
+                                locale_code: '%locale%'
+                                first_name: 'John'
+                                last_name: 'Doe'
+                                avatar: '@SyliusCoreBundle/Resources/fixtures/adminAvatars/john.webp'
+                            -   email: 'api@example.com'
+                                username: 'api'
+                                password: 'sylius-api'
+                                enabled: true
+                                locale_code: '%locale%'
+                                first_name: 'Luke'
+                                last_name: 'Brushwood'
+                                api: true
+                                avatar: '@SyliusCoreBundle/Resources/fixtures/adminAvatars/luke.webp'
+                
+                locale:
+                    options:
+                        locales:
+                            - en_US
+                currency:
+                    options:
+                        currencies:
+                            - EUR
+                geographical:
+                    options:
+                        countries:
+                            - DE
+                            - FR
+                            - ES
+                            - IT
+                            - PL
+                        zones:
+                            WORLD:
+                                name: 'World Zone'
+                                countries:
+                                    - DE
+                                    - FR
+                                    - ES
+                                    - IT
+                                    - PL
+                menu_taxon:
+                    name: taxon
+                    options:
+                        custom:
+                            category:
+                                code: AUTO_PARTS
+                                name: 'Auto Parts'
+                                translations:
+                                    en_US: { name: 'Auto Parts' }
+                channel:
+                    options:
+                        custom:
+                            WEB_EU:
+                                name: 'Car Parts EU Store'
+                                code: WEB_EU
+                                locales:
+                                    - en_US
+                                currencies:
+                                    - EUR
+                                enabled: true
+                                hostname: www.carparts-eu.com
+                                theme_name: default
+                payment_method:
+                    options:
+                        custom:
+                            BANK_TRANSFER:
+                                code: BANK_TRANSFER
+                                name: 'Bank Transfer'
+                shipping_method:
+                    options:
+                        custom:
+                            STANDARD_SHIPPING:
+                                code: STANDARD_SHIPPING
+                                name: 'Standard Shipping'
+                tax_category:
+                    options:
+                        custom:
+                            STANDARD:
+                                code: STANDARD
+                                name: 'Standard VAT'
+                tax_rate:
+                    options:
+                        custom:
+                            STANDARD_EU:
+                                name: 'Standard EU VAT'
+                                zone: WORLD
+                                category: STANDARD
+                                amount: 0.2
+                taxon-engine-parts:
+                    options:
+                        custom:
+                            slug:
+                                code: engine_parts
+                                name: 'Engine Parts'
+                                slug: engine-parts
+                                translations:
+                                    en_US: { name: 'Engine Parts', slug: engine-parts }
+                    name: taxon
+                taxon-brake-parts:
+                    options:
+                        custom:
+                            slug:
+                                code: brake_parts
+                                name: 'Brake Parts'
+                                slug: brake-parts
+                                translations:
+                                    en_US: { name: 'Brake Parts', slug: brake-parts }
+                    name: taxon
+                product_attribute:
+                    name: product_attribute
+                    options:
+                        custom:
+                            -
+                                code: material
+                                name: Material
+                                type: text
+                            -
+                                code: quantity
+                                name: Quantity
+                                type: text
+                            -
+                                code: compatibility
+                                name: Compatibility
+                                type: text
+                            -
+                                code: washable
+                                name: Washable
+                                type: text
+                            -
+                                code: shape
+                                name: Shape
+                                type: text
+                            -
+                                code: pads_per_set
+                                name: Pads_per_set
+                                type: text
+                            -
+                                code: noise
+                                name: Noise
+                                type: text
+                            -
+                                code: coating
+                                name: Coating
+                                type: text
+                tshirt_product:
+                    name: product
+                    options:
+                        custom:
+                            -
+                                name: 'Premium Spark Plug Set'
+                                description: 'A set of high-performance spark plugs designed for reliable ignition and improved engine efficiency. Crafted from durable materials to withstand high temperatures and provide consistent performance. Ideal for both gasoline and performance-tuned engines. Each plug features precision construction and corrosion-resistant coatings for longevity. Easy to install, it ensures smoother starts and reduced emissions.'
+                                short_description: 'High-performance spark plug set for reliable ignition and engine efficiency.'
+                                tax_category: STANDARD
+                                main_taxon: engine_parts
+                                taxons:
+                                    - engine_parts
+                                product_attributes:
+                                    material: iridium
+                                    quantity: 4pcs
+                                    compatibility: universal
+                                product_options: {  }
+                                images:
+                                    - { path: '%kernel.project_dir%/fixtures/Premium_Spark_Plug_Set_main.png', type: main }
+                            -
+                                name: 'Performance Air Filter'
+                                description: 'A high-flow performance air filter that allows increased airflow to your engine for better combustion and power output. It features a multi-layer cotton gauze construction washable and reusable for long-term cost savings. The pleated design maximizes surface area while providing excellent filtration of dust and debris. Easy to install in most vehicles with standard filter housings. Enhances throttle response and fuel efficiency.'
+                                short_description: 'Washable high-flow air filter for enhanced performance.'
+                                tax_category: STANDARD
+                                main_taxon: engine_parts
+                                taxons:
+                                    - engine_parts
+                                product_attributes:
+                                    material: 'cotton gauze'
+                                    washable: 'yes'
+                                    shape: round
+                                product_options: {  }
+                                images:
+                                    - { path: '%kernel.project_dir%/fixtures/Performance_Air_Filter_main.png', type: main }
+                            -
+                                name: 'Ceramic Brake Pads'
+                                description: 'Durable ceramic brake pads offering quiet and reliable braking performance. Engineered to provide low dust, long life, and consistent stopping power under a range of driving conditions. They offer smooth engagement and are compatible with most OEM brake systems. Ideal for daily driving and light performance use. Backed by corrosion-resistant backing plate and high coefficient of friction material.'
+                                short_description: 'Quiet, low-dust ceramic brake pads for consistent stopping power.'
+                                tax_category: STANDARD
+                                main_taxon: brake_parts
+                                taxons:
+                                    - brake_parts
+                                product_attributes:
+                                    material: ceramic
+                                    pads_per_set: '4'
+                                    noise: low
+                                product_options: {  }
+                                images:
+                                    - { path: '%kernel.project_dir%/fixtures/Ceramic_Brake_Pads_main.png', type: main }
+                            -
+                                name: 'Brake Rotor Set'
+                                description: 'Precision-machined brake rotors designed for optimal heat dissipation and smooth braking. Made from high-grade cast iron with a corrosion-resistant coating for extended lifespan. Each rotor is balanced to reduce vibration and ensure even wear. Compatible with a wide range of vehicles and simple to install. Improves braking performance and reduces brake fade under heavy use.'
+                                short_description: 'Cast iron brake rotor set with corrosion-resistant coating.'
+                                tax_category: STANDARD
+                                main_taxon: brake_parts
+                                taxons:
+                                    - brake_parts
+                                product_attributes:
+                                    material: 'cast iron'
+                                    quantity: 2pcs
+                                    coating: zinc
+                                product_options: {  }
+                                images:
+                                    - { path: '%kernel.project_dir%/fixtures/Brake_Rotor_Set_main.png', type: main }
