@@ -106,6 +106,7 @@ hooks:
         cat >> "$PLATFORM_APP_DIR/.global/environment" <<EOS
             export \$(symfony var:export)
         EOS
+        vendor/bin/store-assembler --build
         yarn install --frozen-lockfile
         yarn build:prod
 
@@ -116,6 +117,7 @@ hooks:
         bin/console doctrine:database:create --if-not-exists
         bin/console doctrine:migrations:migrate -n
         bin/console sylius:fixtures:load -n
+        vendor/bin/store-assembler --deploy
         bin/console lexik:jwt:generate-keypair --skip-if-exists
         bin/console assets:install --symlink --relative public
         bin/console cache:clear
