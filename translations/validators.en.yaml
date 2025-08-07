@@ -1,0 +1,5 @@
+sylius:
+    ui:
+        note:
+            valid:
+                too_long: Note cannot be longer than 500 characters.

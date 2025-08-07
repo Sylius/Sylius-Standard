@@ -279,3 +279,12 @@ sylius_twig_hooks:
         'sylius_shop.base#javascripts':
             app_javascripts:
                 template: 'shop/javascripts.html.twig'
+
+        'sylius_admin.order.show.content.sections.summary':
+            note:
+                template: 'admin/order/show/content/sections/note/note.html.twig'
+                priority: 0
+        'sylius_admin.order.update.content.form':
+            note:
+                template: 'admin/order/show/content/sections/note/note_field.html.twig'
+                priority: 0

@@ -2,10 +2,10 @@ services:
     # Default configuration for services in *this* file
     _defaults:
         # Automatically injects dependencies in your services
-        autowire: true
+        autowire: false
 
         # Automatically registers your services as commands, event subscribers, etc.
-        autoconfigure: true
+        autoconfigure: false
 
         # Allows optimizing the container by removing unused services; this also means
         # fetching services directly from the container via $container->get() won't work
@@ -28,3 +28,8 @@ services:
     App\Controller\:
         resource: '../src/Controller'
         tags: ['controller.service_arguments']
+        
+    app.form.extension.order:
+        class: App\Form\Extension\OrderTypeExtension
+        tags:
+            - { name: 'form.type_extension' }
