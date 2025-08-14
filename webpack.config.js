@@ -27,6 +27,10 @@ Encore
     .cleanupOutputBeforeBuild()
     .enableSourceMaps(!Encore.isProduction())
     .enableVersioning(Encore.isProduction())
+    .configureFilenames({
+      js:  'js/[name].[contenthash:8].js',
+      css: 'css/[name].[contenthash:8].css',
+    })
     .enableSassLoader()
     .enableStimulusBridge(path.resolve(__dirname, './assets/shop/controllers.json'))
 ;
@@ -55,6 +59,10 @@ Encore
     .cleanupOutputBeforeBuild()
     .enableSourceMaps(!Encore.isProduction())
     .enableVersioning(Encore.isProduction())
+    .configureFilenames({
+      js:  'js/[name].[contenthash:8].js',
+      css: 'css/[name].[contenthash:8].css',
+    })
     .enableSassLoader()
     .enableStimulusBridge(path.resolve(__dirname, './assets/admin/controllers.json'))
 ;
