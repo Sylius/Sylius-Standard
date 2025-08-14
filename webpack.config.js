@@ -32,6 +32,10 @@ Encore
     .cleanupOutputBeforeBuild()
     .enableSourceMaps(!Encore.isProduction())
     .enableVersioning(Encore.isProduction())
+    .configureFilenames({
+      js:  'js/[name].[contenthash:8].js',
+      css: 'css/[name].[contenthash:8].css',
+    })
     .enableSassLoader()
     // .enableStimulusBridge(path.resolve(__dirname, './assets/shop/controllers.json'))
     // remove the following line if you don't want to add automatically controllers provided by plugins
@@ -66,6 +70,10 @@ Encore
     .cleanupOutputBeforeBuild()
     .enableSourceMaps(!Encore.isProduction())
     .enableVersioning(Encore.isProduction())
+    .configureFilenames({
+      js:  'js/[name].[contenthash:8].js',
+      css: 'css/[name].[contenthash:8].css',
+    })
     .enableSassLoader()
     //.enableStimulusBridge(path.resolve(__dirname, './assets/admin/controllers.json'))
     // remove the following line if you don't want to add automatically controllers provided by plugins
