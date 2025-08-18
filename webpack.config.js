@@ -7,14 +7,19 @@ const uiBundleResources = path.resolve(syliusBundles, 'UiBundle/Resources/privat
 
 // Shop config
 Encore
-  .setOutputPath('public/build/shop/')
-  .setPublicPath('/build/shop')
-  .addEntry('shop-entry', './vendor/sylius/sylius/src/Sylius/Bundle/ShopBundle/Resources/private/entry.js')
-  .disableSingleRuntimeChunk()
-  .cleanupOutputBeforeBuild()
-  .enableSourceMaps(!Encore.isProduction())
-  .enableVersioning(Encore.isProduction())
-  .enableSassLoader();
+    .setOutputPath('public/build/shop/')
+    .setPublicPath('/build/shop')
+    .addEntry('shop-entry', './vendor/sylius/sylius/src/Sylius/Bundle/ShopBundle/Resources/private/entry.js')
+    .disableSingleRuntimeChunk()
+    .cleanupOutputBeforeBuild()
+    .enableSourceMaps(!Encore.isProduction())
+    .enableVersioning(Encore.isProduction())
+    .enableSassLoader()
+    .configureFilenames({
+        js: 'js/[name].[contenthash:8].js',
+        css: 'css/[name].[contenthash:8].css',
+    })
+;
 
 const shopConfig = Encore.getWebpackConfig();
 
@@ -27,21 +32,26 @@ Encore.reset();
 
 // Admin config
 Encore
-  .setOutputPath('public/build/admin/')
-  .setPublicPath('/build/admin')
-  .addEntry('admin-entry', './vendor/sylius/sylius/src/Sylius/Bundle/AdminBundle/Resources/private/entry.js')
-  .disableSingleRuntimeChunk()
-  .cleanupOutputBeforeBuild()
-  .enableSourceMaps(!Encore.isProduction())
-  .enableVersioning(Encore.isProduction())
-  .enableSassLoader();
+    .setOutputPath('public/build/admin/')
+    .setPublicPath('/build/admin')
+    .addEntry('admin-entry', './vendor/sylius/sylius/src/Sylius/Bundle/AdminBundle/Resources/private/entry.js')
+    .disableSingleRuntimeChunk()
+    .cleanupOutputBeforeBuild()
+    .enableSourceMaps(!Encore.isProduction())
+    .enableVersioning(Encore.isProduction())
+    .enableSassLoader()
+    .configureFilenames({
+        js: 'js/[name].[contenthash:8].js',
+        css: 'css/[name].[contenthash:8].css',
+    })
+;
 
 const adminConfig = Encore.getWebpackConfig();
 
 adminConfig.resolve.alias['sylius/ui'] = uiBundleScripts;
 adminConfig.resolve.alias['sylius/ui-resources'] = uiBundleResources;
 adminConfig.resolve.alias['sylius/bundle'] = syliusBundles;
-adminConfig.externals = Object.assign({}, adminConfig.externals, { window: 'window', document: 'document' });
+adminConfig.externals = Object.assign({}, adminConfig.externals, {window: 'window', document: 'document'});
 adminConfig.name = 'admin';
 
 Encore.reset();
@@ -55,14 +65,19 @@ Encore
     .cleanupOutputBeforeBuild()
     .enableSourceMaps(!Encore.isProduction())
     .enableVersioning(Encore.isProduction())
-    .enableSassLoader();
+    .enableSassLoader()
+    .configureFilenames({
+        js: 'js/[name].[contenthash:8].js',
+        css: 'css/[name].[contenthash:8].css',
+    })
+;
 
 const appShopConfig = Encore.getWebpackConfig();
 
 appShopConfig.resolve.alias['sylius/ui'] = uiBundleScripts;
 appShopConfig.resolve.alias['sylius/ui-resources'] = uiBundleResources;
 appShopConfig.resolve.alias['sylius/bundle'] = syliusBundles;
-appShopConfig.externals = Object.assign({}, appShopConfig.externals, { window: 'window', document: 'document' });
+appShopConfig.externals = Object.assign({}, appShopConfig.externals, {window: 'window', document: 'document'});
 appShopConfig.name = 'app.shop';
 
 Encore.reset();
@@ -76,14 +91,19 @@ Encore
     .cleanupOutputBeforeBuild()
     .enableSourceMaps(!Encore.isProduction())
     .enableVersioning(Encore.isProduction())
-    .enableSassLoader();
+    .enableSassLoader()
+    .configureFilenames({
+        js: 'js/[name].[contenthash:8].js',
+        css: 'css/[name].[contenthash:8].css',
+    })
+;
 
 const appAdminConfig = Encore.getWebpackConfig();
 
 appAdminConfig.resolve.alias['sylius/ui'] = uiBundleScripts;
 appAdminConfig.resolve.alias['sylius/ui-resources'] = uiBundleResources;
 appAdminConfig.resolve.alias['sylius/bundle'] = syliusBundles;
-appAdminConfig.externals = Object.assign({}, appAdminConfig.externals, { window: 'window', document: 'document' });
+appAdminConfig.externals = Object.assign({}, appAdminConfig.externals, {window: 'window', document: 'document'});
 appAdminConfig.name = 'app.admin';
 
 module.exports = [shopConfig, adminConfig, appShopConfig, appAdminConfig];
