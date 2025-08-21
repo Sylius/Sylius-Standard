@@ -115,7 +115,7 @@ hooks:
         mkdir -p public/media/image
         bin/console doctrine:database:create --if-not-exists
         bin/console doctrine:migrations:migrate -n
-        bin/console sylius:fixtures:load -n
+        SYLIUS_FIXTURES_HOSTNAME=$SYMFONY_PROJECT_DEFAULT_ROUTE_HOST bin/console sylius:fixtures:load -n
         bin/console lexik:jwt:generate-keypair --skip-if-exists
         bin/console assets:install --symlink --relative public
         bin/console cache:clear
