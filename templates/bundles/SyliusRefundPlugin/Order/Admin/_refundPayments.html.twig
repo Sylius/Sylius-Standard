@@ -1,0 +1,32 @@
+{% import '@SyliusAdmin/Common/Macro/money.html.twig' as money %}
+{% set refund_payments = get_all_refund_payments_by_order(order) %}
+
+{% if refund_payments|length > 0 %}
+    {% include '@SyliusAdmin/Order/Label/PaymentState/' ~ order.paymentState ~ '.html.twig' with { 'value': 'sylius.ui.' ~ order.paymentState, 'attached': true } %}
+    <h3 class="ui dividing header">{{ 'sylius_refund.ui.refund_payments'|trans }}</h3>
+    <div class="ui relaxed divided list">
+        {% for refund_payment in refund_payments %}
+            <div class="item" {{ sylius_test_html_attribute('refund') }}>
+                <div class="right floated content" {{ sylius_test_html_attribute('refund-status') }}>
+                    {% include '@SyliusRefundPlugin/Common/Label/refundPaymentState.html.twig' with {'data': refund_payment.state} %}
+                </div>
+                <i class="large payment icon"></i>
+                <div class="content">
+                    <div class="header">
+                        {{ refund_payment.paymentMethod  }}
+                    </div>
+                    <div class="description">
+                        {{ money.format(refund_payment.amount, refund_payment.currencyCode) }}
+                    </div>
+                </div>
+                {% if not sylius_adyen_is_adyen_payment_method(refund_payment.paymentMethod) and sm_can(refund_payment, 'complete', 'sylius_refund_refund_payment') %}
+                    <div class="ui segment">
+                        <form action="{{ path('sylius_refund_complete_refund_payment', {'orderNumber': refund_payment.order.number, 'id': refund_payment.id}) }}" method="POST" {{ sylius_test_html_attribute('refund-button') }}>
+                            <button type="submit" class="ui icon labeled tiny blue fluid loadable button"><i class="check icon"></i> {{ 'sylius.ui.complete'|trans }}</button>
+                        </form>
+                    </div>
+                {% endif %}
+            </div>
+        {% endfor %}
+    </div>
+{% endif %}

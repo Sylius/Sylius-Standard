@@ -1,0 +1,7 @@
+{% if order.payments.last.method.gatewayConfig.config[constant('Sylius\\AdyenPlugin\\Provider\\AdyenClientProviderInterface::FACTORY_NAME')] is not defined %}
+    <button type="submit" class="ui huge primary fluid icon labeled button" {{ sylius_test_html_attribute('confirmation-button') }}>
+        <i class="check icon"></i> {{ 'sylius.ui.place_order'|trans }}
+    </button>
+{% else %}
+    {% include '@SyliusAdyenPlugin/Shop/_dropin.html.twig' with { 'adyen_method_code': order.payments.last.method.code } %}
+{% endif %}

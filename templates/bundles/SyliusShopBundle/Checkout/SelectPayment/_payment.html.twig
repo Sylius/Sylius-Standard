@@ -1,5 +1,6 @@
 {% set mollieFactoryName = constant('Sylius\\MolliePlugin\\Payum\\Factory\\MollieGatewayFactory::FACTORY_NAME') %}
 {% set mollieRecurringFactoryName = constant('Sylius\\MolliePlugin\\Payum\\Factory\\MollieSubscriptionGatewayFactory::FACTORY_NAME') %}
+{% set adyenFactoryName = constant('Sylius\\AdyenPlugin\\Provider\\AdyenClientProviderInterface::FACTORY_NAME') %}
 
 <div class="ui segment">
     <div class="ui dividing header">{{ 'sylius.ui.payment'|trans }} #{{ loop.index }}</div>
@@ -9,7 +10,8 @@
         {% set isRendered = false %}
 
         {% for key, choice_form in form.method %}
-            {% if form.method.vars.choices[key].data.gatewayConfig.factoryName in [mollieFactoryName, mollieRecurringFactoryName] %}
+            {% set paymentMethodFactoryName = form.method.vars.choices[key].data.gatewayConfig.factoryName %}
+            {% if paymentMethodFactoryName in [mollieFactoryName, mollieRecurringFactoryName] %}
                 {% if not isRendered %}
                     {{ form_row(form.details.cartToken) }}
                     {{ form_row(form.details.saveCardInfo) }}
@@ -20,6 +22,12 @@
                     'form': choice_form,
                     'method': form.method.vars.choices[key].data,
                     'mollie_payment_options': form.details
+                } %}
+            {% elseif paymentMethodFactoryName == adyenFactoryName %}
+                {% include '@SyliusAdyenPlugin/Shop/_payment_choose.html.twig' with {
+                    'form': choice_form,
+                    'method': form.method.vars.choices[key].data,
+                    'available_methods': form.channels[choice_form.vars.value]
                 } %}
             {% else %}
                 {% include '@SyliusShop/Checkout/SelectPayment/_choice.html.twig' with {
