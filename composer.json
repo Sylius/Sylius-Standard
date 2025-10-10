@@ -81,6 +81,12 @@
             "phpstan/extension-installer": false,
             "symfony/thanks": false,
             "symfony/runtime": true
+        },
+        "audit": {
+            "ignore": [
+                "CVE-2025-31481",
+                "CVE-2025-31485"
+            ]
         }
     },
     "extra": {
