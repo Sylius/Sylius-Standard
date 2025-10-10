@@ -25,6 +25,7 @@
     ],
     "require": {
         "php": "^8.3",
+        "sylius/adyen-plugin": "^2.0.3",
         "sylius/mollie-plugin": "^3.0",
         "sylius/paypal-plugin": "^2.0",
         "sylius/sylius": "^2.1",
@@ -38,6 +39,7 @@
         "dbrekelmans/bdi": "^1.3",
         "dmore/behat-chrome-extension": "^1.4",
         "dmore/chrome-mink-driver": "^2.9",
+        "friends-of-behat/exclude-specifications-extension": "~0.4.0",
         "friends-of-behat/mink": "^1.11",
         "friends-of-behat/mink-browserkit-driver": "^1.6",
         "friends-of-behat/mink-debug-extension": "^2.1",

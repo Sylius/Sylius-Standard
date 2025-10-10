@@ -68,9 +68,14 @@ default:
 
         FriendsOfBehat\VariadicExtension: ~
 
+        FriendsOfBehat\ExcludeSpecificationsExtension:
+            features:
+                - "vendor/sylius/sylius/features/admin/order/managing_orders/handling_order_payment/refunding_order_payment.feature"
+
         FriendsOfBehat\SuiteSettingsExtension:
             paths:
                 - "vendor/sylius/sylius/features"
+                - "vendor/sylius/refund-plugin/features"
                 - "features"
 
         SyliusLabs\SuiteTagsExtension: ~
