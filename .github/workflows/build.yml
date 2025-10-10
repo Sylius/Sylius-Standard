@@ -168,13 +168,34 @@ jobs:
 
             -
                 name: Validate composer.json
-                run: composer validate --ansi --strict --no-check-all
-#                Restore before Sylius 1.14 release
-#                run: composer validate --ansi --strict --no-check-publish
+                run: composer validate --ansi --strict
 
-            -
-                name: Run security check
-                run: symfony security:check
+            -   name: Run security checks
+                run: |
+                    set -e
+
+                    IGNORED=$(jq -r '.config.audit.ignore[]?' composer.json | sort || true)
+
+                    if [ -n "$IGNORED" ]; then
+                        echo "Ignored CVEs:"
+                        echo "$IGNORED"
+                        echo
+                    fi
+
+                    composer audit --no-interaction --abandoned=ignore --no-dev
+
+                    symfony security:check --format=json > symfony-audit.json || true
+
+                    FOUND=$(jq -r '.[]?.advisories[]?.cve? // empty' symfony-audit.json | sort | uniq)
+                    DIFF=$(comm -23 <(echo "$FOUND") <(echo "$IGNORED"))
+
+                    if [ -n "$DIFF" ]; then
+                      echo "❌ New vulnerabilities found by Symfony security:check:"
+                      echo "$DIFF"
+                      exit 1
+                    else
+                      echo "✅ No new vulnerabilities found by Symfony security:check."
+                    fi
 
             -
                 name: Check coding standard
@@ -196,7 +217,7 @@ jobs:
                 name: Run PHPUnit
                 run: vendor/bin/phpunit --colors=always
 
-            -   
+            -
                 name: Install Behat driver
                 run: vendor/bin/bdi detect drivers
 
