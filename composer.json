@@ -25,6 +25,7 @@
     ],
     "require": {
         "php": "^8.1",
+        "sylius/adyen-plugin": "^1.0",
         "sylius/mollie-plugin": "^2.1",
         "sylius/paypal-plugin": "^1.7",
         "sylius/sylius": "~1.14.0",

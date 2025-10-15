@@ -530,6 +530,19 @@
     "sylius-labs/polyfill-symfony-security": {
         "version": "v1.0.0"
     },
+    "sylius/adyen-plugin": {
+        "version": "1.0",
+        "recipe": {
+            "repo": "github.com/symfony/recipes-contrib",
+            "branch": "main",
+            "version": "1.0",
+            "ref": "889fec7dbf7f08e4a93899b8553b19e33fd7c3c9"
+        },
+        "files": [
+            "config/packages/sylius_adyen.yaml",
+            "config/routes/sylius_adyen.yaml"
+        ]
+    },
     "sylius/calendar": {
         "version": "v0.3.0"
     },
