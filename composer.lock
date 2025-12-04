@@ -17555,17 +17555,67 @@
             "time": "2024-05-31T13:43:32+00:00"
         },
         {
-            "name": "rector/rector",
-            "version": "2.2.8",
+            "name": "rector/extension-installer",
+            "version": "0.11.2",
             "source": {
                 "type": "git",
-                "url": "https://github.com/rectorphp/rector.git",
-                "reference": "303aa811649ccd1d32e51e62d5c85949d01b5f1b"
+                "url": "https://github.com/rectorphp/extension-installer.git",
+                "reference": "05544e9b195863b8571ae2a3b903cbec7fa062e0"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/rectorphp/rector/zipball/303aa811649ccd1d32e51e62d5c85949d01b5f1b",
-                "reference": "303aa811649ccd1d32e51e62d5c85949d01b5f1b",
+                "url": "https://api.github.com/repos/rectorphp/extension-installer/zipball/05544e9b195863b8571ae2a3b903cbec7fa062e0",
+                "reference": "05544e9b195863b8571ae2a3b903cbec7fa062e0",
+                "shasum": ""
+            },
+            "require": {
+                "composer-plugin-api": "^1.1 || ^2.0",
+                "php": "^8.0"
+            },
+            "require-dev": {
+                "composer/composer": "^2.0",
+                "composer/xdebug-handler": "^2.0",
+                "phpstan/extension-installer": "^1.1",
+                "rector/phpstan-rules": "^0.4",
+                "rector/rector-src": "dev-main",
+                "symplify/easy-coding-standard": "^10.0",
+                "symplify/phpstan-extensions": "^10.0"
+            },
+            "type": "composer-plugin",
+            "extra": {
+                "class": "Rector\\RectorInstaller\\Plugin",
+                "branch-alias": {
+                    "dev-main": "0.11.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Rector\\RectorInstaller\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "description": "Composer plugin for automatic installation of Rector extensions",
+            "support": {
+                "issues": "https://github.com/rectorphp/extension-installer/issues",
+                "source": "https://github.com/rectorphp/extension-installer/tree/0.11.2"
+            },
+            "time": "2022-01-19T00:29:14+00:00"
+        },
+        {
+            "name": "rector/rector",
+            "version": "2.2.11",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/rectorphp/rector.git",
+                "reference": "7bd21a40b0332b93d4bfee284093d7400696902d"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/rectorphp/rector/zipball/7bd21a40b0332b93d4bfee284093d7400696902d",
+                "reference": "7bd21a40b0332b93d4bfee284093d7400696902d",
                 "shasum": ""
             },
             "require": {
@@ -17604,7 +17654,7 @@
             ],
             "support": {
                 "issues": "https://github.com/rectorphp/rector/issues",
-                "source": "https://github.com/rectorphp/rector/tree/2.2.8"
+                "source": "https://github.com/rectorphp/rector/tree/2.2.11"
             },
             "funding": [
                 {
@@ -17612,7 +17662,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2025-11-12T18:38:00+00:00"
+            "time": "2025-12-02T11:23:46+00:00"
         },
         {
             "name": "robertfausk/behat-panther-extension",
@@ -18970,21 +19020,22 @@
         },
         {
             "name": "sylius/sylius-rector",
-            "version": "v3.6.0",
+            "version": "v3.7.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Sylius/SyliusRector.git",
-                "reference": "12eece9ad7c2cc469df10a1c4f2bcfd2a20f3055"
+                "reference": "2707b6fe9f6065003b8f3df8539bd8b5822b3dc8"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Sylius/SyliusRector/zipball/12eece9ad7c2cc469df10a1c4f2bcfd2a20f3055",
-                "reference": "12eece9ad7c2cc469df10a1c4f2bcfd2a20f3055",
+                "url": "https://api.github.com/repos/Sylius/SyliusRector/zipball/2707b6fe9f6065003b8f3df8539bd8b5822b3dc8",
+                "reference": "2707b6fe9f6065003b8f3df8539bd8b5822b3dc8",
                 "shasum": ""
             },
             "require": {
                 "php": "^8.0",
-                "rector/rector": "^2.0.7"
+                "rector/extension-installer": "~0.11",
+                "rector/rector": "^2.0"
             },
             "conflict": {
                 "rector/rector": "<0.11",
@@ -19027,7 +19078,7 @@
             "description": "Rector upgrades rules for Sylius",
             "support": {
                 "issues": "https://github.com/Sylius/SyliusRector/issues",
-                "source": "https://github.com/Sylius/SyliusRector/tree/v3.6.0"
+                "source": "https://github.com/Sylius/SyliusRector/tree/v3.7.0"
             },
             "funding": [
                 {
@@ -19035,7 +19086,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2025-11-07T16:14:40+00:00"
+            "time": "2025-12-03T15:49:59+00:00"
         },
         {
             "name": "symfony/browser-kit",
@@ -19724,5 +19775,5 @@
         "php": "^8.3"
     },
     "platform-dev": {},
-    "plugin-api-version": "2.9.0"
+    "plugin-api-version": "2.6.0"
 }
