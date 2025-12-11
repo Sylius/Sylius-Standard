@@ -2,16 +2,6 @@
 # yarn lockfile v1
 
 
-"@adyen/adyen-web@^6.22.0":
-  version "6.22.0"
-  resolved "https://registry.yarnpkg.com/@adyen/adyen-web/-/adyen-web-6.22.0.tgz#5373a1aa85ba5a67b38177afbfa15cf5a30ed21e"
-  integrity sha512-PrPqOXxMn/poAPZrCpJxkvsuHG0g+2LknrShNg9DXDSOakhOafK8zecfnprMB7VAlJ6Dt4J8Dotu6pggRgkryw==
-  dependencies:
-    "@types/applepayjs" "14.0.9"
-    "@types/googlepay" "0.7.6"
-    classnames "2.5.1"
-    preact "10.22.1"
-
 "@ampproject/remapping@^2.2.0":
   version "2.3.0"
   resolved "https://registry.yarnpkg.com/@ampproject/remapping/-/remapping-2.3.0.tgz#ed441b6fa600072520ce18b43d2c8cc8caecc7f4"
@@ -989,7 +979,7 @@
     "@babel/preset-env" "^7.25.8"
     "@hotwired/stimulus" "^3.0.0"
     "@popperjs/core" "^2.11.8"
-    "@sylius/admin-bundle" "file:../../Library/Caches/Yarn/v6/npm-@sylius-ui-admin-2.0.0-5339b285-2f39-444f-a6a7-7223a28cdba1-1759562518141/node_modules/@sylius-ui/admin/Resources/assets"
+    "@sylius/admin-bundle" "file:../../tmp/.yarn-cache-501/v6/npm-@sylius-ui-admin-2.0.0-84f188a6-af6b-42fe-ba99-d163108a5265-1765450185879/node_modules/@sylius-ui/admin/Resources/assets"
     "@symfony/stimulus-bridge" "^3.2.0"
     "@symfony/webpack-encore" "^5.0.1"
     "@tabler/core" "~1.3.0"
@@ -1013,7 +1003,7 @@
     "@babel/preset-env" "^7.25.8"
     "@hotwired/stimulus" "^3.0.0"
     "@popperjs/core" "^2.11.8"
-    "@sylius/shop-bundle" "file:../../Library/Caches/Yarn/v6/npm-@sylius-ui-shop-2.0.0-84ca42dd-bba5-41c1-a850-3dffb4e3ba0c-1759562518202/node_modules/@sylius-ui/shop/Resources/assets"
+    "@sylius/shop-bundle" "file:../../tmp/.yarn-cache-501/v6/npm-@sylius-ui-shop-2.0.0-a0cb9189-1085-450b-b168-f04ef03c0359-1765450185949/node_modules/@sylius-ui/shop/Resources/assets"
     "@symfony/stimulus-bridge" "^3.2.0"
     "@symfony/webpack-encore" "^5.0.1"
     bootstrap "^5.3.3"
@@ -1041,10 +1031,10 @@
     schema-utils "^3.0.0"
 
 "@symfony/ux-autocomplete@file:vendor/symfony/ux-autocomplete/assets":
-  version "2.29.2"
+  version "2.30.0"
 
 "@symfony/ux-live-component@file:vendor/symfony/ux-live-component/assets":
-  version "2.29.2"
+  version "2.30.0"
 
 "@symfony/webpack-encore@^5.0.1":
   version "5.1.0"
@@ -1075,11 +1065,6 @@
     "@popperjs/core" "^2.11.8"
     bootstrap "5.3.6"
 
-"@types/applepayjs@14.0.9":
-  version "14.0.9"
-  resolved "https://registry.yarnpkg.com/@types/applepayjs/-/applepayjs-14.0.9.tgz#66b760691f146a17009c4be808d0a341b776f429"
-  integrity sha512-xEprYbb0TEP/XIiDPbVnTYpDai8fTFpsQfVSfTd81Is2GOMUy7ie019eyX6Mz2ECxfjoUVKaiGSL577roIeHCg==
-
 "@types/eslint-scope@^3.7.7":
   version "3.7.7"
   resolved "https://registry.yarnpkg.com/@types/eslint-scope/-/eslint-scope-3.7.7.tgz#3108bd5f18b0cdb277c867b3dd449c9ed7079ac5"
@@ -1100,11 +1085,6 @@
   version "1.0.8"
   resolved "https://registry.yarnpkg.com/@types/estree/-/estree-1.0.8.tgz#958b91c991b1867ced318bedea0e215ee050726e"
   integrity sha512-dWHzHa2WqEXI/O1E9OjrocMTKJl2mSrEolh1Iomrv6U+JuNwaHXsXx9bLu5gG7BUWFIN0skIQJQ/L1rIex4X6w==
-
-"@types/googlepay@0.7.6":
-  version "0.7.6"
-  resolved "https://registry.yarnpkg.com/@types/googlepay/-/googlepay-0.7.6.tgz#ba444ad8b2945e70f873673b8f5371745b8cfe37"
-  integrity sha512-5003wG+qvf4Ktf1hC9IJuRakNzQov00+Xf09pAWGJLpdOjUrq0SSLCpXX7pwSeTG9r5hrdzq1iFyZcW7WVyr4g==
 
 "@types/istanbul-lib-coverage@*", "@types/istanbul-lib-coverage@^2.0.0":
   version "2.0.6"
@@ -1136,11 +1116,6 @@
   integrity sha512-4zXMWD91vBLGRtHK3YbIoFMia+1nqEz72coM42C5ETjnNCa/heoj7NT1G67iAfOqMmcfhuCZ4uNpyz8EjlAejw==
   dependencies:
     undici-types "~7.8.0"
-
-"@types/trusted-types@^2.0.7":
-  version "2.0.7"
-  resolved "https://registry.yarnpkg.com/@types/trusted-types/-/trusted-types-2.0.7.tgz#baccb07a970b91707df3a3e8ba6896c57ead2d11"
-  integrity sha512-ScaPdn1dQczgbl0QFTeTOmVHFULt394XJgOQNoyVhZ6r2vLnMLJfBPd53SB52T/3G36VI1/g2MZaX0cwDuXsfw==
 
 "@types/webpack-env@^1.16.4":
   version "1.18.8"
@@ -1548,7 +1523,7 @@ ci-info@^3.2.0:
   resolved "https://registry.yarnpkg.com/ci-info/-/ci-info-3.9.0.tgz#4279a62028a7b1f262f3473fc9605f5e218c59b4"
   integrity sha512-NIxF55hv4nSqQswkAeiOi1r83xy8JldOFDTWiug55KBu9Jnblncd2U6ViHmYgHf01TPZS77NJBhBMKdWj9HQMQ==
 
-classnames@2.5.1, classnames@^2.2.5:
+classnames@^2.2.5:
   version "2.5.1"
   resolved "https://registry.yarnpkg.com/classnames/-/classnames-2.5.1.tgz#ba774c614be0f016da105c858e7159eae8e7687b"
   integrity sha512-saHYOzhIQs6wy2sVxTM6bUDsQO4F50V9RQ22qBpEdCW+I+/Wmke2HOl6lS6dTpdxVhb88/I6+Hs+438c3lfUow==
@@ -1842,13 +1817,6 @@ domhandler@^5.0.2, domhandler@^5.0.3:
   integrity sha512-cgwlv/1iFQiFnU96XXgROh8xTeetsnJiDsTc7TYCLFd9+/WNkIqPTxiM/8pSd8VIrhXGTf1Ny1q1hquVqDJB5w==
   dependencies:
     domelementtype "^2.3.0"
-
-dompurify@^3.2.5:
-  version "3.2.7"
-  resolved "https://registry.yarnpkg.com/dompurify/-/dompurify-3.2.7.tgz#721d63913db5111dd6dfda8d3a748cfd7982d44a"
-  integrity sha512-WhL/YuveyGXJaerVlMYGWhvQswa7myDG17P7Vu65EWC05o8vfeNbvNf4d/BOvH99+ZW+LlQsc1GDKMa1vNK6dw==
-  optionalDependencies:
-    "@types/trusted-types" "^2.0.7"
 
 domutils@^2.5.2, domutils@^2.8.0:
   version "2.8.0"
@@ -2754,11 +2722,6 @@ postcss@^8.2.14, postcss@^8.4.33, postcss@^8.4.40:
     picocolors "^1.1.1"
     source-map-js "^1.2.1"
 
-preact@10.22.1:
-  version "10.22.1"
-  resolved "https://registry.yarnpkg.com/preact/-/preact-10.22.1.tgz#6a3589973fe0c6e53211091607d31f4b7b27334d"
-  integrity sha512-jRYbDDgMpIb5LHq3hkI0bbl+l/TQ9UnkdQ0ww+lp+4MMOdqaUYdFc5qeyP+IV8FAd/2Em7drVPeKdQxsiWCf/A==
-
 pretty-error@^4.0.0:
   version "4.0.0"
   resolved "https://registry.yarnpkg.com/pretty-error/-/pretty-error-4.0.0.tgz#90a703f46dd7234adb46d0f84823e9d1cb8f10d6"
@@ -3132,11 +3095,6 @@ svgo@^4.0.0:
     picocolors "^1.1.1"
     sax "^1.4.1"
 
-swiper@^11.2.6:
-  version "11.2.10"
-  resolved "https://registry.yarnpkg.com/swiper/-/swiper-11.2.10.tgz#ed0b17286b56f7fe8d4b46ed61e6e0bd8daaccad"
-  integrity sha512-RMeVUUjTQH+6N3ckimK93oxz6Sn5la4aDlgPzB+rBrG/smPdCTicXyhxa+woIpopz+jewEloiEE3lKo1h9w2YQ==
-
 tapable@^2.1.1, tapable@^2.2.0, tapable@^2.2.1:
   version "2.2.2"
   resolved "https://registry.yarnpkg.com/tapable/-/tapable-2.2.2.tgz#ab4984340d30cb9989a490032f086dbb8b56d872"
@@ -3182,13 +3140,6 @@ tom-select@^2.2.2:
   dependencies:
     "@orchidjs/sifter" "^1.1.0"
     "@orchidjs/unicode-variants" "^1.1.2"
-
-trix@^2.0.0:
-  version "2.1.15"
-  resolved "https://registry.yarnpkg.com/trix/-/trix-2.1.15.tgz#fabad796ea779a8ae96522402fbc214cbfc4015f"
-  integrity sha512-LoaXWczdTUV8+3Box92B9b1iaDVbxD14dYemZRxi3PwY+AuDm97BUJV2aHLBUFPuDABhxp0wzcbf0CxHCVmXiw==
-  dependencies:
-    dompurify "^3.2.5"
 
 tslib@^2.8.0:
   version "2.8.1"
