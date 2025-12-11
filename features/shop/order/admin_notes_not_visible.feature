@@ -1,4 +1,4 @@
-@shop @ui
+@shop @ui @admin_notes_not_visible
 Feature: Admin notes are not visible in shop
   In order to protect internal information
   As a customer (logged in or guest)
