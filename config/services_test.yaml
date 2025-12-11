@@ -19,12 +19,36 @@ when@test:
         App\Tests\Behat\Context\:
             resource: '%kernel.project_dir%/tests/Behat/Context/**'
             tags: ['behat.context']
+        
+        Sylius\Behat\Page\Admin\Order\ShowPageInterface:
+            alias: sylius.behat.page.admin.order.show
+            public: true
+
+        Sylius\Behat\Page\Admin\Order\UpdatePageInterface:
+            alias: sylius.behat.page.admin.order.update
+            public: true
+
+        Sylius\Behat\Page\Shop\Order\ShowPageInterface:
+            alias: sylius.behat.page.shop.order.show
+            public: true
 
 when@test_cached:
     services:
         App\Tests\Behat\Context\:
             resource: '%kernel.project_dir%/tests/Behat/Context/**'
             tags: ['behat.context']
+        
+        Sylius\Behat\Page\Admin\Order\ShowPageInterface:
+            alias: sylius.behat.page.admin.order.show
+            public: true
+
+        Sylius\Behat\Page\Admin\Order\UpdatePageInterface:
+            alias: sylius.behat.page.admin.order.update
+            public: true
+
+        Sylius\Behat\Page\Shop\Order\ShowPageInterface:
+            alias: sylius.behat.page.shop.order.show
+            public: true
 
 sylius_api:
     enabled: true

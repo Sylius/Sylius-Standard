@@ -76,6 +76,12 @@ jobs:
                     echo "{}" > public/build/app/admin/manifest.json
                     echo "{}" > public/build/app/shop/manifest.json
 
+            -   name: Install Symfony CLI
+                run: |
+                    curl -sS https://get.symfony.com/cli/installer | bash
+                    export PATH="$HOME/.symfony5/bin:$PATH"
+                    echo "$HOME/.symfony5/bin" >> $GITHUB_PATH
+
             -   name: Build application
                 uses: SyliusLabs/BuildTestAppAction@v3.1.0
                 with:
@@ -172,6 +178,12 @@ jobs:
                 if: matrix.twig == '^2.12'
                 run: composer require --no-update --no-scripts --no-interaction "twig/twig:${{ matrix.twig }}"
 
+            -   name: Install Symfony CLI
+                run: |
+                    curl -sS https://get.symfony.com/cli/installer | bash
+                    export PATH="$HOME/.symfony5/bin:$PATH"
+                    echo "$HOME/.symfony5/bin" >> $GITHUB_PATH
+
             -   name: Build application
                 uses: SyliusLabs/BuildTestAppAction@v3.1.0
                 with:
@@ -249,6 +261,12 @@ jobs:
             -   name: Restrict Twig
                 if: matrix.twig == '^2.12'
                 run: composer require --no-update --no-scripts --no-interaction "twig/twig:${{ matrix.twig }}"
+
+            -   name: Install Symfony CLI
+                run: |
+                    curl -sS https://get.symfony.com/cli/installer | bash
+                    export PATH="$HOME/.symfony5/bin:$PATH"
+                    echo "$HOME/.symfony5/bin" >> $GITHUB_PATH
 
             -   name: Build application
                 uses: SyliusLabs/BuildTestAppAction@v3.1.0

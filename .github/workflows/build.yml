@@ -73,7 +73,6 @@ jobs:
     
     e2e-mysql:
         name: End-to-end tests (MySQL)
-        needs: [static-checks, unit-tests]
         uses: ./.github/workflows/ci_e2e-mysql.yaml
         with:
             type: minimal

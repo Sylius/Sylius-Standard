@@ -27,9 +27,6 @@ default:
                 - App\Tests\Behat\Context\Order\OrderSetupContext
 
             paths:
-                - "%paths.base%/features/admin/order/admin_notes.feature"
-                - "%paths.base%/features/shop/order/admin_notes_not_visible.feature"
-
-            filters:
-                tags: "@admin_notes||@admin_notes_not_visible"
+                - "features/admin/order/admin_notes.feature"
+                - "features/shop/order/admin_notes_not_visible.feature"
 
