@@ -1,5 +1,22 @@
 imports:
     - { resource: "../vendor/sylius/sylius/src/Sylius/Behat/Resources/config/services.xml" }
 
+services:
+    App\Tests\Behat\Context\:
+        resource: '../../tests/Behat/Context'
+        tags: ['behat.context']
+
+    Sylius\Behat\Page\Admin\Order\ShowPageInterface:
+        alias: sylius.behat.page.admin.order.show
+        public: true
+
+    Sylius\Behat\Page\Admin\Order\UpdatePageInterface:
+        alias: sylius.behat.page.admin.order.update
+        public: true
+
+    Sylius\Behat\Page\Shop\Order\ShowPageInterface:
+        alias: sylius.behat.page.shop.order.show
+        public: true
+
 sylius_api:
     enabled: true

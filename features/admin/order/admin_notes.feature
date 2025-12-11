@@ -1,4 +1,4 @@
-@admin
+@admin @ui
 Feature: Managing admin notes for orders
   In order to keep internal notes about orders
   As an administrator
