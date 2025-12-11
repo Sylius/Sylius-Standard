@@ -2579,7 +2579,7 @@
       </trans-unit>
       <trans-unit id="isBJoSV" resname="sylius.order.admin_notes.max_length">
         <source>sylius.order.admin_notes.max_length</source>
-        <target>__sylius.order.admin_notes.max_length</target>
+        <target>Admin notes cannot be longer than 500 characters</target>
       </trans-unit>
     </body>
   </file>
