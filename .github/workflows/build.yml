@@ -29,9 +29,22 @@ jobs:
     unit-tests:
         name: Unit Tests
         runs-on: ubuntu-latest
+        services:
+            mysql:
+                image: mysql:8.4
+                env:
+                    MYSQL_ROOT_PASSWORD: root
+                    MYSQL_DATABASE: sylius_test
+                ports:
+                    - 3306:3306
+                options: >-
+                    --health-cmd="mysqladmin ping"
+                    --health-interval=10s
+                    --health-timeout=5s
+                    --health-retries=3
         env:
             APP_ENV: test
-            DATABASE_URL: "mysql://root:root@127.0.0.1/sylius_test?charset=utf8mb4&serverVersion=8.0"
+            DATABASE_URL: "mysql://root:root@127.0.0.1:3306/sylius_test?charset=utf8mb4&serverVersion=8.0"
         steps:
             - uses: actions/checkout@v4
 
@@ -42,16 +55,21 @@ jobs:
                   extensions: intl, gd, opcache, mysql, pdo_mysql
                   tools: composer
 
-            - name: Setup MySQL
-              run: |
-                  sudo systemctl start mysql
-                  mysql -e "CREATE DATABASE IF NOT EXISTS sylius_test;"
-
             - name: Install dependencies
               run: composer install --no-interaction --prefer-dist
 
-            - name: Run PHPUnit tests
-              run: vendor/bin/phpunit tests/Entity tests/Form
+            - name: Wait for MySQL
+              run: |
+                  until mysqladmin ping -h 127.0.0.1 -P 3306 -u root -proot --silent; do
+                      echo "Waiting for MySQL..."
+                      sleep 2
+                  done
+
+            - name: Run database migrations
+              run: bin/console doctrine:migrations:migrate --no-interaction --env=test || true
+
+            - name: Run all PHPUnit tests
+              run: vendor/bin/phpunit --colors=always
     
     e2e-mysql:
         name: End-to-end tests (MySQL)
