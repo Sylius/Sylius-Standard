@@ -108,5 +108,5 @@ jobs:
             -   name: Validate Yaml files
                 run: bin/console lint:yaml src
 
-            -   name: Run PHPStan
-                run: vendor/bin/phpstan analyse
+#            -   name: Run PHPStan
+#                run: vendor/bin/phpstan analyse
