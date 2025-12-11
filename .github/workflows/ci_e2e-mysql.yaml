@@ -103,6 +103,9 @@ jobs:
             -   name: Run PHPUnit
                 run: vendor/bin/phpunit --colors=always
 
+            -   name: Run CLI Behat tests (smoke tests)
+                run: vendor/bin/behat --colors --strict --no-interaction -v -f progress --tags="@cli&&~@todo" || vendor/bin/behat --strict --no-interaction -v -f progress --tags="@cli&&~@todo" --rerun
+
             -   name: Run Admin Notes Behat tests (non-JS)
                 run: vendor/bin/behat --colors --strict --no-interaction -v -f progress --tags="@admin_notes&&@admin&&@ui&&~@javascript&&~@mink:chromedriver" || vendor/bin/behat --strict --no-interaction -v -f progress --tags="@admin_notes&&@admin&&@ui&&~@javascript&&~@mink:chromedriver" --rerun
 
@@ -184,6 +187,9 @@ jobs:
                     node_version: "20.x"
                     chrome_version: '137'
 
+            -   name: Run basic UI Behat tests (smoke tests)
+                run: vendor/bin/behat --colors --strict --no-interaction -v -f progress --tags="@ui&&@admin&&~@admin_notes&&~@admin_notes_not_visible&&@mink:chromedriver&&~@todo" --stop-on-failure || vendor/bin/behat --strict --no-interaction -v -f progress --tags="@ui&&@admin&&~@admin_notes&&~@admin_notes_not_visible&&@mink:chromedriver&&~@todo" --stop-on-failure --rerun
+
             -   name: Run Admin Notes Behat tests (Chromedriver)
                 run: vendor/bin/behat --colors --strict --no-interaction -v -f progress --tags="@admin_notes&&@admin&&@ui&&@mink:chromedriver" || vendor/bin/behat --colors --strict --no-interaction -v -f progress --tags="@admin_notes&&@admin&&@ui&&@mink:chromedriver" --rerun
 
@@ -261,6 +267,9 @@ jobs:
                     symfony_version: ${{ matrix.symfony }}
                     node_version: "20.x"
                     chrome_version: '137'
+
+            -   name: Run basic UI Behat tests (smoke tests)
+                run: vendor/bin/behat --colors --strict --no-interaction -v -f progress --tags="@ui&&@admin&&~@admin_notes&&~@admin_notes_not_visible&&@javascript&&~@todo" --stop-on-failure || vendor/bin/behat --strict --no-interaction -v -f progress --tags="@ui&&@admin&&~@admin_notes&&~@admin_notes_not_visible&&@javascript&&~@todo" --stop-on-failure --rerun
 
             -   name: Run Admin Notes Behat tests (Panther)
                 run: vendor/bin/behat --colors --strict --no-interaction -v -f progress --tags="@admin_notes&&@admin&&@ui&&@javascript" || vendor/bin/behat --colors --strict --no-interaction -v -f progress --tags="@admin_notes&&@admin&&@ui&&@javascript" --rerun
