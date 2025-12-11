@@ -20,4 +20,31 @@ class Order extends BaseOrder implements OrderInterface
     use QRCodeOrderTrait;
     use RecurringOrderTrait;
     use AbandonedEmailOrderTrait;
+
+    public const MAX_NOTE_LENGTH = 500;
+
+    #[ORM\Column(name: 'admin_notes', type: 'text', nullable: true, length: self::MAX_NOTE_LENGTH)]
+    protected ?string $adminNotes = null;
+
+    public function getAdminNotes(): ?string
+    {
+        return $this->adminNotes;
+    }
+
+    public function setAdminNotes(?string $adminNotes): void
+    {
+        if ($adminNotes === null) {
+            $this->adminNotes = null;
+
+            return;
+        }
+
+        $trimmedNotes = trim($adminNotes);
+        $this->adminNotes = $trimmedNotes === '' ? null : $this->truncateToMaxLength($trimmedNotes);
+    }
+
+    private function truncateToMaxLength(string $notes): string
+    {
+        return mb_substr($notes, 0, self::MAX_NOTE_LENGTH);
+    }
 }

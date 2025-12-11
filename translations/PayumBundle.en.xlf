@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xliff xmlns="urn:oasis:names:tc:xliff:document:1.2" version="1.2">
+  <file source-language="en-US" target-language="en" datatype="plaintext" original="file.ext">
+    <header>
+      <tool tool-id="symfony" tool-name="Symfony"/>
+    </header>
+    <body>
+      <trans-unit id="hA8ZIYj" resname="form.credit_card.holder">
+        <source>form.credit_card.holder</source>
+        <target>Holder Name</target>
+      </trans-unit>
+      <trans-unit id="yVKAz1F" resname="form.credit_card.expire_at">
+        <source>form.credit_card.expire_at</source>
+        <target>Expiration Date</target>
+      </trans-unit>
+      <trans-unit id="1U5tFEw" resname="form.credit_card.number">
+        <source>form.credit_card.number</source>
+        <target>Card Number</target>
+      </trans-unit>
+      <trans-unit id="7Pz9xaN" resname="form.credit_card.security_code">
+        <source>form.credit_card.security_code</source>
+        <target>Security (CVV) Code</target>
+      </trans-unit>
+      <trans-unit id="nWlNirQ" resname="form.choice.paypal_express_checkout">
+        <source>form.choice.paypal_express_checkout</source>
+        <target>Paypal Express Checkout</target>
+      </trans-unit>
+    </body>
+  </file>
+</xliff>

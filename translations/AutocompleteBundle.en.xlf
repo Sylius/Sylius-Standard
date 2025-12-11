@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xliff xmlns="urn:oasis:names:tc:xliff:document:1.2" version="1.2">
+  <file source-language="en-US" target-language="en" datatype="plaintext" original="file.ext">
+    <header>
+      <tool tool-id="symfony" tool-name="Symfony"/>
+    </header>
+    <body>
+      <trans-unit id="Mdb.UcD" resname="Loading more results...">
+        <source>Loading more results...</source>
+        <target>Loading more results...</target>
+      </trans-unit>
+      <trans-unit id="Nzb_A.4" resname="No results found">
+        <source>No results found</source>
+        <target>No results found</target>
+      </trans-unit>
+      <trans-unit id="ljwd7JS" resname="No more results">
+        <source>No more results</source>
+        <target>No more results</target>
+      </trans-unit>
+      <trans-unit id="PrwBIx9" resname="Add %placeholder%...">
+        <source>Add %placeholder%...</source>
+        <target>Add %placeholder%...</target>
+      </trans-unit>
+    </body>
+  </file>
+</xliff>

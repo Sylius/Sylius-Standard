@@ -1,0 +1,7 @@
+sylius:
+    order:
+        admin_notes:
+            label: Notatki administratora
+            placeholder: Wprowadź notatki administratora dla tego zamówienia (max 500 znaków)
+            max_length: Notatki administratora nie mogą być dłuższe niż 500 znaków
+

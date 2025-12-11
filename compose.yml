@@ -1,6 +1,8 @@
 services:
     php:
-        image: ghcr.io/sylius/sylius-php:8.3-alpine
+        image: ghcr.io/sylius/sylius-php:8.4-alpine
+        environment:
+            PHP_MEMORY_LIMIT: 2G
     mysql:
         image: mysql:8.4
         platform: linux/amd64

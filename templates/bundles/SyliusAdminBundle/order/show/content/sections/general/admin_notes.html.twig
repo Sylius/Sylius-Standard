@@ -1,0 +1,23 @@
+{% set order = hookable_metadata.context.resource %}
+
+<div>
+    <div class="d-flex justify-content-between align-items-center mb-2">
+        <div>
+            <strong>{{ 'sylius.order.admin_notes.label'|trans }}:</strong>
+        </div>
+        <div>
+            <a href="{{ path('sylius_admin_order_update', { id: order.id }) }}" class="btn btn-sm">
+                {{ ux_icon('tabler:pencil') }}
+                {{ 'sylius.ui.edit'|trans }}
+            </a>
+        </div>
+    </div>
+    <div class="mb-3" data-test-admin-notes {{ sylius_test_html_attribute('admin-notes') }}>
+        {% if order.adminNotes is not null %}
+            <div class="text-break">{{ order.adminNotes }}</div>
+        {% else %}
+            <em class="text-muted">-</em>
+        {% endif %}
+    </div>
+</div>
+

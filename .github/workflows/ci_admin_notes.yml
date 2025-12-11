@@ -1,0 +1,82 @@
+name: Admin Notes CI
+
+on:
+  pull_request:
+    paths:
+      - 'src/Entity/Order/**'
+      - 'src/Form/Extension/**'
+      - 'tests/**'
+      - 'config/**'
+      - 'migrations/**'
+      - 'templates/**'
+  push:
+    branches:
+      - main
+      - 2.1
+
+jobs:
+  code-format:
+    name: Code Formatting
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      
+      - name: Setup PHP
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: '8.4'
+          extensions: intl, gd, opcache, mysql, pdo_mysql
+          tools: composer
+      
+      - name: Install dependencies
+        run: composer install --no-interaction --prefer-dist
+      
+      - name: Check code formatting
+        run: vendor/bin/ecs check src tests
+
+  unit-tests:
+    name: Unit Tests
+    runs-on: ubuntu-latest
+    env:
+      APP_ENV: test
+      DATABASE_URL: "mysql://root:root@127.0.0.1/sylius_test?charset=utf8mb4&serverVersion=8.0"
+    steps:
+      - uses: actions/checkout@v4
+      
+      - name: Setup PHP
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: '8.4'
+          extensions: intl, gd, opcache, mysql, pdo_mysql
+          tools: composer
+      
+      - name: Setup MySQL
+        run: |
+          sudo systemctl start mysql
+          mysql -e "CREATE DATABASE IF NOT EXISTS sylius_test;"
+      
+      - name: Install dependencies
+        run: composer install --no-interaction --prefer-dist
+      
+      - name: Run PHPUnit tests
+        run: vendor/bin/phpunit tests/Entity tests/Form
+
+  static-analysis:
+    name: Static Analysis
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      
+      - name: Setup PHP
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: '8.4'
+          extensions: intl, gd, opcache, mysql, pdo_mysql
+          tools: composer
+      
+      - name: Install dependencies
+        run: composer install --no-interaction --prefer-dist
+      
+      - name: Run PHPStan
+        run: vendor/bin/phpstan analyse src tests --level=5
+

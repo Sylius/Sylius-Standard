@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xliff xmlns="urn:oasis:names:tc:xliff:document:1.2" version="1.2">
+  <file source-language="en-US" target-language="en" datatype="plaintext" original="file.ext">
+    <header>
+      <tool tool-id="symfony" tool-name="Symfony"/>
+    </header>
+    <body>
+      <trans-unit id="L_T8WbM" resname="sylius.ui.item.choice">
+        <source>sylius.ui.item.choice</source>
+        <target>{count, plural, =0 {} one {, 1 item} other {, # items}}</target>
+      </trans-unit>
+      <trans-unit id="IhWjlKQ" resname="sylius.ui.lowest_price_days_before_discount_was">
+        <source>sylius.ui.lowest_price_days_before_discount_was</source>
+        <target>{days, plural,  one {The lowest price from # day prior to the current discount was {price}}  other {The lowest price from # days prior to the current discount was {price}}}</target>
+      </trans-unit>
+      <trans-unit id="pdugmpf" resname="sylius.ui.overall_this_customer_has_placed_orders_across_all_channels.choice">
+        <source>sylius.ui.overall_this_customer_has_placed_orders_across_all_channels.choice</source>
+        <target>{count, plural, =0 {This customer has not placed any order} one {This customer has placed one order} other {Overall, this customer has placed # orders across all channels}}</target>
+      </trans-unit>
+      <trans-unit id="ar79cTo" resname="sylius.payum_action.payment.description">
+        <source>sylius.payum_action.payment.description</source>
+        <target>{items, plural, one {Payment contains # item for a total of {total}} other {Payment contains # items for a total of {total}}}</target>
+      </trans-unit>
+      <trans-unit id="maoG0wF" resname="">
+        <source></source>
+        <target>__</target>
+      </trans-unit>
+      <trans-unit id="wx9we8C" resname="sylius_mollie.order_checkout.colliding_products">
+        <source>sylius_mollie.order_checkout.colliding_products</source>
+        <target>__sylius_mollie.order_checkout.colliding_products</target>
+      </trans-unit>
+    </body>
+  </file>
+</xliff>

@@ -1,0 +1,7 @@
+sylius:
+    order:
+        admin_notes:
+            label: Admin Notes
+            placeholder: Enter admin notes for this order (max 500 characters)
+            max_length: Admin notes cannot be longer than 500 characters
+

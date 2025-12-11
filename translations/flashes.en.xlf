@@ -1,0 +1,390 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xliff xmlns="urn:oasis:names:tc:xliff:document:1.2" version="1.2">
+  <file source-language="en-US" target-language="en" datatype="plaintext" original="file.ext">
+    <header>
+      <tool tool-id="symfony" tool-name="Symfony"/>
+    </header>
+    <body>
+      <trans-unit id="ZNmewXn" resname="sylius.cart.add_item">
+        <source>sylius.cart.add_item</source>
+        <target>Item has been added to cart</target>
+      </trans-unit>
+      <trans-unit id="O2R.Acx" resname="sylius.cart.cannot_modify">
+        <source>sylius.cart.cannot_modify</source>
+        <target>An order has already been submitted for the cart you were trying to modify.</target>
+      </trans-unit>
+      <trans-unit id="sdEwMCY" resname="sylius.cart.not_recalculated">
+        <source>sylius.cart.not_recalculated</source>
+        <target>Due to invalid values in your cart, it has not been recalculated.</target>
+      </trans-unit>
+      <trans-unit id="bS04God" resname="sylius.cart.remove_item">
+        <source>sylius.cart.remove_item</source>
+        <target>Item has been removed from cart</target>
+      </trans-unit>
+      <trans-unit id="f7OmYpS" resname="sylius.cart.save">
+        <source>sylius.cart.save</source>
+        <target>The cart has been successfully updated</target>
+      </trans-unit>
+      <trans-unit id="tAVcUNk" resname="sylius.product_variant.generate">
+        <source>sylius.product_variant.generate</source>
+        <target>Product variants have been successfully generated.</target>
+      </trans-unit>
+      <trans-unit id="EHBccwT" resname="sylius.shipment.shipped">
+        <source>sylius.shipment.shipped</source>
+        <target>Shipment has been successfully shipped.</target>
+      </trans-unit>
+      <trans-unit id="ytpWwJt" resname="sylius.payment.authorized">
+        <source>sylius.payment.authorized</source>
+        <target>Payment has been authorized.</target>
+      </trans-unit>
+      <trans-unit id="ogcEeWe" resname="sylius.payment.cancelled">
+        <source>sylius.payment.cancelled</source>
+        <target>Payment has been cancelled.</target>
+      </trans-unit>
+      <trans-unit id="oH_fpeL" resname="sylius.payment.completed">
+        <source>sylius.payment.completed</source>
+        <target>Payment has been completed.</target>
+      </trans-unit>
+      <trans-unit id="Qss_tF0" resname="sylius.payment.failed">
+        <source>sylius.payment.failed</source>
+        <target>Payment has failed.</target>
+      </trans-unit>
+      <trans-unit id="4HSJYKr" resname="sylius.payment.processing">
+        <source>sylius.payment.processing</source>
+        <target>Payment is being processed.</target>
+      </trans-unit>
+      <trans-unit id="Qgw9PuU" resname="sylius.payment.refunded">
+        <source>sylius.payment.refunded</source>
+        <target>Payment has been successfully refunded.</target>
+      </trans-unit>
+      <trans-unit id="DAXQQCQ" resname="sylius.payment.unknown">
+        <source>sylius.payment.unknown</source>
+        <target>There was an unknown problem with payment.</target>
+      </trans-unit>
+      <trans-unit id="iEcGZgi" resname="sylius.promotion_coupon.generate">
+        <source>sylius.promotion_coupon.generate</source>
+        <target>Promotion coupons have been successfully generated.</target>
+      </trans-unit>
+      <trans-unit id="NSbQTGe" resname="sylius.catalog_promotion.remove">
+        <source>sylius.catalog_promotion.remove</source>
+        <target>Removing of catalog promotion has been requested. This process can take a while depending on the number of affected products.</target>
+      </trans-unit>
+      <trans-unit id="8Tb0wdw" resname="sylius.user.expire_password_reset_token">
+        <source>sylius.user.expire_password_reset_token</source>
+        <target>The password reset token has expired.</target>
+      </trans-unit>
+      <trans-unit id="_FfGSj1" resname="sylius.user.change_password">
+        <source>sylius.user.change_password</source>
+        <target>Your password has been changed successfully!</target>
+      </trans-unit>
+      <trans-unit id="z1x_oGk" resname="sylius.user.reset_password">
+        <source>sylius.user.reset_password</source>
+        <target>Your password has been reset successfully!</target>
+      </trans-unit>
+      <trans-unit id="jTJcc8N" resname="sylius.user.reset_password_request">
+        <source>sylius.user.reset_password_request</source>
+        <target>If the email you have specified exists in our system, we have sent there an instruction on how to reset your password.</target>
+      </trans-unit>
+      <trans-unit id="dOV0hjw" resname="sylius.user.verify_email">
+        <source>sylius.user.verify_email</source>
+        <target>Your email has been successfully verified.</target>
+      </trans-unit>
+      <trans-unit id="Irpyuf_" resname="sylius.user.verify_email_by_invalid_token">
+        <source>sylius.user.verify_email_by_invalid_token</source>
+        <target>The verification token is invalid.</target>
+      </trans-unit>
+      <trans-unit id="GxLXJm3" resname="sylius.user.verify_email_request">
+        <source>sylius.user.verify_email_request</source>
+        <target>An email with the verification link has been sent to your email address.</target>
+      </trans-unit>
+      <trans-unit id="QyZpLr3" resname="sylius.user.verify_no_user">
+        <source>sylius.user.verify_no_user</source>
+        <target>There is no logged user.</target>
+      </trans-unit>
+      <trans-unit id="sAOWzU6" resname="sylius.user.verify_verified_email">
+        <source>sylius.user.verify_verified_email</source>
+        <target>Your email is already verified.</target>
+      </trans-unit>
+      <trans-unit id="LpdXgho" resname="sylius.customer.register">
+        <source>sylius.customer.register</source>
+        <target>Thank you for registering, check your email to verify your account.</target>
+      </trans-unit>
+      <trans-unit id="tKb45_9" resname="sylius.channel.delete_error">
+        <source>sylius.channel.delete_error</source>
+        <target>The channel cannot be deleted. At least one enabled channel is required.</target>
+      </trans-unit>
+      <trans-unit id="jEUEqDp" resname="sylius.checkout.complete_error">
+        <source>sylius.checkout.complete_error</source>
+        <target>There was an unexpected problem with completing an order. Please, try to place your order again.</target>
+      </trans-unit>
+      <trans-unit id="jdOIJ4P" resname="sylius.contact.request_success">
+        <source>sylius.contact.request_success</source>
+        <target>Your contact request has been submitted successfully.</target>
+      </trans-unit>
+      <trans-unit id="7J37v0h" resname="sylius.contact.request_error">
+        <source>sylius.contact.request_error</source>
+        <target>A problem occurred while sending the contact request. Please try again later.</target>
+      </trans-unit>
+      <trans-unit id="Rt9e.Ad" resname="sylius.customer.add_address">
+        <source>sylius.customer.add_address</source>
+        <target>Address has been successfully added.</target>
+      </trans-unit>
+      <trans-unit id="PiLR4S2" resname="sylius.customer.impersonate">
+        <source>sylius.customer.impersonate</source>
+        <target>Successfully impersonated customer %name%.</target>
+      </trans-unit>
+      <trans-unit id="hXb8HU8" resname="sylius.customer.set_address_as_default">
+        <source>sylius.customer.set_address_as_default</source>
+        <target>Address has been set as default.</target>
+      </trans-unit>
+      <trans-unit id="yWO8Sde" resname="sylius.order.apply_state_machine_transition_error">
+        <source>sylius.order.apply_state_machine_transition_error</source>
+        <target>There was an unexpected problem with updating an order. Please, try to update order again.</target>
+      </trans-unit>
+      <trans-unit id="31Ash5t" resname="sylius.order.promotion_integrity">
+        <source>sylius.order.promotion_integrity</source>
+        <target>You are no longer eligible for this promotion %promotionName%.</target>
+      </trans-unit>
+      <trans-unit id="PaeFA_4" resname="sylius.order.total_integrity">
+        <source>sylius.order.total_integrity</source>
+        <target>Your order total has been changed, check your order information and confirm it again.</target>
+      </trans-unit>
+      <trans-unit id="XKYDfBQ" resname="sylius.order.update_error">
+        <source>sylius.order.update_error</source>
+        <target>There was an unexpected problem with updating an order. Please, try to update order again.</target>
+      </trans-unit>
+      <trans-unit id="VLagnnL" resname="sylius.payment.apply_state_machine_transition_error">
+        <source>sylius.payment.apply_state_machine_transition_error</source>
+        <target>There was an unexpected problem with updating a payment. Please, try to update payment again.</target>
+      </trans-unit>
+      <trans-unit id="CYHv3uM" resname="sylius.product.in_use_by_promotion_rule">
+        <source>sylius.product.in_use_by_promotion_rule</source>
+        <target>Cannot delete a product that is in use by a promotion rule.</target>
+      </trans-unit>
+      <trans-unit id="X7QWUjx" resname="sylius.product.out_of_stock">
+        <source>sylius.product.out_of_stock</source>
+        <target>There is only %quantity% of this product in the stock.</target>
+      </trans-unit>
+      <trans-unit id="_kC9E3M" resname="sylius.product_variant.update_error">
+        <source>sylius.product_variant.update_error</source>
+        <target>There was an unexpected problem with updating a product variant. Please, try to update product variant again.</target>
+      </trans-unit>
+      <trans-unit id="PXMqyey" resname="sylius.promotion.update_rules">
+        <source>sylius.promotion.update_rules</source>
+        <target>Some rules of the promotions with codes %codes% have been updated.</target>
+      </trans-unit>
+      <trans-unit id="qo0EcTL" resname="sylius.taxon.in_use_by_promotion_rule">
+        <source>sylius.taxon.in_use_by_promotion_rule</source>
+        <target>Cannot delete a taxon that is in use by a promotion rule.</target>
+      </trans-unit>
+      <trans-unit id=".tEleyK" resname="sylius.taxon.menu_taxon_delete">
+        <source>sylius.taxon.menu_taxon_delete</source>
+        <target>You cannot delete a menu taxon of any channel.</target>
+      </trans-unit>
+      <trans-unit id="7WYnXw6" resname="sylius.review.accept">
+        <source>sylius.review.accept</source>
+        <target>Review has been successfully accepted.</target>
+      </trans-unit>
+      <trans-unit id="li1NX1p" resname="sylius.review.reject">
+        <source>sylius.review.reject</source>
+        <target>Review has been successfully rejected.</target>
+      </trans-unit>
+      <trans-unit id="cWVJ8oE" resname="sylius.review.wait_for_the_acceptation">
+        <source>sylius.review.wait_for_the_acceptation</source>
+        <target>Your review is waiting for the acceptation.</target>
+      </trans-unit>
+      <trans-unit id="ys8LFcv" resname="sylius.resource.payment.cannot_be_completed">
+        <source>sylius.resource.payment.cannot_be_completed</source>
+        <target>The payment cannot be completed due to insufficient stock of the "%productVariantCode%" product.</target>
+      </trans-unit>
+      <trans-unit id="tWwZelt" resname="sylius.resource.create">
+        <source>sylius.resource.create</source>
+        <target>%resource% has been successfully created.</target>
+      </trans-unit>
+      <trans-unit id="_IiE7VM" resname="sylius.resource.update">
+        <source>sylius.resource.update</source>
+        <target>%resource% has been successfully updated.</target>
+      </trans-unit>
+      <trans-unit id="bwPJd3h" resname="sylius.resource.delete">
+        <source>sylius.resource.delete</source>
+        <target>%resource% has been successfully deleted.</target>
+      </trans-unit>
+      <trans-unit id="N0QUTQ5" resname="sylius.resource.bulk_delete">
+        <source>sylius.resource.bulk_delete</source>
+        <target>%resources% have been successfully deleted.</target>
+      </trans-unit>
+      <trans-unit id="lReIiTW" resname="sylius.resource.move">
+        <source>sylius.resource.move</source>
+        <target>%resource% has been successfully moved.</target>
+      </trans-unit>
+      <trans-unit id="aoeuyPA" resname="sylius.resource.generate">
+        <source>sylius.resource.generate</source>
+        <target>%resource%s have been successfully generated.</target>
+      </trans-unit>
+      <trans-unit id="i3Xrqzw" resname="sylius.resource.revert">
+        <source>sylius.resource.revert</source>
+        <target>%resource% has been successfully reverted.</target>
+      </trans-unit>
+      <trans-unit id="uclLQm3" resname="sylius.resource.restore_deleted">
+        <source>sylius.resource.restore_deleted</source>
+        <target>%resource% has been successfully restored.</target>
+      </trans-unit>
+      <trans-unit id="xzSJg9p" resname="sylius.resource.enable">
+        <source>sylius.resource.enable</source>
+        <target>%resource% has been successfully enabled.</target>
+      </trans-unit>
+      <trans-unit id="Jg5BIvX" resname="sylius.resource.disable">
+        <source>sylius.resource.disable</source>
+        <target>%resource% has been successfully disabled.</target>
+      </trans-unit>
+      <trans-unit id=".NIDX7u" resname="sylius.resource.delete_error">
+        <source>sylius.resource.delete_error</source>
+        <target>Cannot delete, the %resource% is in use.</target>
+      </trans-unit>
+      <trans-unit id="labFzoX" resname="sylius.resource.race_condition_error">
+        <source>sylius.resource.race_condition_error</source>
+        <target>Cannot update, the %resource% was previously modified.</target>
+      </trans-unit>
+      <trans-unit id="h1YhS9T" resname="sylius.resource.something_went_wrong_error">
+        <source>sylius.resource.something_went_wrong_error</source>
+        <target>Something went wrong, please try again.</target>
+      </trans-unit>
+      <trans-unit id="V8DyzX8" resname="sylius.admin.request_reset_password.success">
+        <source>sylius.admin.request_reset_password.success</source>
+        <target>If the email you have specified exists in our system, we have sent there an instruction on how to reset your password.</target>
+      </trans-unit>
+      <trans-unit id="5OvlfR7" resname="sylius.admin.password_reset.success">
+        <source>sylius.admin.password_reset.success</source>
+        <target>Your password has been changed successfully!</target>
+      </trans-unit>
+      <trans-unit id="_8k3VQx" resname="sylius.admin.password_reset.token_expired">
+        <source>sylius.admin.password_reset.token_expired</source>
+        <target>The password reset token has expired.</target>
+      </trans-unit>
+      <trans-unit id="h5B4wJQ" resname="sylius.email.order_confirmation_resent">
+        <source>sylius.email.order_confirmation_resent</source>
+        <target>Order confirmation has been successfully resent to the customer.</target>
+      </trans-unit>
+      <trans-unit id="5S9a1r8" resname="sylius.email.shipment_confirmation_resent">
+        <source>sylius.email.shipment_confirmation_resent</source>
+        <target>Shipment confirmation has been successfully resent to the customer.</target>
+      </trans-unit>
+      <trans-unit id="SVtT1pn" resname="sylius.product_variant.cannot_generate_variants">
+        <source>sylius.product_variant.cannot_generate_variants</source>
+        <target>Cannot generate variants for a product without options values.</target>
+      </trans-unit>
+      <trans-unit id="ALr7SWo" resname="sylius.locale.delete.is_used">
+        <source>sylius.locale.delete.is_used</source>
+        <target>Cannot delete the locale, as it is used by at least one translation.</target>
+      </trans-unit>
+      <trans-unit id="UpeRed." resname="sylius.locale.delete.success">
+        <source>sylius.locale.delete.success</source>
+        <target>Locale has been successfully deleted.</target>
+      </trans-unit>
+      <trans-unit id="nwck_vQ" resname="sylius_paypal.more_than_one_seller_not_allowed">
+        <source>sylius_paypal.more_than_one_seller_not_allowed</source>
+        <target>You cannot onboard more than one PayPal seller!</target>
+      </trans-unit>
+      <trans-unit id="tYpnAMk" resname="sylius_paypal.order_cancelled">
+        <source>sylius_paypal.order_cancelled</source>
+        <target>PayPal order has been cancelled</target>
+      </trans-unit>
+      <trans-unit id="i7mT6fJ" resname="sylius_paypal.payment_cancelled">
+        <source>sylius_paypal.payment_cancelled</source>
+        <target>PayPal payment has been cancelled</target>
+      </trans-unit>
+      <trans-unit id="ThbVDQG" resname="sylius_paypal.payment_enabled">
+        <source>sylius_paypal.payment_enabled</source>
+        <target>PayPal payment has just been enabled.</target>
+      </trans-unit>
+      <trans-unit id="ZMtC2s7" resname="sylius_paypal.payment_not_enabled">
+        <source>sylius_paypal.payment_not_enabled</source>
+        <target>PayPal payment could not be enabled. Try again later.</target>
+      </trans-unit>
+      <trans-unit id="7mtYDEr" resname="sylius_paypal.something_went_wrong">
+        <source>sylius_paypal.something_went_wrong</source>
+        <target>Something went wrong. Please, try again.</target>
+      </trans-unit>
+      <trans-unit id="CsZzX7r" resname="sylius_paypal.webhook_url_not_valid">
+        <source>sylius_paypal.webhook_url_not_valid</source>
+        <target>PayPal could not verify provided webhook url. Make sure it is https and try again</target>
+      </trans-unit>
+      <trans-unit id="pLF1.2p" resname="sylius_mollie.admin.payment_link.successfully_generated">
+        <source>sylius_mollie.admin.payment_link.successfully_generated</source>
+        <target>Payment link successfully generated</target>
+      </trans-unit>
+      <trans-unit id="t9bzWD_" resname="sylius_mollie.admin.shipment.successfully_split_and_sent">
+        <source>sylius_mollie.admin.shipment.successfully_split_and_sent</source>
+        <target>Shipment has been successfully split and sent</target>
+      </trans-unit>
+      <trans-unit id="tYeD05a" resname="sylius_mollie.admin.success_got_methods">
+        <source>sylius_mollie.admin.success_got_methods</source>
+        <target>Methods was successfully updated</target>
+      </trans-unit>
+      <trans-unit id="SBtXLrN" resname="sylius_mollie.billie.error.company_missing">
+        <source>sylius_mollie.billie.error.company_missing</source>
+        <target>Company name is required when Billie payment method is used. Please set company name or choose another payment method</target>
+      </trans-unit>
+      <trans-unit id="FzZ4kLK" resname="sylius_mollie.billing_address.error.info_missing">
+        <source>sylius_mollie.billing_address.error.info_missing</source>
+        <target>First name, last name and email are required when Trustly payment method is used. Please add the missing data or choose another payment method.</target>
+      </trans-unit>
+      <trans-unit id="pRJUqPi" resname="sylius_mollie.credit_cart_error.authentication_failed">
+        <source>sylius_mollie.credit_cart_error.authentication_failed</source>
+        <target>Authentication failed</target>
+      </trans-unit>
+      <trans-unit id="6fXSYK1" resname="sylius_mollie.credit_cart_error.card_expired">
+        <source>sylius_mollie.credit_cart_error.card_expired</source>
+        <target>Card expired</target>
+      </trans-unit>
+      <trans-unit id="OK7Q0ad" resname="sylius_mollie.credit_cart_error.inactive_card">
+        <source>sylius_mollie.credit_cart_error.inactive_card</source>
+        <target>Inactive card</target>
+      </trans-unit>
+      <trans-unit id="jp5DwQE" resname="sylius_mollie.credit_cart_error.insufficient_funds">
+        <source>sylius_mollie.credit_cart_error.insufficient_funds</source>
+        <target>Insufficient funds</target>
+      </trans-unit>
+      <trans-unit id="jxFPEAI" resname="sylius_mollie.credit_cart_error.invalid_card_holder_name">
+        <source>sylius_mollie.credit_cart_error.invalid_card_holder_name</source>
+        <target>Invalid card holder name</target>
+      </trans-unit>
+      <trans-unit id="gsrOCwG" resname="sylius_mollie.credit_cart_error.invalid_card_number">
+        <source>sylius_mollie.credit_cart_error.invalid_card_number</source>
+        <target>Invalid card number</target>
+      </trans-unit>
+      <trans-unit id="0VKGrBr" resname="sylius_mollie.credit_cart_error.invalid_card_type">
+        <source>sylius_mollie.credit_cart_error.invalid_card_type</source>
+        <target>Invalid card type</target>
+      </trans-unit>
+      <trans-unit id="d9oI4TD" resname="sylius_mollie.credit_cart_error.invalid_cvv">
+        <source>sylius_mollie.credit_cart_error.invalid_cvv</source>
+        <target>Invalid cvv</target>
+      </trans-unit>
+      <trans-unit id="huiCzOn" resname="sylius_mollie.credit_cart_error.possible_fraud">
+        <source>sylius_mollie.credit_cart_error.possible_fraud</source>
+        <target>Possible fraud</target>
+      </trans-unit>
+      <trans-unit id="3.ybstC" resname="sylius_mollie.credit_cart_error.refused_by_issuer">
+        <source>sylius_mollie.credit_cart_error.refused_by_issuer</source>
+        <target>Refused by issuer</target>
+      </trans-unit>
+      <trans-unit id="eO2W7Q_" resname="sylius_mollie.empty_payment_method_checkout">
+        <source>sylius_mollie.empty_payment_method_checkout</source>
+        <target>Choose one of mollie payment method</target>
+      </trans-unit>
+      <trans-unit id="wx9we8C" resname="sylius_mollie.order_checkout.colliding_products">
+        <source>sylius_mollie.order_checkout.colliding_products</source>
+        <target>There are mixed products (recurring and non-recurring) within your cart. Proceeding with mixed content is forbidden.</target>
+      </trans-unit>
+      <trans-unit id="wccR4Fo" resname="sylius_mollie.refunded_only_locally">
+        <source>sylius_mollie.refunded_only_locally</source>
+        <target>The payment refund was made only locally</target>
+      </trans-unit>
+      <trans-unit id="BCCg_wd" resname="sylius_mollie.subscription.cancelled">
+        <source>sylius_mollie.subscription.cancelled</source>
+        <target>Subscription has been cancelled.</target>
+      </trans-unit>
+    </body>
+  </file>
+</xliff>

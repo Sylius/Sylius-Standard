@@ -1,0 +1,2586 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xliff xmlns="urn:oasis:names:tc:xliff:document:1.2" version="1.2">
+  <file source-language="en-US" target-language="en" datatype="plaintext" original="file.ext">
+    <header>
+      <tool tool-id="symfony" tool-name="Symfony"/>
+    </header>
+    <body>
+      <trans-unit id="jysioaA" resname="This value should be false.">
+        <source>This value should be false.</source>
+        <target>This value should be false.</target>
+      </trans-unit>
+      <trans-unit id="1zVPJo4" resname="This value should be true.">
+        <source>This value should be true.</source>
+        <target>This value should be true.</target>
+      </trans-unit>
+      <trans-unit id="HL55su4" resname="This value should be of type {{ type }}.">
+        <source>This value should be of type {{ type }}.</source>
+        <target>This value should be of type {{ type }}.</target>
+      </trans-unit>
+      <trans-unit id="K5oLZkw" resname="This value should be blank.">
+        <source>This value should be blank.</source>
+        <target>This value should be blank.</target>
+      </trans-unit>
+      <trans-unit id="KaWXEsW" resname="The value you selected is not a valid choice.">
+        <source>The value you selected is not a valid choice.</source>
+        <target>The value you selected is not a valid choice.</target>
+      </trans-unit>
+      <trans-unit id="4xOpbwN" resname="You must select at least {{ limit }} choice.|You must select at least {{ limit }} choices.">
+        <source>You must select at least {{ limit }} choice.|You must select at least {{ limit }} choices.</source>
+        <target>You must select at least {{ limit }} choice.|You must select at least {{ limit }} choices.</target>
+      </trans-unit>
+      <trans-unit id="65n9dGQ" resname="You must select at most {{ limit }} choice.|You must select at most {{ limit }} choices.">
+        <source>You must select at most {{ limit }} choice.|You must select at most {{ limit }} choices.</source>
+        <target>You must select at most {{ limit }} choice.|You must select at most {{ limit }} choices.</target>
+      </trans-unit>
+      <trans-unit id="bV9ETHe" resname="One or more of the given values is invalid.">
+        <source>One or more of the given values is invalid.</source>
+        <target>One or more of the given values is invalid.</target>
+      </trans-unit>
+      <trans-unit id="hzMv9Ky" resname="This field was not expected.">
+        <source>This field was not expected.</source>
+        <target>This field was not expected.</target>
+      </trans-unit>
+      <trans-unit id="m5HGv6j" resname="This field is missing.">
+        <source>This field is missing.</source>
+        <target>This field is missing.</target>
+      </trans-unit>
+      <trans-unit id="ccjuUaj" resname="This value is not a valid date.">
+        <source>This value is not a valid date.</source>
+        <target>This value is not a valid date.</target>
+      </trans-unit>
+      <trans-unit id="4jAy6GT" resname="This value is not a valid datetime.">
+        <source>This value is not a valid datetime.</source>
+        <target>This value is not a valid datetime.</target>
+      </trans-unit>
+      <trans-unit id="J8MwqDW" resname="This value is not a valid email address.">
+        <source>This value is not a valid email address.</source>
+        <target>This value is not a valid email address.</target>
+      </trans-unit>
+      <trans-unit id="OW6NCiE" resname="The file could not be found.">
+        <source>The file could not be found.</source>
+        <target>The file could not be found.</target>
+      </trans-unit>
+      <trans-unit id="uuuT8w4" resname="The file is not readable.">
+        <source>The file is not readable.</source>
+        <target>The file is not readable.</target>
+      </trans-unit>
+      <trans-unit id="xmVWVqA" resname="The file is too large ({{ size }} {{ suffix }}). Allowed maximum size is {{ limit }} {{ suffix }}.">
+        <source>The file is too large ({{ size }} {{ suffix }}). Allowed maximum size is {{ limit }} {{ suffix }}.</source>
+        <target>The file is too large ({{ size }} {{ suffix }}). Allowed maximum size is {{ limit }} {{ suffix }}.</target>
+      </trans-unit>
+      <trans-unit id="COERTaP" resname="The mime type of the file is invalid ({{ type }}). Allowed mime types are {{ types }}.">
+        <source>The mime type of the file is invalid ({{ type }}). Allowed mime types are {{ types }}.</source>
+        <target>The mime type of the file is invalid ({{ type }}). Allowed mime types are {{ types }}.</target>
+      </trans-unit>
+      <trans-unit id="xJV2eT8" resname="This value should be {{ limit }} or less.">
+        <source>This value should be {{ limit }} or less.</source>
+        <target>This value should be {{ limit }} or less.</target>
+      </trans-unit>
+      <trans-unit id="Zuairxy" resname="This value is too long. It should have {{ limit }} character or less.|This value is too long. It should have {{ limit }} characters or less.">
+        <source>This value is too long. It should have {{ limit }} character or less.|This value is too long. It should have {{ limit }} characters or less.</source>
+        <target>This value is too long. It should have {{ limit }} character or less.|This value is too long. It should have {{ limit }} characters or less.</target>
+      </trans-unit>
+      <trans-unit id="3bh29vT" resname="This value should be {{ limit }} or more.">
+        <source>This value should be {{ limit }} or more.</source>
+        <target>This value should be {{ limit }} or more.</target>
+      </trans-unit>
+      <trans-unit id="Muq3W.6" resname="This value is too short. It should have {{ limit }} character or more.|This value is too short. It should have {{ limit }} characters or more.">
+        <source>This value is too short. It should have {{ limit }} character or more.|This value is too short. It should have {{ limit }} characters or more.</source>
+        <target>This value is too short. It should have {{ limit }} character or more.|This value is too short. It should have {{ limit }} characters or more.</target>
+      </trans-unit>
+      <trans-unit id="vLBiKCD" resname="This value should not be blank.">
+        <source>This value should not be blank.</source>
+        <target>This value should not be blank.</target>
+      </trans-unit>
+      <trans-unit id="FUEH3cZ" resname="This value should not be null.">
+        <source>This value should not be null.</source>
+        <target>This value should not be null.</target>
+      </trans-unit>
+      <trans-unit id="yIMqPF6" resname="This value should be null.">
+        <source>This value should be null.</source>
+        <target>This value should be null.</target>
+      </trans-unit>
+      <trans-unit id="TZg2uqx" resname="This value is not valid.">
+        <source>This value is not valid.</source>
+        <target>This value is not valid.</target>
+      </trans-unit>
+      <trans-unit id="Uu2fZ7m" resname="This value is not a valid time.">
+        <source>This value is not a valid time.</source>
+        <target>This value is not a valid time.</target>
+      </trans-unit>
+      <trans-unit id="X5msM9I" resname="This value is not a valid URL.">
+        <source>This value is not a valid URL.</source>
+        <target>This value is not a valid URL.</target>
+      </trans-unit>
+      <trans-unit id="yShl.HD" resname="The two values should be equal.">
+        <source>The two values should be equal.</source>
+        <target>The two values should be equal.</target>
+      </trans-unit>
+      <trans-unit id="UPTnJIu" resname="The file is too large. Allowed maximum size is {{ limit }} {{ suffix }}.">
+        <source>The file is too large. Allowed maximum size is {{ limit }} {{ suffix }}.</source>
+        <target>The file is too large. Allowed maximum size is {{ limit }} {{ suffix }}.</target>
+      </trans-unit>
+      <trans-unit id="OEeVt7G" resname="The file is too large.">
+        <source>The file is too large.</source>
+        <target>The file is too large.</target>
+      </trans-unit>
+      <trans-unit id="DAd59Rr" resname="The file could not be uploaded.">
+        <source>The file could not be uploaded.</source>
+        <target>The file could not be uploaded.</target>
+      </trans-unit>
+      <trans-unit id="jpVY2B5" resname="This value should be a valid number.">
+        <source>This value should be a valid number.</source>
+        <target>This value should be a valid number.</target>
+      </trans-unit>
+      <trans-unit id="aeFJJFS" resname="This file is not a valid image.">
+        <source>This file is not a valid image.</source>
+        <target>This file is not a valid image.</target>
+      </trans-unit>
+      <trans-unit id="r9nOjqT" resname="This is not a valid IP address.">
+        <source>This is not a valid IP address.</source>
+        <target>This value is not a valid IP address.</target>
+      </trans-unit>
+      <trans-unit id="izWIhKR" resname="This value is not a valid language.">
+        <source>This value is not a valid language.</source>
+        <target>This value is not a valid language.</target>
+      </trans-unit>
+      <trans-unit id="gBF5fE7" resname="This value is not a valid locale.">
+        <source>This value is not a valid locale.</source>
+        <target>This value is not a valid locale.</target>
+      </trans-unit>
+      <trans-unit id="QUviSFS" resname="This value is not a valid country.">
+        <source>This value is not a valid country.</source>
+        <target>This value is not a valid country.</target>
+      </trans-unit>
+      <trans-unit id="nmXj9fT" resname="This value is already used.">
+        <source>This value is already used.</source>
+        <target>This value is already used.</target>
+      </trans-unit>
+      <trans-unit id="LAGu_iq" resname="The size of the image could not be detected.">
+        <source>The size of the image could not be detected.</source>
+        <target>The size of the image could not be detected.</target>
+      </trans-unit>
+      <trans-unit id="YD_yE46" resname="The image width is too big ({{ width }}px). Allowed maximum width is {{ max_width }}px.">
+        <source>The image width is too big ({{ width }}px). Allowed maximum width is {{ max_width }}px.</source>
+        <target>The image width is too big ({{ width }}px). Allowed maximum width is {{ max_width }}px.</target>
+      </trans-unit>
+      <trans-unit id="pfL2.fo" resname="The image width is too small ({{ width }}px). Minimum width expected is {{ min_width }}px.">
+        <source>The image width is too small ({{ width }}px). Minimum width expected is {{ min_width }}px.</source>
+        <target>The image width is too small ({{ width }}px). Minimum width expected is {{ min_width }}px.</target>
+      </trans-unit>
+      <trans-unit id="zV9L7pv" resname="The image height is too big ({{ height }}px). Allowed maximum height is {{ max_height }}px.">
+        <source>The image height is too big ({{ height }}px). Allowed maximum height is {{ max_height }}px.</source>
+        <target>The image height is too big ({{ height }}px). Allowed maximum height is {{ max_height }}px.</target>
+      </trans-unit>
+      <trans-unit id="A7vLGPA" resname="The image height is too small ({{ height }}px). Minimum height expected is {{ min_height }}px.">
+        <source>The image height is too small ({{ height }}px). Minimum height expected is {{ min_height }}px.</source>
+        <target>The image height is too small ({{ height }}px). Minimum height expected is {{ min_height }}px.</target>
+      </trans-unit>
+      <trans-unit id="hbSSYMh" resname="This value should be the user's current password.">
+        <source>This value should be the user's current password.</source>
+        <target>This value should be the user's current password.</target>
+      </trans-unit>
+      <trans-unit id="A1Hv7nv" resname="This value should have exactly {{ limit }} character.|This value should have exactly {{ limit }} characters.">
+        <source>This value should have exactly {{ limit }} character.|This value should have exactly {{ limit }} characters.</source>
+        <target>This value should have exactly {{ limit }} character.|This value should have exactly {{ limit }} characters.</target>
+      </trans-unit>
+      <trans-unit id="H.ZNP57" resname="The file was only partially uploaded.">
+        <source>The file was only partially uploaded.</source>
+        <target>The file was only partially uploaded.</target>
+      </trans-unit>
+      <trans-unit id="qUKi9W_" resname="No file was uploaded.">
+        <source>No file was uploaded.</source>
+        <target>No file was uploaded.</target>
+      </trans-unit>
+      <trans-unit id="MRZ.kUM" resname="No temporary folder was configured in php.ini.">
+        <source>No temporary folder was configured in php.ini.</source>
+        <target>No temporary folder was configured in php.ini, or the configured folder does not exist.</target>
+      </trans-unit>
+      <trans-unit id="ivltd6_" resname="Cannot write temporary file to disk.">
+        <source>Cannot write temporary file to disk.</source>
+        <target>Cannot write temporary file to disk.</target>
+      </trans-unit>
+      <trans-unit id="_x64C6y" resname="A PHP extension caused the upload to fail.">
+        <source>A PHP extension caused the upload to fail.</source>
+        <target>A PHP extension caused the upload to fail.</target>
+      </trans-unit>
+      <trans-unit id=".K7ySMo" resname="This collection should contain {{ limit }} element or more.|This collection should contain {{ limit }} elements or more.">
+        <source>This collection should contain {{ limit }} element or more.|This collection should contain {{ limit }} elements or more.</source>
+        <target>This collection should contain {{ limit }} element or more.|This collection should contain {{ limit }} elements or more.</target>
+      </trans-unit>
+      <trans-unit id="aSvx2eb" resname="This collection should contain {{ limit }} element or less.|This collection should contain {{ limit }} elements or less.">
+        <source>This collection should contain {{ limit }} element or less.|This collection should contain {{ limit }} elements or less.</source>
+        <target>This collection should contain {{ limit }} element or less.|This collection should contain {{ limit }} elements or less.</target>
+      </trans-unit>
+      <trans-unit id="d4HuxpA" resname="This collection should contain exactly {{ limit }} element.|This collection should contain exactly {{ limit }} elements.">
+        <source>This collection should contain exactly {{ limit }} element.|This collection should contain exactly {{ limit }} elements.</source>
+        <target>This collection should contain exactly {{ limit }} element.|This collection should contain exactly {{ limit }} elements.</target>
+      </trans-unit>
+      <trans-unit id="Ia5ts7h" resname="Invalid card number.">
+        <source>Invalid card number.</source>
+        <target>Invalid card number.</target>
+      </trans-unit>
+      <trans-unit id="Y8YNvWG" resname="Unsupported card type or invalid card number.">
+        <source>Unsupported card type or invalid card number.</source>
+        <target>Unsupported card type or invalid card number.</target>
+      </trans-unit>
+      <trans-unit id="Bp_BiDs" resname="This is not a valid International Bank Account Number (IBAN).">
+        <source>This is not a valid International Bank Account Number (IBAN).</source>
+        <target>This value is not a valid International Bank Account Number (IBAN).</target>
+      </trans-unit>
+      <trans-unit id="HqngxWf" resname="This value is not a valid ISBN-10.">
+        <source>This value is not a valid ISBN-10.</source>
+        <target>This value is not a valid ISBN-10.</target>
+      </trans-unit>
+      <trans-unit id="Pm2IygX" resname="This value is not a valid ISBN-13.">
+        <source>This value is not a valid ISBN-13.</source>
+        <target>This value is not a valid ISBN-13.</target>
+      </trans-unit>
+      <trans-unit id="w8oSYvN" resname="This value is neither a valid ISBN-10 nor a valid ISBN-13.">
+        <source>This value is neither a valid ISBN-10 nor a valid ISBN-13.</source>
+        <target>This value is neither a valid ISBN-10 nor a valid ISBN-13.</target>
+      </trans-unit>
+      <trans-unit id="aEf2fyJ" resname="This value is not a valid ISSN.">
+        <source>This value is not a valid ISSN.</source>
+        <target>This value is not a valid ISSN.</target>
+      </trans-unit>
+      <trans-unit id="OeFZFII" resname="This value is not a valid currency.">
+        <source>This value is not a valid currency.</source>
+        <target>This value is not a valid currency.</target>
+      </trans-unit>
+      <trans-unit id="G8HNxQM" resname="This value should be equal to {{ compared_value }}.">
+        <source>This value should be equal to {{ compared_value }}.</source>
+        <target>This value should be equal to {{ compared_value }}.</target>
+      </trans-unit>
+      <trans-unit id="Xgf_Y8C" resname="This value should be greater than {{ compared_value }}.">
+        <source>This value should be greater than {{ compared_value }}.</source>
+        <target>This value should be greater than {{ compared_value }}.</target>
+      </trans-unit>
+      <trans-unit id="OrsJXWO" resname="This value should be greater than or equal to {{ compared_value }}.">
+        <source>This value should be greater than or equal to {{ compared_value }}.</source>
+        <target>This value should be greater than or equal to {{ compared_value }}.</target>
+      </trans-unit>
+      <trans-unit id="wni8iKB" resname="This value should be identical to {{ compared_value_type }} {{ compared_value }}.">
+        <source>This value should be identical to {{ compared_value_type }} {{ compared_value }}.</source>
+        <target>This value should be identical to {{ compared_value_type }} {{ compared_value }}.</target>
+      </trans-unit>
+      <trans-unit id="EgRc_Qq" resname="This value should be less than {{ compared_value }}.">
+        <source>This value should be less than {{ compared_value }}.</source>
+        <target>This value should be less than {{ compared_value }}.</target>
+      </trans-unit>
+      <trans-unit id="vNn72MQ" resname="This value should be less than or equal to {{ compared_value }}.">
+        <source>This value should be less than or equal to {{ compared_value }}.</source>
+        <target>This value should be less than or equal to {{ compared_value }}.</target>
+      </trans-unit>
+      <trans-unit id="N4F464Y" resname="This value should not be equal to {{ compared_value }}.">
+        <source>This value should not be equal to {{ compared_value }}.</source>
+        <target>This value should not be equal to {{ compared_value }}.</target>
+      </trans-unit>
+      <trans-unit id="T8lYq4L" resname="This value should not be identical to {{ compared_value_type }} {{ compared_value }}.">
+        <source>This value should not be identical to {{ compared_value_type }} {{ compared_value }}.</source>
+        <target>This value should not be identical to {{ compared_value_type }} {{ compared_value }}.</target>
+      </trans-unit>
+      <trans-unit id="x5xpcfK" resname="The image ratio is too big ({{ ratio }}). Allowed maximum ratio is {{ max_ratio }}.">
+        <source>The image ratio is too big ({{ ratio }}). Allowed maximum ratio is {{ max_ratio }}.</source>
+        <target>The image ratio is too big ({{ ratio }}). Allowed maximum ratio is {{ max_ratio }}.</target>
+      </trans-unit>
+      <trans-unit id="5cB4RCN" resname="The image ratio is too small ({{ ratio }}). Minimum ratio expected is {{ min_ratio }}.">
+        <source>The image ratio is too small ({{ ratio }}). Minimum ratio expected is {{ min_ratio }}.</source>
+        <target>The image ratio is too small ({{ ratio }}). Minimum ratio expected is {{ min_ratio }}.</target>
+      </trans-unit>
+      <trans-unit id="SVgw5SP" resname="The image is square ({{ width }}x{{ height }}px). Square images are not allowed.">
+        <source>The image is square ({{ width }}x{{ height }}px). Square images are not allowed.</source>
+        <target>The image is square ({{ width }}x{{ height }}px). Square images are not allowed.</target>
+      </trans-unit>
+      <trans-unit id="wpV7oxR" resname="The image is landscape oriented ({{ width }}x{{ height }}px). Landscape oriented images are not allowed.">
+        <source>The image is landscape oriented ({{ width }}x{{ height }}px). Landscape oriented images are not allowed.</source>
+        <target>The image is landscape oriented ({{ width }}x{{ height }}px). Landscape oriented images are not allowed.</target>
+      </trans-unit>
+      <trans-unit id="t7f5lY9" resname="The image is portrait oriented ({{ width }}x{{ height }}px). Portrait oriented images are not allowed.">
+        <source>The image is portrait oriented ({{ width }}x{{ height }}px). Portrait oriented images are not allowed.</source>
+        <target>The image is portrait oriented ({{ width }}x{{ height }}px). Portrait oriented images are not allowed.</target>
+      </trans-unit>
+      <trans-unit id="L9tKe2y" resname="An empty file is not allowed.">
+        <source>An empty file is not allowed.</source>
+        <target>An empty file is not allowed.</target>
+      </trans-unit>
+      <trans-unit id="4421dQm" resname="The host could not be resolved.">
+        <source>The host could not be resolved.</source>
+        <target>The host could not be resolved.</target>
+      </trans-unit>
+      <trans-unit id="tD.RkRe" resname="This value does not match the expected {{ charset }} charset.">
+        <source>This value does not match the expected {{ charset }} charset.</source>
+        <target>This value does not match the expected {{ charset }} charset.</target>
+      </trans-unit>
+      <trans-unit id="w2dRFcU" resname="This is not a valid Business Identifier Code (BIC).">
+        <source>This is not a valid Business Identifier Code (BIC).</source>
+        <target>This value is not a valid Business Identifier Code (BIC).</target>
+      </trans-unit>
+      <trans-unit id="B9r0Hn5" resname="Error">
+        <source>Error</source>
+        <target>Error</target>
+      </trans-unit>
+      <trans-unit id="GO8.wou" resname="This is not a valid UUID.">
+        <source>This is not a valid UUID.</source>
+        <target>This value is not a valid UUID.</target>
+      </trans-unit>
+      <trans-unit id="BmDYW0B" resname="This value should be a multiple of {{ compared_value }}.">
+        <source>This value should be a multiple of {{ compared_value }}.</source>
+        <target>This value should be a multiple of {{ compared_value }}.</target>
+      </trans-unit>
+      <trans-unit id="7urGdp4" resname="This Business Identifier Code (BIC) is not associated with IBAN {{ iban }}.">
+        <source>This Business Identifier Code (BIC) is not associated with IBAN {{ iban }}.</source>
+        <target>This Business Identifier Code (BIC) is not associated with IBAN {{ iban }}.</target>
+      </trans-unit>
+      <trans-unit id="NpIt6EV" resname="This value should be valid JSON.">
+        <source>This value should be valid JSON.</source>
+        <target>This value should be valid JSON.</target>
+      </trans-unit>
+      <trans-unit id="NAJHeXU" resname="This collection should contain only unique elements.">
+        <source>This collection should contain only unique elements.</source>
+        <target>This collection should contain only unique elements.</target>
+      </trans-unit>
+      <trans-unit id="mBNZ2p4" resname="This value should be positive.">
+        <source>This value should be positive.</source>
+        <target>This value should be positive.</target>
+      </trans-unit>
+      <trans-unit id="Q07tS4h" resname="This value should be either positive or zero.">
+        <source>This value should be either positive or zero.</source>
+        <target>This value should be either positive or zero.</target>
+      </trans-unit>
+      <trans-unit id="cwaFWZt" resname="This value should be negative.">
+        <source>This value should be negative.</source>
+        <target>This value should be negative.</target>
+      </trans-unit>
+      <trans-unit id="INgX870" resname="This value should be either negative or zero.">
+        <source>This value should be either negative or zero.</source>
+        <target>This value should be either negative or zero.</target>
+      </trans-unit>
+      <trans-unit id="0bSR5cp" resname="This value is not a valid timezone.">
+        <source>This value is not a valid timezone.</source>
+        <target>This value is not a valid timezone.</target>
+      </trans-unit>
+      <trans-unit id="o0vqbDQ" resname="This password has been leaked in a data breach, it must not be used. Please use another password.">
+        <source>This password has been leaked in a data breach, it must not be used. Please use another password.</source>
+        <target>This password has been leaked in a data breach, it must not be used. Please use another password.</target>
+      </trans-unit>
+      <trans-unit id="nNegxai" resname="This value should be between {{ min }} and {{ max }}.">
+        <source>This value should be between {{ min }} and {{ max }}.</source>
+        <target>This value should be between {{ min }} and {{ max }}.</target>
+      </trans-unit>
+      <trans-unit id="q0JXpA2" resname="This value is not a valid hostname.">
+        <source>This value is not a valid hostname.</source>
+        <target>This value is not a valid hostname.</target>
+      </trans-unit>
+      <trans-unit id="Co_98pi" resname="The number of elements in this collection should be a multiple of {{ compared_value }}.">
+        <source>The number of elements in this collection should be a multiple of {{ compared_value }}.</source>
+        <target>The number of elements in this collection should be a multiple of {{ compared_value }}.</target>
+      </trans-unit>
+      <trans-unit id="rfebLrY" resname="This value should satisfy at least one of the following constraints:">
+        <source>This value should satisfy at least one of the following constraints:</source>
+        <target>This value should satisfy at least one of the following constraints:</target>
+      </trans-unit>
+      <trans-unit id="lxL.CBF" resname="Each element of this collection should satisfy its own set of constraints.">
+        <source>Each element of this collection should satisfy its own set of constraints.</source>
+        <target>Each element of this collection should satisfy its own set of constraints.</target>
+      </trans-unit>
+      <trans-unit id="1nUIbF0" resname="This value is not a valid International Securities Identification Number (ISIN).">
+        <source>This value is not a valid International Securities Identification Number (ISIN).</source>
+        <target>This value is not a valid International Securities Identification Number (ISIN).</target>
+      </trans-unit>
+      <trans-unit id="kG_VGA1" resname="This value should be a valid expression.">
+        <source>This value should be a valid expression.</source>
+        <target>This value should be a valid expression.</target>
+      </trans-unit>
+      <trans-unit id="2_9V4lo" resname="This value is not a valid CSS color.">
+        <source>This value is not a valid CSS color.</source>
+        <target>This value is not a valid CSS color.</target>
+      </trans-unit>
+      <trans-unit id="fye9wG1" resname="This value is not a valid CIDR notation.">
+        <source>This value is not a valid CIDR notation.</source>
+        <target>This value is not a valid CIDR notation.</target>
+      </trans-unit>
+      <trans-unit id="ERGRJhK" resname="The value of the netmask should be between {{ min }} and {{ max }}.">
+        <source>The value of the netmask should be between {{ min }} and {{ max }}.</source>
+        <target>The value of the netmask should be between {{ min }} and {{ max }}.</target>
+      </trans-unit>
+      <trans-unit id="7db7kQD" resname="The filename is too long. It should have {{ filename_max_length }} character or less.|The filename is too long. It should have {{ filename_max_length }} characters or less.">
+        <source>The filename is too long. It should have {{ filename_max_length }} character or less.|The filename is too long. It should have {{ filename_max_length }} characters or less.</source>
+        <target>The filename is too long. It should have {{ filename_max_length }} character or less.|The filename is too long. It should have {{ filename_max_length }} characters or less.</target>
+      </trans-unit>
+      <trans-unit id="7JLHuYX" resname="The password strength is too low. Please use a stronger password.">
+        <source>The password strength is too low. Please use a stronger password.</source>
+        <target>The password strength is too low. Please use a stronger password.</target>
+      </trans-unit>
+      <trans-unit id="Pgo2CSS" resname="This value contains characters that are not allowed by the current restriction-level.">
+        <source>This value contains characters that are not allowed by the current restriction-level.</source>
+        <target>This value contains characters that are not allowed by the current restriction-level.</target>
+      </trans-unit>
+      <trans-unit id="7hhZedg" resname="Using invisible characters is not allowed.">
+        <source>Using invisible characters is not allowed.</source>
+        <target>Using invisible characters is not allowed.</target>
+      </trans-unit>
+      <trans-unit id="DpnrQ0a" resname="Mixing numbers from different scripts is not allowed.">
+        <source>Mixing numbers from different scripts is not allowed.</source>
+        <target>Mixing numbers from different scripts is not allowed.</target>
+      </trans-unit>
+      <trans-unit id="Z4taMVn" resname="Using hidden overlay characters is not allowed.">
+        <source>Using hidden overlay characters is not allowed.</source>
+        <target>Using hidden overlay characters is not allowed.</target>
+      </trans-unit>
+      <trans-unit id="1seErdG" resname="The extension of the file is invalid ({{ extension }}). Allowed extensions are {{ extensions }}.">
+        <source>The extension of the file is invalid ({{ extension }}). Allowed extensions are {{ extensions }}.</source>
+        <target>The extension of the file is invalid ({{ extension }}). Allowed extensions are {{ extensions }}.</target>
+      </trans-unit>
+      <trans-unit id="uyl6nQ7" resname="The detected character encoding is invalid ({{ detected }}). Allowed encodings are {{ encodings }}.">
+        <source>The detected character encoding is invalid ({{ detected }}). Allowed encodings are {{ encodings }}.</source>
+        <target>The detected character encoding is invalid ({{ detected }}). Allowed encodings are {{ encodings }}.</target>
+      </trans-unit>
+      <trans-unit id="65jFl8b" resname="This value is not a valid MAC address.">
+        <source>This value is not a valid MAC address.</source>
+        <target>This value is not a valid MAC address.</target>
+      </trans-unit>
+      <trans-unit id="Pm0aj_f" resname="This URL is missing a top-level domain.">
+        <source>This URL is missing a top-level domain.</source>
+        <target>This URL is missing a top-level domain.</target>
+      </trans-unit>
+      <trans-unit id="gbpWGsC" resname="This value is too short. It should contain at least one word.|This value is too short. It should contain at least {{ min }} words.">
+        <source>This value is too short. It should contain at least one word.|This value is too short. It should contain at least {{ min }} words.</source>
+        <target>This value is too short. It should contain at least one word.|This value is too short. It should contain at least {{ min }} words.</target>
+      </trans-unit>
+      <trans-unit id="1WpHUSt" resname="This value is too long. It should contain one word.|This value is too long. It should contain {{ max }} words or less.">
+        <source>This value is too long. It should contain one word.|This value is too long. It should contain {{ max }} words or less.</source>
+        <target>This value is too long. It should contain one word.|This value is too long. It should contain {{ max }} words or less.</target>
+      </trans-unit>
+      <trans-unit id="egUw40j" resname="This value does not represent a valid week in the ISO 8601 format.">
+        <source>This value does not represent a valid week in the ISO 8601 format.</source>
+        <target>This value does not represent a valid week in the ISO 8601 format.</target>
+      </trans-unit>
+      <trans-unit id="qj68TOe" resname="This value is not a valid week.">
+        <source>This value is not a valid week.</source>
+        <target>This value is not a valid week.</target>
+      </trans-unit>
+      <trans-unit id="RX1vHSU" resname="This value should not be before week &quot;{{ min }}&quot;.">
+        <source>This value should not be before week "{{ min }}".</source>
+        <target>This value should not be before week "{{ min }}".</target>
+      </trans-unit>
+      <trans-unit id="pOcsUec" resname="This value should not be after week &quot;{{ max }}&quot;.">
+        <source>This value should not be after week "{{ max }}".</source>
+        <target>This value should not be after week "{{ max }}".</target>
+      </trans-unit>
+      <trans-unit id="3QNCFgi" resname="This value is not a valid Twig template.">
+        <source>This value is not a valid Twig template.</source>
+        <target>This value is not a valid Twig template.</target>
+      </trans-unit>
+      <trans-unit id="ZuGpyhA" resname="This file is not a valid video.">
+        <source>This file is not a valid video.</source>
+        <target>This file is not a valid video.</target>
+      </trans-unit>
+      <trans-unit id="7ZjICRC" resname="The size of the video could not be detected.">
+        <source>The size of the video could not be detected.</source>
+        <target>The size of the video could not be detected.</target>
+      </trans-unit>
+      <trans-unit id="WS2rIIU" resname="The video width is too big ({{ width }}px). Allowed maximum width is {{ max_width }}px.">
+        <source>The video width is too big ({{ width }}px). Allowed maximum width is {{ max_width }}px.</source>
+        <target>The video width is too big ({{ width }}px). Allowed maximum width is {{ max_width }}px.</target>
+      </trans-unit>
+      <trans-unit id="Ey8lNRo" resname="The video width is too small ({{ width }}px). Minimum width expected is {{ min_width }}px.">
+        <source>The video width is too small ({{ width }}px). Minimum width expected is {{ min_width }}px.</source>
+        <target>The video width is too small ({{ width }}px). Minimum width expected is {{ min_width }}px.</target>
+      </trans-unit>
+      <trans-unit id="Liu7sjp" resname="The video height is too big ({{ height }}px). Allowed maximum height is {{ max_height }}px.">
+        <source>The video height is too big ({{ height }}px). Allowed maximum height is {{ max_height }}px.</source>
+        <target>The video height is too big ({{ height }}px). Allowed maximum height is {{ max_height }}px.</target>
+      </trans-unit>
+      <trans-unit id="2FkdfHN" resname="The video height is too small ({{ height }}px). Minimum height expected is {{ min_height }}px.">
+        <source>The video height is too small ({{ height }}px). Minimum height expected is {{ min_height }}px.</source>
+        <target>The video height is too small ({{ height }}px). Minimum height expected is {{ min_height }}px.</target>
+      </trans-unit>
+      <trans-unit id="Dp2k5ge" resname="The video has too few pixels ({{ pixels }} pixels). Minimum amount expected is {{ min_pixels }} pixels.">
+        <source>The video has too few pixels ({{ pixels }} pixels). Minimum amount expected is {{ min_pixels }} pixels.</source>
+        <target>The video has too few pixels ({{ pixels }} pixels). Minimum amount expected is {{ min_pixels }} pixels.</target>
+      </trans-unit>
+      <trans-unit id="IDGrrj_" resname="The video has too many pixels ({{ pixels }} pixels). Maximum amount expected is {{ max_pixels }} pixels.">
+        <source>The video has too many pixels ({{ pixels }} pixels). Maximum amount expected is {{ max_pixels }} pixels.</source>
+        <target>The video has too many pixels ({{ pixels }} pixels). Maximum amount expected is {{ max_pixels }} pixels.</target>
+      </trans-unit>
+      <trans-unit id="J1cZmuA" resname="The video ratio is too big ({{ ratio }}). Allowed maximum ratio is {{ max_ratio }}.">
+        <source>The video ratio is too big ({{ ratio }}). Allowed maximum ratio is {{ max_ratio }}.</source>
+        <target>The video ratio is too big ({{ ratio }}). Allowed maximum ratio is {{ max_ratio }}.</target>
+      </trans-unit>
+      <trans-unit id="WQTwvFh" resname="The video ratio is too small ({{ ratio }}). Minimum ratio expected is {{ min_ratio }}.">
+        <source>The video ratio is too small ({{ ratio }}). Minimum ratio expected is {{ min_ratio }}.</source>
+        <target>The video ratio is too small ({{ ratio }}). Minimum ratio expected is {{ min_ratio }}.</target>
+      </trans-unit>
+      <trans-unit id="OT6Evve" resname="The video is square ({{ width }}x{{ height }}px). Square videos are not allowed.">
+        <source>The video is square ({{ width }}x{{ height }}px). Square videos are not allowed.</source>
+        <target>The video is square ({{ width }}x{{ height }}px). Square videos are not allowed.</target>
+      </trans-unit>
+      <trans-unit id="mXgOwd4" resname="The video is landscape oriented ({{ width }}x{{ height }}px). Landscape oriented videos are not allowed.">
+        <source>The video is landscape oriented ({{ width }}x{{ height }}px). Landscape oriented videos are not allowed.</source>
+        <target>The video is landscape oriented ({{ width }}x{{ height }}px). Landscape oriented videos are not allowed.</target>
+      </trans-unit>
+      <trans-unit id="VrsdBNF" resname="The video is portrait oriented ({{ width }}x{{ height }}px). Portrait oriented videos are not allowed.">
+        <source>The video is portrait oriented ({{ width }}x{{ height }}px). Portrait oriented videos are not allowed.</source>
+        <target>The video is portrait oriented ({{ width }}x{{ height }}px). Portrait oriented videos are not allowed.</target>
+      </trans-unit>
+      <trans-unit id="x8fsjeI" resname="The video file is corrupted.">
+        <source>The video file is corrupted.</source>
+        <target>The video file is corrupted.</target>
+      </trans-unit>
+      <trans-unit id="nzXY1iu" resname="The video contains multiple streams. Only one stream is allowed.">
+        <source>The video contains multiple streams. Only one stream is allowed.</source>
+        <target>The video contains multiple streams. Only one stream is allowed.</target>
+      </trans-unit>
+      <trans-unit id="hCzL7Mv" resname="Unsupported video codec &quot;{{ codec }}&quot;.">
+        <source>Unsupported video codec "{{ codec }}".</source>
+        <target>Unsupported video codec "{{ codec }}".</target>
+      </trans-unit>
+      <trans-unit id="nTnX6nj" resname="Unsupported video container &quot;{{ container }}&quot;.">
+        <source>Unsupported video container "{{ container }}".</source>
+        <target>Unsupported video container "{{ container }}".</target>
+      </trans-unit>
+      <trans-unit id="jAJTV_I" resname="The image file is corrupted.">
+        <source>The image file is corrupted.</source>
+        <target>The image file is corrupted.</target>
+      </trans-unit>
+      <trans-unit id="aw1rRIE" resname="The image has too few pixels ({{ pixels }} pixels). Minimum amount expected is {{ min_pixels }} pixels.">
+        <source>The image has too few pixels ({{ pixels }} pixels). Minimum amount expected is {{ min_pixels }} pixels.</source>
+        <target>The image has too few pixels ({{ pixels }} pixels). Minimum amount expected is {{ min_pixels }} pixels.</target>
+      </trans-unit>
+      <trans-unit id="KbWb1FD" resname="The image has too many pixels ({{ pixels }} pixels). Maximum amount expected is {{ max_pixels }} pixels.">
+        <source>The image has too many pixels ({{ pixels }} pixels). Maximum amount expected is {{ max_pixels }} pixels.</source>
+        <target>The image has too many pixels ({{ pixels }} pixels). Maximum amount expected is {{ max_pixels }} pixels.</target>
+      </trans-unit>
+      <trans-unit id="tPeCNvN" resname="This filename does not match the expected charset.">
+        <source>This filename does not match the expected charset.</source>
+        <target>This filename does not match the expected charset.</target>
+      </trans-unit>
+      <trans-unit id="tDkL4Jc" resname="This form should not contain extra fields.">
+        <source>This form should not contain extra fields.</source>
+        <target>This form should not contain extra fields.</target>
+      </trans-unit>
+      <trans-unit id="SlPljy." resname="The uploaded file was too large. Please try to upload a smaller file.">
+        <source>The uploaded file was too large. Please try to upload a smaller file.</source>
+        <target>The uploaded file was too large. Please try to upload a smaller file.</target>
+      </trans-unit>
+      <trans-unit id="b_5.52u" resname="The CSRF token is invalid. Please try to resubmit the form.">
+        <source>The CSRF token is invalid. Please try to resubmit the form.</source>
+        <target>The CSRF token is invalid. Please try to resubmit the form.</target>
+      </trans-unit>
+      <trans-unit id="wlGn1pP" resname="This value is not a valid HTML5 color.">
+        <source>This value is not a valid HTML5 color.</source>
+        <target>This value is not a valid HTML5 color.</target>
+      </trans-unit>
+      <trans-unit id="e_2ZUCK" resname="Please enter a valid birthdate.">
+        <source>Please enter a valid birthdate.</source>
+        <target>Please enter a valid birthdate.</target>
+      </trans-unit>
+      <trans-unit id="TPma293" resname="The selected choice is invalid.">
+        <source>The selected choice is invalid.</source>
+        <target>The selected choice is invalid.</target>
+      </trans-unit>
+      <trans-unit id="Fkuy1Kw" resname="The collection is invalid.">
+        <source>The collection is invalid.</source>
+        <target>The collection is invalid.</target>
+      </trans-unit>
+      <trans-unit id="qiPYgGj" resname="Please select a valid color.">
+        <source>Please select a valid color.</source>
+        <target>Please select a valid color.</target>
+      </trans-unit>
+      <trans-unit id="qf.GaaJ" resname="Please select a valid country.">
+        <source>Please select a valid country.</source>
+        <target>Please select a valid country.</target>
+      </trans-unit>
+      <trans-unit id="WtFFCQ8" resname="Please select a valid currency.">
+        <source>Please select a valid currency.</source>
+        <target>Please select a valid currency.</target>
+      </trans-unit>
+      <trans-unit id="gwI.OzY" resname="Please choose a valid date interval.">
+        <source>Please choose a valid date interval.</source>
+        <target>Please choose a valid date interval.</target>
+      </trans-unit>
+      <trans-unit id="yeUbmWc" resname="Please enter a valid date and time.">
+        <source>Please enter a valid date and time.</source>
+        <target>Please enter a valid date and time.</target>
+      </trans-unit>
+      <trans-unit id="eC1bGok" resname="Please enter a valid date.">
+        <source>Please enter a valid date.</source>
+        <target>Please enter a valid date.</target>
+      </trans-unit>
+      <trans-unit id=".3DoUU." resname="Please select a valid file.">
+        <source>Please select a valid file.</source>
+        <target>Please select a valid file.</target>
+      </trans-unit>
+      <trans-unit id="wwjjKAn" resname="The hidden field is invalid.">
+        <source>The hidden field is invalid.</source>
+        <target>The hidden field is invalid.</target>
+      </trans-unit>
+      <trans-unit id="o.y86J1" resname="Please enter an integer.">
+        <source>Please enter an integer.</source>
+        <target>Please enter an integer.</target>
+      </trans-unit>
+      <trans-unit id="MhFFYoK" resname="Please select a valid language.">
+        <source>Please select a valid language.</source>
+        <target>Please select a valid language.</target>
+      </trans-unit>
+      <trans-unit id="LKAkY.h" resname="Please select a valid locale.">
+        <source>Please select a valid locale.</source>
+        <target>Please select a valid locale.</target>
+      </trans-unit>
+      <trans-unit id="GoIKSyM" resname="Please enter a valid money amount.">
+        <source>Please enter a valid money amount.</source>
+        <target>Please enter a valid money amount.</target>
+      </trans-unit>
+      <trans-unit id="c5ToMGG" resname="Please enter a number.">
+        <source>Please enter a number.</source>
+        <target>Please enter a number.</target>
+      </trans-unit>
+      <trans-unit id="AKUMRqn" resname="The password is invalid.">
+        <source>The password is invalid.</source>
+        <target>The password is invalid.</target>
+      </trans-unit>
+      <trans-unit id="HviZ2Cc" resname="Please enter a percentage value.">
+        <source>Please enter a percentage value.</source>
+        <target>Please enter a percentage value.</target>
+      </trans-unit>
+      <trans-unit id="u4rxsHj" resname="The values do not match.">
+        <source>The values do not match.</source>
+        <target>The values do not match.</target>
+      </trans-unit>
+      <trans-unit id="beHTTAG" resname="Please enter a valid time.">
+        <source>Please enter a valid time.</source>
+        <target>Please enter a valid time.</target>
+      </trans-unit>
+      <trans-unit id="MDu2tNQ" resname="Please select a valid timezone.">
+        <source>Please select a valid timezone.</source>
+        <target>Please select a valid timezone.</target>
+      </trans-unit>
+      <trans-unit id="ywSABzT" resname="Please enter a valid URL.">
+        <source>Please enter a valid URL.</source>
+        <target>Please enter a valid URL.</target>
+      </trans-unit>
+      <trans-unit id="58j92KU" resname="Please enter a valid search term.">
+        <source>Please enter a valid search term.</source>
+        <target>Please enter a valid search term.</target>
+      </trans-unit>
+      <trans-unit id="9RtYCIm" resname="Please provide a valid phone number.">
+        <source>Please provide a valid phone number.</source>
+        <target>Please provide a valid phone number.</target>
+      </trans-unit>
+      <trans-unit id="eXUouzq" resname="The checkbox has an invalid value.">
+        <source>The checkbox has an invalid value.</source>
+        <target>The checkbox has an invalid value.</target>
+      </trans-unit>
+      <trans-unit id="sv_zo_u" resname="Please enter a valid email address.">
+        <source>Please enter a valid email address.</source>
+        <target>Please enter a valid email address.</target>
+      </trans-unit>
+      <trans-unit id="WGMBjaJ" resname="Please select a valid option.">
+        <source>Please select a valid option.</source>
+        <target>Please select a valid option.</target>
+      </trans-unit>
+      <trans-unit id="X1pJkwv" resname="Please select a valid range.">
+        <source>Please select a valid range.</source>
+        <target>Please select a valid range.</target>
+      </trans-unit>
+      <trans-unit id="2MEQpjY" resname="Please enter a valid week.">
+        <source>Please enter a valid week.</source>
+        <target>Please enter a valid week.</target>
+      </trans-unit>
+      <trans-unit id="0GmxHyH" resname="sylius.order_item.product_variant.not_blank">
+        <source>sylius.order_item.product_variant.not_blank</source>
+        <target>The product variant has not been provided.</target>
+      </trans-unit>
+      <trans-unit id="lS0vz_p" resname="sylius.order_item.quantity.min">
+        <source>sylius.order_item.quantity.min</source>
+        <target>Quantity of an order item cannot be lower than 1.</target>
+      </trans-unit>
+      <trans-unit id="IZkLQ6N" resname="sylius.order_item.quantity.not_blank">
+        <source>sylius.order_item.quantity.not_blank</source>
+        <target>The quantity has not been provided.</target>
+      </trans-unit>
+      <trans-unit id="OJBL4Il" resname="sylius.currency.code.not_blank">
+        <source>sylius.currency.code.not_blank</source>
+        <target>Please choose currency code.</target>
+      </trans-unit>
+      <trans-unit id="7zcDA82" resname="sylius.currency.code.unique">
+        <source>sylius.currency.code.unique</source>
+        <target>Currency code must be unique.</target>
+      </trans-unit>
+      <trans-unit id="RL2RJNy" resname="sylius.currency.code.currency">
+        <source>sylius.currency.code.currency</source>
+        <target>This value is not a valid currency code.</target>
+      </trans-unit>
+      <trans-unit id="aM1tPQj" resname="sylius.currency.exchange_rate.not_blank">
+        <source>sylius.currency.exchange_rate.not_blank</source>
+        <target>Please enter exchange rate.</target>
+      </trans-unit>
+      <trans-unit id=".66WU3K" resname="sylius.exchange_rate.ratio.greater_than">
+        <source>sylius.exchange_rate.ratio.greater_than</source>
+        <target>The ratio must be greater than {{ compared_value }}.</target>
+      </trans-unit>
+      <trans-unit id="PjAUf8l" resname="sylius.exchange_rate.ratio.less_than">
+        <source>sylius.exchange_rate.ratio.less_than</source>
+        <target>The ratio must be less than {{ compared_value }}.</target>
+      </trans-unit>
+      <trans-unit id="4b4C5Fb" resname="sylius.exchange_rate.ratio.invalid">
+        <source>sylius.exchange_rate.ratio.invalid</source>
+        <target>The ratio must be a number.</target>
+      </trans-unit>
+      <trans-unit id="Ev8VzS3" resname="sylius.exchange_rate.ratio.not_blank">
+        <source>sylius.exchange_rate.ratio.not_blank</source>
+        <target>Please enter exchange rate ratio.</target>
+      </trans-unit>
+      <trans-unit id="4fVMOwQ" resname="sylius.exchange_rate.source_currency.not_blank">
+        <source>sylius.exchange_rate.source_currency.not_blank</source>
+        <target>Please enter from which currency the exchange rate should be derived.</target>
+      </trans-unit>
+      <trans-unit id="gN87rCN" resname="sylius.exchange_rate.target_currency.not_blank">
+        <source>sylius.exchange_rate.target_currency.not_blank</source>
+        <target>Please enter to which currency the exchange rate should be set.</target>
+      </trans-unit>
+      <trans-unit id="cO.GlAx" resname="sylius.exchange_rate.unique_currency_pair">
+        <source>sylius.exchange_rate.unique_currency_pair</source>
+        <target>The currency pair must be unique.</target>
+      </trans-unit>
+      <trans-unit id="24vIEwN" resname="sylius.exchange_rate.different_source_target_currency">
+        <source>sylius.exchange_rate.different_source_target_currency</source>
+        <target>The source and target currencies must differ.</target>
+      </trans-unit>
+      <trans-unit id="WWr5tld" resname="sylius.locale.code.max_length">
+        <source>sylius.locale.code.max_length</source>
+        <target>The code must not be longer than {{ limit }} characters.</target>
+      </trans-unit>
+      <trans-unit id="UL5ln7G" resname="sylius.locale.code.not_blank">
+        <source>sylius.locale.code.not_blank</source>
+        <target>Please choose locale code.</target>
+      </trans-unit>
+      <trans-unit id="UFLOD_w" resname="sylius.locale.code.locale">
+        <source>sylius.locale.code.locale</source>
+        <target>This value is not a valid locale code.</target>
+      </trans-unit>
+      <trans-unit id="0aeErp_" resname="sylius.locale.code.unique">
+        <source>sylius.locale.code.unique</source>
+        <target>Locale code must be unique.</target>
+      </trans-unit>
+      <trans-unit id="fl.T_yS" resname="sylius.product.sku.not_blank">
+        <source>sylius.product.sku.not_blank</source>
+        <target>Please enter product SKU.</target>
+      </trans-unit>
+      <trans-unit id="2PVW4hH" resname="sylius.product.sku.unique">
+        <source>sylius.product.sku.unique</source>
+        <target>Product SKU must be unique.</target>
+      </trans-unit>
+      <trans-unit id="403YXmV" resname="sylius.product.slug.not_blank">
+        <source>sylius.product.slug.not_blank</source>
+        <target>Please enter product slug.</target>
+      </trans-unit>
+      <trans-unit id="PvSeV7q" resname="sylius.product.slug.unique">
+        <source>sylius.product.slug.unique</source>
+        <target>Product slug must be unique.</target>
+      </trans-unit>
+      <trans-unit id="50Z8Eow" resname="sylius.product.slug.max_length">
+        <source>sylius.product.slug.max_length</source>
+        <target>Product slug must not be longer than 1 character.|Product slug must not be longer than {{ limit }} characters.</target>
+      </trans-unit>
+      <trans-unit id="Cw88KPL" resname="sylius.product.code.max_length">
+        <source>sylius.product.code.max_length</source>
+        <target>The code must not be longer than {{ limit }} characters.</target>
+      </trans-unit>
+      <trans-unit id="skS6aYK" resname="sylius.product.code.not_blank">
+        <source>sylius.product.code.not_blank</source>
+        <target>Please enter product code.</target>
+      </trans-unit>
+      <trans-unit id="3W_dhvr" resname="sylius.product.code.regex">
+        <source>sylius.product.code.regex</source>
+        <target>Product code can only be comprised of letters, numbers, dashes and underscores.</target>
+      </trans-unit>
+      <trans-unit id="mtftQGL" resname="sylius.product.code.unique">
+        <source>sylius.product.code.unique</source>
+        <target>Product code must be unique.</target>
+      </trans-unit>
+      <trans-unit id="9qzPNiP" resname="sylius.product.name.not_blank">
+        <source>sylius.product.name.not_blank</source>
+        <target>Please enter product name.</target>
+      </trans-unit>
+      <trans-unit id="3Saz4e5" resname="sylius.product.name.min_length">
+        <source>sylius.product.name.min_length</source>
+        <target>Product name must be at least 1 character long.|Product name must be at least {{ limit }} characters long.</target>
+      </trans-unit>
+      <trans-unit id="Hblg0x3" resname="sylius.product.name.max_length">
+        <source>sylius.product.name.max_length</source>
+        <target>Product name must not be longer than 1 character.|Product name must not be longer than {{ limit }} characters.</target>
+      </trans-unit>
+      <trans-unit id="03RRgeq" resname="sylius.product.meta_keywords.max_length">
+        <source>sylius.product.meta_keywords.max_length</source>
+        <target>Product meta keywords must not be longer than 1 character.|Product meta keywords must not be longer than {{ limit }} characters.</target>
+      </trans-unit>
+      <trans-unit id="..X7SJN" resname="sylius.product.meta_description.max_length">
+        <source>sylius.product.meta_description.max_length</source>
+        <target>Product meta description must not be longer than 1 character.|Product meta description must not be longer than {{ limit }} characters.</target>
+      </trans-unit>
+      <trans-unit id="wfTZlna" resname="sylius.product_variant.combination">
+        <source>sylius.product_variant.combination</source>
+        <target>Variant with this option set already exists.</target>
+      </trans-unit>
+      <trans-unit id="w9dqia1" resname="sylius.product_variant.code.max_length">
+        <source>sylius.product_variant.code.max_length</source>
+        <target>The code must not be longer than {{ limit }} characters.</target>
+      </trans-unit>
+      <trans-unit id="ovffyAp" resname="sylius.product_variant.code.not_blank">
+        <source>sylius.product_variant.code.not_blank</source>
+        <target>Please enter the code.</target>
+      </trans-unit>
+      <trans-unit id="YxTLaHG" resname="sylius.product_variant.code.regex">
+        <source>sylius.product_variant.code.regex</source>
+        <target>Product variant code can only be comprised of letters, numbers, dashes and underscores.</target>
+      </trans-unit>
+      <trans-unit id="ElJRtwL" resname="sylius.product_variant.code.unique">
+        <source>sylius.product_variant.code.unique</source>
+        <target>Product variant code must be unique.</target>
+      </trans-unit>
+      <trans-unit id="Olu3eBt" resname="sylius.product_variant.code.within_product_unique">
+        <source>sylius.product_variant.code.within_product_unique</source>
+        <target>This code must be unique within this product.</target>
+      </trans-unit>
+      <trans-unit id="nN1G.lR" resname="sylius.product_variant.option_values.not_configured">
+        <source>sylius.product_variant.option_values.not_configured</source>
+        <target>The product variant must have configured values for all options chosen on the product.</target>
+      </trans-unit>
+      <trans-unit id="dqGqTBz" resname="sylius.simple_product.code.unique">
+        <source>sylius.simple_product.code.unique</source>
+        <target>Simple product code must be unique among all products and product variants.</target>
+      </trans-unit>
+      <trans-unit id="3y6tnaZ" resname="sylius.option.code.max_length">
+        <source>sylius.option.code.max_length</source>
+        <target>The code must not be longer than {{ limit }} characters.</target>
+      </trans-unit>
+      <trans-unit id="iWAmKzj" resname="sylius.option.code.not_blank">
+        <source>sylius.option.code.not_blank</source>
+        <target>Please enter option code.</target>
+      </trans-unit>
+      <trans-unit id="Ticb0F." resname="sylius.option.code.regex">
+        <source>sylius.option.code.regex</source>
+        <target>Option code can only be comprised of letters, numbers, dashes and underscores.</target>
+      </trans-unit>
+      <trans-unit id="XxjeeHR" resname="sylius.option.code.unique">
+        <source>sylius.option.code.unique</source>
+        <target>The option with given code already exists.</target>
+      </trans-unit>
+      <trans-unit id="wSpfD.q" resname="sylius.option.name.not_blank">
+        <source>sylius.option.name.not_blank</source>
+        <target>Please enter option name.</target>
+      </trans-unit>
+      <trans-unit id="UuYqHqU" resname="sylius.option.name.min_length">
+        <source>sylius.option.name.min_length</source>
+        <target>Option name must be at least 1 character long.|Option name must be at least {{ limit }} characters long.</target>
+      </trans-unit>
+      <trans-unit id="Mvdpoga" resname="sylius.option.name.max_length">
+        <source>sylius.option.name.max_length</source>
+        <target>Option name must not be longer than 1 character.|Option name must not be longer than {{ limit }} characters.</target>
+      </trans-unit>
+      <trans-unit id="p2jOgld" resname="sylius.option.values.min_count">
+        <source>sylius.option.values.min_count</source>
+        <target>Please add at least {{ limit }} option value.|Please add at least {{ limit }} option values.</target>
+      </trans-unit>
+      <trans-unit id="iFL9JaM" resname="sylius.option_value.code.max_length">
+        <source>sylius.option_value.code.max_length</source>
+        <target>The code must not be longer than {{ limit }} characters.</target>
+      </trans-unit>
+      <trans-unit id="ia8JY8y" resname="sylius.option_value.code.not_blank">
+        <source>sylius.option_value.code.not_blank</source>
+        <target>Please enter option value code.</target>
+      </trans-unit>
+      <trans-unit id="RacO2gO" resname="sylius.option_value.code.regex">
+        <source>sylius.option_value.code.regex</source>
+        <target>Option value code can only be comprised of letters, numbers, dashes and underscores.</target>
+      </trans-unit>
+      <trans-unit id="zQexNhu" resname="sylius.option_value.code.unique">
+        <source>sylius.option_value.code.unique</source>
+        <target>The option value with given code already exists.</target>
+      </trans-unit>
+      <trans-unit id="KbZa1cv" resname="sylius.option_value.value.not_blank">
+        <source>sylius.option_value.value.not_blank</source>
+        <target>Please enter option value.</target>
+      </trans-unit>
+      <trans-unit id="CiAqBh0" resname="sylius.association.unique">
+        <source>sylius.association.unique</source>
+        <target>An association with this owner and type already exists.</target>
+      </trans-unit>
+      <trans-unit id="b.qkXH3" resname="sylius.association.type.not_blank">
+        <source>sylius.association.type.not_blank</source>
+        <target>Please enter association type.</target>
+      </trans-unit>
+      <trans-unit id="xGEb7QJ" resname="sylius.association.owner.not_blank">
+        <source>sylius.association.owner.not_blank</source>
+        <target>Please enter association owner.</target>
+      </trans-unit>
+      <trans-unit id="PVW4ymB" resname="sylius.association_type.name.not_blank">
+        <source>sylius.association_type.name.not_blank</source>
+        <target>Please enter association type name.</target>
+      </trans-unit>
+      <trans-unit id="vZaO3Q5" resname="sylius.association_type.name.min_length">
+        <source>sylius.association_type.name.min_length</source>
+        <target>Association type name must be at least 1 character long.|Association name must be at least {{ limit }} characters long.</target>
+      </trans-unit>
+      <trans-unit id="zcJLRC3" resname="sylius.association_type.name.max_length">
+        <source>sylius.association_type.name.max_length</source>
+        <target>Association type name must not be longer than 1 character.|Association name must not be longer than {{ limit }} characters.</target>
+      </trans-unit>
+      <trans-unit id="ppcYuXY" resname="sylius.association_type.code.min_length">
+        <source>sylius.association_type.code.min_length</source>
+        <target>Association type code must be at least 1 character long.|Association type code must be at least {{ limit }} characters long.</target>
+      </trans-unit>
+      <trans-unit id="TnkPih4" resname="sylius.association_type.code.max_length">
+        <source>sylius.association_type.code.max_length</source>
+        <target>Association type code must not be longer than 1 character.|Association type code must not be longer than {{ limit }} characters.</target>
+      </trans-unit>
+      <trans-unit id="Le4mI6i" resname="sylius.association_type.code.not_blank">
+        <source>sylius.association_type.code.not_blank</source>
+        <target>Please enter association type code.</target>
+      </trans-unit>
+      <trans-unit id="_qi14Om" resname="sylius.association_type.code.regex">
+        <source>sylius.association_type.code.regex</source>
+        <target>Association type code can only be comprised of letters, numbers, dashes and underscores.</target>
+      </trans-unit>
+      <trans-unit id="u.IMiBG" resname="sylius.association_type.code.unique">
+        <source>sylius.association_type.code.unique</source>
+        <target>The association type with given code already exists.</target>
+      </trans-unit>
+      <trans-unit id="UXV6GPn" resname="sylius.channel.code.max_length">
+        <source>sylius.channel.code.max_length</source>
+        <target>The code must not be longer than {{ limit }} characters.</target>
+      </trans-unit>
+      <trans-unit id="I2Zxuti" resname="sylius.channel.code.not_blank">
+        <source>sylius.channel.code.not_blank</source>
+        <target>Please enter channel code.</target>
+      </trans-unit>
+      <trans-unit id="aybaYxu" resname="sylius.channel.code.regex">
+        <source>sylius.channel.code.regex</source>
+        <target>Channel code can only be comprised of letters, numbers, dashes and underscores.</target>
+      </trans-unit>
+      <trans-unit id="ro0hWmv" resname="sylius.channel.code.unique">
+        <source>sylius.channel.code.unique</source>
+        <target>Channel code has to be unique.</target>
+      </trans-unit>
+      <trans-unit id="j_PkT36" resname="sylius.channel.name.not_blank">
+        <source>sylius.channel.name.not_blank</source>
+        <target>Please enter channel name.</target>
+      </trans-unit>
+      <trans-unit id="4A12IbW" resname="sylius.channel.name.max_length">
+        <source>sylius.channel.name.max_length</source>
+        <target>Channel name must not be longer than {{ limit }} characters.</target>
+      </trans-unit>
+      <trans-unit id="wNoP2SC" resname="sylius.channel.color.max_length">
+        <source>sylius.channel.color.max_length</source>
+        <target>Color must not be longer than {{ limit }} characters.</target>
+      </trans-unit>
+      <trans-unit id="WhMDduK" resname="sylius.channel.hostname.max_length">
+        <source>sylius.channel.hostname.max_length</source>
+        <target>Hostname must not be longer than {{ limit }} characters.</target>
+      </trans-unit>
+      <trans-unit id="EfYaChj" resname="sylius.attribute.name.not_blank">
+        <source>sylius.attribute.name.not_blank</source>
+        <target>Please enter attribute name.</target>
+      </trans-unit>
+      <trans-unit id="z.r7WmI" resname="sylius.attribute.name.min_length">
+        <source>sylius.attribute.name.min_length</source>
+        <target>Attribute name must be at least 1 character long.|Attribute name must be at least {{ limit }} characters long.</target>
+      </trans-unit>
+      <trans-unit id="kiWT2OU" resname="sylius.attribute.name.max_length">
+        <source>sylius.attribute.name.max_length</source>
+        <target>Attribute name must not be longer than 1 character.|Attribute name must not be longer than {{ limit }} characters.</target>
+      </trans-unit>
+      <trans-unit id="k8kK_Ev" resname="sylius.attribute.code.min_length">
+        <source>sylius.attribute.code.min_length</source>
+        <target>Attribute code must be at least 1 character long.|Attribute code must be at least {{ limit }} characters long.</target>
+      </trans-unit>
+      <trans-unit id="yzcQdwD" resname="sylius.attribute.code.max_length">
+        <source>sylius.attribute.code.max_length</source>
+        <target>Attribute code must not be longer than 1 character.|Attribute code must not be longer than {{ limit }} characters.</target>
+      </trans-unit>
+      <trans-unit id="gZJUFbW" resname="sylius.attribute.code.not_blank">
+        <source>sylius.attribute.code.not_blank</source>
+        <target>Please enter attribute code.</target>
+      </trans-unit>
+      <trans-unit id="NdruZCA" resname="sylius.attribute.code.regex">
+        <source>sylius.attribute.code.regex</source>
+        <target>Attribute code can only be comprised of letters, numbers, dashes and underscores.</target>
+      </trans-unit>
+      <trans-unit id="NxvtESl" resname="sylius.attribute.code.unique">
+        <source>sylius.attribute.code.unique</source>
+        <target>This code is already in use.</target>
+      </trans-unit>
+      <trans-unit id="BAK6q8m" resname="sylius.attribute.configuration.max_entries">
+        <source>sylius.attribute.configuration.max_entries</source>
+        <target>Configuration max entries value must be greater or equal to the min entries value.</target>
+      </trans-unit>
+      <trans-unit id="DOOBNad" resname="sylius.attribute.configuration.max_length">
+        <source>sylius.attribute.configuration.max_length</source>
+        <target>Configuration max length must be greater or equal to the min length.</target>
+      </trans-unit>
+      <trans-unit id="ZXHdqmF" resname="sylius.attribute.configuration.min_entries">
+        <source>sylius.attribute.configuration.min_entries</source>
+        <target>Configuration min entries value must be lower or equal to the number of added choices.</target>
+      </trans-unit>
+      <trans-unit id="Heb2aOE" resname="sylius.attribute.configuration.multiple">
+        <source>sylius.attribute.configuration.multiple</source>
+        <target>Configuration multiple must be true if min or max entries values are specified.</target>
+      </trans-unit>
+      <trans-unit id="3wTKAdF" resname="sylius.attribute.presentation.not_blank">
+        <source>sylius.attribute.presentation.not_blank</source>
+        <target>Please enter attribute presentation.</target>
+      </trans-unit>
+      <trans-unit id="bxSxcgQ" resname="sylius.attribute.presentation.min_length">
+        <source>sylius.attribute.presentation.min_length</source>
+        <target>Attribute presentation must be at least 1 character long.|Attribute presentation must be at least {{ limit }} characters long.</target>
+      </trans-unit>
+      <trans-unit id="NZfKB7q" resname="sylius.attribute.presentation.max_length">
+        <source>sylius.attribute.presentation.max_length</source>
+        <target>Attribute presentation must not be longer than 1 character.|Attribute presentation must not be longer than {{ limit }} characters.</target>
+      </trans-unit>
+      <trans-unit id="S0Yq0Vu" resname="sylius.attribute.type.unregistered">
+        <source>sylius.attribute.type.unregistered</source>
+        <target>The attribute type "%type%" is not registered. Available attribute types: %available_types%.</target>
+      </trans-unit>
+      <trans-unit id="IsQF0Rq" resname="sylius.attribute_value.attribute.not_blank">
+        <source>sylius.attribute_value.attribute.not_blank</source>
+        <target>Please select attribute.</target>
+      </trans-unit>
+      <trans-unit id="Zq764ac" resname="sylius.attribute_value.value.not_blank">
+        <source>sylius.attribute_value.value.not_blank</source>
+        <target>Please enter attribute value.</target>
+      </trans-unit>
+      <trans-unit id="i8vPeqy" resname="sylius.tax_category.name.not_blank">
+        <source>sylius.tax_category.name.not_blank</source>
+        <target>Please enter tax category name.</target>
+      </trans-unit>
+      <trans-unit id="3CfEGzF" resname="sylius.tax_category.name.min_length">
+        <source>sylius.tax_category.name.min_length</source>
+        <target>Tax category name must be at least 1 character long.|Tax category name must be at least {{ limit }} characters long.</target>
+      </trans-unit>
+      <trans-unit id="nMkS1sr" resname="sylius.tax_category.name.max_length">
+        <source>sylius.tax_category.name.max_length</source>
+        <target>Tax category name must not be longer than 1 character.|Tax category name must not be longer than {{ limit }} characters.</target>
+      </trans-unit>
+      <trans-unit id="vLXOk60" resname="sylius.tax_category.code.max_length">
+        <source>sylius.tax_category.code.max_length</source>
+        <target>The code must not be longer than {{ limit }} characters.</target>
+      </trans-unit>
+      <trans-unit id="vZmabPN" resname="sylius.tax_category.code.not_blank">
+        <source>sylius.tax_category.code.not_blank</source>
+        <target>Please enter tax category code.</target>
+      </trans-unit>
+      <trans-unit id="TcgPtLf" resname="sylius.tax_category.code.regex">
+        <source>sylius.tax_category.code.regex</source>
+        <target>Tax category code can only be comprised of letters, numbers, dashes and underscores.</target>
+      </trans-unit>
+      <trans-unit id="hLr9hNm" resname="sylius.tax_category.code.unique">
+        <source>sylius.tax_category.code.unique</source>
+        <target>The tax category with given code already exists.</target>
+      </trans-unit>
+      <trans-unit id="SSuH.I6" resname="sylius.tax_rate.category.not_blank">
+        <source>sylius.tax_rate.category.not_blank</source>
+        <target>Please select tax category.</target>
+      </trans-unit>
+      <trans-unit id="EZuLutv" resname="sylius.tax_rate.name.not_blank">
+        <source>sylius.tax_rate.name.not_blank</source>
+        <target>Please enter tax rate name.</target>
+      </trans-unit>
+      <trans-unit id="r396Y_s" resname="sylius.tax_rate.name.min_length">
+        <source>sylius.tax_rate.name.min_length</source>
+        <target>Tax rate name must be at least 1 character long.|Tax rate name must be at least {{ limit }} characters long.</target>
+      </trans-unit>
+      <trans-unit id="cGAorUc" resname="sylius.tax_rate.name.max_length">
+        <source>sylius.tax_rate.name.max_length</source>
+        <target>Tax rate name must not be longer than 1 character.|Tax rate name must not be longer than {{ limit }} characters.</target>
+      </trans-unit>
+      <trans-unit id="rr.OHPN" resname="sylius.tax_rate.amount.invalid">
+        <source>sylius.tax_rate.amount.invalid</source>
+        <target>The tax rate amount is invalid.</target>
+      </trans-unit>
+      <trans-unit id="f.8RZSR" resname="sylius.tax_rate.amount.not_blank">
+        <source>sylius.tax_rate.amount.not_blank</source>
+        <target>Please enter tax rate amount.</target>
+      </trans-unit>
+      <trans-unit id="sQb_JaP" resname="sylius.tax_rate.calculator.not_blank">
+        <source>sylius.tax_rate.calculator.not_blank</source>
+        <target>Please select tax calculator.</target>
+      </trans-unit>
+      <trans-unit id="ObgQ5Zq" resname="sylius.tax_rate.zone.not_blank">
+        <source>sylius.tax_rate.zone.not_blank</source>
+        <target>Please select tax zone.</target>
+      </trans-unit>
+      <trans-unit id="pUQJKQt" resname="sylius.tax_rate.code.max_length">
+        <source>sylius.tax_rate.code.max_length</source>
+        <target>The code must not be longer than {{ limit }} characters.</target>
+      </trans-unit>
+      <trans-unit id="nCxm6Lb" resname="sylius.tax_rate.code.not_blank">
+        <source>sylius.tax_rate.code.not_blank</source>
+        <target>Please enter tax rate code.</target>
+      </trans-unit>
+      <trans-unit id="iZ5qPSs" resname="sylius.tax_rate.code.regex">
+        <source>sylius.tax_rate.code.regex</source>
+        <target>Tax rate code can only be comprised of letters, numbers, dashes and underscores.</target>
+      </trans-unit>
+      <trans-unit id="BSC49GJ" resname="sylius.tax_rate.code.unique">
+        <source>sylius.tax_rate.code.unique</source>
+        <target>The tax rate with given code already exists.</target>
+      </trans-unit>
+      <trans-unit id=".Cn7F7Y" resname="sylius.tax_rate.date.greater_than_start_date">
+        <source>sylius.tax_rate.date.greater_than_start_date</source>
+        <target>The tax rate should not end before it starts</target>
+      </trans-unit>
+      <trans-unit id="9EfqPC5" resname="sylius.shipping_category.name.max_length">
+        <source>sylius.shipping_category.name.max_length</source>
+        <target>Category name must not be longer than {{ limit }} characters.</target>
+      </trans-unit>
+      <trans-unit id="VzFinpM" resname="sylius.shipping_category.name.min_length">
+        <source>sylius.shipping_category.name.min_length</source>
+        <target>Category name must be at least {{ limit }} characters long.</target>
+      </trans-unit>
+      <trans-unit id="jhDK8EZ" resname="sylius.shipping_category.name.not_blank">
+        <source>sylius.shipping_category.name.not_blank</source>
+        <target>Please enter shipping category name.</target>
+      </trans-unit>
+      <trans-unit id="ZsjkoSM" resname="sylius.shipping_category.code.max_length">
+        <source>sylius.shipping_category.code.max_length</source>
+        <target>The code must not be longer than {{ limit }} characters.</target>
+      </trans-unit>
+      <trans-unit id="V6TA_yl" resname="sylius.shipping_category.code.not_blank">
+        <source>sylius.shipping_category.code.not_blank</source>
+        <target>Please enter shipping category code.</target>
+      </trans-unit>
+      <trans-unit id="nk_FATw" resname="sylius.shipping_category.code.regex">
+        <source>sylius.shipping_category.code.regex</source>
+        <target>Shipping category code can only be comprised of letters, numbers, dashes and underscores.</target>
+      </trans-unit>
+      <trans-unit id="fw5k5yf" resname="sylius.shipping_category.code.unique">
+        <source>sylius.shipping_category.code.unique</source>
+        <target>The shipping category with given code already exists.</target>
+      </trans-unit>
+      <trans-unit id="J4blvfL" resname="sylius.shipping_method.calculator.min">
+        <source>sylius.shipping_method.calculator.min</source>
+        <target>Shipping charge cannot be lower than 0.</target>
+      </trans-unit>
+      <trans-unit id="FwHg8N8" resname="sylius.shipping_method.calculator.not_blank">
+        <source>sylius.shipping_method.calculator.not_blank</source>
+        <target>Please select shipping method calculator.</target>
+      </trans-unit>
+      <trans-unit id="8F6u8MA" resname="sylius.shipping_method.calculator.invalid">
+        <source>sylius.shipping_method.calculator.invalid</source>
+        <target>Invalid calculator. Available calculators are {{ available_calculators }}.</target>
+      </trans-unit>
+      <trans-unit id="vqaq0ey" resname="sylius.shipping_method.name.max_length">
+        <source>sylius.shipping_method.name.max_length</source>
+        <target>Shipping method name must not be longer than {{ limit }} characters.</target>
+      </trans-unit>
+      <trans-unit id="3ypniB_" resname="sylius.shipping_method.name.min_length">
+        <source>sylius.shipping_method.name.min_length</source>
+        <target>Shipping method name must be at least {{ limit }} characters long.</target>
+      </trans-unit>
+      <trans-unit id="J6JYQlr" resname="sylius.shipping_method.name.not_blank">
+        <source>sylius.shipping_method.name.not_blank</source>
+        <target>Please enter shipping method name.</target>
+      </trans-unit>
+      <trans-unit id="_EmGjt2" resname="sylius.shipping_method.code.max_length">
+        <source>sylius.shipping_method.code.max_length</source>
+        <target>The code must not be longer than {{ limit }} characters.</target>
+      </trans-unit>
+      <trans-unit id="lLpauaP" resname="sylius.shipping_method.code.not_blank">
+        <source>sylius.shipping_method.code.not_blank</source>
+        <target>Please enter shipping method code.</target>
+      </trans-unit>
+      <trans-unit id="IWxblMW" resname="sylius.shipping_method.code.regex">
+        <source>sylius.shipping_method.code.regex</source>
+        <target>Shipping method code can only be comprised of letters, numbers, dashes and underscores.</target>
+      </trans-unit>
+      <trans-unit id="WvOtkmJ" resname="sylius.shipping_method.code.unique">
+        <source>sylius.shipping_method.code.unique</source>
+        <target>The shipping method with given code already exists.</target>
+      </trans-unit>
+      <trans-unit id="BNAfNWQ" resname="sylius.shipping_method.zone.not_blank">
+        <source>sylius.shipping_method.zone.not_blank</source>
+        <target>Please select shipping method zone.</target>
+      </trans-unit>
+      <trans-unit id="ILZ9MB3" resname="sylius.shipping_method.rule.invalid_type">
+        <source>sylius.shipping_method.rule.invalid_type</source>
+        <target>Invalid rule type. Available rule types are {{ available_rule_types }}.</target>
+      </trans-unit>
+      <trans-unit id="sY4.CQz" resname="sylius.shipment.shipping_method.not_blank">
+        <source>sylius.shipment.shipping_method.not_blank</source>
+        <target>Please select shipping method.</target>
+      </trans-unit>
+      <trans-unit id="heUxK6g" resname="sylius.credit_card.cardholder_name.min_length">
+        <source>sylius.credit_card.cardholder_name.min_length</source>
+        <target>The cardholder's name must be at least {{ limit }} characters long.</target>
+      </trans-unit>
+      <trans-unit id="xYxwAOu" resname="sylius.credit_card.cardholder_name.not_blank">
+        <source>sylius.credit_card.cardholder_name.not_blank</source>
+        <target>Please enter the name of the cardholder.</target>
+      </trans-unit>
+      <trans-unit id="BObOT_T" resname="sylius.credit_card.expiry_month.max_range">
+        <source>sylius.credit_card.expiry_month.max_range</source>
+        <target>The credit card's expiration month must be between {{ min }} and {{ max }}.</target>
+      </trans-unit>
+      <trans-unit id="puMELlb" resname="sylius.credit_card.expiry_month.min_range">
+        <source>sylius.credit_card.expiry_month.min_range</source>
+        <target>The credit card's expiration month must be between {{ min }} and {{ max }}.</target>
+      </trans-unit>
+      <trans-unit id="q_1QE71" resname="sylius.credit_card.expiry_month.not_blank">
+        <source>sylius.credit_card.expiry_month.not_blank</source>
+        <target>Please select the expiration month.</target>
+      </trans-unit>
+      <trans-unit id="CIe.Dql" resname="sylius.credit_card.number.not_blank">
+        <source>sylius.credit_card.number.not_blank</source>
+        <target>Please enter the card number.</target>
+      </trans-unit>
+      <trans-unit id="dVgri_4" resname="sylius.credit_card.number.luhn">
+        <source>sylius.credit_card.number.luhn</source>
+        <target>The credit card number you entered is invalid.</target>
+      </trans-unit>
+      <trans-unit id="dBTjZUn" resname="sylius.credit_card.security_code.not_blank">
+        <source>sylius.credit_card.security_code.not_blank</source>
+        <target>Please enter the security code.</target>
+      </trans-unit>
+      <trans-unit id="LsNmlL7" resname="sylius.credit_card.security_code.max_length">
+        <source>sylius.credit_card.security_code.max_length</source>
+        <target>The credit card's CVV code must be at least {{ limit }} digits long.</target>
+      </trans-unit>
+      <trans-unit id="yBjlWTi" resname="sylius.credit_card.security_code.min_length">
+        <source>sylius.credit_card.security_code.min_length</source>
+        <target>The credit card's CVV code must be at most than {{ limit }} digits long.</target>
+      </trans-unit>
+      <trans-unit id="McRjNwR" resname="sylius.credit_card.expiry_year.not_blank">
+        <source>sylius.credit_card.expiry_year.not_blank</source>
+        <target>Please select the expiration year.</target>
+      </trans-unit>
+      <trans-unit id="jc8vJ1x" resname="sylius.gateway_config.invalid_gateway_factory">
+        <source>sylius.gateway_config.invalid_gateway_factory</source>
+        <target>Invalid gateway factory. Available factories are {{ available_factories }}.</target>
+      </trans-unit>
+      <trans-unit id="m82ztaZ" resname="sylius.gateway_config.gateway_name.not_blank">
+        <source>sylius.gateway_config.gateway_name.not_blank</source>
+        <target>Please enter gateway name.</target>
+      </trans-unit>
+      <trans-unit id="XXEdSsz" resname="sylius.gateway_config.factory_name.not_blank">
+        <source>sylius.gateway_config.factory_name.not_blank</source>
+        <target>Please enter gateway factory name.</target>
+      </trans-unit>
+      <trans-unit id="eQ578L5" resname="sylius.payment.currency_code.not_valid">
+        <source>sylius.payment.currency_code.not_valid</source>
+        <target>The currency code you entered is invalid.</target>
+      </trans-unit>
+      <trans-unit id="6NxFHI3" resname="sylius.payment.method.not_blank">
+        <source>sylius.payment.method.not_blank</source>
+        <target>Please select a payment method.</target>
+      </trans-unit>
+      <trans-unit id="fD5oSd8" resname="sylius.payment_method.gateway.not_blank">
+        <source>sylius.payment_method.gateway.not_blank</source>
+        <target>Please select payment method gateway.</target>
+      </trans-unit>
+      <trans-unit id="Q_p3sHW" resname="sylius.payment_method.name.max_length">
+        <source>sylius.payment_method.name.max_length</source>
+        <target>Payment method name must be {{ limit }} characters long or less.</target>
+      </trans-unit>
+      <trans-unit id="jR2jh68" resname="sylius.payment_method.name.min_length">
+        <source>sylius.payment_method.name.min_length</source>
+        <target>Payment method name must be at least {{ limit }} characters long.</target>
+      </trans-unit>
+      <trans-unit id="8SqhyEA" resname="sylius.payment_method.name.not_blank">
+        <source>sylius.payment_method.name.not_blank</source>
+        <target>Please enter payment method name.</target>
+      </trans-unit>
+      <trans-unit id="Z7LA9pN" resname="sylius.payment_method.fee_calculator_configuration.amount.greater_than_or_equal">
+        <source>sylius.payment_method.fee_calculator_configuration.amount.greater_than_or_equal</source>
+        <target>The fee cannot be lower than {{ compared_value }}.</target>
+      </trans-unit>
+      <trans-unit id="k1SkDm5" resname="sylius.payment_method.fee_calculator_configuration.amount.not_blank">
+        <source>sylius.payment_method.fee_calculator_configuration.amount.not_blank</source>
+        <target>Please enter the fee amount.</target>
+      </trans-unit>
+      <trans-unit id="ADskI0s" resname="sylius.payment_method.fee_calculator_configuration.percent.max_range">
+        <source>sylius.payment_method.fee_calculator_configuration.percent.max_range</source>
+        <target>Percent fee cannot be greater than {{ limit }}.</target>
+      </trans-unit>
+      <trans-unit id="l.gX.zB" resname="sylius.payment_method.fee_calculator_configuration.percent.min_range">
+        <source>sylius.payment_method.fee_calculator_configuration.percent.min_range</source>
+        <target>Percent fee cannot be lower than {{ limit }}.</target>
+      </trans-unit>
+      <trans-unit id=".h4PCcy" resname="sylius.payment_method.fee_calculator_configuration.percent.not_blank">
+        <source>sylius.payment_method.fee_calculator_configuration.percent.not_blank</source>
+        <target>Please enter the fee percent.</target>
+      </trans-unit>
+      <trans-unit id="_4qFLCF" resname="sylius.payment_method.code.max_length">
+        <source>sylius.payment_method.code.max_length</source>
+        <target>The code must not be longer than {{ limit }} characters.</target>
+      </trans-unit>
+      <trans-unit id="lTtmM0D" resname="sylius.payment_method.code.not_blank">
+        <source>sylius.payment_method.code.not_blank</source>
+        <target>Please enter payment method code.</target>
+      </trans-unit>
+      <trans-unit id="9L1kR5S" resname="sylius.payment_method.code.regex">
+        <source>sylius.payment_method.code.regex</source>
+        <target>Payment method code can only be comprised of letters, numbers, dashes and underscores.</target>
+      </trans-unit>
+      <trans-unit id="3RHRO7G" resname="sylius.payment_method.code.unique">
+        <source>sylius.payment_method.code.unique</source>
+        <target>The payment method with given code already exists.</target>
+      </trans-unit>
+      <trans-unit id="ZW7m9is" resname="sylius.catalog_promotion.code.max_length">
+        <source>sylius.catalog_promotion.code.max_length</source>
+        <target>The code must not be longer than {{ limit }} characters.</target>
+      </trans-unit>
+      <trans-unit id="YI_VHeY" resname="sylius.catalog_promotion.code.unique">
+        <source>sylius.catalog_promotion.code.unique</source>
+        <target>The catalog promotion with given code already exists.</target>
+      </trans-unit>
+      <trans-unit id="HOWdY50" resname="sylius.catalog_promotion.code.regex">
+        <source>sylius.catalog_promotion.code.regex</source>
+        <target>Catalog promotion code can only be comprised of letters, numbers, dashes and underscores.</target>
+      </trans-unit>
+      <trans-unit id="a6_.MRB" resname="sylius.catalog_promotion.code.not_blank">
+        <source>sylius.catalog_promotion.code.not_blank</source>
+        <target>Please enter catalog promotion code.</target>
+      </trans-unit>
+      <trans-unit id="8d77.8b" resname="sylius.catalog_promotion.date.greater_than_start_date">
+        <source>sylius.catalog_promotion.date.greater_than_start_date</source>
+        <target>End date cannot be set before start date.</target>
+      </trans-unit>
+      <trans-unit id="njEdLum" resname="sylius.catalog_promotion.name.max_length">
+        <source>sylius.catalog_promotion.name.max_length</source>
+        <target>Catalog promotion name must not be longer than {{ limit }} characters.</target>
+      </trans-unit>
+      <trans-unit id="GXLcf8W" resname="sylius.catalog_promotion.name.min_length">
+        <source>sylius.catalog_promotion.name.min_length</source>
+        <target>Catalog promotion name must be at least {{ limit }} characters long.</target>
+      </trans-unit>
+      <trans-unit id=".7RSTZF" resname="sylius.catalog_promotion.name.not_blank">
+        <source>sylius.catalog_promotion.name.not_blank</source>
+        <target>Please enter catalog promotion name.</target>
+      </trans-unit>
+      <trans-unit id="ugTsjs0" resname="sylius.catalog_promotion.state.processing">
+        <source>sylius.catalog_promotion.state.processing</source>
+        <target>The catalog promotion cannot be edited as it is currently being processed.</target>
+      </trans-unit>
+      <trans-unit id="hkCPgWs" resname="sylius.catalog_promotion_action.type.not_blank">
+        <source>sylius.catalog_promotion_action.type.not_blank</source>
+        <target>Please choose an action type.</target>
+      </trans-unit>
+      <trans-unit id="jLIqY.5" resname="sylius.catalog_promotion_action.type.invalid">
+        <source>sylius.catalog_promotion_action.type.invalid</source>
+        <target>Catalog promotion action type is invalid. Available types are {{ available_action_types }}.</target>
+      </trans-unit>
+      <trans-unit id="T6LZsK5" resname="sylius.catalog_promotion_action.invalid_type">
+        <source>sylius.catalog_promotion_action.invalid_type</source>
+        <target>Catalog promotion action type is invalid. Please choose a valid type.</target>
+      </trans-unit>
+      <trans-unit id="HQI6Hi5" resname="sylius.catalog_promotion_action.percentage_discount.not_in_range">
+        <source>sylius.catalog_promotion_action.percentage_discount.not_in_range</source>
+        <target>The percentage discount amount must be between 0% and 100%.</target>
+      </trans-unit>
+      <trans-unit id="hXUyiuB" resname="sylius.catalog_promotion_action.percentage_discount.not_number_or_empty">
+        <source>sylius.catalog_promotion_action.percentage_discount.not_number_or_empty</source>
+        <target>The percentage discount amount must be a number and can not be empty.</target>
+      </trans-unit>
+      <trans-unit id="uTwpXNd" resname="sylius.catalog_promotion_action.percentage_discount.not_valid">
+        <source>sylius.catalog_promotion_action.percentage_discount.not_valid</source>
+        <target>The percentage discount amount must be configured.</target>
+      </trans-unit>
+      <trans-unit id="gn52zNT" resname="sylius.catalog_promotion_scope.type.not_blank">
+        <source>sylius.catalog_promotion_scope.type.not_blank</source>
+        <target>Please choose a scope type.</target>
+      </trans-unit>
+      <trans-unit id="B_5l3qd" resname="sylius.catalog_promotion_scope.type.invalid">
+        <source>sylius.catalog_promotion_scope.type.invalid</source>
+        <target>Catalog promotion scope type is invalid. Available types are {{ available_scope_types }}.</target>
+      </trans-unit>
+      <trans-unit id="sKhAF2r" resname="sylius.promotion.code.max_length">
+        <source>sylius.promotion.code.max_length</source>
+        <target>The code must not be longer than {{ limit }} characters.</target>
+      </trans-unit>
+      <trans-unit id="H7Q6Yk6" resname="sylius.promotion.code.unique">
+        <source>sylius.promotion.code.unique</source>
+        <target>The promotion with given code already exists.</target>
+      </trans-unit>
+      <trans-unit id="nxMpYYC" resname="sylius.promotion.code.regex">
+        <source>sylius.promotion.code.regex</source>
+        <target>Promotion code can only be comprised of letters, numbers, dashes and underscores.</target>
+      </trans-unit>
+      <trans-unit id="WXqjvGN" resname="sylius.promotion.code.not_blank">
+        <source>sylius.promotion.code.not_blank</source>
+        <target>Please enter promotion code.</target>
+      </trans-unit>
+      <trans-unit id="dFiEb_J" resname="sylius.promotion.description.max_length">
+        <source>sylius.promotion.description.max_length</source>
+        <target>Promotion description must not be longer than 1 character.|Promotion description must not be longer than {{ limit }} characters.</target>
+      </trans-unit>
+      <trans-unit id="6ReypUn" resname="sylius.promotion.description.min_length">
+        <source>sylius.promotion.description.min_length</source>
+        <target>Promotion description must be at least 1 character long.|Promotion description must be at least {{ limit }} characters long.</target>
+      </trans-unit>
+      <trans-unit id="lRtc2PE" resname="sylius.promotion.description.not_blank">
+        <source>sylius.promotion.description.not_blank</source>
+        <target>Please enter promotion description.</target>
+      </trans-unit>
+      <trans-unit id="tiTWBVU" resname="sylius.promotion.end_date_cannot_be_set_prior_start_date">
+        <source>sylius.promotion.end_date_cannot_be_set_prior_start_date</source>
+        <target>End date cannot be set prior start date.</target>
+      </trans-unit>
+      <trans-unit id="ajuOL03" resname="sylius.promotion.is_invalid">
+        <source>sylius.promotion.is_invalid</source>
+        <target>Promotion is invalid.</target>
+      </trans-unit>
+      <trans-unit id="MWj3ZuX" resname="sylius.promotion.name.max_length">
+        <source>sylius.promotion.name.max_length</source>
+        <target>Promotion name must not be longer than 1 character.|Promotion name must not be longer than {{ limit }} characters.</target>
+      </trans-unit>
+      <trans-unit id="YdEf5pA" resname="sylius.promotion.name.min_length">
+        <source>sylius.promotion.name.min_length</source>
+        <target>Promotion name must be at least 1 character long.|Promotion name must be at least {{ limit }} characters long.</target>
+      </trans-unit>
+      <trans-unit id="pQLiTnq" resname="sylius.promotion.name.not_blank">
+        <source>sylius.promotion.name.not_blank</source>
+        <target>Please enter promotion name.</target>
+      </trans-unit>
+      <trans-unit id="QEeVv9A" resname="sylius.promotion_action.invalid_type">
+        <source>sylius.promotion_action.invalid_type</source>
+        <target>Promotion action type is invalid. Available action types are {{ available_action_types }}.</target>
+      </trans-unit>
+      <trans-unit id="JJIUVg0" resname="sylius.promotion_action.percentage_discount_configuration.not_in_range">
+        <source>sylius.promotion_action.percentage_discount_configuration.not_in_range</source>
+        <target>The percentage discount must be between 0% and 100%.</target>
+      </trans-unit>
+      <trans-unit id="N2vdqTg" resname="sylius.promotion_rule.invalid_type">
+        <source>sylius.promotion_rule.invalid_type</source>
+        <target>Promotion rule type is invalid. Available rule types are {{ available_rule_types }}.</target>
+      </trans-unit>
+      <trans-unit id="baala_k" resname="sylius.promotion_coupon.code.max_length">
+        <source>sylius.promotion_coupon.code.max_length</source>
+        <target>The code must not be longer than {{ limit }} characters.</target>
+      </trans-unit>
+      <trans-unit id="3xxrftH" resname="sylius.promotion_coupon.code.min_length">
+        <source>sylius.promotion_coupon.code.min_length</source>
+        <target>Coupon code must be at least 1 character long.|Coupon code must be at least {{ limit }} characters long.</target>
+      </trans-unit>
+      <trans-unit id="q0ia4ZA" resname="sylius.promotion_coupon.code.not_blank">
+        <source>sylius.promotion_coupon.code.not_blank</source>
+        <target>Please enter coupon code.</target>
+      </trans-unit>
+      <trans-unit id="1IyV2lg" resname="sylius.promotion_coupon.code.regex">
+        <source>sylius.promotion_coupon.code.regex</source>
+        <target>Coupon code can only be comprised of letters, numbers, dashes and underscores.</target>
+      </trans-unit>
+      <trans-unit id="oaqQr3N" resname="sylius.promotion_coupon.code.unique">
+        <source>sylius.promotion_coupon.code.unique</source>
+        <target>This coupon already exists.</target>
+      </trans-unit>
+      <trans-unit id="YvG_fDr" resname="sylius.promotion_coupon.is_invalid">
+        <source>sylius.promotion_coupon.is_invalid</source>
+        <target>Coupon code is invalid.</target>
+      </trans-unit>
+      <trans-unit id="2Zr9ro2" resname="sylius.promotion_coupon.promotion.not_blank">
+        <source>sylius.promotion_coupon.promotion.not_blank</source>
+        <target>Please provide a promotion for this coupon.</target>
+      </trans-unit>
+      <trans-unit id="lC0LQkC" resname="sylius.promotion_coupon.promotion.not_coupon_based">
+        <source>sylius.promotion_coupon.promotion.not_coupon_based</source>
+        <target>Only coupon based promotions can have coupons.</target>
+      </trans-unit>
+      <trans-unit id="Mybh2l." resname="sylius.promotion_coupon.usage_limit.min">
+        <source>sylius.promotion_coupon.usage_limit.min</source>
+        <target>Coupon usage limit must be at least {{ limit }}.</target>
+      </trans-unit>
+      <trans-unit id="Uh72j3N" resname="sylius.promotion_coupon_generator_instruction.amount.min">
+        <source>sylius.promotion_coupon_generator_instruction.amount.min</source>
+        <target>Amount of coupons to generate must be at least {{ limit }}.</target>
+      </trans-unit>
+      <trans-unit id="9KB5mbS" resname="sylius.promotion_coupon_generator_instruction.amount.not_blank">
+        <source>sylius.promotion_coupon_generator_instruction.amount.not_blank</source>
+        <target>Please enter amount of coupons to generate.</target>
+      </trans-unit>
+      <trans-unit id="Z2.HzPL" resname="sylius.promotion_coupon_generator_instruction.code_length.min">
+        <source>sylius.promotion_coupon_generator_instruction.code_length.min</source>
+        <target>Coupon code must be at least {{ limit }} characters long.</target>
+      </trans-unit>
+      <trans-unit id="9hyE0Vf" resname="sylius.promotion_coupon_generator_instruction.code_length.max">
+        <source>sylius.promotion_coupon_generator_instruction.code_length.max</source>
+        <target>Coupon code must not be longer than {{ limit }} characters.</target>
+      </trans-unit>
+      <trans-unit id="TAydgsv" resname="sylius.promotion_coupon_generator_instruction.code_length.not_blank">
+        <source>sylius.promotion_coupon_generator_instruction.code_length.not_blank</source>
+        <target>Please enter coupon code length.</target>
+      </trans-unit>
+      <trans-unit id="Ey5ez2E" resname="sylius.promotion_coupon_generator_instruction.code_length.not_in_range">
+        <source>sylius.promotion_coupon_generator_instruction.code_length.not_in_range</source>
+        <target>Coupon code length must be between {{ min }} and {{ max }}.</target>
+      </trans-unit>
+      <trans-unit id="tM6Qmm5" resname="sylius.promotion_coupon_generator_instruction.possible_generation_amount">
+        <source>sylius.promotion_coupon_generator_instruction.possible_generation_amount</source>
+        <target>Invalid coupons code length or coupons amount. It is not possible to generate %expectedAmount% unique coupons with code length %codeLength%. The possible amount to generate is %possibleAmount%.</target>
+      </trans-unit>
+      <trans-unit id="RiRqZc5" resname="sylius.promotion_coupon_generator_instruction.usage_limit.min">
+        <source>sylius.promotion_coupon_generator_instruction.usage_limit.min</source>
+        <target>Usage limit of generated coupons must be at least {{ limit }}.</target>
+      </trans-unit>
+      <trans-unit id="hniTcoG" resname="sylius.address.city.max_length">
+        <source>sylius.address.city.max_length</source>
+        <target>City must not be longer than {{ limit }} character.|City must not be longer than {{ limit }} characters.</target>
+      </trans-unit>
+      <trans-unit id="KHE0RZw" resname="sylius.address.city.min_length">
+        <source>sylius.address.city.min_length</source>
+        <target>City must be at least {{ limit }} characters long.|City must be at least {{ limit }} characters long.</target>
+      </trans-unit>
+      <trans-unit id="UhFLjPU" resname="sylius.address.city.not_blank">
+        <source>sylius.address.city.not_blank</source>
+        <target>Please enter city.</target>
+      </trans-unit>
+      <trans-unit id="ppZrcqe" resname="sylius.address.country.not_blank">
+        <source>sylius.address.country.not_blank</source>
+        <target>Please select country.</target>
+      </trans-unit>
+      <trans-unit id="k.uussY" resname="sylius.address.country.disabled">
+        <source>sylius.address.country.disabled</source>
+        <target>Chosen country is disabled. Please choose a different one.</target>
+      </trans-unit>
+      <trans-unit id="nB5ial3" resname="sylius.address.first_name.max_length">
+        <source>sylius.address.first_name.max_length</source>
+        <target>First name must not be longer than {{ limit }} character.|First name must not be longer than {{ limit }} characters.</target>
+      </trans-unit>
+      <trans-unit id="9pd6svG" resname="sylius.address.first_name.min_length">
+        <source>sylius.address.first_name.min_length</source>
+        <target>First name must be at least {{ limit }} characters long.|First name must be at least {{ limit }} characters long.</target>
+      </trans-unit>
+      <trans-unit id="ZO_pdSN" resname="sylius.address.first_name.not_blank">
+        <source>sylius.address.first_name.not_blank</source>
+        <target>Please enter first name.</target>
+      </trans-unit>
+      <trans-unit id="9pIw3rV" resname="sylius.address.last_name.max_length">
+        <source>sylius.address.last_name.max_length</source>
+        <target>Last name must not be longer than {{ limit }} character.|Last name must not be longer than {{ limit }} characters.</target>
+      </trans-unit>
+      <trans-unit id="dkseOyM" resname="sylius.address.last_name.min_length">
+        <source>sylius.address.last_name.min_length</source>
+        <target>Last name must be at least {{ limit }} characters long.|Last name must be at least {{ limit }} characters long.</target>
+      </trans-unit>
+      <trans-unit id="5BcVepE" resname="sylius.address.last_name.not_blank">
+        <source>sylius.address.last_name.not_blank</source>
+        <target>Please enter last name.</target>
+      </trans-unit>
+      <trans-unit id="kk2JS78" resname="sylius.address.postcode.max_length">
+        <source>sylius.address.postcode.max_length</source>
+        <target>Postcode must not be longer than {{ limit }} character.|Postcode must not be longer than {{ limit }} characters.</target>
+      </trans-unit>
+      <trans-unit id="HteAk5Z" resname="sylius.address.postcode.min_length">
+        <source>sylius.address.postcode.min_length</source>
+        <target>Postcode must be at least {{ limit }} character long.|Postcode must be at least {{ limit }} characters long.</target>
+      </trans-unit>
+      <trans-unit id="9HK.ZK4" resname="sylius.address.postcode.not_blank">
+        <source>sylius.address.postcode.not_blank</source>
+        <target>Please enter postcode.</target>
+      </trans-unit>
+      <trans-unit id="ch8fifM" resname="sylius.address.province.valid">
+        <source>sylius.address.province.valid</source>
+        <target>Please select proper province.</target>
+      </trans-unit>
+      <trans-unit id="Hpomq2U" resname="sylius.address.street.max_length">
+        <source>sylius.address.street.max_length</source>
+        <target>Street must not be longer than {{ limit }} character.|Street must not be longer than {{ limit }} characters.</target>
+      </trans-unit>
+      <trans-unit id="jnkh7Db" resname="sylius.address.street.min_length">
+        <source>sylius.address.street.min_length</source>
+        <target>Street must be at least {{ limit }} characters long.|Street must be at least {{ limit }} characters long.</target>
+      </trans-unit>
+      <trans-unit id="c9B5f6A" resname="sylius.address.street.not_blank">
+        <source>sylius.address.street.not_blank</source>
+        <target>Please enter street.</target>
+      </trans-unit>
+      <trans-unit id="OwMSgwV" resname="sylius.address.not_shippable">
+        <source>sylius.address.not_shippable</source>
+        <target>This address is not a valid shipping destination.</target>
+      </trans-unit>
+      <trans-unit id="NWwT5yU" resname="sylius.country.code.not_blank">
+        <source>sylius.country.code.not_blank</source>
+        <target>Please enter country ISO code.</target>
+      </trans-unit>
+      <trans-unit id="aPaPIef" resname="sylius.country.code.unique">
+        <source>sylius.country.code.unique</source>
+        <target>Country ISO code must be unique.</target>
+      </trans-unit>
+      <trans-unit id="6q55OyZ" resname="sylius.country.code.country">
+        <source>sylius.country.code.country</source>
+        <target>Country ISO code is invalid.</target>
+      </trans-unit>
+      <trans-unit id="fxhNKBp" resname="sylius.country.unique_provinces">
+        <source>sylius.country.unique_provinces</source>
+        <target>All provinces within this country need to have unique codes and names.</target>
+      </trans-unit>
+      <trans-unit id="i3AxL2j" resname="sylius.province.code.max_length">
+        <source>sylius.province.code.max_length</source>
+        <target>The code must not be longer than {{ limit }} characters.</target>
+      </trans-unit>
+      <trans-unit id="a2xGMKh" resname="sylius.province.code.not_blank">
+        <source>sylius.province.code.not_blank</source>
+        <target>Please enter province code.</target>
+      </trans-unit>
+      <trans-unit id="6rVijQ9" resname="sylius.province.code.regex">
+        <source>sylius.province.code.regex</source>
+        <target>Province code should have the following format XX-XX (e.g. US-FL).</target>
+      </trans-unit>
+      <trans-unit id="u5QQTdT" resname="sylius.province.code.unique">
+        <source>sylius.province.code.unique</source>
+        <target>Province code must be unique.</target>
+      </trans-unit>
+      <trans-unit id="__1ZcPs" resname="sylius.province.name.max_length">
+        <source>sylius.province.name.max_length</source>
+        <target>Province name must not be longer than {{ limit }} character.|Province name must not be longer than {{ limit }} characters.</target>
+      </trans-unit>
+      <trans-unit id="5JOfh1m" resname="sylius.province.name.min_length">
+        <source>sylius.province.name.min_length</source>
+        <target>Province name must be at least {{ limit }} characters long.|Province name must be at least {{ limit }} characters long.</target>
+      </trans-unit>
+      <trans-unit id="YkKleoH" resname="sylius.province.name.not_blank">
+        <source>sylius.province.name.not_blank</source>
+        <target>Please enter province name.</target>
+      </trans-unit>
+      <trans-unit id="vNiQGlR" resname="sylius.province.name.unique">
+        <source>sylius.province.name.unique</source>
+        <target>Province name must be unique.</target>
+      </trans-unit>
+      <trans-unit id="JcEtfK8" resname="sylius.zone.scope.not_blank">
+        <source>sylius.zone.scope.not_blank</source>
+        <target>Please enter the scope.</target>
+      </trans-unit>
+      <trans-unit id="djdCVIT" resname="sylius.zone.code.max_length">
+        <source>sylius.zone.code.max_length</source>
+        <target>The code must not be longer than {{ limit }} characters.</target>
+      </trans-unit>
+      <trans-unit id="l9u2lh7" resname="sylius.zone.code.not_blank">
+        <source>sylius.zone.code.not_blank</source>
+        <target>Please enter zone code.</target>
+      </trans-unit>
+      <trans-unit id="z.qYLjG" resname="sylius.zone.code.regex">
+        <source>sylius.zone.code.regex</source>
+        <target>Zone code can only be comprised of letters, numbers, dashes and underscores.</target>
+      </trans-unit>
+      <trans-unit id="AMRuMg_" resname="sylius.zone.code.unique">
+        <source>sylius.zone.code.unique</source>
+        <target>Zone code must be unique.</target>
+      </trans-unit>
+      <trans-unit id="61OUD9W" resname="sylius.zone.type.invalid">
+        <source>sylius.zone.type.invalid</source>
+        <target>Type {{ value }} is invalid. Allowed types are: {{ choices }}.</target>
+      </trans-unit>
+      <trans-unit id="StcDe3y" resname="sylius.zone.members.min_count">
+        <source>sylius.zone.members.min_count</source>
+        <target>Please add at least {{ limit }} zone member.</target>
+      </trans-unit>
+      <trans-unit id="72ZRHt_" resname="sylius.zone.name.max_length">
+        <source>sylius.zone.name.max_length</source>
+        <target>Zone name must not be longer than {{ limit }} character.|Zone name must not be longer than {{ limit }} characters.</target>
+      </trans-unit>
+      <trans-unit id="FKdPfAN" resname="sylius.zone.name.min_length">
+        <source>sylius.zone.name.min_length</source>
+        <target>Zone name must be at least {{ limit }} characters long.|Zone name must be at least {{ limit }} characters long.</target>
+      </trans-unit>
+      <trans-unit id="Z0K8A.E" resname="sylius.zone.name.not_blank">
+        <source>sylius.zone.name.not_blank</source>
+        <target>Please enter zone name.</target>
+      </trans-unit>
+      <trans-unit id="cL4SvLd" resname="sylius.zone_member.cannot_be_the_same_as_zone">
+        <source>sylius.zone_member.cannot_be_the_same_as_zone</source>
+        <target>Zone member cannot be the same as a zone.</target>
+      </trans-unit>
+      <trans-unit id="t0HdTK4" resname="sylius.zone_member.code.max_length">
+        <source>sylius.zone_member.code.max_length</source>
+        <target>The zone member code must not be longer than {{ limit }} characters.</target>
+      </trans-unit>
+      <trans-unit id="xv06f6f" resname="sylius.zone_member.code.not_blank">
+        <source>sylius.zone_member.code.not_blank</source>
+        <target>Please choose a zone member.</target>
+      </trans-unit>
+      <trans-unit id="tr0PTCU" resname="sylius.zone_member.code.regex">
+        <source>sylius.zone_member.code.regex</source>
+        <target>Zone member code can only be comprised of letters, numbers, dashes and underscores.</target>
+      </trans-unit>
+      <trans-unit id="ypWfdue" resname="sylius.zone_member.unique">
+        <source>sylius.zone_member.unique</source>
+        <target>Chosen zone member is already in this zone.</target>
+      </trans-unit>
+      <trans-unit id="6NGM.fZ" resname="sylius.taxon.code.max_length">
+        <source>sylius.taxon.code.max_length</source>
+        <target>The code must not be longer than {{ limit }} characters.</target>
+      </trans-unit>
+      <trans-unit id="WfkWv73" resname="sylius.taxon.code.not_blank">
+        <source>sylius.taxon.code.not_blank</source>
+        <target>Please enter taxon code.</target>
+      </trans-unit>
+      <trans-unit id="FJUNnjj" resname="sylius.taxon.code.regex">
+        <source>sylius.taxon.code.regex</source>
+        <target>Taxon code can only be comprised of letters, numbers, dashes and underscores.</target>
+      </trans-unit>
+      <trans-unit id="C6adVx_" resname="sylius.taxon.code.unique">
+        <source>sylius.taxon.code.unique</source>
+        <target>Taxon with given code already exists.</target>
+      </trans-unit>
+      <trans-unit id="7aiG_Xp" resname="sylius.taxon.name.max_length">
+        <source>sylius.taxon.name.max_length</source>
+        <target>Taxon name must not be longer than 255 characters.</target>
+      </trans-unit>
+      <trans-unit id="sYXCRRg" resname="sylius.taxon.name.not_blank">
+        <source>sylius.taxon.name.not_blank</source>
+        <target>Please enter taxon name.</target>
+      </trans-unit>
+      <trans-unit id="Xpbiofy" resname="sylius.taxon.slug.not_blank">
+        <source>sylius.taxon.slug.not_blank</source>
+        <target>Please enter taxon slug.</target>
+      </trans-unit>
+      <trans-unit id="ZM35vxU" resname="sylius.taxon.slug.unique">
+        <source>sylius.taxon.slug.unique</source>
+        <target>Taxon slug must be unique.</target>
+      </trans-unit>
+      <trans-unit id="P2sRshh" resname="sylius.taxon.parent.invalid_relation">
+        <source>sylius.taxon.parent.invalid_relation</source>
+        <target>Parent must neither be the taxon itself nor any of its descendants</target>
+      </trans-unit>
+      <trans-unit id="meO_5zn" resname="sylius.taxonomy.name.max_length">
+        <source>sylius.taxonomy.name.max_length</source>
+        <target>Taxonomy name must not be longer than 255 characters.</target>
+      </trans-unit>
+      <trans-unit id="HgZP0j5" resname="sylius.taxonomy.name.not_blank">
+        <source>sylius.taxonomy.name.not_blank</source>
+        <target>Please enter taxonomy name.</target>
+      </trans-unit>
+      <trans-unit id="nHc9Klw" resname="sylius.user.email.not_blank">
+        <source>sylius.user.email.not_blank</source>
+        <target>Please enter your email.</target>
+      </trans-unit>
+      <trans-unit id="Nmd.C6O" resname="sylius.user.email.invalid">
+        <source>sylius.user.email.invalid</source>
+        <target>This email is invalid.</target>
+      </trans-unit>
+      <trans-unit id="RhzwqDk" resname="sylius.user.email.not_registered">
+        <source>sylius.user.email.not_registered</source>
+        <target>User with this email does not exist. Please register first.</target>
+      </trans-unit>
+      <trans-unit id="VrpGWvj" resname="sylius.user.plainPassword.not_blank">
+        <source>sylius.user.plainPassword.not_blank</source>
+        <target>Please enter your password.</target>
+      </trans-unit>
+      <trans-unit id="aBQJ42e" resname="sylius.user.plainPassword.mismatch">
+        <source>sylius.user.plainPassword.mismatch</source>
+        <target>The entered passwords don't match</target>
+      </trans-unit>
+      <trans-unit id="1iozdGn" resname="sylius.user.plainPassword.wrong_current">
+        <source>sylius.user.plainPassword.wrong_current</source>
+        <target>Provided password is different than the current one.</target>
+      </trans-unit>
+      <trans-unit id="pVR9Gvf" resname="sylius.user.password.min">
+        <source>sylius.user.password.min</source>
+        <target>Password must be at least {{ limit }} characters long.</target>
+      </trans-unit>
+      <trans-unit id="HmP1SOD" resname="sylius.user.password.max">
+        <source>sylius.user.password.max</source>
+        <target>Password must not be longer than {{ limit }} characters.</target>
+      </trans-unit>
+      <trans-unit id="_WPwyXc" resname="sylius.customer.first_name.max">
+        <source>sylius.customer.first_name.max</source>
+        <target>First name must not be longer than {{ limit }} characters.</target>
+      </trans-unit>
+      <trans-unit id="kXchZBQ" resname="sylius.customer.first_name.min">
+        <source>sylius.customer.first_name.min</source>
+        <target>First name must be at least {{ limit }} characters long.</target>
+      </trans-unit>
+      <trans-unit id="t7tFuv4" resname="sylius.customer.first_name.not_blank">
+        <source>sylius.customer.first_name.not_blank</source>
+        <target>Please enter your first name.</target>
+      </trans-unit>
+      <trans-unit id="cMHWItn" resname="sylius.customer.last_name.max">
+        <source>sylius.customer.last_name.max</source>
+        <target>Last name must not be longer than {{ limit }} characters.</target>
+      </trans-unit>
+      <trans-unit id="Qi5OjtM" resname="sylius.customer.last_name.min">
+        <source>sylius.customer.last_name.min</source>
+        <target>Last name must be at least {{ limit }} characters long.</target>
+      </trans-unit>
+      <trans-unit id="8dIZolD" resname="sylius.customer.last_name.not_blank">
+        <source>sylius.customer.last_name.not_blank</source>
+        <target>Please enter your last name.</target>
+      </trans-unit>
+      <trans-unit id="MCisaT7" resname="sylius.customer.gender.not_blank">
+        <source>sylius.customer.gender.not_blank</source>
+        <target>Please choose your gender.</target>
+      </trans-unit>
+      <trans-unit id="WsOegcC" resname="sylius.customer.email.already_used">
+        <source>sylius.customer.email.already_used</source>
+        <target>This email is already used, please login or use forgotten password.</target>
+      </trans-unit>
+      <trans-unit id="xIkHGOV" resname="sylius.customer.email.max">
+        <source>sylius.customer.email.max</source>
+        <target>Email must not be longer than {{ limit }} characters.</target>
+      </trans-unit>
+      <trans-unit id="mCwNJPX" resname="sylius.customer.email.not_blank">
+        <source>sylius.customer.email.not_blank</source>
+        <target>Please enter your email.</target>
+      </trans-unit>
+      <trans-unit id="H5CyFhc" resname="sylius.customer.email.invalid">
+        <source>sylius.customer.email.invalid</source>
+        <target>This email is invalid.</target>
+      </trans-unit>
+      <trans-unit id="PZXtFkP" resname="sylius.customer.email.unique">
+        <source>sylius.customer.email.unique</source>
+        <target>This email is already used.</target>
+      </trans-unit>
+      <trans-unit id="zEDzKEX" resname="sylius.customer.email.registered">
+        <source>sylius.customer.email.registered</source>
+        <target>This email is already registered, please login or use forgotten password.</target>
+      </trans-unit>
+      <trans-unit id="6ZeuJA5" resname="sylius.customer.phone_number.max">
+        <source>sylius.customer.phone_number.max</source>
+        <target>Phone number must not be longer than {{ limit }} characters.</target>
+      </trans-unit>
+      <trans-unit id="SPpcYA3" resname="sylius.customer_group.code.max_length">
+        <source>sylius.customer_group.code.max_length</source>
+        <target>The code must not be longer than {{ limit }} characters.</target>
+      </trans-unit>
+      <trans-unit id="RCCHxAR" resname="sylius.customer_group.code.regex">
+        <source>sylius.customer_group.code.regex</source>
+        <target>Customer group code can only be comprised of letters, numbers, dashes and underscores.</target>
+      </trans-unit>
+      <trans-unit id="HevaKSG" resname="sylius.customer_group.code.unique">
+        <source>sylius.customer_group.code.unique</source>
+        <target>Customer group code has to be unique.</target>
+      </trans-unit>
+      <trans-unit id="KfOZfFA" resname="sylius.customer_group.code.not_blank">
+        <source>sylius.customer_group.code.not_blank</source>
+        <target>Please enter a customer group code.</target>
+      </trans-unit>
+      <trans-unit id="HNmpLzQ" resname="sylius.customer_group.name.max">
+        <source>sylius.customer_group.name.max</source>
+        <target>Customer group name must not be longer than {{ limit }} characters.</target>
+      </trans-unit>
+      <trans-unit id="JHpLWUC" resname="sylius.customer_group.name.min">
+        <source>sylius.customer_group.name.min</source>
+        <target>Customer group name must be at least {{ limit }} characters long.</target>
+      </trans-unit>
+      <trans-unit id="8MGNKSB" resname="sylius.customer_group.name.not_blank">
+        <source>sylius.customer_group.name.not_blank</source>
+        <target>Please enter a customer group name.</target>
+      </trans-unit>
+      <trans-unit id="gGDDONx" resname="sylius.review.author.already_exists">
+        <source>sylius.review.author.already_exists</source>
+        <target>This email is already registered, please login or use forgotten password.</target>
+      </trans-unit>
+      <trans-unit id="9u_35z1" resname="sylius.review.comment.not_blank">
+        <source>sylius.review.comment.not_blank</source>
+        <target>Review comment should not be blank.</target>
+      </trans-unit>
+      <trans-unit id="xisSqCC" resname="sylius.review.rating.not_blank">
+        <source>sylius.review.rating.not_blank</source>
+        <target>You must check review rating.</target>
+      </trans-unit>
+      <trans-unit id="8mYWClt" resname="sylius.review.title.not_blank">
+        <source>sylius.review.title.not_blank</source>
+        <target>Review title should not be blank.</target>
+      </trans-unit>
+      <trans-unit id="CPCcKQE" resname="sylius.review.title.min_length">
+        <source>sylius.review.title.min_length</source>
+        <target>Review title must have at least 2 characters.</target>
+      </trans-unit>
+      <trans-unit id="Uv1dX1s" resname="sylius.review.title.max_length">
+        <source>sylius.review.title.max_length</source>
+        <target>Review title must have at most 255 characters.</target>
+      </trans-unit>
+      <trans-unit id="RmmHkgF" resname="sylius.admin.password_reset_request.email.invalid">
+        <source>sylius.admin.password_reset_request.email.invalid</source>
+        <target>This email is not valid.</target>
+      </trans-unit>
+      <trans-unit id="KAt.JYt" resname="sylius.admin.password_reset_request.email.max">
+        <source>sylius.admin.password_reset_request.email.max</source>
+        <target>Email must be at most {{ limit }} characters long.</target>
+      </trans-unit>
+      <trans-unit id="l3LoVo3" resname="sylius.admin.password_reset_request.email.min">
+        <source>sylius.admin.password_reset_request.email.min</source>
+        <target>Email must be at least {{ limit }} characters long.</target>
+      </trans-unit>
+      <trans-unit id="NOqDGwe" resname="sylius.admin.password_reset_request.email.not_blank">
+        <source>sylius.admin.password_reset_request.email.not_blank</source>
+        <target>Please enter an email.</target>
+      </trans-unit>
+      <trans-unit id="nuwuY3G" resname="sylius.admin.reset_password.mismatch">
+        <source>sylius.admin.reset_password.mismatch</source>
+        <target>The entered passwords do not match.</target>
+      </trans-unit>
+      <trans-unit id="UUMJGBE" resname="sylius.admin.reset_password.password.min">
+        <source>sylius.admin.reset_password.password.min</source>
+        <target>Password must be at least {{ limit }} characters long.</target>
+      </trans-unit>
+      <trans-unit id="vU6y5s_" resname="sylius.admin.reset_password.password.max">
+        <source>sylius.admin.reset_password.password.max</source>
+        <target>Password must be at most {{ limit }} characters long.</target>
+      </trans-unit>
+      <trans-unit id="e3znFNU" resname="sylius.admin.reset_password.password.not_blank">
+        <source>sylius.admin.reset_password.password.not_blank</source>
+        <target>Please enter the password.</target>
+      </trans-unit>
+      <trans-unit id="0L8Y65." resname="sylius.avatar_image.file.max_size">
+        <source>sylius.avatar_image.file.max_size</source>
+        <target>The image is too big - {{ size }}{{ suffix }}. Maximum allowed size is {{ limit }}{{ suffix }}.</target>
+      </trans-unit>
+      <trans-unit id="1o3XNad" resname="sylius.avatar_image.file.upload_ini_size">
+        <source>sylius.avatar_image.file.upload_ini_size</source>
+        <target>The image is too big. Maximum allowed size is {{ limit }}{{ suffix }}.</target>
+      </trans-unit>
+      <trans-unit id="PMTiGW0" resname="sylius.catalog_promotion_action.fixed_discount.channel_not_configured">
+        <source>sylius.catalog_promotion_action.fixed_discount.channel_not_configured</source>
+        <target>Configuration for one of the required channels is not provided.</target>
+      </trans-unit>
+      <trans-unit id="Y2vJFZe" resname="sylius.catalog_promotion_action.fixed_discount.not_valid">
+        <source>sylius.catalog_promotion_action.fixed_discount.not_valid</source>
+        <target>Provided configuration contains errors. Please add the fixed discount amount that is a number greater than 0.</target>
+      </trans-unit>
+      <trans-unit id="ydn2wQm" resname="sylius.catalog_promotion_scope.invalid_type">
+        <source>sylius.catalog_promotion_scope.invalid_type</source>
+        <target>Catalog promotion scope type is invalid. Please choose a valid type.</target>
+      </trans-unit>
+      <trans-unit id="CDGDNJO" resname="sylius.catalog_promotion_scope.for_products.invalid_products">
+        <source>sylius.catalog_promotion_scope.for_products.invalid_products</source>
+        <target>Provided configuration contains errors. Please add only existing products.</target>
+      </trans-unit>
+      <trans-unit id="5Jy_NUx" resname="sylius.catalog_promotion_scope.for_products.not_empty">
+        <source>sylius.catalog_promotion_scope.for_products.not_empty</source>
+        <target>Provided configuration contains errors. Please add at least 1 product.</target>
+      </trans-unit>
+      <trans-unit id="G_OaD3q" resname="sylius.catalog_promotion_scope.for_products.unique">
+        <source>sylius.catalog_promotion_scope.for_products.unique</source>
+        <target>Provided configuration contains errors. Please add only unique products.</target>
+      </trans-unit>
+      <trans-unit id="p07PMgp" resname="sylius.catalog_promotion_scope.for_variants.invalid_variants">
+        <source>sylius.catalog_promotion_scope.for_variants.invalid_variants</source>
+        <target>Provided configuration contains errors. Please add only existing variants.</target>
+      </trans-unit>
+      <trans-unit id="tVzSMFq" resname="sylius.catalog_promotion_scope.for_variants.not_empty">
+        <source>sylius.catalog_promotion_scope.for_variants.not_empty</source>
+        <target>Please add at least 1 variant.</target>
+      </trans-unit>
+      <trans-unit id="VhhQaW7" resname="sylius.catalog_promotion_scope.for_variants.unique">
+        <source>sylius.catalog_promotion_scope.for_variants.unique</source>
+        <target>Provided configuration contains errors. Please add only unique variants.</target>
+      </trans-unit>
+      <trans-unit id="7EBIvEr" resname="sylius.catalog_promotion_scope.for_taxons.invalid_taxons">
+        <source>sylius.catalog_promotion_scope.for_taxons.invalid_taxons</source>
+        <target>Provided configuration contains errors. Please add only existing taxons.</target>
+      </trans-unit>
+      <trans-unit id="9X3p4VY" resname="sylius.catalog_promotion_scope.for_taxons.not_empty">
+        <source>sylius.catalog_promotion_scope.for_taxons.not_empty</source>
+        <target>Provided configuration contains errors. Please add at least 1 taxon.</target>
+      </trans-unit>
+      <trans-unit id="aImp87h" resname="sylius.catalog_promotion_scope.for_taxons.unique">
+        <source>sylius.catalog_promotion_scope.for_taxons.unique</source>
+        <target>Provided configuration contains errors. Please add only unique taxons.</target>
+      </trans-unit>
+      <trans-unit id="FEQmFkx" resname="sylius.channel.base_currency.not_blank">
+        <source>sylius.channel.base_currency.not_blank</source>
+        <target>Please enter channel base currency.</target>
+      </trans-unit>
+      <trans-unit id="ybtHJay" resname="sylius.channel.default_locale.enabled">
+        <source>sylius.channel.default_locale.enabled</source>
+        <target>Default locale has to be enabled.</target>
+      </trans-unit>
+      <trans-unit id="N209hQ4" resname="sylius.channel.default_locale.not_blank">
+        <source>sylius.channel.default_locale.not_blank</source>
+        <target>Please enter channel default locale.</target>
+      </trans-unit>
+      <trans-unit id="C2xx_mx" resname="sylius.channel.contact_email.invalid">
+        <source>sylius.channel.contact_email.invalid</source>
+        <target>This email is invalid.</target>
+      </trans-unit>
+      <trans-unit id="dgj0AyA" resname="sylius.channel.contact_email.max">
+        <source>sylius.channel.contact_email.max</source>
+        <target>Email must not be longer than {{ limit }} characters.</target>
+      </trans-unit>
+      <trans-unit id="1RiryFo" resname="sylius.channel.contact_email.min">
+        <source>sylius.channel.contact_email.min</source>
+        <target>Email must be at least {{ limit }} characters long.</target>
+      </trans-unit>
+      <trans-unit id=".JxiMnu" resname="sylius.channel.contact_phone_number.max_length">
+        <source>sylius.channel.contact_phone_number.max_length</source>
+        <target>Contact phone number must not be longer than {{ limit }} characters.</target>
+      </trans-unit>
+      <trans-unit id="ofasAmQ" resname="sylius.channel.theme_name.max_length">
+        <source>sylius.channel.theme_name.max_length</source>
+        <target>Theme name must not be longer than {{ limit }} characters.</target>
+      </trans-unit>
+      <trans-unit id="NW8ywd9" resname="sylius.channel.tax_calculation_strategy.not_blank">
+        <source>sylius.channel.tax_calculation_strategy.not_blank</source>
+        <target>Please enter tax calculation strategy.</target>
+      </trans-unit>
+      <trans-unit id="bzsZ.gQ" resname="sylius.channel.tax_calculation_strategy.max_length">
+        <source>sylius.channel.tax_calculation_strategy.max_length</source>
+        <target>Tax calculation strategy must not be longer than {{ limit }} characters.</target>
+      </trans-unit>
+      <trans-unit id="x8W5pz0" resname="sylius.channel_price_history_config.lowest_price_for_discounted_products_checking_period.greater_than">
+        <source>sylius.channel_price_history_config.lowest_price_for_discounted_products_checking_period.greater_than</source>
+        <target>Value must be greater than {{ compared_value }}</target>
+      </trans-unit>
+      <trans-unit id="Zo7I4P9" resname="sylius.channel_price_history_config.lowest_price_for_discounted_products_checking_period.less_than">
+        <source>sylius.channel_price_history_config.lowest_price_for_discounted_products_checking_period.less_than</source>
+        <target>Value must be less than {{ compared_value }}</target>
+      </trans-unit>
+      <trans-unit id="jUqE.vV" resname="sylius.channel_pricing.channel_code.not_blank">
+        <source>sylius.channel_pricing.channel_code.not_blank</source>
+        <target>Please set channel code.</target>
+      </trans-unit>
+      <trans-unit id="kRv3oeb" resname="sylius.channel_pricing.channel_code.unique">
+        <source>sylius.channel_pricing.channel_code.unique</source>
+        <target>This channel already has a price for this product variant.</target>
+      </trans-unit>
+      <trans-unit id=".ABwBZE" resname="sylius.channel_pricing.price.min">
+        <source>sylius.channel_pricing.price.min</source>
+        <target>Price cannot be lower than 0.</target>
+      </trans-unit>
+      <trans-unit id="D.QIj9o" resname="sylius.channel_pricing.price.not_blank">
+        <source>sylius.channel_pricing.price.not_blank</source>
+        <target>Please enter the price.</target>
+      </trans-unit>
+      <trans-unit id="Mha5itE" resname="sylius.channel_code_collection.invalid_channel">
+        <source>sylius.channel_code_collection.invalid_channel</source>
+        <target>Channel with code {{ channel_code }} does not exist.</target>
+      </trans-unit>
+      <trans-unit id="hHyc5X4" resname="sylius.checkout.addressing.csrf_error">
+        <source>sylius.checkout.addressing.csrf_error</source>
+        <target>Please resubmit complete form.</target>
+      </trans-unit>
+      <trans-unit id="2S7w2_N" resname="sylius.checkout.shipping_method.not_blank">
+        <source>sylius.checkout.shipping_method.not_blank</source>
+        <target>Please select shipping method.</target>
+      </trans-unit>
+      <trans-unit id="Cy146x4" resname="sylius.checkout.email.not_changeable">
+        <source>sylius.checkout.email.not_changeable</source>
+        <target>Email can be changed only for guest customers. Once the customer logs in and the cart is assigned, the email can't be changed.</target>
+      </trans-unit>
+      <trans-unit id="wUp47Ry" resname="sylius.contact.email.invalid">
+        <source>sylius.contact.email.invalid</source>
+        <target>This email is invalid.</target>
+      </trans-unit>
+      <trans-unit id="bpMY_xF" resname="sylius.contact.email.not_blank">
+        <source>sylius.contact.email.not_blank</source>
+        <target>Please enter your email.</target>
+      </trans-unit>
+      <trans-unit id="8OhD2.f" resname="sylius.contact.message.not_blank">
+        <source>sylius.contact.message.not_blank</source>
+        <target>Please enter your message.</target>
+      </trans-unit>
+      <trans-unit id="OzCEsZv" resname="sylius.country.code.not_exist">
+        <source>sylius.country.code.not_exist</source>
+        <target>Country with code {{ code }} does not exist.</target>
+      </trans-unit>
+      <trans-unit id="gkmeycS" resname="sylius.currency.enabled.cannot_disable_base">
+        <source>sylius.currency.enabled.cannot_disable_base</source>
+        <target>The base currency cannot be disabled.</target>
+      </trans-unit>
+      <trans-unit id="UAl1Xep" resname="sylius.customer.currency_code.not_valid">
+        <source>sylius.customer.currency_code.not_valid</source>
+        <target>The currency code you entered is invalid.</target>
+      </trans-unit>
+      <trans-unit id="LQKgR61" resname="sylius.customer_group.code.not_exist">
+        <source>sylius.customer_group.code.not_exist</source>
+        <target>Customer group with code {{ code }} does not exist.</target>
+      </trans-unit>
+      <trans-unit id="nqzMCH9" resname="sylius.cart_item.not_available">
+        <source>sylius.cart_item.not_available</source>
+        <target>%itemName% does not have sufficient stock.</target>
+      </trans-unit>
+      <trans-unit id="aSad2OC" resname="sylius.cart_item.insufficient_stock">
+        <source>sylius.cart_item.insufficient_stock</source>
+        <target>Insufficient stock</target>
+      </trans-unit>
+      <trans-unit id="9dY_N2O" resname="sylius.cart_item.quantity.not_in_range">
+        <source>sylius.cart_item.quantity.not_in_range</source>
+        <target>Quantity must be between {{ min }} and {{ max }}.</target>
+      </trans-unit>
+      <trans-unit id="kQyXi4m" resname="sylius.cart_item.variant.not_available">
+        <source>sylius.cart_item.variant.not_available</source>
+        <target>%variantName% is not available.</target>
+      </trans-unit>
+      <trans-unit id="sWHbJ22" resname="sylius.max_integer">
+        <source>sylius.max_integer</source>
+        <target>Value must be less than {{ compared_value }}.</target>
+      </trans-unit>
+      <trans-unit id="Z1NlvZz" resname="sylius.order.address_requirement">
+        <source>sylius.order.address_requirement</source>
+        <target>Please provide a %addressName%.</target>
+      </trans-unit>
+      <trans-unit id="DkOoA52" resname="sylius.order.currency_code.not_valid">
+        <source>sylius.order.currency_code.not_valid</source>
+        <target>The currency code you entered is invalid.</target>
+      </trans-unit>
+      <trans-unit id="Zij0k0F" resname="sylius.order.invalid_state_transition">
+        <source>sylius.order.invalid_state_transition</source>
+        <target>Cannot complete as order is in a wrong state. Current: %currentState%. Possible transitions: %possibleTransitions%.</target>
+      </trans-unit>
+      <trans-unit id="MKnevaP" resname="sylius.order.payment_method_eligibility">
+        <source>sylius.order.payment_method_eligibility</source>
+        <target>This payment method %paymentMethodName% has been disabled. Please reselect your payment method.</target>
+      </trans-unit>
+      <trans-unit id="0gD.Xwc" resname="sylius.order.product_eligibility">
+        <source>sylius.order.product_eligibility</source>
+        <target>The product %productName% is no longer available.</target>
+      </trans-unit>
+      <trans-unit id="dWOYthI" resname="sylius.order.shipping_method_eligibility">
+        <source>sylius.order.shipping_method_eligibility</source>
+        <target>Product does not fit requirements for %shippingMethodName% shipping method. Please reselect your shipping method.</target>
+      </trans-unit>
+      <trans-unit id="xxffFgh" resname="sylius.order.shipping_method_not_available">
+        <source>sylius.order.shipping_method_not_available</source>
+        <target>The "%shippingMethodName%" shipping method is not available. Please reselect your shipping method.</target>
+      </trans-unit>
+      <trans-unit id="lm2YFT1" resname="sylius.order.cart_items_immutable">
+        <source>sylius.order.cart_items_immutable</source>
+        <target>Cannot change cart items after the checkout is completed."</target>
+      </trans-unit>
+      <trans-unit id="XsRMtce" resname="sylius.resend_order_confirmation_email.invalid_order_state">
+        <source>sylius.resend_order_confirmation_email.invalid_order_state</source>
+        <target>Cannot resend order confirmation email for order with state %state%.</target>
+      </trans-unit>
+      <trans-unit id="cy3doOM" resname="sylius.resend_shipment_confirmation_email.invalid_shipment_state">
+        <source>sylius.resend_shipment_confirmation_email.invalid_shipment_state</source>
+        <target>Cannot resend shipment confirmation email for shipment in state %state%.</target>
+      </trans-unit>
+      <trans-unit id="P6d2Cxq" resname="sylius.locale.enabled.cannot_disable_base">
+        <source>sylius.locale.enabled.cannot_disable_base</source>
+        <target>The base locale cannot be disabled.</target>
+      </trans-unit>
+      <trans-unit id="x7bk5k5" resname="sylius.product.variants.all_prices_defined">
+        <source>sylius.product.variants.all_prices_defined</source>
+        <target>You have to define product variants' prices for newly assigned channels first.</target>
+      </trans-unit>
+      <trans-unit id="LNQ4QZd" resname="sylius.product.code.not_exist">
+        <source>sylius.product.code.not_exist</source>
+        <target>Product with code {{ code }} does not exist.</target>
+      </trans-unit>
+      <trans-unit id="9jAOuiv" resname="sylius.product_attribute.invalid">
+        <source>sylius.product_attribute.invalid</source>
+        <target>Position must be an integer.</target>
+      </trans-unit>
+      <trans-unit id="NyIJJIc" resname="sylius.image.file.allowed_mime_types">
+        <source>sylius.image.file.allowed_mime_types</source>
+        <target>The file is not a valid image. Allowed types are %types%.</target>
+      </trans-unit>
+      <trans-unit id="6hPVKTw" resname="sylius.product_image.file.max_size">
+        <source>sylius.product_image.file.max_size</source>
+        <target>The image is too big - {{ size }}{{ suffix }}. Maximum allowed size is {{ limit }}{{ suffix }}.</target>
+      </trans-unit>
+      <trans-unit id="hIUxOMR" resname="sylius.product_image.file.upload_ini_size">
+        <source>sylius.product_image.file.upload_ini_size</source>
+        <target>The image is too big. Maximum allowed size is {{ limit }}{{ suffix }}.</target>
+      </trans-unit>
+      <trans-unit id="cNjbOLZ" resname="sylius.product_image.product_variant.not_belong_to_owner">
+        <source>sylius.product_image.product_variant.not_belong_to_owner</source>
+        <target>The product variant with code "%productVariantCode%" does not belong to the product with code "%ownerCode%", which is the owner of the image.</target>
+      </trans-unit>
+      <trans-unit id="MHjQ.ix" resname="sylius.product_taxon.unique">
+        <source>sylius.product_taxon.unique</source>
+        <target>Product taxons cannot be duplicated.</target>
+      </trans-unit>
+      <trans-unit id="6YwF6jd" resname="sylius.product_taxon.product.not_blank">
+        <source>sylius.product_taxon.product.not_blank</source>
+        <target>Please select a product.</target>
+      </trans-unit>
+      <trans-unit id=".J2ULuY" resname="sylius.product_taxon.taxon.not_blank">
+        <source>sylius.product_taxon.taxon.not_blank</source>
+        <target>Please select a taxon.</target>
+      </trans-unit>
+      <trans-unit id="CsLeTTv" resname="sylius.product_variant.code.not_exist">
+        <source>sylius.product_variant.code.not_exist</source>
+        <target>Product variant with code {{ code }} does not exist.</target>
+      </trans-unit>
+      <trans-unit id="LY39m.J" resname="sylius.product_variant.onHand.min">
+        <source>sylius.product_variant.onHand.min</source>
+        <target>On hand must be greater than {{ limit }}.</target>
+      </trans-unit>
+      <trans-unit id="WGFdU.H" resname="sylius.product_variant.onHand.not_blank">
+        <source>sylius.product_variant.onHand.not_blank</source>
+        <target>Please enter on hand.</target>
+      </trans-unit>
+      <trans-unit id="jCfao_k" resname="sylius.product_variant.onHand.reserved">
+        <source>sylius.product_variant.onHand.reserved</source>
+        <target>On hand must be greater than the number of on hold units</target>
+      </trans-unit>
+      <trans-unit id="3EjVoKy" resname="sylius.product_variant.original_price.min">
+        <source>sylius.product_variant.original_price.min</source>
+        <target>Original price must not be negative.</target>
+      </trans-unit>
+      <trans-unit id="aInls1R" resname="sylius.product_variant.weight.min">
+        <source>sylius.product_variant.weight.min</source>
+        <target>Weight cannot be negative.</target>
+      </trans-unit>
+      <trans-unit id="yXJgI8r" resname="sylius.product_variant.weight.invalid">
+        <source>sylius.product_variant.weight.invalid</source>
+        <target>Weight must be a number.</target>
+      </trans-unit>
+      <trans-unit id="9teovtG" resname="sylius.product_variant.width.min">
+        <source>sylius.product_variant.width.min</source>
+        <target>Width cannot be negative.</target>
+      </trans-unit>
+      <trans-unit id="C28Xqgf" resname="sylius.product_variant.width.invalid">
+        <source>sylius.product_variant.width.invalid</source>
+        <target>Width must be a number.</target>
+      </trans-unit>
+      <trans-unit id="3G4IuSl" resname="sylius.product_variant.height.min">
+        <source>sylius.product_variant.height.min</source>
+        <target>Height cannot be negative.</target>
+      </trans-unit>
+      <trans-unit id="JmuHpXu" resname="sylius.product_variant.height.invalid">
+        <source>sylius.product_variant.height.invalid</source>
+        <target>Height must be a number.</target>
+      </trans-unit>
+      <trans-unit id="6N.7Xc9" resname="sylius.product_variant.depth.min">
+        <source>sylius.product_variant.depth.min</source>
+        <target>Depth cannot be negative.</target>
+      </trans-unit>
+      <trans-unit id="LAz74wD" resname="sylius.product_variant.depth.invalid">
+        <source>sylius.product_variant.depth.invalid</source>
+        <target>Depth must be a number.</target>
+      </trans-unit>
+      <trans-unit id="TKl3pCK" resname="sylius.product_variant.channel_pricing.price.not_defined">
+        <source>sylius.product_variant.channel_pricing.price.not_defined</source>
+        <target>You must define price.</target>
+      </trans-unit>
+      <trans-unit id=".mZKyXq" resname="sylius.product_variant.channel_pricing.existing_code">
+        <source>sylius.product_variant.channel_pricing.existing_code</source>
+        <target>Channel with code {{ channelCode }} does not exist.</target>
+      </trans-unit>
+      <trans-unit id="gNlhM1V" resname="sylius.promotion_coupon.per_customer_usage_limit.min">
+        <source>sylius.promotion_coupon.per_customer_usage_limit.min</source>
+        <target>Coupon usage limit per customer must be at least {{ limit }}.</target>
+      </trans-unit>
+      <trans-unit id="hpKvkai" resname="sylius.product_translation.short_description.max">
+        <source>sylius.product_translation.short_description.max</source>
+        <target>Short description must not be longer then {{ limit }} characters.</target>
+      </trans-unit>
+      <trans-unit id="3iM12R7" resname="sylius.province.code.not_exist">
+        <source>sylius.province.code.not_exist</source>
+        <target>Province with code {{ code }} does not exist.</target>
+      </trans-unit>
+      <trans-unit id="5jca9xU" resname="sylius.review.author.not_blank">
+        <source>sylius.review.author.not_blank</source>
+        <target>Please enter your email.</target>
+      </trans-unit>
+      <trans-unit id="58GOigS" resname="sylius.review.product.not_blank">
+        <source>sylius.review.product.not_blank</source>
+        <target>Please enter a product.</target>
+      </trans-unit>
+      <trans-unit id="7hb5TU6" resname="sylius.review.rating.range">
+        <source>sylius.review.rating.range</source>
+        <target>Review rating must be an integer in the range 1-5.</target>
+      </trans-unit>
+      <trans-unit id="Qs1itbc" resname="sylius.review.rating.not_in_range">
+        <source>sylius.review.rating.not_in_range</source>
+        <target>Review rating must be between {{ min }} and {{ max }}.</target>
+      </trans-unit>
+      <trans-unit id="kPtvIRw" resname="sylius.taxon.code.not_exist">
+        <source>sylius.taxon.code.not_exist</source>
+        <target>Taxon with code {{ code }} does not exist.</target>
+      </trans-unit>
+      <trans-unit id="B0pq8qC" resname="sylius.taxon_image.file.max_size">
+        <source>sylius.taxon_image.file.max_size</source>
+        <target>The image is too big - {{ size }}{{ suffix }}. Maximum allowed size is {{ limit }}{{ suffix }}.</target>
+      </trans-unit>
+      <trans-unit id="Rf8ScS4" resname="sylius.taxon_image.file.upload_ini_size">
+        <source>sylius.taxon_image.file.upload_ini_size</source>
+        <target>The image is too big. Maximum allowed size is {{ limit }}{{ suffix }}.</target>
+      </trans-unit>
+      <trans-unit id="xzdO4wd" resname="sylius.translation.locale.not_blank">
+        <source>sylius.translation.locale.not_blank</source>
+        <target>Please enter the locale.</target>
+      </trans-unit>
+      <trans-unit id="zrGQhob" resname="sylius.translation.locale.invalid">
+        <source>sylius.translation.locale.invalid</source>
+        <target>This value is not a valid locale.</target>
+      </trans-unit>
+      <trans-unit id="G6K0gUz" resname="sylius.translation.locale.unique">
+        <source>sylius.translation.locale.unique</source>
+        <target>A translation for the {{ value }} locale code already exists.</target>
+      </trans-unit>
+      <trans-unit id="SQ1z_pv" resname="sylius.translation.locale_code.invalid">
+        <source>sylius.translation.locale_code.invalid</source>
+        <target>Please choose one of the available locales: %locales%</target>
+      </trans-unit>
+      <trans-unit id="ZVrszfO" resname="sylius.user.email.unique">
+        <source>sylius.user.email.unique</source>
+        <target>This email is already used.</target>
+      </trans-unit>
+      <trans-unit id="0xe9fKD" resname="sylius.user.email.min">
+        <source>sylius.user.email.min</source>
+        <target>Email must have at least {{ limit }} characters.</target>
+      </trans-unit>
+      <trans-unit id="4eBTj2X" resname="sylius.user.email.max">
+        <source>sylius.user.email.max</source>
+        <target>Email must have at most {{ limit }} characters.</target>
+      </trans-unit>
+      <trans-unit id="A_3d_wn" resname="sylius.user.username.unique">
+        <source>sylius.user.username.unique</source>
+        <target>This username is already used.</target>
+      </trans-unit>
+      <trans-unit id="HkLFaRN" resname="sylius.user.username.not_blank">
+        <source>sylius.user.username.not_blank</source>
+        <target>Please enter your name.</target>
+      </trans-unit>
+      <trans-unit id="1U5DUbQ" resname="sylius.user.username.max">
+        <source>sylius.user.username.max</source>
+        <target>Username must not be longer than {{ limit }} characters.</target>
+      </trans-unit>
+      <trans-unit id="Ts9CQyA" resname="sylius.user.first_name.max">
+        <source>sylius.user.first_name.max</source>
+        <target>First name must not be longer than {{ limit }} characters.</target>
+      </trans-unit>
+      <trans-unit id="KX8zHzs" resname="sylius.user.last_name.max">
+        <source>sylius.user.last_name.max</source>
+        <target>Last name must not be longer than {{ limit }} characters.</target>
+      </trans-unit>
+      <trans-unit id="II0jO3B" resname="sylius.user.locale_code.not_blank">
+        <source>sylius.user.locale_code.not_blank</source>
+        <target>Please choose a locale.</target>
+      </trans-unit>
+      <trans-unit id="itP7VLU" resname="sylius.zone.code.not_exist">
+        <source>sylius.zone.code.not_exist</source>
+        <target>Zone with code {{ code }} does not exist.</target>
+      </trans-unit>
+      <trans-unit id="ocwfeLs" resname="sylius.resource.not_enabled">
+        <source>sylius.resource.not_enabled</source>
+        <target>Given resource is disabled</target>
+      </trans-unit>
+      <trans-unit id="HCmMrAF" resname="sylius.resource.not_disabled">
+        <source>sylius.resource.not_disabled</source>
+        <target>Given resource is enabled</target>
+      </trans-unit>
+      <trans-unit id="wC8cM9c" resname="sylius.resource.translation.locale.not_blank">
+        <source>sylius.resource.translation.locale.not_blank</source>
+        <target>Please enter the locale.</target>
+      </trans-unit>
+      <trans-unit id="NBH3F8E" resname="sylius.resource.translation.locale.invalid">
+        <source>sylius.resource.translation.locale.invalid</source>
+        <target>This value is not a valid locale.</target>
+      </trans-unit>
+      <trans-unit id="Xz6Ruuy" resname="sylius.resource.translation.locale.unique">
+        <source>sylius.resource.translation.locale.unique</source>
+        <target>A translation for the {{ value }} locale code already exists.</target>
+      </trans-unit>
+      <trans-unit id="ukdgUpK" resname="validator.credit_card.invalidDate">
+        <source>validator.credit_card.invalidDate</source>
+        <target>This value should be a valid date.</target>
+      </trans-unit>
+      <trans-unit id="SIw_D6T" resname="sylius.admin.expired_password_reset_token">
+        <source>sylius.admin.expired_password_reset_token</source>
+        <target>The password reset token has expired.</target>
+      </trans-unit>
+      <trans-unit id="v6oBl.Q" resname="sylius.account.invalid_verification_token">
+        <source>sylius.account.invalid_verification_token</source>
+        <target>There is no shop user with %verificationToken% email verification token.</target>
+      </trans-unit>
+      <trans-unit id="s3BqdH7" resname="sylius.account.is_verified">
+        <source>sylius.account.is_verified</source>
+        <target>Account with email %email% is currently verified.</target>
+      </trans-unit>
+      <trans-unit id="RpR8kZu" resname="sylius.address.without_country">
+        <source>sylius.address.without_country</source>
+        <target>The address without country cannot exist</target>
+      </trans-unit>
+      <trans-unit id="E0bWRZL" resname="sylius.code.not_blank">
+        <source>sylius.code.not_blank</source>
+        <target>Please enter a code.</target>
+      </trans-unit>
+      <trans-unit id="iGuQFtU" resname="sylius.code.invalid">
+        <source>sylius.code.invalid</source>
+        <target>The code should contain only letters, numbers, dashes ("-" symbol) and underscores ("_" symbol).</target>
+      </trans-unit>
+      <trans-unit id="de5fnCK" resname="sylius.contact_request.email_is_invalid">
+        <source>sylius.contact_request.email_is_invalid</source>
+        <target>The provided email is invalid.</target>
+      </trans-unit>
+      <trans-unit id="55tiFSU" resname="sylius.country.not_exist">
+        <source>sylius.country.not_exist</source>
+        <target>The country %countryCode% does not exist.</target>
+      </trans-unit>
+      <trans-unit id="R0Y7hRT" resname="sylius.date_interval.empty">
+        <source>sylius.date_interval.empty</source>
+        <target>The date interval cannot be empty.</target>
+      </trans-unit>
+      <trans-unit id="xBkitz1" resname="sylius.date_interval.invalid">
+        <source>sylius.date_interval.invalid</source>
+        <target>The date interval is not valid ISO 8601 interval.</target>
+      </trans-unit>
+      <trans-unit id="tfPGtBT" resname="sylius.date_time.invalid">
+        <source>sylius.date_time.invalid</source>
+        <target>The date time is not valid ISO 8601 date time in Y-m-d\TH:i:s format.</target>
+      </trans-unit>
+      <trans-unit id="3DkJGcC" resname="sylius.order.not_empty">
+        <source>sylius.order.not_empty</source>
+        <target>An empty order cannot be processed.</target>
+      </trans-unit>
+      <trans-unit id="siSajOC" resname="sylius.payment.not_found">
+        <source>sylius.payment.not_found</source>
+        <target>The payment does not exist.</target>
+      </trans-unit>
+      <trans-unit id="9IGdqXR" resname="sylius.payment_method.cannot_change_payment_method_for_cancelled_order">
+        <source>sylius.payment_method.cannot_change_payment_method_for_cancelled_order</source>
+        <target>You cannot change the payment method for a cancelled order.</target>
+      </trans-unit>
+      <trans-unit id="Ambn9qG" resname="sylius.payment_method.not_available">
+        <source>sylius.payment_method.not_available</source>
+        <target>The payment method %name% is not available for this order. Please choose another one.</target>
+      </trans-unit>
+      <trans-unit id="y3YtxmO" resname="sylius.payment_method.not_exist">
+        <source>sylius.payment_method.not_exist</source>
+        <target>The payment method with %code% code does not exist.</target>
+      </trans-unit>
+      <trans-unit id="2QqRSJG" resname="sylius.payment_request.action_not_available">
+        <source>sylius.payment_request.action_not_available</source>
+        <target>The payment request (method code: %code% and payment id: %id%) has no handler. Please choose another payment method.</target>
+      </trans-unit>
+      <trans-unit id="_BCtbLB" resname="sylius.payment_request.not_available">
+        <source>sylius.payment_request.not_available</source>
+        <target>The payment request is not supporting this action.</target>
+      </trans-unit>
+      <trans-unit id="JaRtndj" resname="sylius.product.not_exist">
+        <source>sylius.product.not_exist</source>
+        <target>The product %productName% does not exist.</target>
+      </trans-unit>
+      <trans-unit id="Km8WIdp" resname="sylius.product_variant.not_exist">
+        <source>sylius.product_variant.not_exist</source>
+        <target>The product variant %productVariantCode% does not exist.</target>
+      </trans-unit>
+      <trans-unit id="WrrRl9S" resname="sylius.product_variant.not_longer_available">
+        <source>sylius.product_variant.not_longer_available</source>
+        <target>The product variant with name %productVariantName% does not exist.</target>
+      </trans-unit>
+      <trans-unit id="EGSvjdS" resname="sylius.product_variant.not_sufficient">
+        <source>sylius.product_variant.not_sufficient</source>
+        <target>The product variant with %productVariantCode% code does not have sufficient stock.</target>
+      </trans-unit>
+      <trans-unit id="x0cR9ti" resname="sylius.product_variant.product_variant_with_name_not_sufficient">
+        <source>sylius.product_variant.product_variant_with_name_not_sufficient</source>
+        <target>The product variant with %productVariantName% name does not have sufficient stock.</target>
+      </trans-unit>
+      <trans-unit id="Rnqi0UL" resname="sylius.product_variant.option_values.single_value">
+        <source>sylius.product_variant.option_values.single_value</source>
+        <target>The product variant can have only one value configured for a single option.</target>
+      </trans-unit>
+      <trans-unit id="j_U6h1J" resname="sylius.reset_password.invalid_token">
+        <source>sylius.reset_password.invalid_token</source>
+        <target>Password reset token %token% is invalid.</target>
+      </trans-unit>
+      <trans-unit id="3iiQoZl" resname="sylius.reset_password.token_expired">
+        <source>sylius.reset_password.token_expired</source>
+        <target>Password reset token has expired.</target>
+      </trans-unit>
+      <trans-unit id="T9pUxiR" resname="sylius.shipment.not_found">
+        <source>sylius.shipment.not_found</source>
+        <target>The shipment does not exist.</target>
+      </trans-unit>
+      <trans-unit id="EHBccwT" resname="sylius.shipment.shipped">
+        <source>sylius.shipment.shipped</source>
+        <target>You cannot ship a shipment that was shipped before.</target>
+      </trans-unit>
+      <trans-unit id="1gVxze5" resname="sylius.shipping_method.not_found">
+        <source>sylius.shipping_method.not_found</source>
+        <target>The shipping method with %code% code does not exist.</target>
+      </trans-unit>
+      <trans-unit id="auxms.H" resname="sylius.shipping_method.not_available">
+        <source>sylius.shipping_method.not_available</source>
+        <target>The shipping method %name% is not available for this order. Please reselect your shipping method.</target>
+      </trans-unit>
+      <trans-unit id="gEqnYYI" resname="sylius.shipping_method.shipping_address_not_found">
+        <source>sylius.shipping_method.shipping_address_not_found</source>
+        <target>Order should be addressed first.</target>
+      </trans-unit>
+      <trans-unit id="Hu4b32x" resname="sylius.statistics.end_date.invalid">
+        <source>sylius.statistics.end_date.invalid</source>
+        <target>The start date must be earlier than the end date.</target>
+      </trans-unit>
+      <trans-unit id="yx67VzX" resname="sylius_mollie.api_key.invalid_live">
+        <source>sylius_mollie.api_key.invalid_live</source>
+        <target>Invalid API key. An API key must start with "live_".</target>
+      </trans-unit>
+      <trans-unit id="AFVnP8y" resname="sylius_mollie.api_key.invalid_test">
+        <source>sylius_mollie.api_key.invalid_test</source>
+        <target>Invalid API key. An API key must start with "test_".</target>
+      </trans-unit>
+      <trans-unit id="dwN.YA2" resname="sylius_mollie.api_key.min_length">
+        <source>sylius_mollie.api_key.min_length</source>
+        <target>API key must be at least {{ limit }} characters long.</target>
+      </trans-unit>
+      <trans-unit id="8LADbYr" resname="sylius_mollie.api_key.not_blank">
+        <source>sylius_mollie.api_key.not_blank</source>
+        <target>API key cannot be blank.</target>
+      </trans-unit>
+      <trans-unit id="kPkEB4d" resname="sylius_mollie.channel.required_currency">
+        <source>sylius_mollie.channel.required_currency</source>
+        <target>The base currency of the channel must be {{ currencies }}.</target>
+      </trans-unit>
+      <trans-unit id="CpynXNW" resname="sylius_mollie.consumer_name.not_blank">
+        <source>sylius_mollie.consumer_name.not_blank</source>
+        <target>Consumer name cannot be blank.</target>
+      </trans-unit>
+      <trans-unit id="e0WkJNw" resname="sylius_mollie.form.error.greater_than">
+        <source>sylius_mollie.form.error.greater_than</source>
+        <target>The value should be greater than zero</target>
+      </trans-unit>
+      <trans-unit id="pni_c3o" resname="sylius_mollie.form.error.key_not_empty">
+        <source>sylius_mollie.form.error.key_not_empty</source>
+        <target>Depending on the environment, the mollie key cannot be empty</target>
+      </trans-unit>
+      <trans-unit id="PLYmNWH" resname="sylius_mollie.form.error.max_greater_than_mollie_max">
+        <source>sylius_mollie.form.error.max_greater_than_mollie_max</source>
+        <target>Maximum amount limit must be less than or equal to existing Mollie maximum amount limit %amount%</target>
+      </trans-unit>
+      <trans-unit id=".xzII_o" resname="sylius_mollie.form.error.min_greater_than_max">
+        <source>sylius_mollie.form.error.min_greater_than_max</source>
+        <target>Maximum amount limit must be greater than or equal to minimum amount limit.</target>
+      </trans-unit>
+      <trans-unit id="zvWh9jC" resname="sylius_mollie.form.error.min_less_than_mollie_min">
+        <source>sylius_mollie.form.error.min_less_than_mollie_min</source>
+        <target>Minimum amount limit must be greater than or equal to existing Mollie minimum amount limit %amount%</target>
+      </trans-unit>
+      <trans-unit id="7oy4blY" resname="sylius_mollie.form.error.payment_surcharge_not_empty">
+        <source>sylius_mollie.form.error.payment_surcharge_not_empty</source>
+        <target>Value cannot be blank</target>
+      </trans-unit>
+      <trans-unit id="ioboxQi" resname="sylius_mollie.iban.incorrect">
+        <source>sylius_mollie.iban.incorrect</source>
+        <target>Incorrect IBAN number.</target>
+      </trans-unit>
+      <trans-unit id="oJMwgQt" resname="sylius_mollie.iban.not_blank">
+        <source>sylius_mollie.iban.not_blank</source>
+        <target>IBAN cannot be blank.</target>
+      </trans-unit>
+      <trans-unit id="t0CYgkt" resname="sylius_mollie.interval.invalid">
+        <source>sylius_mollie.interval.invalid</source>
+        <target>Invalid interval format. Possible values: … months … weeks … days</target>
+      </trans-unit>
+      <trans-unit id="r5xH.Yj" resname="sylius_mollie.interval.not_blank">
+        <source>sylius_mollie.interval.not_blank</source>
+        <target>Interval cannot be blank.</target>
+      </trans-unit>
+      <trans-unit id="vm1G8i1" resname="sylius_mollie.payment_method.not_blank">
+        <source>sylius_mollie.payment_method.not_blank</source>
+        <target>Value cannot be blank</target>
+      </trans-unit>
+      <trans-unit id="_6Mn9BU" resname="sylius_mollie.times.min_range">
+        <source>sylius_mollie.times.min_range</source>
+        <target>Times cannot be lower than {{ limit }}.</target>
+      </trans-unit>
+      <trans-unit id="mJJzeEn" resname="sylius_mollie.payment_link.method.not_blank">
+        <source>sylius_mollie.payment_link.method.not_blank</source>
+        <target>Please choose a payment method.</target>
+      </trans-unit>
+      <trans-unit id="isBJoSV" resname="sylius.order.admin_notes.max_length">
+        <source>sylius.order.admin_notes.max_length</source>
+        <target>__sylius.order.admin_notes.max_length</target>
+      </trans-unit>
+    </body>
+  </file>
+</xliff>

@@ -24,7 +24,7 @@
         }
     ],
     "require": {
-        "php": "^8.3",
+        "php": "^8.4",
         "sylius/mollie-plugin": "^3.2",
         "sylius/paypal-plugin": "^2.0",
         "sylius/sylius": "^2.1",
@@ -33,6 +33,8 @@
         "symfony/runtime": "^6.4 || ^7.4"
     },
     "require-dev": {
+        "roave/security-advisories": "dev-latest"
+        ,
         "behat/behat": "^3.2",
         "behat/mink-selenium2-driver": "^1.7",
         "dbrekelmans/bdi": "^1.4",

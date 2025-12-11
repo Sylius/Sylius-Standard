@@ -28,3 +28,7 @@ services:
     App\Controller\:
         resource: '../src/Controller'
         tags: ['controller.service_arguments']
+
+    App\Form\Extension\AdminOrderTypeExtension:
+        tags:
+            - { name: 'form.type_extension', extended_type: Sylius\Bundle\AdminBundle\Form\Type\OrderType }
