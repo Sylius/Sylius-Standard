@@ -17,13 +17,13 @@ services:
 when@test:
     services:
         App\Tests\Behat\Context\:
-            resource: '%kernel.project_dir%/tests/Behat/Context/*'
+            resource: '%kernel.project_dir%/tests/Behat/Context/**'
             tags: ['behat.context']
 
 when@test_cached:
     services:
         App\Tests\Behat\Context\:
-            resource: '%kernel.project_dir%/tests/Behat/Context/*'
+            resource: '%kernel.project_dir%/tests/Behat/Context/**'
             tags: ['behat.context']
 
 sylius_api:

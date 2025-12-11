@@ -25,9 +25,37 @@ jobs:
         uses: ./.github/workflows/ci_static-checks.yaml
         with:
             type: minimal
+    
+    unit-tests:
+        name: Unit Tests
+        runs-on: ubuntu-latest
+        env:
+            APP_ENV: test
+            DATABASE_URL: "mysql://root:root@127.0.0.1/sylius_test?charset=utf8mb4&serverVersion=8.0"
+        steps:
+            - uses: actions/checkout@v4
+            
+            - name: Setup PHP
+                uses: shivammathur/setup-php@v2
+                with:
+                    php-version: '8.4'
+                    extensions: intl, gd, opcache, mysql, pdo_mysql
+                    tools: composer
+            
+            - name: Setup MySQL
+                run: |
+                    sudo systemctl start mysql
+                    mysql -e "CREATE DATABASE IF NOT EXISTS sylius_test;"
+            
+            - name: Install dependencies
+                run: composer install --no-interaction --prefer-dist
+            
+            - name: Run PHPUnit tests
+                run: vendor/bin/phpunit tests/Entity tests/Form
+    
     e2e-mysql:
         name: End-to-end tests (MySQL)
-        needs: static-checks
+        needs: [static-checks, unit-tests]
         uses: ./.github/workflows/ci_e2e-mysql.yaml
         with:
             type: minimal
