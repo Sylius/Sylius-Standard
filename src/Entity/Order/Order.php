@@ -23,7 +23,7 @@ class Order extends BaseOrder implements OrderInterface
 
     public const MAX_NOTE_LENGTH = 500;
 
-    #[ORM\Column(name: 'admin_notes', type: 'text', nullable: true, length: self::MAX_NOTE_LENGTH)]
+    #[ORM\Column(name: 'admin_notes', type: 'string', length: self::MAX_NOTE_LENGTH, nullable: true)]
     protected ?string $adminNotes = null;
 
     public function getAdminNotes(): ?string

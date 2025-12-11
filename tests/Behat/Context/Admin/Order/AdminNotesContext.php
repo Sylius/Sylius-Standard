@@ -30,6 +30,18 @@ final class AdminNotesContext implements Context
     }
 
     /**
+     * @Then I should be on the order :orderNumber details page
+     */
+    public function iShouldBeOnTheOrderDetailsPage(string $orderNumber): void
+    {
+        $order = $this->findOrderByNumber($orderNumber);
+        Assert::true(
+            $this->showPage->isOpen(['id' => $order->getId()]),
+            sprintf('Expected to be on order "%s" details page, but was not', $orderNumber),
+        );
+    }
+
+    /**
      * @Then I should see the admin notes section
      */
     public function iShouldSeeTheAdminNotesSection(): void

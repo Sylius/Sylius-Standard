@@ -2,10 +2,6 @@ imports:
     - { resource: "../vendor/sylius/sylius/src/Sylius/Behat/Resources/config/services.xml" }
 
 services:
-    App\Tests\Behat\Context\:
-        resource: '../../tests/Behat/Context'
-        tags: ['behat.context']
-
     Sylius\Behat\Page\Admin\Order\ShowPageInterface:
         alias: sylius.behat.page.admin.order.show
         public: true
@@ -17,6 +13,18 @@ services:
     Sylius\Behat\Page\Shop\Order\ShowPageInterface:
         alias: sylius.behat.page.shop.order.show
         public: true
+
+when@test:
+    services:
+        App\Tests\Behat\Context\:
+            resource: '%kernel.project_dir%/tests/Behat/Context/*'
+            tags: ['behat.context']
+
+when@test_cached:
+    services:
+        App\Tests\Behat\Context\:
+            resource: '%kernel.project_dir%/tests/Behat/Context/*'
+            tags: ['behat.context']
 
 sylius_api:
     enabled: true
