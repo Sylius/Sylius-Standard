@@ -14733,16 +14733,16 @@
         },
         {
             "name": "behat/behat",
-            "version": "v3.27.0",
+            "version": "v3.29.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Behat/Behat.git",
-                "reference": "3282ad774358e4eaf533855e9a1f48559894d1b5"
+                "reference": "51bdf81639a14645c5d2c06926f4aa37d204921b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Behat/Behat/zipball/3282ad774358e4eaf533855e9a1f48559894d1b5",
-                "reference": "3282ad774358e4eaf533855e9a1f48559894d1b5",
+                "url": "https://api.github.com/repos/Behat/Behat/zipball/51bdf81639a14645c5d2c06926f4aa37d204921b",
+                "reference": "51bdf81639a14645c5d2c06926f4aa37d204921b",
                 "shasum": ""
             },
             "require": {
@@ -14761,8 +14761,8 @@
                 "symfony/yaml": "^5.4 || ^6.4 || ^7.0"
             },
             "require-dev": {
-                "friendsofphp/php-cs-fixer": "^3.68",
                 "opis/json-schema": "^2.5",
+                "php-cs-fixer/shim": "^3.89",
                 "phpstan/phpstan": "^2.0",
                 "phpunit/phpunit": "^9.6",
                 "rector/rector": "2.1.7",
@@ -14778,11 +14778,6 @@
                 "bin/behat"
             ],
             "type": "library",
-            "extra": {
-                "branch-alias": {
-                    "dev-master": "3.x-dev"
-                }
-            },
             "autoload": {
                 "psr-4": {
                     "Behat\\Hook\\": "src/Behat/Hook/",
@@ -14822,22 +14817,36 @@
             ],
             "support": {
                 "issues": "https://github.com/Behat/Behat/issues",
-                "source": "https://github.com/Behat/Behat/tree/v3.27.0"
+                "source": "https://github.com/Behat/Behat/tree/v3.29.0"
             },
-            "time": "2025-11-23T12:12:41+00:00"
+            "funding": [
+                {
+                    "url": "https://github.com/acoulton",
+                    "type": "github"
+                },
+                {
+                    "url": "https://github.com/carlos-granados",
+                    "type": "github"
+                },
+                {
+                    "url": "https://github.com/stof",
+                    "type": "github"
+                }
+            ],
+            "time": "2025-12-11T09:51:30+00:00"
         },
         {
             "name": "behat/gherkin",
-            "version": "v4.15.0",
+            "version": "v4.16.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Behat/Gherkin.git",
-                "reference": "05a7459283e8e6af0d46ec25b8bb5960ca3cfa7b"
+                "reference": "e26037937dfd48528746764dd870bc5d0836665f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Behat/Gherkin/zipball/05a7459283e8e6af0d46ec25b8bb5960ca3cfa7b",
-                "reference": "05a7459283e8e6af0d46ec25b8bb5960ca3cfa7b",
+                "url": "https://api.github.com/repos/Behat/Gherkin/zipball/e26037937dfd48528746764dd870bc5d0836665f",
+                "reference": "e26037937dfd48528746764dd870bc5d0836665f",
                 "shasum": ""
             },
             "require": {
@@ -14845,7 +14854,7 @@
                 "php": ">=8.1 <8.6"
             },
             "require-dev": {
-                "cucumber/gherkin-monorepo": "dev-gherkin-v36.0.0",
+                "cucumber/gherkin-monorepo": "dev-gherkin-v37.0.0",
                 "friendsofphp/php-cs-fixer": "^3.77",
                 "mikey179/vfsstream": "^1.6",
                 "phpstan/extension-installer": "^1",
@@ -14891,9 +14900,23 @@
             ],
             "support": {
                 "issues": "https://github.com/Behat/Gherkin/issues",
-                "source": "https://github.com/Behat/Gherkin/tree/v4.15.0"
+                "source": "https://github.com/Behat/Gherkin/tree/v4.16.1"
             },
-            "time": "2025-11-05T15:34:04+00:00"
+            "funding": [
+                {
+                    "url": "https://github.com/acoulton",
+                    "type": "github"
+                },
+                {
+                    "url": "https://github.com/carlos-granados",
+                    "type": "github"
+                },
+                {
+                    "url": "https://github.com/stof",
+                    "type": "github"
+                }
+            ],
+            "time": "2025-12-08T16:12:58+00:00"
         },
         {
             "name": "behat/mink-selenium2-driver",
@@ -15388,16 +15411,16 @@
         },
         {
             "name": "dmore/behat-chrome-extension",
-            "version": "1.4.0",
+            "version": "1.4.1",
             "source": {
                 "type": "git",
                 "url": "https://gitlab.com/behat-chrome/behat-chrome-extension.git",
-                "reference": "888e91f52b3ffd19afe61cea3d5edebb0a4d43a7"
+                "reference": "b4262f4bf9ea8a8874eb8684bb982c13aca66d3c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://gitlab.com/api/v4/projects/behat-chrome%2Fbehat-chrome-extension/repository/archive.zip?sha=888e91f52b3ffd19afe61cea3d5edebb0a4d43a7",
-                "reference": "888e91f52b3ffd19afe61cea3d5edebb0a4d43a7",
+                "url": "https://gitlab.com/api/v4/projects/behat-chrome%2Fbehat-chrome-extension/repository/archive.zip?sha=b4262f4bf9ea8a8874eb8684bb982c13aca66d3c",
+                "reference": "b4262f4bf9ea8a8874eb8684bb982c13aca66d3c",
                 "shasum": ""
             },
             "require": {
@@ -15435,9 +15458,9 @@
             ],
             "support": {
                 "issues": "https://gitlab.com/behat-chrome/behat-chrome-extension/-/issues",
-                "source": "https://gitlab.com/behat-chrome/behat-chrome-extension/-/tree/1.4.0"
+                "source": "https://gitlab.com/behat-chrome/behat-chrome-extension/-/tree/1.4.1"
             },
-            "time": "2022-04-10T04:25:11+00:00"
+            "time": "2025-12-19T06:39:12+00:00"
         },
         {
             "name": "dmore/chrome-mink-driver",
@@ -19913,5 +19936,5 @@
         "php": "^8.3"
     },
     "platform-dev": {},
-    "plugin-api-version": "2.9.0"
+    "plugin-api-version": "2.6.0"
 }
