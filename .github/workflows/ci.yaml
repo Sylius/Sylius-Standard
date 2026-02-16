@@ -52,7 +52,6 @@ jobs:
 
         env:
             APP_ENV: ${{ matrix.env || 'test_cached' }}
-            DATABASE_URL: "mysql://root:root@127.0.0.1/sylius?charset=utf8mb4&serverVersion=${{ matrix.mysql }}"
             BEHAT_BASE_CMD: "vendor/bin/behat --colors --strict --no-interaction -vvv -f progress"
             BEHAT_RERUN_CMD: "vendor/bin/behat --colors --strict --no-interaction -vvv -f pretty --rerun"
 
@@ -68,7 +67,7 @@ jobs:
                 uses: actions/checkout@v4
 
             -   name: Build application
-                uses: SyliusLabs/BuildTestAppAction@v4.2.0
+                uses: SyliusLabs/BuildTestAppAction@v4
                 with:
                     cache_key: "${{ runner.os }}-php-${{ matrix.php }}-symfony-${{ matrix.symfony }}-composer-${{ hashFiles('composer.json') }}"
                     cache_restore_key: "${{ runner.os }}-php-${{ matrix.php }}-symfony-${{ matrix.symfony }}-composer-"
@@ -138,7 +137,7 @@ jobs:
                 uses: actions/checkout@v4
 
             -   name: Build application
-                uses: SyliusLabs/BuildTestAppAction@v4.2.0
+                uses: SyliusLabs/BuildTestAppAction@v4
                 with:
                     build_type: "app"
                     cache_key: "${{ runner.os }}-php-${{ matrix.php }}-symfony-${{ matrix.symfony }}-composer-${{ hashFiles('composer.json') }}"
