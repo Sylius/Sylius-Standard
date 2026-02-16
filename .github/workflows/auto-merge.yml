@@ -3,20 +3,20 @@ name: Auto-merge
 on:
     pull_request: ~
 
+permissions:
+    contents: read
+
 jobs:
     auto-merge:
+        permissions:
+            pull-requests: write
         runs-on: ubuntu-latest
         steps:
-            -
-                name: Checkout repository
-                uses: actions/checkout@v2
-                with:
-                    token: ${{ secrets.GITHUB_TOKEN }}
+            -   uses: actions/checkout@v4
 
             -
                 name: Auto-merge minor dependencies upgrades
                 uses: ahmadnassri/action-dependabot-auto-merge@v2
                 with:
                     target: minor
-                    github-token: ${{ secrets.GITHUB_TOKEN }}
-                    config: .github/dependabot.yml
+                    github-token: ${{ secrets.DEPENDABOT_TOKEN }}
