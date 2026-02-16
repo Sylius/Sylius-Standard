@@ -81,6 +81,7 @@ jobs:
                     cache_key: "${{ runner.os }}-php-${{ matrix.php }}-symfony-${{ matrix.symfony }}-composer-${{ hashFiles('composer.json') }}"
                     cache_restore_key: "${{ runner.os }}-php-${{ matrix.php }}-symfony-${{ matrix.symfony }}-composer-"
                     e2e: "yes"
+                    e2e_js: "yes"
                     database: "mysql:${{ matrix.mysql }}"
                     php_version: ${{ matrix.php }}
                     symfony_version: ${{ matrix.symfony }}
