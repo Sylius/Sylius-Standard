@@ -19150,16 +19150,16 @@
         },
         {
             "name": "sylius-labs/suite-tags-extension",
-            "version": "v0.2",
+            "version": "v0.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/SyliusLabs/SuiteTagsExtension.git",
-                "reference": "0954be0e4e854df9cb6710700267b06374ec761f"
+                "reference": "ef6aef352c47511ef77c035bda7e5098d565e814"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/SyliusLabs/SuiteTagsExtension/zipball/0954be0e4e854df9cb6710700267b06374ec761f",
-                "reference": "0954be0e4e854df9cb6710700267b06374ec761f",
+                "url": "https://api.github.com/repos/SyliusLabs/SuiteTagsExtension/zipball/ef6aef352c47511ef77c035bda7e5098d565e814",
+                "reference": "ef6aef352c47511ef77c035bda7e5098d565e814",
                 "shasum": ""
             },
             "require": {
@@ -19189,9 +19189,9 @@
             "description": "Filters suites run by their configured tags",
             "support": {
                 "issues": "https://github.com/SyliusLabs/SuiteTagsExtension/issues",
-                "source": "https://github.com/SyliusLabs/SuiteTagsExtension/tree/v0.2"
+                "source": "https://github.com/SyliusLabs/SuiteTagsExtension/tree/v0.3"
             },
-            "time": "2024-03-04T12:02:18+00:00"
+            "time": "2024-03-04T13:00:16+00:00"
         },
         {
             "name": "sylius/sylius-rector",
