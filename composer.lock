@@ -15960,25 +15960,25 @@
         },
         {
             "name": "friends-of-behat/variadic-extension",
-            "version": "v1.6.0",
+            "version": "v1.7.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/FriendsOfBehat/VariadicExtension.git",
-                "reference": "892929189fd4deac9a920e64bb124231be624cdc"
+                "reference": "98b976c017058f8e5d950e10544197435fb0c587"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/FriendsOfBehat/VariadicExtension/zipball/892929189fd4deac9a920e64bb124231be624cdc",
-                "reference": "892929189fd4deac9a920e64bb124231be624cdc",
+                "url": "https://api.github.com/repos/FriendsOfBehat/VariadicExtension/zipball/98b976c017058f8e5d950e10544197435fb0c587",
+                "reference": "98b976c017058f8e5d950e10544197435fb0c587",
                 "shasum": ""
             },
             "require": {
-                "behat/behat": "^3.8",
+                "behat/behat": "^3.8 || ^4.0",
                 "php": "^8.1",
-                "symfony/dependency-injection": "^5.4 || ^6.4 || ^7.0"
+                "symfony/dependency-injection": "^5.4 || ^6.4 || ^7.4 || ^8.0"
             },
             "require-dev": {
-                "friends-of-behat/test-context": "^1.0"
+                "friends-of-behat/test-context": "^1.4"
             },
             "type": "library",
             "extra": {
@@ -16004,9 +16004,9 @@
             "description": "Variadic support for behat context arguments",
             "support": {
                 "issues": "https://github.com/FriendsOfBehat/VariadicExtension/issues",
-                "source": "https://github.com/FriendsOfBehat/VariadicExtension/tree/v1.6.0"
+                "source": "https://github.com/FriendsOfBehat/VariadicExtension/tree/v1.7.0"
             },
-            "time": "2024-01-30T11:13:11+00:00"
+            "time": "2026-03-23T12:27:14+00:00"
         },
         {
             "name": "instaclick/php-webdriver",
