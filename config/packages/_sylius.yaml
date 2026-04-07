@@ -48,6 +48,11 @@ sylius_channel:
                 model: App\Entity\Channel\Channel
 
 sylius_core:
+    # Disables OrderByIdentifierSqlWalker, which always appends `id ASC` to every ORDER BY,
+    # causing filesort on large tables when the primary sort direction is DESC.
+    # See: https://github.com/Sylius/Sylius/pull/18956
+    order_by_identifier: false
+    
     resources:
         avatar_image:
             classes:
