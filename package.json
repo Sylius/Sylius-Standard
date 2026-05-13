@@ -1,9 +1,9 @@
 {
   "license": "MIT",
   "scripts": {
-    "build": "encore dev",
-    "build:prod": "encore production",
-    "watch": "encore dev --watch"
+    "build": "encore dev --config webpack.config.js",
+    "build:prod": "encore production --config webpack.config.js",
+    "watch": "encore dev --watch --config webpack.config.js"
   },
   "dependencies": {
     "@sylius-ui/admin": "file:vendor/sylius/sylius/src/Sylius/Bundle/AdminBundle",
@@ -20,7 +20,7 @@
   "devDependencies": {
     "@hotwired/stimulus": "^3.0.0",
     "@symfony/stimulus-bridge": "^3.2.0",
-    "@symfony/webpack-encore": "^5.0.1",
+    "@symfony/webpack-encore": "^6.0.0",
     "file-loader": "^6.0.0",
     "tom-select": "^2.2.2"
   }

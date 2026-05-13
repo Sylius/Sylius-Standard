@@ -1,91 +1,94 @@
-const path = require('path');
-const fs = require('fs');
+import path from 'path';
+import fs from 'fs';
+import { fileURLToPath } from 'url';
+import Encore from '@symfony/webpack-encore';
+import SyliusAdmin from '@sylius-ui/admin';
+import SyliusShop from '@sylius-ui/shop';
 
-const Encore = require('@symfony/webpack-encore');
+const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
-const SyliusAdmin = require('@sylius-ui/admin');
-const SyliusShop = require('@sylius-ui/shop');
+export default async () => {
+    // Admin config
+    const adminConfig = await SyliusAdmin.getBaseWebpackConfig(path.resolve(__dirname));
 
-// Admin config
-const adminConfig = SyliusAdmin.getBaseWebpackConfig(path.resolve(__dirname));
+    // Shop config
+    const shopConfig = await SyliusShop.getBaseWebpackConfig(path.resolve(__dirname));
 
-// Shop config
-const shopConfig = SyliusShop.getBaseWebpackConfig(path.resolve(__dirname));
+    // Shared controllers
+    const common_controllers = path.resolve(__dirname, './assets/controllers.json');
 
-// Shared controllers
-const common_controllers = path.resolve(__dirname, './assets/controllers.json');
+    // App shop config
+    Encore
+        .setOutputPath('public/build/app/shop')
+        .setPublicPath('/build/app/shop')
+        .copyFiles({
+          from: './assets/shop/images',
+          to: 'images/[path][name].[hash:8].[ext]',
+          pattern: /\.(png|jpe?g|gif|svg|webp)$/
+        })
+        .addEntry('app-shop-entry', './assets/shop/entrypoint.js')
+        .addAliases({
+            '@vendor': path.resolve(__dirname, 'vendor'),
+        })
+        .disableSingleRuntimeChunk()
+        .cleanupOutputBeforeBuild()
 
-// App shop config
-Encore
-    .setOutputPath('public/build/app/shop')
-    .setPublicPath('/build/app/shop')
-    .copyFiles({
-      from: './assets/shop/images',
-      to: 'images/[path][name].[hash:8].[ext]',
-      pattern: /\.(png|jpe?g|gif|svg|webp)$/
-    })
-    .addEntry('app-shop-entry', './assets/shop/entrypoint.js')
-    .addAliases({
-        '@vendor': path.resolve(__dirname, 'vendor'),
-    })
-    .disableSingleRuntimeChunk()
-    .cleanupOutputBeforeBuild()
+        // Displays build status system notifications to the user
+        // .enableBuildNotifications()
 
-    // Displays build status system notifications to the user
-    // .enableBuildNotifications()
+        .enableSourceMaps(!Encore.isProduction())
+        .enableVersioning(Encore.isProduction())
+        .enableSassLoader()
+        // .enableStimulusBridge(path.resolve(__dirname, './assets/shop/controllers.json'))
+        // remove the following line if you don't want to add automatically controllers provided by plugins
+        // You then have to copy them to assets/shop/controllers.json
+        .enableStimulusBridge(mergeControllers(
+          'shop',
+          [common_controllers, path.resolve(__dirname, './assets/shop/controllers.json')]
+        ))
+    ;
 
-    .enableSourceMaps(!Encore.isProduction())
-    .enableVersioning(Encore.isProduction())
-    .enableSassLoader()
-    // .enableStimulusBridge(path.resolve(__dirname, './assets/shop/controllers.json'))
-    // remove the following line if you don't want to add automatically controllers provided by plugins
-    // You then have to copy them to assets/shop/controllers.json
-    .enableStimulusBridge(mergeControllers(
-      'shop',
-      [common_controllers, path.resolve(__dirname, './assets/shop/controllers.json')]
-    ))
-;
+    const appShopConfig = await Encore.getWebpackConfig();
 
-const appShopConfig = Encore.getWebpackConfig();
+    appShopConfig.externals = Object.assign({}, appShopConfig.externals, { window: 'window', document: 'document' });
+    appShopConfig.name = 'app.shop';
 
-appShopConfig.externals = Object.assign({}, appShopConfig.externals, { window: 'window', document: 'document' });
-appShopConfig.name = 'app.shop';
+    Encore.reset();
 
-Encore.reset();
+    // App admin config
+    Encore
+        .setOutputPath('public/build/app/admin')
+        .setPublicPath('/build/app/admin')
+        .copyFiles({
+          from: './assets/admin/images',
+          to: 'images/[path][name].[hash:8].[ext]',
+          pattern: /\.(png|jpe?g|gif|svg|webp)$/
+        })
+        .addEntry('app-admin-entry', './assets/admin/entrypoint.js')
+        .addAliases({
+            '@vendor': path.resolve(__dirname, 'vendor'),
+        })
+        .disableSingleRuntimeChunk()
+        .cleanupOutputBeforeBuild()
+        .enableSourceMaps(!Encore.isProduction())
+        .enableVersioning(Encore.isProduction())
+        .enableSassLoader()
+        //.enableStimulusBridge(path.resolve(__dirname, './assets/admin/controllers.json'))
+        // remove the following line if you don't want to add automatically controllers provided by plugins
+        // You then have to copy them to assets/admin/controllers.json
+        .enableStimulusBridge(mergeControllers(
+          'admin',
+          [common_controllers, path.resolve(__dirname, './assets/admin/controllers.json')]
+        ))
+    ;
 
-// App admin config
-Encore
-    .setOutputPath('public/build/app/admin')
-    .setPublicPath('/build/app/admin')
-    .copyFiles({
-      from: './assets/admin/images',
-      to: 'images/[path][name].[hash:8].[ext]',
-      pattern: /\.(png|jpe?g|gif|svg|webp)$/
-    })
-    .addEntry('app-admin-entry', './assets/admin/entrypoint.js')
-    .addAliases({
-        '@vendor': path.resolve(__dirname, 'vendor'),
-    })
-    .disableSingleRuntimeChunk()
-    .cleanupOutputBeforeBuild()
-    .enableSourceMaps(!Encore.isProduction())
-    .enableVersioning(Encore.isProduction())
-    .enableSassLoader()
-    //.enableStimulusBridge(path.resolve(__dirname, './assets/admin/controllers.json'))
-    // remove the following line if you don't want to add automatically controllers provided by plugins
-    // You then have to copy them to assets/admin/controllers.json
-    .enableStimulusBridge(mergeControllers(
-      'admin',
-      [common_controllers, path.resolve(__dirname, './assets/admin/controllers.json')]
-    ))
-;
+    const appAdminConfig = await Encore.getWebpackConfig();
 
-const appAdminConfig = Encore.getWebpackConfig();
+    appAdminConfig.externals = Object.assign({}, appAdminConfig.externals, { window: 'window', document: 'document' });
+    appAdminConfig.name = 'app.admin';
 
-appAdminConfig.externals = Object.assign({}, appAdminConfig.externals, { window: 'window', document: 'document' });
-appAdminConfig.name = 'app.admin';
-
-module.exports = [shopConfig, adminConfig, appShopConfig, appAdminConfig];
+    return [shopConfig, adminConfig, appShopConfig, appAdminConfig];
+};
 
 /**
  * Merge controllers.json from multiple files into one and store in cache
