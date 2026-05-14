@@ -25,7 +25,9 @@
     ],
     "require": {
         "php": "^8.3",
+        "knplabs/knp-gaufrette-bundle": "^0.9.0",
         "sylius/mollie-plugin": "^3.2",
+        "sylius/paypal-plugin": "^2.0",
         "sylius/sylius": "dev-feature/support-webpack-encore-6.0.0 as 2.2.0",
         "symfony/dotenv": "^7.4",
         "symfony/flex": "^2.10",
