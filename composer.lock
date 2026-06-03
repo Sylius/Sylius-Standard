@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "12fd0b1020ae04606500c1380baa4b65",
+    "content-hash": "9aa3cf1fd348e8aa6a4da3c5d7f79532",
     "packages": [
         {
             "name": "alcohol/iso4217",
@@ -2447,30 +2447,29 @@
         },
         {
             "name": "doctrine/instantiator",
-            "version": "2.0.0",
+            "version": "2.1.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/doctrine/instantiator.git",
-                "reference": "c6222283fa3f4ac679f8b9ced9a4e23f163e80d0"
+                "reference": "23da848e1a2308728fe5fdddabf4be17ff9720c7"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/doctrine/instantiator/zipball/c6222283fa3f4ac679f8b9ced9a4e23f163e80d0",
-                "reference": "c6222283fa3f4ac679f8b9ced9a4e23f163e80d0",
+                "url": "https://api.github.com/repos/doctrine/instantiator/zipball/23da848e1a2308728fe5fdddabf4be17ff9720c7",
+                "reference": "23da848e1a2308728fe5fdddabf4be17ff9720c7",
                 "shasum": ""
             },
             "require": {
-                "php": "^8.1"
+                "php": "^8.4"
             },
             "require-dev": {
-                "doctrine/coding-standard": "^11",
+                "doctrine/coding-standard": "^14",
                 "ext-pdo": "*",
                 "ext-phar": "*",
                 "phpbench/phpbench": "^1.2",
-                "phpstan/phpstan": "^1.9.4",
-                "phpstan/phpstan-phpunit": "^1.3",
-                "phpunit/phpunit": "^9.5.27",
-                "vimeo/psalm": "^5.4"
+                "phpstan/phpstan": "^2.1",
+                "phpstan/phpstan-phpunit": "^2.0",
+                "phpunit/phpunit": "^10.5.58"
             },
             "type": "library",
             "autoload": {
@@ -2497,7 +2496,7 @@
             ],
             "support": {
                 "issues": "https://github.com/doctrine/instantiator/issues",
-                "source": "https://github.com/doctrine/instantiator/tree/2.0.0"
+                "source": "https://github.com/doctrine/instantiator/tree/2.1.0"
             },
             "funding": [
                 {
@@ -2513,7 +2512,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2022-12-30T00:23:10+00:00"
+            "time": "2026-01-05T06:47:08+00:00"
         },
         {
             "name": "doctrine/lexer",
@@ -3386,25 +3385,26 @@
         },
         {
             "name": "guzzlehttp/guzzle",
-            "version": "7.10.5",
+            "version": "7.11.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/guzzle/guzzle.git",
-                "reference": "7c8d84b39e680315f687e8662a9d6fb0865c5148"
+                "reference": "c987f8ce84b8434fa430795eca0f3430663da72b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/guzzle/guzzle/zipball/7c8d84b39e680315f687e8662a9d6fb0865c5148",
-                "reference": "7c8d84b39e680315f687e8662a9d6fb0865c5148",
+                "url": "https://api.github.com/repos/guzzle/guzzle/zipball/c987f8ce84b8434fa430795eca0f3430663da72b",
+                "reference": "c987f8ce84b8434fa430795eca0f3430663da72b",
                 "shasum": ""
             },
             "require": {
                 "ext-json": "*",
-                "guzzlehttp/promises": "^2.3",
-                "guzzlehttp/psr7": "^2.8",
+                "guzzlehttp/promises": "^2.5",
+                "guzzlehttp/psr7": "^2.11",
                 "php": "^7.2.5 || ^8.0",
                 "psr/http-client": "^1.0",
-                "symfony/deprecation-contracts": "^2.2 || ^3.0"
+                "symfony/deprecation-contracts": "^2.5 || ^3.0",
+                "symfony/polyfill-php80": "^1.24"
             },
             "provide": {
                 "psr/http-client-implementation": "1.0"
@@ -3493,7 +3493,7 @@
             ],
             "support": {
                 "issues": "https://github.com/guzzle/guzzle/issues",
-                "source": "https://github.com/guzzle/guzzle/tree/7.10.5"
+                "source": "https://github.com/guzzle/guzzle/tree/7.11.0"
             },
             "funding": [
                 {
@@ -3509,24 +3509,25 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2026-05-27T11:53:46+00:00"
+            "time": "2026-06-02T12:40:51+00:00"
         },
         {
             "name": "guzzlehttp/promises",
-            "version": "2.4.1",
+            "version": "2.5.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/guzzle/promises.git",
-                "reference": "09e8a212562fb1fb6a512c4156ed71525969d6c2"
+                "reference": "4360e982f87f5f258bf872d094647791db2f4c8e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/guzzle/promises/zipball/09e8a212562fb1fb6a512c4156ed71525969d6c2",
-                "reference": "09e8a212562fb1fb6a512c4156ed71525969d6c2",
+                "url": "https://api.github.com/repos/guzzle/promises/zipball/4360e982f87f5f258bf872d094647791db2f4c8e",
+                "reference": "4360e982f87f5f258bf872d094647791db2f4c8e",
                 "shasum": ""
             },
             "require": {
-                "php": "^7.2.5 || ^8.0"
+                "php": "^7.2.5 || ^8.0",
+                "symfony/deprecation-contracts": "^2.5 || ^3.0"
             },
             "require-dev": {
                 "bamarni/composer-bin-plugin": "^1.8.2",
@@ -3576,7 +3577,7 @@
             ],
             "support": {
                 "issues": "https://github.com/guzzle/promises/issues",
-                "source": "https://github.com/guzzle/promises/tree/2.4.1"
+                "source": "https://github.com/guzzle/promises/tree/2.5.0"
             },
             "funding": [
                 {
@@ -3592,27 +3593,29 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2026-05-20T22:57:30+00:00"
+            "time": "2026-06-02T12:23:43+00:00"
         },
         {
             "name": "guzzlehttp/psr7",
-            "version": "2.10.4",
+            "version": "2.11.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/guzzle/psr7.git",
-                "reference": "d2a1a094e396da8957e797489fddaf860c340cfc"
+                "reference": "bbb5e61349fa5cb822b3e87842b951088b76b81f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/guzzle/psr7/zipball/d2a1a094e396da8957e797489fddaf860c340cfc",
-                "reference": "d2a1a094e396da8957e797489fddaf860c340cfc",
+                "url": "https://api.github.com/repos/guzzle/psr7/zipball/bbb5e61349fa5cb822b3e87842b951088b76b81f",
+                "reference": "bbb5e61349fa5cb822b3e87842b951088b76b81f",
                 "shasum": ""
             },
             "require": {
                 "php": "^7.2.5 || ^8.0",
                 "psr/http-factory": "^1.0",
                 "psr/http-message": "^1.1 || ^2.0",
-                "ralouphie/getallheaders": "^3.0"
+                "ralouphie/getallheaders": "^3.0",
+                "symfony/deprecation-contracts": "^2.5 || ^3.0",
+                "symfony/polyfill-php80": "^1.24"
             },
             "provide": {
                 "psr/http-factory-implementation": "1.0",
@@ -3693,7 +3696,7 @@
             ],
             "support": {
                 "issues": "https://github.com/guzzle/psr7/issues",
-                "source": "https://github.com/guzzle/psr7/tree/2.10.4"
+                "source": "https://github.com/guzzle/psr7/tree/2.11.0"
             },
             "funding": [
                 {
@@ -3709,7 +3712,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2026-05-29T12:59:07+00:00"
+            "time": "2026-06-02T12:30:48+00:00"
         },
         {
             "name": "imagine/imagine",
@@ -8070,16 +8073,16 @@
         },
         {
             "name": "sylius/sylius",
-            "version": "v2.2.5",
+            "version": "v2.2.6",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Sylius/Sylius.git",
-                "reference": "0b0bc2d68ba4237b42d93a45212f683341a3ebb1"
+                "reference": "a1a074a079bd023e211cbf226b2ca25f05e7bd0c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Sylius/Sylius/zipball/0b0bc2d68ba4237b42d93a45212f683341a3ebb1",
-                "reference": "0b0bc2d68ba4237b42d93a45212f683341a3ebb1",
+                "url": "https://api.github.com/repos/Sylius/Sylius/zipball/a1a074a079bd023e211cbf226b2ca25f05e7bd0c",
+                "reference": "a1a074a079bd023e211cbf226b2ca25f05e7bd0c",
                 "shasum": ""
             },
             "require": {
@@ -8352,7 +8355,7 @@
             "homepage": "https://sylius.com",
             "support": {
                 "issues": "https://github.com/Sylius/Sylius/issues",
-                "source": "https://github.com/Sylius/Sylius/tree/v2.2.5"
+                "source": "https://github.com/Sylius/Sylius/tree/v2.2.6"
             },
             "funding": [
                 {
@@ -8360,7 +8363,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2026-04-10T08:57:59+00:00"
+            "time": "2026-06-02T10:48:14+00:00"
         },
         {
             "name": "sylius/telemetry",
@@ -16945,16 +16948,16 @@
         },
         {
             "name": "phpstan/phpstan-doctrine",
-            "version": "2.0.23",
+            "version": "2.0.25",
             "source": {
                 "type": "git",
                 "url": "https://github.com/phpstan/phpstan-doctrine.git",
-                "reference": "4821d678585be36f585273de38c06b7e4a98bb91"
+                "reference": "e20e8bf3223ae6eba9c4b5987c391d922e094b3c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/phpstan/phpstan-doctrine/zipball/4821d678585be36f585273de38c06b7e4a98bb91",
-                "reference": "4821d678585be36f585273de38c06b7e4a98bb91",
+                "url": "https://api.github.com/repos/phpstan/phpstan-doctrine/zipball/e20e8bf3223ae6eba9c4b5987c391d922e094b3c",
+                "reference": "e20e8bf3223ae6eba9c4b5987c391d922e094b3c",
                 "shasum": ""
             },
             "require": {
@@ -17016,9 +17019,9 @@
             ],
             "support": {
                 "issues": "https://github.com/phpstan/phpstan-doctrine/issues",
-                "source": "https://github.com/phpstan/phpstan-doctrine/tree/2.0.23"
+                "source": "https://github.com/phpstan/phpstan-doctrine/tree/2.0.25"
             },
-            "time": "2026-05-25T15:58:25+00:00"
+            "time": "2026-06-02T20:27:36+00:00"
         },
         {
             "name": "phpstan/phpstan-webmozart-assert",
@@ -19795,23 +19798,23 @@
         },
         {
             "name": "theofidry/alice-data-fixtures",
-            "version": "1.10.0",
+            "version": "1.11.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/theofidry/AliceDataFixtures.git",
-                "reference": "e18232e62904b043044bed919b9915e06944abc2"
+                "reference": "011a482252ab416f2e4681731e954554d250695e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/theofidry/AliceDataFixtures/zipball/e18232e62904b043044bed919b9915e06944abc2",
-                "reference": "e18232e62904b043044bed919b9915e06944abc2",
+                "url": "https://api.github.com/repos/theofidry/AliceDataFixtures/zipball/011a482252ab416f2e4681731e954554d250695e",
+                "reference": "011a482252ab416f2e4681731e954554d250695e",
                 "shasum": ""
             },
             "require": {
                 "nelmio/alice": "^3.10",
-                "php": "^8.3",
+                "php": "^8.4",
                 "psr/log": "^1 || ^2 || ^3",
-                "webmozart/assert": "^1.10"
+                "webmozart/assert": "^1.10 || ^2.0"
             },
             "conflict": {
                 "doctrine/data-fixtures": "<1.7.0",
@@ -19823,9 +19826,9 @@
                 "doctrine/persistence": "<2.5.7 || >=3.0 <3.4.0",
                 "doctrine/phpcr-bundle": "<3.0",
                 "doctrine/phpcr-odm": "<2.0.0",
-                "illuminate/database": "<10.0",
+                "illuminate/database": "<12.0",
                 "ocramius/proxy-manager": "<2.1",
-                "symfony/framework-bundle": ">=6.0 <6.4.19 || >=7.0 <7.4.0",
+                "symfony/framework-bundle": "<7.4.0",
                 "zendframework/zend-code": "<3.3.1"
             },
             "require-dev": {
@@ -19833,7 +19836,7 @@
                 "phpspec/prophecy": "^1.20.0",
                 "phpspec/prophecy-phpunit": "^2.3.0",
                 "phpunit/phpunit": "^11.5.12",
-                "symfony/runtime": "^6.4 || ^7.4 || ^8.0"
+                "symfony/runtime": "*"
             },
             "suggest": {
                 "doctrine/data-fixtures": "To use Doctrine",
@@ -19843,8 +19846,7 @@
                 "doctrine/orm": "To use Doctrine ORM",
                 "doctrine/phpcr-odm": "To use Doctrine with the PHPCR flavour",
                 "illuminate/database": "To use Eloquent",
-                "jackalope/jackalope-doctrine-dbal": "To use Doctrine with the PHPCR flavour",
-                "ocramius/proxy-manager": "To avoid database connection on kernel boot"
+                "jackalope/jackalope-doctrine-dbal": "To use Doctrine with the PHPCR flavour"
             },
             "type": "library",
             "extra": {
@@ -19883,7 +19885,7 @@
             ],
             "support": {
                 "issues": "https://github.com/theofidry/AliceDataFixtures/issues",
-                "source": "https://github.com/theofidry/AliceDataFixtures/tree/1.10.0"
+                "source": "https://github.com/theofidry/AliceDataFixtures/tree/1.11.0"
             },
             "funding": [
                 {
@@ -19891,7 +19893,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2025-12-18T21:59:14+00:00"
+            "time": "2025-12-18T23:35:24+00:00"
         },
         {
             "name": "theseer/tokenizer",
