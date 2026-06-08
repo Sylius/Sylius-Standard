@@ -52,6 +52,18 @@
             "migrations/.gitignore"
         ]
     },
+    "flux-se/sylius-stripe-plugin": {
+        "version": "1.0",
+        "recipe": {
+            "repo": "github.com/symfony/recipes-contrib",
+            "branch": "main",
+            "version": "1.0",
+            "ref": "2dd2498b504978c9ade500bc07f9603bc023af9d"
+        },
+        "files": [
+            "config/packages/sylius_stripe.yaml"
+        ]
+    },
     "friends-of-behat/symfony-extension": {
         "version": "2.6",
         "recipe": {
@@ -186,6 +198,18 @@
             "version": "1.2",
             "ref": "e805aba9eff5372e2d149a9ff56566769e22819d"
         }
+    },
+    "stripe/stripe-php": {
+        "version": "20.2",
+        "recipe": {
+            "repo": "github.com/symfony/recipes-contrib",
+            "branch": "main",
+            "version": "19.0",
+            "ref": "d6829c693e3927a8972c7671d74a1a5c505712b0"
+        },
+        "files": [
+            "config/packages/stripe.yaml"
+        ]
     },
     "sylius-labs/doctrine-migrations-extra-bundle": {
         "version": "v0.2.2"
