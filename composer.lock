@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "9aa3cf1fd348e8aa6a4da3c5d7f79532",
+    "content-hash": "4830d2ad009751a3916394f3df337bd4",
     "packages": [
         {
             "name": "alcohol/iso4217",
@@ -70,16 +70,16 @@
         },
         {
             "name": "api-platform/doctrine-common",
-            "version": "v4.3.7",
+            "version": "v4.3.10",
             "source": {
                 "type": "git",
                 "url": "https://github.com/api-platform/doctrine-common.git",
-                "reference": "089b196c2f8e4d14333aaa3c6db33356e8fd8be0"
+                "reference": "a342c7e4cd4a7545d355b8eaae6d2f46de4f8936"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/api-platform/doctrine-common/zipball/089b196c2f8e4d14333aaa3c6db33356e8fd8be0",
-                "reference": "089b196c2f8e4d14333aaa3c6db33356e8fd8be0",
+                "url": "https://api.github.com/repos/api-platform/doctrine-common/zipball/a342c7e4cd4a7545d355b8eaae6d2f46de4f8936",
+                "reference": "a342c7e4cd4a7545d355b8eaae6d2f46de4f8936",
                 "shasum": ""
             },
             "require": {
@@ -154,22 +154,22 @@
                 "rest"
             ],
             "support": {
-                "source": "https://github.com/api-platform/doctrine-common/tree/v4.3.7"
+                "source": "https://github.com/api-platform/doctrine-common/tree/v4.3.10"
             },
-            "time": "2026-05-04T13:25:58+00:00"
+            "time": "2026-06-05T09:05:29+00:00"
         },
         {
             "name": "api-platform/doctrine-orm",
-            "version": "v4.3.7",
+            "version": "v4.3.10",
             "source": {
                 "type": "git",
                 "url": "https://github.com/api-platform/doctrine-orm.git",
-                "reference": "095a4c56cdd9986208100dedd5d28be50a4830ba"
+                "reference": "db75bac977cc9fe76cee90c1e5361c744cfa2144"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/api-platform/doctrine-orm/zipball/095a4c56cdd9986208100dedd5d28be50a4830ba",
-                "reference": "095a4c56cdd9986208100dedd5d28be50a4830ba",
+                "url": "https://api.github.com/repos/api-platform/doctrine-orm/zipball/db75bac977cc9fe76cee90c1e5361c744cfa2144",
+                "reference": "db75bac977cc9fe76cee90c1e5361c744cfa2144",
                 "shasum": ""
             },
             "require": {
@@ -243,13 +243,13 @@
                 "rest"
             ],
             "support": {
-                "source": "https://github.com/api-platform/doctrine-orm/tree/v4.3.7"
+                "source": "https://github.com/api-platform/doctrine-orm/tree/v4.3.10"
             },
-            "time": "2026-05-07T11:45:31+00:00"
+            "time": "2026-06-04T13:58:17+00:00"
         },
         {
             "name": "api-platform/documentation",
-            "version": "v4.3.7",
+            "version": "v4.3.10",
             "source": {
                 "type": "git",
                 "url": "https://github.com/api-platform/documentation.git",
@@ -306,22 +306,22 @@
             ],
             "description": "API Platform documentation controller.",
             "support": {
-                "source": "https://github.com/api-platform/documentation/tree/v4.3.7"
+                "source": "https://github.com/api-platform/documentation/tree/v4.3.10"
             },
             "time": "2026-04-30T12:21:24+00:00"
         },
         {
             "name": "api-platform/http-cache",
-            "version": "v4.3.7",
+            "version": "v4.3.10",
             "source": {
                 "type": "git",
                 "url": "https://github.com/api-platform/http-cache.git",
-                "reference": "dd7c092b9abee06e72fd58544fe714b6c2a61efa"
+                "reference": "98e5ba9344abe9db7d6789429745ee4eb0a2fd8f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/api-platform/http-cache/zipball/dd7c092b9abee06e72fd58544fe714b6c2a61efa",
-                "reference": "dd7c092b9abee06e72fd58544fe714b6c2a61efa",
+                "url": "https://api.github.com/repos/api-platform/http-cache/zipball/98e5ba9344abe9db7d6789429745ee4eb0a2fd8f",
+                "reference": "98e5ba9344abe9db7d6789429745ee4eb0a2fd8f",
                 "shasum": ""
             },
             "require": {
@@ -386,22 +386,22 @@
                 "rest"
             ],
             "support": {
-                "source": "https://github.com/api-platform/http-cache/tree/v4.3.7"
+                "source": "https://github.com/api-platform/http-cache/tree/v4.3.10"
             },
-            "time": "2026-04-30T12:21:24+00:00"
+            "time": "2026-05-29T13:58:43+00:00"
         },
         {
             "name": "api-platform/hydra",
-            "version": "v4.3.7",
+            "version": "v4.3.10",
             "source": {
                 "type": "git",
                 "url": "https://github.com/api-platform/hydra.git",
-                "reference": "317a696e396b80ba87de2560679c362923ef0a14"
+                "reference": "a0314c8dda95f69f15054d7309ddbc1ca32f2149"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/api-platform/hydra/zipball/317a696e396b80ba87de2560679c362923ef0a14",
-                "reference": "317a696e396b80ba87de2560679c362923ef0a14",
+                "url": "https://api.github.com/repos/api-platform/hydra/zipball/a0314c8dda95f69f15054d7309ddbc1ca32f2149",
+                "reference": "a0314c8dda95f69f15054d7309ddbc1ca32f2149",
                 "shasum": ""
             },
             "require": {
@@ -473,22 +473,22 @@
                 "rest"
             ],
             "support": {
-                "source": "https://github.com/api-platform/hydra/tree/v4.3.7"
+                "source": "https://github.com/api-platform/hydra/tree/v4.3.10"
             },
-            "time": "2026-05-11T11:50:19+00:00"
+            "time": "2026-06-04T13:52:24+00:00"
         },
         {
             "name": "api-platform/json-schema",
-            "version": "v4.3.7",
+            "version": "v4.3.10",
             "source": {
                 "type": "git",
                 "url": "https://github.com/api-platform/json-schema.git",
-                "reference": "23dc2c388a08f2006b9189a0883a08f8837d7249"
+                "reference": "6a0a2ddc4914bb1fdb1b71777c49aef388f6ea31"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/api-platform/json-schema/zipball/23dc2c388a08f2006b9189a0883a08f8837d7249",
-                "reference": "23dc2c388a08f2006b9189a0883a08f8837d7249",
+                "url": "https://api.github.com/repos/api-platform/json-schema/zipball/6a0a2ddc4914bb1fdb1b71777c49aef388f6ea31",
+                "reference": "6a0a2ddc4914bb1fdb1b71777c49aef388f6ea31",
                 "shasum": ""
             },
             "require": {
@@ -554,13 +554,13 @@
                 "swagger"
             ],
             "support": {
-                "source": "https://github.com/api-platform/json-schema/tree/v4.3.7"
+                "source": "https://github.com/api-platform/json-schema/tree/v4.3.10"
             },
-            "time": "2026-04-30T12:21:24+00:00"
+            "time": "2026-06-03T14:46:27+00:00"
         },
         {
             "name": "api-platform/jsonld",
-            "version": "v4.3.7",
+            "version": "v4.3.10",
             "source": {
                 "type": "git",
                 "url": "https://github.com/api-platform/jsonld.git",
@@ -634,22 +634,22 @@
                 "rest"
             ],
             "support": {
-                "source": "https://github.com/api-platform/jsonld/tree/v4.3.7"
+                "source": "https://github.com/api-platform/jsonld/tree/v4.3.10"
             },
             "time": "2026-04-30T12:21:24+00:00"
         },
         {
             "name": "api-platform/metadata",
-            "version": "v4.3.7",
+            "version": "v4.3.10",
             "source": {
                 "type": "git",
                 "url": "https://github.com/api-platform/metadata.git",
-                "reference": "2272ab2bc4f1c8e4e3ae358952ed15c09830bd3b"
+                "reference": "b835ce534861f9e7b2a316fa582f28afe4ad5fe6"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/api-platform/metadata/zipball/2272ab2bc4f1c8e4e3ae358952ed15c09830bd3b",
-                "reference": "2272ab2bc4f1c8e4e3ae358952ed15c09830bd3b",
+                "url": "https://api.github.com/repos/api-platform/metadata/zipball/b835ce534861f9e7b2a316fa582f28afe4ad5fe6",
+                "reference": "b835ce534861f9e7b2a316fa582f28afe4ad5fe6",
                 "shasum": ""
             },
             "require": {
@@ -732,22 +732,22 @@
                 "swagger"
             ],
             "support": {
-                "source": "https://github.com/api-platform/metadata/tree/v4.3.7"
+                "source": "https://github.com/api-platform/metadata/tree/v4.3.10"
             },
-            "time": "2026-05-28T13:34:59+00:00"
+            "time": "2026-06-05T09:05:29+00:00"
         },
         {
             "name": "api-platform/openapi",
-            "version": "v4.3.7",
+            "version": "v4.3.10",
             "source": {
                 "type": "git",
                 "url": "https://github.com/api-platform/openapi.git",
-                "reference": "1562617e7500a50c2b6e6f43a0fb29a6a47e83a2"
+                "reference": "21e22f4d74fafc4b01ee5790be7a264387445dcf"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/api-platform/openapi/zipball/1562617e7500a50c2b6e6f43a0fb29a6a47e83a2",
-                "reference": "1562617e7500a50c2b6e6f43a0fb29a6a47e83a2",
+                "url": "https://api.github.com/repos/api-platform/openapi/zipball/21e22f4d74fafc4b01ee5790be7a264387445dcf",
+                "reference": "21e22f4d74fafc4b01ee5790be7a264387445dcf",
                 "shasum": ""
             },
             "require": {
@@ -823,22 +823,22 @@
                 "swagger"
             ],
             "support": {
-                "source": "https://github.com/api-platform/openapi/tree/v4.3.7"
+                "source": "https://github.com/api-platform/openapi/tree/v4.3.10"
             },
-            "time": "2026-04-30T12:21:24+00:00"
+            "time": "2026-06-03T14:37:29+00:00"
         },
         {
             "name": "api-platform/serializer",
-            "version": "v4.3.7",
+            "version": "v4.3.10",
             "source": {
                 "type": "git",
                 "url": "https://github.com/api-platform/serializer.git",
-                "reference": "2c4f996bb6e5fef49106df0c48d0c1954e10998b"
+                "reference": "04d56abff2910390111613716cd75796f23e34d5"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/api-platform/serializer/zipball/2c4f996bb6e5fef49106df0c48d0c1954e10998b",
-                "reference": "2c4f996bb6e5fef49106df0c48d0c1954e10998b",
+                "url": "https://api.github.com/repos/api-platform/serializer/zipball/04d56abff2910390111613716cd75796f23e34d5",
+                "reference": "04d56abff2910390111613716cd75796f23e34d5",
                 "shasum": ""
             },
             "require": {
@@ -917,22 +917,22 @@
                 "serializer"
             ],
             "support": {
-                "source": "https://github.com/api-platform/serializer/tree/v4.3.7"
+                "source": "https://github.com/api-platform/serializer/tree/v4.3.10"
             },
-            "time": "2026-05-12T10:07:44+00:00"
+            "time": "2026-06-05T12:07:51+00:00"
         },
         {
             "name": "api-platform/state",
-            "version": "v4.3.7",
+            "version": "v4.3.10",
             "source": {
                 "type": "git",
                 "url": "https://github.com/api-platform/state.git",
-                "reference": "6e3f6d75e605ba7171a7590c82da5126979a936b"
+                "reference": "06067bf0efae09badc618fac8add67191f12f1e3"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/api-platform/state/zipball/6e3f6d75e605ba7171a7590c82da5126979a936b",
-                "reference": "6e3f6d75e605ba7171a7590c82da5126979a936b",
+                "url": "https://api.github.com/repos/api-platform/state/zipball/06067bf0efae09badc618fac8add67191f12f1e3",
+                "reference": "06067bf0efae09badc618fac8add67191f12f1e3",
                 "shasum": ""
             },
             "require": {
@@ -1014,22 +1014,22 @@
                 "swagger"
             ],
             "support": {
-                "source": "https://github.com/api-platform/state/tree/v4.3.7"
+                "source": "https://github.com/api-platform/state/tree/v4.3.10"
             },
-            "time": "2026-05-22T12:02:28+00:00"
+            "time": "2026-06-05T15:16:47+00:00"
         },
         {
             "name": "api-platform/symfony",
-            "version": "v4.3.7",
+            "version": "v4.3.10",
             "source": {
                 "type": "git",
                 "url": "https://github.com/api-platform/symfony.git",
-                "reference": "2660c6a24915b0302243ef30a77f6531b2f846a9"
+                "reference": "70a1a4468d77c9761ac1a6cba681277fa986c39b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/api-platform/symfony/zipball/2660c6a24915b0302243ef30a77f6531b2f846a9",
-                "reference": "2660c6a24915b0302243ef30a77f6531b2f846a9",
+                "url": "https://api.github.com/repos/api-platform/symfony/zipball/70a1a4468d77c9761ac1a6cba681277fa986c39b",
+                "reference": "70a1a4468d77c9761ac1a6cba681277fa986c39b",
                 "shasum": ""
             },
             "require": {
@@ -1143,13 +1143,13 @@
                 "symfony"
             ],
             "support": {
-                "source": "https://github.com/api-platform/symfony/tree/v4.3.7"
+                "source": "https://github.com/api-platform/symfony/tree/v4.3.10"
             },
-            "time": "2026-05-29T07:06:36+00:00"
+            "time": "2026-06-05T15:17:34+00:00"
         },
         {
             "name": "api-platform/validator",
-            "version": "v4.3.7",
+            "version": "v4.3.10",
             "source": {
                 "type": "git",
                 "url": "https://github.com/api-platform/validator.git",
@@ -1219,7 +1219,7 @@
                 "validator"
             ],
             "support": {
-                "source": "https://github.com/api-platform/validator/tree/v4.3.7"
+                "source": "https://github.com/api-platform/validator/tree/v4.3.10"
             },
             "time": "2026-05-07T11:45:31+00:00"
         },
@@ -2060,16 +2060,16 @@
         },
         {
             "name": "doctrine/doctrine-bundle",
-            "version": "2.18.2",
+            "version": "2.18.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/doctrine/DoctrineBundle.git",
-                "reference": "0ff098b29b8b3c68307c8987dcaed7fd829c6546"
+                "reference": "241d61f6bbc77275d5a9f95d514241c058bf2d0a"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/doctrine/DoctrineBundle/zipball/0ff098b29b8b3c68307c8987dcaed7fd829c6546",
-                "reference": "0ff098b29b8b3c68307c8987dcaed7fd829c6546",
+                "url": "https://api.github.com/repos/doctrine/DoctrineBundle/zipball/241d61f6bbc77275d5a9f95d514241c058bf2d0a",
+                "reference": "241d61f6bbc77275d5a9f95d514241c058bf2d0a",
                 "shasum": ""
             },
             "require": {
@@ -2106,6 +2106,7 @@
                 "psr/log": "^1.1.4 || ^2.0 || ^3.0",
                 "symfony/doctrine-messenger": "^6.4 || ^7.0",
                 "symfony/expression-language": "^6.4 || ^7.0",
+                "symfony/http-kernel": "^6.4 || ^7.0",
                 "symfony/messenger": "^6.4 || ^7.0",
                 "symfony/property-info": "^6.4 || ^7.0",
                 "symfony/security-bundle": "^6.4 || ^7.0",
@@ -2161,7 +2162,7 @@
             ],
             "support": {
                 "issues": "https://github.com/doctrine/DoctrineBundle/issues",
-                "source": "https://github.com/doctrine/DoctrineBundle/tree/2.18.2"
+                "source": "https://github.com/doctrine/DoctrineBundle/tree/2.18.3"
             },
             "funding": [
                 {
@@ -2177,7 +2178,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2025-12-20T21:35:32+00:00"
+            "time": "2026-06-08T08:22:50+00:00"
         },
         {
             "name": "doctrine/doctrine-migrations-bundle",
@@ -2447,29 +2448,30 @@
         },
         {
             "name": "doctrine/instantiator",
-            "version": "2.1.0",
+            "version": "2.0.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/doctrine/instantiator.git",
-                "reference": "23da848e1a2308728fe5fdddabf4be17ff9720c7"
+                "reference": "c6222283fa3f4ac679f8b9ced9a4e23f163e80d0"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/doctrine/instantiator/zipball/23da848e1a2308728fe5fdddabf4be17ff9720c7",
-                "reference": "23da848e1a2308728fe5fdddabf4be17ff9720c7",
+                "url": "https://api.github.com/repos/doctrine/instantiator/zipball/c6222283fa3f4ac679f8b9ced9a4e23f163e80d0",
+                "reference": "c6222283fa3f4ac679f8b9ced9a4e23f163e80d0",
                 "shasum": ""
             },
             "require": {
-                "php": "^8.4"
+                "php": "^8.1"
             },
             "require-dev": {
-                "doctrine/coding-standard": "^14",
+                "doctrine/coding-standard": "^11",
                 "ext-pdo": "*",
                 "ext-phar": "*",
                 "phpbench/phpbench": "^1.2",
-                "phpstan/phpstan": "^2.1",
-                "phpstan/phpstan-phpunit": "^2.0",
-                "phpunit/phpunit": "^10.5.58"
+                "phpstan/phpstan": "^1.9.4",
+                "phpstan/phpstan-phpunit": "^1.3",
+                "phpunit/phpunit": "^9.5.27",
+                "vimeo/psalm": "^5.4"
             },
             "type": "library",
             "autoload": {
@@ -2496,7 +2498,7 @@
             ],
             "support": {
                 "issues": "https://github.com/doctrine/instantiator/issues",
-                "source": "https://github.com/doctrine/instantiator/tree/2.1.0"
+                "source": "https://github.com/doctrine/instantiator/tree/2.0.0"
             },
             "funding": [
                 {
@@ -2512,7 +2514,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2026-01-05T06:47:08+00:00"
+            "time": "2022-12-30T00:23:10+00:00"
         },
         {
             "name": "doctrine/lexer",
@@ -3385,16 +3387,16 @@
         },
         {
             "name": "guzzlehttp/guzzle",
-            "version": "7.11.0",
+            "version": "7.11.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/guzzle/guzzle.git",
-                "reference": "c987f8ce84b8434fa430795eca0f3430663da72b"
+                "reference": "5af96f374e0ab4ebd747b8310888c99d3adb0a8c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/guzzle/guzzle/zipball/c987f8ce84b8434fa430795eca0f3430663da72b",
-                "reference": "c987f8ce84b8434fa430795eca0f3430663da72b",
+                "url": "https://api.github.com/repos/guzzle/guzzle/zipball/5af96f374e0ab4ebd747b8310888c99d3adb0a8c",
+                "reference": "5af96f374e0ab4ebd747b8310888c99d3adb0a8c",
                 "shasum": ""
             },
             "require": {
@@ -3413,7 +3415,7 @@
                 "bamarni/composer-bin-plugin": "^1.8.2",
                 "ext-curl": "*",
                 "guzzle/client-integration-tests": "3.0.2",
-                "guzzlehttp/test-server": "^0.4",
+                "guzzlehttp/test-server": "^0.5",
                 "php-http/message-factory": "^1.1",
                 "phpunit/phpunit": "^8.5.52 || ^9.6.34",
                 "psr/log": "^1.1 || ^2.0 || ^3.0"
@@ -3493,7 +3495,7 @@
             ],
             "support": {
                 "issues": "https://github.com/guzzle/guzzle/issues",
-                "source": "https://github.com/guzzle/guzzle/tree/7.11.0"
+                "source": "https://github.com/guzzle/guzzle/tree/7.11.1"
             },
             "funding": [
                 {
@@ -3509,7 +3511,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2026-06-02T12:40:51+00:00"
+            "time": "2026-06-07T22:54:06+00:00"
         },
         {
             "name": "guzzlehttp/promises",
@@ -3716,16 +3718,16 @@
         },
         {
             "name": "imagine/imagine",
-            "version": "1.5.2",
+            "version": "1.5.4",
             "source": {
                 "type": "git",
                 "url": "https://github.com/php-imagine/Imagine.git",
-                "reference": "f9ed796eefb77c2f0f2167e1d4e36bc2b5ed6b0c"
+                "reference": "dd57a4c290ff4d223d17bcd219dac9ac8bf1cc16"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/php-imagine/Imagine/zipball/f9ed796eefb77c2f0f2167e1d4e36bc2b5ed6b0c",
-                "reference": "f9ed796eefb77c2f0f2167e1d4e36bc2b5ed6b0c",
+                "url": "https://api.github.com/repos/php-imagine/Imagine/zipball/dd57a4c290ff4d223d17bcd219dac9ac8bf1cc16",
+                "reference": "dd57a4c290ff4d223d17bcd219dac9ac8bf1cc16",
                 "shasum": ""
             },
             "require": {
@@ -3772,9 +3774,9 @@
             ],
             "support": {
                 "issues": "https://github.com/php-imagine/Imagine/issues",
-                "source": "https://github.com/php-imagine/Imagine/tree/1.5.2"
+                "source": "https://github.com/php-imagine/Imagine/tree/1.5.4"
             },
-            "time": "2026-01-09T10:45:12+00:00"
+            "time": "2026-06-04T10:05:48+00:00"
         },
         {
             "name": "knplabs/gaufrette",
@@ -6412,16 +6414,16 @@
         },
         {
             "name": "phpseclib/phpseclib",
-            "version": "3.0.52",
+            "version": "3.0.53",
             "source": {
                 "type": "git",
                 "url": "https://github.com/phpseclib/phpseclib.git",
-                "reference": "2adaefc83df2ec548558307690f376dd7d4f4fce"
+                "reference": "511ddc8e352d5d1f1e33bea468b6f4ef48438cf9"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/phpseclib/phpseclib/zipball/2adaefc83df2ec548558307690f376dd7d4f4fce",
-                "reference": "2adaefc83df2ec548558307690f376dd7d4f4fce",
+                "url": "https://api.github.com/repos/phpseclib/phpseclib/zipball/511ddc8e352d5d1f1e33bea468b6f4ef48438cf9",
+                "reference": "511ddc8e352d5d1f1e33bea468b6f4ef48438cf9",
                 "shasum": ""
             },
             "require": {
@@ -6502,7 +6504,7 @@
             ],
             "support": {
                 "issues": "https://github.com/phpseclib/phpseclib/issues",
-                "source": "https://github.com/phpseclib/phpseclib/tree/3.0.52"
+                "source": "https://github.com/phpseclib/phpseclib/tree/3.0.53"
             },
             "funding": [
                 {
@@ -6518,7 +6520,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2026-04-27T07:02:15+00:00"
+            "time": "2026-06-09T18:08:26+00:00"
         },
         {
             "name": "psr/cache",
@@ -16884,11 +16886,11 @@
         },
         {
             "name": "phpstan/phpstan",
-            "version": "2.2.1",
+            "version": "2.2.2",
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/phpstan/phpstan/zipball/dea9c8f2d25cc849391042b71e429c1a4bf82660",
-                "reference": "dea9c8f2d25cc849391042b71e429c1a4bf82660",
+                "url": "https://api.github.com/repos/phpstan/phpstan/zipball/e5cc34d491a90e79c216d824f60fe21fd4d93bd6",
+                "reference": "e5cc34d491a90e79c216d824f60fe21fd4d93bd6",
                 "shasum": ""
             },
             "require": {
@@ -16944,25 +16946,25 @@
                     "type": "github"
                 }
             ],
-            "time": "2026-05-28T14:44:12+00:00"
+            "time": "2026-06-05T09:00:01+00:00"
         },
         {
             "name": "phpstan/phpstan-doctrine",
-            "version": "2.0.25",
+            "version": "2.0.26",
             "source": {
                 "type": "git",
                 "url": "https://github.com/phpstan/phpstan-doctrine.git",
-                "reference": "e20e8bf3223ae6eba9c4b5987c391d922e094b3c"
+                "reference": "edea68ba590bda99570081c06833e36175d367aa"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/phpstan/phpstan-doctrine/zipball/e20e8bf3223ae6eba9c4b5987c391d922e094b3c",
-                "reference": "e20e8bf3223ae6eba9c4b5987c391d922e094b3c",
+                "url": "https://api.github.com/repos/phpstan/phpstan-doctrine/zipball/edea68ba590bda99570081c06833e36175d367aa",
+                "reference": "edea68ba590bda99570081c06833e36175d367aa",
                 "shasum": ""
             },
             "require": {
                 "php": "^7.4 || ^8.0",
-                "phpstan/phpstan": "^2.1.34"
+                "phpstan/phpstan": "^2.2.2"
             },
             "conflict": {
                 "doctrine/collections": "<1.0",
@@ -17019,9 +17021,9 @@
             ],
             "support": {
                 "issues": "https://github.com/phpstan/phpstan-doctrine/issues",
-                "source": "https://github.com/phpstan/phpstan-doctrine/tree/2.0.25"
+                "source": "https://github.com/phpstan/phpstan-doctrine/tree/2.0.26"
             },
-            "time": "2026-06-02T20:27:36+00:00"
+            "time": "2026-06-10T10:09:40+00:00"
         },
         {
             "name": "phpstan/phpstan-webmozart-assert",
@@ -19798,23 +19800,23 @@
         },
         {
             "name": "theofidry/alice-data-fixtures",
-            "version": "1.11.0",
+            "version": "1.10.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/theofidry/AliceDataFixtures.git",
-                "reference": "011a482252ab416f2e4681731e954554d250695e"
+                "reference": "e18232e62904b043044bed919b9915e06944abc2"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/theofidry/AliceDataFixtures/zipball/011a482252ab416f2e4681731e954554d250695e",
-                "reference": "011a482252ab416f2e4681731e954554d250695e",
+                "url": "https://api.github.com/repos/theofidry/AliceDataFixtures/zipball/e18232e62904b043044bed919b9915e06944abc2",
+                "reference": "e18232e62904b043044bed919b9915e06944abc2",
                 "shasum": ""
             },
             "require": {
                 "nelmio/alice": "^3.10",
-                "php": "^8.4",
+                "php": "^8.3",
                 "psr/log": "^1 || ^2 || ^3",
-                "webmozart/assert": "^1.10 || ^2.0"
+                "webmozart/assert": "^1.10"
             },
             "conflict": {
                 "doctrine/data-fixtures": "<1.7.0",
@@ -19826,9 +19828,9 @@
                 "doctrine/persistence": "<2.5.7 || >=3.0 <3.4.0",
                 "doctrine/phpcr-bundle": "<3.0",
                 "doctrine/phpcr-odm": "<2.0.0",
-                "illuminate/database": "<12.0",
+                "illuminate/database": "<10.0",
                 "ocramius/proxy-manager": "<2.1",
-                "symfony/framework-bundle": "<7.4.0",
+                "symfony/framework-bundle": ">=6.0 <6.4.19 || >=7.0 <7.4.0",
                 "zendframework/zend-code": "<3.3.1"
             },
             "require-dev": {
@@ -19836,7 +19838,7 @@
                 "phpspec/prophecy": "^1.20.0",
                 "phpspec/prophecy-phpunit": "^2.3.0",
                 "phpunit/phpunit": "^11.5.12",
-                "symfony/runtime": "*"
+                "symfony/runtime": "^6.4 || ^7.4 || ^8.0"
             },
             "suggest": {
                 "doctrine/data-fixtures": "To use Doctrine",
@@ -19846,7 +19848,8 @@
                 "doctrine/orm": "To use Doctrine ORM",
                 "doctrine/phpcr-odm": "To use Doctrine with the PHPCR flavour",
                 "illuminate/database": "To use Eloquent",
-                "jackalope/jackalope-doctrine-dbal": "To use Doctrine with the PHPCR flavour"
+                "jackalope/jackalope-doctrine-dbal": "To use Doctrine with the PHPCR flavour",
+                "ocramius/proxy-manager": "To avoid database connection on kernel boot"
             },
             "type": "library",
             "extra": {
@@ -19885,7 +19888,7 @@
             ],
             "support": {
                 "issues": "https://github.com/theofidry/AliceDataFixtures/issues",
-                "source": "https://github.com/theofidry/AliceDataFixtures/tree/1.11.0"
+                "source": "https://github.com/theofidry/AliceDataFixtures/tree/1.10.0"
             },
             "funding": [
                 {
@@ -19893,7 +19896,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2025-12-18T23:35:24+00:00"
+            "time": "2025-12-18T21:59:14+00:00"
         },
         {
             "name": "theseer/tokenizer",
