@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "21d3632d1fe8ff7474f528d5153d5d82",
+    "content-hash": "5f5a10c71f3cafb45f03a6c4abba81bd",
     "packages": [
         {
             "name": "alcohol/iso4217",
@@ -15943,24 +15943,30 @@
         },
         {
             "name": "friends-of-behat/page-object-extension",
-            "version": "v0.3.2",
+            "version": "v0.4.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/FriendsOfBehat/PageObjectExtension.git",
-                "reference": "2e65b0bd7cca6ff2085b0fa885dc13dc57b18d4b"
+                "reference": "60a0ef19c3577b66fa0db91e947b7062ead1ffaa"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/FriendsOfBehat/PageObjectExtension/zipball/2e65b0bd7cca6ff2085b0fa885dc13dc57b18d4b",
-                "reference": "2e65b0bd7cca6ff2085b0fa885dc13dc57b18d4b",
+                "url": "https://api.github.com/repos/FriendsOfBehat/PageObjectExtension/zipball/60a0ef19c3577b66fa0db91e947b7062ead1ffaa",
+                "reference": "60a0ef19c3577b66fa0db91e947b7062ead1ffaa",
                 "shasum": ""
             },
             "require": {
-                "behat/mink": "^1.7",
-                "php": "^7.1 || ^8.0"
+                "behat/mink": "^1.9",
+                "php": "^8.3"
             },
             "require-dev": {
-                "symfony/routing": "^3.4 || ^4.4 || ^5.1"
+                "behat/behat": "^3.31 || 4.x-dev",
+                "friendsofphp/php-cs-fixer": "^3.75",
+                "phpstan/phpstan": "^2.0",
+                "symfony/filesystem": "^7.4 || ^8.0",
+                "symfony/process": "^7.4 || ^8.0",
+                "symfony/routing": "^7.4 || ^8.0",
+                "symfony/yaml": "^7.4 || ^8.0"
             },
             "suggest": {
                 "symfony/routing": "Allow better support for PageObject pattern in Symfony applications"
@@ -15968,7 +15974,7 @@
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "0.3-dev"
+                    "dev-master": "0.4-dev"
                 }
             },
             "autoload": {
@@ -15988,7 +15994,7 @@
                 {
                     "name": "Kamil Kokot",
                     "email": "kamil@kokot.me",
-                    "homepage": "http://kamil.kokot.me"
+                    "homepage": "https://kamilkokot.com"
                 },
                 {
                     "name": "Mateusz Zalewski",
@@ -15999,9 +16005,9 @@
             "description": "Provides default classes for Page object pattern in Behat",
             "support": {
                 "issues": "https://github.com/FriendsOfBehat/PageObjectExtension/issues",
-                "source": "https://github.com/FriendsOfBehat/PageObjectExtension/tree/v0.3.2"
+                "source": "https://github.com/FriendsOfBehat/PageObjectExtension/tree/v0.4.0"
             },
-            "time": "2020-11-05T20:37:07+00:00"
+            "time": "2026-06-12T14:51:50+00:00"
         },
         {
             "name": "friends-of-behat/suite-settings-extension",
