@@ -25,7 +25,7 @@
     ],
     "require": {
         "php": "^8.3",
-        "flux-se/sylius-stripe-plugin": "^2.0.0@alpha",
+        "flux-se/sylius-stripe-plugin": "^2.0.0",
         "sylius/mollie-plugin": "^3.2.3",
         "sylius/paypal-plugin": "^2.0.8",
         "sylius/sylius": "^2.2.6",
