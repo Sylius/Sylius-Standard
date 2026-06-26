@@ -53,15 +53,16 @@
         ]
     },
     "flux-se/sylius-stripe-plugin": {
-        "version": "1.0",
+        "version": "2.0",
         "recipe": {
             "repo": "github.com/symfony/recipes-contrib",
             "branch": "main",
-            "version": "1.0",
-            "ref": "2dd2498b504978c9ade500bc07f9603bc023af9d"
+            "version": "2.0",
+            "ref": "1f4886c87aa941815a8b382af97e4110ce08fe3a"
         },
         "files": [
-            "config/packages/sylius_stripe.yaml"
+            "config/packages/sylius_stripe.yaml",
+            "config/routes/sylius_stripe.yaml"
         ]
     },
     "friends-of-behat/symfony-extension": {
@@ -200,7 +201,7 @@
         }
     },
     "stripe/stripe-php": {
-        "version": "20.2",
+        "version": "20.3",
         "recipe": {
             "repo": "github.com/symfony/recipes-contrib",
             "branch": "main",
