@@ -1,9 +1,6 @@
 services:
     php:
         image: ghcr.io/sylius/sylius-php:8.3-alpine
-        depends_on:
-            mysql:
-                condition: service_healthy
     mysql:
         image: mysql:8.4
         platform: linux/amd64
