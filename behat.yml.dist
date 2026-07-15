@@ -1,5 +1,5 @@
 imports:
-    - vendor/sylius/sylius/src/Sylius/Behat/Resources/config/suites.yml
+    - vendor/sylius/sylius/src/Sylius/Behat/Resources/config/suites.php
 
 default:
     calls:
