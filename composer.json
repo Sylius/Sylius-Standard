@@ -27,7 +27,7 @@
         "php": "^8.3",
         "sylius/mollie-plugin": "^3.2",
         "sylius/paypal-plugin": "^2.0",
-        "sylius/sylius": "^2.2",
+        "sylius/sylius": "^2.3",
         "symfony/dotenv": "^7.4",
         "symfony/flex": "^2.10",
         "symfony/runtime": "^7.4"
