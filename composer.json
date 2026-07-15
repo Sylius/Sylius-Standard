@@ -30,7 +30,7 @@
         "sylius/adyen-plugin": "^2.0.6",
         "sylius/mollie-plugin": "^3.2.3",
         "sylius/paypal-plugin": "^2.0.8",
-        "sylius/sylius": "^2.2.6",
+        "sylius/sylius": "^2.3",
         "symfony/dotenv": "^7.4.11",
         "symfony/flex": "^2.11",
         "symfony/runtime": "^7.4.13"
