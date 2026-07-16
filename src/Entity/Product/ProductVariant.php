@@ -5,6 +5,8 @@ declare(strict_types=1);
 namespace App\Entity\Product;
 
 use Doctrine\ORM\Mapping as ORM;
+use Sylius\AdyenPlugin\Entity\CommodityCodeAwareInterface;
+use Sylius\AdyenPlugin\Entity\CommodityCodeAwareTrait;
 use Sylius\Component\Core\Model\ProductVariant as BaseProductVariant;
 use Sylius\Component\Product\Model\ProductVariantTranslationInterface;
 use Sylius\MolliePlugin\Entity\ProductVariantInterface;
@@ -12,9 +14,9 @@ use Sylius\MolliePlugin\Entity\RecurringProductVariantTrait;
 
 #[ORM\Entity]
 #[ORM\Table(name: 'sylius_product_variant')]
-class ProductVariant extends BaseProductVariant implements ProductVariantInterface
+class ProductVariant extends BaseProductVariant implements ProductVariantInterface, CommodityCodeAwareInterface
 {
-    use RecurringProductVariantTrait;
+    use RecurringProductVariantTrait, CommodityCodeAwareTrait;
 
     protected function createTranslation(): ProductVariantTranslationInterface
     {

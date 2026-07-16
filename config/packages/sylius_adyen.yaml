@@ -1,0 +1,7 @@
+imports:
+    - { resource: "@SyliusAdyenPlugin/config/config.yaml" }
+
+parameters:
+    sylius_refund.supported_gateways:
+        - offline
+        - adyen

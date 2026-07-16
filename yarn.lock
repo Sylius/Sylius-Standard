@@ -2,6 +2,17 @@
 # yarn lockfile v1
 
 
+"@adyen/adyen-web@^6.22.0":
+  version "6.40.2"
+  resolved "https://registry.yarnpkg.com/@adyen/adyen-web/-/adyen-web-6.40.2.tgz#f638af83a3e5a8fcbc2954f1dc9892eb5a809d0b"
+  integrity sha512-BzgSsWSm5/L3MYiXlwPqtC4ODmb2ifaCa7+WamjBOt7q67a1tzxlZwQYnEaAi3iH8Ih/M0Pw/lMf81Vbz/OSVQ==
+  dependencies:
+    "@paypal/paypal-js" "10.0.0"
+    "@types/applepayjs" "14.0.9"
+    "@types/googlepay" "0.7.10"
+    classnames "2.5.1"
+    preact "10.29.2"
+
 "@ampproject/remapping@^2.2.0":
   version "2.3.0"
   resolved "https://registry.yarnpkg.com/@ampproject/remapping/-/remapping-2.3.0.tgz#ed441b6fa600072520ce18b43d2c8cc8caecc7f4"
@@ -1045,6 +1056,13 @@
   resolved "https://registry.yarnpkg.com/@orchidjs/unicode-variants/-/unicode-variants-1.1.2.tgz#1fd71791a67fdd1591ebe0dcaadd3964537a824e"
   integrity sha512-5DobW1CHgnBROOEpFlEXytED5OosEWESFvg/VYmH0143oXcijYTprRYJTs+55HzGM4IqxiLFSuqEzu9mPNwVsA==
 
+"@paypal/paypal-js@10.0.0":
+  version "10.0.0"
+  resolved "https://registry.yarnpkg.com/@paypal/paypal-js/-/paypal-js-10.0.0.tgz#009195df6af919d36c7f2e1fe6c42ae7dc92e244"
+  integrity sha512-IOAA8Ls7A5WXH8vV8Lbh+QTyVsQWbmqzCMvNFmGO/56D+7i5OMXhjzG2Qhz0WHSiVe+IutqJMWPX2dHJXA7Kgw==
+  dependencies:
+    promise-polyfill "^8.3.0"
+
 "@popperjs/core@^2.11.8":
   version "2.11.8"
   resolved "https://registry.yarnpkg.com/@popperjs/core/-/core-2.11.8.tgz#6b79032e760a0899cd4204710beede972a3a185f"
@@ -1115,10 +1133,10 @@
     schema-utils "^3.0.0"
 
 "@symfony/ux-autocomplete@file:vendor/symfony/ux-autocomplete/assets":
-  version "2.29.2"
+  version "2.35.0"
 
 "@symfony/ux-live-component@file:vendor/symfony/ux-live-component/assets":
-  version "2.29.2"
+  version "2.35.0"
 
 "@symfony/webpack-encore@^5.0.1":
   version "5.1.0"
@@ -1149,6 +1167,11 @@
     "@popperjs/core" "^2.11.8"
     bootstrap "5.3.6"
 
+"@types/applepayjs@14.0.9":
+  version "14.0.9"
+  resolved "https://registry.yarnpkg.com/@types/applepayjs/-/applepayjs-14.0.9.tgz#66b760691f146a17009c4be808d0a341b776f429"
+  integrity sha512-xEprYbb0TEP/XIiDPbVnTYpDai8fTFpsQfVSfTd81Is2GOMUy7ie019eyX6Mz2ECxfjoUVKaiGSL577roIeHCg==
+
 "@types/eslint-scope@^3.7.7":
   version "3.7.7"
   resolved "https://registry.yarnpkg.com/@types/eslint-scope/-/eslint-scope-3.7.7.tgz#3108bd5f18b0cdb277c867b3dd449c9ed7079ac5"
@@ -1169,6 +1192,11 @@
   version "1.0.8"
   resolved "https://registry.yarnpkg.com/@types/estree/-/estree-1.0.8.tgz#958b91c991b1867ced318bedea0e215ee050726e"
   integrity sha512-dWHzHa2WqEXI/O1E9OjrocMTKJl2mSrEolh1Iomrv6U+JuNwaHXsXx9bLu5gG7BUWFIN0skIQJQ/L1rIex4X6w==
+
+"@types/googlepay@0.7.10":
+  version "0.7.10"
+  resolved "https://registry.yarnpkg.com/@types/googlepay/-/googlepay-0.7.10.tgz#551af4110013f337331edd3611b07818bacb795d"
+  integrity sha512-ByXjDfxEp87zsjw5cVsNKEeA+AIJYcWwJvRqPu85jO0Lp/FeG67csnf4mqbPaIxmdI6+Khp3v5I0yyjq9MrGhw==
 
 "@types/istanbul-lib-coverage@*", "@types/istanbul-lib-coverage@^2.0.0":
   version "2.0.6"
@@ -1607,7 +1635,7 @@ ci-info@^3.2.0:
   resolved "https://registry.yarnpkg.com/ci-info/-/ci-info-3.9.0.tgz#4279a62028a7b1f262f3473fc9605f5e218c59b4"
   integrity sha512-NIxF55hv4nSqQswkAeiOi1r83xy8JldOFDTWiug55KBu9Jnblncd2U6ViHmYgHf01TPZS77NJBhBMKdWj9HQMQ==
 
-classnames@^2.2.5:
+classnames@2.5.1, classnames@^2.2.5:
   version "2.5.1"
   resolved "https://registry.yarnpkg.com/classnames/-/classnames-2.5.1.tgz#ba774c614be0f016da105c858e7159eae8e7687b"
   integrity sha512-saHYOzhIQs6wy2sVxTM6bUDsQO4F50V9RQ22qBpEdCW+I+/Wmke2HOl6lS6dTpdxVhb88/I6+Hs+438c3lfUow==
@@ -2806,6 +2834,11 @@ postcss@^8.2.14, postcss@^8.4.33, postcss@^8.4.40:
     picocolors "^1.1.1"
     source-map-js "^1.2.1"
 
+preact@10.29.2:
+  version "10.29.2"
+  resolved "https://registry.yarnpkg.com/preact/-/preact-10.29.2.tgz#3e6069c471718b8d124d1cd67565114532e88d70"
+  integrity sha512-7tNmwg/7mzzAoB/8kSg6Hl37JraAZw3Z3A0JSY7VXlZwo82Xn0G7wKbNNs2qoF4ZEEsQGTwDAroNdqKs1ofJxQ==
+
 pretty-error@^4.0.0:
   version "4.0.0"
   resolved "https://registry.yarnpkg.com/pretty-error/-/pretty-error-4.0.0.tgz#90a703f46dd7234adb46d0f84823e9d1cb8f10d6"
@@ -2813,6 +2846,11 @@ pretty-error@^4.0.0:
   dependencies:
     lodash "^4.17.20"
     renderkid "^3.0.0"
+
+promise-polyfill@^8.3.0:
+  version "8.3.0"
+  resolved "https://registry.yarnpkg.com/promise-polyfill/-/promise-polyfill-8.3.0.tgz#9284810268138d103807b11f4e23d5e945a4db63"
+  integrity sha512-H5oELycFml5yto/atYqmjyigJoAo3+OXwolYiH7OfQuYlAqhxNvTfiNMbV9hsC6Yp83yE5r2KTVmtrG6R9i6Pg==
 
 punycode@^2.1.0:
   version "2.3.1"

@@ -92,6 +92,18 @@
     "knplabs/knp-menu-bundle": {
         "version": "v3.4.2"
     },
+    "knplabs/knp-snappy-bundle": {
+        "version": "1.10",
+        "recipe": {
+            "repo": "github.com/symfony/recipes-contrib",
+            "branch": "main",
+            "version": "1.5",
+            "ref": "c81bdcf4a9d4e7b1959071457f9608631865d381"
+        },
+        "files": [
+            "config/packages/knp_snappy.yaml"
+        ]
+    },
     "league/flysystem-bundle": {
         "version": "3.3",
         "recipe": {
@@ -215,6 +227,19 @@
     "sylius-labs/doctrine-migrations-extra-bundle": {
         "version": "v0.2.2"
     },
+    "sylius/adyen-plugin": {
+        "version": "2.0",
+        "recipe": {
+            "repo": "github.com/symfony/recipes-contrib",
+            "branch": "main",
+            "version": "2.0",
+            "ref": "e11b9569776d49c4155b20f44a02c65bf72a8197"
+        },
+        "files": [
+            "config/packages/sylius_adyen.yaml",
+            "config/routes/sylius_adyen.yaml"
+        ]
+    },
     "sylius/fixtures-bundle": {
         "version": "v1.9.0"
     },
@@ -248,6 +273,22 @@
         "files": [
             "config/packages/sylius_paypal.yaml",
             "config/routes/sylius_paypal.yaml"
+        ]
+    },
+    "sylius/pdf-generation-bundle": {
+        "version": "v1.0.0"
+    },
+    "sylius/refund-plugin": {
+        "version": "2.1",
+        "recipe": {
+            "repo": "github.com/symfony/recipes-contrib",
+            "branch": "main",
+            "version": "2.0",
+            "ref": "261e0e5e0902aa5f6178b1eac5c0019191c6d5c4"
+        },
+        "files": [
+            "config/packages/sylius_refund.yaml",
+            "config/routes/sylius_refund.yaml"
         ]
     },
     "sylius/resource-bundle": {
