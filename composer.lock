@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "4a8057f0028471037921688d9e53f9c4",
+    "content-hash": "c9c8f9cd88dcb662b37b80a6508f86a9",
     "packages": [
         {
             "name": "adyen/php-api-library",
@@ -16713,6 +16713,53 @@
                 "source": "https://gitlab.com/behat-chrome/chrome-mink-driver/-/tree/2.10.0"
             },
             "time": "2025-10-03T23:14:32+00:00"
+        },
+        {
+            "name": "friends-of-behat/exclude-specifications-extension",
+            "version": "v0.4.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/FriendsOfBehat/ExcludeSpecificationsExtension.git",
+                "reference": "d49ccbe0b75aa4955ecaf89105f54a9c02e2cd41"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/FriendsOfBehat/ExcludeSpecificationsExtension/zipball/d49ccbe0b75aa4955ecaf89105f54a9c02e2cd41",
+                "reference": "d49ccbe0b75aa4955ecaf89105f54a9c02e2cd41",
+                "shasum": ""
+            },
+            "require": {
+                "behat/behat": "^3.4",
+                "php": "^7.4 || ^8.0",
+                "symfony/dependency-injection": "^5.4 || ^6.4 || ^7.0"
+            },
+            "require-dev": {
+                "friends-of-behat/test-context": "^1.3",
+                "phpspec/phpspec": "^7.0",
+                "symfony/flex": "^1.20 || ^2.4"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "FriendsOfBehat\\ExcludeSpecificationsExtension\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Mateusz Zalewski",
+                    "homepage": "http://mpzalewski.com.pl"
+                }
+            ],
+            "description": "Allows to exclude features or scenarios in Behat tests.",
+            "support": {
+                "issues": "https://github.com/FriendsOfBehat/ExcludeSpecificationsExtension/issues",
+                "source": "https://github.com/FriendsOfBehat/ExcludeSpecificationsExtension/tree/v0.4.0"
+            },
+            "time": "2025-10-29T14:34:39+00:00"
         },
         {
             "name": "friends-of-behat/mink",
