@@ -1,0 +1,6 @@
+sylius_pdf_generation:
+    default:
+        adapter: dompdf
+    contexts:
+        sylius_refund:
+            adapter: dompdf

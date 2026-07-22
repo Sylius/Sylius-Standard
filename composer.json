@@ -25,7 +25,9 @@
     ],
     "require": {
         "php": "^8.3",
+        "dompdf/dompdf": "^3.1",
         "flux-se/sylius-stripe-plugin": "^2.0.0",
+        "sylius/adyen-plugin": "^2.0",
         "sylius/mollie-plugin": "^3.2.3",
         "sylius/paypal-plugin": "^2.0.8",
         "sylius/sylius": "^2.2.6",
@@ -39,6 +41,7 @@
         "dbrekelmans/bdi": "^1.4.1",
         "dmore/behat-chrome-extension": "^1.4.1",
         "dmore/chrome-mink-driver": "^2.10",
+        "friends-of-behat/exclude-specifications-extension": "^0.4.0",
         "friends-of-behat/mink": "^1.11",
         "friends-of-behat/mink-browserkit-driver": "^1.6.3",
         "friends-of-behat/mink-debug-extension": "^2.1",
