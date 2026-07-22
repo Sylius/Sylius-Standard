@@ -22,7 +22,7 @@ return static function (ContainerConfigurator $container): void {
         ->autoconfigure()
         // Allows optimizing the container by removing unused services; this also means
         // fetching services directly from the container via $container->get() won't work
-        ->public(false)
+        ->private()
     ;
 
     $services->instanceof(ResourceController::class)->autowire(false);
