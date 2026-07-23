@@ -119,9 +119,11 @@
             "@auto-scripts"
         ],
         "post-create-project-cmd": [
+            "@remove-lockfiles-from-gitignore",
             "@php bin/console sylius:inform-about-gus --ansi",
             "@php bin/console sylius:show-plus-info --ansi"
         ],
+        "remove-lockfiles-from-gitignore": "@php -r \"file_put_contents('.gitignore', str_replace(['/composer.lock' . PHP_EOL, '/yarn.lock' . PHP_EOL], '', file_get_contents('.gitignore')));\"",
         "rector-dry-run": "vendor/bin/rector process --dry-run",
         "rector-apply": "vendor/bin/rector process",
         "auto-scripts": {
