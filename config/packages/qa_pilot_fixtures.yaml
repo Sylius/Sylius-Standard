@@ -16,6 +16,21 @@
 # docs/pilot-sylius.md in the QA Companion repository).
 sylius_fixtures:
     suites:
+        # Override of the built-in demo suite, not a pilot suite of our own.
+        #
+        # `default` generates 20 shop users with no explicit customer_group, and that option
+        # defaults to LazyOption::randomOneOrNull() -- a random pick from whatever groups
+        # exist. Their groups therefore shuffled on every load (one run: 6 retail / 15
+        # wholesale), and any group ever created before them could be assigned by chance.
+        # Pinning the prototype makes the demo population deterministic and keeps `vip` and
+        # `standard` reserved for the pilot customers declared below.
+        default:
+            fixtures:
+                shop_user:
+                    options:
+                        prototype:
+                            customer_group: 'retail'
+
         qa_pilot:
             fixtures:
                 qa_pilot_customer_group:
@@ -57,3 +72,18 @@ sylius_fixtures:
                                 slug: 'pilot-reference-mug'
                                 channels:
                                     - 'FASHION_WEB'
+
+                # Sylius's product fixture cannot set a price -- ProductExampleFactory
+                # hardcodes a random one -- so pin it here (App\Fixture\ChannelPricingFixture).
+                # Must come after qa_pilot_product, which creates the variant it prices.
+                qa_pilot_channel_pricing:
+                    name: channel_pricing
+                    options:
+                        prices:
+                            -   product: 'PILOT_MUG'
+                                channel: 'FASHION_WEB'
+                                price: 2500
+                            # Pinned too, so no channel of the world carries a random price.
+                            -   product: 'PILOT_MUG'
+                                channel: 'WEB_EUR'
+                                price: 2200
