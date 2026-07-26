@@ -1,0 +1,59 @@
+# QA Companion pilot provisioning suite.
+#
+# Sylius exposes no granular "create a customer / create a product" console commands, so
+# the supported provisioning surface is a named fixture suite loaded with:
+#
+#     bin/console sylius:fixtures:load qa_pilot -n
+#
+# This suite deliberately declares NO listeners. The built-in `default` suite registers
+# `orm_purger`, which truncates the database before loading; omitting it makes this suite
+# ADDITIVE, so a world can be provisioned on top of the demo catalogue instead of
+# replacing it. That property is what makes fixtures usable as a provisioning mechanism
+# rather than only as a first-run seed.
+#
+# Reloading this suite twice is not idempotent: shop_user and product fixtures fail on
+# duplicate email/code. Re-provisioning therefore means reset-then-load (see
+# docs/pilot-sylius.md in the QA Companion repository).
+sylius_fixtures:
+    suites:
+        qa_pilot:
+            fixtures:
+                qa_pilot_customer_group:
+                    name: customer_group
+                    options:
+                        custom:
+                            vip:
+                                code: 'vip'
+                                name: 'VIP'
+                            standard:
+                                code: 'standard'
+                                name: 'Standard'
+
+                # customer_group MUST be set explicitly on every user. Its factory default
+                # is LazyOption::randomOneOrNull(), so an omitted group is not "no group" --
+                # it is a RANDOM existing group, which silently produces a non-deterministic
+                # world (it first put the standard customer in VIP).
+                qa_pilot_shop_user:
+                    name: shop_user
+                    options:
+                        custom:
+                            -   email: 'vip@pilot.test'
+                                first_name: 'Vera'
+                                last_name: 'Ives'
+                                password: 'pilot123'
+                                customer_group: 'vip'
+                            -   email: 'standard@pilot.test'
+                                first_name: 'Sam'
+                                last_name: 'Tandard'
+                                password: 'pilot123'
+                                customer_group: 'standard'
+
+                qa_pilot_product:
+                    name: product
+                    options:
+                        custom:
+                            -   name: 'Pilot Reference Mug'
+                                code: 'PILOT_MUG'
+                                slug: 'pilot-reference-mug'
+                                channels:
+                                    - 'FASHION_WEB'
