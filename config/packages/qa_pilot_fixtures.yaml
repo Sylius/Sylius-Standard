@@ -87,3 +87,30 @@ sylius_fixtures:
                             -   product: 'PILOT_MUG'
                                 channel: 'WEB_EUR'
                                 price: 2200
+
+                # The pilot's demo domain: "a VIP customer gets a promotion price, a standard
+                # customer pays list price", expressed in native Sylius concepts -- a cart
+                # promotion whose rule matches the customer's group.
+                #
+                # `percentage` is given here in PERCENT UNITS: write 10 for 10%.
+                # PromotionActionExampleFactory divides it by 100 before persisting, and
+                # PercentageDiscountPromotionActionCommand then asserts the stored value is
+                # <= 1. Writing 0.1 here looks correct but silently stores 0.001 (0.1%),
+                # producing a discount of zero after rounding rather than an error.
+                qa_pilot_promotion:
+                    name: promotion
+                    options:
+                        custom:
+                            vip_discount:
+                                code: 'vip_discount'
+                                name: 'VIP discount'
+                                channels:
+                                    - 'FASHION_WEB'
+                                rules:
+                                    -   type: 'customer_group'
+                                        configuration:
+                                            group_code: 'vip'
+                                actions:
+                                    -   type: 'order_percentage_discount'
+                                        configuration:
+                                            percentage: 10
