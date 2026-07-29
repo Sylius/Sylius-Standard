@@ -14,3 +14,10 @@ sylius_twig_hooks:
             adyen_send_payment_link:
                 template: '@SyliusAdyenPlugin/admin/order/content/sections/payments/item/actions/send_payment_link.html.twig'
                 priority: 100
+
+        'sylius_shop.cart.index.content.form.sections.general#right':
+            express_checkout:
+                enabled: false
+            adyen_express_checkout:
+                template: '@SyliusAdyenPlugin/shop/cart/index/content/form/sections/general/express_checkout.html.twig'
+                priority: -100
