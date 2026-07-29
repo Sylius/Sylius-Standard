@@ -5,3 +5,12 @@ parameters:
     sylius_refund.supported_gateways:
         - offline
         - adyen
+
+sylius_twig_hooks:
+    hooks:
+        'sylius_admin.order.show.content.sections.payments.item.actions':
+            send_payment_link:
+                enabled: false
+            adyen_send_payment_link:
+                template: '@SyliusAdyenPlugin/admin/order/content/sections/payments/item/actions/send_payment_link.html.twig'
+                priority: 100
