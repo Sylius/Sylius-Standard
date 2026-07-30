@@ -1,0 +1,132 @@
+# QA Companion pilot -- staging host overlay (pilot step P.2).
+#
+# compose.override.pilot.yml runs this shop on a developer's machine, beside the platform.
+# This one runs it on a host the platform reaches over the network, which is what P.2 asks
+# for and what Phase 3.4 has to be designed against: with the shop on another machine,
+# every provisioning command becomes something *sent* somewhere rather than run locally,
+# and that is the difference between a provisioner that could serve a real customer
+# environment and one that only works on a laptop.
+#
+# Deploy with etc/pilot/deploy.sh. The runbook -- host requirements, firewall, secrets,
+# reset, upgrade -- is etc/pilot/README.md.
+#
+# Not usable on a developer machine: it publishes port 80 and refuses to start without the
+# secrets in etc/pilot/staging.env.
+#
+# Differences from compose.override.pilot.yml, each for a reason:
+#
+#   1. APP_ENV=prod, and none of the Xdebug image, PHP_IDE_CONFIG or host.docker.internal
+#      mapping. A host that answers the internet must not serve the profiler, the debug
+#      toolbar or a debugger port.
+#   2. Secrets come from etc/pilot/staging.env rather than being literals in a tracked
+#      file, and every one of them is required -- `${VAR:?}` fails the deploy loudly
+#      instead of starting a shop with APP_SECRET=EDITME.
+#   3. DATABASE_URL names one fixed database instead of sylius_%kernel.environment%, so a
+#      console command run with a different --env cannot quietly address a second,
+#      almost-identical database.
+#   4. MySQL has a root password and stops publishing 3306. What is published is 80 (shop
+#      and admin) and 8025 (Mailpit's UI and its REST API, which the platform reads to
+#      assert on email) -- and per the runbook, only to allowed addresses.
+#   5. restart: unless-stopped, so a reboot brings the environment back without a person.
+#   6. DEFAULT_URI is the public base URL, so URLs generated outside an HTTP request --
+#      console commands, emails -- point at this host rather than at localhost.
+#
+# There is deliberately no messenger worker. Mail is sent synchronously (SendEmailMessage
+# is routed to no transport, which is why P.5's order-confirmation email arrived in dev
+# without one), and the only queued work is catalog-promotion and price-history
+# bookkeeping that the pilot's demo domain does not depend on -- it prices through a cart
+# promotion (P.4). A consumer writing to the database *after* a snapshot restore would also
+# quietly undermine the reset strategy 3.4.5 is built on. Add a worker when something
+# actually needs one, and stop it around resets.
+services:
+    php:
+        image: ghcr.io/sylius/sylius-php:8.3-fixuid-alpine
+        user: ${DOCKER_USER:-1000:1000}
+        restart: unless-stopped
+        depends_on:
+            mysql:
+                condition: service_healthy
+        environment:
+            APP_ENV: ${APP_ENV:-prod}
+            APP_DEBUG: 0
+            APP_SECRET: ${APP_SECRET:?set APP_SECRET in etc/pilot/staging.env}
+            # The hostname the shop channel answers on. Sylius resolves the channel from the
+            # HTTP Host header, so this has to be the name the platform uses to reach the
+            # host: a mismatch answers "Channel could not be found" with a 500 while /admin
+            # still returns 200, which reads like a platform bug and is not one.
+            SYLIUS_FIXTURES_HOSTNAME: ${SYLIUS_FIXTURES_HOSTNAME:?set SYLIUS_FIXTURES_HOSTNAME in etc/pilot/staging.env}
+            DEFAULT_URI: ${PILOT_BASE_URL:?set PILOT_BASE_URL in etc/pilot/staging.env}
+            DATABASE_URL: "mysql://root:${MYSQL_ROOT_PASSWORD:?set MYSQL_ROOT_PASSWORD in etc/pilot/staging.env}@mysql/sylius?serverVersion=8.4&charset=utf8mb4"
+            MAILER_DSN: smtp://mailhog:1025
+            MESSENGER_TRANSPORT_DSN: doctrine://default
+            SYLIUS_MESSENGER_TRANSPORT_MAIN_DSN: doctrine://default
+            SYLIUS_MESSENGER_TRANSPORT_MAIN_FAILED_DSN: doctrine://default?queue_name=main_failed
+            SYLIUS_MESSENGER_TRANSPORT_CATALOG_PROMOTION_REMOVAL_DSN: doctrine://default?queue_name=catalog_promotion_removal
+            SYLIUS_MESSENGER_TRANSPORT_CATALOG_PROMOTION_REMOVAL_FAILED_DSN: doctrine://default?queue_name=catalog_promotion_removal_failed
+            SYLIUS_MESSENGER_TRANSPORT_PAYMENT_REQUEST_DSN: sync://
+            SYLIUS_MESSENGER_TRANSPORT_PAYMENT_REQUEST_FAILED_DSN: sync://
+            PHP_DATE_TIMEZONE: ${PHP_DATE_TIMEZONE:-UTC}
+        volumes:
+            # The checkout on the host *is* the deployed application, as in dev, which keeps
+            # `git pull` as the deploy step and keeps `docker compose exec php bin/console`
+            # as the provisioning path P.3 verified -- now reached over SSH instead of a
+            # local socket.
+            - .:/srv/sylius:rw
+            - ./public:/srv/sylius/public:rw
+            - public-media:/srv/sylius/public/media:rw
+    mysql:
+        restart: unless-stopped
+        environment:
+            # Empty rather than 0: the MySQL entrypoint tests whether this is set at all, so
+            # "0" would still mean "empty password allowed".
+            MYSQL_ALLOW_EMPTY_PASSWORD: ""
+            MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD:?set MYSQL_ROOT_PASSWORD in etc/pilot/staging.env}
+        healthcheck:
+            # The base file's check connects without a password, which now fails; without
+            # this override every service would wait for a container that never turns
+            # healthy.
+            test: ["CMD-SHELL", "mysqladmin ping -h 127.0.0.1 -uroot -p\"$$MYSQL_ROOT_PASSWORD\" --silent"]
+            timeout: 3s
+            interval: 1s
+            retries: 30
+        volumes:
+            - mysql-data:/var/lib/mysql:rw
+    nginx:
+        restart: unless-stopped
+        depends_on:
+            php:
+                condition: service_started
+        volumes:
+            - ./public:/srv/sylius/public:ro
+            - public-media:/srv/sylius/public/media:ro,nocopy
+        ports:
+            - "80:80"
+    # Run once per deploy to build the front-end assets (`docker compose run --rm nodejs`),
+    # not a long-running service.
+    nodejs:
+        image: node:${NODE_VERSION:-22}-alpine
+        user: ${DOCKER_USER:-1000:1000}
+        working_dir: /srv/sylius
+        entrypoint: ["/bin/sh", "-c"]
+        command:
+            - |
+                yarn install
+                yarn build
+        volumes:
+            - .:/srv/sylius:rw
+            - ./public:/srv/sylius/public:rw
+    # Upstream's service is MailHog; the pilot runs Mailpit under that name because it is a
+    # drop-in on the same ports and serves a REST API at /api/v1 that the platform can
+    # assert against. See compose.override.pilot.yml.
+    mailhog:
+        image: axllent/mailpit
+        restart: unless-stopped
+        environment:
+            MP_SMTP_AUTH_ACCEPT_ANY: 1
+            MP_SMTP_AUTH_ALLOW_INSECURE: 1
+        ports:
+            - "8025:8025"
+
+volumes:
+    mysql-data:
+    public-media:

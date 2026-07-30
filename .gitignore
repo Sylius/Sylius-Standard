@@ -8,6 +8,10 @@
 /etc/build/*
 !/etc/build/.gitignore
 
+# QA Companion pilot: this host's secrets, and database snapshots taken on it.
+/etc/pilot/staging.env
+/etc/pilot/*.sql
+
 /drivers/
 
 /docker-compose.override.yaml

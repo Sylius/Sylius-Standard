@@ -12,8 +12,9 @@
 # rather than only as a first-run seed.
 #
 # Reloading this suite twice is not idempotent: shop_user and product fixtures fail on
-# duplicate email/code. Re-provisioning therefore means reset-then-load (see
-# docs/pilot-sylius.md in the QA Companion repository).
+# duplicate email/code. Re-provisioning therefore means reset-then-load -- the commands are
+# in etc/pilot/README.md, and the timings behind the choice are in the QA Companion
+# roadmap's "P.3 findings".
 sylius_fixtures:
     suites:
         # Override of the built-in demo suite, not a pilot suite of our own.
