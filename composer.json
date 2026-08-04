@@ -26,8 +26,8 @@
     "require": {
         "php": "^8.3",
         "dompdf/dompdf": "^3.1",
-        "flux-se/sylius-stripe-plugin": "^2.0.0",
-        "sylius/adyen-plugin": "^2.0",
+        "flux-se/sylius-stripe-plugin": "^2.0.2",
+        "sylius/adyen-plugin": "^2.0.6",
         "sylius/mollie-plugin": "^3.2.3",
         "sylius/paypal-plugin": "^2.0.8",
         "sylius/sylius": "^2.2.6",
