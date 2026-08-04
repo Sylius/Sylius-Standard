@@ -46,9 +46,17 @@ Nuremberg, Falkenstein or Helsinki. Their Ubuntu images ship no restrictive fire
 of their own, so the cloud firewall in the console is the only layer to get right — which
 is one fewer thing to debug than it sounds.
 
-`etc/pilot/cloud-init.yaml` is the user-data for a fresh host: Docker from Docker's own
-repository, an unprivileged `pilot` account inheriting the SSH key, and 2 GB of swap for the
-front-end build.
+`etc/pilot/bootstrap.sh` is what makes a fresh host into a pilot host: Docker from Docker's
+own repository, an unprivileged `pilot` account inheriting the SSH key, SSH passwords
+refused, fail2ban, and 2 GB of swap for the front-end build. `etc/pilot/cloud-init.yaml` is
+user-data that does nothing but fetch and run it, because user data cannot be added to a
+server after it is created — so a host built without it is fixed by running the script,
+rather than by rebuilding:
+
+```bash
+curl -fsSL https://raw.githubusercontent.com/qacompanion/Sylius-Standard/pilot/etc/pilot/bootstrap.sh -o /tmp/bootstrap.sh
+sudo bash /tmp/bootstrap.sh
+```
 
 Oracle Cloud's Always Free Ampere tier would cost nothing and is technically a fine fit —
 every image here has a native arm64 build — but A1 capacity was unobtainable in practice

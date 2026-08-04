@@ -1,68 +1,20 @@
 #cloud-config
 #
-# QA Companion pilot -- bring a fresh Ubuntu 24.04 host to the point where etc/pilot/deploy.sh
-# can run (pilot step P.2).
+# QA Companion pilot -- user data for a fresh Ubuntu 24.04 host (pilot step P.2).
 #
 # Paste this into the provider's "cloud config" / user-data field when creating the server.
-# It installs Docker from Docker's own repository (distribution packages lag and ship no
-# compose plugin), creates an unprivileged account to own the checkout, and adds swap.
+# It does nothing itself: everything is in etc/pilot/bootstrap.sh, so that a host created
+# without this user data -- which cannot be added afterwards -- is fixed by running the same
+# script by hand, and there is one description of what a pilot host is rather than two that
+# drift.
 #
-# It assumes the provider puts your SSH key in root's authorized_keys, which is what Hetzner,
-# DigitalOcean and Vultr all do; the account it creates inherits that key, and root login
-# stays as the provider configured it.
-#
-# When the server is up, `cloud-init status --wait` says when this has finished -- it takes a
-# couple of minutes, and a deploy started before it ends will fail on a missing docker.
+# `cloud-init status --wait` says when this has finished; it takes a couple of minutes, and a
+# deploy started before it ends will fail on a missing docker.
 package_update: true
 
 packages:
-  - ca-certificates
   - curl
-  - git
-  - fail2ban
-
-write_files:
-  # The host answers the whole internet on 22, 80 and 8025 -- the shop holds nothing but
-  # fixtures and the mail catcher nothing but test mail, so the exposure is deliberate. What
-  # is not acceptable is a way in: keys only, and no password to guess.
-  - path: /etc/ssh/sshd_config.d/90-pilot.conf
-    content: |
-      PasswordAuthentication no
-      KbdInteractiveAuthentication no
-      PermitRootLogin prohibit-password
-  # Ubuntu 24.04 has no /var/log/auth.log -- only the journal -- and fail2ban's Debian
-  # defaults read the file, so its sshd jail silently never starts without this.
-  - path: /etc/fail2ban/jail.local
-    content: |
-      [sshd]
-      enabled = true
-      backend = systemd
 
 runcmd:
-  - install -m 0755 -d /etc/apt/keyrings
-  - curl -fsSL https://download.docker.com/linux/ubuntu/gpg -o /etc/apt/keyrings/docker.asc
-  - chmod a+r /etc/apt/keyrings/docker.asc
-  - bash -c 'echo "deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/docker.asc] https://download.docker.com/linux/ubuntu $(. /etc/os-release && echo $VERSION_CODENAME) stable" > /etc/apt/sources.list.d/docker.list'
-  - apt-get update
-  - apt-get install -y docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
-
-  # The account that owns the checkout and runs the containers. Not root: the compose files
-  # run PHP and Node as this user, and files created inside the containers land in the
-  # checkout on the host.
-  - useradd -m -s /bin/bash -G docker,sudo pilot
-  - bash -c 'echo "pilot ALL=(ALL) NOPASSWD:ALL" > /etc/sudoers.d/90-pilot'
-  - chmod 440 /etc/sudoers.d/90-pilot
-  - install -d -m 700 -o pilot -g pilot /home/pilot/.ssh
-  - cp /root/.ssh/authorized_keys /home/pilot/.ssh/authorized_keys
-  - chown pilot:pilot /home/pilot/.ssh/authorized_keys
-  - chmod 600 /home/pilot/.ssh/authorized_keys
-
-  # 2 GB of swap, because the front-end build is the one memory-hungry step and a 4 GB host
-  # has no headroom for it. Nothing here should ever touch swap while merely serving the shop.
-  - fallocate -l 2G /swapfile
-  - chmod 600 /swapfile
-  - mkswap /swapfile
-  - swapon /swapfile
-  - bash -c 'echo "/swapfile none swap sw 0 0" >> /etc/fstab'
-
-  - systemctl restart ssh
+  - curl -fsSL https://raw.githubusercontent.com/qacompanion/Sylius-Standard/pilot/etc/pilot/bootstrap.sh -o /root/bootstrap.sh
+  - bash /root/bootstrap.sh
