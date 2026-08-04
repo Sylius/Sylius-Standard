@@ -30,6 +30,8 @@
 #   5. restart: unless-stopped, so a reboot brings the environment back without a person.
 #   6. DEFAULT_URI is the public base URL, so URLs generated outside an HTTP request --
 #      console commands, emails -- point at this host rather than at localhost.
+#   7. MySQL's architecture is configurable instead of pinned to linux/amd64, because a free
+#      ARM host is a perfectly good home for this and emulating a database is not.
 #
 # There is deliberately no messenger worker. Mail is sent synchronously (SendEmailMessage
 # is routed to no transport, which is why P.5's order-confirmation email arrived in dev
@@ -76,6 +78,10 @@ services:
             - public-media:/srv/sylius/public/media:rw
     mysql:
         restart: unless-stopped
+        # Upstream pins linux/amd64 for Apple Silicon developers. On an ARM host that pin
+        # means running the database under qemu, so this follows the host instead -- every
+        # image in this stack has a native arm64 build.
+        platform: ${MYSQL_PLATFORM:-linux/amd64}
         environment:
             # Empty rather than 0: the MySQL entrypoint tests whether this is set at all, so
             # "0" would still mean "empty password allowed".

@@ -20,12 +20,41 @@ against.
   the shop only answers on the name it was told. With no domain to hand,
   `http://203-0-113-9.nip.io` resolves to `203.0.113.9` with no DNS setup at all. A real A
   record is nicer if you have a domain.
-- **A firewall that allows only what has to reach it**: 22 (you), 80 (the platform's browser
-  worker and you), 8025 (the platform, to read captured mail). Everything else closed. This
-  matters more than usual here: it is a shop with seeded data, an admin UI and no HTTPS.
-  While the platform runs on a developer machine, the address to allow is that machine's,
-  which for most home connections changes from time to time — a shop that suddenly stops
-  answering is worth checking against the firewall rule before anything else.
+- **A firewall allowing 22, 80 and 8025, from anywhere.** Restricting those to one address
+  was the first instinct and the wrong trade: the platform runs on a laptop whose address
+  changes and which moves, and a rule that has to be edited before every session is a rule
+  that will be found stale at the worst moment. What is behind those ports is a shop full of
+  generated fixtures and a mail catcher full of test mail — losing either costs nothing.
+  Everything else stays closed, and the host is hardened instead: SSH takes keys only, no
+  account has a password, and fail2ban watches the journal (`etc/pilot/cloud-init.yaml`).
+
+  What that trade does *not* cover is the admin UI, which is served over plain HTTP: signing
+  in sends the password across whatever network you are on. Do that from somewhere you
+  trust, and keep it a password used for nothing else.
+
+### On an ARM host
+
+Every image in this stack has a native `arm64` build, so an Ampere or Graviton machine is a
+fine home for it — but set `MYSQL_PLATFORM=linux/arm64` in `staging.env`. Upstream's
+`compose.yml` pins MySQL to `linux/amd64` (Apple Silicon developers need it), and left alone
+that pin runs the database under emulation.
+
+### Where this runs
+
+A Hetzner **CX22** (2 vCPU, 4 GB, 40 GB, about €4/month with the IPv4 address) in
+Nuremberg, Falkenstein or Helsinki. Their Ubuntu images ship no restrictive firewall rules
+of their own, so the cloud firewall in the console is the only layer to get right — which
+is one fewer thing to debug than it sounds.
+
+`etc/pilot/cloud-init.yaml` is the user-data for a fresh host: Docker from Docker's own
+repository, an unprivileged `pilot` account inheriting the SSH key, and 2 GB of swap for the
+front-end build.
+
+Oracle Cloud's Always Free Ampere tier would cost nothing and is technically a fine fit —
+every image here has a native arm64 build — but A1 capacity was unobtainable in practice
+("Out of host capacity" on every attempt), and Oracle reclaims Always Free compute that sits
+idle, which a staging environment between milestones will. Worth another look only if the
+hosting bill ever matters.
 
 ## First deploy
 
@@ -107,7 +136,8 @@ in configuration alone leaves the shop answering on the old name.
 
 ## What this host is not
 
-Not production, and not somewhere to put real data: HTTP only, root MySQL access from
-inside its own network, fixtures that recreate a known admin account on every load. It is a
-stand-in for a customer's staging environment, and the platform must not learn anything
-about it beyond a base URL, a mail endpoint and the names of some credentials.
+Not production, and not somewhere to put real data: reachable by anyone who finds it, HTTP
+only, root MySQL access from inside its own network, and fixtures that recreate a known
+admin account on every load. It is a stand-in for a customer's staging environment, and the
+platform must not learn anything about it beyond a base URL, a mail endpoint and the names
+of some credentials.
