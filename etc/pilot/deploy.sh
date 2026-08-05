@@ -89,7 +89,13 @@ for _ in $(seq 1 60); do
 done
 "${DC[@]}" exec -T php true || fail 'The php service never became usable. `docker compose logs php` will say why.'
 
-console() { "${DC[@]}" exec -T php bin/console "$@"; }
+# Stdin comes from /dev/null: `docker compose exec -T` reads it, so a console command run
+# from a script that is itself being piped in -- `ssh host bash -s < deploy.sh` -- would
+# otherwise swallow the rest of the script and stop the deploy halfway with no error.
+console() { "${DC[@]}" exec -T php bin/console "$@" </dev/null; }
+
+# The one command that is answered rather than run: it prompts, and the answers are piped in.
+console_answering() { "${DC[@]}" exec -T php bin/console "$@"; }
 
 # An installed shop has a channel; a fresh database has no tables at all. This is the one
 # question that decides everything below, so it is asked of the database rather than of a
@@ -104,12 +110,19 @@ load_pilot_fixtures() {
     say 'Loading the demo world'
     console sylius:fixtures:load qa_pilot -n
 
-    # Sylius's default fixtures recreate sylius@example.com with the password "sylius", so
-    # this has to happen after every fixture load rather than once at install time.
+    # Sylius's default fixtures create two admin accounts with published passwords, and
+    # recreate them on every load -- so both of these belong here rather than at install
+    # time, where a later `--reload-fixtures` would quietly undo them.
+
+    # api@example.com carries API_ACCESS on top of admin and nothing here needs it. On a
+    # host that answers the internet it is an account anyone can sign in as.
+    say 'Removing the fixtures API account'
+    console sylius:admin-user:delete api@example.com -n || echo 'It was not there.'
+
     if [ -n "${PILOT_ADMIN_PASSWORD:-}" ] && [ "$PILOT_ADMIN_PASSWORD" != 'REPLACE-ME' ]; then
         say 'Setting the admin password'
         printf '%s\n%s\n' "${PILOT_ADMIN_EMAIL:-sylius@example.com}" "$PILOT_ADMIN_PASSWORD" \
-            | console sylius:admin-user:change-password
+            | console_answering sylius:admin-user:change-password
     else
         printf '\n\033[33mPILOT_ADMIN_PASSWORD is not set: the admin account keeps Sylius'"'"'s default password.\033[0m\n'
     fi
@@ -152,8 +165,10 @@ Deployed.
 
 Check it from the machine running the platform, not from here -- reachability is the point:
 
-  curl -sS -o /dev/null -w '%{http_code}\\n' $PILOT_BASE_URL
-  curl -sS -o /dev/null -w '%{http_code}\\n' $PILOT_BASE_URL/products/pilot-reference-mug
+  curl -sSL -o /dev/null -w '%{http_code}\\n' $PILOT_BASE_URL
+  curl -sSL -o /dev/null -w '%{http_code}\\n' $PILOT_BASE_URL/en_US/products/pilot-reference-mug
+
+The shop redirects to a locale prefix, so follow redirects (-L) or expect a 302.
 
 A 500 on the shop with a 200 on /admin means the channel hostname does not match the URL
 you asked for (P.3): check SYLIUS_FIXTURES_HOSTNAME, then redeploy with --reload-fixtures.

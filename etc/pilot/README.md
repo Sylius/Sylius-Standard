@@ -78,8 +78,11 @@ etc/pilot/deploy.sh
 ```
 
 `deploy.sh` installs dependencies, builds assets, starts the stack, installs Sylius with its
-`default` fixtures, loads the `qa_pilot` suite on top, and changes the admin password away
-from Sylius's public default. It is safe to run again: it asks the database whether the shop
+`default` fixtures, and loads the `qa_pilot` suite on top. It then undoes what Sylius's own
+fixtures leave behind on a public host: the `api@example.com` account, which carries API
+access and a published password, is deleted, and the remaining admin's password is changed
+away from the published default. Both happen on every fixture load, because every fixture
+load recreates them. It is safe to run again: it asks the database whether the shop
 is installed and does migrations instead of a reinstall when it is.
 
 ## Verifying it, from the machine running the platform
@@ -87,11 +90,14 @@ is installed and does migrations instead of a reinstall when it is.
 Reachability is what P.2 is about, so check it from there rather than from the host:
 
 ```bash
-curl -sS -o /dev/null -w '%{http_code}\n' http://<host>                              # 200
-curl -sS -o /dev/null -w '%{http_code}\n' http://<host>/products/pilot-reference-mug # 200
-curl -sS -o /dev/null -w '%{http_code}\n' http://<host>/admin                        # 200
-curl -sS http://<host>:8025/api/v1/messages | head -c 80                             # JSON
+curl -sSL -o /dev/null -w '%{http_code}\n' http://<host>                                    # 200
+curl -sSL -o /dev/null -w '%{http_code}\n' http://<host>/en_US/products/pilot-reference-mug # 200
+curl -sSL -o /dev/null -w '%{http_code}\n' http://<host>/admin                              # 200
+curl -sS http://<host>:8025/api/v1/messages | head -c 80                                    # JSON
 ```
+
+Follow redirects: the shop sends `/` to a locale prefix and `/admin` to its login page, so
+without `-L` the first two answer 302 rather than 200 and look broken when they are not.
 
 The demo data to expect is in the roadmap's P.3 and P.4 findings: customer groups `vip` and
 `standard`, customers `vip@pilot.test` and `standard@pilot.test` (fixture password
@@ -119,6 +125,15 @@ docker compose --env-file etc/pilot/staging.env exec -T mysql \
 # For after a fixture or hostname change, not for between runs.
 etc/pilot/deploy.sh --reload-fixtures
 ```
+
+Measured on this host: snapshot 0.5 s, restore 4 s, and a price tampered with in between came
+back exactly as it was — the same character P.3 found in dev.
+
+One trap for anything that scripts these, including Phase 3.4's provisioner: `docker compose
+exec -T` **reads standard input**, so a command run from a script that is itself arriving on
+stdin — `ssh host bash -s < script.sh` — eats the rest of the script and the run stops halfway
+with no error at all. Redirect from `/dev/null` on every call that is not deliberately being
+fed something, which is what `deploy.sh` does.
 
 ## Redeploying after a change to the fork
 
