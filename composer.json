@@ -57,7 +57,7 @@
         "phpstan/phpstan-doctrine": "^2.0.27",
         "phpstan/phpstan-webmozart-assert": "^2.0",
         "phpunit/phpunit": "^10.5.63",
-        "robertfausk/behat-panther-extension": "^1.2",
+        "robertfausk/behat-panther-extension": "^2.0",
         "sylius-labs/coding-standard": "^4.5.1",
         "sylius-labs/suite-tags-extension": "~0.2",
         "sylius/sylius-rector": "^3.7",
