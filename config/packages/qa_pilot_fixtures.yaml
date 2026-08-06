@@ -115,3 +115,23 @@ sylius_fixtures:
                                     -   type: 'order_percentage_discount'
                                         configuration:
                                             percentage: 10
+
+                # Why the VIP customer is a VIP: a purchase history.
+                #
+                # Added because the platform's world validation caught the world claiming
+                # `vip_customer.purchase_count equals 2` against a shop where that customer had
+                # never bought anything. The world's claim is the sensible one -- VIP status
+                # follows from buying -- so the shop is what changed.
+                #
+                # Sylius's own `order` fixture is used rather than a custom one: it resolves
+                # `customer` by email and drives the real checkout state machine, so these are
+                # completed orders in the way the rest of the shop understands, not rows that
+                # merely look like them. It must come after the fixtures that create the
+                # customer and the products the orders are built from.
+                qa_pilot_vip_orders:
+                    name: order
+                    options:
+                        amount: 2
+                        channel: 'FASHION_WEB'
+                        customer: 'vip@pilot.test'
+                        fulfilled: true
