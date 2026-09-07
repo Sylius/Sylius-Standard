@@ -1,0 +1,24 @@
+app:
+    ui:
+        note: Notatka
+        order_note: Notatka do zamówienia
+        note_content: Treść notatki
+        order_note_placeholder: "Wpisz notatkę widoczną wyłącznie dla administratorów (maks. 500 znaków)..."
+        save_note: Zapisz notatkę
+        delete_note: Usuń notatkę
+        clear_note: Wyczyść
+        no_note: Brak notatki
+        note_assigned: Notatka przypisana
+        admin_only_hint: Notatka jest widoczna wyłącznie dla administratorów w panelu.
+        characters: znaków
+        confirm_delete_note: Czy na pewno chcesz usunąć notatkę z tego zamówienia?
+    order:
+        note:
+            updated_successfully: Notatka do zamówienia została pomyślnie zapisana.
+            deleted_successfully: Notatka do zamówienia została pomyślnie usunięta.
+            max_length: Notatka nie może przekraczać 500 znaków.
+sylius:
+    order:
+        note:
+            updated: Notatka do zamówienia została pomyślnie zapisana.
+            deleted: Notatka do zamówienia została pomyślnie usunięta.

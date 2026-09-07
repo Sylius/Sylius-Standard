@@ -1,0 +1,11 @@
+app:
+    order:
+        note:
+            updated_successfully: Order note has been successfully saved.
+            deleted_successfully: Order note has been successfully removed.
+            max_length: The note cannot exceed 500 characters.
+sylius:
+    order:
+        note:
+            updated: Order note has been successfully saved.
+            deleted: Order note has been successfully removed.

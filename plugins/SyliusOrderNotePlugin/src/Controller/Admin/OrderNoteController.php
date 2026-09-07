@@ -55,15 +55,16 @@ final class OrderNoteController extends AbstractController
                     $order->setOrderNote(null);
                     $this->entityManager->remove($orderNote);
                 }
+                $this->addFlash('success', 'app.order.note.deleted_successfully');
             } else {
                 $orderNote->setNote(trim($noteContent));
                 $orderNote->setUpdatedAt(new \DateTimeImmutable());
                 $order->setOrderNote($orderNote);
                 $this->entityManager->persist($orderNote);
+                $this->addFlash('success', 'app.order.note.updated_successfully');
             }
 
             $this->entityManager->flush();
-            $this->addFlash('success', 'app.order.note.updated_successfully');
         } else {
             /** @var \Symfony\Component\Form\FormError $error */
             foreach ($form->getErrors(true) as $error) {

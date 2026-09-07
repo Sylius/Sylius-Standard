@@ -1,0 +1,10 @@
+app:
+    order:
+        note:
+            updated_successfully: Notatka do zamówienia została pomyślnie zapisana.
+            deleted_successfully: Notatka do zamówienia została pomyślnie usunięta.
+sylius:
+    order:
+        note:
+            updated: Notatka do zamówienia została pomyślnie zapisana.
+            deleted: Notatka do zamówienia została pomyślnie usunięta.

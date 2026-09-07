@@ -1,0 +1,10 @@
+app:
+    order:
+        note:
+            updated_successfully: Order note has been successfully saved.
+            deleted_successfully: Order note has been successfully removed.
+sylius:
+    order:
+        note:
+            updated: Order note has been successfully saved.
+            deleted: Order note has been successfully removed.
