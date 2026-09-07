@@ -4,7 +4,7 @@
 <div class="card mb-3" data-test-order-note-section>
     <div class="card-header d-flex justify-content-between align-items-center">
         <div class="card-title">
-            <i class="tabler-icon tabler-note me-1"></i>
+            <span class="me-1">📝</span>
             {{ 'app.ui.order_note'|trans }}
         </div>
         {% if currentNote is not empty %}
@@ -42,19 +42,24 @@
 
             <div class="d-flex justify-content-between align-items-center">
                 <button type="submit" class="btn btn-primary">
-                    <i class="tabler-icon tabler-device-floppy me-1"></i>
+                    <span class="me-1">💾</span>
                     {{ 'app.ui.save_note'|trans }}
                 </button>
                 {% if currentNote is not empty %}
                     <button 
                         type="button" 
-                        class="btn btn-outline-danger btn-sm"
+                        class="btn btn-outline-danger btn-icon"
+                        title="{{ 'app.ui.delete_note'|trans }}"
+                        aria-label="{{ 'app.ui.delete_note'|trans }}"
+                        data-bs-toggle="tooltip"
+                        data-bs-placement="top"
                         onclick="if (confirm('{{ 'app.ui.confirm_delete_note'|trans }}')) { document.getElementById('app_order_note_note').value = ''; this.form.submit(); }"
                     >
-                        <i class="tabler-icon tabler-trash me-1"></i>
-                        {{ 'app.ui.delete_note'|trans }}
+                        🗑️
                     </button>
                 {% endif %}
+
+
             </div>
         </form>
     </div>
