@@ -1,66 +1,21 @@
-{% set order = hookable_metadata.context.resource %}
-{% set currentNote = order.orderNote is defined and order.orderNote is not null ? order.orderNote.note : null %}
-
-<div class="card mb-3" data-test-order-note-section>
-    <div class="card-header d-flex justify-content-between align-items-center">
-        <div class="card-title">
-            <span class="me-1">📝</span>
-            {{ 'app.ui.order_note'|trans }}
-        </div>
-        {% if currentNote is not empty %}
-            <span class="badge bg-blue text-blue-fg">{{ 'app.ui.note_assigned'|trans }}</span>
-        {% else %}
-            <span class="badge bg-secondary-lt">{{ 'app.ui.no_note'|trans }}</span>
-        {% endif %}
+{% set form = this.form %}
+<div class="card mb-3" {{ attributes }} data-test-order-note-section>
+    <div class="card-header">
+        <div class="card-title">{{ 'sylius_order_note.ui.order_note'|trans }}</div>
     </div>
     <div class="card-body">
-        <form method="post" action="{{ path('app_admin_order_note_update', {'id': order.id}) }}" class="needs-validation">
-            <input type="hidden" name="app_order_note[_token]" value="{{ csrf_token('order_note') }}" />
-            
-            <div class="mb-3">
-                <label for="app_order_note_note" class="form-label text-muted small text-uppercase fw-bold">
-                    {{ 'app.ui.note_content'|trans }}
-                </label>
-                <textarea 
-                    id="app_order_note_note" 
-                    name="app_order_note[note]" 
-                    class="form-control" 
-                    rows="4" 
-                    maxlength="500" 
-                    placeholder="{{ 'app.ui.order_note_placeholder'|trans }}"
-                    oninput="document.getElementById('note-char-count').textContent = this.value.length"
-                >{{ currentNote }}</textarea>
-                <div class="d-flex justify-content-between align-items-center mt-1">
-                    <small class="form-hint text-muted">
-                        {{ 'app.ui.admin_only_hint'|trans }}
-                    </small>
-                    <small class="text-muted">
-                        <span id="note-char-count">{{ currentNote ? currentNote|length : 0 }}</span>/500 {{ 'app.ui.characters'|trans }}
-                    </small>
-                </div>
-            </div>
-
-            <div class="d-flex justify-content-between align-items-center">
-                <button type="submit" class="btn btn-primary">
-                    <span class="me-1">💾</span>
-                    {{ 'app.ui.save_note'|trans }}
-                </button>
-                {% if currentNote is not empty %}
-                    <button 
-                        type="button" 
-                        class="btn btn-outline-danger btn-icon"
-                        title="{{ 'app.ui.delete_note'|trans }}"
-                        aria-label="{{ 'app.ui.delete_note'|trans }}"
-                        data-bs-toggle="tooltip"
-                        data-bs-placement="top"
-                        onclick="if (confirm('{{ 'app.ui.confirm_delete_note'|trans }}')) { document.getElementById('app_order_note_note').value = ''; this.form.submit(); }"
-                    >
-                        🗑️
-                    </button>
-                {% endif %}
-
-
-            </div>
-        </form>
+        {{ form_start(form) }}
+        {{ form_errors(form) }}
+        {{ form_row(form.note) }}
+        <p class="text-muted">{{ 'sylius_order_note.ui.admin_only_hint'|trans }}</p>
+        <div class="d-flex justify-content-between">
+            {{ form_widget(form.save, {'attr': {'class': 'btn btn-primary'}}) }}
+            {% if order.orderNote is not null %}
+                {{ form_widget(form.delete, {'attr': {'class': 'btn btn-outline-danger', 'formnovalidate': 'formnovalidate'}}) }}
+            {% else %}
+                {% do form.delete.setRendered() %}
+            {% endif %}
+        </div>
+        {{ form_end(form) }}
     </div>
 </div>

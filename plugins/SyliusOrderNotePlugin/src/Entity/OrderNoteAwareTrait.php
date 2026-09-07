@@ -5,11 +5,12 @@ declare(strict_types=1);
 namespace SyliusOrderNotePlugin\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Sylius\Component\Order\Model\OrderInterface;
 
 trait OrderNoteAwareTrait
 {
-    #[ORM\OneToOne(targetEntity: OrderNote::class, mappedBy: 'order', cascade: ['persist', 'remove'], orphanRemoval: true)]
-    private ?OrderNoteInterface $orderNote = null;
+    #[ORM\OneToOne(targetEntity: OrderNoteInterface::class, mappedBy: 'order', cascade: ['persist', 'remove'], orphanRemoval: true)]
+    protected ?OrderNoteInterface $orderNote = null;
 
     public function getOrderNote(): ?OrderNoteInterface
     {
@@ -20,7 +21,7 @@ trait OrderNoteAwareTrait
     {
         $this->orderNote = $orderNote;
 
-        if (null !== $orderNote && $orderNote->getOrder() !== $this) {
+        if ($this instanceof OrderInterface && null !== $orderNote && $orderNote->getOrder() !== $this) {
             $orderNote->setOrder($this);
         }
     }

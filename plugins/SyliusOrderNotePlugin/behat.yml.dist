@@ -1,0 +1,7 @@
+default:
+    suites:
+        order_note:
+            paths: ['%paths.base%/features']
+            contexts: [SyliusOrderNotePlugin\Tests\Behat\OrderNoteContext]
+    autoload:
+        '': '%paths.base%/tests'

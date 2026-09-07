@@ -1,0 +1,26 @@
+'%sylius.model.admin_user.class%':
+    note_admin:
+        username: 'note_<{suffix}>'
+        email: 'note_<{suffix}>\@example.test'
+        enabled: true
+        password: 'unused-by-loginUser'
+        localeCode: en_US
+'%sylius.model.channel.class%':
+    note_channel:
+        code: 'NOTE_<{suffix}>'
+        name: Note tests
+        baseCurrency: '@note_currency'
+        defaultLocale: '@note_locale'
+        taxCalculationStrategy: order_items_based
+'%sylius.model.customer.class%':
+    note_customer:
+        email: 'customer_<{suffix}>\@example.test'
+'%sylius.model.order.class%':
+    note_order:
+        number: 'NOTE_<{suffix}>'
+        currencyCode: USD
+        localeCode: en_US
+        channel: '@note_channel'
+        customer: '@note_customer'
+        checkoutCompletedAt: '<dateTime()>'
+        state: new

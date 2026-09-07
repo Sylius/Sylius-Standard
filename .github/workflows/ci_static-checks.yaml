@@ -111,3 +111,9 @@ jobs:
 
             -   name: Run PHPStan
                 run: vendor/bin/phpstan analyse
+
+            -   name: Check order note coding standard
+                run: composer lint:order-note
+
+            -   name: Analyse order note plugin
+                run: composer analyse:order-note

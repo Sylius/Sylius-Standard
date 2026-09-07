@@ -24,9 +24,10 @@
         }
     ],
     "require": {
-        "php": "^8.3",
         "dompdf/dompdf": "^3.1",
         "flux-se/sylius-stripe-plugin": "^2.0.2",
+        "php": "^8.3",
+        "piotrekpilat/sylius-order-note-plugin": "dev-main",
         "sylius/adyen-plugin": "^2.0.6",
         "sylius/mollie-plugin": "^3.2.3",
         "sylius/paypal-plugin": "^2.0.8",
@@ -38,6 +39,7 @@
     "require-dev": {
         "behat/behat": "^3.31",
         "behat/mink-selenium2-driver": "^1.7",
+        "bitbag/coding-standard": "^3.0.4",
         "dbrekelmans/bdi": "^1.4.1",
         "dmore/behat-chrome-extension": "^1.4.1",
         "dmore/chrome-mink-driver": "^2.10",
@@ -99,8 +101,7 @@
     },
     "autoload": {
         "psr-4": {
-            "App\\": "src/",
-            "SyliusOrderNotePlugin\\": "plugins/SyliusOrderNotePlugin/src/"
+            "App\\": "src/"
         }
     },
     "autoload-dev": {
@@ -131,7 +132,11 @@
         "auto-scripts": {
             "cache:clear": "symfony-cmd",
             "assets:install %PUBLIC_DIR%": "symfony-cmd"
-        }
+        },
+        "test:order-note": "APP_ENV=test vendor/bin/phpunit --do-not-cache-result plugins/SyliusOrderNotePlugin/tests/Unit plugins/SyliusOrderNotePlugin/tests/Functional",
+        "behat:order-note": "APP_ENV=test APP_DEBUG=0 php -d auto_prepend_file=tests/bootstrap.php vendor/bin/behat --config=plugins/SyliusOrderNotePlugin/behat.yml.dist --strict",
+        "analyse:order-note": "vendor/bin/phpstan analyse --configuration=plugins/SyliusOrderNotePlugin/phpstan.neon.dist",
+        "lint:order-note": "vendor/bin/ecs check plugins/SyliusOrderNotePlugin/src plugins/SyliusOrderNotePlugin/tests"
     },
     "suggest": {
         "sylius/sylius-ai-dev-tools": "Dev-only AI tooling pack for Sylius: bundles Mate extension and Sylius skills."
@@ -153,5 +158,17 @@
         "symfony/polyfill-php81": "*",
         "symfony/polyfill-php82": "*",
         "symfony/polyfill-php83": "*"
-    }
+    },
+    "repositories": [
+        {
+            "type": "path",
+            "url": "plugins/SyliusOrderNotePlugin",
+            "options": {
+                "symlink": true,
+                "versions": {
+                    "piotrekpilat/sylius-order-note-plugin": "dev-main"
+                }
+            }
+        }
+    ]
 }

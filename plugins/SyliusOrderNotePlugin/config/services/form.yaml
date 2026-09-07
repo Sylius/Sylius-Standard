@@ -1,0 +1,13 @@
+services:
+    'SyliusOrderNotePlugin\Form\Type\OrderNoteType':
+        tags:
+            - { name: 'form.type' }
+
+    'sylius_order_note.form.factory':
+        class: 'SyliusOrderNotePlugin\Form\Factory\OrderNoteFormFactory'
+        arguments:
+            - '@form.factory'
+            - '@router'
+
+    'SyliusOrderNotePlugin\Form\Factory\OrderNoteFormFactoryInterface':
+        alias: 'sylius_order_note.form.factory'

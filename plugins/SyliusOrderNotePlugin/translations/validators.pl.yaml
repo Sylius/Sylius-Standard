@@ -1,4 +1,4 @@
-app:
+sylius_order_note:
     order:
         note:
             max_length: Notatka nie może przekraczać 500 znaków.

@@ -1,0 +1,12 @@
+services:
+    'sylius_order_note.controller.admin.update':
+        class: 'SyliusOrderNotePlugin\Controller\Admin\UpdateOrderNoteAction'
+        public: true
+        arguments:
+            - '@sylius.repository.order'
+            - '@sylius_order_note.form.factory'
+            - '@sylius_order_note.updater'
+            - '@security.authorization_checker'
+            - '@router'
+        tags:
+            - { name: 'controller.service_arguments' }

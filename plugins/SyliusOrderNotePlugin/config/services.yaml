@@ -1,0 +1,5 @@
+imports:
+    - { resource: services/controller.yaml }
+    - { resource: services/form.yaml }
+    - { resource: services/updater.yaml }
+    - { resource: services/twig.yaml }

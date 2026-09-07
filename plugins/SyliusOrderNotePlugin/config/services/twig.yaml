@@ -1,0 +1,8 @@
+services:
+    'sylius_order_note.twig.component.form':
+        class: 'SyliusOrderNotePlugin\Twig\Component\OrderNoteComponent'
+        shared: false
+        arguments:
+            - '@sylius_order_note.form.factory'
+        tags:
+            - { name: 'twig.component', key: 'sylius_order_note:admin:form', template: '@SyliusOrderNotePlugin/admin/order/show/content/sections/note.html.twig' }

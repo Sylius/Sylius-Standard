@@ -4,80 +4,77 @@ declare(strict_types=1);
 
 namespace SyliusOrderNotePlugin\Entity;
 
-use Doctrine\DBAL\Types\Types;
-use Doctrine\ORM\Mapping as ORM;
+use DateTimeImmutable;
+use Override;
 use Sylius\Component\Order\Model\OrderInterface;
-use Symfony\Component\Validator\Constraints as Assert;
 
-#[ORM\Entity]
-#[ORM\Table(name: 'sylius_order_note')]
 class OrderNote implements OrderNoteInterface
 {
-    #[ORM\Id]
-    #[ORM\GeneratedValue]
-    #[ORM\Column(type: Types::INTEGER)]
-    private ?int $id = null; // @phpstan-ignore property.unusedType
+    protected ?int $id = null;
 
-    #[ORM\OneToOne(targetEntity: \App\Entity\Order\Order::class, inversedBy: 'orderNote')]
-    #[ORM\JoinColumn(name: 'order_id', referencedColumnName: 'id', nullable: false, unique: true, onDelete: 'CASCADE')]
-    private ?OrderInterface $order = null;
+    protected ?OrderInterface $order = null;
 
-    #[ORM\Column(name: 'note', type: Types::TEXT, length: 500, nullable: true)]
-    #[Assert\Length(max: 500, maxMessage: 'app.order.note.max_length')]
-    private ?string $note = null;
+    protected ?string $note = null;
 
-    #[ORM\Column(name: 'created_at', type: Types::DATETIME_IMMUTABLE)]
-    private \DateTimeImmutable $createdAt;
+    protected DateTimeImmutable $createdAt;
 
-    #[ORM\Column(name: 'updated_at', type: Types::DATETIME_IMMUTABLE, nullable: true)]
-    private ?\DateTimeImmutable $updatedAt = null;
+    protected ?DateTimeImmutable $updatedAt = null;
 
     public function __construct()
     {
-        $this->createdAt = new \DateTimeImmutable();
+        $this->createdAt = new DateTimeImmutable();
     }
 
+    #[Override]
     public function getId(): ?int
     {
         return $this->id;
     }
 
+    #[Override]
     public function getOrder(): ?OrderInterface
     {
         return $this->order;
     }
 
+    #[Override]
     public function setOrder(?OrderInterface $order): void
     {
         $this->order = $order;
     }
 
+    #[Override]
     public function getNote(): ?string
     {
         return $this->note;
     }
 
+    #[Override]
     public function setNote(?string $note): void
     {
         $this->note = $note;
     }
 
-    public function getCreatedAt(): \DateTimeImmutable
+    #[Override]
+    public function getCreatedAt(): DateTimeImmutable
     {
         return $this->createdAt;
     }
 
-    public function setCreatedAt(\DateTimeImmutable $createdAt): void
+    #[Override]
+    public function setCreatedAt(DateTimeImmutable $createdAt): void
     {
         $this->createdAt = $createdAt;
     }
 
-    public function getUpdatedAt(): ?\DateTimeImmutable
+    #[Override]
+    public function getUpdatedAt(): ?DateTimeImmutable
     {
         return $this->updatedAt;
     }
 
-    public function setUpdatedAt(?\DateTimeImmutable $updatedAt): void
+    #[Override]
+    public function setUpdatedAt(?DateTimeImmutable $updatedAt): void
     {
         $this->updatedAt = $updatedAt;
     }

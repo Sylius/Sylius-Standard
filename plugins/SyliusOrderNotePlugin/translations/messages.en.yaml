@@ -1,18 +1,8 @@
-app:
+sylius_order_note:
     ui:
-        note: Note
         order_note: Order Note
         note_content: Note content
         order_note_placeholder: "Enter an admin-only note for this order (max. 500 characters)..."
         save_note: Save note
         delete_note: Delete note
-        clear_note: Clear
-        no_note: No note
-        note_assigned: Note added
         admin_only_hint: Note is visible only to store administrators.
-        characters: characters
-        confirm_delete_note: Are you sure you want to remove the note from this order?
-    order:
-        note:
-            updated_successfully: Order note has been successfully updated.
-            max_length: The note cannot exceed 500 characters.

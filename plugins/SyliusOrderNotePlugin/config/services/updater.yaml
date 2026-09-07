@@ -1,0 +1,9 @@
+services:
+    'sylius_order_note.updater':
+        class: 'SyliusOrderNotePlugin\Updater\OrderNoteUpdater'
+        arguments:
+            - '@sylius_order_note.factory.order_note'
+            - '@sylius_order_note.manager.order_note'
+
+    'SyliusOrderNotePlugin\Updater\OrderNoteUpdaterInterface':
+        alias: 'sylius_order_note.updater'

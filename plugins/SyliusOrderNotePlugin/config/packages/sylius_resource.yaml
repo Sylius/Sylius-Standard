@@ -1,0 +1,7 @@
+sylius_resource:
+    resources:
+        sylius_order_note.order_note:
+            driver: doctrine/orm
+            classes:
+                model: SyliusOrderNotePlugin\Entity\OrderNote
+                interface: SyliusOrderNotePlugin\Entity\OrderNoteInterface
