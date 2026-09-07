@@ -1,6 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<phpunit bootstrap="vendor/autoload.php" colors="true" cacheDirectory=".phpunit.cache">
+<phpunit xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:noNamespaceSchemaLocation="../../vendor/phpunit/phpunit/phpunit.xsd"
+         colors="true"
+         bootstrap="../../tests/bootstrap.php"
+         cacheDirectory="../../.phpunit.cache">
+    <php>
+        <ini name="error_reporting" value="-1" />
+        <env name="KERNEL_CLASS" value="App\Kernel"/>
+        <env name="APP_ENV" value="test" force="true"/>
+        <env name="APP_DEBUG" value="0" force="true"/>
+        <server name="SHELL_VERBOSITY" value="-1" />
+    </php>
     <testsuites>
-        <testsuite name="Order note plugin"><directory>tests/Unit</directory></testsuite>
+        <testsuite name="SyliusOrderNotePlugin Test Suite">
+            <directory>tests/Unit</directory>
+            <directory>tests/Functional</directory>
+        </testsuite>
     </testsuites>
 </phpunit>
+

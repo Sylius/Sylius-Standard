@@ -133,10 +133,10 @@
             "cache:clear": "symfony-cmd",
             "assets:install %PUBLIC_DIR%": "symfony-cmd"
         },
-        "test:order-note": "APP_ENV=test vendor/bin/phpunit --do-not-cache-result plugins/SyliusOrderNotePlugin/tests/Unit plugins/SyliusOrderNotePlugin/tests/Functional",
+        "test:order-note": "vendor/bin/phpunit -c plugins/SyliusOrderNotePlugin/phpunit.xml.dist",
         "behat:order-note": "APP_ENV=test APP_DEBUG=0 php -d auto_prepend_file=tests/bootstrap.php vendor/bin/behat --config=plugins/SyliusOrderNotePlugin/behat.yml.dist --strict",
         "analyse:order-note": "vendor/bin/phpstan analyse --configuration=plugins/SyliusOrderNotePlugin/phpstan.neon.dist",
-        "lint:order-note": "vendor/bin/ecs check plugins/SyliusOrderNotePlugin/src plugins/SyliusOrderNotePlugin/tests"
+        "lint:order-note": "vendor/bin/ecs check --config=plugins/SyliusOrderNotePlugin/ecs.php"
     },
     "suggest": {
         "sylius/sylius-ai-dev-tools": "Dev-only AI tooling pack for Sylius: bundles Mate extension and Sylius skills."

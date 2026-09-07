@@ -5,3 +5,12 @@ webpack_encore:
         shop: '%kernel.project_dir%/public/build/shop'
         app.admin: '%kernel.project_dir%/public/build/app/admin'
         app.shop: '%kernel.project_dir%/public/build/app/shop'
+
+when@test:
+    webpack_encore:
+        strict_mode: false
+
+when@test_cached:
+    webpack_encore:
+        strict_mode: false
+

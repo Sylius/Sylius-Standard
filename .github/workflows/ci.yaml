@@ -89,6 +89,9 @@ jobs:
             -   name: Run PHPUnit
                 run: vendor/bin/phpunit --colors=always
 
+            -   name: Run SyliusOrderNotePlugin PHPUnit
+                run: vendor/bin/phpunit -c plugins/SyliusOrderNotePlugin/phpunit.xml.dist --colors=always
+
             -   name: "Order note Behat scenarios"
                 run: composer behat:order-note
 

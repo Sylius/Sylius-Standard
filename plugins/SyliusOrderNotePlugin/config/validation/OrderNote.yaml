@@ -1,0 +1,10 @@
+SyliusOrderNotePlugin\Form\Model\OrderNoteData:
+    properties:
+        note: &note_constraints
+            - Length:
+                max: !php/const SyliusOrderNotePlugin\Entity\OrderNoteInterface::MAX_LENGTH
+                maxMessage: sylius_order_note.order.note.max_length
+
+SyliusOrderNotePlugin\Entity\OrderNote:
+    properties:
+        note: *note_constraints

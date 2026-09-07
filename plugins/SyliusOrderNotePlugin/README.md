@@ -11,18 +11,52 @@ PHP 8.3+ and Sylius 2.2.x. This checkout is tested with Symfony 7.4.
 
 ## Installation in a Sylius application
 
+Run the commands below from the **host Sylius application's root directory**.
+With the supplied Docker setup, run them from `sylius-docker` with the prefix
+`docker compose exec -T php`, for example:
+
+```bash
+docker compose exec -T php composer install
+docker compose exec -T php php bin/console cache:clear
+```
+
 ### 1. Install the package
 
-Require `piotrekpilat/sylius-order-note-plugin` from a Composer repository
-containing the plugin package. The package root is this directory, not the host
-Sylius application's repository root. Composer registers its autoloader.
+#### Local package (the setup used in this repository)
 
-This checkout uses a Composer `path` repository pointing to
-`plugins/SyliusOrderNotePlugin` and requires the package as `dev-main`.
-Run `composer install` (or `composer update piotrekpilat/sylius-order-note-plugin`
-after changing the package manifest). Do not add the plugin's production
-namespace to the application's autoload section. The host only registers the
-plugin's test namespace under `autoload-dev` to run integration tests.
+Copy the complete `plugins/SyliusOrderNotePlugin` directory into the target
+application at the same path. Keep its `composer.json`, `src`, `config`,
+`templates` and `translations` directories together.
+
+Register the local package and install it:
+
+```bash
+composer config repositories.order-note '{"type":"path","url":"plugins/SyliusOrderNotePlugin","options":{"symlink":true,"versions":{"piotrekpilat/sylius-order-note-plugin":"dev-main"}}}'
+composer require piotrekpilat/sylius-order-note-plugin:dev-main --no-scripts
+```
+
+In this checkout the repository and requirement are already configured, so use
+`composer install --no-scripts` instead. After changing the plugin's dependency
+manifest, use `composer update piotrekpilat/sylius-order-note-plugin --no-scripts`.
+Scripts are postponed until the bundle and Order model are configured below.
+
+Composer registers the plugin's production autoloader. Do not also add
+`SyliusOrderNotePlugin\\` to the application's `autoload` section. The host's
+`autoload-dev` entry for the plugin's test namespace is only needed to run its
+integration tests, not to use the plugin.
+
+#### Package from a Composer repository
+
+Once the plugin is available from Packagist or a configured private Composer
+repository, install its published version with:
+
+```bash
+composer require piotrekpilat/sylius-order-note-plugin --no-scripts
+```
+
+The package root must be this plugin directory. The root of
+`Sylius-Standard-Note` contains the host application, so adding that Git repository
+as a VCS repository does not expose the nested plugin as a separate package.
 
 ### 2. Register the bundle
 
@@ -76,8 +110,21 @@ Order mapping as well: the XML driver does not read the trait attributes.
 ```
 
 The Order class must remain configured as the `sylius_order.resources.order`
-model. The plugin targets the Sylius Order interface, so the application's class
-name and namespace can differ from the example.
+model. In the application's existing Sylius configuration (for example
+`config/packages/_sylius.yaml`), ensure the following points to your Order class:
+
+```yaml
+sylius_order:
+    resources:
+        order:
+            classes:
+                model: App\Entity\Order\Order
+```
+
+Merge this into the existing configuration instead of defining the same YAML key
+twice. The plugin targets the Sylius Order interface, so the application's class
+name and namespace can differ from the example. No separate `OrderNote` entity
+in the application's `src` directory is needed.
 
 ### 4. Import routes
 
@@ -93,22 +140,55 @@ Use the same prefix as your admin firewall if your application customizes it.
 
 ### 5. Update the database
 
-For a new installation, generate and review the application migration:
+After configuring the bundle, Order model and routes, refresh the application:
 
 ```bash
+composer dump-autoload
 php bin/console cache:clear
+```
+
+For a **new installation in another application**, generate a migration:
+
+```bash
 php bin/console doctrine:migrations:diff
+```
+
+Review the generated migration, then apply it:
+
+```bash
 php bin/console doctrine:migrations:migrate
 php bin/console doctrine:schema:validate --skip-sync
 ```
 
-The plugin does not ship application migrations. This repository already contains
-`migrations/Version20260907120000.php`; when it has been applied, keep it and do
-not generate another migration creating the same table. This refactor preserves
-the existing `sylius_order_note` table and its data.
+For **this repository**, `migrations/Version20260907120000.php` already creates
+the table. Run `doctrine:migrations:migrate` to apply pending migrations; do not
+generate a second migration creating the same table. If it has already been
+applied, no new database migration is needed for this refactor. Existing notes
+remain in `sylius_order_note`.
 
-Open an order in the admin panel, save a note, reload it, and delete it to verify
-the installation. Validation and CSRF protection are provided by Symfony Forms.
+The plugin does not ship application migrations; they belong to the host app.
+
+### 6. Verify the installation
+
+Check the registered route:
+
+```bash
+php bin/console debug:router sylius_order_note_admin_update
+```
+
+It should accept `POST` at `/admin/orders/{id}/note` with the default admin
+prefix. Log in to the admin panel, open an order and check that:
+
+1. The Order Note card is visible.
+2. Saving a note and reloading the page preserves its content.
+3. Editing changes the saved content.
+4. Deleting the note or saving empty content removes it.
+5. A note longer than 500 characters is rejected.
+
+The plugin loads its own translations and Twig Hook configuration. There is no
+need to copy translation files or the note template into the host application,
+or to register the note hook a second time. Validation and CSRF protection are
+provided by Symfony Forms.
 
 ## Extension points
 
