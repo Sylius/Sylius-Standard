@@ -1,0 +1,4 @@
+app_admin_order_note_update:
+    path: /orders/{id}/note
+    methods: [POST]
+    controller: SyliusOrderNotePlugin\Controller\Admin\OrderNoteController::update

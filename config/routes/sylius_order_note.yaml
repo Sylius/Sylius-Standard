@@ -1,0 +1,3 @@
+sylius_order_note_admin:
+    resource: "@SyliusOrderNotePlugin/config/routes/admin.yaml"
+    prefix: /admin

@@ -11,13 +11,16 @@ use Sylius\MolliePlugin\Entity\MolliePaymentIdOrderTrait;
 use Sylius\MolliePlugin\Entity\OrderInterface;
 use Sylius\MolliePlugin\Entity\QRCodeOrderTrait;
 use Sylius\MolliePlugin\Entity\RecurringOrderTrait;
+use SyliusOrderNotePlugin\Entity\OrderNoteAwareInterface;
+use SyliusOrderNotePlugin\Entity\OrderNoteAwareTrait;
 
 #[ORM\Entity]
 #[ORM\Table(name: 'sylius_order')]
-class Order extends BaseOrder implements OrderInterface
+class Order extends BaseOrder implements OrderInterface, OrderNoteAwareInterface
 {
     use MolliePaymentIdOrderTrait;
     use QRCodeOrderTrait;
     use RecurringOrderTrait;
     use AbandonedEmailOrderTrait;
+    use OrderNoteAwareTrait;
 }

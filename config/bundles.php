@@ -69,4 +69,6 @@ return [
     Knp\Bundle\SnappyBundle\KnpSnappyBundle::class => ['all' => true],
     Sylius\RefundPlugin\SyliusRefundPlugin::class => ['all' => true],
     Sylius\AdyenPlugin\SyliusAdyenPlugin::class => ['all' => true],
+    SyliusOrderNotePlugin\SyliusOrderNotePlugin::class => ['all' => true],
 ];
+

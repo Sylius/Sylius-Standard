@@ -1,0 +1,4 @@
+app:
+    order:
+        note:
+            max_length: Notatka nie może przekraczać 500 znaków.

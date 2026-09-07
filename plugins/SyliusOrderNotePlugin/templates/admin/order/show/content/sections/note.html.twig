@@ -1,0 +1,61 @@
+{% set order = hookable_metadata.context.resource %}
+{% set currentNote = order.orderNote is defined and order.orderNote is not null ? order.orderNote.note : null %}
+
+<div class="card mb-3" data-test-order-note-section>
+    <div class="card-header d-flex justify-content-between align-items-center">
+        <div class="card-title">
+            <i class="tabler-icon tabler-note me-1"></i>
+            {{ 'app.ui.order_note'|trans }}
+        </div>
+        {% if currentNote is not empty %}
+            <span class="badge bg-blue text-blue-fg">{{ 'app.ui.note_assigned'|trans }}</span>
+        {% else %}
+            <span class="badge bg-secondary-lt">{{ 'app.ui.no_note'|trans }}</span>
+        {% endif %}
+    </div>
+    <div class="card-body">
+        <form method="post" action="{{ path('app_admin_order_note_update', {'id': order.id}) }}" class="needs-validation">
+            <input type="hidden" name="app_order_note[_token]" value="{{ csrf_token('order_note') }}" />
+            
+            <div class="mb-3">
+                <label for="app_order_note_note" class="form-label text-muted small text-uppercase fw-bold">
+                    {{ 'app.ui.note_content'|trans }}
+                </label>
+                <textarea 
+                    id="app_order_note_note" 
+                    name="app_order_note[note]" 
+                    class="form-control" 
+                    rows="4" 
+                    maxlength="500" 
+                    placeholder="{{ 'app.ui.order_note_placeholder'|trans }}"
+                    oninput="document.getElementById('note-char-count').textContent = this.value.length"
+                >{{ currentNote }}</textarea>
+                <div class="d-flex justify-content-between align-items-center mt-1">
+                    <small class="form-hint text-muted">
+                        {{ 'app.ui.admin_only_hint'|trans }}
+                    </small>
+                    <small class="text-muted">
+                        <span id="note-char-count">{{ currentNote ? currentNote|length : 0 }}</span>/500 {{ 'app.ui.characters'|trans }}
+                    </small>
+                </div>
+            </div>
+
+            <div class="d-flex justify-content-between align-items-center">
+                <button type="submit" class="btn btn-primary">
+                    <i class="tabler-icon tabler-device-floppy me-1"></i>
+                    {{ 'app.ui.save_note'|trans }}
+                </button>
+                {% if currentNote is not empty %}
+                    <button 
+                        type="button" 
+                        class="btn btn-outline-danger btn-sm"
+                        onclick="if (confirm('{{ 'app.ui.confirm_delete_note'|trans }}')) { document.getElementById('app_order_note_note').value = ''; this.form.submit(); }"
+                    >
+                        <i class="tabler-icon tabler-trash me-1"></i>
+                        {{ 'app.ui.delete_note'|trans }}
+                    </button>
+                {% endif %}
+            </div>
+        </form>
+    </div>
+</div>

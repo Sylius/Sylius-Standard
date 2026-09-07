@@ -99,12 +99,14 @@
     },
     "autoload": {
         "psr-4": {
-            "App\\": "src/"
+            "App\\": "src/",
+            "SyliusOrderNotePlugin\\": "plugins/SyliusOrderNotePlugin/src/"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "App\\Tests\\": "tests/"
+            "App\\Tests\\": "tests/",
+            "SyliusOrderNotePlugin\\Tests\\": "plugins/SyliusOrderNotePlugin/tests/"
         },
         "classmap": [
             "src/Kernel.php"

@@ -1,0 +1,4 @@
+app:
+    order:
+        note:
+            max_length: The note cannot exceed 500 characters.
