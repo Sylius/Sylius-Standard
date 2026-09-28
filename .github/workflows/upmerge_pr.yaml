@@ -35,4 +35,4 @@ jobs:
                 with:
                     base_branch: ${{ matrix.base_branch }}
                     target_branch: ${{ matrix.target_branch }}
-                    token: ${{ secrets.SYLIUS_BOT_PAT }}
+                    token: ${{ secrets.UPMERGE_TOKEN }}
