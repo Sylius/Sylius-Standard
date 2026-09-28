@@ -60,3 +60,6 @@ phpstan.neon
 ###> liip/imagine-bundle ###
 /public/media/cache/
 ###< liip/imagine-bundle ###
+
+/composer.lock
+/yarn.lock

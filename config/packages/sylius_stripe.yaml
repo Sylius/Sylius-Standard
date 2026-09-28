@@ -1,0 +1,13 @@
+imports:
+    - { resource: "@FluxSESyliusStripePlugin/config/config.yaml" }
+
+sylius_twig_hooks:
+    hooks:
+        'sylius_shop.cart.index.content.form.sections.general#right':
+            express_checkout:
+                enabled: false
+            stripe_express_checkout:
+                template: '@FluxSESyliusStripePlugin/shop/express_checkout/_button.html.twig'
+                priority: -100
+                context:
+                    placement: 'cart'

@@ -6,6 +6,7 @@
     "watch": "encore dev --watch"
   },
   "dependencies": {
+    "@adyen/adyen-web": "^6.22.0",
     "@sylius-ui/admin": "file:vendor/sylius/sylius/src/Sylius/Bundle/AdminBundle",
     "@sylius-ui/shop": "file:vendor/sylius/sylius/src/Sylius/Bundle/ShopBundle",
     "@sylius/admin-bundle": "file:vendor/sylius/sylius/src/Sylius/Bundle/AdminBundle/Resources/assets",

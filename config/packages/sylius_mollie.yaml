@@ -1,2 +1,11 @@
 imports:
     - { resource: "@SyliusMolliePlugin/config/config.yaml" }
+
+sylius_twig_hooks:
+    hooks:
+        'sylius_admin.order.show.content.sections.payments.item.actions':
+            send_payment_link:
+                enabled: false
+            mollie_send_payment_link:
+                template: '@SyliusMolliePlugin/admin/order/show/content/sections/payments/item/actions/send_payment_link.html.twig'
+                priority: -200

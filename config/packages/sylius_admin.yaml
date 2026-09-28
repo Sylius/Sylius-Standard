@@ -1,6 +1,9 @@
 when@test: &sylius_admin_test
+    parameters:
+        test_default_admin_notifications_enabled: true
     sylius_admin:
         notifications:
+            enabled: '%env(bool:default:test_default_admin_notifications_enabled:TEST_SYLIUS_ADMIN_NOTIFICATIONS_ENABLED)%'
             hub_enabled: false
 
 when@test_cached: *sylius_admin_test
