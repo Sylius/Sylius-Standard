@@ -1,0 +1,38 @@
+name: Upmerge PR
+
+on:
+    schedule:
+        -
+            cron: "0 2 * * *"
+    workflow_dispatch: ~
+
+permissions:
+    contents: write
+    pull-requests: write
+
+jobs:
+    upmerge:
+        runs-on: ubuntu-latest
+        if: github.repository == 'Sylius/Sylius-Standard'
+        name: "Upmerge PR"
+        timeout-minutes: 5
+        strategy:
+            fail-fast: false
+            matrix:
+                include:
+                    -
+                        base_branch: "2.2"
+                        target_branch: "2.3"
+
+        steps:
+            -
+                uses: actions/checkout@v4
+                with:
+                    ref: ${{ matrix.target_branch }}
+
+            -
+                uses: SyliusLabs/UpmergeAction@v1
+                with:
+                    base_branch: ${{ matrix.base_branch }}
+                    target_branch: ${{ matrix.target_branch }}
+                    token: ${{ secrets.SYLIUS_BOT_PAT }}
