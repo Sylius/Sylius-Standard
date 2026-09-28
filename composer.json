@@ -26,11 +26,12 @@
     "require": {
         "php": "^8.3",
         "dompdf/dompdf": "^3.1",
-        "flux-se/sylius-stripe-plugin": "^2.0.2",
-        "sylius/adyen-plugin": "^2.0.6",
-        "sylius/mollie-plugin": "^3.2.3",
-        "sylius/paypal-plugin": "^2.0.8",
-        "sylius/sylius": "^2.3",
+        "flux-se/sylius-stripe-plugin": "dev-sylius-2.3",
+        "sylius/adyen-plugin": "dev-feature/sylius-2.3-symfony-8",
+        "sylius/mollie-plugin": "dev-feature/sylius-2.3-symfony-8",
+        "sylius/paypal-plugin": "dev-feature/sylius-2.3-symfony-8",
+        "sylius/refund-plugin": "dev-feature/sylius-2.3-symfony-8 as 2.1.99",
+        "sylius/sylius": "^2.3@RC",
         "symfony/dotenv": "^7.4.11",
         "symfony/flex": "^2.11",
         "symfony/runtime": "^7.4.13"
@@ -68,6 +69,24 @@
         "symfony/intl": "^7.4.8",
         "symfony/web-profiler-bundle": "^7.4.13"
     },
+    "repositories": [
+        {
+            "type": "vcs",
+            "url": "https://github.com/TheMilek/MolliePlugin"
+        },
+        {
+            "type": "vcs",
+            "url": "https://github.com/TheMilek/PayPalPlugin"
+        },
+        {
+            "type": "vcs",
+            "url": "https://github.com/Prometee/StripePlugin"
+        },
+        {
+            "type": "vcs",
+            "url": "https://github.com/rust-le/RefundPlugin"
+        }
+    ],
     "config": {
         "preferred-install": {
             "*": "dist"
