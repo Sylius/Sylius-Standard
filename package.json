@@ -7,8 +7,8 @@
   },
   "dependencies": {
     "@adyen/adyen-web": "^6.22.0",
-    "@sylius-ui/admin": "file:vendor/sylius/sylius/src/Sylius/Bundle/AdminBundle",
-    "@sylius-ui/shop": "file:vendor/sylius/sylius/src/Sylius/Bundle/ShopBundle",
+    "@sylius-ui/admin": "file:vendor/sylius/sylius/src/Sylius/Bundle/AdminBundle/Resources/npm",
+    "@sylius-ui/shop": "file:vendor/sylius/sylius/src/Sylius/Bundle/ShopBundle/Resources/npm",
     "@sylius/admin-bundle": "file:vendor/sylius/sylius/src/Sylius/Bundle/AdminBundle/Resources/assets",
     "@sylius/shop-bundle": "file:vendor/sylius/sylius/src/Sylius/Bundle/ShopBundle/Resources/assets",
     "@symfony/ux-autocomplete": "file:vendor/symfony/ux-autocomplete/assets",
@@ -21,8 +21,12 @@
   "devDependencies": {
     "@hotwired/stimulus": "^3.0.0",
     "@symfony/stimulus-bridge": "^3.2.0",
-    "@symfony/webpack-encore": "^5.0.1",
+    "@symfony/webpack-encore": "^6.0.0",
     "file-loader": "^6.0.0",
     "tom-select": "^2.2.2"
-  }
+  },
+  "engines": {
+    "node": "^22.13.0 || >=24.0"
+  },
+  "engineStrict": true
 }
