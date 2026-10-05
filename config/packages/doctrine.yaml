@@ -40,10 +40,3 @@ when@prod: &doctrine_prod
                     adapter: cache.system
 
 when@test_cached: *doctrine_prod
-
-when@test:
-    doctrine:
-        orm:
-            metadata_cache_driver:
-                type: pool
-                pool: cache.system
