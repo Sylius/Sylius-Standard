@@ -40,6 +40,10 @@
       "back-button": {
         "enabled": true,
         "fetch": "lazy"
+      },
+      "theme-switcher": {
+        "enabled": true,
+        "fetch": "lazy"
       }
     }
   },

@@ -55,6 +55,7 @@ phpstan.neon
 
 ###> friends-of-behat/symfony-extension ###
 /behat.yml
+/behat.php
 ###< friends-of-behat/symfony-extension ###
 
 ###> liip/imagine-bundle ###
