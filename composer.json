@@ -87,7 +87,7 @@
     },
     "extra": {
         "branch-alias": {
-            "dev-2.2": "2.2.x-dev"
+            "dev-2.3": "2.3.x-dev"
         },
         "symfony": {
             "allow-contrib": true,
