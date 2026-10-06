@@ -37,7 +37,7 @@
         "symfony/runtime": "^7.4.13 || ^8.0"
     },
     "require-dev": {
-        "behat/behat": "^3.31 || 4.0.0-alpha1",
+        "behat/behat": "^4.0.0",
         "behat/mink": "^1.13",
         "behat/mink-selenium2-driver": "^1.7",
         "dbrekelmans/bdi": "^1.4.1",
