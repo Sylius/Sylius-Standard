@@ -1,5 +1,35 @@
 {
   "controllers": {
+    "@sylius/paypal-plugin": {
+      "paypal-web-sdk": {
+        "enabled": true,
+        "fetch": "lazy"
+      },
+      "paypal-payment-wallet-button": {
+        "enabled": true,
+        "fetch": "lazy"
+      },
+      "paypal-payment-card-fields": {
+        "enabled": true,
+        "fetch": "lazy"
+      },
+      "paypal-message": {
+        "enabled": true,
+        "fetch": "lazy"
+      },
+      "paypal-payment-google-pay": {
+        "enabled": true,
+        "fetch": "lazy"
+      },
+      "paypal-payment-apple-pay": {
+        "enabled": true,
+        "fetch": "lazy"
+      },
+      "paypal-payment-redirect-button": {
+        "enabled": true,
+        "fetch": "lazy"
+      }
+    },
     "@sylius/shop-bundle": {
       "api-login": {
         "enabled": true,
